@@ -9,7 +9,7 @@ import ddddocr
 ocr = ddddocr.DdddOcr(show_ad=False)
 
 # Major to be scrapped, option refers to the dropdown order of https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx
-start_option, end_option = 1, 263
+start_option, end_option = 200, 200
 
 MAX_CAPTCHA_ATTEMPTS = 20
 

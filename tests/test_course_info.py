@@ -13,7 +13,7 @@ COURSE_INFO_DIR = Path(__file__).parent.parent / "course_info"
 CATALOG_URL = (
     "https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
 )
-MAX_CAPTCHA_RETRIES = 10
+MAX_CAPTCHA_RETRIES = 20
 
 ocr = ddddocr.DdddOcr(show_ad=False)
 
