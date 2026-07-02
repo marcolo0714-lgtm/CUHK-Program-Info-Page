@@ -2,8 +2,11 @@ from playwright.sync_api import sync_playwright
 import sys
 import io
 import os
+from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+ROOT = Path(__file__).parent
 
 import ddddocr
 ocr = ddddocr.DdddOcr(show_ad=False)
@@ -83,28 +86,48 @@ def extract_minor_boxes(page):
     avoiding false positives from the 'Study Scheme' wrapper table.
     """
     boxes = page.evaluate("""() => {
-        const tables = document.querySelectorAll('table[border="1"]');
+        // Find elements whose trimmed text starts with 'Minor Programme Title'
+        // and is short enough to be a heading (not a cell containing it
+        // incidentally).  Then walk up to the enclosing <table>.
+        const candidates = document.querySelectorAll('b, strong, p, span, h1, h2, h3, h4, h5, h6');
+        const seenTables = new Set();
         const results = [];
-        for (const table of tables) {
-            const firstTd = table.querySelector('td');
-            if (!firstTd) continue;
-            if (!firstTd.textContent.includes('Minor Programme Title')) continue;
+        for (const el of candidates) {
+            const txt = (el.innerText || el.textContent || '').trim();
+            if (!txt.startsWith('Minor Programme Title') || txt.length > 50) continue;
 
-            // innerText preserves <p> line breaks; textContent does not
-            const cellText = firstTd.innerText || firstTd.textContent || '';
+            let table = el;
+            while (table && table.tagName !== 'TABLE') table = table.parentElement;
+            if (!table) continue;
+
+            const key = table.outerHTML.slice(0, 800);
+            if (seenTables.has(key)) continue;
+            seenTables.add(key);
+
+            // Find the enclosing <td> to extract the minor title
+            let titleTd = el;
+            while (titleTd && titleTd.tagName !== 'TD') titleTd = titleTd.parentElement;
+            const cellText = titleTd ? (titleTd.innerText || titleTd.textContent || '') : '';
             const lines = cellText.split('\\n').map(s => s.trim()).filter(Boolean);
+            const stopWords = ['Minor Programme Requirement', 'Explanatory Notes',
+                               'Required Courses', 'Elective Courses', 'Units', 'Total:'];
             let title = '';
             for (let i = 0; i < lines.length; i++) {
-                if (lines[i] === 'Minor Programme Title') {
+                if (lines[i].startsWith('Minor Programme Title')) {
                     let j = i + 1;
-                    while (j < lines.length && lines[j]) title += (title ? ' ' : '') + lines[j++];
+                    while (j < lines.length) {
+                        const line = lines[j++];
+                        if (!line || stopWords.some(w => line.includes(w))) break;
+                        title += (title ? ' ' : '') + line;
+                        if (title.split(' ').length >= 5) break;
+                    }
                     break;
                 }
             }
-            // Fallback: extract from raw HTML via regex
-            if (!title) {
-                const m = firstTd.outerHTML.match(
-                    /Minor Programme Title<\\/[^>]+>\\s*(?:<[^>]+>)*\\s*([^<]+)/
+            // Fallback: regex on titleTd's innerHTML
+            if (!title && titleTd) {
+                const m = titleTd.innerHTML.match(
+                    /Minor Programme Title<\\/[^>]+>\\s*(?:<[^>]+>)*\\s*([^<\\n]+)/
                 );
                 if (m) title = m[1].trim();
             }
@@ -117,10 +140,11 @@ def extract_minor_boxes(page):
 
 def crawl_programs():
     programs_without_minor = []
+    programs_with_one_minor = []
     multi_minor_programs = []
     total_extracted = 0
 
-    os.makedirs("minor_html", exist_ok=True)
+    os.makedirs(ROOT / "minor_html", exist_ok=True)
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
@@ -155,10 +179,20 @@ def crawl_programs():
             command = f"__doPostBack('gv_detail$ctl{element_id_str}$lbtn_prog_descr','')"
 
             try:
-                with page.expect_navigation():
+                with page.expect_navigation(timeout=30000):
                     page.evaluate(command)
-
                 page.wait_for_load_state("networkidle")
+                # Page loads slowly — wait up to 10s for content to appear
+                try:
+                    page.locator("body").get_by_text("Major Programme Requirement").first.wait_for(timeout=10000)
+                except Exception:
+                    print("  Page not loaded, trying reload...")
+                    page.reload()
+                    page.wait_for_load_state("networkidle")
+                    try:
+                        page.locator("body").get_by_text("Major Programme Requirement").first.wait_for(timeout=10000)
+                    except Exception:
+                        pass  # proceed anyway
 
                 adm_code = page.input_value("#uc_scheme_hf_admission_code")
                 prog_descr = page.input_value("#uc_scheme_hf_prog_descr")
@@ -170,33 +204,23 @@ def crawl_programs():
                 if num_minors == 0:
                     print(f"  -> No minor programme")
                     programs_without_minor.append(adm_code)
-                elif num_minors == 1:
-                    box = minor_boxes[0]
-                    safe_name = sanitise_filename(box["title"])
-                    filepath = f"minor_html/{safe_name}.html"
-                    with open(filepath, "w", encoding="utf-8") as f:
-                        f.write(box["html"])
-                    print(f"  -> Saved: {box['title']}")
-                    total_extracted += 1
                 else:
-                    multi_minor_programs.append((adm_code, num_minors))
+                    if num_minors == 1:
+                        programs_with_one_minor.append(adm_code)
+                    elif num_minors > 1:
+                        multi_minor_programs.append((adm_code, num_minors))
                     for box in minor_boxes:
                         safe_name = sanitise_filename(box["title"])
-                        # If there are multiple minors with the same safe_name, disambiguate
-                        base = safe_name
-                        counter = 1
-                        filepath = f"minor_html/{base}.html"
-                        while os.path.exists(filepath):
-                            filepath = f"minor_html/{base}_{counter:02d}.html"
-                            counter += 1
+                        filepath = ROOT / "minor_html" / f"{adm_code}_{safe_name}.html"
                         with open(filepath, "w", encoding="utf-8") as f:
                             f.write(box["html"])
-                    print(f"  -> Saved {num_minors} minor sections: " + ", ".join(b["title"] for b in minor_boxes))
+                    print(f"  -> Saved {num_minors} minor section(s): " + ", ".join(b["title"] for b in minor_boxes))
                     total_extracted += num_minors
 
                 page.locator("#btn_scheme_return2").click()
                 page.wait_for_selector("table#gv_detail")
                 page.wait_for_load_state("networkidle")
+                page.wait_for_timeout(500)  # brief pause between majors
 
                 element_id += 1
 
@@ -215,6 +239,11 @@ def crawl_programs():
     if programs_without_minor:
         print(f"\nPrograms with 0 minors ({len(programs_without_minor)}):")
         for code in programs_without_minor:
+            print(f"  {code}")
+
+    if programs_with_one_minor:
+        print(f"\nPrograms with 1 minor ({len(programs_with_one_minor)}):")
+        for code in programs_with_one_minor:
             print(f"  {code}")
 
     if multi_minor_programs:

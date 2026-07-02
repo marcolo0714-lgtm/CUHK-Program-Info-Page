@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 MINOR_HTML_DIR = Path(__file__).parent / "minor_html"
-COURSE_INFO_DIR = Path(__file__).parent / "course_info"
+COURSE_INFO_DIR = Path(__file__).parent.parent / "course_extraction" / "course_info"
 SITE_DIR = Path(__file__).parent / "site"
 
 

@@ -2,8 +2,11 @@ from playwright.sync_api import sync_playwright
 import sys
 import io
 import os
+from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+ROOT = Path(__file__).parent
 
 import ddddocr
 ocr = ddddocr.DdddOcr(show_ad=False)
@@ -108,8 +111,8 @@ def course_info_to_json(page, major_text):
         # ---------------------------------------------------------  
         except Exception as e:
             print(f"All courses for major {major_text} have been processed or an error occurred: {e}.")
-            os.makedirs("course_info/", exist_ok=True)
-            with open(f"course_info/{major_text.split(" - ", 1)[0].strip()}.json", "w", encoding="utf-8") as f:
+            os.makedirs(ROOT / "course_info", exist_ok=True)
+            with open(ROOT / "course_info" / f"{major_text.split(" - ", 1)[0].strip()}.json", "w", encoding="utf-8") as f:
                 import json
                 json.dump(scraped_data, f, ensure_ascii=False, indent=4)
             return
