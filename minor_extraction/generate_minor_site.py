@@ -1,227 +1,52 @@
 import json
-import os
-import re
 from pathlib import Path
 
 
-MINOR_HTML_DIR = Path(__file__).parent / "minor_html"
-COURSE_INFO_DIR = Path(__file__).parent.parent / "course_extraction" / "course_info"
+MINOR_JSON_DIR = Path(__file__).parent / "minor_json"
 SITE_DIR = Path(__file__).parent / "site"
 
 
-def load_course_index():
-    """Build a dict mapping 'DEPT 1234' -> {title, unit, info} across all json files."""
-    index = {}
-    for json_path in COURSE_INFO_DIR.glob("*.json"):
-        with open(json_path, "r", encoding="utf-8") as f:
-            try:
-                data = json.load(f)
-            except json.JSONDecodeError:
-                continue
-        if not isinstance(data, list):
-            continue
-        for entry in data:
-            code = entry.get("code", "")
-            if code:
-                index[code] = {
-                    "title": entry.get("title", ""),
-                    "unit": entry.get("unit", ""),
-                    "info": entry.get("info", ""),
-                }
-    return index
-
-
-def strip_html(html):
-    """Return visible text from an HTML snippet."""
-    text = re.sub(r"<(script|style)[^>]*>.*?</\1>", "", html, flags=re.DOTALL | re.IGNORECASE)
-    text = re.sub(r"<br\s*/?>", "\n", text, flags=re.IGNORECASE)
-    text = re.sub(r"<(p|tr|td)[^>]*>", "\n", text, flags=re.IGNORECASE)
-    text = re.sub(r"</?(li|div|table|tbody|thead|th|colgroup)[^>]*>", "\n", text, flags=re.IGNORECASE)
-    text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
-    text = re.sub(r"<[^>]+>", "", text)
-    text = text.replace("&nbsp;", " ").replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">")
-    text = text.replace("&#39;", "'").replace("&quot;", '"')
-    text = re.sub(r"\n\s*\n", "\n\n", text)
-    text = re.sub(r"[ \t]+", " ", text)
-    lines = [line.strip() for line in text.split("\n")]
-    lines = [line for line in lines if line]
-    return "\n".join(lines)
-
-
-def extract_course_codes(text):
-    """Extract all course-code-like patterns from text.
-
-    Returns (resolved_codes, wildcards) where:
-      resolved_codes : set('DEPT 1234X')
-      wildcards      : set('DEPT 12xx')   -- patterns that cannot be resolved
-    """
-    codes = set()
-    wildcards = set()
-
-    # 1) Wildcard patterns  (e.g.  MATH32xx,  MATH 32xx)
-    for m in re.finditer(r"([A-Z]{4})\s*(\d{2})xx", text):
-        wildcards.add(f"{m.group(1)} {m.group(2)}xx")
-
-    # 2) Fully-qualified codes  (e.g. CSCI2100, ENGG1110, CSCI 2100, CSCI2100A)
-    for m in re.finditer(r"([A-Z]{4})\s*(\d{4})([A-Za-z])?", text):
-        dept = m.group(1)
-        num = m.group(2)
-        suffix = m.group(3) or ""
-        codes.add(f"{dept} {num}{suffix}")
-
-    # 3) Alternatives  shared department  (MATH1010/1018  ->  MATH1010, MATH1018)
-    for m in re.finditer(r"([A-Z]{4})\s*(\d{4})([A-Za-z]?)\s*/\s*(\d{4})([A-Za-z]?)", text):
-        dept = m.group(1)
-        codes.add(f"{dept} {m.group(2)}{m.group(3) or ''}")
-        codes.add(f"{dept} {m.group(4)}{m.group(5) or ''}")
-
-    # 4) Implicit-department comma lists  ("AIST2010, 3110, 3120")
-    for m in re.finditer(r"([A-Z]{4})\s*(\d{4})([A-Za-z]?)\s*,\s+([\d,\s/]+)", text):
-        dept = m.group(1)
-        codes.add(f"{dept} {m.group(2)}{m.group(3) or ''}")
-        tail = m.group(4)
-        for nm in re.finditer(r"(\d{4})([A-Za-z]?)\s*(/\s*(\d{4})([A-Za-z]?)\s*)?", tail):
-            if nm.group(1):
-                codes.add(f"{dept} {nm.group(1)}{nm.group(2) or ''}")
-            if nm.group(4):
-                codes.add(f"{dept} {nm.group(4)}{nm.group(5) or ''}")
-
-    # ---- manual-review markers: patterns we cannot resolve ----
-    # "XX units from YYYY courses at 3000+ level"  (no specific code)
-    # Already handled as wildcards above.
-
-    return sorted(codes), sorted(wildcards)
-
-
-def build_course_table(codes, course_index):
-    """Return (html_rows, table_rows) for given course codes."""
-    rows_html = ""
-    table_data = []
-    for code in codes:
-        info = course_index.get(code)
-        if info:
-            prereq = info["info"] if info["info"] else "—"
-            rows_html += (
-                f"<tr>"
-                f"<td>{code}</td>"
-                f"<td>{info['title']}</td>"
-                f"<td>{info['unit']}</td>"
-                f"<td>{prereq}</td>"
-                f"</tr>\n"
-            )
-            table_data.append({
-                "code": code,
-                "title": info["title"],
-                "unit": info["unit"],
-                "prereq": prereq,
-                "found": True,
-            })
-        else:
-            rows_html += (
-                f"<tr class=\"not-found\">"
-                f"<td>{code}</td>"
-                f"<td colspan=\"3\"><em>(not found in course_info)</em></td>"
-                f"</tr>\n"
-            )
-            table_data.append({
-                "code": code,
-                "title": "",
-                "unit": "",
-                "prereq": "",
-                "found": False,
-            })
-    return rows_html, table_data
-
-
-def parse_minor_html(html):
-    """Extract title, requirement text, and notes from a minor box HTML."""
-    text = strip_html(html)
-
-    # Build a "searchable" version where all whitespace is collapsed to single
-    # spaces — this lets us find section markers regardless of word-wrap.
-    flat = re.sub(r"\s+", " ", text)
-
-    # --- Title: between "Minor Programme Title" and the next marker ---
-    title = ""
-    title_start = flat.find("Minor Programme Title")
-    if title_start != -1:
-        title_start += len("Minor Programme Title")
-    req_marker_pos = flat.find("Minor Programme Requirement", title_start)
-    if req_marker_pos == -1:
-        req_marker_pos = flat.find("Programme Requirement", title_start)
-
-    if title_start != -1 and req_marker_pos != -1:
-        title = flat[title_start:req_marker_pos].strip(" :")
-    elif title_start != -1:
-        title = flat[title_start:].strip(" :")
-
-    # --- Requirement ---
-    notes_marker_pos = flat.find("Explanatory Notes", req_marker_pos if req_marker_pos != -1 else 0)
-    if req_marker_pos != -1 and notes_marker_pos != -1:
-        requirement = flat[req_marker_pos:notes_marker_pos].strip()
-    elif notes_marker_pos != -1:
-        requirement = flat[:notes_marker_pos].strip()
-    else:
-        requirement = flat
-
-    # Strip "Minor Programme Requirement" heading prefix
-    requirement = re.sub(r"^Minor Programme Requirement\s*:?\s*", "", requirement)
-
-    if title and requirement.lower().startswith(title.lower()):
-        requirement = requirement[len(title):].strip(" :")
-
-    # --- Notes ---
-    notes = flat[notes_marker_pos:].strip() if notes_marker_pos != -1 else ""
-    notes = re.sub(r"^Explanatory Notes\s*:?\s*", "", notes)
-
-    return {
-        "title": title,
-        "requirement": requirement,
-        "notes": notes,
-    }
-
-
 CSS = """\
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-       background: #f5f5f5; color: #333; line-height: 1.6; }
-.container { max-width: 960px; margin: 0 auto; padding: 20px; }
-h1 { font-size: 1.8em; margin-bottom: 0.3em; color: #1a1a1a; }
-h2 { font-size: 1.3em; margin: 1.2em 0 0.4em; color: #444; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
-a { color: #2563eb; text-decoration: none; }
-a:hover { text-decoration: underline; }
-.breadcrumb { margin-bottom: 1em; color: #666; font-size: 0.9em; }
-.requirement { background: #fff; padding: 15px 20px; border-radius: 8px; white-space: pre-wrap;
-               font-size: 0.95em; border: 1px solid #e5e5e5; margin-bottom: 20px; }
-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px;
-        overflow: hidden; border: 1px solid #e5e5e5; margin-bottom: 20px; }
-th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.93em; }
-th { background: #fafafa; font-weight: 600; color: #555; }
-tr:hover { background: #f9f9f9; }
-.not-found { background: #fff8f0; color: #b45309; }
-.not-found:hover { background: #fff5eb; }
-.card { background: #fff; border-radius: 8px; padding: 12px 20px; margin-bottom: 10px;
-        border: 1px solid #e5e5e5; display: flex; justify-content: space-between; align-items: center; }
-.card:hover { border-color: #2563eb; }
-.card-code { font-weight: 600; color: #2563eb; }
-.card-title { color: #666; font-size: 0.9em; }
-.meta { color: #888; font-size: 0.85em; }
-.search-box { width: 100%; padding: 10px 16px; border: 1px solid #ddd; border-radius: 8px;
-              font-size: 1em; margin-bottom: 20px; outline: none; }
-.search-box:focus { border-color: #2563eb; }
+:root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
+        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+       background:var(--bg); color:var(--text); line-height:1.6; }
+.container { max-width:960px; margin:0 auto; padding:20px; }
+h1 { font-size:1.7em; margin-bottom:.3em; }
+h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
+     border-bottom:1px solid var(--border); color:#333; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
+.section { background:var(--card); padding:14px 18px; border-radius:8px;
+           border:1px solid var(--border); margin-bottom:16px; }
+.section pre { white-space:pre-wrap; font-family:inherit; }
+table { width:100%; border-collapse:collapse; background:var(--card);
+        border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
+th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
+th { background:#fafafa; font-weight:600; color:#555; }
+tr:hover { background:#f9f9f9; }
+.nf { background:var(--warn-bg); color:var(--warn); }
+.nf:hover { background:#fff5eb; }
+.card { background:var(--card); border-radius:8px; padding:12px 18px; margin-bottom:8px;
+        border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.card:hover { border-color:var(--accent); }
+.card-code { font-weight:600; color:var(--accent); }
+.meta { color:var(--muted); font-size:.85em; }
+.tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
+       padding:2px 8px; font-size:.8em; margin-right:6px; }
 """
 
 
-def html_page(title, body):
+def html_page(page_title, body):
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title}</title>
-<style>
-{CSS}
-</style>
+<title>{page_title}</title>
+<style>{CSS}</style>
 </head>
 <body>
 <div class="container">
@@ -231,143 +56,160 @@ def html_page(title, body):
 </html>"""
 
 
-def generate():
-    if not MINOR_HTML_DIR.exists():
-        print(f"Directory not found: {MINOR_HTML_DIR}")
-        return
+# ── page builders ────────────────────────────────────────────────────
 
-    course_index = load_course_index()
+def build_course_table(courses):
+    """Return HTML <tbody> rows for a list of course objects."""
+    rows = ""
+    for c in courses:
+        if c.get("title"):
+            prereq = c["prereq"] if c["prereq"] else "\u2014"
+            rows += (
+                f"<tr>"
+                f"<td>{c['code']}</td>"
+                f"<td>{c['title']}</td>"
+                f"<td>{c['unit']}</td>"
+                f"<td>{prereq}</td>"
+                f"</tr>\n"
+            )
+        else:
+            rows += (
+                f'<tr class="nf">'
+                f"<td>{c['code']}</td>"
+                f'<td colspan="3"><em>(not found in course_info)</em></td>'
+                f"</tr>\n"
+            )
+    return rows
+
+
+def build_section_html(sec):
+    """Return HTML for a required / elective section from JSON."""
+    lines = []
+    label = sec.get("label", "")
+    lines.append(f"<h2>{label + ' Courses' if label else ''}</h2>")
+
+    if sec.get("description"):
+        lines.append(
+            f'<div class="section"><pre>{sec["description"]}</pre></div>'
+        )
+
+    courses = sec.get("courses", [])
+    if courses:
+        rows = build_course_table(courses)
+        lines.append(
+            "<table><thead><tr>"
+            "<th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th>"
+            f"</tr></thead><tbody>\n{rows}</tbody></table>"
+        )
+    elif not sec.get("description"):
+        lines.append(
+            '<div class="section"><p><em>No specific course codes '
+            'listed in this section.</em></p></div>'
+        )
+
+    return "\n".join(lines)
+
+
+def build_detail_page(data):
+    """Build the complete HTML body for one minor programme detail page."""
+    title = data["title"]
+
+    body = [
+        f'<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; {title}</div>',
+        f"<h1>{title}</h1>",
+    ]
+
+    desc = data.get("description", "")
+    if desc:
+        body.append("<h2>Description</h2>")
+        body.append(f'<div class="section"><pre>{desc}</pre></div>')
+
+    if data.get("required", {}).get("label"):
+        body.append(build_section_html(data["required"]))
+
+    if data.get("elective", {}).get("label"):
+        body.append(build_section_html(data["elective"]))
+
+    notes = data.get("explanatory_notes", "")
+    if notes:
+        body.append("<h2>Explanatory Notes</h2>")
+        body.append(f'<div class="section">{notes}</div>')
+
+    return "\n".join(body)
+
+
+# ── main ─────────────────────────────────────────────────────────────
+
+def generate():
+    if not MINOR_JSON_DIR.exists():
+        print(f"Directory not found: {MINOR_JSON_DIR}")
+        print("Run generate_minor_json.py first.")
+        return
 
     site_minors_dir = SITE_DIR / "minors"
     site_minors_dir.mkdir(parents=True, exist_ok=True)
 
-    # Track manual-review items
-    not_found_codes = set()
-    manual_requirements = []
-
-    minor_files = sorted(MINOR_HTML_DIR.glob("*.html"))
-    if not minor_files:
-        print("No minor HTML files found. Run extract_minor_sections.py first.")
+    json_files = sorted(MINOR_JSON_DIR.glob("*.json"))
+    if not json_files:
+        print("No JSON files found. Run generate_minor_json.py first.")
         return
 
     index_cards = []
 
-    for html_path in minor_files:
-        with open(html_path, "r", encoding="utf-8") as f:
-            raw_html = f.read()
+    for json_path in json_files:
+        stem = json_path.stem
+        data = json.loads(json_path.read_text(encoding="utf-8"))
 
-        parsed = parse_minor_html(raw_html)
-        title = parsed["title"]
-        requirement = parsed["requirement"]
-        notes = parsed["notes"]
+        body = build_detail_page(data)
+        page = html_page(f"Minor: {data['title']}", body)
+        (site_minors_dir / f"{stem}.html").write_text(page, encoding="utf-8")
 
-        stem = html_path.stem  # e.g. AISTN  or  AISTN_01
-        codes, wildcards = extract_course_codes(raw_html)
-
-        # Also extract from the visible text (catches any missed codes)
-        visible_text = strip_html(raw_html)
-        codes2, wildcards2 = extract_course_codes(visible_text)
-        codes = sorted(set(codes + codes2))
-        wildcards = sorted(set(wildcards + wildcards2))
-
-        rows_html, table_data = build_course_table(codes, course_index)
-
-        # Record manual review items
-        for cd in codes:
-            info = course_index.get(cd)
-            if not info:
-                not_found_codes.add(cd)
-
-        # Identify text-only requirements (no specific course codes found
-        # inside the requirement text itself, beyond the wildcards)
-        req_codes, _ = extract_course_codes(requirement)
-        if (not req_codes and not wildcards and
-                re.search(r"\b\d+\s*units\b", requirement, re.IGNORECASE)):
-            manual_requirements.append({"file": html_path.name, "text": requirement[:200]})
-
-        # Build the detail page
-        body = f"""
-<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; {title or stem}</div>
-<h1>{title or stem}</h1>
-
-<h2>Requirement</h2>
-<div class="requirement">{requirement}</div>
-
-<h2>Courses</h2>
-<table>
-<thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead>
-<tbody>
-{rows_html or '<tr><td colspan="4">No specific course codes found in requirement.</td></tr>'}
-</tbody>
-</table>
-{('<p class="meta">Wildcard codes: ' + ', '.join(wildcards) + '</p>') if wildcards else ''}
-
-<h2>Explanatory Notes</h2>
-<div class="requirement">{notes or 'None'}</div>
-"""
-        page_html = html_page(f"Minor: {title or stem}", body)
-
-        out_path = site_minors_dir / f"{stem}.html"
-        with open(out_path, "w", encoding="utf-8") as f:
-            f.write(page_html)
-
-        # Build index card
-        n_found = sum(1 for td in table_data if td["found"])
-        n_total = len(table_data)
+        req = data.get("required", {}).get("courses", [])
+        ele = data.get("elective", {}).get("courses", [])
         index_cards.append({
             "stem": stem,
-            "title": title or stem,
-            "total_courses": n_total,
-            "found_courses": n_found,
+            "title": data["title"],
+            "req_count": len(req),
+            "req_found": sum(1 for c in req if c.get("title")),
+            "ele_count": len(ele),
+            "ele_found": sum(1 for c in ele if c.get("title")),
         })
 
-    # ── Index page ──────────────────────────────────────────────
+    # ── Index page ──
     cards_html = ""
-    for card in index_cards:
-        cards_html += f"""<a href="minors/{card['stem']}.html">
-<div class="card">
-  <div><span class="card-code">{card['title']}</span></div>
-  <div class="meta">{card['found_courses']}/{card['total_courses']} courses matched</div>
-</div></a>\n"""
+    for c in index_cards:
+        tags = ""
+        if c["req_count"]:
+            tags += f'<span class="tag">{c["req_found"]}/{c["req_count"]} req</span>'
+        if c["ele_count"]:
+            tags += f'<span class="tag">{c["ele_found"]}/{c["ele_count"]} ele</span>'
+        cards_html += (
+            f'<a href="minors/{c["stem"]}.html">'
+            f'<div class="card">'
+            f'<div><span class="card-code">{c["title"]}</span></div>'
+            f'<div class="meta">{tags}</div>'
+            f'</div></a>\n'
+        )
 
-    index_body = f"""
-<h1>CUHK Minor Programmes</h1>
-<p class="meta">{len(index_cards)} minor programmes &middot; Course info from CUHK course catalog</p>
+    index_body = (
+        f"<h1>CUHK Minor Programmes</h1>"
+        f'<p class="meta">{len(index_cards)} minor programmes &middot; '
+        f'Course info from CUHK course catalog</p>'
+        f"<h2>Minors</h2>\n{cards_html}"
+    )
+    (SITE_DIR / "index.html").write_text(
+        html_page("CUHK Minor Programmes", index_body), encoding="utf-8"
+    )
 
-<h2>Minors</h2>
-{cards_html}
-"""
-    index_html = html_page("CUHK Minor Programmes", index_body)
-    with open(SITE_DIR / "index.html", "w", encoding="utf-8") as f:
-        f.write(index_html)
-
-    # ── Manual review report ────────────────────────────────────
-    print("\n" + "=" * 60)
-    print("MANUAL REVIEW NEEDED")
-    print("=" * 60)
-
-    unreviewed = 0
-
-    if not_found_codes:
-        unreviewed += len(not_found_codes)
-        print(f"\nCourses not found in course_info ({len(not_found_codes)}):")
-        for c in sorted(not_found_codes):
-            print(f"  {c}")
-
-    if manual_requirements:
-        unreviewed += len(manual_requirements)
-        print(f"\nText-only requirements to review ({len(manual_requirements)}):")
-        for mr in manual_requirements:
-            print(f"  {mr['file']}: {mr['text'][:120]}...")
-
-    if unreviewed == 0:
-        print("\n  (none)")
-
+    # ── Report ──
+    total_req = sum(c["req_count"] for c in index_cards)
+    total_ele = sum(c["ele_count"] for c in index_cards)
+    found_req = sum(c["req_found"] for c in index_cards)
+    found_ele = sum(c["ele_found"] for c in index_cards)
+    print(f"{len(index_cards)} minor programmes rendered")
+    print(f"Required courses: {found_req}/{total_req} matched")
+    print(f"Elective courses: {found_ele}/{total_ele} matched")
     print(f"\nSite generated: site/index.html")
-
-    found_ok = sum(c["found_courses"] for c in index_cards)
-    total = sum(c["total_courses"] for c in index_cards)
-    print(f"Course matching: {found_ok}/{total} found in course_info")
 
 
 if __name__ == "__main__":

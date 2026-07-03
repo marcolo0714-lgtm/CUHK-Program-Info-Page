@@ -1,0 +1,549 @@
+{
+  "_auto_generated": true,
+  "title": "Information Engineering",
+  "source_file": "IERGN_Information_Engineering",
+  "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
+  "required": {
+    "label": "1. Required Courses: 9",
+    "description": "",
+    "units": "9",
+    "courses": [
+      {
+        "code": "ESTR 2300",
+        "title": "Principles of Communication Systems",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken ENGG2310 or IERG2310 or ELEG2310. Pre-requisite: ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051"
+      },
+      {
+        "code": "ESTR 2302",
+        "title": "Signals and Systems",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: MATH1510. Not for students who have taken ENGG2030 or ESTR2206 or ESTR2360 or IERG2051 or MIEG2051."
+      },
+      {
+        "code": "ESTR 2360",
+        "title": "Fourier Analysis with Engineering Applications",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: MATH1510. Not for students who have taken ENGG2030 or ESTR2206 or ESTR2302 or IERG2051 or MIEG2051."
+      },
+      {
+        "code": "ESTR 3310",
+        "title": "Computer Networks",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: CSCI2100 or ESTR2102. Not for students who have taken CSCI4430 or ESTR4120 or IERG3310."
+      },
+      {
+        "code": "IERG 2051",
+        "title": "Signals and Systems",
+        "unit": "3.00",
+        "prereq": "Prerequisite: MATH1510. Not for students who have taken ENGG2030 or ESTR2206 or ESTR2302 or ESTR2360 or MIEG2051."
+      },
+      {
+        "code": "IERG 2310",
+        "title": "Principles of Communication Systems",
+        "unit": "3.00",
+        "prereq": "Prerequisite: ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051. Not for students who have taken ELEG2310 or ENGG2310 or ESTR2300"
+      },
+      {
+        "code": "IERG 3310",
+        "title": "Computer Networks",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: CSCI2100 or ESTR2102 Not for students who have taken CSCI4430 or ESTR4120 or ESTR3310."
+      },
+      {
+        "code": "MIEG 2051",
+        "title": "Fourier Analysis with Engineering Applications",
+        "unit": "3.00",
+        "prereq": "Prerequisite: MATH1010 or MATH1510 Not for students who have taken ENGG2030, ESTR2206, ESTR2302, ESTR2360 or IERG2051."
+      }
+    ]
+  },
+  "elective": {
+    "label": "2. Elective Courses:",
+    "description": "",
+    "units": "",
+    "courses": [
+      {
+        "code": "CSCI 3150",
+        "title": "Introduction to Operating Systems",
+        "unit": "3.00",
+        "prereq": "Prerequisite: ESTR2102 or CSCI2100 or 2520. For senior-year entrants, the prerequisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent. Not for students who have taken ESTR3102."
+      },
+      {
+        "code": "CSCI 3160",
+        "title": "Design and Analysis of Algorithms",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken ESTR3104 or CSCI3190; Pre-requisites: (CSCI2100 or CSCI2520 or ESTR2102) AND (CSCI2110 or ENGG2440 or ESTR2004 or ESTR2362 or MIEG2440)"
+      },
+      {
+        "code": "CSCI 4130",
+        "title": "Introduction to Cyber Security",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken ESTR4306 or IEMS5710 or IERG4130"
+      },
+      {
+        "code": "ELEG 4512",
+        "title": "Digital Image Processing",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken ELEG4502 or IERG4160."
+      },
+      {
+        "code": "ENGG 5301",
+        "title": "Information Theory",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty;Exclusion: IERG5154"
+      },
+      {
+        "code": "ENGG 5302",
+        "title": "",
+        "unit": "",
+        "prereq": ""
+      },
+      {
+        "code": "ENGG 5303",
+        "title": "Advanced Wireless Communications",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty Exclusion: IERG6270 or IERG5100"
+      },
+      {
+        "code": "ENGG 5383",
+        "title": "Applied Cryptography",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty;Exclusion: IERG5240"
+      },
+      {
+        "code": "ENGG 5392",
+        "title": "Lightwave System Technologies",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty;Exclusion: IERG5040"
+      },
+      {
+        "code": "ESTR 3102",
+        "title": "Introduction to Operating Systems",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken CSCI3150. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent."
+      },
+      {
+        "code": "ESTR 3104",
+        "title": "Design and Analysis of Algorithms",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken CSCI3160 or CSCI3190. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004."
+      },
+      {
+        "code": "ESTR 3300",
+        "title": "Digital Communications",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken IERG3010. Pre-requisite: ENGG2310 or ESTR2300 or IERG2310."
+      },
+      {
+        "code": "ESTR 3302",
+        "title": "Networks: Technology, Economics, and Social Interactions",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken IERG3280."
+      },
+      {
+        "code": "ESTR 3304",
+        "title": "Introduction to Stochastic Processes",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: IERG2470 or MIEG2440 or ENGG2430 or ENGG2450 or ENGG2460 or ENGG2470 or ESTR2002 or ESTR2005 or ESTR2010 or ESTR2012 or ESTR2018 or ESTR2308 or ESTR2362 Not for students who have taken IERG3300, IERG4140, IERG5300 or ENGG5302 or MATH4240."
+      },
+      {
+        "code": "ESTR 3306",
+        "title": "Social Media and Human Information Interaction",
+        "unit": "3.00",
+        "prereq": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206. Not for students who have taken IERG3320."
+      },
+      {
+        "code": "ESTR 4300",
+        "title": "Web-scale Information Analytics",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or IERG4300."
+      },
+      {
+        "code": "ESTR 4302",
+        "title": "Networking Protocols and Systems",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: IERG3310 or ESTR3310. Not for students who have taken IERG4090."
+      },
+      {
+        "code": "ESTR 4304",
+        "title": "Wireless Communication Systems",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken IERG4100 or IEMS5701. Pre-requisite: ENGG2310 or ESTR2300 or ESTR3300 or IERG2310 or IERG3010."
+      },
+      {
+        "code": "ESTR 4306",
+        "title": "Introduction to Cyber Security",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken IERG4130 or IEMS5710 or CSCI4130."
+      },
+      {
+        "code": "ESTR 4308",
+        "title": "Network Software Design and Programming",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken IERG4180."
+      },
+      {
+        "code": "ESTR 4312",
+        "title": "Building Scalable Internet-based Services",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken IERG4080. Pre-requisite: IERG3080."
+      },
+      {
+        "code": "ESTR 4314",
+        "title": "Hands-on Wireless Communication",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken IERG4110. Pre-requisite: ENGG2310 or ESTR2300 or IERG2310."
+      },
+      {
+        "code": "ESTR 4316",
+        "title": "Programming Big Data Systems",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken IERG4330 or IEMS5730. Co-/Pre-requisite(s): ENGG4030 or ESTR4300 or IERG4300."
+      },
+      {
+        "code": "ESTR 4320",
+        "title": "Optical Communications",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken ELEG3303 or ESTR3206 or IEMS5705 or IERG4030. Pre-requisite: ENGG2310 or ESTR2300 or IERG2310 or with the consent of the course instructor.ESTR4320"
+      },
+      {
+        "code": "ESTR 4322",
+        "title": "Introduction to Cryptography",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken IERG4150."
+      },
+      {
+        "code": "ESTR 4324",
+        "title": "Data Science in Practice",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken IERG4320"
+      },
+      {
+        "code": "ESTR 4326",
+        "title": "Blockchain and Applications",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken CSCI5590 or IEMS5725 or IERG4360 or IERG5590"
+      },
+      {
+        "code": "ESTR 4328",
+        "title": "Functional Programming",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: IERG2080 or ESTR2306 or equivalent, or with instructor's written approval. Not for students who have taken IERG4120."
+      },
+      {
+        "code": "IERG 3010",
+        "title": "Digital Communications",
+        "unit": "3.00",
+        "prereq": "Prerequisite: ENGG2310 or ESTR2300 or IERG2310. Not for students who have taken ESTR3300."
+      },
+      {
+        "code": "IERG 3050",
+        "title": "Simulation and Statistical Analysis",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: IERG2470 or MIEG2440 or ENGG2430 or 2450 or 2460 or 2470 or ESTR2002 or 2005 or 2010 or 2012 or 2018 or 2308 or 2362"
+      },
+      {
+        "code": "IERG 3070",
+        "title": "Operating Systems in Practice: A Linux Perspective",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: CSCI2100 or ESTR2102"
+      },
+      {
+        "code": "IERG 3280",
+        "title": "Networks: Technology, Economics, and Social Interactions",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken ESTR3302."
+      },
+      {
+        "code": "IERG 3300",
+        "title": "Introduction to Stochastic Processes",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: IERG2470 or MIEG2440 or ENGG2430 or 2450 or 2460 or 2470 or ESTR2002 or 2005 or 2010 or 2012 or 2018 or 2308 or 2362 Not for students who have taken ESTR3304 or IERG4140 or IERG5300 or ENGG5302 or MATH4240"
+      },
+      {
+        "code": "IERG 3320",
+        "title": "Social Media and Human Information Interaction",
+        "unit": "3.00",
+        "prereq": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206 Not for students who have taken ESTR3306."
+      },
+      {
+        "code": "IERG 4004",
+        "title": "E-payment Systems and Cryptocurrency Technologies",
+        "unit": "3.00",
+        "prereq": "1.Not for students who have taken FTEC4004 2.Pre-requisite(s): CSCI4130 or ESTR4306 or IERG4130"
+      },
+      {
+        "code": "IERG 4030",
+        "title": "Optical Communications",
+        "unit": "3.00",
+        "prereq": "1.Not for students who have taken ELEG3303 or ESTR3206 or ESTR4320 or IEMS5705 2.Pre-requisite(s): ENGG2310 or ESTR2300 or IERG2310 or with the approval of the course instructor."
+      },
+      {
+        "code": "IERG 4060",
+        "title": "Real-time Embedded Systems",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: IERG3060 or equivalent"
+      },
+      {
+        "code": "IERG 4080",
+        "title": "Building Scalable Internet-based Services",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: IERG3080. Not for students who have taken ESTR4312."
+      },
+      {
+        "code": "IERG 4090",
+        "title": "Networking Protocols and Systems",
+        "unit": "3.00",
+        "prereq": "Prerequisite: IERG3310 or ESTR3310 Not for students who have taken ESTR4302."
+      },
+      {
+        "code": "IERG 4100",
+        "title": "Wireless Communication Systems",
+        "unit": "3.00",
+        "prereq": "Prerequisite: ENGG2310 or ESTR2300 or ESTR3300 or IERG2310 or IERG3010. Not for students who have taken ESTR4304 or IEMS5701."
+      },
+      {
+        "code": "IERG 4110",
+        "title": "",
+        "unit": "",
+        "prereq": ""
+      },
+      {
+        "code": "IERG 4120",
+        "title": "Functional Programming",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: IERG2080 or ESTR2306 or equivalent, or with instructor's written approval. Not for students who have taken ESTR4328."
+      },
+      {
+        "code": "IERG 4130",
+        "title": "Introduction to Cyber Security",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken CSCI4130 or ESTR4306 or IEMS5710"
+      },
+      {
+        "code": "IERG 4150",
+        "title": "Introduction to Cryptography",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken ESTR4322"
+      },
+      {
+        "code": "IERG 4160",
+        "title": "Image Processing and Visual Understanding",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken ELEG4502 or ELEG4512."
+      },
+      {
+        "code": "IERG 4180",
+        "title": "Network Software Design and Programming",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken ESTR4308."
+      },
+      {
+        "code": "IERG 4190",
+        "title": "Multimedia Coding and Processing",
+        "unit": "3.00",
+        "prereq": "Prerequisite: ENGG2030 or ESTR2206 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051. Not for students who have taken IEMS5707."
+      },
+      {
+        "code": "IERG 4210",
+        "title": "Web Programming and Security",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken IEMS5718"
+      },
+      {
+        "code": "IERG 4220",
+        "title": "Secure Software Engineering",
+        "unit": "3.00",
+        "prereq": ""
+      },
+      {
+        "code": "IERG 4230",
+        "title": "Introduction to Internet of Things",
+        "unit": "3.00",
+        "prereq": ""
+      },
+      {
+        "code": "IERG 4240",
+        "title": "Positioning Principles and Technologies",
+        "unit": "3.00",
+        "prereq": "Pre-requisite: IERG2051 or ENGG2030 or MIEG2051 or ESTR2302 or ESTR2206 or ESTR2360"
+      },
+      {
+        "code": "IERG 4300",
+        "title": "Web-scale Information Analytics",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300."
+      },
+      {
+        "code": "IERG 4320",
+        "title": "Data Science in Practice",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken ESTR4324"
+      },
+      {
+        "code": "IERG 4330",
+        "title": "Programming Big Data Systems",
+        "unit": "3.00",
+        "prereq": "Pre/Co-requisite: ENGG4030 or ESTR4300 or IERG4300. Not for students who have taken ESTR4316 or IEMS5730."
+      },
+      {
+        "code": "IERG 4340",
+        "title": "Emerging Technologies in Information Engineering",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken IEMS5717."
+      },
+      {
+        "code": "IERG 4350",
+        "title": "Cloud Computing Security",
+        "unit": "3.00",
+        "prereq": ""
+      },
+      {
+        "code": "IERG 4360",
+        "title": "Blockchain and Applications",
+        "unit": "3.00",
+        "prereq": "Not for students who have taken CSCI5590 or ESTR4326 or IEMS5725 or IERG5590"
+      },
+      {
+        "code": "IERG 5020",
+        "title": "Telecommunication Switching and Network Systems",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty;Course Exclusion: IERG4020 or ESTR4318"
+      },
+      {
+        "code": "IERG 5040",
+        "title": "",
+        "unit": "",
+        "prereq": ""
+      },
+      {
+        "code": "IERG 5090",
+        "title": "Advanced Networking Protocols and Systems",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty;Exclusion: IEMS5715"
+      },
+      {
+        "code": "IERG 5100",
+        "title": "",
+        "unit": "",
+        "prereq": ""
+      },
+      {
+        "code": "IERG 5110",
+        "title": "Signal Processing in Wireless Communications and Sensing",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty Pre-requisite: IERG3010/ESTR3300 or written waiver with endorsement from instructor."
+      },
+      {
+        "code": "IERG 5130",
+        "title": "Probabilistic Models and Inference Algorithms for Machine Learning",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty"
+      },
+      {
+        "code": "IERG 5140",
+        "title": "",
+        "unit": "",
+        "prereq": ""
+      },
+      {
+        "code": "IERG 5154",
+        "title": "",
+        "unit": "",
+        "prereq": ""
+      },
+      {
+        "code": "IERG 5200",
+        "title": "Channel Coding and Modulation",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty;Exclusion: MATH4260 and IERG4200"
+      },
+      {
+        "code": "IERG 5230",
+        "title": "Algorithms and Realization of Internet of Things Systems",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty"
+      },
+      {
+        "code": "IERG 5240",
+        "title": "",
+        "unit": "",
+        "prereq": ""
+      },
+      {
+        "code": "IERG 5254",
+        "title": "Network Information Theory",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty Exclusion: IERG6154"
+      },
+      {
+        "code": "IERG 5280",
+        "title": "Wireless and Mobile Networking",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty"
+      },
+      {
+        "code": "IERG 5290",
+        "title": "Network Coding Theory",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty"
+      },
+      {
+        "code": "IERG 5300",
+        "title": "Random Processes",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty Exclusion: ENGG5302 or SEEM5580"
+      },
+      {
+        "code": "IERG 5310",
+        "title": "Security & Privacy in Cyber Systems",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty"
+      },
+      {
+        "code": "IERG 5320",
+        "title": "Digital Forensics",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty"
+      },
+      {
+        "code": "IERG 5330",
+        "title": "",
+        "unit": "",
+        "prereq": ""
+      },
+      {
+        "code": "IERG 5350",
+        "title": "Reinforcement Learning",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty"
+      },
+      {
+        "code": "IERG 5360",
+        "title": "Program Representation, Modeling and Understanding for Software Security",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty Pre-requisite: IERG4130 or CSCI4130 or ESTR4306 or IEMS5710, or written waiver with endorsement from instructor."
+      },
+      {
+        "code": "IERG 5380",
+        "title": "Quantum Information Processing",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty Exclusion: CSCI5370 and MAEG5110"
+      },
+      {
+        "code": "IERG 5400",
+        "title": "Theory of Probability",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty Exclusion: IERG6300"
+      },
+      {
+        "code": "IERG 5590",
+        "title": "Advanced Topics in Blockchain",
+        "unit": "3.00",
+        "prereq": "For all students in Engineering Faculty;Exclusion: CSCI5590"
+      }
+    ]
+  },
+  "explanatory_notes": "<tr style=\"height:16.0pt\"> <td style=\"width:8.04%;padding:0in 5.4pt 0in 5.4pt; height:16.0pt\" valign=\"top\" width=\"8%\"> <p class=\"MsoNormal\"> </p> </td> <td colspan=\"3\" style=\"width:91.96%;padding:0in 5.4pt 0in 5.4pt; height:16.0pt\" valign=\"top\" width=\"91%\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Explanatory\n\n Notes:</p> </td> </tr>\n<tr style=\"height:16.0pt\"> <td style=\"width:8.04%;padding:0in 5.4pt 0in 5.4pt; height:16.0pt\" valign=\"top\" width=\"8%\"> <p class=\"MsoNormal\"> </p> </td> <td style=\"width:4.88%;padding:0in 5.4pt 0in 5.4pt; height:16.0pt\" valign=\"top\" width=\"4%\"> <p class=\"MsoNormal\">1.</p> </td> <td colspan=\"2\" style=\"width:87.08%;padding:0in 0in 0in 0in; height:16.0pt\" valign=\"top\" width=\"87%\"> <p class=\"MsoNormal\" style=\"margin-right:4.5pt;text-align:justify;text-justify:\n\n inter-ideograph\">This Minor Programme is not applicable to students who\n\n major in Mathematics and Information Engineering.</p> </td> </tr>\n<tr style=\"height:16.0pt\"> <td style=\"width:8.04%;padding:0in 5.4pt 0in 5.4pt; height:16.0pt\" valign=\"top\" width=\"8%\"> <p class=\"MsoNormal\"> </p> </td> <td style=\"width:4.88%;padding:0in 5.4pt 0in 5.4pt; height:16.0pt\" valign=\"top\" width=\"4%\"> <p class=\"MsoNormal\">2.</p> </td> <td colspan=\"2\" style=\"width:87.08%;padding:0in 0in 0in 0in; height:16.0pt\" valign=\"top\" width=\"87%\"> <p class=\"MsoNormal\" style=\"margin-right:4.5pt;text-align:justify;text-justify:\n\n inter-ideograph\">No more than 9 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</p> </td> </tr>"
+}
