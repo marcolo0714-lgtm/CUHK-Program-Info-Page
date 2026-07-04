@@ -118,6 +118,9 @@ def build_detail_page(data):
         f'<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; {title}</div>',
         f"<h1>{title}</h1>",
     ]
+    faculty = data.get("faculty", "")
+    if faculty and faculty != "Unknown":
+        body.append(f'<p class="meta">Faculty: {faculty}</p>')
 
     desc = data.get("description", "")
     if desc:
@@ -169,6 +172,7 @@ def generate():
         index_cards.append({
             "stem": stem,
             "title": data["title"],
+            "faculty": data.get("faculty", "Unknown"),
             "req_count": len(req),
             "req_found": sum(1 for c in req if c.get("title")),
             "ele_count": len(ele),
@@ -176,26 +180,34 @@ def generate():
         })
 
     # ── Index page ──
-    cards_html = ""
+    # Group cards by faculty
+    by_faculty = {}
     for c in index_cards:
-        tags = ""
-        if c["req_count"]:
-            tags += f'<span class="tag">{c["req_found"]}/{c["req_count"]} req</span>'
-        if c["ele_count"]:
-            tags += f'<span class="tag">{c["ele_found"]}/{c["ele_count"]} ele</span>'
-        cards_html += (
-            f'<a href="minors/{c["stem"]}.html">'
-            f'<div class="card">'
-            f'<div><span class="card-code">{c["title"]}</span></div>'
-            f'<div class="meta">{tags}</div>'
-            f'</div></a>\n'
-        )
+        fac = c.get("faculty", "Unknown")
+        by_faculty.setdefault(fac, []).append(c)
+
+    cards_html = ""
+    for fac in sorted(by_faculty.keys()):
+        cards_html += f'<h2>{fac}</h2>\n'
+        for c in by_faculty[fac]:
+            tags = ""
+            if c["req_count"]:
+                tags += f'<span class="tag">{c["req_found"]}/{c["req_count"]} req</span>'
+            if c["ele_count"]:
+                tags += f'<span class="tag">{c["ele_found"]}/{c["ele_count"]} ele</span>'
+            cards_html += (
+                f'<a href="minors/{c["stem"]}.html">'
+                f'<div class="card">'
+                f'<div><span class="card-code">{c["title"]}</span></div>'
+                f'<div class="meta">{tags}</div>'
+                f'</div></a>\n'
+            )
 
     index_body = (
         f"<h1>CUHK Minor Programmes</h1>"
         f'<p class="meta">{len(index_cards)} minor programmes &middot; '
-        f'Course info from CUHK course catalog</p>'
-        f"<h2>Minors</h2>\n{cards_html}"
+        f'Course info from CUHK course catalog</p>\n'
+        f"{cards_html}"
     )
     (SITE_DIR / "index.html").write_text(
         html_page("CUHK Minor Programmes", index_body), encoding="utf-8"

@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 MINOR_HTML_DIR = Path(__file__).parent / "minor_html"
 COURSE_INFO_DIR = Path(__file__).parent.parent / "course_extraction" / "course_info"
 MINOR_JSON_DIR = Path(__file__).parent / "minor_json"
+FACULTIES_PATH = MINOR_HTML_DIR / "_faculties.json"
 
 
 # ── helpers ──────────────────────────────────────────────────────────
@@ -204,7 +205,17 @@ def resolve_courses(codes, course_index):
     ]
 
 
-def build_json(html_path, course_index):
+def load_faculties():
+    """Return dict mapping minor_html/{stem} -> faculty short name."""
+    if not FACULTIES_PATH.exists():
+        return {}
+    try:
+        return json.loads(FACULTIES_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+
+
+def build_json(html_path, course_index, faculties):
     """Parse one minor HTML file and return a JSON-serialisable dict."""
     stem = html_path.stem
     raw_html = html_path.read_text(encoding="utf-8")
@@ -213,6 +224,7 @@ def build_json(html_path, course_index):
     return {
         "_auto_generated": True,
         "title": parsed["title"],
+        "faculty": faculties.get(stem, "Unknown"),
         "source_file": stem,
         "description": parsed["description"],
         "required": {
@@ -239,6 +251,7 @@ def generate():
         return
 
     course_index = load_course_index()
+    faculties = load_faculties()
     MINOR_JSON_DIR.mkdir(parents=True, exist_ok=True)
 
     minor_files = sorted(MINOR_HTML_DIR.glob("*.html"))
@@ -264,7 +277,7 @@ def generate():
                 skipped += 1
                 continue
 
-        data = build_json(html_path, course_index)
+        data = build_json(html_path, course_index, faculties)
         json_path.write_text(
             json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
         )

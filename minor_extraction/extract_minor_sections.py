@@ -2,6 +2,7 @@ from playwright.sync_api import sync_playwright
 import sys
 import io
 import os
+import json
 from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
@@ -142,6 +143,7 @@ def crawl_programs():
     programs_without_minor = []
     programs_with_one_minor = []
     multi_minor_programs = []
+    faculties = {}                 # adms -> faculty short name
     total_extracted = 0
 
     os.makedirs(ROOT / "minor_html", exist_ok=True)
@@ -179,6 +181,15 @@ def crawl_programs():
             command = f"__doPostBack('gv_detail$ctl{element_id_str}$lbtn_prog_descr','')"
 
             try:
+                # Capture faculty from the grid row before navigating away
+                faculty_locator = page.locator(f"#gv_detail_ctl{element_id_str}_lbtn_faculty")
+                try:
+                    faculty_raw = faculty_locator.inner_text(timeout=2000)
+                    # Strip "Faculty of " prefix for shorter form
+                    faculty = faculty_raw.replace("Faculty of ", "").strip()
+                except Exception:
+                    faculty = "Unknown"
+
                 with page.expect_navigation(timeout=30000):
                     page.evaluate(command)
                 page.wait_for_load_state("networkidle")
@@ -214,6 +225,8 @@ def crawl_programs():
                         filepath = ROOT / "minor_html" / f"{adm_code}_{safe_name}.html"
                         with open(filepath, "w", encoding="utf-8") as f:
                             f.write(box["html"])
+                        # Record faculty for this minor
+                        faculties[f"{adm_code}_{safe_name}"] = faculty
                     print(f"  -> Saved {num_minors} minor section(s): " + ", ".join(b["title"] for b in minor_boxes))
                     total_extracted += num_minors
 
@@ -229,6 +242,12 @@ def crawl_programs():
                 break
 
         browser.close()
+
+    # Save faculty mapping
+    if faculties:
+        fac_path = ROOT / "minor_html" / "_faculties.json"
+        fac_path.write_text(json.dumps(faculties, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"\nFaculty info saved: {fac_path}")
 
     # --- Summary ---
     print("\n" + "=" * 60)
