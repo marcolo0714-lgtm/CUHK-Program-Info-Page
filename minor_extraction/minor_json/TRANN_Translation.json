@@ -6,33 +6,52 @@
   "description": "Students are required to complete a minimum of 21 units of courses as follows, with at least 6 units of courses at 3000 level or above:",
   "required": {
     "label": "1. Required Courses: 6",
-    "description": "",
     "units": "6",
-    "courses": [
+    "rows": [
       {
-        "code": "TRAN 1010",
-        "title": "Principles of Translation",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "TRAN 1030",
-        "title": "Introduction to Interpreting",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "TRAN1010, 1030",
+        "codes": [
+          "TRAN 1010",
+          "TRAN 1030"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "TRAN 1010",
+            "title": "Principles of Translation",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "TRAN 1030",
+            "title": "Introduction to Interpreting",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses:",
-    "description": "",
     "units": "",
-    "courses": [
+    "rows": [
       {
-        "code": "TRAN 1000",
-        "title": "Lost and Found: Meaning, Practice, and Creativity in Translation",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "Any 5 TRAN courses, excluding TRAN1000, with at least 6 units of courses at 3000 or above.",
+        "codes": [
+          "TRAN 1000"
+        ],
+        "units": "15",
+        "courses": [
+          {
+            "code": "TRAN 1000",
+            "title": "Lost and Found: Meaning, Practice, and Creativity in Translation",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       }
     ]
   },

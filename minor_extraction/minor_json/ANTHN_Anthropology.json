@@ -6,377 +6,460 @@
   "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 level or above, as follows:",
   "required": {
     "label": "1. Required Course : 3",
-    "description": "",
     "units": "3",
-    "courses": [
+    "rows": [
       {
-        "code": "ANTH 1010",
-        "title": "Humans and Culture",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "ANTH1010",
+        "codes": [
+          "ANTH 1010"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "ANTH 1010",
+            "title": "Humans and Culture",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses : 15",
-    "description": "Any 5 courses from the following,\n\n with at least 2 courses at 3000 or above level:",
     "units": "15",
-    "courses": [
+    "rows": [
       {
-        "code": "ANTH 1020",
-        "title": "Anthropology: The Study of Global Humanity",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "Any 5 courses from the following, with at least 2 courses at 3000 or above level:",
+        "codes": [],
+        "units": "",
+        "courses": []
       },
       {
-        "code": "ANTH 1310",
-        "title": "Marriage, Family and Kinship",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 1410",
-        "title": "Culture of Hong Kong",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 1710",
-        "title": "Understanding Archaeology",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2110",
-        "title": "History of Anthropological Theory",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2111",
-        "title": "Contemporary Anthropological Theory",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2210",
-        "title": "Anthropological Field Methods",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2230",
-        "title": "Anthropology of Film",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2310",
-        "title": "Gender and Culture",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken GENA2192 or UGEC2653"
-      },
-      {
-        "code": "ANTH 2324",
-        "title": "Indian Cultures and Society",
-        "unit": "3.00",
-        "prereq": "ANTH2324 is double-coded with UGEC2655. Not for students who have taken ANTH3324 or UGEC2655."
-      },
-      {
-        "code": "ANTH 2327",
-        "title": "Ethnographies of Japan",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2330",
-        "title": "Gender in Asia",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2340",
-        "title": "Magic, Myth and the Supernatural",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2350",
-        "title": "Meanings of Life",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2351",
-        "title": "Death, Death Ritual and Culture",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2360",
-        "title": "Ethics and the Human Experience",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2370",
-        "title": "Intangible Heritage in Hong Kong",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2380",
-        "title": "Environmental Crises and Cultures of Survival",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2390",
-        "title": "Sports and Culture",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2401",
-        "title": "Topics in Ethnography I",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2402",
-        "title": "Topics in Ethnography II",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2403",
-        "title": "Topics in Ethnography III",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2404",
-        "title": "Understanding Islam",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2410",
-        "title": "Chinese Culture and Society",
-        "unit": "3.00",
-        "prereq": "ANTH2410 is double-coded with UGEA2180. Not for students who have taken UGEA2180, 2190 or 2334."
-      },
-      {
-        "code": "ANTH 2420",
-        "title": "Culture and Modernity in China",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2450",
-        "title": "Peoples and Cultures of Southeast Asia",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2510",
-        "title": "Culture and Business",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2520",
-        "title": "Globalization and Culture",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2530",
-        "title": "Political Violence and Human Rights",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2540",
-        "title": "Social Media and Culture",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2550",
-        "title": "Working Cultures – Understanding Work in the 21st Century",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2710",
-        "title": "Archaeology of China",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2720",
-        "title": "Archaeology of Hong Kong",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2730",
-        "title": "Preserving Cultural Heritage",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2740",
-        "title": "Deciphering the Past: Culture, Archaeology and Science",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2760",
-        "title": "China's Cultural Heritage",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 2810",
-        "title": "Human Evolution",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3321",
-        "title": "Topics in Anthropology I",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3322",
-        "title": "Topics in Anthropology II",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3323",
-        "title": "Topics in Anthropology III",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3350",
-        "title": "Food and Culture",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3360",
-        "title": "The Anthropology of the Body, Love and Emotions",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3370",
-        "title": "Tourism and Culture",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3380",
-        "title": "Economy, Culture and Power",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3390",
-        "title": "Disability and Difference",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3440",
-        "title": "Anthropological Field Study",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3450",
-        "title": "Seminars in the Anthropology of China",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3540",
-        "title": "Anthropology of Gender, Sexuality and the Law",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3630",
-        "title": "Language, Symbols and Society",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3770",
-        "title": "Making Places: Landscapes, Culture and Society",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3780",
-        "title": "Archaeological Field Methods",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3790",
-        "title": "Archaeological Field Study",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 3820",
-        "title": "Forensic Anthropology",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 4210",
-        "title": "Ethnic Groups, Ethnic Relations and Identities",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ANTH3340."
-      },
-      {
-        "code": "ANTH 4220",
-        "title": "Visual Anthropology",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 4321",
-        "title": "Topics in Anthropology",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 4330",
-        "title": "Medicine, Health and Culture",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "ANTH 4720",
-        "title": "Museums and Anthropology",
-        "unit": "3.00",
-        "prereq": "---"
-      },
-      {
-        "code": "ANTH 4750",
-        "title": "Archaeology of Food",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: ANTH1710 / UGEC1633 Understanding Archaeology"
+        "index": 2,
+        "text": "ANTH1020, 1310, 1410, 1710, 2110, 2111, 2210, 2230, 2310, 2324, 2327, 2330, 2340, 2350, 2351, 2360, 2370, 2380, 2390, 2401, 2402, 2403, 2404, 2410, 2420, 2450, 2510, 2520, 2530, 2540, 2550, 2710, 2720, 2730, 2740, 2760, 2810, 3321, 3322, 3323, 3350, 3360, 3370, 3380, 3390, 3440, 3450, 3540, 3630, 3770, 3780, 3790, 3820, 4210, 4220, 4321, 4330, 4720, 4750",
+        "codes": [
+          "ANTH 1020",
+          "ANTH 1310",
+          "ANTH 1410",
+          "ANTH 1710",
+          "ANTH 2110",
+          "ANTH 2111",
+          "ANTH 2210",
+          "ANTH 2230",
+          "ANTH 2310",
+          "ANTH 2324",
+          "ANTH 2327",
+          "ANTH 2330",
+          "ANTH 2340",
+          "ANTH 2350",
+          "ANTH 2351",
+          "ANTH 2360",
+          "ANTH 2370",
+          "ANTH 2380",
+          "ANTH 2390",
+          "ANTH 2401",
+          "ANTH 2402",
+          "ANTH 2403",
+          "ANTH 2404",
+          "ANTH 2410",
+          "ANTH 2420",
+          "ANTH 2450",
+          "ANTH 2510",
+          "ANTH 2520",
+          "ANTH 2530",
+          "ANTH 2540",
+          "ANTH 2550",
+          "ANTH 2710",
+          "ANTH 2720",
+          "ANTH 2730",
+          "ANTH 2740",
+          "ANTH 2760",
+          "ANTH 2810",
+          "ANTH 3321",
+          "ANTH 3322",
+          "ANTH 3323",
+          "ANTH 3350",
+          "ANTH 3360",
+          "ANTH 3370",
+          "ANTH 3380",
+          "ANTH 3390",
+          "ANTH 3440",
+          "ANTH 3450",
+          "ANTH 3540",
+          "ANTH 3630",
+          "ANTH 3770",
+          "ANTH 3780",
+          "ANTH 3790",
+          "ANTH 3820",
+          "ANTH 4210",
+          "ANTH 4220",
+          "ANTH 4321",
+          "ANTH 4330",
+          "ANTH 4720",
+          "ANTH 4750"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "ANTH 1020",
+            "title": "Anthropology: The Study of Global Humanity",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 1310",
+            "title": "Marriage, Family and Kinship",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 1410",
+            "title": "Culture of Hong Kong",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 1710",
+            "title": "Understanding Archaeology",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2110",
+            "title": "History of Anthropological Theory",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2111",
+            "title": "Contemporary Anthropological Theory",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2210",
+            "title": "Anthropological Field Methods",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2230",
+            "title": "Anthropology of Film",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2310",
+            "title": "Gender and Culture",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken GENA2192 or UGEC2653"
+          },
+          {
+            "code": "ANTH 2324",
+            "title": "Indian Cultures and Society",
+            "unit": "3.00",
+            "prereq": "ANTH2324 is double-coded with UGEC2655. Not for students who have taken ANTH3324 or UGEC2655."
+          },
+          {
+            "code": "ANTH 2327",
+            "title": "Ethnographies of Japan",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2330",
+            "title": "Gender in Asia",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2340",
+            "title": "Magic, Myth and the Supernatural",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2350",
+            "title": "Meanings of Life",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2351",
+            "title": "Death, Death Ritual and Culture",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2360",
+            "title": "Ethics and the Human Experience",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2370",
+            "title": "Intangible Heritage in Hong Kong",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2380",
+            "title": "Environmental Crises and Cultures of Survival",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2390",
+            "title": "Sports and Culture",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2401",
+            "title": "Topics in Ethnography I",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2402",
+            "title": "Topics in Ethnography II",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2403",
+            "title": "Topics in Ethnography III",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2404",
+            "title": "Understanding Islam",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2410",
+            "title": "Chinese Culture and Society",
+            "unit": "3.00",
+            "prereq": "ANTH2410 is double-coded with UGEA2180. Not for students who have taken UGEA2180, 2190 or 2334."
+          },
+          {
+            "code": "ANTH 2420",
+            "title": "Culture and Modernity in China",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2450",
+            "title": "Peoples and Cultures of Southeast Asia",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2510",
+            "title": "Culture and Business",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2520",
+            "title": "Globalization and Culture",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2530",
+            "title": "Political Violence and Human Rights",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2540",
+            "title": "Social Media and Culture",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2550",
+            "title": "Working Cultures – Understanding Work in the 21st Century",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2710",
+            "title": "Archaeology of China",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2720",
+            "title": "Archaeology of Hong Kong",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2730",
+            "title": "Preserving Cultural Heritage",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2740",
+            "title": "Deciphering the Past: Culture, Archaeology and Science",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2760",
+            "title": "China's Cultural Heritage",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2810",
+            "title": "Human Evolution",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3321",
+            "title": "Topics in Anthropology I",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3322",
+            "title": "Topics in Anthropology II",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3323",
+            "title": "Topics in Anthropology III",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3350",
+            "title": "Food and Culture",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3360",
+            "title": "The Anthropology of the Body, Love and Emotions",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3370",
+            "title": "Tourism and Culture",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3380",
+            "title": "Economy, Culture and Power",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3390",
+            "title": "Disability and Difference",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3440",
+            "title": "Anthropological Field Study",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3450",
+            "title": "Seminars in the Anthropology of China",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3540",
+            "title": "Anthropology of Gender, Sexuality and the Law",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3630",
+            "title": "Language, Symbols and Society",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3770",
+            "title": "Making Places: Landscapes, Culture and Society",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3780",
+            "title": "Archaeological Field Methods",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3790",
+            "title": "Archaeological Field Study",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 3820",
+            "title": "Forensic Anthropology",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 4210",
+            "title": "Ethnic Groups, Ethnic Relations and Identities",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ANTH3340."
+          },
+          {
+            "code": "ANTH 4220",
+            "title": "Visual Anthropology",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 4321",
+            "title": "Topics in Anthropology",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 4330",
+            "title": "Medicine, Health and Culture",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 4720",
+            "title": "Museums and Anthropology",
+            "unit": "3.00",
+            "prereq": "---"
+          },
+          {
+            "code": "ANTH 4750",
+            "title": "Archaeology of Food",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: ANTH1710 / UGEC1633 Understanding Archaeology"
+          }
+        ]
       }
     ]
   },
-  "explanatory_notes": "<tr> <td colspan=\"2\" style=\"width:398.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"532\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n Notes:</span></p> </td> <td style=\"width:85.35pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr>\n<tr> <td style=\"width:45.95pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"61\"> <p class=\"MsoListParagraph\" style=\"text-indent:-18.0pt;line-height:14.0pt\"><span lang=\"EN-US\">1.<span style='font:7.0pt \"Times New Roman\"'>      </span></span><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:352.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"471\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">This Minor\n\n Programme is not applicable to students who major in<span style=\"letter-spacing:-.7pt\"> </span>Anthropology</span></p> </td> <td style=\"width:85.35pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr>\n<tr> <td style=\"width:45.95pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"61\"> <p class=\"MsoListParagraph\" style=\"text-indent:-18.0pt;line-height:14.0pt\"><span lang=\"EN-US\">2.<span style='font:7.0pt \"Times New Roman\"'>      </span></span><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:352.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"471\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">No more\n\n than 9 units of courses taken to fulfill the requirements of the\n\n students’ Major Programme(s) and other Minor Programme(s) respectively\n\n can be used to fulfill the requirement of this Minor<span style=\"letter-spacing:-.1pt\"> </span>Programme.</span></p> </td> <td style=\"width:85.35pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr>\n<tr> <td colspan=\"3\" style=\"width:484.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"646\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr>"
+  "explanatory_notes": "<table><tr> <td colspan=\"2\" style=\"width:398.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"532\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n Notes:</span></p> </td> <td style=\"width:85.35pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr>\n<tr> <td style=\"width:45.95pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"61\"> <p class=\"MsoListParagraph\" style=\"text-indent:-18.0pt;line-height:14.0pt\"><span lang=\"EN-US\">1.<span style='font:7.0pt \"Times New Roman\"'>      </span></span><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:352.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"471\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">This Minor\n\n Programme is not applicable to students who major in<span style=\"letter-spacing:-.7pt\"> </span>Anthropology</span></p> </td> <td style=\"width:85.35pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr>\n<tr> <td style=\"width:45.95pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"61\"> <p class=\"MsoListParagraph\" style=\"text-indent:-18.0pt;line-height:14.0pt\"><span lang=\"EN-US\">2.<span style='font:7.0pt \"Times New Roman\"'>      </span></span><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:352.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"471\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">No more\n\n than 9 units of courses taken to fulfill the requirements of the\n\n students’ Major Programme(s) and other Minor Programme(s) respectively\n\n can be used to fulfill the requirement of this Minor<span style=\"letter-spacing:-.1pt\"> </span>Programme.</span></p> </td> <td style=\"width:85.35pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr>\n<tr> <td colspan=\"3\" style=\"width:484.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"646\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr></table>"
 }

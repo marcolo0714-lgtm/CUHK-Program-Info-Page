@@ -36,6 +36,12 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
+.req-row { padding: 8px 0; }
+.row-num { font-weight:600; color:var(--accent); display:inline; }
+.row-text { margin-left:6px; }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0; margin-top:20px;
+           border-top:1px solid var(--border); }
+.nav-bar a { font-size:.9em; }
 """
 
 
@@ -83,34 +89,48 @@ def build_course_table(courses):
 
 
 def build_section_html(sec):
-    """Return HTML for a required / elective section from JSON."""
+    """Return HTML for a required / elective section from JSON (row-based)."""
     lines = []
     label = sec.get("label", "")
-    lines.append(f"<h2>{label + ' Courses' if label else ''}</h2>")
+    lines.append(f"<h2>{label}</h2>")
 
-    if sec.get("description"):
-        lines.append(
-            f'<div class="section"><pre>{sec["description"]}</pre></div>'
-        )
+    for row in sec.get("rows", []):
+        # Row text line (no sequential index number displayed)
+        row_html = f'<div class="row-text">{row["text"]}</div>'
+        if row.get("units"):
+            row_html += f' <span class="meta">({row["units"]} units)</span>'
 
-    courses = sec.get("courses", [])
-    if courses:
-        rows = build_course_table(courses)
-        lines.append(
-            "<table><thead><tr>"
-            "<th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th>"
-            f"</tr></thead><tbody>\n{rows}</tbody></table>"
-        )
-    elif not sec.get("description"):
-        lines.append(
-            '<div class="section"><p><em>No specific course codes '
-            'listed in this section.</em></p></div>'
-        )
+        courses = row.get("courses", [])
+        if courses:
+            tbody = build_course_table(courses)
+            lines.append(
+                f'<div class="req-row">'
+                f'{row_html}'
+                f'</div>'
+                f"<table><thead><tr>"
+                f"<th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th>"
+                f"</tr></thead><tbody>\n{tbody}</tbody></table>"
+            )
+        elif row.get("text"):
+            lines.append(
+                f'<div class="req-row">'
+                f'{row_html}'
+                f'</div>'
+            )
+        else:
+            # Row with codes but no text — still show table
+            if courses:
+                tbody = build_course_table(courses)
+                lines.append(
+                    f"<table><thead><tr>"
+                    f"<th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th>"
+                    f"</tr></thead><tbody>\n{tbody}</tbody></table>"
+                )
 
     return "\n".join(lines)
 
 
-def build_detail_page(data):
+def build_detail_page(data, prev_stem=None, prev_title=None, next_stem=None, next_title=None):
     """Build the complete HTML body for one minor programme detail page."""
     title = data["title"]
 
@@ -118,6 +138,19 @@ def build_detail_page(data):
         f'<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; {title}</div>',
         f"<h1>{title}</h1>",
     ]
+
+    # Prev / Next navigation
+    nav = []
+    if prev_stem:
+        nav.append(f'<a href="{prev_stem}.html">← {prev_title}</a>')
+    else:
+        nav.append("<span></span>")
+    if next_stem:
+        nav.append(f'<a href="{next_stem}.html">{next_title} →</a>')
+    else:
+        nav.append("<span></span>")
+    body.append(f'<div class="nav-bar">{nav[0]}{nav[1]}</div>')
+
     faculty = data.get("faculty", "")
     if faculty and faculty != "Unknown":
         body.append(f'<p class="meta">Faculty: {faculty}</p>')
@@ -159,24 +192,40 @@ def generate():
 
     index_cards = []
 
-    for json_path in json_files:
+    for i, json_path in enumerate(json_files):
         stem = json_path.stem
         data = json.loads(json_path.read_text(encoding="utf-8"))
 
-        body = build_detail_page(data)
+        # Prev / Next in the index-sorted order
+        prev_info = None
+        next_info = None
+        if i > 0:
+            prev_path = json_files[i - 1]
+            prev_data = json.loads(prev_path.read_text(encoding="utf-8"))
+            prev_info = (prev_path.stem, prev_data["title"])
+        if i < len(json_files) - 1:
+            next_path = json_files[i + 1]
+            next_data = json.loads(next_path.read_text(encoding="utf-8"))
+            next_info = (next_path.stem, next_data["title"])
+
+        body = build_detail_page(data, 
+                                 prev_stem=prev_info[0] if prev_info else None,
+                                 prev_title=prev_info[1] if prev_info else None,
+                                 next_stem=next_info[0] if next_info else None,
+                                 next_title=next_info[1] if next_info else None)
         page = html_page(f"Minor: {data['title']}", body)
         (site_minors_dir / f"{stem}.html").write_text(page, encoding="utf-8")
 
-        req = data.get("required", {}).get("courses", [])
-        ele = data.get("elective", {}).get("courses", [])
+        req_courses = [c for r in data.get("required", {}).get("rows", []) for c in r.get("courses", [])]
+        ele_courses = [c for r in data.get("elective", {}).get("rows", []) for c in r.get("courses", [])]
         index_cards.append({
             "stem": stem,
             "title": data["title"],
             "faculty": data.get("faculty", "Unknown"),
-            "req_count": len(req),
-            "req_found": sum(1 for c in req if c.get("title")),
-            "ele_count": len(ele),
-            "ele_found": sum(1 for c in ele if c.get("title")),
+            "req_count": len(req_courses),
+            "req_found": sum(1 for c in req_courses if c.get("title")),
+            "ele_count": len(ele_courses),
+            "ele_found": sum(1 for c in ele_courses if c.get("title")),
         })
 
     # ── Index page ──

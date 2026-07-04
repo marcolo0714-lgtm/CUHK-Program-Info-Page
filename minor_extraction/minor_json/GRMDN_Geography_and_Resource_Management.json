@@ -6,298 +6,352 @@
   "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
   "required": {
     "label": "",
-    "description": "",
     "units": "",
-    "courses": []
+    "rows": []
   },
   "elective": {
     "label": "1. Elective Courses: 18",
-    "description": "",
     "units": "18",
-    "courses": [
+    "rows": [
       {
-        "code": "GRMD 1003",
-        "title": "Understanding China through Cultural Landscape",
-        "unit": "2.00",
-        "prereq": "GRMD1003 is double-coded with UGEA1212. Not for students who have taken UGEA1212 or GESC2380."
-      },
-      {
-        "code": "GRMD 1301",
-        "title": "Understanding Guangdong-Hong Kong-Macao Greater Bay Area",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 1302",
-        "title": "People, Space and Place",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 1401",
-        "title": "A World of Diversity",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken GRMD1404."
-      },
-      {
-        "code": "GRMD 1402",
-        "title": "Global Change and Environmental Sustainability",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken GRMD1023."
-      },
-      {
-        "code": "GRMD 1403",
-        "title": "Resources, Society and Environment",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 2102",
-        "title": "Fundamental Statistics for Geographers",
-        "unit": "3.00",
-        "prereq": "Not for student who have taken STAT1011, 1012 and 2101."
-      },
-      {
-        "code": "GRMD 2104",
-        "title": "Remote Sensing of Environment",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 2105",
-        "title": "Introduction to GIS",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 2106",
-        "title": "Introduction to Satellite Design and Application",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 2209",
-        "title": "Physical Geology",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 2221",
-        "title": "Weather and Climate",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 2292",
-        "title": "Understanding Ecotourism",
-        "unit": "2.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 2303",
-        "title": "Urban Geography",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 2321",
-        "title": "Economic Geography",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 2401",
-        "title": "Sustainable Development",
-        "unit": "3.00",
-        "prereq": "GRMD2401 is double-coded with UGEC2171. Not for students who have taken UGEC2171, 2354 or 2775."
-      },
-      {
-        "code": "GRMD 2402",
-        "title": "Natural Resource Management",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 2403",
-        "title": "Nature Conservation in Hong Kong",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 2501",
-        "title": "Theory and Practice of Smart Cities",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3102",
-        "title": "Research Design and Methodology",
-        "unit": "3.00",
-        "prereq": "GRMD2102 or another statistics course which is approved by the instructor as a pre-requisite."
-      },
-      {
-        "code": "GRMD 3104",
-        "title": "Satellite Image Analysis",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3106",
-        "title": "Advanced GIS",
-        "unit": "3.00",
-        "prereq": "Prerequisite: GRMD2105."
-      },
-      {
-        "code": "GRMD 3108",
-        "title": "Cartography and Geovisualization",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3202",
-        "title": "Environmental Management",
-        "unit": "3.00",
-        "prereq": "-"
-      },
-      {
-        "code": "GRMD 3203",
-        "title": "Urban Environmental Problems",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3205",
-        "title": "Geomorphology",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3209",
-        "title": "Soil Science",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3224",
-        "title": "Tourism Planning and Management",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3301",
-        "title": "Geography of China",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3302",
-        "title": "Population and Migration",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3304",
-        "title": "Cultural Geography",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3305",
-        "title": "Transport Geography",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3323",
-        "title": "Urban and Regional Planning",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3401",
-        "title": "Energy Resources for Carbon Neutrality",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3402",
-        "title": "World Development",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 3404",
-        "title": "Natural Hazards and Human Responses",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 4003",
-        "title": "Special Topics in Geography and Resource Management I",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 4004",
-        "title": "Special Topics in Geography and Resource Management II",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 4101",
-        "title": "GIS Workshop",
-        "unit": "3.00",
-        "prereq": "Prerequisite: GRMD2105."
-      },
-      {
-        "code": "GRMD 4202",
-        "title": "Hydrology and Water Resources",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 4203",
-        "title": "Ecosystem Restoration and Management",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 4204",
-        "title": "Environmental Planning and Assessment",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 4302",
-        "title": "Urban Planning Workshop",
-        "unit": "3.00",
-        "prereq": "Only for students who have taken URSP1001 or URSP2300 or GRMD3323 or are taking GRMD3323 at the same time."
-      },
-      {
-        "code": "GRMD 4403",
-        "title": "Environmental and Resource Economics and Policy",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 4502",
-        "title": "Urban Big Data Analysis and Application",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 4503",
-        "title": "Smart City Policies and Governance",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GRMD 5110",
-        "title": "Statistical Applications in Geography",
-        "unit": "3.00",
-        "prereq": "For students in MPhil-PhD Geography and Resource Management"
+        "index": 1,
+        "text": "GRMD1003, 1301, 1302, 1401, 1402, 1403, 2102, 2104, 2105, 2106, 2209, 2221, 2292, 2303, 2321, 2401, 2402, 2403, 2501, 3102, 3104, 3106, 3108, 3202, 3203, 3205, 3209, 3224, 3301, 3302, 3304, 3305, 3323, 3401, 3402, 3404, 4003, 4004, 4101, 4202, 4203, 4204, 4302, 4403, 4502, 4503, 5110",
+        "codes": [
+          "GRMD 1003",
+          "GRMD 1301",
+          "GRMD 1302",
+          "GRMD 1401",
+          "GRMD 1402",
+          "GRMD 1403",
+          "GRMD 2102",
+          "GRMD 2104",
+          "GRMD 2105",
+          "GRMD 2106",
+          "GRMD 2209",
+          "GRMD 2221",
+          "GRMD 2292",
+          "GRMD 2303",
+          "GRMD 2321",
+          "GRMD 2401",
+          "GRMD 2402",
+          "GRMD 2403",
+          "GRMD 2501",
+          "GRMD 3102",
+          "GRMD 3104",
+          "GRMD 3106",
+          "GRMD 3108",
+          "GRMD 3202",
+          "GRMD 3203",
+          "GRMD 3205",
+          "GRMD 3209",
+          "GRMD 3224",
+          "GRMD 3301",
+          "GRMD 3302",
+          "GRMD 3304",
+          "GRMD 3305",
+          "GRMD 3323",
+          "GRMD 3401",
+          "GRMD 3402",
+          "GRMD 3404",
+          "GRMD 4003",
+          "GRMD 4004",
+          "GRMD 4101",
+          "GRMD 4202",
+          "GRMD 4203",
+          "GRMD 4204",
+          "GRMD 4302",
+          "GRMD 4403",
+          "GRMD 4502",
+          "GRMD 4503",
+          "GRMD 5110"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "GRMD 1003",
+            "title": "Understanding China through Cultural Landscape",
+            "unit": "2.00",
+            "prereq": "GRMD1003 is double-coded with UGEA1212. Not for students who have taken UGEA1212 or GESC2380."
+          },
+          {
+            "code": "GRMD 1301",
+            "title": "Understanding Guangdong-Hong Kong-Macao Greater Bay Area",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 1302",
+            "title": "People, Space and Place",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 1401",
+            "title": "A World of Diversity",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken GRMD1404."
+          },
+          {
+            "code": "GRMD 1402",
+            "title": "Global Change and Environmental Sustainability",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken GRMD1023."
+          },
+          {
+            "code": "GRMD 1403",
+            "title": "Resources, Society and Environment",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2102",
+            "title": "Fundamental Statistics for Geographers",
+            "unit": "3.00",
+            "prereq": "Not for student who have taken STAT1011, 1012 and 2101."
+          },
+          {
+            "code": "GRMD 2104",
+            "title": "Remote Sensing of Environment",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2105",
+            "title": "Introduction to GIS",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2106",
+            "title": "Introduction to Satellite Design and Application",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2209",
+            "title": "Physical Geology",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2221",
+            "title": "Weather and Climate",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2292",
+            "title": "Understanding Ecotourism",
+            "unit": "2.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2303",
+            "title": "Urban Geography",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2321",
+            "title": "Economic Geography",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2401",
+            "title": "Sustainable Development",
+            "unit": "3.00",
+            "prereq": "GRMD2401 is double-coded with UGEC2171. Not for students who have taken UGEC2171, 2354 or 2775."
+          },
+          {
+            "code": "GRMD 2402",
+            "title": "Natural Resource Management",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2403",
+            "title": "Nature Conservation in Hong Kong",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2501",
+            "title": "Theory and Practice of Smart Cities",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3102",
+            "title": "Research Design and Methodology",
+            "unit": "3.00",
+            "prereq": "GRMD2102 or another statistics course which is approved by the instructor as a pre-requisite."
+          },
+          {
+            "code": "GRMD 3104",
+            "title": "Satellite Image Analysis",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3106",
+            "title": "Advanced GIS",
+            "unit": "3.00",
+            "prereq": "Prerequisite: GRMD2105."
+          },
+          {
+            "code": "GRMD 3108",
+            "title": "Cartography and Geovisualization",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3202",
+            "title": "Environmental Management",
+            "unit": "3.00",
+            "prereq": "-"
+          },
+          {
+            "code": "GRMD 3203",
+            "title": "Urban Environmental Problems",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3205",
+            "title": "Geomorphology",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3209",
+            "title": "Soil Science",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3224",
+            "title": "Tourism Planning and Management",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3301",
+            "title": "Geography of China",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3302",
+            "title": "Population and Migration",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3304",
+            "title": "Cultural Geography",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3305",
+            "title": "Transport Geography",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3323",
+            "title": "Urban and Regional Planning",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3401",
+            "title": "Energy Resources for Carbon Neutrality",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3402",
+            "title": "World Development",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3404",
+            "title": "Natural Hazards and Human Responses",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4003",
+            "title": "Special Topics in Geography and Resource Management I",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4004",
+            "title": "Special Topics in Geography and Resource Management II",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4101",
+            "title": "GIS Workshop",
+            "unit": "3.00",
+            "prereq": "Prerequisite: GRMD2105."
+          },
+          {
+            "code": "GRMD 4202",
+            "title": "Hydrology and Water Resources",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4203",
+            "title": "Ecosystem Restoration and Management",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4204",
+            "title": "Environmental Planning and Assessment",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4302",
+            "title": "Urban Planning Workshop",
+            "unit": "3.00",
+            "prereq": "Only for students who have taken URSP1001 or URSP2300 or GRMD3323 or are taking GRMD3323 at the same time."
+          },
+          {
+            "code": "GRMD 4403",
+            "title": "Environmental and Resource Economics and Policy",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4502",
+            "title": "Urban Big Data Analysis and Application",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4503",
+            "title": "Smart City Policies and Governance",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 5110",
+            "title": "Statistical Applications in Geography",
+            "unit": "3.00",
+            "prereq": "For students in MPhil-PhD Geography and Resource Management"
+          }
+        ]
       }
     ]
   },
-  "explanatory_notes": "<tr> <td colspan=\"3\" style=\"width:448.8pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"598\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Explanatory Note:</p> </td> </tr>\n<tr> <td style=\"width:33.95pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> </td> <td colspan=\"2\" style=\"width:414.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"553\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">No more than 9 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</p> </td> </tr>\n<tr> <td style=\"width:33.95pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td colspan=\"2\" style=\"width:414.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"553\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> </td> </tr>"
+  "explanatory_notes": "<table><tr> <td colspan=\"3\" style=\"width:448.8pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"598\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Explanatory Note:</p> </td> </tr>\n<tr> <td style=\"width:33.95pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> </td> <td colspan=\"2\" style=\"width:414.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"553\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">No more than 9 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</p> </td> </tr>\n<tr> <td style=\"width:33.95pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td colspan=\"2\" style=\"width:414.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"553\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> </td> </tr></table>"
 }

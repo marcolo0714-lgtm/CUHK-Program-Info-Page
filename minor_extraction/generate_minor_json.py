@@ -57,6 +57,9 @@ def extract_course_codes(text):
                 codes.add(f"{dept} {nm.group(1)}{nm.group(2) or ''}")
             if nm.group(4):
                 codes.add(f"{dept} {nm.group(4)}{nm.group(5) or ''}")
+    # "or 1700", "and 2760" after a known department
+    for m in re.finditer(r"([A-Z]{4})\s*\d{4}[A-Za-z]?\s+(?:or|and|/)\s+(\d{4})([A-Za-z]?)", text):
+        codes.add(f"{m.group(1)} {m.group(2)}{m.group(3) or ''}")
     return sorted(codes)
 
 
@@ -113,8 +116,8 @@ def parse_minor_html(html_text):
     soup = BeautifulSoup(html_text, "html.parser")
     title = get_minor_title(soup)
 
-    required = {"label": "", "description": "", "codes": [], "units": ""}
-    elective = {"label": "", "description": "", "codes": [], "units": ""}
+    required = {"label": "", "units": "", "rows": []}
+    elective = {"label": "", "units": "", "rows": []}
     description = ""
     notes_html = ""
 
@@ -157,6 +160,7 @@ def parse_minor_html(html_text):
     sections = {"req": required, "ele": elective}
     desc_parts = []
     notes_parts = []
+    row_index = 0  # sequential counter per section
 
     for tr in rows:
         tds_in_row = tr.find_all("td")
@@ -164,6 +168,29 @@ def parse_minor_html(html_text):
         row_text_flat = re.sub(r"\s+", " ", row_text)
         lower = row_text_flat.lower()
 
+        # ── Individual cell extraction ──
+        cell_texts = []
+        cell_clean = []
+        for td in tds_in_row:
+            ct = re.sub(r"\s+", " ", td.get_text().replace("\xa0", " ")).strip()
+            cell_texts.append(ct)
+            cell_clean.append(ct)
+
+        index_cell = cell_clean[0] if cell_clean else ""
+        text_cell = " ".join(cell_clean[1:-1]) if len(cell_clean) >= 3 else (cell_clean[1] if len(cell_clean) == 2 else "")
+        units_cell = cell_clean[-1] if len(cell_clean) >= 3 else (cell_clean[1] if len(cell_clean) == 2 and cell_clean[0] and not re.search(r"\d", cell_clean[0]) else "")
+
+        if len(cell_clean) == 2 and re.search(r"\d", cell_clean[0]):
+            # Two columns where first has a number — likely index+text combined, second is units
+            text_cell = cell_clean[0]
+            units_cell = cell_clean[1]
+            index_cell = ""
+        if len(cell_clean) == 1:
+            text_cell = cell_clean[0]
+            index_cell = ""
+            units_cell = ""
+
+        # ── "Explanatory Notes" boundary ──
         if "explanatory note" in lower:
             current_section = "notes"
             notes_parts.append(str(tr))
@@ -173,36 +200,72 @@ def parse_minor_html(html_text):
             notes_parts.append(str(tr))
             continue
 
-        stripped = re.sub(r"^\d+\.\s*", "", row_text_flat).strip()
+        # ── Section marker detection ──
+        stripped = re.sub(r"^\d+\.\s*", "", text_cell).strip()
         stripped_lower = stripped.lower()
 
         if stripped_lower.startswith("required course"):
             current_section = "req"
+            row_index = 0
             required["label"] = row_text_flat
-            required["codes"].extend(extract_course_codes(row_text_flat))
-            if len(tds_in_row) >= 3:
-                required["units"] = parse_unit_count(tds_in_row[-1].get_text())
+            required["units"] = parse_unit_count(units_cell) or parse_unit_count(text_cell)
+            # Also extract codes from the label row itself
+            codes_in_row = extract_course_codes(text_cell)
+            if codes_in_row:
+                display_text = re.sub(r"\s+", " ", text_cell)
+                row_index += 1
+                required["rows"].append({
+                    "index": row_index,
+                    "text": display_text,
+                    "codes": sorted(set(codes_in_row)),
+                    "units": required["units"] if len(codes_in_row) == 1 else "",
+                })
             continue
 
         if stripped_lower.startswith("elective course"):
             current_section = "ele"
+            row_index = 0
             elective["label"] = row_text_flat
-            elective["codes"].extend(extract_course_codes(row_text_flat))
-            if len(tds_in_row) >= 3:
-                elective["units"] = parse_unit_count(tds_in_row[-1].get_text())
-            continue
-
-        if current_section == "init":
-            desc_parts.append(row_text)
-            continue
-
-        if current_section in ("req", "ele"):
-            sec = sections[current_section]
-            codes_in_row = extract_course_codes(row_text)
+            elective["units"] = parse_unit_count(units_cell) or parse_unit_count(text_cell)
+            codes_in_row = extract_course_codes(text_cell)
             if codes_in_row:
-                sec["codes"].extend(codes_in_row)
-            elif row_text and not re.search(r"\bTotal\s*:", row_text, re.IGNORECASE):
-                sec["description"] = (sec["description"] + " " + row_text).strip()
+                display_text = re.sub(r"\s+", " ", text_cell)
+                row_index += 1
+                elective["rows"].append({
+                    "index": row_index,
+                    "text": display_text,
+                    "codes": sorted(set(codes_in_row)),
+                    "units": elective["units"] if len(codes_in_row) == 1 else "",
+                })
+            continue
+
+        # ── Description rows ──
+        if current_section == "init":
+            desc_parts.append(text_cell)
+            continue
+
+        # ── Course rows ──
+        if current_section in ("req", "ele"):
+            if not text_cell or re.search(r"\bTotal\s*:", text_cell, re.IGNORECASE):
+                continue
+
+            sec = sections[current_section]
+            codes_in_row = extract_course_codes(text_cell)
+            row_units = parse_unit_count(units_cell) or ""
+            row_index += 1
+
+            # Text: keep the original cell text (with codes), just collapsed whitespace
+            display_text = re.sub(r"\s+", " ", text_cell)
+            # Prepend the index label from the first column if present
+            if index_cell and index_cell not in (" ",):
+                display_text = f"{index_cell} {display_text}".strip()
+
+            sec["rows"].append({
+                "index": row_index,
+                "text": display_text,
+                "codes": sorted(set(codes_in_row)),
+                "units": row_units,
+            })
 
     description = " ".join(desc_parts).strip()
     description = re.sub(r"\s+", " ", description)
@@ -211,9 +274,11 @@ def parse_minor_html(html_text):
     description = re.sub(r"\s+Units\s*$", "", description).strip()
     description = re.sub(r"\s+Total\s*:?\s*\d*\s*$", "", description).strip()
 
-    required["codes"] = sorted(set(required["codes"]))
-    elective["codes"] = sorted(set(elective["codes"]))
+    # Wrap explanatory notes in a table tag if it contains <tr> elements
     notes_html = "\n".join(notes_parts).strip()
+    if notes_html:
+        if "<tr" in notes_html and not notes_html.strip().startswith("<table"):
+            notes_html = "<table>" + notes_html + "</table>"
 
     return dict(title=title, description=description,
                 required=required, elective=elective, notes_html=notes_html)
@@ -250,6 +315,18 @@ def build_json(html_path, course_index, faculties):
     raw_html = html_path.read_text(encoding="utf-8")
     parsed = parse_minor_html(raw_html)
 
+    def resolve_rows(rows):
+        out = []
+        for r in rows:
+            out.append({
+                "index": r["index"],
+                "text": r["text"],
+                "codes": r["codes"],
+                "units": r["units"],
+                "courses": resolve_courses(r["codes"], course_index),
+            })
+        return out
+
     return {
         "_auto_generated": True,
         "title": parsed["title"],
@@ -258,15 +335,13 @@ def build_json(html_path, course_index, faculties):
         "description": parsed["description"],
         "required": {
             "label": parsed["required"]["label"],
-            "description": parsed["required"]["description"],
             "units": parsed["required"]["units"],
-            "courses": resolve_courses(parsed["required"]["codes"], course_index),
+            "rows": resolve_rows(parsed["required"]["rows"]),
         },
         "elective": {
             "label": parsed["elective"]["label"],
-            "description": parsed["elective"]["description"],
             "units": parsed["elective"]["units"],
-            "courses": resolve_courses(parsed["elective"]["codes"], course_index),
+            "rows": resolve_rows(parsed["elective"]["rows"]),
         },
         "explanatory_notes": parsed["notes_html"],
     }
@@ -314,9 +389,10 @@ def generate():
 
         # Track not-found courses
         for sec_name in ("required", "elective"):
-            for c in data[sec_name]["courses"]:
-                if not c["title"]:
-                    not_found_acc.add(c["code"])
+            for row in data[sec_name]["rows"]:
+                for c in row["courses"]:
+                    if not c["title"]:
+                        not_found_acc.add(c["code"])
 
     # ── Report ──
     print("\n" + "=" * 60)
@@ -330,9 +406,6 @@ def generate():
     else:
         print("\n  (all course codes matched)")
 
-    total_req = sum(len(data["required"]["courses"]) for html_path in minor_files
-                    if (MINOR_JSON_DIR / f"{html_path.stem}.json").exists()
-                    for data in [json.loads((MINOR_JSON_DIR / f"{html_path.stem}.json").read_text(encoding="utf-8"))])
     print(f"\nDone. JSON output: minor_json/")
 
 

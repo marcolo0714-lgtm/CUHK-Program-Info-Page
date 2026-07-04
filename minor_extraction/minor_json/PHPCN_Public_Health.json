@@ -6,125 +6,159 @@
   "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
   "required": {
     "label": "1. Required Courses: 6",
-    "description": "",
     "units": "6",
-    "courses": [
+    "rows": [
       {
-        "code": "PHPC 1001",
-        "title": "Foundations in Public Health",
-        "unit": "2.00",
-        "prereq": "PHPC1001 is double-coded with UGEC1920. Not for students who have taken MEDF1021, 1120, UGEC1920 or UGEC2930."
-      },
-      {
-        "code": "PHPC 1017",
-        "title": "Principles of Infectious Diseases",
-        "unit": "1.00",
-        "prereq": "Not for students who have taken PHPC1004."
-      },
-      {
-        "code": "PHPC 2017",
-        "title": "Epidemiology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken PHPC1014."
+        "index": 1,
+        "text": "PHPC1001, 1017, 2017",
+        "codes": [
+          "PHPC 1001",
+          "PHPC 1017",
+          "PHPC 2017"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "PHPC 1001",
+            "title": "Foundations in Public Health",
+            "unit": "2.00",
+            "prereq": "PHPC1001 is double-coded with UGEC1920. Not for students who have taken MEDF1021, 1120, UGEC1920 or UGEC2930."
+          },
+          {
+            "code": "PHPC 1017",
+            "title": "Principles of Infectious Diseases",
+            "unit": "1.00",
+            "prereq": "Not for students who have taken PHPC1004."
+          },
+          {
+            "code": "PHPC 2017",
+            "title": "Epidemiology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken PHPC1014."
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses: 12",
-    "description": "",
     "units": "12",
-    "courses": [
+    "rows": [
       {
-        "code": "PHPC 1022",
-        "title": "Lifestyle and Health",
-        "unit": "2.00",
-        "prereq": "Not for students who have taken PHPC2008."
-      },
-      {
-        "code": "PHPC 2009",
-        "title": "Environment and Work",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken CHPR2001"
-      },
-      {
-        "code": "PHPC 2010",
-        "title": "Health Care System & Policy",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "PHPC 2011",
-        "title": "Global Health",
-        "unit": "3.00",
-        "prereq": "Pre-requisite:PHPC1001 or MEDF1021 or UGEC1920 or UGEC2930"
-      },
-      {
-        "code": "PHPC 2015",
-        "title": "Biostatistics",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken -COMM3110, DSME2010,2020,2011,2021, ECON2121, GRMD2102, PHPC1015, PSYC2010, SEEM2430, SOCI2004, SPED2600, STAT2101,2102,2001 or 2006."
-      },
-      {
-        "code": "PHPC 2016",
-        "title": "Theories and Concepts of Health Behaviours",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: PHPC1022 or PHPC2008. Not for students who have taken CHPR3002, 3008, 4008 or PHPC1016"
-      },
-      {
-        "code": "PHPC 2020",
-        "title": "Community-based Learning for Healthy Ageing",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "PHPC 3012",
-        "title": "Public Health Ethics and Law",
-        "unit": "1.00",
-        "prereq": "Pre-requisite: PHPC1001 or UGEC1920 or MEDF1021 or UGEC2930."
-      },
-      {
-        "code": "PHPC 3014",
-        "title": "Evidence Based Public Health and Healthcare",
-        "unit": "3.00",
-        "prereq": "For students of new curriculum only. Not for students who have taken PHPC2014. Pre-requisites: PHPC2015 & PHPC2017."
-      },
-      {
-        "code": "PHPC 3016",
-        "title": "Environment and Health",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: PHPC2009 or CHPR2001"
-      },
-      {
-        "code": "PHPC 3017",
-        "title": "Work and Health",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "PHPC 3024",
-        "title": "Economics and Financing in Healthcare Systems",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "PHPC 3028",
-        "title": "Practical Data Collection, Management and Analysis",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken SOCI3229 Pre-requisites: (CHPR3117 or PHPC1014 or PHPC2017) and (CHPR3115 or PHPC1015 or PHPC2015)"
-      },
-      {
-        "code": "PHPC 4029",
-        "title": "Health and Healthcare Organisation and Management",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "PHPC 4033",
-        "title": "Medical Sociology",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "12 units of courses chosen from the following, with at least 6 units of courses at 3000 or above level: PHPC1022, 2009, 2010, 2011, 2015, 2016, 2020, 3012, 3014, 3016, 3017, 3024, 3028, 4029, 4033",
+        "codes": [
+          "PHPC 1022",
+          "PHPC 2009",
+          "PHPC 2010",
+          "PHPC 2011",
+          "PHPC 2015",
+          "PHPC 2016",
+          "PHPC 2020",
+          "PHPC 3012",
+          "PHPC 3014",
+          "PHPC 3016",
+          "PHPC 3017",
+          "PHPC 3024",
+          "PHPC 3028",
+          "PHPC 4029",
+          "PHPC 4033"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "PHPC 1022",
+            "title": "Lifestyle and Health",
+            "unit": "2.00",
+            "prereq": "Not for students who have taken PHPC2008."
+          },
+          {
+            "code": "PHPC 2009",
+            "title": "Environment and Work",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CHPR2001"
+          },
+          {
+            "code": "PHPC 2010",
+            "title": "Health Care System & Policy",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "PHPC 2011",
+            "title": "Global Health",
+            "unit": "3.00",
+            "prereq": "Pre-requisite:PHPC1001 or MEDF1021 or UGEC1920 or UGEC2930"
+          },
+          {
+            "code": "PHPC 2015",
+            "title": "Biostatistics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken -COMM3110, DSME2010,2020,2011,2021, ECON2121, GRMD2102, PHPC1015, PSYC2010, SEEM2430, SOCI2004, SPED2600, STAT2101,2102,2001 or 2006."
+          },
+          {
+            "code": "PHPC 2016",
+            "title": "Theories and Concepts of Health Behaviours",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHPC1022 or PHPC2008. Not for students who have taken CHPR3002, 3008, 4008 or PHPC1016"
+          },
+          {
+            "code": "PHPC 2020",
+            "title": "Community-based Learning for Healthy Ageing",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "PHPC 3012",
+            "title": "Public Health Ethics and Law",
+            "unit": "1.00",
+            "prereq": "Pre-requisite: PHPC1001 or UGEC1920 or MEDF1021 or UGEC2930."
+          },
+          {
+            "code": "PHPC 3014",
+            "title": "Evidence Based Public Health and Healthcare",
+            "unit": "3.00",
+            "prereq": "For students of new curriculum only. Not for students who have taken PHPC2014. Pre-requisites: PHPC2015 & PHPC2017."
+          },
+          {
+            "code": "PHPC 3016",
+            "title": "Environment and Health",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHPC2009 or CHPR2001"
+          },
+          {
+            "code": "PHPC 3017",
+            "title": "Work and Health",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "PHPC 3024",
+            "title": "Economics and Financing in Healthcare Systems",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "PHPC 3028",
+            "title": "Practical Data Collection, Management and Analysis",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken SOCI3229 Pre-requisites: (CHPR3117 or PHPC1014 or PHPC2017) and (CHPR3115 or PHPC1015 or PHPC2015)"
+          },
+          {
+            "code": "PHPC 4029",
+            "title": "Health and Healthcare Organisation and Management",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "PHPC 4033",
+            "title": "Medical Sociology",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       }
     ]
   },
-  "explanatory_notes": "<tr> <td colspan=\"3\" style=\"width:470.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"628\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">Explanatory Note:</span></p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\" style=\"color:black\">1.</span></p> </td> <td colspan=\"2\" style=\"width:436.7pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"582\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span class=\"apple-style-span\"><span lang=\"EN-US\" style=\"color:black\">This Minor Programme is not applicable to students\n\n who major in Community Health Practice, Gerontology, and Biotechnology,\n\n Entrepreneurship and Healthcare Management.</span></span></p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\" style=\"color:black\">2.</span></p> </td> <td colspan=\"2\" style=\"width:436.7pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"582\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span class=\"apple-style-span\"><span lang=\"EN-US\" style=\"color:black\">No more than 9 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</span></span></p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span class=\"apple-style-span\"><span lang=\"EN-US\" style=\"color:black\"> </span></span></p> </td> </tr>"
+  "explanatory_notes": "<table><tr> <td colspan=\"3\" style=\"width:470.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"628\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">Explanatory Note:</span></p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\" style=\"color:black\">1.</span></p> </td> <td colspan=\"2\" style=\"width:436.7pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"582\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span class=\"apple-style-span\"><span lang=\"EN-US\" style=\"color:black\">This Minor Programme is not applicable to students\n\n who major in Community Health Practice, Gerontology, and Biotechnology,\n\n Entrepreneurship and Healthcare Management.</span></span></p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\" style=\"color:black\">2.</span></p> </td> <td colspan=\"2\" style=\"width:436.7pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"582\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span class=\"apple-style-span\"><span lang=\"EN-US\" style=\"color:black\">No more than 9 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</span></span></p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span class=\"apple-style-span\"><span lang=\"EN-US\" style=\"color:black\"> </span></span></p> </td> </tr></table>"
 }

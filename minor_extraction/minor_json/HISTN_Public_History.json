@@ -6,107 +6,145 @@
   "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
   "required": {
     "label": "1. Required Course : 6",
-    "description": "",
     "units": "6",
-    "courses": [
+    "rows": [
       {
-        "code": "HIST 1700",
-        "title": "Introduction to Public History: Theory and Practice",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "HIST 1701",
-        "title": "History for Tomorrow: Technology and the Humanities",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "HIST1700, 1701",
+        "codes": [
+          "HIST 1700",
+          "HIST 1701"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "HIST 1700",
+            "title": "Introduction to Public History: Theory and Practice",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 1701",
+            "title": "History for Tomorrow: Technology and the Humanities",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses :",
-    "description": "(a) Any 1 course from the following: 3",
     "units": "",
-    "courses": [
+    "rows": [
       {
-        "code": "HIST 2002",
-        "title": "Historiography (Advanced)",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "(a) Any 1 course from the following:",
+        "codes": [],
+        "units": "3",
+        "courses": []
       },
       {
-        "code": "HIST 2005",
-        "title": "Introduction to World History: Antiquity",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "HIST 2006",
-        "title": "Introduction to World History: Middle Ages",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "HIST 2007",
-        "title": "Introduction to World History: Modern Era",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "HIST 2010",
-        "title": "Oral History: Methods and Practices",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "HIST 2110",
-        "title": "Walking through Chinese History",
-        "unit": "3.00",
-        "prereq": "Not for HIstory Majors. Not for student who have taken HIST1001."
-      },
-      {
-        "code": "HIST 2500",
-        "title": "History of Hong Kong",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken UGEC2945 or HIST2501"
-      },
-      {
-        "code": "HIST 2701",
-        "title": "Local History and Public History",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken HIST2501"
-      },
-      {
-        "code": "HIST 3441",
-        "title": "Museum and Heritage",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "HIST 3701",
-        "title": "History, Memory, and Monuments",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "HIST 4702",
-        "title": "Digital History",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "HIST 4703",
-        "title": "Christianity in World History",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "HIST 4704",
-        "title": "Women, Society, and Politics in Modern China",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 2,
+        "text": "(b) (c) HIST2002, 2005, 2006, 2007 Any 2 courses from the following: HIST2010, 2701, 3441, 3701, 4702, 4703, 4704 Any 1 course from the following: HIST2110, 2500 or 2501, 3103, 3404, 3406, 3505, 4142, 4500, 4502, 4600, 4700, 4701, 4910",
+        "codes": [
+          "HIST 2002",
+          "HIST 2005",
+          "HIST 2006",
+          "HIST 2007",
+          "HIST 2010",
+          "HIST 2110",
+          "HIST 2500",
+          "HIST 2701",
+          "HIST 3441",
+          "HIST 3701",
+          "HIST 4702",
+          "HIST 4703",
+          "HIST 4704"
+        ],
+        "units": "6",
+        "courses": [
+          {
+            "code": "HIST 2002",
+            "title": "Historiography (Advanced)",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 2005",
+            "title": "Introduction to World History: Antiquity",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 2006",
+            "title": "Introduction to World History: Middle Ages",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 2007",
+            "title": "Introduction to World History: Modern Era",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 2010",
+            "title": "Oral History: Methods and Practices",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 2110",
+            "title": "Walking through Chinese History",
+            "unit": "3.00",
+            "prereq": "Not for HIstory Majors. Not for student who have taken HIST1001."
+          },
+          {
+            "code": "HIST 2500",
+            "title": "History of Hong Kong",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken UGEC2945 or HIST2501"
+          },
+          {
+            "code": "HIST 2701",
+            "title": "Local History and Public History",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken HIST2501"
+          },
+          {
+            "code": "HIST 3441",
+            "title": "Museum and Heritage",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 3701",
+            "title": "History, Memory, and Monuments",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 4702",
+            "title": "Digital History",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 4703",
+            "title": "Christianity in World History",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 4704",
+            "title": "Women, Society, and Politics in Modern China",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       }
     ]
   },
-  "explanatory_notes": "<tr style=\"height:13.8pt\"> <td colspan=\"2\" style=\"width:360.9pt;padding:0cm 5.4pt 0cm 5.4pt; height:13.8pt\" valign=\"top\" width=\"481\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n Notes:</span></p> </td> <td style=\"width:106.0pt;padding:0cm 5.4pt 0cm 5.4pt; height:13.8pt\" valign=\"top\" width=\"141\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr>\n<tr style=\"height:13.8pt\"> <td colspan=\"3\" style=\"width:466.9pt;padding:0cm 5.4pt 0cm 5.4pt; height:13.8pt\" valign=\"top\" width=\"623\"> <p class=\"MsoNormal\" style=\"margin-left:23.25pt;text-align:justify; text-justify:inter-ideograph;text-indent:-23.25pt;line-height:14.0pt\"><span lang=\"EN-US\">1.<span style='font:7.0pt \"Times New Roman\"'>          </span></span><span lang=\"EN-US\">This Minor Programme is not applicable to\n\n students who major in History, History and English Double Major\n\n Programme, History and Japanese Studies Double Major Programme, English\n\n and History Double Major Programme and Japanese Studies and History\n\n Double Major Programme.</span></p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><b><span lang=\"EN-US\"> </span></b></p> <p class=\"MsoNormal\" style=\"margin-left:14.45pt;text-align:justify; text-justify:inter-ideograph;text-indent:-13.5pt;line-height:14.0pt\"><span lang=\"EN-US\">2.<b>  </b>No more than 9 units of courses taken to fulfill\n\n the requirements of the students’ Major</span></p> <p class=\"MsoNormal\" style=\"margin-left:24.0pt;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">Programme(s)\n\n and other Minor Programme(s) respectively can be used to fulfill the</span></p> <p class=\"MsoNormal\" style=\"margin-left:24.0pt;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">requirement\n\n of this Minor Programme</span></p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr>"
+  "explanatory_notes": "<table><tr style=\"height:13.8pt\"> <td colspan=\"2\" style=\"width:360.9pt;padding:0cm 5.4pt 0cm 5.4pt; height:13.8pt\" valign=\"top\" width=\"481\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n Notes:</span></p> </td> <td style=\"width:106.0pt;padding:0cm 5.4pt 0cm 5.4pt; height:13.8pt\" valign=\"top\" width=\"141\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr>\n<tr style=\"height:13.8pt\"> <td colspan=\"3\" style=\"width:466.9pt;padding:0cm 5.4pt 0cm 5.4pt; height:13.8pt\" valign=\"top\" width=\"623\"> <p class=\"MsoNormal\" style=\"margin-left:23.25pt;text-align:justify; text-justify:inter-ideograph;text-indent:-23.25pt;line-height:14.0pt\"><span lang=\"EN-US\">1.<span style='font:7.0pt \"Times New Roman\"'>          </span></span><span lang=\"EN-US\">This Minor Programme is not applicable to\n\n students who major in History, History and English Double Major\n\n Programme, History and Japanese Studies Double Major Programme, English\n\n and History Double Major Programme and Japanese Studies and History\n\n Double Major Programme.</span></p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><b><span lang=\"EN-US\"> </span></b></p> <p class=\"MsoNormal\" style=\"margin-left:14.45pt;text-align:justify; text-justify:inter-ideograph;text-indent:-13.5pt;line-height:14.0pt\"><span lang=\"EN-US\">2.<b>  </b>No more than 9 units of courses taken to fulfill\n\n the requirements of the students’ Major</span></p> <p class=\"MsoNormal\" style=\"margin-left:24.0pt;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">Programme(s)\n\n and other Minor Programme(s) respectively can be used to fulfill the</span></p> <p class=\"MsoNormal\" style=\"margin-left:24.0pt;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">requirement\n\n of this Minor Programme</span></p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr></table>"
 }

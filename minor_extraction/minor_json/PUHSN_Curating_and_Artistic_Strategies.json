@@ -6,77 +6,112 @@
   "description": "Students are required to complete a minimum of 18 units of courses as follows with at least 6 units at 3000 or above level:",
   "required": {
     "label": "1. Required Courses: 6",
-    "description": "",
     "units": "6",
-    "courses": [
+    "rows": [
       {
-        "code": "CURE 2407",
-        "title": "Curation in Arts and Culture",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "FAAS 2117",
-        "title": "Art in HK: from the Foundation of the Colony to the Early 21st Century",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "CURE2407, FAAS2117",
+        "codes": [
+          "CURE 2407",
+          "FAAS 2117"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "CURE 2407",
+            "title": "Curation in Arts and Culture",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "FAAS 2117",
+            "title": "Art in HK: from the Foundation of the Colony to the Early 21st Century",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses: 12",
-    "description": "",
     "units": "12",
-    "courses": [
+    "rows": [
       {
-        "code": "CURE 2411",
-        "title": "Visual Arts Management",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "(a) Any 2 courses from the following: CURE2411, 3404, 3405, 3408",
+        "codes": [
+          "CURE 2411",
+          "CURE 3404",
+          "CURE 3405",
+          "CURE 3408"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "CURE 2411",
+            "title": "Visual Arts Management",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "CURE 3404",
+            "title": "Public and Community Art",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "CURE 3405",
+            "title": "Design Your Exhibition – Curatorial Planning and Practice",
+            "unit": "3.00",
+            "prereq": "1. Pre-requisite: CUMT2007 Curation in Arts and Culture or CURE2407 Curation in Arts and Culture 2. Not for students who have taken CUMT3005."
+          },
+          {
+            "code": "CURE 3408",
+            "title": "Curating and Managing Arts Festival",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       },
       {
-        "code": "CURE 3404",
-        "title": "Public and Community Art",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "CURE 3405",
-        "title": "Design Your Exhibition – Curatorial Planning and Practice",
-        "unit": "3.00",
-        "prereq": "1. Pre-requisite: CUMT2007 Curation in Arts and Culture or CURE2407 Curation in Arts and Culture 2. Not for students who have taken CUMT3005."
-      },
-      {
-        "code": "CURE 3408",
-        "title": "Curating and Managing Arts Festival",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "FAAS 2208",
-        "title": "Basic Photography",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "FAAS 3108",
-        "title": "Contemporary Art: Artistic Strategies in a Postmodern Era",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "FAAS 3229",
-        "title": "Text and Image",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "FAAS 4201",
-        "title": "Art As Profession",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 2,
+        "text": "(b) Any 2 courses from the following[a]: FAAS2208, 3108, 3229, 4201",
+        "codes": [
+          "FAAS 2208",
+          "FAAS 3108",
+          "FAAS 3229",
+          "FAAS 4201"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "FAAS 2208",
+            "title": "Basic Photography",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "FAAS 3108",
+            "title": "Contemporary Art: Artistic Strategies in a Postmodern Era",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "FAAS 3229",
+            "title": "Text and Image",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "FAAS 4201",
+            "title": "Art As Profession",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       }
     ]
   },
-  "explanatory_notes": "<tr> <td colspan=\"4\" style=\"width:483.45pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"645\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt;layout-grid-mode:char\"> Explanatory Note:</p> </td> </tr>\n<tr> <td style=\"width:32.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"43\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\">1.</p> </td> <td colspan=\"3\" style=\"width:451.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"602\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\"><span lang=\"EN-US\">No more than 9 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</span> </p> </td> </tr>\n<tr> <td style=\"width:32.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"43\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\">[a]</p> </td> <td colspan=\"3\" style=\"width:451.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"602\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\"><span lang=\"EN-US\">Public Humanities</span><span lang=\"EN-US\"> </span>major\n\n students cannot take FAAS3108 and FAAS4201 to fulfill the elective course\n\n requirements specified in 2(b).</p> </td> </tr>"
+  "explanatory_notes": "<table><tr> <td colspan=\"4\" style=\"width:483.45pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"645\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt;layout-grid-mode:char\"> Explanatory Note:</p> </td> </tr>\n<tr> <td style=\"width:32.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"43\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\">1.</p> </td> <td colspan=\"3\" style=\"width:451.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"602\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\"><span lang=\"EN-US\">No more than 9 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</span> </p> </td> </tr>\n<tr> <td style=\"width:32.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"43\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\">[a]</p> </td> <td colspan=\"3\" style=\"width:451.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"602\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\"><span lang=\"EN-US\">Public Humanities</span><span lang=\"EN-US\"> </span>major\n\n students cannot take FAAS3108 and FAAS4201 to fulfill the elective course\n\n requirements specified in 2(b).</p> </td> </tr></table>"
 }

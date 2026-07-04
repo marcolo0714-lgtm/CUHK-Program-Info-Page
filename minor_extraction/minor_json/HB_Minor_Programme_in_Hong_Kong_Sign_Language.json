@@ -6,41 +6,84 @@
   "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
   "required": {
     "label": "1. Required Courses[a]:",
-    "description": "",
     "units": "",
-    "courses": [
+    "rows": [
       {
-        "code": "HKSL 1000",
-        "title": "Hong Kong Sign Language I",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003"
+        "index": 1,
+        "text": "(a) HKSL1000 and 1002, or 1003",
+        "codes": [
+          "HKSL 1000",
+          "HKSL 1002"
+        ],
+        "units": "6",
+        "courses": [
+          {
+            "code": "HKSL 1000",
+            "title": "Hong Kong Sign Language I",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003"
+          },
+          {
+            "code": "HKSL 1002",
+            "title": "Hong Kong Sign Language II",
+            "unit": "3.00",
+            "prereq": "1. Not for students who have taken HKSL1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003 2. Prerequisite: HKSL1000"
+          }
+        ]
       },
       {
-        "code": "HKSL 2001",
-        "title": "Hong Kong Sign Language III",
-        "unit": "3.00",
-        "prereq": "1.Not for students who have taken HKSL2002(3000), 2003(3050), 3001, 3002 or 3003 2.Pre-requisite: HKSL1002(2000) or 1003(2050)"
+        "index": 2,
+        "text": "(b) HKSL2001 and 2002, or 2003",
+        "codes": [
+          "HKSL 2001",
+          "HKSL 2002"
+        ],
+        "units": "6",
+        "courses": [
+          {
+            "code": "HKSL 2001",
+            "title": "Hong Kong Sign Language III",
+            "unit": "3.00",
+            "prereq": "1.Not for students who have taken HKSL2002(3000), 2003(3050), 3001, 3002 or 3003 2.Pre-requisite: HKSL1002(2000) or 1003(2050)"
+          },
+          {
+            "code": "HKSL 2002",
+            "title": "Hong Kong Sign Language IV",
+            "unit": "3.00",
+            "prereq": "1. Not for students who have taken HKSL2003(3050), 3001, 3002 or 3003 2. Prerequisite: HKSL2001"
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses:",
-    "description": "",
     "units": "",
-    "courses": [
+    "rows": [
       {
-        "code": "BMBL 3002",
-        "title": "Introduction to Sign Language Interpreting",
-        "unit": "3.00",
-        "prereq": "Prerequisite: HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003"
-      },
-      {
-        "code": "BMBL 3003",
-        "title": "Special Topics in Sign Language Studies",
-        "unit": "3.00",
-        "prereq": "Prerequisite: HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003"
+        "index": 1,
+        "text": "BMBL3002, 3003 or any HKSL courses at 3000 or above level",
+        "codes": [
+          "BMBL 3002",
+          "BMBL 3003"
+        ],
+        "units": "6",
+        "courses": [
+          {
+            "code": "BMBL 3002",
+            "title": "Introduction to Sign Language Interpreting",
+            "unit": "3.00",
+            "prereq": "Prerequisite: HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003"
+          },
+          {
+            "code": "BMBL 3003",
+            "title": "Special Topics in Sign Language Studies",
+            "unit": "3.00",
+            "prereq": "Prerequisite: HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003"
+          }
+        ]
       }
     ]
   },
-  "explanatory_notes": "<tr>\n<td colspan=\"3\" style=\"width:437.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"583\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n      Notes:</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:43.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"58\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">1.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:393.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"525\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\">This\n\n      Minor Programme is not applicable to students who major in Bimodal\n\n      Bilingual Studies.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:43.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"58\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">2.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:393.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"525\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\">Linguistics\n\n      Major students can only take HKSL courses to fulfill the requirement of\n\n      (2). </span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:43.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"58\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">3.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:393.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"525\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\">No more than 9 units\n\n      of courses taken to fulfill the requirements of the students’</p>\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\">Major Programme(s)\n\n      and other Minor Programme(s) respectively can be used</p>\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\">to fulfill the\n\n      requirement of this Minor Programme.</p>\n</td>\n</tr>\n<tr>\n<td style=\"width:43.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"58\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[a]</span></p>\n</td>\n<td colspan=\"2\" style=\"width:393.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"525\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\">Students\n\n      who have prior knowledge of Hong Kong Sign Language before admission may\n\n      be exempted from taking HKSL1000, 1002, 1003, 2001, 2002 and 2003. They\n\n      should seek the advice of the Department to take substitute courses in accordance\n\n      with their academic qualifications.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:43.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"58\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n</td>\n<td colspan=\"2\" style=\"width:393.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"525\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\"> </span></p>\n</td>\n</tr>"
+  "explanatory_notes": "<table><tr>\n<td colspan=\"3\" style=\"width:437.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"583\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n      Notes:</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:43.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"58\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">1.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:393.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"525\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\">This\n\n      Minor Programme is not applicable to students who major in Bimodal\n\n      Bilingual Studies.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:43.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"58\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">2.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:393.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"525\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\">Linguistics\n\n      Major students can only take HKSL courses to fulfill the requirement of\n\n      (2). </span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:43.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"58\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">3.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:393.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"525\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\">No more than 9 units\n\n      of courses taken to fulfill the requirements of the students’</p>\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\">Major Programme(s)\n\n      and other Minor Programme(s) respectively can be used</p>\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\">to fulfill the\n\n      requirement of this Minor Programme.</p>\n</td>\n</tr>\n<tr>\n<td style=\"width:43.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"58\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[a]</span></p>\n</td>\n<td colspan=\"2\" style=\"width:393.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"525\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\">Students\n\n      who have prior knowledge of Hong Kong Sign Language before admission may\n\n      be exempted from taking HKSL1000, 1002, 1003, 2001, 2002 and 2003. They\n\n      should seek the advice of the Department to take substitute courses in accordance\n\n      with their academic qualifications.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:43.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"58\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n</td>\n<td colspan=\"2\" style=\"width:393.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"525\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\"> </span></p>\n</td>\n</tr></table>"
 }

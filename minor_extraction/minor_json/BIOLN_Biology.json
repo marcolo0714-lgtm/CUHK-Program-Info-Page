@@ -6,185 +6,268 @@
   "description": "Students are required to complete a minimum of 24 units of courses, with at least 9 units at 3000 or above level, as follows:",
   "required": {
     "label": "1. Required Courses:",
-    "description": "",
     "units": "",
-    "courses": [
+    "rows": [
       {
-        "code": "BIOL 2120",
-        "title": "Cell Biology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: LSCI1002."
+        "index": 1,
+        "text": "(a) LSCI1002, 1012",
+        "codes": [
+          "LSCI 1002",
+          "LSCI 1012"
+        ],
+        "units": "6",
+        "courses": [
+          {
+            "code": "LSCI 1002",
+            "title": "Introduction to Biological Sciences",
+            "unit": "3.00",
+            "prereq": "-"
+          },
+          {
+            "code": "LSCI 1012",
+            "title": "Introduction to Life Forms in the Biosphere",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       },
       {
-        "code": "BIOL 2210",
-        "title": "Ecology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: LSCI1002 or LSCI1012."
+        "index": 2,
+        "text": "(b) BIOL2120, 2210 or 2410",
+        "codes": [
+          "BIOL 2120",
+          "BIOL 2210"
+        ],
+        "units": "2",
+        "courses": [
+          {
+            "code": "BIOL 2120",
+            "title": "Cell Biology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: LSCI1002."
+          },
+          {
+            "code": "BIOL 2210",
+            "title": "Ecology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: LSCI1002 or LSCI1012."
+          }
+        ]
       },
       {
-        "code": "BIOL 3560",
-        "title": "Biology of Fungi and Non-Vascular Plants",
-        "unit": "2.00",
-        "prereq": "Pre-requisite: LSCI1002."
-      },
-      {
-        "code": "BIOL 3610",
-        "title": "Invertebrate Form and Function",
-        "unit": "2.00",
-        "prereq": "Pre-requisite: LSCI1002 or permission of instructor (Not applicable to Old Curriculum students)."
-      },
-      {
-        "code": "LSCI 1002",
-        "title": "Introduction to Biological Sciences",
-        "unit": "3.00",
-        "prereq": "-"
-      },
-      {
-        "code": "LSCI 1012",
-        "title": "Introduction to Life Forms in the Biosphere",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 3,
+        "text": "(c) BIOL3560 and 3570 or BIOL3610 and 3620",
+        "codes": [
+          "BIOL 3560",
+          "BIOL 3570",
+          "BIOL 3610",
+          "BIOL 3620"
+        ],
+        "units": "4",
+        "courses": [
+          {
+            "code": "BIOL 3560",
+            "title": "Biology of Fungi and Non-Vascular Plants",
+            "unit": "2.00",
+            "prereq": "Pre-requisite: LSCI1002."
+          },
+          {
+            "code": "BIOL 3570",
+            "title": "Biology of Vascular Plants",
+            "unit": "2.00",
+            "prereq": "Pre-requisite: BIOL3560."
+          },
+          {
+            "code": "BIOL 3610",
+            "title": "Invertebrate Form and Function",
+            "unit": "2.00",
+            "prereq": "Pre-requisite: LSCI1002 or permission of instructor (Not applicable to Old Curriculum students)."
+          },
+          {
+            "code": "BIOL 3620",
+            "title": "Vertebrate Life",
+            "unit": "2.00",
+            "prereq": "Pre-requisite: LSCI1002 and BIOL2210 or permission of instructor (Not applicable to Old Curriculum students)."
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses (12 units of courses from the following list, including any courses not taken in 1(b) and 1(c) above): 12",
-    "description": "",
     "units": "12",
-    "courses": [
+    "rows": [
       {
-        "code": "BIOL 2213",
-        "title": "Ecology Laboratory",
-        "unit": "1.00",
-        "prereq": "Corequisite:BIOL2210"
+        "index": 1,
+        "text": "BIOL2213, 2313, 2420, 3012, 3022, 3310, 3410, 3510, 3530, 3630, 3710, 4010, 4012, 4120, 4230, 4240, 4242, 4260, 4310, 4420, 4510, 4610",
+        "codes": [
+          "BIOL 2213",
+          "BIOL 2313",
+          "BIOL 2420",
+          "BIOL 3012",
+          "BIOL 3022",
+          "BIOL 3310",
+          "BIOL 3410",
+          "BIOL 3510",
+          "BIOL 3530",
+          "BIOL 3630",
+          "BIOL 3710",
+          "BIOL 4010",
+          "BIOL 4012",
+          "BIOL 4120",
+          "BIOL 4230",
+          "BIOL 4240",
+          "BIOL 4242",
+          "BIOL 4260",
+          "BIOL 4310",
+          "BIOL 4420",
+          "BIOL 4510",
+          "BIOL 4610"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "BIOL 2213",
+            "title": "Ecology Laboratory",
+            "unit": "1.00",
+            "prereq": "Corequisite:BIOL2210"
+          },
+          {
+            "code": "BIOL 2313",
+            "title": "Genetics Laboratory",
+            "unit": "1.00",
+            "prereq": "Co-requisite: BIOL2410."
+          },
+          {
+            "code": "BIOL 2420",
+            "title": "Population Genetics",
+            "unit": "1.00",
+            "prereq": "Co-requisite: BIOL2410."
+          },
+          {
+            "code": "BIOL 3012",
+            "title": "Biodiversity Laboratory I",
+            "unit": "2.00",
+            "prereq": "Co-requisite: BIOL3560 and 3610."
+          },
+          {
+            "code": "BIOL 3022",
+            "title": "Biodiversity Laboratory II",
+            "unit": "2.00",
+            "prereq": "Co-requisite: BIOL3570 and 3620."
+          },
+          {
+            "code": "BIOL 3310",
+            "title": "Human Biology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: LSCI1002 (Not applicable to Old Curriculum students)."
+          },
+          {
+            "code": "BIOL 3410",
+            "title": "General Microbiology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: BCHE2030 and BIOL2120."
+          },
+          {
+            "code": "BIOL 3510",
+            "title": "Palaeobiology",
+            "unit": "2.00",
+            "prereq": ""
+          },
+          {
+            "code": "BIOL 3530",
+            "title": "Plant Physiology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: BCHE2030."
+          },
+          {
+            "code": "BIOL 3630",
+            "title": "Animal Physiology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken FNSC4101. Prerequisite: BIOL2120 and BCHE2030."
+          },
+          {
+            "code": "BIOL 3710",
+            "title": "Marine Biology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: BIOL2210"
+          },
+          {
+            "code": "BIOL 4010",
+            "title": "Evolutionary Biology",
+            "unit": "3.00",
+            "prereq": "Prerequisite: BIOL2210 or BIOL2310 or BIOL2410."
+          },
+          {
+            "code": "BIOL 4012",
+            "title": "Field and Environmental Biology",
+            "unit": "2.00",
+            "prereq": "Co-requisite: BIOL2210 and 3710."
+          },
+          {
+            "code": "BIOL 4120",
+            "title": "Developmental Biology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: BIOL2120."
+          },
+          {
+            "code": "BIOL 4230",
+            "title": "Global Change Biology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: BIOL2210."
+          },
+          {
+            "code": "BIOL 4240",
+            "title": "Environmental Impact Assessment",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENSC4240. Pre-requisite: ENSC2270 or EESC2270 and BIOL2210."
+          },
+          {
+            "code": "BIOL 4242",
+            "title": "Environmental Impact Assessment Laboratory",
+            "unit": "2.00",
+            "prereq": "Not for students who have taken ENSC4242. Co-requisite: BIOL4240."
+          },
+          {
+            "code": "BIOL 4260",
+            "title": "Conservation Biology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENSC4260. Pre-requisite: BIOL2210."
+          },
+          {
+            "code": "BIOL 4310",
+            "title": "Human Genetics",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: BIOL2310 or BIOL2410."
+          },
+          {
+            "code": "BIOL 4420",
+            "title": "Marine Microbial Ecology",
+            "unit": "2.00",
+            "prereq": "Pre-requisite: BIOL3410."
+          },
+          {
+            "code": "BIOL 4510",
+            "title": "Hong Kong Flora and Vegetation",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: LSCI1002."
+          },
+          {
+            "code": "BIOL 4610",
+            "title": "Foundation for Secondary School Biology Teaching",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       },
       {
-        "code": "BIOL 2313",
-        "title": "Genetics Laboratory",
-        "unit": "1.00",
-        "prereq": "Co-requisite: BIOL2410."
-      },
-      {
-        "code": "BIOL 2420",
-        "title": "Population Genetics",
-        "unit": "1.00",
-        "prereq": "Co-requisite: BIOL2410."
-      },
-      {
-        "code": "BIOL 3012",
-        "title": "Biodiversity Laboratory I",
-        "unit": "2.00",
-        "prereq": "Co-requisite: BIOL3560 and 3610."
-      },
-      {
-        "code": "BIOL 3022",
-        "title": "Biodiversity Laboratory II",
-        "unit": "2.00",
-        "prereq": "Co-requisite: BIOL3570 and 3620."
-      },
-      {
-        "code": "BIOL 3310",
-        "title": "Human Biology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: LSCI1002 (Not applicable to Old Curriculum students)."
-      },
-      {
-        "code": "BIOL 3410",
-        "title": "General Microbiology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: BCHE2030 and BIOL2120."
-      },
-      {
-        "code": "BIOL 3510",
-        "title": "Palaeobiology",
-        "unit": "2.00",
-        "prereq": ""
-      },
-      {
-        "code": "BIOL 3530",
-        "title": "Plant Physiology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: BCHE2030."
-      },
-      {
-        "code": "BIOL 3630",
-        "title": "Animal Physiology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken FNSC4101. Prerequisite: BIOL2120 and BCHE2030."
-      },
-      {
-        "code": "BIOL 3710",
-        "title": "Marine Biology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: BIOL2210"
-      },
-      {
-        "code": "BIOL 4010",
-        "title": "Evolutionary Biology",
-        "unit": "3.00",
-        "prereq": "Prerequisite: BIOL2210 or BIOL2310 or BIOL2410."
-      },
-      {
-        "code": "BIOL 4012",
-        "title": "Field and Environmental Biology",
-        "unit": "2.00",
-        "prereq": "Co-requisite: BIOL2210 and 3710."
-      },
-      {
-        "code": "BIOL 4120",
-        "title": "Developmental Biology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: BIOL2120."
-      },
-      {
-        "code": "BIOL 4230",
-        "title": "Global Change Biology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: BIOL2210."
-      },
-      {
-        "code": "BIOL 4240",
-        "title": "Environmental Impact Assessment",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ENSC4240. Pre-requisite: ENSC2270 or EESC2270 and BIOL2210."
-      },
-      {
-        "code": "BIOL 4242",
-        "title": "Environmental Impact Assessment Laboratory",
-        "unit": "2.00",
-        "prereq": "Not for students who have taken ENSC4242. Co-requisite: BIOL4240."
-      },
-      {
-        "code": "BIOL 4260",
-        "title": "Conservation Biology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ENSC4260. Pre-requisite: BIOL2210."
-      },
-      {
-        "code": "BIOL 4310",
-        "title": "Human Genetics",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: BIOL2310 or BIOL2410."
-      },
-      {
-        "code": "BIOL 4420",
-        "title": "Marine Microbial Ecology",
-        "unit": "2.00",
-        "prereq": "Pre-requisite: BIOL3410."
-      },
-      {
-        "code": "BIOL 4510",
-        "title": "Hong Kong Flora and Vegetation",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: LSCI1002."
-      },
-      {
-        "code": "BIOL 4610",
-        "title": "Foundation for Secondary School Biology Teaching",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 2,
+        "text": "Total: 24",
+        "codes": [],
+        "units": "24",
+        "courses": []
       }
     ]
   },
-  "explanatory_notes": "<tr> <td colspan=\"3\" style=\"width:487.95pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"651\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Explanatory Note:</p> </td> </tr>\n<tr> <td style=\"width:38.4pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"51\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> </td> <td colspan=\"2\" style=\"width:449.55pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"599\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">No more than 12 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</p> </td> </tr>\n<tr> <td style=\"width:38.4pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"51\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td colspan=\"2\" style=\"width:449.55pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"599\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> </td> </tr>"
+  "explanatory_notes": "<table><tr> <td colspan=\"3\" style=\"width:487.95pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"651\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Explanatory Note:</p> </td> </tr>\n<tr> <td style=\"width:38.4pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"51\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> </td> <td colspan=\"2\" style=\"width:449.55pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"599\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">No more than 12 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</p> </td> </tr>\n<tr> <td style=\"width:38.4pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"51\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td colspan=\"2\" style=\"width:449.55pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"599\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> </td> </tr></table>"
 }

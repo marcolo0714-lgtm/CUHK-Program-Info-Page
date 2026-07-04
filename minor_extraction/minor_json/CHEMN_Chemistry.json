@@ -6,95 +6,124 @@
   "description": "Students are required to complete a minimum of 24 units of courses, with at least 6 units at 3000 or above level, as follows:",
   "required": {
     "label": "1. Required Courses: 18",
-    "description": "",
     "units": "18",
-    "courses": [
+    "rows": [
       {
-        "code": "CHEM 2120",
-        "title": "Main Group Chemistry",
-        "unit": "2.00",
-        "prereq": ""
-      },
-      {
-        "code": "CHEM 2200",
-        "title": "Organic Functional Groups: Structure and Reactivity",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "CHEM 2300",
-        "title": "Thermodynamics and Chemical Equilibrium",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "CHEM 2400",
-        "title": "Analytical Chemistry",
-        "unit": "2.00",
-        "prereq": "--"
-      },
-      {
-        "code": "CHEM 2860",
-        "title": "Integrated Chemistry Laboratory I",
-        "unit": "4.00",
-        "prereq": "Not for students who have taken CHEM2868."
-      },
-      {
-        "code": "CHEM 2870",
-        "title": "Integrated Chemistry Laboratory II",
-        "unit": "4.00",
-        "prereq": "Not for students who have taken CHEM2878."
+        "index": 1,
+        "text": "CHEM2120, 2200, 2300, 2400, 2860, 2870",
+        "codes": [
+          "CHEM 2120",
+          "CHEM 2200",
+          "CHEM 2300",
+          "CHEM 2400",
+          "CHEM 2860",
+          "CHEM 2870"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "CHEM 2120",
+            "title": "Main Group Chemistry",
+            "unit": "2.00",
+            "prereq": ""
+          },
+          {
+            "code": "CHEM 2200",
+            "title": "Organic Functional Groups: Structure and Reactivity",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "CHEM 2300",
+            "title": "Thermodynamics and Chemical Equilibrium",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "CHEM 2400",
+            "title": "Analytical Chemistry",
+            "unit": "2.00",
+            "prereq": "--"
+          },
+          {
+            "code": "CHEM 2860",
+            "title": "Integrated Chemistry Laboratory I",
+            "unit": "4.00",
+            "prereq": "Not for students who have taken CHEM2868."
+          },
+          {
+            "code": "CHEM 2870",
+            "title": "Integrated Chemistry Laboratory II",
+            "unit": "4.00",
+            "prereq": "Not for students who have taken CHEM2878."
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses:",
-    "description": "",
     "units": "",
-    "courses": [
+    "rows": [
       {
-        "code": "CHEM 3130",
-        "title": "Transition Metal Chemistry",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "CHEM 3220",
-        "title": "Organic Reactions: Reactivity and Selectivity",
-        "unit": "2.00",
-        "prereq": "Pre-requisite: CHEM2200."
-      },
-      {
-        "code": "CHEM 3320",
-        "title": "Chemical Kinetics",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "CHEM 3410",
-        "title": "Instrumental Analysis",
-        "unit": "3.00",
-        "prereq": "--"
-      },
-      {
-        "code": "CHEM 4788",
-        "title": "Chemical Applications in Forensic Science",
-        "unit": "2.00",
-        "prereq": ""
-      },
-      {
-        "code": "ENSC 4525",
-        "title": "Advanced Environmental Chemistry",
-        "unit": "3.00",
-        "prereq": "Prerequisite: ENSC2515 or permission of the instructor"
-      },
-      {
-        "code": "ENSC 4535",
-        "title": "Chemical Treatment Processes",
-        "unit": "3.00",
-        "prereq": "Prerequisite: ENSC2515 or permission of the instructor"
+        "index": 1,
+        "text": "At least six units from: CHEM3130, 3220, 3320, 3410, 4788, ENSC4525, 4535",
+        "codes": [
+          "CHEM 3130",
+          "CHEM 3220",
+          "CHEM 3320",
+          "CHEM 3410",
+          "CHEM 4788",
+          "ENSC 4525",
+          "ENSC 4535"
+        ],
+        "units": "6",
+        "courses": [
+          {
+            "code": "CHEM 3130",
+            "title": "Transition Metal Chemistry",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "CHEM 3220",
+            "title": "Organic Reactions: Reactivity and Selectivity",
+            "unit": "2.00",
+            "prereq": "Pre-requisite: CHEM2200."
+          },
+          {
+            "code": "CHEM 3320",
+            "title": "Chemical Kinetics",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "CHEM 3410",
+            "title": "Instrumental Analysis",
+            "unit": "3.00",
+            "prereq": "--"
+          },
+          {
+            "code": "CHEM 4788",
+            "title": "Chemical Applications in Forensic Science",
+            "unit": "2.00",
+            "prereq": ""
+          },
+          {
+            "code": "ENSC 4525",
+            "title": "Advanced Environmental Chemistry",
+            "unit": "3.00",
+            "prereq": "Prerequisite: ENSC2515 or permission of the instructor"
+          },
+          {
+            "code": "ENSC 4535",
+            "title": "Chemical Treatment Processes",
+            "unit": "3.00",
+            "prereq": "Prerequisite: ENSC2515 or permission of the instructor"
+          }
+        ]
       }
     ]
   },
-  "explanatory_notes": "<tr> <td colspan=\"2\" style=\"width:370.8pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"494\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Explanatory Note: </p> </td> <td style=\"width:84.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"112\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"> </p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> </td> <td colspan=\"2\" style=\"width:420.7pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"561\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">No more than 12 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td style=\"width:336.6pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"449\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> </td> <td style=\"width:84.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"112\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"> </p> </td> </tr>"
+  "explanatory_notes": "<table><tr> <td colspan=\"2\" style=\"width:370.8pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"494\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Explanatory Note: </p> </td> <td style=\"width:84.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"112\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"> </p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> </td> <td colspan=\"2\" style=\"width:420.7pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"561\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">No more than 12 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td style=\"width:336.6pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"449\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> </td> <td style=\"width:84.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"112\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"> </p> </td> </tr></table>"
 }

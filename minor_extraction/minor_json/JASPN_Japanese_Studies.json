@@ -6,274 +6,361 @@
   "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
   "required": {
     "label": "",
-    "description": "",
     "units": "",
-    "courses": []
+    "rows": []
   },
   "elective": {
     "label": "1. Elective Courses : 6",
-    "description": "(a) Any 2 courses from the following: (b) Any 4 courses from the following\n\n non-language courses: 12",
     "units": "6",
-    "courses": [
+    "rows": [
       {
-        "code": "ANTH 2327",
-        "title": "Ethnographies of Japan",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "(a) Any 2 courses from the following:",
+        "codes": [],
+        "units": "",
+        "courses": []
       },
       {
-        "code": "ANTH 2350",
-        "title": "Meanings of Life",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 2,
+        "text": "JASP1090, 1100, 1120",
+        "codes": [
+          "JASP 1090",
+          "JASP 1100",
+          "JASP 1120"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "JASP 1090",
+            "title": "Understanding Japan",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken JASP1020."
+          },
+          {
+            "code": "JASP 1100",
+            "title": "Japanese Culture and Society",
+            "unit": "3.00",
+            "prereq": "Not for Japanese Studies Majors or students who have taken UGEC1232"
+          },
+          {
+            "code": "JASP 1120",
+            "title": "Understanding Japanese Languages and Culture",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       },
       {
-        "code": "HIST 3380",
-        "title": "History of Traditional Japan",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken HIST3213 and HIST5507F."
+        "index": 3,
+        "text": "(b) Any 4 courses from the following non-language courses:",
+        "codes": [],
+        "units": "12",
+        "courses": []
       },
       {
-        "code": "HIST 4420",
-        "title": "",
-        "unit": "",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 1090",
-        "title": "Understanding Japan",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken JASP1020."
-      },
-      {
-        "code": "JASP 1100",
-        "title": "Japanese Culture and Society",
-        "unit": "3.00",
-        "prereq": "Not for Japanese Studies Majors or students who have taken UGEC1232"
-      },
-      {
-        "code": "JASP 1120",
-        "title": "Understanding Japanese Languages and Culture",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 1140",
-        "title": "Japanese Cinema",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken GESC2080, JASP1150 or UGEC1302."
-      },
-      {
-        "code": "JASP 1160",
-        "title": "Japanese Popular Culture in Cultural Globalization",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken JASP1110 or UGEC1271"
-      },
-      {
-        "code": "JASP 1180",
-        "title": "Modern Sino-Japanese Relations",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 1190",
-        "title": "Tourism and Sustainable Development",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 2100",
-        "title": "Japan and Asian Creative Industries",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 2200",
-        "title": "Introduction to Japanese Animation, Comic and Game",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 2400",
-        "title": "Culture of Japanese Mass Media",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 2520",
-        "title": "Intimacy in Contemporary Japan",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 2600",
-        "title": "Japanese Management",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 2720",
-        "title": "History of Japanese Literature",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 2820",
-        "title": "Introduction to Japanese Economy",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 2910",
-        "title": "The History of 20th Century Japan",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 2920",
-        "title": "Asia at War",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 3110",
-        "title": "The Construction of Japanese Ethnic and Cultural Identity",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 3120",
-        "title": "Everyday Life and Cultural Representation in Modern Japan",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 3210",
-        "title": "",
-        "unit": "",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 3430",
-        "title": "Japan and Hong Kong",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 3470",
-        "title": "Japanese Youth Cultures in Asia",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 3480",
-        "title": "",
-        "unit": "",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 3500",
-        "title": "",
-        "unit": "",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 3700",
-        "title": "Japanese Language and Society",
-        "unit": "3.00",
-        "prereq": "Students taking this course should possess Japanese Language Proficiency Test (JLPT) N2 certificate or having Japanese language proficiency equivalent to JLPT N2 level; or should have completed JASP2480/3340."
-      },
-      {
-        "code": "JASP 3800",
-        "title": "Japanese Philosophy",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 3900",
-        "title": "",
-        "unit": "",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 4000",
-        "title": "Special Topics in Japanese Studies",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "JASP 4110",
-        "title": "Anthropology of Japan",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken JASP5615"
-      },
-      {
-        "code": "JASP 4410",
-        "title": "",
-        "unit": "",
-        "prereq": ""
-      },
-      {
-        "code": "LING 1000",
-        "title": "Invitation to Linguistics",
-        "unit": "3.00",
-        "prereq": "LING1000 is double-coded with UGED1924. Not for students who have taken UGED1924."
-      },
-      {
-        "code": "LING 2003",
-        "title": "Phonetics I",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "LING 2004",
-        "title": "Phonology I",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: LING2003"
-      },
-      {
-        "code": "LING 2005",
-        "title": "Syntax I",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "LING 2006",
-        "title": "Semantics",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "LING 3101",
-        "title": "Morphology",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "LING 3201",
-        "title": "First Language Acquisition",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "LING 3204",
-        "title": "Second Language Acquisition",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "MGNT 4530",
-        "title": "Japanese Business",
-        "unit": "3.00",
-        "prereq": "Prerequisite: MGNT1020"
-      },
-      {
-        "code": "SOCI 2103",
-        "title": "Japan in a Global Perspective",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken UGEC2260 or GESC2160 or UGEC1232/JASP1100."
+        "index": 4,
+        "text": "JASP1140, 1160, 1180, 1190, 2100, 2200, 2400, 2520, 2600, 2720, 2820, 2910, 2920, 3110, 3120, 3210, 3430, 3470, 3480, 3500, 3700, 3800, 3900, 4000, 4100, 4110, 4410, ANTH2350, 2327, HIST3380, 3381, 4420, LING1000, 2003, 2004, 2005, 2006, 3101, 3201, 3204, MGNT4530, SOCI2103",
+        "codes": [
+          "ANTH 2327",
+          "ANTH 2350",
+          "HIST 3380",
+          "HIST 3381",
+          "HIST 4420",
+          "JASP 1140",
+          "JASP 1160",
+          "JASP 1180",
+          "JASP 1190",
+          "JASP 2100",
+          "JASP 2200",
+          "JASP 2400",
+          "JASP 2520",
+          "JASP 2600",
+          "JASP 2720",
+          "JASP 2820",
+          "JASP 2910",
+          "JASP 2920",
+          "JASP 3110",
+          "JASP 3120",
+          "JASP 3210",
+          "JASP 3430",
+          "JASP 3470",
+          "JASP 3480",
+          "JASP 3500",
+          "JASP 3700",
+          "JASP 3800",
+          "JASP 3900",
+          "JASP 4000",
+          "JASP 4100",
+          "JASP 4110",
+          "JASP 4410",
+          "LING 1000",
+          "LING 2003",
+          "LING 2004",
+          "LING 2005",
+          "LING 2006",
+          "LING 3101",
+          "LING 3201",
+          "LING 3204",
+          "MGNT 4530",
+          "SOCI 2103"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "ANTH 2327",
+            "title": "Ethnographies of Japan",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2350",
+            "title": "Meanings of Life",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 3380",
+            "title": "History of Traditional Japan",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken HIST3213 and HIST5507F."
+          },
+          {
+            "code": "HIST 3381",
+            "title": "History of Modern Japan",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 4420",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 1140",
+            "title": "Japanese Cinema",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken GESC2080, JASP1150 or UGEC1302."
+          },
+          {
+            "code": "JASP 1160",
+            "title": "Japanese Popular Culture in Cultural Globalization",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken JASP1110 or UGEC1271"
+          },
+          {
+            "code": "JASP 1180",
+            "title": "Modern Sino-Japanese Relations",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 1190",
+            "title": "Tourism and Sustainable Development",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 2100",
+            "title": "Japan and Asian Creative Industries",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 2200",
+            "title": "Introduction to Japanese Animation, Comic and Game",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 2400",
+            "title": "Culture of Japanese Mass Media",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 2520",
+            "title": "Intimacy in Contemporary Japan",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 2600",
+            "title": "Japanese Management",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 2720",
+            "title": "History of Japanese Literature",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 2820",
+            "title": "Introduction to Japanese Economy",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 2910",
+            "title": "The History of 20th Century Japan",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 2920",
+            "title": "Asia at War",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 3110",
+            "title": "The Construction of Japanese Ethnic and Cultural Identity",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 3120",
+            "title": "Everyday Life and Cultural Representation in Modern Japan",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 3210",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 3430",
+            "title": "Japan and Hong Kong",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 3470",
+            "title": "Japanese Youth Cultures in Asia",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 3480",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 3500",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 3700",
+            "title": "Japanese Language and Society",
+            "unit": "3.00",
+            "prereq": "Students taking this course should possess Japanese Language Proficiency Test (JLPT) N2 certificate or having Japanese language proficiency equivalent to JLPT N2 level; or should have completed JASP2480/3340."
+          },
+          {
+            "code": "JASP 3800",
+            "title": "Japanese Philosophy",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 3900",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 4000",
+            "title": "Special Topics in Japanese Studies",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "JASP 4100",
+            "title": "Japanese Dialectology",
+            "unit": "3.00",
+            "prereq": "Prerequisite: students should have one year studying experience in Japan or equivalent competence in Japanese."
+          },
+          {
+            "code": "JASP 4110",
+            "title": "Anthropology of Japan",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken JASP5615"
+          },
+          {
+            "code": "JASP 4410",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "LING 1000",
+            "title": "Invitation to Linguistics",
+            "unit": "3.00",
+            "prereq": "LING1000 is double-coded with UGED1924. Not for students who have taken UGED1924."
+          },
+          {
+            "code": "LING 2003",
+            "title": "Phonetics I",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "LING 2004",
+            "title": "Phonology I",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: LING2003"
+          },
+          {
+            "code": "LING 2005",
+            "title": "Syntax I",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "LING 2006",
+            "title": "Semantics",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "LING 3101",
+            "title": "Morphology",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "LING 3201",
+            "title": "First Language Acquisition",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "LING 3204",
+            "title": "Second Language Acquisition",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "MGNT 4530",
+            "title": "Japanese Business",
+            "unit": "3.00",
+            "prereq": "Prerequisite: MGNT1020"
+          },
+          {
+            "code": "SOCI 2103",
+            "title": "Japan in a Global Perspective",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken UGEC2260 or GESC2160 or UGEC1232/JASP1100."
+          }
+        ]
       }
     ]
   },
-  "explanatory_notes": "<tr style=\"height:1.0cm\"> <td colspan=\"2\" style=\"width:381.6pt;padding:0cm 5.4pt 0cm 5.4pt; height:1.0cm\" valign=\"top\" width=\"509\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n Notes:</span></p> </td> <td style=\"width:89.35pt;padding:0cm 5.4pt 0cm 5.4pt; height:1.0cm\" valign=\"top\" width=\"119\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr>\n<tr style=\"height:31.95pt\"> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt; height:31.95pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[a]</span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[b]</span></p> </td> <td colspan=\"2\" style=\"width:436.75pt;padding:0cm 5.4pt 0cm 5.4pt; height:31.95pt\" valign=\"top\" width=\"582\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">This Minor\n\n Programme is not applicable to students who major in Japanese Studies.</span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">No more\n\n than 9 units of courses taken to fulfill the requirements of the\n\n students’ Major Programme(s) and other Minor Programme(s) respectively\n\n can be used to fulfill the requirement of this Minor Programme.</span></p> </td> </tr>"
+  "explanatory_notes": "<table><tr style=\"height:1.0cm\"> <td colspan=\"2\" style=\"width:381.6pt;padding:0cm 5.4pt 0cm 5.4pt; height:1.0cm\" valign=\"top\" width=\"509\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n Notes:</span></p> </td> <td style=\"width:89.35pt;padding:0cm 5.4pt 0cm 5.4pt; height:1.0cm\" valign=\"top\" width=\"119\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr>\n<tr style=\"height:31.95pt\"> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt; height:31.95pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[a]</span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[b]</span></p> </td> <td colspan=\"2\" style=\"width:436.75pt;padding:0cm 5.4pt 0cm 5.4pt; height:31.95pt\" valign=\"top\" width=\"582\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">This Minor\n\n Programme is not applicable to students who major in Japanese Studies.</span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">No more\n\n than 9 units of courses taken to fulfill the requirements of the\n\n students’ Major Programme(s) and other Minor Programme(s) respectively\n\n can be used to fulfill the requirement of this Minor Programme.</span></p> </td> </tr></table>"
 }

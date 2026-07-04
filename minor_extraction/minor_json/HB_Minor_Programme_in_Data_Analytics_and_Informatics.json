@@ -6,245 +6,331 @@
   "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
   "required": {
     "label": "1. Required Courses[a]: 6",
-    "description": "OR",
     "units": "6",
-    "courses": [
+    "rows": [
       {
-        "code": "ENGG 2760",
-        "title": "Probability for Engineers",
-        "unit": "2.00",
-        "prereq": "Not for students who have taken ENGG2430 or 2450 or 2470 or ESTR2002 or 2005 or 2012 or 2018 or 2308 or 2362 or IERG2470 or MIEG2440"
+        "index": 1,
+        "text": "(a) i) ENGG2760/ESTR2018[b], ENGG2780/ESTR2020[b]",
+        "codes": [
+          "ENGG 2760",
+          "ENGG 2780",
+          "ESTR 2018",
+          "ESTR 2020"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "ENGG 2760",
+            "title": "Probability for Engineers",
+            "unit": "2.00",
+            "prereq": "Not for students who have taken ENGG2430 or 2450 or 2470 or ESTR2002 or 2005 or 2012 or 2018 or 2308 or 2362 or IERG2470 or MIEG2440"
+          },
+          {
+            "code": "ENGG 2780",
+            "title": "Statistics for Engineers",
+            "unit": "2.00",
+            "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or 2020 Co-requisite(s): ENGG2760 or ESTR2018 or 2308 or IERG2470"
+          },
+          {
+            "code": "ESTR 2018",
+            "title": "Probability for Engineers",
+            "unit": "2.00",
+            "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2470 or ENGG2760 or ESTR2002 or ESTR2005 or ESTR2012 or ESTR2308 or ESTR2362 or IERG2470 or MIEG2440."
+          },
+          {
+            "code": "ESTR 2020",
+            "title": "Statistics for Engineers",
+            "unit": "2.00",
+            "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2780 or ESTR2002 or ESTR2005. Co-requisite(s): ENGG2760 or ESTR2018 or ESTR2308 or IERG2470"
+          }
+        ]
       },
       {
-        "code": "ENGG 2780",
-        "title": "Statistics for Engineers",
-        "unit": "2.00",
-        "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or 2020 Co-requisite(s): ENGG2760 or ESTR2018 or 2308 or IERG2470"
+        "index": 2,
+        "text": "OR ",
+        "codes": [],
+        "units": "",
+        "courses": []
       },
       {
-        "code": "ESTR 2018",
-        "title": "Probability for Engineers",
-        "unit": "2.00",
-        "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2470 or ENGG2760 or ESTR2002 or ESTR2005 or ESTR2012 or ESTR2308 or ESTR2362 or IERG2470 or MIEG2440."
+        "index": 3,
+        "text": "ii) IERG2470/ESTR2308[b]",
+        "codes": [
+          "ESTR 2308",
+          "IERG 2470"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "ESTR 2308",
+            "title": "Probability Models and Applications",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2460 or ENGG2470 or ESTR2002 or ESTR2005 or ESTR2010 or ESTR2012 or ESTR2362 or IERG2470 or MIEG2440."
+          },
+          {
+            "code": "IERG 2470",
+            "title": "Probability Models and Applications",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENGG2430, ENGG2450, ENGG2460, ENGG2470, ESTR2002, ESTR2005, ESTR2010, ESTR2012, ESTR2308, ESTR2362 or MIEG2440"
+          }
+        ]
       },
       {
-        "code": "ESTR 2020",
-        "title": "Statistics for Engineers",
-        "unit": "2.00",
-        "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2780 or ESTR2002 or ESTR2005. Co-requisite(s): ENGG2760 or ESTR2018 or ESTR2308 or IERG2470"
-      },
-      {
-        "code": "ESTR 2308",
-        "title": "Probability Models and Applications",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2460 or ENGG2470 or ESTR2002 or ESTR2005 or ESTR2010 or ESTR2012 or ESTR2362 or IERG2470 or MIEG2440."
-      },
-      {
-        "code": "ESTR 2540",
-        "title": "Introduction to Data Science",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken SEEM2460."
-      },
-      {
-        "code": "IERG 2470",
-        "title": "Probability Models and Applications",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ENGG2430, ENGG2450, ENGG2460, ENGG2470, ESTR2002, ESTR2005, ESTR2010, ESTR2012, ESTR2308, ESTR2362 or MIEG2440"
-      },
-      {
-        "code": "SEEM 2460",
-        "title": "Introduction to Data Science",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESTR2540."
+        "index": 4,
+        "text": "(b) SEEM2460/ESTR2540[b]",
+        "codes": [
+          "ESTR 2540",
+          "SEEM 2460"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "ESTR 2540",
+            "title": "Introduction to Data Science",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken SEEM2460."
+          },
+          {
+            "code": "SEEM 2460",
+            "title": "Introduction to Data Science",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR2540."
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses: 12",
-    "description": "Choose 12 units of courses of at\n\n      least 3 subject areas from the following:",
     "units": "12",
-    "courses": [
+    "rows": [
       {
-        "code": "BMEG 3102",
-        "title": "Bioinformatics",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ELEG4120 or CSCI3220 or ESTR3110."
+        "index": 1,
+        "text": "Choose 12 units of courses of at least 3 subject areas from the following:",
+        "codes": [],
+        "units": "",
+        "courses": []
       },
       {
-        "code": "BMEG 3130",
-        "title": "Tele-medicine and Mobile Healthcare",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "CSCI 3170",
-        "title": "Introduction to Database Systems",
-        "unit": "3.00",
-        "prereq": "Prerequisite: CSCI2100 or 2520 or ESTR2102. For 2nd-year entrants, the prerequisite will be waived."
-      },
-      {
-        "code": "CSCI 3220",
-        "title": "Algorithms for Bioinformatics",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken BMEG3102 or ESTR3110. "
-      },
-      {
-        "code": "CSCI 3320",
-        "title": "Fundamentals of Machine Learning",
-        "unit": "3.00",
-        "prereq": "Prerequisite: ENGG2430 or 2450 or 2760 or 2780 or ESTR2002 or 2005 or 2018 or 2020 or 2308 or 2362 or IERG2470 or MIEG2440 or STAT2001."
-      },
-      {
-        "code": "CSCI 4180",
-        "title": "Introduction to Cloud Computing and Storage",
-        "unit": "3.00",
-        "prereq": "Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken ESTR4106."
-      },
-      {
-        "code": "CSCI 4190",
-        "title": "Introduction to Social Networks",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: CSCI2100 or 2520 or ESTR2102."
-      },
-      {
-        "code": "ESTR 3302",
-        "title": "Networks: Technology, Economics, and Social Interactions",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken IERG3280."
-      },
-      {
-        "code": "ESTR 3306",
-        "title": "Social Media and Human Information Interaction",
-        "unit": "3.00",
-        "prereq": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206. Not for students who have taken IERG3320."
-      },
-      {
-        "code": "ESTR 3512",
-        "title": "Technology, Consulting and Analytics in Practice",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESTR4504, SEEM3680 or SEEM4680."
-      },
-      {
-        "code": "ESTR 4106",
-        "title": "Introduction to Cloud Computing and Storage",
-        "unit": "3.00",
-        "prereq": "Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken CSCI4180."
-      },
-      {
-        "code": "ESTR 4300",
-        "title": "Web-scale Information Analytics",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or IERG4300."
-      },
-      {
-        "code": "ESTR 4312",
-        "title": "Building Scalable Internet-based Services",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken IERG4080. Pre-requisite: IERG3080."
-      },
-      {
-        "code": "ESTR 4316",
-        "title": "Programming Big Data Systems",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken IERG4330 or IEMS5730. Co-/Pre-requisite(s): ENGG4030 or ESTR4300 or IERG4300."
-      },
-      {
-        "code": "ESTR 4408",
-        "title": "Computer-integrated Manufacturing",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken MAEG4010."
-      },
-      {
-        "code": "ESTR 4504",
-        "title": "",
-        "unit": "",
-        "prereq": ""
-      },
-      {
-        "code": "ESTR 4506",
-        "title": "Computational Finance",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken SEEM4720. Pre-requisite: SEEM2520 or SEEM3570 or SEEM3590 or ESTR3508 or ESTR3509."
-      },
-      {
-        "code": "IERG 3280",
-        "title": "Networks: Technology, Economics, and Social Interactions",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESTR3302."
-      },
-      {
-        "code": "IERG 3320",
-        "title": "Social Media and Human Information Interaction",
-        "unit": "3.00",
-        "prereq": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206 Not for students who have taken ESTR3306."
-      },
-      {
-        "code": "IERG 4080",
-        "title": "Building Scalable Internet-based Services",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: IERG3080. Not for students who have taken ESTR4312."
-      },
-      {
-        "code": "IERG 4160",
-        "title": "Image Processing and Visual Understanding",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ELEG4502 or ELEG4512."
-      },
-      {
-        "code": "IERG 4230",
-        "title": "Introduction to Internet of Things",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "IERG 4300",
-        "title": "Web-scale Information Analytics",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300."
-      },
-      {
-        "code": "IERG 4330",
-        "title": "Programming Big Data Systems",
-        "unit": "3.00",
-        "prereq": "Pre/Co-requisite: ENGG4030 or ESTR4300 or IERG4300. Not for students who have taken ESTR4316 or IEMS5730."
-      },
-      {
-        "code": "MAEG 4010",
-        "title": "Computer-integrated Manufacturing",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESTR4408."
-      },
-      {
-        "code": "SEEM 3680",
-        "title": "Technology, Consulting and Analytics in Practice",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESTR3512, ESTR4504 or SEEM4680."
-      },
-      {
-        "code": "SEEM 4630",
-        "title": "E-Commerce Data Mining",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "SEEM 4670",
-        "title": "Service Systems",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "SEEM 4680",
-        "title": "Technology, Consulting and Analytics in Practice",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESTR3512, ESTR4504 or SEEM3680."
-      },
-      {
-        "code": "SEEM 4720",
-        "title": "Computational Finance",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESTR4506. Prerequisite: SEEM2520 or SEEM3570 or SEEM3590 or ESTR3508 or ESTR3509."
+        "index": 2,
+        "text": "BMEG3102, 3130, CSCI3170, 3220, 3320, CSCI4180/ESTR4106[b], CSCI4190, IERG3280/ESTR3302[b], IERG3320/ ESTR3306[b], IERG4080/ESTR4312[b], IERG4160, 4230, IERG4300/ESTR4300[b], IERG4330/ESTR4316[b], MAEG4010/ ESTR4408[b], SEEM3680/ESTR3512[b], SEEM4630, 4670, SEEM4680/ESTR4504[b], SEEM4720/ESTR4506[b]",
+        "codes": [
+          "BMEG 3102",
+          "BMEG 3130",
+          "CSCI 3170",
+          "CSCI 3220",
+          "CSCI 3320",
+          "CSCI 4180",
+          "CSCI 4190",
+          "ESTR 3302",
+          "ESTR 3306",
+          "ESTR 3512",
+          "ESTR 4106",
+          "ESTR 4300",
+          "ESTR 4312",
+          "ESTR 4316",
+          "ESTR 4408",
+          "ESTR 4504",
+          "ESTR 4506",
+          "IERG 3280",
+          "IERG 3320",
+          "IERG 4080",
+          "IERG 4160",
+          "IERG 4230",
+          "IERG 4300",
+          "IERG 4330",
+          "MAEG 4010",
+          "SEEM 3680",
+          "SEEM 4630",
+          "SEEM 4670",
+          "SEEM 4680",
+          "SEEM 4720"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "BMEG 3102",
+            "title": "Bioinformatics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ELEG4120 or CSCI3220 or ESTR3110."
+          },
+          {
+            "code": "BMEG 3130",
+            "title": "Tele-medicine and Mobile Healthcare",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "CSCI 3170",
+            "title": "Introduction to Database Systems",
+            "unit": "3.00",
+            "prereq": "Prerequisite: CSCI2100 or 2520 or ESTR2102. For 2nd-year entrants, the prerequisite will be waived."
+          },
+          {
+            "code": "CSCI 3220",
+            "title": "Algorithms for Bioinformatics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken BMEG3102 or ESTR3110. "
+          },
+          {
+            "code": "CSCI 3320",
+            "title": "Fundamentals of Machine Learning",
+            "unit": "3.00",
+            "prereq": "Prerequisite: ENGG2430 or 2450 or 2760 or 2780 or ESTR2002 or 2005 or 2018 or 2020 or 2308 or 2362 or IERG2470 or MIEG2440 or STAT2001."
+          },
+          {
+            "code": "CSCI 4180",
+            "title": "Introduction to Cloud Computing and Storage",
+            "unit": "3.00",
+            "prereq": "Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken ESTR4106."
+          },
+          {
+            "code": "CSCI 4190",
+            "title": "Introduction to Social Networks",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: CSCI2100 or 2520 or ESTR2102."
+          },
+          {
+            "code": "ESTR 3302",
+            "title": "Networks: Technology, Economics, and Social Interactions",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken IERG3280."
+          },
+          {
+            "code": "ESTR 3306",
+            "title": "Social Media and Human Information Interaction",
+            "unit": "3.00",
+            "prereq": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206. Not for students who have taken IERG3320."
+          },
+          {
+            "code": "ESTR 3512",
+            "title": "Technology, Consulting and Analytics in Practice",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR4504, SEEM3680 or SEEM4680."
+          },
+          {
+            "code": "ESTR 4106",
+            "title": "Introduction to Cloud Computing and Storage",
+            "unit": "3.00",
+            "prereq": "Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken CSCI4180."
+          },
+          {
+            "code": "ESTR 4300",
+            "title": "Web-scale Information Analytics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or IERG4300."
+          },
+          {
+            "code": "ESTR 4312",
+            "title": "Building Scalable Internet-based Services",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken IERG4080. Pre-requisite: IERG3080."
+          },
+          {
+            "code": "ESTR 4316",
+            "title": "Programming Big Data Systems",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken IERG4330 or IEMS5730. Co-/Pre-requisite(s): ENGG4030 or ESTR4300 or IERG4300."
+          },
+          {
+            "code": "ESTR 4408",
+            "title": "Computer-integrated Manufacturing",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG4010."
+          },
+          {
+            "code": "ESTR 4504",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "ESTR 4506",
+            "title": "Computational Finance",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken SEEM4720. Pre-requisite: SEEM2520 or SEEM3570 or SEEM3590 or ESTR3508 or ESTR3509."
+          },
+          {
+            "code": "IERG 3280",
+            "title": "Networks: Technology, Economics, and Social Interactions",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR3302."
+          },
+          {
+            "code": "IERG 3320",
+            "title": "Social Media and Human Information Interaction",
+            "unit": "3.00",
+            "prereq": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206 Not for students who have taken ESTR3306."
+          },
+          {
+            "code": "IERG 4080",
+            "title": "Building Scalable Internet-based Services",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: IERG3080. Not for students who have taken ESTR4312."
+          },
+          {
+            "code": "IERG 4160",
+            "title": "Image Processing and Visual Understanding",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ELEG4502 or ELEG4512."
+          },
+          {
+            "code": "IERG 4230",
+            "title": "Introduction to Internet of Things",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "IERG 4300",
+            "title": "Web-scale Information Analytics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300."
+          },
+          {
+            "code": "IERG 4330",
+            "title": "Programming Big Data Systems",
+            "unit": "3.00",
+            "prereq": "Pre/Co-requisite: ENGG4030 or ESTR4300 or IERG4300. Not for students who have taken ESTR4316 or IEMS5730."
+          },
+          {
+            "code": "MAEG 4010",
+            "title": "Computer-integrated Manufacturing",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR4408."
+          },
+          {
+            "code": "SEEM 3680",
+            "title": "Technology, Consulting and Analytics in Practice",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR3512, ESTR4504 or SEEM4680."
+          },
+          {
+            "code": "SEEM 4630",
+            "title": "E-Commerce Data Mining",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "SEEM 4670",
+            "title": "Service Systems",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "SEEM 4680",
+            "title": "Technology, Consulting and Analytics in Practice",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR3512, ESTR4504 or SEEM3680."
+          },
+          {
+            "code": "SEEM 4720",
+            "title": "Computational Finance",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR4506. Prerequisite: SEEM2520 or SEEM3570 or SEEM3590 or ESTR3508 or ESTR3509."
+          }
+        ]
       }
     ]
   },
-  "explanatory_notes": "<tr style=\"height:5.2pt\">\n<td colspan=\"4\" style=\"width:439.45pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"586\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n      Notes:</span></p>\n</td>\n</tr>\n<tr style=\"height:5.2pt\">\n<td style=\"width:35.45pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">1.</span></p>\n</td>\n<td colspan=\"3\" style=\"width:404.0pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"539\">\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph;\n\n      line-height:14.0pt\"><span lang=\"EN-US\">This Minor Programme is not\n\n      applicable to students who major in Artificial Intelligence: Systems and\n\n      Technologies.</span></p>\n</td>\n</tr>\n<tr style=\"height:5.2pt\">\n<td style=\"width:35.45pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">2.</span></p>\n</td>\n<td colspan=\"3\" style=\"width:404.0pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"539\">\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph;\n\n      line-height:14.0pt\"><span lang=\"EN-US\">No more than 9 units of courses\n\n      taken to fulfill the requirements of the students’ Major Programme(s) and\n\n      other Minor Programme(s) respectively can be used to fulfill the\n\n      requirement of this Minor Programme.</span></p>\n</td>\n</tr>\n<tr style=\"height:5.2pt\">\n<td style=\"width:35.45pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[a]</span></p>\n</td>\n<td colspan=\"3\" style=\"width:404.0pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"539\">\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph;\n\n      line-height:14.0pt\"><span lang=\"EN-US\">Non-engineering students who wish to\n\n      use other courses to substitute the required courses will have to seek\n\n      approval from the Programme Director.</span></p>\n</td>\n</tr>\n<tr style=\"height:5.2pt\">\n<td style=\"width:35.45pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[b]</span></p>\n</td>\n<td colspan=\"3\" style=\"width:404.0pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"539\">\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph;\n\n      line-height:14.0pt\"><span lang=\"EN-US\">ESTR courses are developed based on\n\n      ordinary engineering courses with additional course materials and\n\n      challenging assessments.  The courses are only applicable to\n\n      students of the ELITE stream, who can choose a combination of the ESTR\n\n      courses or the equivalent courses listed in the curriculum to fulfill the\n\n      minor programme requirements.</span></p>\n</td>\n</tr>\n<tr style=\"height:5.2pt\">\n<td style=\"width:35.45pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n</td>\n<td colspan=\"3\" style=\"width:404.0pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"539\">\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph;\n\n      line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n</td>\n</tr>"
+  "explanatory_notes": "<table><tr style=\"height:5.2pt\">\n<td colspan=\"4\" style=\"width:439.45pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"586\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n      Notes:</span></p>\n</td>\n</tr>\n<tr style=\"height:5.2pt\">\n<td style=\"width:35.45pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">1.</span></p>\n</td>\n<td colspan=\"3\" style=\"width:404.0pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"539\">\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph;\n\n      line-height:14.0pt\"><span lang=\"EN-US\">This Minor Programme is not\n\n      applicable to students who major in Artificial Intelligence: Systems and\n\n      Technologies.</span></p>\n</td>\n</tr>\n<tr style=\"height:5.2pt\">\n<td style=\"width:35.45pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">2.</span></p>\n</td>\n<td colspan=\"3\" style=\"width:404.0pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"539\">\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph;\n\n      line-height:14.0pt\"><span lang=\"EN-US\">No more than 9 units of courses\n\n      taken to fulfill the requirements of the students’ Major Programme(s) and\n\n      other Minor Programme(s) respectively can be used to fulfill the\n\n      requirement of this Minor Programme.</span></p>\n</td>\n</tr>\n<tr style=\"height:5.2pt\">\n<td style=\"width:35.45pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[a]</span></p>\n</td>\n<td colspan=\"3\" style=\"width:404.0pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"539\">\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph;\n\n      line-height:14.0pt\"><span lang=\"EN-US\">Non-engineering students who wish to\n\n      use other courses to substitute the required courses will have to seek\n\n      approval from the Programme Director.</span></p>\n</td>\n</tr>\n<tr style=\"height:5.2pt\">\n<td style=\"width:35.45pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[b]</span></p>\n</td>\n<td colspan=\"3\" style=\"width:404.0pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"539\">\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph;\n\n      line-height:14.0pt\"><span lang=\"EN-US\">ESTR courses are developed based on\n\n      ordinary engineering courses with additional course materials and\n\n      challenging assessments.  The courses are only applicable to\n\n      students of the ELITE stream, who can choose a combination of the ESTR\n\n      courses or the equivalent courses listed in the curriculum to fulfill the\n\n      minor programme requirements.</span></p>\n</td>\n</tr>\n<tr style=\"height:5.2pt\">\n<td style=\"width:35.45pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n</td>\n<td colspan=\"3\" style=\"width:404.0pt;padding:0in 5.4pt 0in 5.4pt;\n\n      height:5.2pt\" valign=\"top\" width=\"539\">\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph;\n\n      line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n</td>\n</tr></table>"
 }

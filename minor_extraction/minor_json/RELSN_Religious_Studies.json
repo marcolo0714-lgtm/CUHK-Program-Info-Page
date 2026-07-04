@@ -6,28 +6,45 @@
   "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or abovelevel as follows:",
   "required": {
     "label": "1. Required Courses: 6",
-    "description": "",
     "units": "6",
-    "courses": [
+    "rows": [
       {
-        "code": "CURE 1111",
-        "title": "The Study of Religion",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "CURE 1123",
-        "title": "World Religions",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken UGED1400."
+        "index": 1,
+        "text": "CURE1111, 1123",
+        "codes": [
+          "CURE 1111",
+          "CURE 1123"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "CURE 1111",
+            "title": "The Study of Religion",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "CURE 1123",
+            "title": "World Religions",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken UGED1400."
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses: 12",
-    "description": "4 CURE courses at 2000 or\n\n above level from the Religious Studies Areas, of which at least 2 courses\n\n are at 3000 or above level",
     "units": "12",
-    "courses": []
+    "rows": [
+      {
+        "index": 1,
+        "text": "4 CURE courses at 2000 or above level from the Religious Studies Areas, of which at least 2 courses are at 3000 or above level",
+        "codes": [],
+        "units": "",
+        "courses": []
+      }
+    ]
   },
-  "explanatory_notes": "<tr style=\"height:7.95pt\"> <td colspan=\"3\" style=\"width:468.5pt;padding:0cm 5.4pt 0cm 5.4pt; height:7.95pt\" valign=\"top\" width=\"625\"> <p class=\"MsoNormal\" style=\"margin-bottom:0cm;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt\"><span style='font-size:\n\n 12.0pt;font-family:\"Times New Roman\",serif'> <b> </b>Explanatory\n\n Note:</span></p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" width=\"46\"> <p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:14.0pt\"><span style='font-size:12.0pt;font-family:\"Times New Roman\",serif'>1.</span></p> </td> <td colspan=\"2\" style=\"width:434.3pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"579\"> <p class=\"MsoNormal\" style=\"margin-bottom:0cm;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt\"><span style='font-size:\n\n 12.0pt;font-family:\"Times New Roman\",serif'>This Minor Programme is not\n\n applicable to students who major in Religious Studies.</span></p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:14.0pt\"><span style='font-size:12.0pt;font-family:\"Times New Roman\",serif'>2.</span></p> </td> <td colspan=\"2\" style=\"width:434.3pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"579\"> <p class=\"MsoNormal\" style=\"margin-bottom:0cm;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt\"><span style='font-size:\n\n 12.0pt;font-family:\"Times New Roman\",serif'>No more than 9 units of\n\n courses taken to fulfill the requirements of the students’ Major\n\n Programme(s) and other Minor Programme(s) respectively can be used to\n\n fulfill the requirement of this Minor Programme.</span></p> </td> </tr>"
+  "explanatory_notes": "<table><tr style=\"height:7.95pt\"> <td colspan=\"3\" style=\"width:468.5pt;padding:0cm 5.4pt 0cm 5.4pt; height:7.95pt\" valign=\"top\" width=\"625\"> <p class=\"MsoNormal\" style=\"margin-bottom:0cm;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt\"><span style='font-size:\n\n 12.0pt;font-family:\"Times New Roman\",serif'> <b> </b>Explanatory\n\n Note:</span></p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" width=\"46\"> <p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:14.0pt\"><span style='font-size:12.0pt;font-family:\"Times New Roman\",serif'>1.</span></p> </td> <td colspan=\"2\" style=\"width:434.3pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"579\"> <p class=\"MsoNormal\" style=\"margin-bottom:0cm;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt\"><span style='font-size:\n\n 12.0pt;font-family:\"Times New Roman\",serif'>This Minor Programme is not\n\n applicable to students who major in Religious Studies.</span></p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:14.0pt\"><span style='font-size:12.0pt;font-family:\"Times New Roman\",serif'>2.</span></p> </td> <td colspan=\"2\" style=\"width:434.3pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"579\"> <p class=\"MsoNormal\" style=\"margin-bottom:0cm;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt\"><span style='font-size:\n\n 12.0pt;font-family:\"Times New Roman\",serif'>No more than 9 units of\n\n courses taken to fulfill the requirements of the students’ Major\n\n Programme(s) and other Minor Programme(s) respectively can be used to\n\n fulfill the requirement of this Minor Programme.</span></p> </td> </tr></table>"
 }

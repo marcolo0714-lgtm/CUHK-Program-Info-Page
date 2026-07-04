@@ -6,27 +6,45 @@
   "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
   "required": {
     "label": "1. Required Course : 3",
-    "description": "",
     "units": "3",
-    "courses": [
+    "rows": [
       {
-        "code": "PHIL 1110",
-        "title": "Introduction to Philosophy",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "PHIL1110",
+        "codes": [
+          "PHIL 1110"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "PHIL 1110",
+            "title": "Introduction to Philosophy",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses : 15",
-    "description": "",
     "units": "15",
-    "courses": [
+    "rows": [
       {
-        "code": "PHIL 1110",
-        "title": "Introduction to Philosophy",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "PHIL courses other than PHIL1110 are elective courses. Students are required to take at least 6 units of courses at 3000 or above level.",
+        "codes": [
+          "PHIL 1110"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "PHIL 1110",
+            "title": "Introduction to Philosophy",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       }
     ]
   },

@@ -6,53 +6,100 @@
   "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
   "required": {
     "label": "1. Required Courses[a] :",
-    "description": "",
     "units": "",
-    "courses": [
+    "rows": [
       {
-        "code": "SPAN 2000",
-        "title": "Spanish II",
-        "unit": "3.00",
-        "prereq": "1. Not for students who have taken SPAN2001,2050,3000,3001,3002,3050,3051,4001 or 4002 2. Prerequisite: SPAN1000"
+        "index": 1,
+        "text": "(a) SPAN2000[b]",
+        "codes": [
+          "SPAN 2000"
+        ],
+        "units": "3",
+        "courses": [
+          {
+            "code": "SPAN 2000",
+            "title": "Spanish II",
+            "unit": "3.00",
+            "prereq": "1. Not for students who have taken SPAN2001,2050,3000,3001,3002,3050,3051,4001 or 4002 2. Prerequisite: SPAN1000"
+          }
+        ]
       },
       {
-        "code": "SPAN 2001",
-        "title": "Spanish III",
-        "unit": "3.00",
-        "prereq": "1. Not for students who have taken SPAN3000,3001,3002,3050,3051,4001 or 4002 2. Prerequisite: SPAN2000 or 2050"
+        "index": 2,
+        "text": "(b) SPAN2001 and 3000, or 3050",
+        "codes": [
+          "SPAN 2001",
+          "SPAN 3000"
+        ],
+        "units": "6",
+        "courses": [
+          {
+            "code": "SPAN 2001",
+            "title": "Spanish III",
+            "unit": "3.00",
+            "prereq": "1. Not for students who have taken SPAN3000,3001,3002,3050,3051,4001 or 4002 2. Prerequisite: SPAN2000 or 2050"
+          },
+          {
+            "code": "SPAN 3000",
+            "title": "Spanish IV",
+            "unit": "3.00",
+            "prereq": "1. Not for students who have taken SPAN3001,3002,3050,3051,4001 or 4002 2. Prerequisite: SPAN2001"
+          }
+        ]
       },
       {
-        "code": "SPAN 3001",
-        "title": "Spanish V",
-        "unit": "3.00",
-        "prereq": "1. Not for students who have taken SPAN3002,3051,4001 or 4002 2. Prerequisite: SPAN3000 or 3050"
+        "index": 3,
+        "text": "(c) SPAN3001[c]",
+        "codes": [
+          "SPAN 3001"
+        ],
+        "units": "3",
+        "courses": [
+          {
+            "code": "SPAN 3001",
+            "title": "Spanish V",
+            "unit": "3.00",
+            "prereq": "1. Not for students who have taken SPAN3002,3051,4001 or 4002 2. Prerequisite: SPAN3000 or 3050"
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses :",
-    "description": "",
     "units": "",
-    "courses": [
+    "rows": [
       {
-        "code": "SPAN 1000",
-        "title": "Spanish I",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken SPAN2000,2001,2050,3000,3001,3002,3050,3051,4001 or 4002"
-      },
-      {
-        "code": "SPAN 1001",
-        "title": "First Step in Spanish",
-        "unit": "1.00",
-        "prereq": "Not for students who have taken SPAN1000,2000,2001,2050,3000,3001,3002,3050,3051,4001or4002 From 2023-24, students can only earn up to 2 units of these courses: CLCP1001,CLCP1101,CLCC1001,CLCC1101,JASP1350,HKSL1001,SPAN1001,GERM1001,KORE1001,FREN1001"
-      },
-      {
-        "code": "SPAN 2050",
-        "title": "Spanish I & II",
-        "unit": "6.00",
-        "prereq": "Not for students who have taken SPAN1000,2000,2001,3000,3001,3002,3050,3051,4001 or 4002"
+        "index": 1,
+        "text": "Any SPAN courses other than SPAN1000, 1001, 2050 and those listed above",
+        "codes": [
+          "SPAN 1000",
+          "SPAN 1001",
+          "SPAN 2050"
+        ],
+        "units": "6",
+        "courses": [
+          {
+            "code": "SPAN 1000",
+            "title": "Spanish I",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken SPAN2000,2001,2050,3000,3001,3002,3050,3051,4001 or 4002"
+          },
+          {
+            "code": "SPAN 1001",
+            "title": "First Step in Spanish",
+            "unit": "1.00",
+            "prereq": "Not for students who have taken SPAN1000,2000,2001,2050,3000,3001,3002,3050,3051,4001or4002 From 2023-24, students can only earn up to 2 units of these courses: CLCP1001,CLCP1101,CLCC1001,CLCC1101,JASP1350,HKSL1001,SPAN1001,GERM1001,KORE1001,FREN1001"
+          },
+          {
+            "code": "SPAN 2050",
+            "title": "Spanish I & II",
+            "unit": "6.00",
+            "prereq": "Not for students who have taken SPAN1000,2000,2001,3000,3001,3002,3050,3051,4001 or 4002"
+          }
+        ]
       }
     ]
   },
-  "explanatory_notes": "<tr>\n<td colspan=\"3\" style=\"width:440.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"587\">\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph;\n\n      line-height:14.0pt\"><span lang=\"EN-US\">Explanatory Notes:</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:33.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n</td>\n<td colspan=\"2\" style=\"width:406.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"542\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'> </span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:33.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[a]</span></p>\n</td>\n<td colspan=\"2\" style=\"width:406.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"542\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>Students who have prior\n\n      knowledge of Spanish before admission may be exempted from taking\n\n      SPAN2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of\n\n      the Department to take substitute courses in accordance with their\n\n      academic qualifications.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:33.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[b]</span></p>\n</td>\n<td colspan=\"2\" style=\"width:406.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"542\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>Students who have taken the\n\n      summer intensive course SPAN2050 will be recognized as having fulfilled\n\n      this requirement.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:33.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[c]</span></p>\n</td>\n<td colspan=\"2\" style=\"width:406.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"542\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>Students who have taken the\n\n      summer intensive course SPAN3051 will be recognized as having fulfilled\n\n      this requirement and </span><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>3\n\n      units of</span><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>\n\n      elective course</span><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>s</span><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'> of Requirement (2)</span><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:33.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">1.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:406.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"542\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span style='font-family:\"TimesNewRoman\",serif'>No more than 9 units of courses\n\n      taken to fulfill the requirements of the students’</span></p>\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span style='font-family:\"TimesNewRoman\",serif'>Major Programme(s) and other\n\n      Minor Programme(s) respectively can be used to</span></p>\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span style='font-family:\"TimesNewRoman\",serif'>fulfill the requirement of this\n\n      Minor Programme.</span></p>\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'> </span></p>\n</td>\n</tr>"
+  "explanatory_notes": "<table><tr>\n<td colspan=\"3\" style=\"width:440.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"587\">\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph;\n\n      line-height:14.0pt\"><span lang=\"EN-US\">Explanatory Notes:</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:33.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n</td>\n<td colspan=\"2\" style=\"width:406.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"542\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'> </span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:33.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[a]</span></p>\n</td>\n<td colspan=\"2\" style=\"width:406.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"542\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>Students who have prior\n\n      knowledge of Spanish before admission may be exempted from taking\n\n      SPAN2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of\n\n      the Department to take substitute courses in accordance with their\n\n      academic qualifications.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:33.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[b]</span></p>\n</td>\n<td colspan=\"2\" style=\"width:406.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"542\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>Students who have taken the\n\n      summer intensive course SPAN2050 will be recognized as having fulfilled\n\n      this requirement.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:33.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">[c]</span></p>\n</td>\n<td colspan=\"2\" style=\"width:406.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"542\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>Students who have taken the\n\n      summer intensive course SPAN3051 will be recognized as having fulfilled\n\n      this requirement and </span><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>3\n\n      units of</span><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>\n\n      elective course</span><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>s</span><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'> of Requirement (2)</span><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'>.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:33.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"45\">\n<p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span lang=\"EN-US\">1.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:406.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"542\">\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span style='font-family:\"TimesNewRoman\",serif'>No more than 9 units of courses\n\n      taken to fulfill the requirements of the students’</span></p>\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span style='font-family:\"TimesNewRoman\",serif'>Major Programme(s) and other\n\n      Minor Programme(s) respectively can be used to</span></p>\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span style='font-family:\"TimesNewRoman\",serif'>fulfill the requirement of this\n\n      Minor Programme.</span></p>\n<p class=\"MsoNormal\" style=\"margin-right:3.6pt;text-align:justify;\n\n      text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\" style='font-family:\"TimesNewRoman\",serif'> </span></p>\n</td>\n</tr></table>"
 }

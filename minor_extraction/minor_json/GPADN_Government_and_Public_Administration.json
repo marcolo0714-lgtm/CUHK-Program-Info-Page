@@ -6,34 +6,44 @@
   "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
   "required": {
     "label": "1. Required Courses (one course chosen from the following): GPAD1020, 1030, 1095 3",
-    "description": "",
     "units": "3",
-    "courses": [
+    "rows": [
       {
-        "code": "GPAD 1020",
-        "title": "Fundamentals of Government",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "GPAD 1030",
-        "title": "Fundamentals of Public Administration",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken UGEC1732."
-      },
-      {
-        "code": "GPAD 1095",
-        "title": "Issues of Political Philosophy",
-        "unit": "3.00",
-        "prereq": ""
+        "index": 1,
+        "text": "Required Courses (one course chosen from the following): GPAD1020, 1030, 1095",
+        "codes": [
+          "GPAD 1020",
+          "GPAD 1030",
+          "GPAD 1095"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "GPAD 1020",
+            "title": "Fundamentals of Government",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GPAD 1030",
+            "title": "Fundamentals of Public Administration",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken UGEC1732."
+          },
+          {
+            "code": "GPAD 1095",
+            "title": "Issues of Political Philosophy",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses: Five GPAD courses, with at least two courses at 3000 or above level 15",
-    "description": "",
     "units": "15",
-    "courses": []
+    "rows": []
   },
   "explanatory_notes": ""
 }

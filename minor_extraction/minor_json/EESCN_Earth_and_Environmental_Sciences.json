@@ -6,347 +6,425 @@
   "description": "Students are required to complete a minimum of 20 units of courses, with at least 6 units at 3000 or about level, as follows[a]:",
   "required": {
     "label": "1. Required Courses :",
-    "description": "",
-    "units": "",
-    "courses": [
+    "units": "1",
+    "rows": [
       {
-        "code": "EESC 2010",
-        "title": "Solid Earth Dynamics",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC2010."
-      },
-      {
-        "code": "EESC 2020",
-        "title": "Climate System Dynamics",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC2020."
-      },
-      {
-        "code": "EESC 2270",
-        "title": "Introduction to Environmental Science",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ENSC2270."
+        "index": 1,
+        "text": "EESC2010, 2020, 2270",
+        "codes": [
+          "EESC 2010",
+          "EESC 2020",
+          "EESC 2270"
+        ],
+        "units": "9",
+        "courses": [
+          {
+            "code": "EESC 2010",
+            "title": "Solid Earth Dynamics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC2010."
+          },
+          {
+            "code": "EESC 2020",
+            "title": "Climate System Dynamics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC2020."
+          },
+          {
+            "code": "EESC 2270",
+            "title": "Introduction to Environmental Science",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENSC2270."
+          }
+        ]
       }
     ]
   },
   "elective": {
     "label": "2. Elective Courses :",
-    "description": "",
-    "units": "",
-    "courses": [
+    "units": "2",
+    "rows": [
       {
-        "code": "BIOL 2210",
-        "title": "Ecology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: LSCI1002 or LSCI1012."
+        "index": 1,
+        "text": "Any 11 units of courses from the following, with at least 3 units at 3000 level and 3 units at 4000 level: BIOL2210, 3710, 4012, 4230, 4260, 4420, EESC2160, 2515, 2800, 3100, 3120, 3130, 3140, 3200, 3220, 3300, 3320, 3415, 3510, 3520, 3540, 3600, 3601, 3800, 4010, 4020, 4030, 4040, 4110, 4120, 4130, 4140, 4150, 4160, 4170, 4180, 4210, 4220, 4230, 4240, 4250, 4260, 4270, 4280, 4325, 4330, 4335, 4350, 4510, 4520, 4540, 4550",
+        "codes": [
+          "BIOL 2210",
+          "BIOL 3710",
+          "BIOL 4012",
+          "BIOL 4230",
+          "BIOL 4260",
+          "BIOL 4420",
+          "EESC 2160",
+          "EESC 2515",
+          "EESC 2800",
+          "EESC 3100",
+          "EESC 3120",
+          "EESC 3130",
+          "EESC 3140",
+          "EESC 3200",
+          "EESC 3220",
+          "EESC 3300",
+          "EESC 3320",
+          "EESC 3415",
+          "EESC 3510",
+          "EESC 3520",
+          "EESC 3540",
+          "EESC 3600",
+          "EESC 3601",
+          "EESC 3800",
+          "EESC 4010",
+          "EESC 4020",
+          "EESC 4030",
+          "EESC 4040",
+          "EESC 4110",
+          "EESC 4120",
+          "EESC 4130",
+          "EESC 4140",
+          "EESC 4150",
+          "EESC 4160",
+          "EESC 4170",
+          "EESC 4180",
+          "EESC 4210",
+          "EESC 4220",
+          "EESC 4230",
+          "EESC 4240",
+          "EESC 4250",
+          "EESC 4260",
+          "EESC 4270",
+          "EESC 4280",
+          "EESC 4325",
+          "EESC 4330",
+          "EESC 4335",
+          "EESC 4350",
+          "EESC 4510",
+          "EESC 4520",
+          "EESC 4540",
+          "EESC 4550"
+        ],
+        "units": "11",
+        "courses": [
+          {
+            "code": "BIOL 2210",
+            "title": "Ecology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: LSCI1002 or LSCI1012."
+          },
+          {
+            "code": "BIOL 3710",
+            "title": "Marine Biology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: BIOL2210"
+          },
+          {
+            "code": "BIOL 4012",
+            "title": "Field and Environmental Biology",
+            "unit": "2.00",
+            "prereq": "Co-requisite: BIOL2210 and 3710."
+          },
+          {
+            "code": "BIOL 4230",
+            "title": "Global Change Biology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: BIOL2210."
+          },
+          {
+            "code": "BIOL 4260",
+            "title": "Conservation Biology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENSC4260. Pre-requisite: BIOL2210."
+          },
+          {
+            "code": "BIOL 4420",
+            "title": "Marine Microbial Ecology",
+            "unit": "2.00",
+            "prereq": "Pre-requisite: BIOL3410."
+          },
+          {
+            "code": "EESC 2160",
+            "title": "Minerals and Natural Resources",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "EESC 2515",
+            "title": "Environmental Chemistry",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENSC2515. Pre-requisite: EESC2270 or ENSC2270 or permission of the instructor."
+          },
+          {
+            "code": "EESC 2800",
+            "title": "Introduction to Environmental Engineering",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC2800. Pre-requisite: MATH1010 or 1510 or 1520."
+          },
+          {
+            "code": "EESC 3100",
+            "title": "Structural Geology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC3100. Pre-requisite: EESC2010 or ESSC2010 or permission of instructor."
+          },
+          {
+            "code": "EESC 3120",
+            "title": "Physics of the Earth",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC3120. Pre-requisite: EESC 2010 or ESSC2010 or permission of instructor."
+          },
+          {
+            "code": "EESC 3130",
+            "title": "Introduction to Seismic Data Processing",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "EESC 3140",
+            "title": "Geochemistry",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: (EESC2010 or ESSC2010) or (EESC2130 or ESSC2130 or EESC2119 or EESC2129) or (EESC3100 or ESSC3100) or permission of instructor"
+          },
+          {
+            "code": "EESC 3200",
+            "title": "Atmospheric Dynamics",
+            "unit": "3.00",
+            "prereq": "1) Pre-requisite: (EESC2020 or ESSC2020) or (MATH2550 or EESC2520 or PHYS2051) or permission of instructor. 2) Not for students who have taken ESSC3200."
+          },
+          {
+            "code": "EESC 3220",
+            "title": "Atmospheric Chemistry",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC3220. Pre-requisite: CHEM1070 or CHEM1072 or CHEM1280 or permission of instructor."
+          },
+          {
+            "code": "EESC 3300",
+            "title": "Oceanography",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC3300. Pre-requisite: (EESC2010 or ESSC2010) and (EESC2020 or ESSC2020), or permission of instructor."
+          },
+          {
+            "code": "EESC 3320",
+            "title": "Hydrogeology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC3320. Pre-requisite: EESC 2010 or ESSC2010 or permission of instructor."
+          },
+          {
+            "code": "EESC 3415",
+            "title": "Environmental Instrumentation Techniques",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CHEM2400 or CHEM3410 or ENSC3415. Pre-requisite: EESC2515 or ENSC2515."
+          },
+          {
+            "code": "EESC 3510",
+            "title": "Environmental Microbiology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: LSCI1002 or LSCI1012 or EESC2270, or permission of the instructor."
+          },
+          {
+            "code": "EESC 3520",
+            "title": "Quantitative Methods in Environmental Management",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENSC3520. Pre-requisite: EESC2270 or permission of the instructor."
+          },
+          {
+            "code": "EESC 3540",
+            "title": "Environmental Quality Monitoring and Analysis",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: (CHEM1070 or CHEM1072) or (EESC2515 or ENSC2515) or permission of the instructor."
+          },
+          {
+            "code": "EESC 3600",
+            "title": "Ecological Climatology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC3600 or EESC3601 or ESSC3601. Pre-requisite: EESC2020 or ESSC2020 or permission of instructor."
+          },
+          {
+            "code": "EESC 3601",
+            "title": "Principles of Ecological Climatology",
+            "unit": "2.00",
+            "prereq": "Not for students who have taken ESSC3601 or EESC3600 or ESSC3600. Pre-requisite: EESC2020 or ESSC2020 or permission of instructor."
+          },
+          {
+            "code": "EESC 3800",
+            "title": "Global Environmental Change",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC3800."
+          },
+          {
+            "code": "EESC 4010",
+            "title": "Solid and Fluid Mechanics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC3010 or 4010."
+          },
+          {
+            "code": "EESC 4020",
+            "title": "Soil Mechanics and Its Applications",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4020. Pre-requisite: [(MATH1010 or 1030 or 1510 or 1520) or (PHYS1001 or 1002 or 1111 or 1113)] and (EESC2010 or ESSC2010), or permission of instructor."
+          },
+          {
+            "code": "EESC 4030",
+            "title": "Engineering Geology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4030. Pre-requisite: [(EESC2130 or ESSC2130) or (EESC3100 or ESSC3100) or (EESC3110 or ESSC3110)] and EESC4040, or permission of instructor."
+          },
+          {
+            "code": "EESC 4040",
+            "title": "Rock Mechanics and Its Applications",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: [(MATH1010 or 1030 or 1510 or 1520) or (EESC2130 or ESSC2130)] and (EESC3100 or ESSC3100), or permission of instructor."
+          },
+          {
+            "code": "EESC 4110",
+            "title": "Applied Geophysics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4110. Pre-requisite: (EESC2010 or ESSC2010) and (EESC3120 or ESSC3120)."
+          },
+          {
+            "code": "EESC 4120",
+            "title": "Petrology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4120. Pre-requisite: EESC2010 or ESSC2010."
+          },
+          {
+            "code": "EESC 4130",
+            "title": "Geomorphology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4130. Pre-requisite: EESC3100 or ESSC3100."
+          },
+          {
+            "code": "EESC 4140",
+            "title": "Seismology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4140. Pre-requisite: (EESC3120 or ESSC3120) or ESSC3010."
+          },
+          {
+            "code": "EESC 4150",
+            "title": "Volcanoes",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "EESC 4160",
+            "title": "Marine Geology and Geophysics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4160. Pre-requisite: (EESC3120 or ESSC3120) or ESSC3010 or (EESC4010 or ESSC4010)."
+          },
+          {
+            "code": "EESC 4170",
+            "title": "Geodynamics",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: EESC2010 or ESSC2010."
+          },
+          {
+            "code": "EESC 4180",
+            "title": "Earthquake Source Physics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4180. Pre-requisite: (EESC3120 or ESSC3120) or (EESC4010 or ESSC4010) or (EESC4140 or ESSC4140)."
+          },
+          {
+            "code": "EESC 4210",
+            "title": "Land-Atmosphere Interactions and Boundary-Layer Meteorology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4210. Pre-requisite: (EESC2020 or ESSC2020) or (EESC3200 or ESSC3200) or permission of instructor."
+          },
+          {
+            "code": "EESC 4220",
+            "title": "Tropical Meteorology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4220. Pre-requisite: EESC3200 or ESSC3200."
+          },
+          {
+            "code": "EESC 4230",
+            "title": "Introduction to the Physics and Chemistry of Aerosol",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4230. Pre-requisite: EESC2020 or ESSC2020 or permission of instructor."
+          },
+          {
+            "code": "EESC 4240",
+            "title": "Air Pollution Science and Engineering",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4240."
+          },
+          {
+            "code": "EESC 4250",
+            "title": "General Circulation and Climate Models",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4250. Pre-requisite: EESC3200 or ESSC3200 or permission of instructor."
+          },
+          {
+            "code": "EESC 4260",
+            "title": "Urban Climatology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4260. Pre-requisite: EESC2020 or ESSC2020."
+          },
+          {
+            "code": "EESC 4270",
+            "title": "Cloud Dynamics",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: EESC2020 or ESSC2020."
+          },
+          {
+            "code": "EESC 4280",
+            "title": "Practical Meteorology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: EESC2020 or ESSC2020."
+          },
+          {
+            "code": "EESC 4325",
+            "title": "Advanced Environmental Chemistry",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENSC4525. Pre-requisite: EESC2515 or ENSC2515 or permission of the instructor."
+          },
+          {
+            "code": "EESC 4330",
+            "title": "Biogeochemistry",
+            "unit": "3.00",
+            "prereq": "1) Pre-requisite: EESC/ESSC3020 or EESC/ESSC3220 or EESC3230 or EESC/ESSC3300 or EESC3510 or EESC3520 or EESC/ESSC3600 or EESC/ESSC3800. 2) Not for those taken ENSC/EESC3330. 3) Need basic knowledge in environmental science and chemistry."
+          },
+          {
+            "code": "EESC 4335",
+            "title": "Chemical Treatment Processes",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENSC4535. Pre-requisite: EESC2515 or ENSC2515 or permission of the instructor."
+          },
+          {
+            "code": "EESC 4350",
+            "title": "Environmental Health: A Systems Thinking Approach",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENSC4250. Pre-requisite: EESC3520 or permission of instructor."
+          },
+          {
+            "code": "EESC 4510",
+            "title": "Statistical Methods and Data Analysis for Earth and Environmental Sciences",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4510. Pre-requisite: (STAT1011 or 1012), and ((EESC2030 or ESSC2030) or PHYS2061)."
+          },
+          {
+            "code": "EESC 4520",
+            "title": "Numerical Methods and Modeling for Earth and Environmental Sciences",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4520. Pre-requisite: (MATH1010 or 1030 or 1520), and ((EESC2030 or ESSC2030) or PHYS2061)."
+          },
+          {
+            "code": "EESC 4540",
+            "title": "Remote Sensing – Principles and Applications",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESSC4540. Pre-requisite: (EESC2010 or ESSC2010) &(EESC2020 or ESSC2020) & (MATH1010 or 1030 or 1510 or 1520) & (PHYS1001 or 1002 or 1111 or 1113) & ((EESC2030 or ESSC2030) or PHYS2061), or permission of instructor."
+          },
+          {
+            "code": "EESC 4550",
+            "title": "Practical Atmospheric Modeling",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: (EESC2020 or ESSC2020) and (MATH2550 or EESC2520 or PHYS2051) and (PHYS1001 or 1002 or 1111 or 1113), or permission of instructor."
+          }
+        ]
       },
       {
-        "code": "BIOL 3710",
-        "title": "Marine Biology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: BIOL2210"
-      },
-      {
-        "code": "BIOL 4012",
-        "title": "Field and Environmental Biology",
-        "unit": "2.00",
-        "prereq": "Co-requisite: BIOL2210 and 3710."
-      },
-      {
-        "code": "BIOL 4230",
-        "title": "Global Change Biology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: BIOL2210."
-      },
-      {
-        "code": "BIOL 4260",
-        "title": "Conservation Biology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ENSC4260. Pre-requisite: BIOL2210."
-      },
-      {
-        "code": "BIOL 4420",
-        "title": "Marine Microbial Ecology",
-        "unit": "2.00",
-        "prereq": "Pre-requisite: BIOL3410."
-      },
-      {
-        "code": "EESC 2160",
-        "title": "Minerals and Natural Resources",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "EESC 2515",
-        "title": "Environmental Chemistry",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ENSC2515. Pre-requisite: EESC2270 or ENSC2270 or permission of the instructor."
-      },
-      {
-        "code": "EESC 2800",
-        "title": "Introduction to Environmental Engineering",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC2800. Pre-requisite: MATH1010 or 1510 or 1520."
-      },
-      {
-        "code": "EESC 3100",
-        "title": "Structural Geology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC3100. Pre-requisite: EESC2010 or ESSC2010 or permission of instructor."
-      },
-      {
-        "code": "EESC 3120",
-        "title": "Physics of the Earth",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC3120. Pre-requisite: EESC 2010 or ESSC2010 or permission of instructor."
-      },
-      {
-        "code": "EESC 3130",
-        "title": "Introduction to Seismic Data Processing",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "EESC 3140",
-        "title": "Geochemistry",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: (EESC2010 or ESSC2010) or (EESC2130 or ESSC2130 or EESC2119 or EESC2129) or (EESC3100 or ESSC3100) or permission of instructor"
-      },
-      {
-        "code": "EESC 3200",
-        "title": "Atmospheric Dynamics",
-        "unit": "3.00",
-        "prereq": "1) Pre-requisite: (EESC2020 or ESSC2020) or (MATH2550 or EESC2520 or PHYS2051) or permission of instructor. 2) Not for students who have taken ESSC3200."
-      },
-      {
-        "code": "EESC 3220",
-        "title": "Atmospheric Chemistry",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC3220. Pre-requisite: CHEM1070 or CHEM1072 or CHEM1280 or permission of instructor."
-      },
-      {
-        "code": "EESC 3300",
-        "title": "Oceanography",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC3300. Pre-requisite: (EESC2010 or ESSC2010) and (EESC2020 or ESSC2020), or permission of instructor."
-      },
-      {
-        "code": "EESC 3320",
-        "title": "Hydrogeology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC3320. Pre-requisite: EESC 2010 or ESSC2010 or permission of instructor."
-      },
-      {
-        "code": "EESC 3415",
-        "title": "Environmental Instrumentation Techniques",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken CHEM2400 or CHEM3410 or ENSC3415. Pre-requisite: EESC2515 or ENSC2515."
-      },
-      {
-        "code": "EESC 3510",
-        "title": "Environmental Microbiology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: LSCI1002 or LSCI1012 or EESC2270, or permission of the instructor."
-      },
-      {
-        "code": "EESC 3520",
-        "title": "Quantitative Methods in Environmental Management",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ENSC3520. Pre-requisite: EESC2270 or permission of the instructor."
-      },
-      {
-        "code": "EESC 3540",
-        "title": "Environmental Quality Monitoring and Analysis",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: (CHEM1070 or CHEM1072) or (EESC2515 or ENSC2515) or permission of the instructor."
-      },
-      {
-        "code": "EESC 3600",
-        "title": "Ecological Climatology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC3600 or EESC3601 or ESSC3601. Pre-requisite: EESC2020 or ESSC2020 or permission of instructor."
-      },
-      {
-        "code": "EESC 3601",
-        "title": "Principles of Ecological Climatology",
-        "unit": "2.00",
-        "prereq": "Not for students who have taken ESSC3601 or EESC3600 or ESSC3600. Pre-requisite: EESC2020 or ESSC2020 or permission of instructor."
-      },
-      {
-        "code": "EESC 3800",
-        "title": "Global Environmental Change",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC3800."
-      },
-      {
-        "code": "EESC 4010",
-        "title": "Solid and Fluid Mechanics",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC3010 or 4010."
-      },
-      {
-        "code": "EESC 4020",
-        "title": "Soil Mechanics and Its Applications",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4020. Pre-requisite: [(MATH1010 or 1030 or 1510 or 1520) or (PHYS1001 or 1002 or 1111 or 1113)] and (EESC2010 or ESSC2010), or permission of instructor."
-      },
-      {
-        "code": "EESC 4030",
-        "title": "Engineering Geology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4030. Pre-requisite: [(EESC2130 or ESSC2130) or (EESC3100 or ESSC3100) or (EESC3110 or ESSC3110)] and EESC4040, or permission of instructor."
-      },
-      {
-        "code": "EESC 4040",
-        "title": "Rock Mechanics and Its Applications",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: [(MATH1010 or 1030 or 1510 or 1520) or (EESC2130 or ESSC2130)] and (EESC3100 or ESSC3100), or permission of instructor."
-      },
-      {
-        "code": "EESC 4110",
-        "title": "Applied Geophysics",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4110. Pre-requisite: (EESC2010 or ESSC2010) and (EESC3120 or ESSC3120)."
-      },
-      {
-        "code": "EESC 4120",
-        "title": "Petrology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4120. Pre-requisite: EESC2010 or ESSC2010."
-      },
-      {
-        "code": "EESC 4130",
-        "title": "Geomorphology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4130. Pre-requisite: EESC3100 or ESSC3100."
-      },
-      {
-        "code": "EESC 4140",
-        "title": "Seismology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4140. Pre-requisite: (EESC3120 or ESSC3120) or ESSC3010."
-      },
-      {
-        "code": "EESC 4150",
-        "title": "Volcanoes",
-        "unit": "3.00",
-        "prereq": ""
-      },
-      {
-        "code": "EESC 4160",
-        "title": "Marine Geology and Geophysics",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4160. Pre-requisite: (EESC3120 or ESSC3120) or ESSC3010 or (EESC4010 or ESSC4010)."
-      },
-      {
-        "code": "EESC 4170",
-        "title": "Geodynamics",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: EESC2010 or ESSC2010."
-      },
-      {
-        "code": "EESC 4180",
-        "title": "Earthquake Source Physics",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4180. Pre-requisite: (EESC3120 or ESSC3120) or (EESC4010 or ESSC4010) or (EESC4140 or ESSC4140)."
-      },
-      {
-        "code": "EESC 4210",
-        "title": "Land-Atmosphere Interactions and Boundary-Layer Meteorology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4210. Pre-requisite: (EESC2020 or ESSC2020) or (EESC3200 or ESSC3200) or permission of instructor."
-      },
-      {
-        "code": "EESC 4220",
-        "title": "Tropical Meteorology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4220. Pre-requisite: EESC3200 or ESSC3200."
-      },
-      {
-        "code": "EESC 4230",
-        "title": "Introduction to the Physics and Chemistry of Aerosol",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4230. Pre-requisite: EESC2020 or ESSC2020 or permission of instructor."
-      },
-      {
-        "code": "EESC 4240",
-        "title": "Air Pollution Science and Engineering",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4240."
-      },
-      {
-        "code": "EESC 4250",
-        "title": "General Circulation and Climate Models",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4250. Pre-requisite: EESC3200 or ESSC3200 or permission of instructor."
-      },
-      {
-        "code": "EESC 4260",
-        "title": "Urban Climatology",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4260. Pre-requisite: EESC2020 or ESSC2020."
-      },
-      {
-        "code": "EESC 4270",
-        "title": "Cloud Dynamics",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: EESC2020 or ESSC2020."
-      },
-      {
-        "code": "EESC 4280",
-        "title": "Practical Meteorology",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: EESC2020 or ESSC2020."
-      },
-      {
-        "code": "EESC 4325",
-        "title": "Advanced Environmental Chemistry",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ENSC4525. Pre-requisite: EESC2515 or ENSC2515 or permission of the instructor."
-      },
-      {
-        "code": "EESC 4330",
-        "title": "Biogeochemistry",
-        "unit": "3.00",
-        "prereq": "1) Pre-requisite: EESC/ESSC3020 or EESC/ESSC3220 or EESC3230 or EESC/ESSC3300 or EESC3510 or EESC3520 or EESC/ESSC3600 or EESC/ESSC3800. 2) Not for those taken ENSC/EESC3330. 3) Need basic knowledge in environmental science and chemistry."
-      },
-      {
-        "code": "EESC 4335",
-        "title": "Chemical Treatment Processes",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ENSC4535. Pre-requisite: EESC2515 or ENSC2515 or permission of the instructor."
-      },
-      {
-        "code": "EESC 4350",
-        "title": "Environmental Health: A Systems Thinking Approach",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ENSC4250. Pre-requisite: EESC3520 or permission of instructor."
-      },
-      {
-        "code": "EESC 4510",
-        "title": "Statistical Methods and Data Analysis for Earth and Environmental Sciences",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4510. Pre-requisite: (STAT1011 or 1012), and ((EESC2030 or ESSC2030) or PHYS2061)."
-      },
-      {
-        "code": "EESC 4520",
-        "title": "Numerical Methods and Modeling for Earth and Environmental Sciences",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4520. Pre-requisite: (MATH1010 or 1030 or 1520), and ((EESC2030 or ESSC2030) or PHYS2061)."
-      },
-      {
-        "code": "EESC 4540",
-        "title": "Remote Sensing – Principles and Applications",
-        "unit": "3.00",
-        "prereq": "Not for students who have taken ESSC4540. Pre-requisite: (EESC2010 or ESSC2010) &(EESC2020 or ESSC2020) & (MATH1010 or 1030 or 1510 or 1520) & (PHYS1001 or 1002 or 1111 or 1113) & ((EESC2030 or ESSC2030) or PHYS2061), or permission of instructor."
-      },
-      {
-        "code": "EESC 4550",
-        "title": "Practical Atmospheric Modeling",
-        "unit": "3.00",
-        "prereq": "Pre-requisite: (EESC2020 or ESSC2020) and (MATH2550 or EESC2520 or PHYS2051) and (PHYS1001 or 1002 or 1111 or 1113), or permission of instructor."
+        "index": 2,
+        "text": "Total: 20",
+        "codes": [],
+        "units": "20",
+        "courses": []
       }
     ]
   },
-  "explanatory_notes": "<tr> <td colspan=\"2\" style=\"width:353.4pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"471\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\">Explanatory\n\n Note:</p> </td> <td style=\"width:101.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"136\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt;layout-grid-mode:char\"><b> </b></p> </td> </tr>\n<tr> <td style=\"width:29.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"40\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\">[a]</p> </td> <td colspan=\"2\" style=\"width:15.0cm;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"567\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt;layout-grid-mode:char\">No more than 9 units of\n\n courses taken to fulfill the requirements of the students’ Major\n\n Programme(s) and other Minor Programme(s) respectively can be used to\n\n fulfill the requirement of this Minor Programme.</p> </td> </tr>\n<tr> <td colspan=\"3\" style=\"width:455.15pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"607\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt;layout-grid-mode:char\"> </p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt;layout-grid-mode:char\"><b> </b></p> </td> </tr>\n<tr height=\"0\"> <td style=\"border:none\" width=\"40\"></td> <td style=\"border:none\" width=\"431\"></td> <td style=\"border:none\" width=\"136\"></td> </tr>"
+  "explanatory_notes": "<table><tr> <td colspan=\"2\" style=\"width:353.4pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"471\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\">Explanatory\n\n Note:</p> </td> <td style=\"width:101.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"136\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt;layout-grid-mode:char\"><b> </b></p> </td> </tr>\n<tr> <td style=\"width:29.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"40\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\">[a]</p> </td> <td colspan=\"2\" style=\"width:15.0cm;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"567\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt;layout-grid-mode:char\">No more than 9 units of\n\n courses taken to fulfill the requirements of the students’ Major\n\n Programme(s) and other Minor Programme(s) respectively can be used to\n\n fulfill the requirement of this Minor Programme.</p> </td> </tr>\n<tr> <td colspan=\"3\" style=\"width:455.15pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"607\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt;layout-grid-mode:char\"> </p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt;layout-grid-mode:char\"><b> </b></p> </td> </tr>\n<tr height=\"0\"> <td style=\"border:none\" width=\"40\"></td> <td style=\"border:none\" width=\"431\"></td> <td style=\"border:none\" width=\"136\"></td> </tr></table>"
 }
