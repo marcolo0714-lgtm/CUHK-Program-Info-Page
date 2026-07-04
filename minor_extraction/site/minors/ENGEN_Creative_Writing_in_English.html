@@ -10,7 +10,8 @@
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; }
 .container { max-width:960px; margin:0 auto; padding:20px; }
-h1 { font-size:1.7em; margin-bottom:.3em; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
 h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
      border-bottom:1px solid var(--border); color:#333; }
 a { color:var(--accent); text-decoration:none; }
@@ -18,7 +19,7 @@ a:hover { text-decoration:underline; }
 .breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
 .section { background:var(--card); padding:14px 18px; border-radius:8px;
            border:1px solid var(--border); margin-bottom:16px; }
-.section pre { white-space:pre-wrap; font-family:inherit; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
@@ -33,29 +34,45 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { padding: 8px 0; }
-.row-num { font-weight:600; color:var(--accent); display:inline; }
-.row-text { margin-left:6px; }
-.nav-bar { display:flex; justify-content:space-between; padding:12px 0; margin-top:20px;
-           border-top:1px solid var(--border); }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.row-text { }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    line-height:1.6; }
+.notes-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-section tr:hover { background:#f9f9f9; }
+:target { background:#fff3cd; border-radius:4px; padding:2px 4px;
+          scroll-margin-top:20px; }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Creative Writing in English</div>
-<h1>Creative Writing in English</h1>
-<div class="nav-bar"><a href="ELEGN_Electronic_Engineering.html">← Electronic Engineering</a><a href="ENGEN_English.html">English →</a></div>
-<p class="meta">Faculty: Arts</p>
+<div class="nav-bar"><a href="CHLLN_Chinese_Language_and_Literature.html">← Chinese Language and Literature</a><a href="ANTHN_Cultural_Heritage_Studies.html">Cultural Heritage Studies →</a></div>
+<div class="title-row"><h1>Creative Writing in English</h1><span class="meta">Arts</span></div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
-<h2>1. Required Courses: 6</h2>
-<div class="req-row"><div class="row-text">ENGE3260, 3290</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<h2>1. Required Courses (6 units)</h2>
+<div class="section"><div class="req-row"><span class="row-text">ENGE3260, 3290</span></div></div>
+<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>ENGE 3260</td><td>Creative Writing</td><td>3.00</td><td>—</td></tr>
 <tr><td>ENGE 3290</td><td>Reading and Writing Short Stories</td><td>3.00</td><td>—</td></tr>
-</tbody></table>
-<h2>2. Elective Courses: 12</h2>
-<div class="req-row"><div class="row-text">Any 4 courses from the following: ENGE2210, 2390, 3280, 3300, 3310, 3320, 3360, 3370, 3420, 4200</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<h2>2. Elective Courses (12 units)</h2>
+<div class="section"><div class="req-row"><span class="row-text">Any 4 courses from the following: ENGE2210, 2390, 3280, 3300, 3310, 3320, 3360, 3370, 3420, 4200</span></div></div>
+<details class="course-details"><summary>Show 10 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>ENGE 2210</td><td>Song and Poetry: The Literature of Song and Song-Writing</td><td>3.00</td><td>—</td></tr>
 <tr><td>ENGE 2390</td><td>Reading Poetry</td><td>3.00</td><td>—</td></tr>
 <tr><td>ENGE 3280</td><td>Writing a Life Between Languages</td><td>3.00</td><td>—</td></tr>
@@ -66,11 +83,9 @@ tr:hover { background:#f9f9f9; }
 <tr><td>ENGE 3370</td><td>Writing Hong Kong</td><td>3.00</td><td>—</td></tr>
 <tr class="nf"><td>ENGE 3420</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr><td>ENGE 4200</td><td>Advanced Creative Writing Workshop</td><td>3.00</td><td>At least one of the following: ENGE3260 Creative Writing; ENGE3290 Reading and Writing Short Stories; ENGE3360 Special Topics in Creative Writing; OR ENGE3370 Writing Hong Kong.</td></tr>
-</tbody></table>
+</tbody></table></details>
 <h2>Explanatory Notes</h2>
-<div class="section"><table><tr> <td colspan="2" style="width:406.55pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="542"> <p class="MsoNormal" style="margin-right:-3.0pt;text-align:justify; text-justify:inter-ideograph;layout-grid-mode:char"><span lang="EN-US">Explanatory
-
- Note:</span></p> </td> <td style="width:85.7pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="114"> <p class="MsoNormal" style="margin-right:-3.0pt;text-align:justify; text-justify:inter-ideograph;layout-grid-mode:char"><span lang="EN-US"> </span></p> </td> </tr>
+<div class="section notes-section"><table>
 <tr> <td style="width:66.45pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="89"> <p class="MsoNormal" style="margin-right:-3.0pt;text-align:justify; text-justify:inter-ideograph;layout-grid-mode:char"><span lang="EN-US">1. </span></p> </td> <td colspan="2" style="width:425.05pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="567"> <p class="MsoNormal" style="margin-right:-3.0pt;text-align:justify; text-justify:inter-ideograph;layout-grid-mode:char"><span lang="EN-US">This
 
  Minor Programme is not applicable to students who major in English Major
@@ -87,6 +102,7 @@ tr:hover { background:#f9f9f9; }
  Programme(s) and other Minor Programme(s) respectively can be used to
 
  fulfill the requirement of this Minor Programme.</p> </td> </tr></table></div>
+<div class="nav-bar nav-bar-bottom"><a href="CHLLN_Chinese_Language_and_Literature.html">← Chinese Language and Literature</a><a href="ANTHN_Cultural_Heritage_Studies.html">Cultural Heritage Studies →</a></div>
 </div>
 </body>
 </html>

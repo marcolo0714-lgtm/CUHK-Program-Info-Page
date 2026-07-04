@@ -10,7 +10,8 @@
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; }
 .container { max-width:960px; margin:0 auto; padding:20px; }
-h1 { font-size:1.7em; margin-bottom:.3em; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
 h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
      border-bottom:1px solid var(--border); color:#333; }
 a { color:var(--accent); text-decoration:none; }
@@ -18,7 +19,7 @@ a:hover { text-decoration:underline; }
 .breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
 .section { background:var(--card); padding:14px 18px; border-radius:8px;
            border:1px solid var(--border); margin-bottom:16px; }
-.section pre { white-space:pre-wrap; font-family:inherit; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
@@ -33,25 +34,39 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { padding: 8px 0; }
-.row-num { font-weight:600; color:var(--accent); display:inline; }
-.row-text { margin-left:6px; }
-.nav-bar { display:flex; justify-content:space-between; padding:12px 0; margin-top:20px;
-           border-top:1px solid var(--border); }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.row-text { }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    line-height:1.6; }
+.notes-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-section tr:hover { background:#f9f9f9; }
+:target { background:#fff3cd; border-radius:4px; padding:2px 4px;
+          scroll-margin-top:20px; }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Chinese Language and Literature</div>
-<h1>Chinese Language and Literature</h1>
-<div class="nav-bar"><a href="CHEMN_Chemistry.html">← Chemistry</a><a href="CMBIN_Cell_and_Molecular_Biology.html">Cell and Molecular Biology →</a></div>
-<p class="meta">Faculty: Arts</p>
+<div class="nav-bar"><a href="ANTHN_Archaeology.html">← Archaeology</a><a href="ENGEN_Creative_Writing_in_English.html">Creative Writing in English →</a></div>
+<div class="title-row"><h1>Chinese Language and Literature</h1><span class="meta">Arts</span></div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 21 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
-<h2>1. Elective Courses :</h2>
-<div class="req-row"><div class="row-text">(a) Basic courses</div></div>
-<div class="req-row"><div class="row-text">Any 9 units of courses from the following: CHLL1110, 1211, 1401, 2121, 2131, 2212, 2302, 2350, 2403</div> <span class="meta">(9 units)</span></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<h2>1. Elective Courses</h2>
+<div class="section"><div class="req-row"><span class="row-text">(a) Basic courses</span></div><div class="req-row"><span class="row-text">Any 9 units of courses from the following: CHLL1110, 1211, 1401, 2121, 2131, 2212, 2302, 2350, 2403</span><span class="meta">(9 units)</span></div></div>
+<details class="course-details"><summary>Show 9 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>CHLL 1110</td><td>Introduction to Chinese Linguistics</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 1211</td><td>Introduction to Chinese Classic Texts</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 1401</td><td>Introduction to Literature</td><td>3.00</td><td>—</td></tr>
@@ -61,10 +76,9 @@ tr:hover { background:#f9f9f9; }
 <tr><td>CHLL 2302</td><td>History of Chinese Literature</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 2350</td><td>Classical Chinese Poetry: Selected Readings and Writing Practice</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 2403</td><td>Introduction to Modern Chinese Literature</td><td>3.00</td><td>—</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text">(b) Speciality courses</div></div>
-<div class="req-row"><div class="row-text">9 units of courses from any speciality areas below:</div> <span class="meta">(9 units)</span></div>
-<div class="req-row"><div class="row-text">(1) Language and Linguistics CHLL 3110, 3121, 3131, 3132, 3141, 3142, 3143, 3144, 3145, 3146, 3151, 3162, 4110, 4111, 4121, 4141, 4151, 4161</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">(b) Speciality courses</span></div><div class="req-row"><span class="row-text">9 units of courses from any speciality areas below:</span><span class="meta">(9 units)</span></div><div class="req-row"><span class="row-text">(1) Language and Linguistics CHLL 3110, 3121, 3131, 3132, 3141, 3142, 3143, 3144, 3145, 3146, 3151, 3162, 4110, 4111, 4121, 4141, 4151, 4161</span></div></div>
+<details class="course-details"><summary>Show 18 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>CHLL 3110</td><td>Applied Linguistics</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 3121</td><td>Studies in Chinese Characters</td><td>3.00</td><td>Pre-requisite: CHLL2121</td></tr>
 <tr><td>CHLL 3131</td><td>Studies in Chinese Phonology</td><td>3.00</td><td>Pre-requisite: CHLL2131</td></tr>
@@ -83,8 +97,9 @@ tr:hover { background:#f9f9f9; }
 <tr><td>CHLL 4141</td><td>Chinese Historical Grammar</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 4151</td><td>Chinese Textual Exegesis</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 4161</td><td>Chinese Dialectology</td><td>3.00</td><td>—</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text">(2) Ancient Documents CHLL 3221, 3222, 3223, 3231, 3232, 3233, 4224, 4241, 4242, 4243, 4244, 4251, 4252, 4253, 4254</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">(2) Ancient Documents CHLL 3221, 3222, 3223, 3231, 3232, 3233, 4224, 4241, 4242, 4243, 4244, 4251, 4252, 4253, 4254</span></div></div>
+<details class="course-details"><summary>Show 15 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>CHLL 3221</td><td>Lun Yu</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 3222</td><td>Meng Zi</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 3223</td><td>Li Ji</td><td>3.00</td><td>—</td></tr>
@@ -100,8 +115,9 @@ tr:hover { background:#f9f9f9; }
 <tr><td>CHLL 4252</td><td>Selected Topics on Excavated Texts I</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 4253</td><td>Selected Topics on Classical Texts II</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 4254</td><td>Selected Topics on Excavated Texts II</td><td>3.00</td><td>—</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text">(3) Classical Literature CHLL 3310, 3311, 3314, 3315, 3316, 3317, 3321, 3322, 3323, 3324, 3341, 3351, 4310, 4311, 4312, 4313, 4314, 4315, 4320, 4321, 4322, 4330, 4331, 4332, 4340, 4341, 4342, 4343</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">(3) Classical Literature CHLL 3310, 3311, 3314, 3315, 3316, 3317, 3321, 3322, 3323, 3324, 3341, 3351, 4310, 4311, 4312, 4313, 4314, 4315, 4320, 4321, 4322, 4330, 4331, 4332, 4340, 4341, 4342, 4343</span></div></div>
+<details class="course-details"><summary>Show 28 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>CHLL 3310</td><td>Poetry of Tao Qian</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 3311</td><td>Poetry of Li Bai</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 3314</td><td>Major Author(s) (Ci Poetry)</td><td>3.00</td><td>—</td></tr>
@@ -130,8 +146,9 @@ tr:hover { background:#f9f9f9; }
 <tr><td>CHLL 4341</td><td>Selected Topics in Classical Chinese Literature I</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 4342</td><td>Chinese Literature (1840-1919)</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 4343</td><td>Selected Topics in Classical Chinese Literature II</td><td>3.00</td><td>—</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text">(4) Modern Chinese Literature CHLL 3402, 3403, 3404, 3405, 3406, 3407, 3408, 3409, 3410, 3411, 3412, 3413, 4401, 4402, 4403, 4404, 4405, 4406, 4407, 4408, 4409, 4410, 4411, 4412, 4413, 4414, 4415, 4416</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">(4) Modern Chinese Literature CHLL 3402, 3403, 3404, 3405, 3406, 3407, 3408, 3409, 3410, 3411, 3412, 3413, 4401, 4402, 4403, 4404, 4405, 4406, 4407, 4408, 4409, 4410, 4411, 4412, 4413, 4414, 4415, 4416</span></div></div>
+<details class="course-details"><summary>Show 28 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>CHLL 3402</td><td>Modern Chinese Literature and Film</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 3403</td><td>Creative Writing</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 3404</td><td>Modern Chinese Poetry</td><td>3.00</td><td>—</td></tr>
@@ -160,14 +177,10 @@ tr:hover { background:#f9f9f9; }
 <tr><td>CHLL 4414</td><td>Literature and Periodical</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 4415</td><td>Contemporary Chinese Literature and Disaster Narratives</td><td>3.00</td><td>—</td></tr>
 <tr><td>CHLL 4416</td><td>Ecology and Technology in Sinophone Media Culture</td><td>3.00</td><td>—</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text">(c) Any one other Basic or Speciality course not taken to fulfill requirement 1(a) or 1(b)</div> <span class="meta">(3 units)</span></div>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">(c) Any one other Basic or Speciality course not taken to fulfill requirement 1(a) or 1(b)</span><span class="meta">(3 units)</span></div></div>
 <h2>Explanatory Notes</h2>
-<div class="section"><table><tr> <td colspan="4" style="width:372.85pt;border:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="497"> <p class="MsoNormal" style="line-height:14.0pt"><span lang="EN-US">Explanatory
-
- Notes:</span></p> </td> <td style="width:94.95pt;border:none;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="127"> <p align="center" class="MsoNormal" style="text-align:center;line-height:
-
- 14.0pt"><b><span lang="EN-US"> </span></b></p> </td> </tr>
+<div class="section notes-section"><table>
 <tr> <td style="width:34.2pt;border:none;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="46"> <p class="MsoNormal" style="line-height:14.0pt"><span lang="EN-US">1.</span></p> </td> <td colspan="4" style="width:433.6pt;border:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="578"> <p class="MsoNormal" style="line-height:14.0pt"><span lang="EN-US">This Minor
 
  Programme is not applicable to students who major in Chinese Language and
@@ -182,6 +195,7 @@ tr:hover { background:#f9f9f9; }
  students’ Major Programme(s) and other Minor Programme(s) respectively
 
  can be used to fulfill the requirement of this Minor Programme.</span></p> </td> </tr></table></div>
+<div class="nav-bar nav-bar-bottom"><a href="ANTHN_Archaeology.html">← Archaeology</a><a href="ENGEN_Creative_Writing_in_English.html">Creative Writing in English →</a></div>
 </div>
 </body>
 </html>

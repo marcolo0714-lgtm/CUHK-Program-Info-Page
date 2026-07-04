@@ -10,7 +10,8 @@
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; }
 .container { max-width:960px; margin:0 auto; padding:20px; }
-h1 { font-size:1.7em; margin-bottom:.3em; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
 h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
      border-bottom:1px solid var(--border); color:#333; }
 a { color:var(--accent); text-decoration:none; }
@@ -18,7 +19,7 @@ a:hover { text-decoration:underline; }
 .breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
 .section { background:var(--card); padding:14px 18px; border-radius:8px;
            border:1px solid var(--border); margin-bottom:16px; }
-.section pre { white-space:pre-wrap; font-family:inherit; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
@@ -33,25 +34,39 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { padding: 8px 0; }
-.row-num { font-weight:600; color:var(--accent); display:inline; }
-.row-text { margin-left:6px; }
-.nav-bar { display:flex; justify-content:space-between; padding:12px 0; margin-top:20px;
-           border-top:1px solid var(--border); }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.row-text { }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    line-height:1.6; }
+.notes-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-section tr:hover { background:#f9f9f9; }
+:target { background:#fff3cd; border-radius:4px; padding:2px 4px;
+          scroll-margin-top:20px; }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Physical Education, Exercise Science and Health</div>
-<h1>Physical Education, Exercise Science and Health</h1>
-<div class="nav-bar"><a href="MUSCN_Music.html">← Music</a><a href="PHILN_Philosophy.html">Philosophy →</a></div>
-<p class="meta">Faculty: Education</p>
+<div class="nav-bar"><a href="TRANN_Translation.html">← Translation</a><a href="AISTN_Artificial_Intelligence_Systems_and_Technologies.html">Artificial Intelligence: Systems and Technologies →</a></div>
+<div class="title-row"><h1>Physical Education, Exercise Science and Health</h1><span class="meta">Education</span></div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
-<h2>1. Elective Courses:</h2>
-<div class="req-row"><div class="row-text">(a) Professional Skills Courses 3 units of courses chosen from the following:</div> <span class="meta">(3 units)</span></div>
-<div class="req-row"><div class="row-text">SPED2011, 2021, 2031, 2041, 2051, 2061, 2111, 2112, 2122, 2131, 2134, 2141, 2211, 3220, 3250</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<h2>1. Elective Courses</h2>
+<div class="section"><div class="req-row"><span class="row-text">(a) Professional Skills Courses 3 units of courses chosen from the following:</span><span class="meta">(3 units)</span></div><div class="req-row"><span class="row-text">SPED2011, 2021, 2031, 2041, 2051, 2061, 2111, 2112, 2122, 2131, 2134, 2141, 2211, 3220, 3250</span></div></div>
+<details class="course-details"><summary>Show 15 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>SPED 2011</td><td>Teaching Basketball: Theory and Practice</td><td>1.00</td><td>—</td></tr>
 <tr><td>SPED 2021</td><td>Teaching Volleyball: Theory and Practice</td><td>1.00</td><td>—</td></tr>
 <tr><td>SPED 2031</td><td>Teaching Soccer: Theory and Practice</td><td>1.00</td><td>—</td></tr>
@@ -67,9 +82,9 @@ tr:hover { background:#f9f9f9; }
 <tr><td>SPED 2211</td><td>Teaching Gymnastics: Theory and Practice</td><td>1.00</td><td>—</td></tr>
 <tr><td>SPED 3220</td><td>Alternative Sports</td><td>1.00</td><td>—</td></tr>
 <tr><td>SPED 3250</td><td>Teaching Dances: Theory and Practice</td><td>1.00</td><td>—</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text">(b) Theoretical Courses 15 units of courses chosen from the following:</div> <span class="meta">(15 units)</span></div>
-<div class="req-row"><div class="row-text">PHPC1001, 2007, 2016, SPED2520, 2540, 2600, 2610, 2710, 2720, 2810, 3410, 3430, 3440, 3450, 3550, 3630, 3731, 3820, 3910, 3920, 4560, 4570, 4640, 4830, 4900</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">(b) Theoretical Courses 15 units of courses chosen from the following:</span><span class="meta">(15 units)</span></div><div class="req-row"><span class="row-text">PHPC1001, 2007, 2016, SPED2520, 2540, 2600, 2610, 2710, 2720, 2810, 3410, 3430, 3440, 3450, 3550, 3630, 3731, 3820, 3910, 3920, 4560, 4570, 4640, 4830, 4900</span></div></div>
+<details class="course-details"><summary>Show 25 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>PHPC 1001</td><td>Foundations in Public Health</td><td>2.00</td><td>PHPC1001 is double-coded with UGEC1920. Not for students who have taken MEDF1021, 1120, UGEC1920 or UGEC2930.</td></tr>
 <tr><td>PHPC 2007</td><td>Nutrition for Health and Exercise</td><td>3.00</td><td>Pre-requisites: MEDF1021or MEDF1120 or PHPC1001 or PHPC1012 or UGEC1920 or UGEC2930.</td></tr>
 <tr><td>PHPC 2016</td><td>Theories and Concepts of Health Behaviours</td><td>3.00</td><td>Pre-requisite: PHPC1022 or PHPC2008. Not for students who have taken CHPR3002, 3008, 4008 or PHPC1016</td></tr>
@@ -95,9 +110,9 @@ tr:hover { background:#f9f9f9; }
 <tr><td>SPED 4640</td><td>Human Kinematics and Kinetics</td><td>3.00</td><td>Prerequisite:SPED2610</td></tr>
 <tr><td>SPED 4830</td><td>Psychological Aspects of Sports and Exercise</td><td>3.00</td><td>Prerequisite:SPED3820</td></tr>
 <tr><td>SPED 4900</td><td>Research Project</td><td>3.00</td><td>Prerequisite:SPED3630</td></tr>
-</tbody></table>
+</tbody></table></details>
 <h2>Explanatory Notes</h2>
-<div class="section"><table><tr style="height:13.6pt"> <td colspan="2" style="width:373.75pt;padding:0cm 5.4pt 0cm 5.4pt; height:13.6pt" valign="top" width="498"> <p class="MsoNormal"><span lang="EN-US">Explanatory Note</span><span lang="EN-US">s</span><span lang="EN-US">:</span></p> </td> <td style="width:84.75pt;padding:0cm 5.4pt 0cm 5.4pt; height:13.6pt" valign="top" width="113"> <p align="center" class="MsoNormal" style="text-align:center"><b><span lang="EN-US"> </span></b></p> </td> </tr>
+<div class="section notes-section"><table>
 <tr style="height:13.6pt"> <td style="width:34.45pt;padding:0cm 5.4pt 0cm 5.4pt; height:13.6pt" valign="top" width="46"> <p class="MsoNormal"><span lang="EN-US">1.</span></p> </td> <td colspan="2" style="width:424.05pt;padding:0cm 5.4pt 0cm 5.4pt; height:13.6pt" valign="top" width="565"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span lang="EN-US">This Minor Programme is not applicable to students who major
 
  in Exercise Science and Health Education, and Human Movement Science and
@@ -110,6 +125,7 @@ tr:hover { background:#f9f9f9; }
  Programme(s) respectively can be used to fulfill the requirement of this
 
  Minor Programme. </span></p> </td> </tr></table></div>
+<div class="nav-bar nav-bar-bottom"><a href="TRANN_Translation.html">← Translation</a><a href="AISTN_Artificial_Intelligence_Systems_and_Technologies.html">Artificial Intelligence: Systems and Technologies →</a></div>
 </div>
 </body>
 </html>

@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 
@@ -13,7 +14,8 @@ CSS = """\
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; }
 .container { max-width:960px; margin:0 auto; padding:20px; }
-h1 { font-size:1.7em; margin-bottom:.3em; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
 h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
      border-bottom:1px solid var(--border); color:#333; }
 a { color:var(--accent); text-decoration:none; }
@@ -21,7 +23,7 @@ a:hover { text-decoration:underline; }
 .breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
 .section { background:var(--card); padding:14px 18px; border-radius:8px;
            border:1px solid var(--border); margin-bottom:16px; }
-.section pre { white-space:pre-wrap; font-family:inherit; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
@@ -36,12 +38,27 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { padding: 8px 0; }
-.row-num { font-weight:600; color:var(--accent); display:inline; }
-.row-text { margin-left:6px; }
-.nav-bar { display:flex; justify-content:space-between; padding:12px 0; margin-top:20px;
-           border-top:1px solid var(--border); }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.row-text { }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    line-height:1.6; }
+.notes-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-section tr:hover { background:#f9f9f9; }
+:target { background:#fff3cd; border-radius:4px; padding:2px 4px;
+          scroll-margin-top:20px; }
 """
 
 
@@ -88,72 +105,80 @@ def build_course_table(courses):
     return rows
 
 
+def clean_label(label, units):
+    """Clean section label: remove trailing colon & unit number, append units."""
+    label = label.strip()
+    # Remove " : N" or " :" at end
+    if units:
+        label = re.sub(rf'\s*:\s*{re.escape(units)}\s*$', '', label)
+        label += f' ({units} units)'
+    else:
+        label = re.sub(r'\s*:\s*$', '', label)
+    label = re.sub(r'\s+', ' ', label)
+    return label
+
+
 def build_section_html(sec):
     """Return HTML for a required / elective section from JSON (row-based)."""
     lines = []
     label = sec.get("label", "")
-    lines.append(f"<h2>{label}</h2>")
+    units = sec.get("units", "")
+    lines.append(f"<h2>{clean_label(label, units)}</h2>")
+
+    # Buffer consecutive row texts into one white box; flush at course tables
+    section_buf = ""
 
     for row in sec.get("rows", []):
-        # Row text line (no sequential index number displayed)
-        row_html = f'<div class="row-text">{row["text"]}</div>'
+        row_html = '<div class="req-row">'
+        row_html += f'<span class="row-text">{row["text"]}</span>'
         if row.get("units"):
-            row_html += f' <span class="meta">({row["units"]} units)</span>'
+            row_html += f'<span class="meta">({row["units"]} units)</span>'
+        row_html += '</div>'
 
         courses = row.get("courses", [])
+        section_buf += row_html
+
         if courses:
+            lines.append(f'<div class="section">{section_buf}</div>')
+            section_buf = ""
             tbody = build_course_table(courses)
             lines.append(
-                f'<div class="req-row">'
-                f'{row_html}'
-                f'</div>'
+                f'<details class="course-details">'
+                f'<summary>Show {len(courses)} course(s) →</summary>'
                 f"<table><thead><tr>"
                 f"<th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th>"
                 f"</tr></thead><tbody>\n{tbody}</tbody></table>"
+                f'</details>'
             )
-        elif row.get("text"):
-            lines.append(
-                f'<div class="req-row">'
-                f'{row_html}'
-                f'</div>'
-            )
-        else:
-            # Row with codes but no text — still show table
-            if courses:
-                tbody = build_course_table(courses)
-                lines.append(
-                    f"<table><thead><tr>"
-                    f"<th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th>"
-                    f"</tr></thead><tbody>\n{tbody}</tbody></table>"
-                )
+
+    # Flush remaining buffer
+    if section_buf:
+        lines.append(f'<div class="section">{section_buf}</div>')
 
     return "\n".join(lines)
+
+
+def build_nav(prev_stem, prev_title, next_stem, next_title, bottom=False):
+    cls = 'nav-bar nav-bar-bottom' if bottom else 'nav-bar'
+    left = f'<a href="{prev_stem}.html">← {prev_title}</a>' if prev_stem else "<span></span>"
+    right = f'<a href="{next_stem}.html">{next_title} →</a>' if next_stem else "<span></span>"
+    return f'<div class="{cls}">{left}{right}</div>'
 
 
 def build_detail_page(data, prev_stem=None, prev_title=None, next_stem=None, next_title=None):
     """Build the complete HTML body for one minor programme detail page."""
     title = data["title"]
 
+    # Title row with faculty right-aligned on same line
     body = [
         f'<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; {title}</div>',
-        f"<h1>{title}</h1>",
+        build_nav(prev_stem, prev_title, next_stem, next_title),
     ]
-
-    # Prev / Next navigation
-    nav = []
-    if prev_stem:
-        nav.append(f'<a href="{prev_stem}.html">← {prev_title}</a>')
-    else:
-        nav.append("<span></span>")
-    if next_stem:
-        nav.append(f'<a href="{next_stem}.html">{next_title} →</a>')
-    else:
-        nav.append("<span></span>")
-    body.append(f'<div class="nav-bar">{nav[0]}{nav[1]}</div>')
-
     faculty = data.get("faculty", "")
+    title_html = f"<h1>{title}</h1>"
     if faculty and faculty != "Unknown":
-        body.append(f'<p class="meta">Faculty: {faculty}</p>')
+        title_html += f'<span class="meta">{faculty}</span>'
+    body.append(f'<div class="title-row">{title_html}</div>')
 
     desc = data.get("description", "")
     if desc:
@@ -168,10 +193,51 @@ def build_detail_page(data, prev_stem=None, prev_title=None, next_stem=None, nex
 
     notes = data.get("explanatory_notes", "")
     if notes:
+        # Strip leading "Explanatory Note(s):" row (first <tr> containing it)
+        notes = re.sub(
+            r'<tr[^>]*>.*?Explanatory\s+Note[s]?\s*:?.*?</tr>',
+            '', notes, count=1, flags=re.IGNORECASE | re.DOTALL
+        )
         body.append("<h2>Explanatory Notes</h2>")
-        body.append(f'<div class="section">{notes}</div>')
+        body.append(f'<div class="section notes-section">{notes}</div>')
 
-    return "\n".join(body)
+    # Bottom nav
+    body.append(build_nav(prev_stem, prev_title, next_stem, next_title, bottom=True))
+
+    result = "\n".join(body)
+
+    # ── Add [a]/[b]/[x] anchor links: body ↔ notes bidirectional ──
+    for letter in "abcdefghijklmnopqrstuvwxyz":
+        ref = f"[{letter}]"
+        if ref not in result:
+            continue
+        note_id = f"note_{letter}"
+        ref_id = f"ref_{letter}"
+        notes_start = result.find('<div class="section notes-section">')
+        if notes_start == -1:
+            continue
+        body_part = result[:notes_start]
+        notes_part = result[notes_start:]
+
+        # Body: first [x] gets id, rest link to notes (use split on first find)
+        idx = body_part.find(ref)
+        if idx != -1:
+            before = body_part[:idx]
+            after = body_part[idx + len(ref):]
+            after = after.replace(ref, f'<a href="#{note_id}" class="ref-link">{ref}</a>')
+            body_part = before + f'<span id="{ref_id}" class="ref-anchor">{ref}</span>' + after
+
+        # Notes: first [x] gets id, rest link to body
+        idx = notes_part.find(ref)
+        if idx != -1:
+            before = notes_part[:idx]
+            after = notes_part[idx + len(ref):]
+            after = after.replace(ref, f'<a href="#{ref_id}" class="ref-link">{ref}</a>')
+            notes_part = before + f'<span id="{note_id}" class="ref-anchor">{ref}</span>' + after
+
+        result = body_part + notes_part
+
+    return result
 
 
 # ── main ─────────────────────────────────────────────────────────────
@@ -192,21 +258,46 @@ def generate():
 
     index_cards = []
 
-    for i, json_path in enumerate(json_files):
+    # ── First pass: load all data into cards ──
+    for json_path in json_files:
         stem = json_path.stem
         data = json.loads(json_path.read_text(encoding="utf-8"))
+        req_courses = [c for r in data.get("required", {}).get("rows", []) for c in r.get("courses", [])]
+        ele_courses = [c for r in data.get("elective", {}).get("rows", []) for c in r.get("courses", [])]
+        index_cards.append({
+            "stem": stem,
+            "data": data,
+            "title": data["title"],
+            "faculty": data.get("faculty", "Unknown"),
+            "req_count": len(req_courses),
+            "req_found": sum(1 for c in req_courses if c.get("title")),
+            "ele_count": len(ele_courses),
+            "ele_found": sum(1 for c in ele_courses if c.get("title")),
+        })
 
-        # Prev / Next in the index-sorted order
+    # ── Sort into index-page order (faculty groups, "Other" last, alpha by title within faculty) ──
+    by_faculty = {}
+    for c in index_cards:
+        by_faculty.setdefault(c["faculty"], []).append(c)
+    fac_keys = sorted(k for k in by_faculty if k != "Other")
+    if "Other" in by_faculty:
+        fac_keys.append("Other")
+    index_order = []
+    for fac in fac_keys:
+        # Sort cards within faculty by title (case-insensitive)
+        for c in sorted(by_faculty[fac], key=lambda c: c["title"].lower()):
+            index_order.append(c)
+
+    # ── Second pass: build pages in index order ──
+    for i, card in enumerate(index_order):
+        stem = card["stem"]
+        data = card["data"]
         prev_info = None
         next_info = None
         if i > 0:
-            prev_path = json_files[i - 1]
-            prev_data = json.loads(prev_path.read_text(encoding="utf-8"))
-            prev_info = (prev_path.stem, prev_data["title"])
-        if i < len(json_files) - 1:
-            next_path = json_files[i + 1]
-            next_data = json.loads(next_path.read_text(encoding="utf-8"))
-            next_info = (next_path.stem, next_data["title"])
+            prev_info = (index_order[i - 1]["stem"], index_order[i - 1]["title"])
+        if i < len(index_order) - 1:
+            next_info = (index_order[i + 1]["stem"], index_order[i + 1]["title"])
 
         body = build_detail_page(data, 
                                  prev_stem=prev_info[0] if prev_info else None,
@@ -216,45 +307,31 @@ def generate():
         page = html_page(f"Minor: {data['title']}", body)
         (site_minors_dir / f"{stem}.html").write_text(page, encoding="utf-8")
 
-        req_courses = [c for r in data.get("required", {}).get("rows", []) for c in r.get("courses", [])]
-        ele_courses = [c for r in data.get("elective", {}).get("rows", []) for c in r.get("courses", [])]
-        index_cards.append({
-            "stem": stem,
-            "title": data["title"],
-            "faculty": data.get("faculty", "Unknown"),
-            "req_count": len(req_courses),
-            "req_found": sum(1 for c in req_courses if c.get("title")),
-            "ele_count": len(ele_courses),
-            "ele_found": sum(1 for c in ele_courses if c.get("title")),
-        })
-
     # ── Index page ──
-    # Group cards by faculty
-    by_faculty = {}
-    for c in index_cards:
-        fac = c.get("faculty", "Unknown")
-        by_faculty.setdefault(fac, []).append(c)
-
+    # cards already in index order (faculty groups, Other last, alpha within)
     cards_html = ""
-    for fac in sorted(by_faculty.keys()):
-        cards_html += f'<h2>{fac}</h2>\n'
-        for c in by_faculty[fac]:
-            tags = ""
-            if c["req_count"]:
-                tags += f'<span class="tag">{c["req_found"]}/{c["req_count"]} req</span>'
-            if c["ele_count"]:
-                tags += f'<span class="tag">{c["ele_found"]}/{c["ele_count"]} ele</span>'
-            cards_html += (
-                f'<a href="minors/{c["stem"]}.html">'
-                f'<div class="card">'
-                f'<div><span class="card-code">{c["title"]}</span></div>'
-                f'<div class="meta">{tags}</div>'
-                f'</div></a>\n'
-            )
+    last_fac = None
+    for c in index_order:
+        fac = c["faculty"]
+        if fac != last_fac:
+            cards_html += f'<h2>{fac}</h2>\n'
+            last_fac = fac
+        tags = ""
+        if c["req_count"]:
+            tags += f'<span class="tag">{c["req_found"]}/{c["req_count"]} req</span>'
+        if c["ele_count"]:
+            tags += f'<span class="tag">{c["ele_found"]}/{c["ele_count"]} ele</span>'
+        cards_html += (
+            f'<a href="minors/{c["stem"]}.html">'
+            f'<div class="card">'
+            f'<div><span class="card-code">{c["title"]}</span></div>'
+            f'<div class="meta">{tags}</div>'
+            f'</div></a>\n'
+        )
 
     index_body = (
         f"<h1>CUHK Minor Programmes</h1>"
-        f'<p class="meta">{len(index_cards)} minor programmes &middot; '
+        f'<p class="meta">{len(index_order)} minor programmes &middot; '
         f'Course info from CUHK course catalog</p>\n'
         f"{cards_html}"
     )
@@ -263,11 +340,11 @@ def generate():
     )
 
     # ── Report ──
-    total_req = sum(c["req_count"] for c in index_cards)
-    total_ele = sum(c["ele_count"] for c in index_cards)
-    found_req = sum(c["req_found"] for c in index_cards)
-    found_ele = sum(c["ele_found"] for c in index_cards)
-    print(f"{len(index_cards)} minor programmes rendered")
+    total_req = sum(c["req_count"] for c in index_order)
+    total_ele = sum(c["ele_count"] for c in index_order)
+    found_req = sum(c["req_found"] for c in index_order)
+    found_ele = sum(c["ele_found"] for c in index_order)
+    print(f"{len(index_order)} minor programmes rendered")
     print(f"Required courses: {found_req}/{total_req} matched")
     print(f"Elective courses: {found_ele}/{total_ele} matched")
     print(f"\nSite generated: site/index.html")

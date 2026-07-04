@@ -10,7 +10,8 @@
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; }
 .container { max-width:960px; margin:0 auto; padding:20px; }
-h1 { font-size:1.7em; margin-bottom:.3em; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
 h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
      border-bottom:1px solid var(--border); color:#333; }
 a { color:var(--accent); text-decoration:none; }
@@ -18,7 +19,7 @@ a:hover { text-decoration:underline; }
 .breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
 .section { background:var(--card); padding:14px 18px; border-radius:8px;
            border:1px solid var(--border); margin-bottom:16px; }
-.section pre { white-space:pre-wrap; font-family:inherit; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
@@ -33,30 +34,46 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { padding: 8px 0; }
-.row-num { font-weight:600; color:var(--accent); display:inline; }
-.row-text { margin-left:6px; }
-.nav-bar { display:flex; justify-content:space-between; padding:12px 0; margin-top:20px;
-           border-top:1px solid var(--border); }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.row-text { }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    line-height:1.6; }
+.notes-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-section tr:hover { background:#f9f9f9; }
+:target { background:#fff3cd; border-radius:4px; padding:2px 4px;
+          scroll-margin-top:20px; }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Earth and Environmental Sciences</div>
-<h1>Earth and Environmental Sciences</h1>
-<div class="nav-bar"><a href="EEENN_Energy_Technology.html">← Energy Technology</a><a href="ELEGN_Electronic_Engineering.html">Electronic Engineering →</a></div>
-<p class="meta">Faculty: Science</p>
+<div class="nav-bar"><a href="CHEMN_Chemistry.html">← Chemistry</a><a href="MATHN_Mathematics.html">Mathematics →</a></div>
+<div class="title-row"><h1>Earth and Environmental Sciences</h1><span class="meta">Science</span></div>
 <h2>Description</h2>
-<div class="section"><pre>Students are required to complete a minimum of 20 units of courses, with at least 6 units at 3000 or about level, as follows[a]:</pre></div>
-<h2>1. Required Courses :</h2>
-<div class="req-row"><div class="row-text">EESC2010, 2020, 2270</div> <span class="meta">(9 units)</span></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<div class="section"><pre>Students are required to complete a minimum of 20 units of courses, with at least 6 units at 3000 or about level, as follows<span id="ref_a" class="ref-anchor">[a]</span>:</pre></div>
+<h2>1. Required Courses : (1 units)</h2>
+<div class="section"><div class="req-row"><span class="row-text">EESC2010, 2020, 2270</span><span class="meta">(9 units)</span></div></div>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>EESC 2010</td><td>Solid Earth Dynamics</td><td>3.00</td><td>Not for students who have taken ESSC2010.</td></tr>
 <tr><td>EESC 2020</td><td>Climate System Dynamics</td><td>3.00</td><td>Not for students who have taken ESSC2020.</td></tr>
 <tr><td>EESC 2270</td><td>Introduction to Environmental Science</td><td>3.00</td><td>Not for students who have taken ENSC2270.</td></tr>
-</tbody></table>
-<h2>2. Elective Courses :</h2>
-<div class="req-row"><div class="row-text">Any 11 units of courses from the following, with at least 3 units at 3000 level and 3 units at 4000 level: BIOL2210, 3710, 4012, 4230, 4260, 4420, EESC2160, 2515, 2800, 3100, 3120, 3130, 3140, 3200, 3220, 3300, 3320, 3415, 3510, 3520, 3540, 3600, 3601, 3800, 4010, 4020, 4030, 4040, 4110, 4120, 4130, 4140, 4150, 4160, 4170, 4180, 4210, 4220, 4230, 4240, 4250, 4260, 4270, 4280, 4325, 4330, 4335, 4350, 4510, 4520, 4540, 4550</div> <span class="meta">(11 units)</span></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<h2>2. Elective Courses : (2 units)</h2>
+<div class="section"><div class="req-row"><span class="row-text">Any 11 units of courses from the following, with at least 3 units at 3000 level and 3 units at 4000 level: BIOL2210, 3710, 4012, 4230, 4260, 4420, EESC2160, 2515, 2800, 3100, 3120, 3130, 3140, 3200, 3220, 3300, 3320, 3415, 3510, 3520, 3540, 3600, 3601, 3800, 4010, 4020, 4030, 4040, 4110, 4120, 4130, 4140, 4150, 4160, 4170, 4180, 4210, 4220, 4230, 4240, 4250, 4260, 4270, 4280, 4325, 4330, 4335, 4350, 4510, 4520, 4540, 4550</span><span class="meta">(11 units)</span></div></div>
+<details class="course-details"><summary>Show 52 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>BIOL 2210</td><td>Ecology</td><td>3.00</td><td>Pre-requisite: LSCI1002 or LSCI1012.</td></tr>
 <tr><td>BIOL 3710</td><td>Marine Biology</td><td>3.00</td><td>Pre-requisite: BIOL2210</td></tr>
 <tr><td>BIOL 4012</td><td>Field and Environmental Biology</td><td>2.00</td><td>Co-requisite: BIOL2210 and 3710.</td></tr>
@@ -109,15 +126,11 @@ tr:hover { background:#f9f9f9; }
 <tr><td>EESC 4520</td><td>Numerical Methods and Modeling for Earth and Environmental Sciences</td><td>3.00</td><td>Not for students who have taken ESSC4520. Pre-requisite: (MATH1010 or 1030 or 1520), and ((EESC2030 or ESSC2030) or PHYS2061).</td></tr>
 <tr><td>EESC 4540</td><td>Remote Sensing – Principles and Applications</td><td>3.00</td><td>Not for students who have taken ESSC4540. Pre-requisite: (EESC2010 or ESSC2010) &(EESC2020 or ESSC2020) & (MATH1010 or 1030 or 1510 or 1520) & (PHYS1001 or 1002 or 1111 or 1113) & ((EESC2030 or ESSC2030) or PHYS2061), or permission of instructor.</td></tr>
 <tr><td>EESC 4550</td><td>Practical Atmospheric Modeling</td><td>3.00</td><td>Pre-requisite: (EESC2020 or ESSC2020) and (MATH2550 or EESC2520 or PHYS2051) and (PHYS1001 or 1002 or 1111 or 1113), or permission of instructor.</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text">Total: 20</div> <span class="meta">(20 units)</span></div>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">Total: 20</span><span class="meta">(20 units)</span></div></div>
 <h2>Explanatory Notes</h2>
-<div class="section"><table><tr> <td colspan="2" style="width:353.4pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="471"> <p class="MsoNormal" style="line-height:14.0pt;layout-grid-mode:char">Explanatory
-
- Note:</p> </td> <td style="width:101.75pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="136"> <p align="center" class="MsoNormal" style="text-align:center;line-height:
-
- 14.0pt;layout-grid-mode:char"><b> </b></p> </td> </tr>
-<tr> <td style="width:29.9pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="40"> <p class="MsoNormal" style="line-height:14.0pt;layout-grid-mode:char">[a]</p> </td> <td colspan="2" style="width:15.0cm;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="567"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:14.0pt;layout-grid-mode:char">No more than 9 units of
+<div class="section notes-section"><table>
+<tr> <td style="width:29.9pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="40"> <p class="MsoNormal" style="line-height:14.0pt;layout-grid-mode:char"><span id="note_a" class="ref-anchor">[a]</span></p> </td> <td colspan="2" style="width:15.0cm;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="567"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:14.0pt;layout-grid-mode:char">No more than 9 units of
 
  courses taken to fulfill the requirements of the students’ Major
 
@@ -126,6 +139,7 @@ tr:hover { background:#f9f9f9; }
  fulfill the requirement of this Minor Programme.</p> </td> </tr>
 <tr> <td colspan="3" style="width:455.15pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="607"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:14.0pt;layout-grid-mode:char"> </p> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:14.0pt;layout-grid-mode:char"><b> </b></p> </td> </tr>
 <tr height="0"> <td style="border:none" width="40"></td> <td style="border:none" width="431"></td> <td style="border:none" width="136"></td> </tr></table></div>
+<div class="nav-bar nav-bar-bottom"><a href="CHEMN_Chemistry.html">← Chemistry</a><a href="MATHN_Mathematics.html">Mathematics →</a></div>
 </div>
 </body>
 </html>

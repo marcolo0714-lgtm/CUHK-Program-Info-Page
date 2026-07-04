@@ -10,7 +10,8 @@
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; }
 .container { max-width:960px; margin:0 auto; padding:20px; }
-h1 { font-size:1.7em; margin-bottom:.3em; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
 h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
      border-bottom:1px solid var(--border); color:#333; }
 a { color:var(--accent); text-decoration:none; }
@@ -18,7 +19,7 @@ a:hover { text-decoration:underline; }
 .breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
 .section { background:var(--card); padding:14px 18px; border-radius:8px;
            border:1px solid var(--border); margin-bottom:16px; }
-.section pre { white-space:pre-wrap; font-family:inherit; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
@@ -33,36 +34,51 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { padding: 8px 0; }
-.row-num { font-weight:600; color:var(--accent); display:inline; }
-.row-text { margin-left:6px; }
-.nav-bar { display:flex; justify-content:space-between; padding:12px 0; margin-top:20px;
-           border-top:1px solid var(--border); }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.row-text { }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    line-height:1.6; }
+.notes-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-section tr:hover { background:#f9f9f9; }
+:target { background:#fff3cd; border-radius:4px; padding:2px 4px;
+          scroll-margin-top:20px; }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Law</div>
-<h1>Law</h1>
-<div class="nav-bar"><a href="JASPN_Japanese_Studies.html">← Japanese Studies</a><a href="LINGN_Linguistics.html">Linguistics →</a></div>
-<p class="meta">Faculty: Law</p>
+<div class="nav-bar"><a href="MAEGN_Mechanical_and_Automation_Engineering.html">← Mechanical and Automation Engineering</a><a href="PHPCN_Public_Health.html">Public Health →</a></div>
+<div class="title-row"><h1>Law</h1><span class="meta">Law</span></div>
 <h2>Description</h2>
 <div class="section"><pre>Recommended Course Pattern 1st degree: Bachelor of Laws Units 2nd degree: Bachelor of Social Science (Sociology) 1st term Major Required: LAWS1010, 1020@, 1041@ 0 2nd term Major Required: LAWS1030, 1042@, 1100@ 0 1st term 1st term 12 Major Required: SOCI1001 0 2nd term 12 Major Required: SOCI2004, 2104 0 Major Elective(s): 0-1 course 1st term 1st term 0 Major Required: SOCI2003 12 Major Elective(s): 0-1 course 2nd term 0 Major Required: SOCI3003 12 Major Elective(s): 1-2 course(s) 1st term 1st term 3 Major Required: SOCI3223 9 Major Elective(s): 0-1 course 2nd term 2nd term 0 Major Required: SOCI3231 12 Major Elective(s): 1-2 course(s) 1st term Major Required: SOCI4010 Major Elective(s): 4-5 courses 2nd term Major Required: SOCI4020 Major Elective(s): 4-5 courses Total: 90 Total: Prerequisites for subsequent admission into the PCLL Programme. Minor Programme Title Law (Applicable to students admitted to the Bachelor of Business Administration (Integrated BBA Programme) and Juris Doctor Double Degree Programme only) Students are required to complete a minimum of 24 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
-<h2>1. Required Courses : 18</h2>
-<div class="req-row"><div class="row-text"> LAWS1020, 1030, 1041, 1042, 2131, 2132 </div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<h2>1. Required Courses : 18 (1 units)</h2>
+<div class="section"><div class="req-row"><span class="row-text"> LAWS1020, 1030, 1041, 1042, 2131, 2132 </span></div></div>
+<details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>LAWS 1020</td><td>Hong Kong Legal System</td><td>3.00</td><td>—</td></tr>
 <tr><td>LAWS 1030</td><td>Legal System of the PRC</td><td>3.00</td><td>—</td></tr>
 <tr><td>LAWS 1041</td><td>Contract I</td><td>3.00</td><td>—</td></tr>
 <tr><td>LAWS 1042</td><td>Contract II</td><td>3.00</td><td>Prerequisite:LAWS1041</td></tr>
 <tr><td>LAWS 2131</td><td>Tort I</td><td>3.00</td><td>—</td></tr>
 <tr><td>LAWS 2132</td><td>Tort II</td><td>3.00</td><td>Prerequisite:LAWS2131[1131]</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text"> </div></div>
-<h2>2. Elective Courses: 6</h2>
-<div class="req-row"><div class="row-text"> Any two LAWS courses at 3000 or above level </div></div>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text"> </span></div></div>
+<h2>2. Elective Courses: 6 (2 units)</h2>
+<div class="section"><div class="req-row"><span class="row-text"> Any two LAWS courses at 3000 or above level </span></div></div>
 <h2>Explanatory Notes</h2>
-<div class="section"><table><tr> <td style="width:19.0pt;border:none;border-left:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="25"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; layout-grid-mode:char"><span lang="EN-US"> </span></p> </td> <td colspan="8" style="width:468.65pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="625"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; layout-grid-mode:char"><span lang="EN-US">Explanatory Note:       </span></p> </td> <td style="width:19.35pt;border:none;border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="26"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; layout-grid-mode:char"><span lang="EN-US"> </span></p> </td> </tr>
+<div class="section notes-section"><table>
 <tr> <td style="width:19.0pt;border-top:none;border-left:
 
  solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
@@ -88,6 +104,7 @@ tr:hover { background:#f9f9f9; }
  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="26"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; layout-grid-mode:char"><span lang="EN-US"> </span></p> </td> </tr>
 <tr> <td colspan="2" style="width:31.2pt;border:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="42"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; layout-grid-mode:char"><span lang="EN-US"> </span></p> </td> <td colspan="8" style="width:475.8pt;border:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="634"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; layout-grid-mode:char"><span lang="EN-US"> </span></p> </td> </tr>
 <tr height="0"> <td style="border:none" width="25"></td> <td style="border:none" width="16"></td> <td style="border:none" width="32"></td> <td style="border:none" width="35"></td> <td style="border:none" width="259"></td> <td style="border:none" width="58"></td> <td style="border:none" width="99"></td> <td style="border:none" width="114"></td> <td style="border:none" width="11"></td> <td style="border:none" width="26"></td> </tr></table></div>
+<div class="nav-bar nav-bar-bottom"><a href="MAEGN_Mechanical_and_Automation_Engineering.html">← Mechanical and Automation Engineering</a><a href="PHPCN_Public_Health.html">Public Health →</a></div>
 </div>
 </body>
 </html>

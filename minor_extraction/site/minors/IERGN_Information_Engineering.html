@@ -10,7 +10,8 @@
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; }
 .container { max-width:960px; margin:0 auto; padding:20px; }
-h1 { font-size:1.7em; margin-bottom:.3em; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
 h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
      border-bottom:1px solid var(--border); color:#333; }
 a { color:var(--accent); text-decoration:none; }
@@ -18,7 +19,7 @@ a:hover { text-decoration:underline; }
 .breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
 .section { background:var(--card); padding:14px 18px; border-radius:8px;
            border:1px solid var(--border); margin-bottom:16px; }
-.section pre { white-space:pre-wrap; font-family:inherit; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
@@ -33,24 +34,39 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { padding: 8px 0; }
-.row-num { font-weight:600; color:var(--accent); display:inline; }
-.row-text { margin-left:6px; }
-.nav-bar { display:flex; justify-content:space-between; padding:12px 0; margin-top:20px;
-           border-top:1px solid var(--border); }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.row-text { }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    line-height:1.6; }
+.notes-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-section tr:hover { background:#f9f9f9; }
+:target { background:#fff3cd; border-radius:4px; padding:2px 4px;
+          scroll-margin-top:20px; }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Information Engineering</div>
-<h1>Information Engineering</h1>
-<div class="nav-bar"><a href="HISTN_Public_History.html">← Public History</a><a href="JASPN_Japanese_Language.html">Japanese Language →</a></div>
-<p class="meta">Faculty: Engineering</p>
+<div class="nav-bar"><a href="EEENN_Energy_Technology.html">← Energy Technology</a><a href="SEEMN_Logistics_and_Supply_Chain_Management.html">Logistics and Supply Chain Management →</a></div>
+<div class="title-row"><h1>Information Engineering</h1><span class="meta">Engineering</span></div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
-<h2>1. Required Courses: 9</h2>
-<div class="req-row"><div class="row-text">IERG2051/ESTR2302 or MIEG2051/ESTR2360, IERG2310/ESTR2300, IERG3310/ESTR3310</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<h2>1. Required Courses (9 units)</h2>
+<div class="section"><div class="req-row"><span class="row-text">IERG2051/ESTR2302 or MIEG2051/ESTR2360, IERG2310/ESTR2300, IERG3310/ESTR3310</span></div></div>
+<details class="course-details"><summary>Show 8 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>ESTR 2300</td><td>Principles of Communication Systems</td><td>3.00</td><td>Not for students who have taken ENGG2310 or IERG2310 or ELEG2310. Pre-requisite: ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051</td></tr>
 <tr><td>ESTR 2302</td><td>Signals and Systems</td><td>3.00</td><td>Pre-requisite: MATH1510. Not for students who have taken ENGG2030 or ESTR2206 or ESTR2360 or IERG2051 or MIEG2051.</td></tr>
 <tr><td>ESTR 2360</td><td>Fourier Analysis with Engineering Applications</td><td>3.00</td><td>Pre-requisite: MATH1510. Not for students who have taken ENGG2030 or ESTR2206 or ESTR2302 or IERG2051 or MIEG2051.</td></tr>
@@ -59,9 +75,10 @@ tr:hover { background:#f9f9f9; }
 <tr><td>IERG 2310</td><td>Principles of Communication Systems</td><td>3.00</td><td>Prerequisite: ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051. Not for students who have taken ELEG2310 or ENGG2310 or ESTR2300</td></tr>
 <tr><td>IERG 3310</td><td>Computer Networks</td><td>3.00</td><td>Pre-requisite: CSCI2100 or ESTR2102 Not for students who have taken CSCI4430 or ESTR4120 or ESTR3310.</td></tr>
 <tr><td>MIEG 2051</td><td>Fourier Analysis with Engineering Applications</td><td>3.00</td><td>Prerequisite: MATH1010 or MATH1510 Not for students who have taken ENGG2030, ESTR2206, ESTR2302, ESTR2360 or IERG2051.</td></tr>
-</tbody></table>
-<h2>2. Elective Courses:</h2>
-<div class="req-row"><div class="row-text">(a) IERG3010/ESTR3300, IERG3070, IERG3280/ESTR3302, IERG4004, IERG4030/ESTR4320, IERG4060, IERG4090/ESTR4302, IERG4100/ESTR4304, IERG4110/ESTR4314, IERG4120/ESTR4328, IERG4150/ESTR4322, IERG4180/ESTR4308, IERG4220, 4240, IERG4320/ESTR4324, IERG4340, IERG4360/ESTR4326, IERG5020, IERG5040/ENGG5392, IERG5090, IERG5100/ENGG5303, IERG5110, 5140, IERG5154/ENGG5301, IERG5200, 5230, IERG5240/ENGG5383, IERG5254, 5280, 5290, IERG5300/ENGG5302, IERG5310, 5320, 5330, 5350, 5360, 5380, 5400, 5590</div> <span class="meta">(6 units)</span></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<h2>2. Elective Courses</h2>
+<div class="section"><div class="req-row"><span class="row-text">(a) IERG3010/ESTR3300, IERG3070, IERG3280/ESTR3302, IERG4004, IERG4030/ESTR4320, IERG4060, IERG4090/ESTR4302, IERG4100/ESTR4304, IERG4110/ESTR4314, IERG4120/ESTR4328, IERG4150/ESTR4322, IERG4180/ESTR4308, IERG4220, 4240, IERG4320/ESTR4324, IERG4340, IERG4360/ESTR4326, IERG5020, IERG5040/ENGG5392, IERG5090, IERG5100/ENGG5303, IERG5110, 5140, IERG5154/ENGG5301, IERG5200, 5230, IERG5240/ENGG5383, IERG5254, 5280, 5290, IERG5300/ENGG5302, IERG5310, 5320, 5330, 5350, 5360, 5380, 5400, 5590</span><span class="meta">(6 units)</span></div></div>
+<details class="course-details"><summary>Show 55 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>ENGG 5301</td><td>Information Theory</td><td>3.00</td><td>For all students in Engineering Faculty;Exclusion: IERG5154</td></tr>
 <tr class="nf"><td>ENGG 5302</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr><td>ENGG 5303</td><td>Advanced Wireless Communications</td><td>3.00</td><td>For all students in Engineering Faculty Exclusion: IERG6270 or IERG5100</td></tr>
@@ -117,8 +134,9 @@ tr:hover { background:#f9f9f9; }
 <tr><td>IERG 5380</td><td>Quantum Information Processing</td><td>3.00</td><td>For all students in Engineering Faculty Exclusion: CSCI5370 and MAEG5110</td></tr>
 <tr><td>IERG 5400</td><td>Theory of Probability</td><td>3.00</td><td>For all students in Engineering Faculty Exclusion: IERG6300</td></tr>
 <tr><td>IERG 5590</td><td>Advanced Topics in Blockchain</td><td>3.00</td><td>For all students in Engineering Faculty;Exclusion: CSCI5590</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text">(b) CSCI3150/ESTR3102, CSCI3160/ESTR3104, IERG3050, IERG3300/ESTR3304, IERG3320/ESTR3306, IERG4080/ESTR4312, IERG4130/CSCI4130/ESTR4306, IERG4160/ELEG4512, IERG4190, 4210, 4230, IERG4300/ESTR4300, IERG4330/ESTR4316, IERG4350, 5130</div> <span class="meta">(3 units)</span></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">(b) CSCI3150/ESTR3102, CSCI3160/ESTR3104, IERG3050, IERG3300/ESTR3304, IERG3320/ESTR3306, IERG4080/ESTR4312, IERG4130/CSCI4130/ESTR4306, IERG4160/ELEG4512, IERG4190, 4210, 4230, IERG4300/ESTR4300, IERG4330/ESTR4316, IERG4350, 5130</span><span class="meta">(3 units)</span></div></div>
+<details class="course-details"><summary>Show 25 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>CSCI 3150</td><td>Introduction to Operating Systems</td><td>3.00</td><td>Prerequisite: ESTR2102 or CSCI2100 or 2520. For senior-year entrants, the prerequisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent. Not for students who have taken ESTR3102.</td></tr>
 <tr><td>CSCI 3160</td><td>Design and Analysis of Algorithms</td><td>3.00</td><td>Not for students who have taken ESTR3104 or CSCI3190; Pre-requisites: (CSCI2100 or CSCI2520 or ESTR2102) AND (CSCI2110 or ENGG2440 or ESTR2004 or ESTR2362 or MIEG2440)</td></tr>
 <tr><td>CSCI 4130</td><td>Introduction to Cyber Security</td><td>3.00</td><td>Not for students who have taken ESTR4306 or IEMS5710 or IERG4130</td></tr>
@@ -144,11 +162,9 @@ tr:hover { background:#f9f9f9; }
 <tr><td>IERG 4330</td><td>Programming Big Data Systems</td><td>3.00</td><td>Pre/Co-requisite: ENGG4030 or ESTR4300 or IERG4300. Not for students who have taken ESTR4316 or IEMS5730.</td></tr>
 <tr><td>IERG 4350</td><td>Cloud Computing Security</td><td>3.00</td><td>—</td></tr>
 <tr><td>IERG 5130</td><td>Probabilistic Models and Inference Algorithms for Machine Learning</td><td>3.00</td><td>For all students in Engineering Faculty</td></tr>
-</tbody></table>
+</tbody></table></details>
 <h2>Explanatory Notes</h2>
-<div class="section"><table><tr style="height:16.0pt"> <td style="width:8.04%;padding:0in 5.4pt 0in 5.4pt; height:16.0pt" valign="top" width="8%"> <p class="MsoNormal"> </p> </td> <td colspan="3" style="width:91.96%;padding:0in 5.4pt 0in 5.4pt; height:16.0pt" valign="top" width="91%"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph">Explanatory
-
- Notes:</p> </td> </tr>
+<div class="section notes-section"><table>
 <tr style="height:16.0pt"> <td style="width:8.04%;padding:0in 5.4pt 0in 5.4pt; height:16.0pt" valign="top" width="8%"> <p class="MsoNormal"> </p> </td> <td style="width:4.88%;padding:0in 5.4pt 0in 5.4pt; height:16.0pt" valign="top" width="4%"> <p class="MsoNormal">1.</p> </td> <td colspan="2" style="width:87.08%;padding:0in 0in 0in 0in; height:16.0pt" valign="top" width="87%"> <p class="MsoNormal" style="margin-right:4.5pt;text-align:justify;text-justify:
 
  inter-ideograph">This Minor Programme is not applicable to students who
@@ -163,6 +179,7 @@ tr:hover { background:#f9f9f9; }
  Programme(s) respectively can be used to fulfill the requirement of this
 
  Minor Programme.</p> </td> </tr></table></div>
+<div class="nav-bar nav-bar-bottom"><a href="EEENN_Energy_Technology.html">← Energy Technology</a><a href="SEEMN_Logistics_and_Supply_Chain_Management.html">Logistics and Supply Chain Management →</a></div>
 </div>
 </body>
 </html>

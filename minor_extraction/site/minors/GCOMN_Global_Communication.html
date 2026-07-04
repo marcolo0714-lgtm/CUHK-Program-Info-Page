@@ -10,7 +10,8 @@
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; }
 .container { max-width:960px; margin:0 auto; padding:20px; }
-h1 { font-size:1.7em; margin-bottom:.3em; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
 h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
      border-bottom:1px solid var(--border); color:#333; }
 a { color:var(--accent); text-decoration:none; }
@@ -18,7 +19,7 @@ a:hover { text-decoration:underline; }
 .breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
 .section { background:var(--card); padding:14px 18px; border-radius:8px;
            border:1px solid var(--border); margin-bottom:16px; }
-.section pre { white-space:pre-wrap; font-family:inherit; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
@@ -33,38 +34,55 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { padding: 8px 0; }
-.row-num { font-weight:600; color:var(--accent); display:inline; }
-.row-text { margin-left:6px; }
-.nav-bar { display:flex; justify-content:space-between; padding:12px 0; margin-top:20px;
-           border-top:1px solid var(--border); }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.row-text { }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    line-height:1.6; }
+.notes-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-section tr:hover { background:#f9f9f9; }
+:target { background:#fff3cd; border-radius:4px; padding:2px 4px;
+          scroll-margin-top:20px; }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Global Communication</div>
-<h1>Global Communication</h1>
-<div class="nav-bar"><a href="FAASN_Fine_Arts.html">← Fine Arts</a><a href="GDRSN_Applied_Diversity_Studies.html">Applied Diversity Studies →</a></div>
-<p class="meta">Faculty: Social Science</p>
+<div class="nav-bar"><a href="GRMDN_Geography_and_Resource_Management.html">← Geography and Resource Management</a><a href="GLSDN_Global_Studies.html">Global Studies →</a></div>
+<div class="title-row"><h1>Global Communication</h1><span class="meta">Social Science</span></div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
-<h2>1. Required Courses:</h2>
-<div class="req-row"><div class="row-text">COMM1180, 1500, 2120</div> <span class="meta">(9 units)</span></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<h2>1. Required Courses</h2>
+<div class="section"><div class="req-row"><span class="row-text">COMM1180, 1500, 2120</span><span class="meta">(9 units)</span></div></div>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>COMM 1180</td><td>English News Reporting and Writing</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 1500</td><td>Perspectives in Global Communication</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2120</td><td>English News Production I</td><td>3.00</td><td>—</td></tr>
-</tbody></table>
-<h2>2. Elective Courses: At least 9 units of courses from (a) and (b) (courses that appear in both (a) and (b) can only be counted towards fulfillment of either (a) or (b)):</h2>
-<div class="req-row"><div class="row-text">(a) (b) At least 3 units of the following courses: COMM2180, 2540, 2590, 3550, 3700, 4250 At least 6 units of the following courses:</div> <span class="meta">(3 units)</span></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<h2>2. Elective Courses: At least 9 units of courses from (a) and (b) (courses that appear in both (a) and (b) can only be counted towards fulfillment of either (a) or (b)): (9 units)</h2>
+<div class="section"><div class="req-row"><span class="row-text">(a) (b) At least 3 units of the following courses: COMM2180, 2540, 2590, 3550, 3700, 4250 At least 6 units of the following courses:</span><span class="meta">(3 units)</span></div></div>
+<details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>COMM 2180</td><td>English News Production II</td><td>3.00</td><td>Prerequisite: COMM2120.</td></tr>
 <tr><td>COMM 2540</td><td>Public Sphere and Global Media</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2590</td><td>Global Cinema</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3550</td><td>Global Finance for Communication Professionals</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3700</td><td>Diversity Issues in Communication</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 4250</td><td>Global Digital Platforms: Culture, Power and Politics</td><td>3.00</td><td>—</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text">COMM1150, 2140, 2180, 2210, 2440, 2540, 2570, 2590, 2600, 2610, 2710, 2733, 2740, 2741, 2811, 2812, 2813, 2814, 2830, 2840, 2850, 2910, 2920, 2922, 2925, 2926, 2928, 2930, 2932, 2940, 2962, 3131, 3132, 3191, 3193, 3550, 3610, 3620, 3630, 3640, 3650, 3660, 3670, 3680, 3681, 3682, 3690, 3700, 3711, 3721, 3722, 3733, 3740, 3750, 3800, 3810, 3811, 3812, 3820, 3830, 3831, 3832, 3840, 3841, 3850, 3855, 3860, 3881, 3888, 3910, 3920, 3921, 3922, 3930, 3933, 3939, 3940, 3941, 3963, 4040, 4191, 4250, 4730, 4733, 4848, 4935, 4956, 4962</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">COMM1150, 2140, 2180, 2210, 2440, 2540, 2570, 2590, 2600, 2610, 2710, 2733, 2740, 2741, 2811, 2812, 2813, 2814, 2830, 2840, 2850, 2910, 2920, 2922, 2925, 2926, 2928, 2930, 2932, 2940, 2962, 3131, 3132, 3191, 3193, 3550, 3610, 3620, 3630, 3640, 3650, 3660, 3670, 3680, 3681, 3682, 3690, 3700, 3711, 3721, 3722, 3733, 3740, 3750, 3800, 3810, 3811, 3812, 3820, 3830, 3831, 3832, 3840, 3841, 3850, 3855, 3860, 3881, 3888, 3910, 3920, 3921, 3922, 3930, 3933, 3939, 3940, 3941, 3963, 4040, 4191, 4250, 4730, 4733, 4848, 4935, 4956, 4962</span></div></div>
+<details class="course-details"><summary>Show 88 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>COMM 1150</td><td>Introduction to Media Industries and Practices</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2140</td><td>Media and Social Development in Mainland China</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2180</td><td>English News Production II</td><td>3.00</td><td>Prerequisite: COMM2120.</td></tr>
@@ -153,9 +171,9 @@ tr:hover { background:#f9f9f9; }
 <tr><td>COMM 4935</td><td>Cinematography</td><td>3.00</td><td>Prerequisite: COMM2922.</td></tr>
 <tr><td>COMM 4956</td><td>Fundamentals of Computer Animation</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 4962</td><td>Advanced Photography</td><td>3.00</td><td>Prerequisite: COMM2440 or 2962.</td></tr>
-</tbody></table>
+</tbody></table></details>
 <h2>Explanatory Notes</h2>
-<div class="section"><table><tr> <td colspan="3" style="width:463.2pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="618"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:14.0pt">Explanatory Notes:</p> </td> </tr>
+<div class="section notes-section"><table>
 <tr> <td style="width:42.5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="57"> <p class="MsoNormal" style="line-height:14.0pt">1.</p> </td> <td colspan="2" style="width:420.7pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="561"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:14.0pt">No more than 9 units of courses taken to fulfill the
 
  requirements of the students’ Major Programme(s) and other Minor
@@ -173,6 +191,7 @@ tr:hover { background:#f9f9f9; }
 
  be used to fulfill the requirement of this Minor Programme.</p> </td> </tr>
 <tr> <td style="width:42.5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="57"> <p class="MsoNormal" style="line-height:14.0pt"> </p> </td> <td colspan="2" style="width:420.7pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="561"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:14.0pt"> </p> </td> </tr></table></div>
+<div class="nav-bar nav-bar-bottom"><a href="GRMDN_Geography_and_Resource_Management.html">← Geography and Resource Management</a><a href="GLSDN_Global_Studies.html">Global Studies →</a></div>
 </div>
 </body>
 </html>

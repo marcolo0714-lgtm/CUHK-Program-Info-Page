@@ -10,7 +10,8 @@
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; }
 .container { max-width:960px; margin:0 auto; padding:20px; }
-h1 { font-size:1.7em; margin-bottom:.3em; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
 h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
      border-bottom:1px solid var(--border); color:#333; }
 a { color:var(--accent); text-decoration:none; }
@@ -18,7 +19,7 @@ a:hover { text-decoration:underline; }
 .breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
 .section { background:var(--card); padding:14px 18px; border-radius:8px;
            border:1px solid var(--border); margin-bottom:16px; }
-.section pre { white-space:pre-wrap; font-family:inherit; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
@@ -33,34 +34,48 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { padding: 8px 0; }
-.row-num { font-weight:600; color:var(--accent); display:inline; }
-.row-text { margin-left:6px; }
-.nav-bar { display:flex; justify-content:space-between; padding:12px 0; margin-top:20px;
-           border-top:1px solid var(--border); }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.row-text { }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    line-height:1.6; }
+.notes-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-section tr:hover { background:#f9f9f9; }
+:target { background:#fff3cd; border-radius:4px; padding:2px 4px;
+          scroll-margin-top:20px; }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Global Studies</div>
-<h1>Global Studies</h1>
-<div class="nav-bar"><a href="GDRSN_Gender_Studies.html">← Gender Studies</a><a href="GPADN_Government_and_Public_Administration.html">Government and Public Administration →</a></div>
-<p class="meta">Faculty: Social Science</p>
+<div class="nav-bar"><a href="GCOMN_Global_Communication.html">← Global Communication</a><a href="GPADN_Government_and_Public_Administration.html">Government and Public Administration →</a></div>
+<div class="title-row"><h1>Global Studies</h1><span class="meta">Social Science</span></div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
-<h2>1. Elective Courses :</h2>
-<div class="req-row"><div class="row-text">(a) Any two courses from the following:</div> <span class="meta">(6 units)</span></div>
-<div class="req-row"><div class="row-text">GLSD1001, 2001, 2101, 2201, 2401, 2501</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<h2>1. Elective Courses</h2>
+<div class="section"><div class="req-row"><span class="row-text">(a) Any two courses from the following:</span><span class="meta">(6 units)</span></div><div class="req-row"><span class="row-text">GLSD1001, 2001, 2101, 2201, 2401, 2501</span></div></div>
+<details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>GLSD 1001</td><td>Theoretical Perspectives on Globalization</td><td>3.00</td><td>—</td></tr>
 <tr><td>GLSD 2001</td><td>Research Methods for Global Studies</td><td>3.00</td><td>—</td></tr>
 <tr><td>GLSD 2101</td><td>Global Communication</td><td>3.00</td><td>—</td></tr>
 <tr><td>GLSD 2201</td><td>Globalization, Cultures and Societies</td><td>3.00</td><td>Not for students who have taken UGEC2351, UGEC2990, GEWS2091 or ANTH2520.</td></tr>
 <tr><td>GLSD 2401</td><td>Global Sustainability</td><td>3.00</td><td>Not for students who have taken GRMD2401, UGEC2171, 2354 or 2775</td></tr>
 <tr><td>GLSD 2501</td><td>World Economic Order</td><td>3.00</td><td>-</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text">(b) Any four courses selected from the following, with at least two GLSD courses at 3000 or above level:</div> <span class="meta">(12 units)</span></div>
-<div class="req-row"><div class="row-text">ARCH3424, 4721, COMM3941, 4191, ECON3320, 3350, 3370, GDRS2002, 3005, 3012, 4011, GLSD2701, 3101, 3102, 3105, 3106, 3111, 3201, 3211, 3301, 3302, 3303, 3311, 3401, 3402, 3403, 3404, 3405, 3411, 3501, 3511, 3701, 4102, 4104, 4401, 4402, GPAD2120, 2185, 2300, 2345, 2350, 2355, 2370, 2375, 2395, 2450, 3040, 3071, 3160, 3161, 3190, 3220, 3360, 3365, 3451, 4142, 4225, GRMD2321, 3202, 3203, 3224, 3404, 4402, PSYC3610, SOWK3340, 4550, URSP2100, 2200, 2400, 3300</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">(b) Any four courses selected from the following, with at least two GLSD courses at 3000 or above level:</span><span class="meta">(12 units)</span></div><div class="req-row"><span class="row-text">ARCH3424, 4721, COMM3941, 4191, ECON3320, 3350, 3370, GDRS2002, 3005, 3012, 4011, GLSD2701, 3101, 3102, 3105, 3106, 3111, 3201, 3211, 3301, 3302, 3303, 3311, 3401, 3402, 3403, 3404, 3405, 3411, 3501, 3511, 3701, 4102, 4104, 4401, 4402, GPAD2120, 2185, 2300, 2345, 2350, 2355, 2370, 2375, 2395, 2450, 3040, 3071, 3160, 3161, 3190, 3220, 3360, 3365, 3451, 4142, 4225, GRMD2321, 3202, 3203, 3224, 3404, 4402, PSYC3610, SOWK3340, 4550, URSP2100, 2200, 2400, 3300</span></div></div>
+<details class="course-details"><summary>Show 70 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>ARCH 3424</td><td>Building Technology III: Environmental Technology</td><td>3.00</td><td>—</td></tr>
 <tr><td>ARCH 4721</td><td>Land and City</td><td>3.00</td><td>Not for students who have taken ARCH3721</td></tr>
 <tr><td>COMM 3941</td><td>New Media and Entertainment Business</td><td>3.00</td><td>—</td></tr>
@@ -131,12 +146,10 @@ tr:hover { background:#f9f9f9; }
 <tr><td>URSP 2200</td><td>Urban Economic Studies</td><td>3.00</td><td>—</td></tr>
 <tr><td>URSP 2400</td><td>Studies of Cities in Comparative Perspective</td><td>3.00</td><td>—</td></tr>
 <tr><td>URSP 3300</td><td>Sustainable Urban Transport</td><td>3.00</td><td>—</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text">Total: 18</div> <span class="meta">(18 units)</span></div>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">Total: 18</span><span class="meta">(18 units)</span></div></div>
 <h2>Explanatory Notes</h2>
-<div class="section"><table><tr> <td colspan="4" style="width:371.25pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="495"> <p class="MsoNormal" style="margin-bottom:0cm;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt"><span lang="EN-HK" style='font-size:12.0pt;font-family:"Times New Roman",serif'>Explanatory
-
- Notes:</span></p> </td> <td style="width:73.3pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="98"> <p class="MsoNormal" style="margin-bottom:0cm;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt"><b><span lang="EN-HK" style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span></b></p> </td> </tr>
+<div class="section notes-section"><table>
 <tr> <td style="width:24.0pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="32"> <p class="MsoNormal" style="margin-bottom:0cm;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt"><span lang="EN-HK" style='font-size:12.0pt;font-family:"Times New Roman",serif'>1.</span></p> </td> <td colspan="4" style="width:420.55pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="561"> <p class="MsoNormal" style="margin-bottom:0cm;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt"><span lang="EN-HK" style='font-size:12.0pt;font-family:"Times New Roman",serif'>Students are
 
  advised not to take courses at 3000 or above level in their first year of
@@ -151,6 +164,7 @@ tr:hover { background:#f9f9f9; }
  fulfill the requirement of this Minor Programme.</span></p> </td> </tr>
 <tr> <td style="width:24.0pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="32"> <p class="MsoNormal" style="margin-bottom:0cm;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt"><span lang="EN-HK" style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span></p> </td> <td colspan="4" style="width:420.55pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="561"> <p class="MsoNormal" style="margin-bottom:0cm;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt"><span lang="EN-HK" style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span></p> </td> </tr>
 <tr height="0"> <td style="border:none" width="32"></td> <td style="border:none" width="9"></td> <td style="border:none" width="453"></td> <td style="border:none" width="1"></td> <td style="border:none" width="98"></td> </tr></table></div>
+<div class="nav-bar nav-bar-bottom"><a href="GCOMN_Global_Communication.html">← Global Communication</a><a href="GPADN_Government_and_Public_Administration.html">Government and Public Administration →</a></div>
 </div>
 </body>
 </html>

@@ -10,7 +10,8 @@
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; }
 .container { max-width:960px; margin:0 auto; padding:20px; }
-h1 { font-size:1.7em; margin-bottom:.3em; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
 h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
      border-bottom:1px solid var(--border); color:#333; }
 a { color:var(--accent); text-decoration:none; }
@@ -18,7 +19,7 @@ a:hover { text-decoration:underline; }
 .breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
 .section { background:var(--card); padding:14px 18px; border-radius:8px;
            border:1px solid var(--border); margin-bottom:16px; }
-.section pre { white-space:pre-wrap; font-family:inherit; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
@@ -33,39 +34,56 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { padding: 8px 0; }
-.row-num { font-weight:600; color:var(--accent); display:inline; }
-.row-text { margin-left:6px; }
-.nav-bar { display:flex; justify-content:space-between; padding:12px 0; margin-top:20px;
-           border-top:1px solid var(--border); }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.row-text { }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    line-height:1.6; }
+.notes-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-section tr:hover { background:#f9f9f9; }
+:target { background:#fff3cd; border-radius:4px; padding:2px 4px;
+          scroll-margin-top:20px; }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Music</div>
-<h1>Music</h1>
-<div class="nav-bar"><a href="MBTEN_Molecular_Biotechnology.html">← Molecular Biotechnology</a><a href="PESHN_Physical_Education,_Exercise_Science_and_Health.html">Physical Education, Exercise Science and Health →</a></div>
-<p class="meta">Faculty: Arts</p>
+<div class="nav-bar"><a href="LINGN_Linguistics.html">← Linguistics</a><a href="PHILN_Philosophy.html">Philosophy →</a></div>
+<div class="title-row"><h1>Music</h1><span class="meta">Arts</span></div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
-<h2>1. Required Courses : 7</h2>
-<div class="req-row"><div class="row-text">MUSC1000, 1212, 1222 </div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<h2>1. Required Courses (7 units)</h2>
+<div class="section"><div class="req-row"><span class="row-text">MUSC1000, 1212, 1222 </span></div></div>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>MUSC 1000</td><td>The Study of Music</td><td>3.00</td><td>—</td></tr>
 <tr><td>MUSC 1212</td><td>Fundamentals of Tonal Music I</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 1222</td><td>Fundamentals of Tonal Music II</td><td>2.00</td><td>Prerequisite: MUSC1212</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text"> </div></div>
-<h2>2. Elective Courses :</h2>
-<div class="req-row"><div class="row-text">(a) Any 4 units from the following courses: MUSC2252, 2262, 2552, 2562, 2872, 2882 4</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text"> </span></div></div>
+<h2>2. Elective Courses</h2>
+<div class="section"><div class="req-row"><span class="row-text">(a) Any 4 units from the following courses: MUSC2252, 2262, 2552, 2562, 2872, 2882 4</span></div></div>
+<details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>MUSC 2252</td><td>Materials and Structures of Music</td><td>2.00</td><td>Prerequisite: MUSC1222 or by consent of the instructor</td></tr>
 <tr><td>MUSC 2262</td><td>Advanced Harmonic Practice</td><td>2.00</td><td>Prerequisite: MUSC2252 OR by consent of the instructor.</td></tr>
 <tr><td>MUSC 2552</td><td>Music, Culture and Society</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 2562</td><td>Foundations of Chinese Music</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 2872</td><td>History of Western Music I</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 2882</td><td>History of Western Music II</td><td>2.00</td><td>—</td></tr>
-</tbody></table>
-<div class="req-row"><div class="row-text">(b) Any MUSC courses other than the courses taken to fulfill requirement (1) and (2a) above, excluding MUSC1012, 1022, 1051, 1061, 2012, 2022, 2051, 2061, 3012, 3022, 3051, 3061, 4000, 4003, 4051, 4061. Courses taken should include at least 6 units of courses at 3000 or above level and not more than 4 units of courses from Area 2B and/or 2C. 7</div></div><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">(b) Any MUSC courses other than the courses taken to fulfill requirement (1) and (2a) above, excluding MUSC1012, 1022, 1051, 1061, 2012, 2022, 2051, 2061, 3012, 3022, 3051, 3061, 4000, 4003, 4051, 4061. Courses taken should include at least 6 units of courses at 3000 or above level and not more than 4 units of courses from Area 2B and/or 2C. 7</span></div></div>
+<details class="course-details"><summary>Show 16 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>MUSC 1012</td><td>Applied Music (Major IX)</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 1022</td><td>Applied Music (Major X)</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 1051</td><td>Applied Music (Major I)</td><td>1.00</td><td>—</td></tr>
@@ -82,9 +100,9 @@ tr:hover { background:#f9f9f9; }
 <tr><td>MUSC 4003</td><td>Senior Recital</td><td>3.00</td><td>Prerequisite: MUSC4000</td></tr>
 <tr><td>MUSC 4051</td><td>Applied Music (Major VII)</td><td>1.00</td><td>—</td></tr>
 <tr><td>MUSC 4061</td><td>Applied Music (Major VIII)</td><td>1.00</td><td>—</td></tr>
-</tbody></table>
+</tbody></table></details>
 <h2>Explanatory Notes</h2>
-<div class="section"><table><tr> <td colspan="4" style="width:497.75pt;border-top:none; border-left:solid windowtext 1.0pt;border-bottom:none;border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="664"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:14.0pt"><span lang="EN-US">Explanatory Note:</span></p> </td> </tr>
+<div class="section notes-section"><table>
 <tr> <td style="width:48.85pt;border:none;border-left:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="65"> <p class="MsoNormal" style="line-height:14.0pt"><span lang="EN-US">1.</span></p> </td> <td colspan="3" style="width:448.9pt;border:none; border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="599"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:14.0pt"><span lang="EN-US">Students planning to Minor in Music
 
  must have attained at least Grade 5 in theory and instrument/voice in the
@@ -106,6 +124,7 @@ tr:hover { background:#f9f9f9; }
  other Minor Programme(s) respectively can be used to fulfil the requirement
 
  of this Minor Programme.</p> </td> </tr></table></div>
+<div class="nav-bar nav-bar-bottom"><a href="LINGN_Linguistics.html">← Linguistics</a><a href="PHILN_Philosophy.html">Philosophy →</a></div>
 </div>
 </body>
 </html>

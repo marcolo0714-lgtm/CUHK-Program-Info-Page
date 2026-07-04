@@ -23,25 +23,33 @@ Scrapes and validates course catalog data from the Chinese University of Hong Ko
 8. **Generate site** — `generate_minor_site.py` reads `minor_json/*.json` and renders a polished static site in `site/`.
 
 ## Quick start
-
+1. Install dependencies
 ```bash
-# Install dependencies
 pip install playwright ddddocr pytest beautifulsoup4 requests
 playwright install chromium
+```
 
-# --- Course info ---
+2. Get CUHK course info
+```bash
 cd course_extraction
 python get_course_info.py
 pytest tests/ -m "not live"
 pytest tests/ -m live
+```
 
-# --- Minor info ---
+3. Get CUHK minor info
+``` bash
 cd minor_extraction
-python extract_minor_sections.py     # step 1: scrape academy minors → minor_html/
-python extract_handbook_minors.py    # step 2: scrape handbook minors → minor_html/HB_*.html
-python generate_minor_json.py        # step 3: parse HTML → minor_json/
-# Edit minor_json/*.json for manual additions, then set _auto_generated: false
-python generate_minor_site.py        # step 4: render → site/
+python extract_minor_sections.py     # scrape academy minors → minor_html/
+python extract_handbook_minors.py    # scrape handbook minors → minor_html/HB_*.html
+python generate_minor_json.py        # parse HTML → minor_json/
+```
+
+4. Edit `minor_json/*.json` for manual additions, then set _auto_generated: false
+
+5. Generate websites
+``` bash
+python generate_minor_site.py        # minor_json/ → site/
 ```
 
 ## Structure
