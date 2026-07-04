@@ -12,40 +12,36 @@ Scrapes and validates course catalog data from the Chinese University of Hong Ko
 
 ### Minor programme info (`minor_extraction/`)
 
-3. **Extract** — `extract_minor_sections.py` scrapes the CUHK academic programs page to find minor programme boxes for every UG 2025 Full-time program and saves them as raw HTML in `minor_html/`.
+3. **Extract (academy)** — `extract_minor_sections.py` scrapes the CUHK academic programs page (captcha + Playwright) to find minor programme boxes for every UG 2025 Full-time program and saves them as raw HTML in `minor_html/`.
 
-4. **Parse to JSON** — `generate_minor_json.py` parses each minor HTML into structured JSON (`minor_json/`) with course titles, units, and prerequisites resolved from the course info data.  Sets `_auto_generated: true` on each file.
+4. **Extract (handbook)** — `extract_handbook_minors.py` scrapes the CUHK Undergraduate Student Handbook (no captcha, plain HTTP) to find 12 additional "Other Minor Programmes" (language minors, interdisciplinary minors) and saves them as `minor_html/HB_*.html`.
 
-5. **Manually edit** — For text-only requirements (e.g. Maths minor: "18 units of MATH courses at 3000+"), edit the JSON to add specific course entries.  Set `_auto_generated` to `false` to prevent auto-regeneration from overwriting your edits.
+5. **Parse to JSON** — `generate_minor_json.py` parses each minor HTML into structured JSON (`minor_json/`) with course titles, units, and prerequisites resolved from the course info data.  Sets `_auto_generated: true` on each file.
 
-6. **Generate site** — `generate_minor_site.py` reads `minor_json/*.json` and renders a polished static site in `site/`.
+7. **Manually edit** — For text-only requirements (e.g. Maths minor: "18 units of MATH courses at 3000+"), edit the JSON to add specific course entries.  Set `_auto_generated` to `false` to prevent auto-regeneration from overwriting your edits.
+
+8. **Generate site** — `generate_minor_site.py` reads `minor_json/*.json` and renders a polished static site in `site/`.
 
 ## Quick start
 
 ```bash
 # Install dependencies
-pip install playwright ddddocr pytest beautifulsoup4
+pip install playwright ddddocr pytest beautifulsoup4 requests
 playwright install chromium
 
 # --- Course info ---
 cd course_extraction
 python get_course_info.py
-
-# Run offline integrity checks
 pytest tests/ -m "not live"
-
-# Run live comparison against the website (slow — requires network + captcha)
 pytest tests/ -m live
-
-# Run everything
-pytest tests/
 
 # --- Minor info ---
 cd minor_extraction
-python extract_minor_sections.py   # step 1: scrape → minor_html/
-python generate_minor_json.py      # step 2: parse  → minor_json/
+python extract_minor_sections.py     # step 1: scrape academy minors → minor_html/
+python extract_handbook_minors.py    # step 2: scrape handbook minors → minor_html/HB_*.html
+python generate_minor_json.py        # step 3: parse HTML → minor_json/
 # Edit minor_json/*.json for manual additions, then set _auto_generated: false
-python generate_minor_site.py      # step 3: render → site/
+python generate_minor_site.py        # step 4: render → site/
 ```
 
 ## Structure
@@ -58,12 +54,13 @@ python generate_minor_site.py      # step 3: render → site/
 │       ├── test_course_info.py  # Offline + live validation tests
 │       └── conftest.py          # Pytest markers
 ├── minor_extraction/
-│   ├── extract_minor_sections.py  # Minor programme scraper
-│   ├── generate_minor_json.py     # HTML → JSON parser (resolves course info)
-│   ├── generate_minor_site.py     # JSON → HTML static site generator
-│   ├── minor_html/                # Raw extracted minor HTML (per program)
-│   ├── minor_json/                # Structured minor JSON (editable, per program)
-│   └── site/                      # Generated static site (index.html + minors/)
+│   ├── extract_minor_sections.py      # Academy minor scraper (Playwright + captcha)
+│   ├── extract_handbook_minors.py     # Handbook minor scraper (plain HTTP, no captcha)
+│   ├── generate_minor_json.py         # HTML → JSON parser (resolves course info)
+│   ├── generate_minor_site.py         # JSON → HTML static site generator
+│   ├── minor_html/                    # Raw extracted minor HTML (academy + HB_ prefix)
+│   ├── minor_json/                    # Structured minor JSON (editable, per program)
+│   └── site/                          # Generated static site (index.html + minors/)
 ├── webtest.py                   # Interactive browser automation tool
 └── user_data_dir/               # Playwright persistent browser profile
 ```
