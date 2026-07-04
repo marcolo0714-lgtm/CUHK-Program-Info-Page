@@ -65,18 +65,47 @@ def extract_course_codes(text):
 def get_minor_title(soup):
     table = soup.find("table")
     if not table:
-        return "Unknown"
+        return fallback_title(soup)
     full_flat = re.sub(r"\s+", " ", table.get_text().replace("\xa0", " "))
     m = re.search(r"Min\s*or\s*Programme\s*Title\s*", full_flat, re.IGNORECASE)
     if not m:
-        return "Unknown"
+        return fallback_title(soup)
     after = full_flat[m.end():].strip()
     title = re.split(
         r"\s*(?:Minor Programme Requirement|Explanatory Notes|Required Course|Elective Course|Units|Total)\b",
         after, maxsplit=1, flags=re.IGNORECASE
     )[0].strip(" :\xa0\n")
     if not title:
-        return "Unknown"
+        return fallback_title(soup)
+    return clean_title(title)
+
+
+def fallback_title(soup):
+    """For handbook minors: title is the first <b> tag's text (e.g. 'Korean')."""
+    b_tags = soup.find_all("b")
+    for b in b_tags:
+        txt = b.get_text(" ", strip=True).replace("\xa0", " ").strip()
+        txt = re.sub(r"\s+", " ", txt)
+        if not txt:
+            continue
+        # Filter out section markers, boilerplate, and &nbsp;
+        skip_patterns = [
+            r"^Minor Programme Title$", r"^Minor Programme Requirement($|\s)",
+            r"^&nbsp;$", r"^Total\s*:", r"^Units\s*$",
+            r"^Explanatory Note", r"^Required Courses?\s*:?$",
+            r"^Elective Courses?\s*:?$", r"^Applicable to students",
+            r"^Course Code$", r"^Course Title$", r"^Course List$",
+        ]
+        if any(re.match(p, txt, re.IGNORECASE) for p in skip_patterns):
+            continue
+        if len(txt) > 3:
+            return clean_title(txt)
+    return "Unknown"
+
+
+def clean_title(title):
+    """Strip common boilerplate prefixes from minor titles."""
+    title = re.sub(r"^Minor\s+Programme\s+in\s+", "", title, flags=re.IGNORECASE)
     return re.sub(r"\s+", " ", title).strip()
 
 
@@ -224,7 +253,7 @@ def build_json(html_path, course_index, faculties):
     return {
         "_auto_generated": True,
         "title": parsed["title"],
-        "faculty": faculties.get(stem, "Unknown"),
+        "faculty": "Other" if stem.startswith("HB_") else faculties.get(stem, "Unknown"),
         "source_file": stem,
         "description": parsed["description"],
         "required": {
