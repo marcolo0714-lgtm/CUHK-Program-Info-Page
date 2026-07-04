@@ -12,8 +12,7 @@ CSS = """\
         --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-       background:var(--bg); color:var(--text); line-height:1.6; }
-.container { max-width:960px; margin:0 auto; padding:20px; }
+       background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
 .title-row { display:flex; justify-content:space-between; align-items:baseline; }
 h1 { font-size:1.7em; }
 h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
@@ -39,7 +38,6 @@ tr:hover { background:#f9f9f9; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
 .req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
-.row-text { }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
            border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
@@ -52,17 +50,89 @@ tr:hover { background:#f9f9f9; }
 .course-details table { margin-top:8px; }
 .notes-section, .notes-section p, .notes-section span, .notes-section td {
     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
-    line-height:1.6; }
-.notes-section table { background:var(--card); border-collapse:collapse;
+    font-size:.95em; line-height:1.6; }
+.notes-point { display:flex; align-items:flex-start; gap:10px; padding:10px 14px;
+    cursor:default; transition:background .15s; }
+.notes-point:hover { background:#f0f4ff; }
+.point-idx { font-weight:600; color:var(--accent); min-width:22px; flex-shrink:0; }
+.point-text { flex:1; }
+.point-text p { margin:0; }
+.notes-table-section table { background:var(--card); border-collapse:collapse;
     border-radius:8px; overflow:hidden; }
-.notes-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
-.notes-section tr:hover { background:#f9f9f9; }
-:target { background:#fff3cd; border-radius:4px; padding:2px 4px;
-          scroll-margin-top:20px; }
+.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-table-section tr:hover { background:#f9f9f9; }
+
+/* ── Sidebar ── */
+.sidebar { width:280px; flex-shrink:0; height:100vh; position:sticky; top:0;
+    overflow-y:auto; background:var(--card); border-right:1px solid var(--border);
+    padding:12px 0; font-size:.88em; }
+.sidebar-header { padding:6px 18px 10px; font-weight:600; color:var(--muted);
+    border-bottom:1px solid var(--border); margin-bottom:6px; }
+.fac-group { margin:0; }
+.fac-group summary { padding:6px 16px; font-weight:600; font-size:.92em;
+    cursor:pointer; color:#555; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.fac-group summary:hover { color:var(--accent); }
+.sidebar a { display:block; padding:3px 16px 3px 22px; color:var(--text);
+    text-decoration:none; border-left:3px solid transparent;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sidebar a:hover { background:#f0f4ff; color:var(--accent); }
+.sidebar a.active { font-weight:600; color:var(--accent);
+    background:#e8f0fe; border-left-color:var(--accent); }
+.sidebar-toggle { display:none; position:fixed; top:8px; left:8px; z-index:100;
+    background:var(--card); border:1px solid var(--border); border-radius:6px;
+    padding:6px 10px; font-size:1.2em; cursor:pointer; }
+.sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.25);
+    z-index:98; }
+.content { flex:1; min-width:0; }
+.content-inner { max-width:960px; margin:0 auto; padding:20px; }
+
+/* ── Index page (no sidebar) ── */
+.page-index .container { max-width:960px; margin:0 auto; padding:20px; }
+
+@media (max-width:768px) {
+    body { display:block; }
+    .sidebar { position:fixed; left:-300px; top:0; z-index:99;
+        transition:left .25s; box-shadow:none; }
+    .sidebar.open { left:0; box-shadow:2px 0 12px rgba(0,0,0,.15); }
+    .sidebar-toggle { display:block; }
+    .sidebar-overlay.open { display:block; }
+    .content-inner { padding:12px; }
+    h1 { font-size:1.4em; }
+}
 """
 
 
-def html_page(page_title, body):
+JS = """\
+<script>
+(function(){
+  var sidebar = document.querySelector('.sidebar');
+  if(!sidebar) return;
+  var timer;
+  sidebar.addEventListener('scroll', function(){
+    clearTimeout(timer);
+    timer = setTimeout(function(){ localStorage.setItem('sidebarScroll', sidebar.scrollTop); }, 100);
+  });
+  var groups = document.querySelectorAll('.fac-group');
+  for(var i=0; i<groups.length; i++){
+    groups[i].addEventListener('toggle', function(){
+      var closed=[];
+      var all=document.querySelectorAll('.fac-group');
+      for(var j=0; j<all.length; j++){
+        if(!all[j].open) closed.push(all[j].getAttribute('data-fac'));
+      }
+      localStorage.setItem('sidebarCollapsed', JSON.stringify(closed));
+    });
+  }
+})();
+
+function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('open');
+  document.querySelector('.sidebar-overlay').classList.toggle('open');
+}
+</script>"""
+
+
+def minor_page(page_title, body, sidebar_html):
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,6 +142,39 @@ def html_page(page_title, body):
 <style>{CSS}</style>
 </head>
 <body>
+<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">&#9776;</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <div class="sidebar-header">Minor Programmes</div>
+  <nav>{sidebar_html}</nav>
+  <script>
+(function(){{var closed=JSON.parse(localStorage.getItem('sidebarCollapsed')||'[]');
+var groups=document.querySelectorAll('.fac-group');
+for(var i=0;i<groups.length;i++){{if(closed.indexOf(groups[i].getAttribute('data-fac'))!==-1)groups[i].removeAttribute('open');}}
+var st=localStorage.getItem('sidebarScroll');
+if(st!==null)document.querySelector('.sidebar').scrollTop=+st;}})();
+</script>
+</aside>
+<main class="content">
+  <div class="content-inner">
+{body}
+  </div>
+</main>
+{JS}
+</body>
+</html>"""
+
+
+def index_page(page_title, body):
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{page_title}</title>
+<style>{CSS}</style>
+</head>
+<body class="page-index">
 <div class="container">
 {body}
 </div>
@@ -105,25 +208,11 @@ def build_course_table(courses):
     return rows
 
 
-def clean_label(label, units):
-    """Clean section label: remove trailing colon & unit number, append units."""
-    label = label.strip()
-    # Remove " : N" or " :" at end
-    if units:
-        label = re.sub(rf'\s*:\s*{re.escape(units)}\s*$', '', label)
-        label += f' ({units} units)'
-    else:
-        label = re.sub(r'\s*:\s*$', '', label)
-    label = re.sub(r'\s+', ' ', label)
-    return label
-
-
 def build_section_html(sec):
     """Return HTML for a required / elective section from JSON (row-based)."""
     lines = []
     label = sec.get("label", "")
-    units = sec.get("units", "")
-    lines.append(f"<h2>{clean_label(label, units)}</h2>")
+    lines.append(f"<h2>{label}</h2>")
 
     # Buffer consecutive row texts into one white box; flush at course tables
     section_buf = ""
@@ -156,6 +245,39 @@ def build_section_html(sec):
         lines.append(f'<div class="section">{section_buf}</div>')
 
     return "\n".join(lines)
+
+
+def _render_note_group(rows, is_point):
+    """Render a group of consecutive note rows as point cards or a data table."""
+    if is_point:
+        # Render each point as a white card
+        out = []
+        for r in rows:
+            # Extract first <td> (index) and rest (content)
+            tds = re.findall(r'<td[^>]*>(.*?)</td>', r, re.DOTALL)
+            if not tds:
+                continue
+            idx_cell = tds[0]
+            content_cell = ''.join(tds[1:]) if len(tds) > 1 else ''
+            idx_text = re.sub(r'<[^>]+>', '', idx_cell).replace('\xa0', ' ').strip()
+            # Remove index text from content cell if duplicated
+            content_html = re.sub(r'<[^>]+>', ' ', content_cell).replace('\xa0', ' ').strip()
+            # Strip trailing empty <p>/<td> tags from right column of original table
+            content_html = re.sub(
+                r'\s*(<td[^>]*>)?\s*<p[^>]*>(?:\s|&nbsp;)*</p>\s*(</td>)?\s*$',
+                '', content_html, flags=re.IGNORECASE
+            )
+            out.append(
+                f'<div class="section notes-point">'
+                f'<span class="point-idx">{idx_text}</span>'
+                f'<span class="point-text">{content_html}</span>'
+                f'</div>'
+            )
+        return '\n'.join(out)
+    else:
+        # Render as a data table
+        tbl = ''.join(f'<tr>{r}</tr>' for r in rows)
+        return f'<div class="notes-table-section"><table>{tbl}</table></div>'
 
 
 def build_nav(prev_stem, prev_title, next_stem, next_title, bottom=False):
@@ -193,54 +315,120 @@ def build_detail_page(data, prev_stem=None, prev_title=None, next_stem=None, nex
 
     notes = data.get("explanatory_notes", "")
     if notes:
-        # Strip leading "Explanatory Note(s):" row (first <tr> containing it)
+        # Strip leading "Explanatory Note(s):" row
         notes = re.sub(
             r'<tr[^>]*>.*?Explanatory\s+Note[s]?\s*:?.*?</tr>',
             '', notes, count=1, flags=re.IGNORECASE | re.DOTALL
         )
         body.append("<h2>Explanatory Notes</h2>")
-        body.append(f'<div class="section notes-section">{notes}</div>')
+
+        # ── Parse notes into point rows vs data rows ──
+        rows = re.findall(r'<tr[^>]*>(.*?)</tr>', notes, re.DOTALL)
+        points = []  # list of (html, is_point)
+
+        for row_html in rows:
+            # Extract first <td> text to classify
+            first_td = re.search(r'<td[^>]*>(.*?)</td>', row_html, re.DOTALL)
+            idx_text = ""
+            if first_td:
+                idx_text = re.sub(r'<[^>]+>', '', first_td.group(1)).replace('\xa0', ' ').strip()
+            # Point row if first td has an index like "1.", "[a]", etc.
+            is_point = bool(re.match(r'^(\d+\.|\[[a-z]\])', idx_text))
+            points.append((row_html, is_point))
+
+        # ── Render: group consecutive same-type rows ──
+        buf = []
+        buf_is_point = None
+        for row_html, is_point in points:
+            # Skip empty spacer rows
+            clean = re.sub(r'<[^>]+>', '', row_html).replace('\xa0', ' ').strip()
+            if not clean:
+                continue
+            if buf_is_point is None:
+                buf_is_point = is_point
+                buf.append(row_html)
+            elif is_point == buf_is_point:
+                buf.append(row_html)
+            else:
+                # Flush buffer
+                body.append(_render_note_group(buf, buf_is_point))
+                buf = [row_html]
+                buf_is_point = is_point
+        if buf:
+            body.append(_render_note_group(buf, buf_is_point))
 
     # Bottom nav
     body.append(build_nav(prev_stem, prev_title, next_stem, next_title, bottom=True))
 
     result = "\n".join(body)
 
-    # ── Add [a]/[b]/[x] anchor links: body ↔ notes bidirectional ──
+    # ── Add bidirectional [a]/[b]/[x] anchor links ──
     for letter in "abcdefghijklmnopqrstuvwxyz":
         ref = f"[{letter}]"
         if ref not in result:
             continue
         note_id = f"note_{letter}"
-        ref_id = f"ref_{letter}"
-        notes_start = result.find('<div class="section notes-section">')
+        body_id = f"ref_{letter}"
+        notes_start = result.find('<h2>Explanatory Notes</h2>')
         if notes_start == -1:
             continue
         body_part = result[:notes_start]
         notes_part = result[notes_start:]
 
-        # Body: first [x] gets id, rest link to notes (use split on first find)
-        idx = body_part.find(ref)
-        if idx != -1:
-            before = body_part[:idx]
-            after = body_part[idx + len(ref):]
-            after = after.replace(ref, f'<a href="#{note_id}" class="ref-link">{ref}</a>')
-            body_part = before + f'<span id="{ref_id}" class="ref-anchor">{ref}</span>' + after
+        # Body: first [x] gets span id (for notes→body); rest get links to notes
+        first_body_pos = body_part.find(ref)
+        if first_body_pos != -1:
+            body_part = (body_part[:first_body_pos] +
+                         f'<span id="{body_id}">{ref}</span>' +
+                         body_part[first_body_pos + len(ref):])
+            body_part = body_part.replace(ref, f'<a href="#{note_id}">{ref}</a>')
 
-        # Notes: first [x] gets id, rest link to body
-        idx = notes_part.find(ref)
-        if idx != -1:
-            before = notes_part[:idx]
-            after = notes_part[idx + len(ref):]
-            after = after.replace(ref, f'<a href="#{ref_id}" class="ref-link">{ref}</a>')
-            notes_part = before + f'<span id="{note_id}" class="ref-anchor">{ref}</span>' + after
+        # Notes: first [x] gets span id (anchor target); rest link back to body
+        first_notes_pos = notes_part.find(ref)
+        if first_notes_pos != -1:
+            notes_part = (notes_part[:first_notes_pos] +
+                          f'<span id="{note_id}">{ref}</span>' +
+                          notes_part[first_notes_pos + len(ref):])
+            notes_part = notes_part.replace(ref, f'<a href="#{body_id}">{ref}</a>')
 
         result = body_part + notes_part
+
+    # ── Clean up section labels ──
+    def clean_label(m):
+        label = m.group(0)
+        inner = re.sub(r'</?h2>', '', label).strip()
+        # If unit number present, add "units"
+        inner = re.sub(r'(Required|Elective)\s+Course[s]?\s*:?\s*(\d+)\s*$',
+                       r'\1 Courses: \2 units', inner, flags=re.IGNORECASE)
+        # If no unit number, strip trailing colon
+        inner = re.sub(r'(Required|Elective)\s+Course[s]?\s*:\s*$',
+                       r'\1 Courses', inner, flags=re.IGNORECASE)
+        return f'<h2>{inner}</h2>'
+    result = re.sub(r'<h2>.*?</h2>', clean_label, result, flags=re.DOTALL)
 
     return result
 
 
-# ── main ─────────────────────────────────────────────────────────────
+def build_sidebar_html(index_order, active_stem):
+    """Build the sidebar navigation HTML grouped by faculty."""
+    last_fac = None
+    parts = []
+    for c in index_order:
+        fac = c["faculty"]
+        stem = c["stem"]
+        title = c["title"]
+        if fac != last_fac:
+            if last_fac is not None:
+                parts.append('</details>')
+            parts.append(f'<details class="fac-group" data-fac="{fac}" open>')
+            parts.append(f'<summary>{fac}</summary>')
+            last_fac = fac
+        cls = 'active' if stem == active_stem else ''
+        prefix = '&#9654; ' if stem == active_stem else ''
+        parts.append(f'<a href="{stem}.html" class="{cls}">{prefix}{title}</a>')
+    if last_fac is not None:
+        parts.append('</details>')
+    return '\n'.join(parts)
 
 def generate():
     if not MINOR_JSON_DIR.exists():
@@ -304,7 +492,8 @@ def generate():
                                  prev_title=prev_info[1] if prev_info else None,
                                  next_stem=next_info[0] if next_info else None,
                                  next_title=next_info[1] if next_info else None)
-        page = html_page(f"Minor: {data['title']}", body)
+        sidebar_html = build_sidebar_html(index_order, stem)
+        page = minor_page(f"Minor: {data['title']}", body, sidebar_html)
         (site_minors_dir / f"{stem}.html").write_text(page, encoding="utf-8")
 
     # ── Index page ──
@@ -336,7 +525,7 @@ def generate():
         f"{cards_html}"
     )
     (SITE_DIR / "index.html").write_text(
-        html_page("CUHK Minor Programmes", index_body), encoding="utf-8"
+        index_page("CUHK Minor Programmes", index_body), encoding="utf-8"
     )
 
     # ── Report ──
