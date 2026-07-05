@@ -1,0 +1,357 @@
+{
+  "_auto_generated": true,
+  "title": "Computer Science",
+  "faculty": "Engineering",
+  "source_file": "Computer_Science",
+  "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
+  "required": {
+    "label": "1. Required Courses : 6",
+    "units": "6",
+    "rows": [
+      {
+        "index": 1,
+        "text": "CSCI2520, 3100",
+        "codes": [
+          "CSCI 2520",
+          "CSCI 3100"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "CSCI 2520",
+            "title": "Data Structures and Applications",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI2100 or ESTR2102. Prerequisite: CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ENGG1110 or ESTR1002 or 1100 or 1102 or MATH2221 or PHYS2061."
+          },
+          {
+            "code": "CSCI 3100",
+            "title": "Software Engineering",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENGG3820 or ESTR3308 or IERG3080;Pre-requisite: CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ESTR1100 or 1102. For 2nd-year entrants, the prerequisite will be waived."
+          }
+        ]
+      }
+    ]
+  },
+  "elective": {
+    "label": "2. Elective Courses :",
+    "units": "",
+    "rows": [
+      {
+        "index": 1,
+        "text": "(a) CSCI1510, 1520, 1530, 1540, 1550",
+        "codes": [
+          "CSCI 1510",
+          "CSCI 1520",
+          "CSCI 1530",
+          "CSCI 1540",
+          "CSCI 1550"
+        ],
+        "units": "3",
+        "courses": [
+          {
+            "code": "CSCI 1510",
+            "title": "Computer Principles and C Programming",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken AIST1110 or CSCI1120 or CSCI1130 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102"
+          },
+          {
+            "code": "CSCI 1520",
+            "title": "Computer Principles and C++ Programming",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken AIST1110 or CSCI1020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102"
+          },
+          {
+            "code": "CSCI 1530",
+            "title": "Computer Principles and Java Programming",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken AIST1110 or CSCI1030 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102"
+          },
+          {
+            "code": "CSCI 1540",
+            "title": "Fundamental Computing with C++",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken AIST1110 or CSCI1020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1550 or ESTR1100 or ESTR1102"
+          },
+          {
+            "code": "CSCI 1550",
+            "title": "Computer Principles and Python Programming",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENGG1110 or ENGG1120 or ENGG1130 or CSCI1040 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI2040 or AIST1110 or IERG1080. Not for students of Faculty of Engineering."
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "text": "(b) CSCI2510, 2720, 2730, 2740, 2750, 3340",
+        "codes": [
+          "CSCI 2510",
+          "CSCI 2720",
+          "CSCI 2730",
+          "CSCI 2740",
+          "CSCI 2750",
+          "CSCI 3340"
+        ],
+        "units": "6",
+        "courses": [
+          {
+            "code": "CSCI 2510",
+            "title": "Computer Organization",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CENG2400 or ELEG3230 or ENGG2020 or ESTR2100 or ESTR2104. Prerequisite: CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ENGG1110 or ESTR1002 or 1100 or 1102 or MATH2221 or PHYS2061."
+          },
+          {
+            "code": "CSCI 2720",
+            "title": "Building Web Applications",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR2106 or IERG3840 Pre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ENGG1110 or ESTR1002 or 1100 or 1102 or MATH2221 or PHYS2061."
+          },
+          {
+            "code": "CSCI 2730",
+            "title": "Introduction to Blockchain Technologies and Applications",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken IERG4360 or ESTR4326. Prerequisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ENGG1110 or ESTR1002 or 1100 or 1102."
+          },
+          {
+            "code": "CSCI 2740",
+            "title": "Competitive Programming",
+            "unit": "3.00",
+            "prereq": "Prerequisite: CSCI2100 or CSCI2520 or ESTR2102"
+          },
+          {
+            "code": "CSCI 2750",
+            "title": "Data Mining and Information Processing",
+            "unit": "3.00",
+            "prereq": "Prerequisite: (ENGG1110 or ESTR1002) and (ENGG1120 or ESTR1005) Not for students who have taken CSCI3230 or ESTR3108 or CSCI3320"
+          },
+          {
+            "code": "CSCI 3340",
+            "title": "Scientific Computing",
+            "unit": "3.00",
+            "prereq": "Prerequisite: (ENGG1120 or ESTR1005 or MATH1030 or MATH1038 or MATH1550) AND (ENGG1130 or ESTR1006 or MATH1010 or MATH1020 or MATH1018 or MATH1510 or MATH1520)"
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "text": "(c) CENG3430/ESTR3100, CSCI1020, 1030, 1040, 3130, CSCI3150/ESTR3102, CSCI3160/ESTR3104, CSCI3170, CSCI3180/ESTR3106, CSCI3190, 3220, CSCI3230/ESTR3108, CSCI3250, 3260, 3280, 3310, 3320, 3350, 3360, 4120, 4130, 4140, CSCI4180/ESTR4106, CSCI4190",
+        "codes": [
+          "CENG 3430",
+          "CSCI 1020",
+          "CSCI 1030",
+          "CSCI 1040",
+          "CSCI 3130",
+          "CSCI 3150",
+          "CSCI 3160",
+          "CSCI 3170",
+          "CSCI 3180",
+          "CSCI 3190",
+          "CSCI 3220",
+          "CSCI 3230",
+          "CSCI 3250",
+          "CSCI 3260",
+          "CSCI 3280",
+          "CSCI 3310",
+          "CSCI 3320",
+          "CSCI 3350",
+          "CSCI 3360",
+          "CSCI 4120",
+          "CSCI 4130",
+          "CSCI 4140",
+          "CSCI 4180",
+          "CSCI 4190",
+          "ESTR 3100",
+          "ESTR 3102",
+          "ESTR 3104",
+          "ESTR 3106",
+          "ESTR 3108",
+          "ESTR 4106"
+        ],
+        "units": "3",
+        "courses": [
+          {
+            "code": "CENG 3430",
+            "title": "Rapid Prototyping of Digital Systems",
+            "unit": "3.00",
+            "prereq": "Prerequisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent For senior-year entrants, the prerequisite will be waived. Not for students who have taken ESTR3100"
+          },
+          {
+            "code": "CSCI 1020",
+            "title": "Hands-on Introduction to C++",
+            "unit": "1.00",
+            "prereq": "Not for students who have taken CSCI1120 or 1520 or 1540 or ESTR1100."
+          },
+          {
+            "code": "CSCI 1030",
+            "title": "Hands-on Introduction to Java",
+            "unit": "1.00",
+            "prereq": "Not for students who have taken CSCI1130 or 1530 or ESTR1102."
+          },
+          {
+            "code": "CSCI 1040",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "CSCI 3130",
+            "title": "Formal Languages and Automata Theory",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: CSCI2110 or ENGG2440 or ESTR2004 or MIEG2440."
+          },
+          {
+            "code": "CSCI 3150",
+            "title": "Introduction to Operating Systems",
+            "unit": "3.00",
+            "prereq": "Prerequisite: ESTR2102 or CSCI2100 or 2520. For senior-year entrants, the prerequisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent. Not for students who have taken ESTR3102."
+          },
+          {
+            "code": "CSCI 3160",
+            "title": "Design and Analysis of Algorithms",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR3104 or CSCI3190; Pre-requisites: (CSCI2100 or CSCI2520 or ESTR2102) AND (CSCI2110 or ENGG2440 or ESTR2004 or ESTR2362 or MIEG2440)"
+          },
+          {
+            "code": "CSCI 3170",
+            "title": "Introduction to Database Systems",
+            "unit": "3.00",
+            "prereq": "Prerequisite: CSCI2100 or 2520 or ESTR2102. For 2nd-year entrants, the prerequisite will be waived."
+          },
+          {
+            "code": "CSCI 3180",
+            "title": "Principles of Programming Languages",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR3106. Prerequisite: CSCI2100 or 2520 or ESTR2102. For senior-year entrants, the prerequisite will be waived."
+          },
+          {
+            "code": "CSCI 3190",
+            "title": "Introduction to Discrete Mathematics and Algorithms",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI3160 or ENGG2440 or ESTR2004 or 3104. Prerequisite: CSCI2100 or CSCI2520 or ESTR2102. For 2nd-year entrants, the prerequisite will be waived."
+          },
+          {
+            "code": "CSCI 3220",
+            "title": "Algorithms for Bioinformatics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken BMEG3102 or ESTR3110. "
+          },
+          {
+            "code": "CSCI 3230",
+            "title": "Fundamentals of Artificial Intelligence",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR3108. Prerequisite: CSCI2100 or 2520 or ESTR2102 or equivalent."
+          },
+          {
+            "code": "CSCI 3250",
+            "title": "Computers and Society",
+            "unit": "2.00",
+            "prereq": "Not for students who have taken ENGG2601."
+          },
+          {
+            "code": "CSCI 3260",
+            "title": "Principles of Computer Graphics",
+            "unit": "3.00",
+            "prereq": "Prerequisite: CSCI2100 or 2520 or ESTR2102."
+          },
+          {
+            "code": "CSCI 3280",
+            "title": "Introduction to Multimedia Systems",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "CSCI 3310",
+            "title": "Mobile Computing and Applications Development",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: CSCI2100 or 2520 or ESTR2102 Not for students who have taken IERG3842"
+          },
+          {
+            "code": "CSCI 3320",
+            "title": "Fundamentals of Machine Learning",
+            "unit": "3.00",
+            "prereq": "Prerequisite: ENGG2430 or 2450 or 2760 or 2780 or ESTR2002 or 2005 or 2018 or 2020 or 2308 or 2362 or IERG2470 or MIEG2440 or STAT2001."
+          },
+          {
+            "code": "CSCI 3350",
+            "title": "Introduction to Quantum Computing",
+            "unit": "3.00",
+            "prereq": "Prerequisite: (ENGG1120 or ESTR1005) AND (ENGG2760 or ESTR2018)"
+          },
+          {
+            "code": "CSCI 3360",
+            "title": "Introduction to Computational Complexity",
+            "unit": "3.00",
+            "prereq": "Prerequisite: ENGG2760 or ESTR2018 or ESTR2308 or IERG2470"
+          },
+          {
+            "code": "CSCI 4120",
+            "title": "Principles of Computer Game Software",
+            "unit": "3.00",
+            "prereq": "1. Prerequisite: CSCI2100 or 2520 or ESTR2102;2. Prerequisite/Corequisite: CSCI3260 or 3550."
+          },
+          {
+            "code": "CSCI 4130",
+            "title": "Introduction to Cyber Security",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR4306 or IEMS5710 or IERG4130"
+          },
+          {
+            "code": "CSCI 4140",
+            "title": "Open-source Software Project Development",
+            "unit": "3.00",
+            "prereq": "Prerequisite: CSCI2100 or 2520 or ESTR2102."
+          },
+          {
+            "code": "CSCI 4180",
+            "title": "Introduction to Cloud Computing and Storage",
+            "unit": "3.00",
+            "prereq": "Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken ESTR4106."
+          },
+          {
+            "code": "CSCI 4190",
+            "title": "Introduction to Social Networks",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: CSCI2100 or 2520 or ESTR2102."
+          },
+          {
+            "code": "ESTR 3100",
+            "title": "Rapid Prototyping of Digital Systems",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CENG3430. Pre-requisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent. For senior-year entrants, the pre-requisite will be waived."
+          },
+          {
+            "code": "ESTR 3102",
+            "title": "Introduction to Operating Systems",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI3150. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent."
+          },
+          {
+            "code": "ESTR 3104",
+            "title": "Design and Analysis of Algorithms",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI3160 or CSCI3190. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004."
+          },
+          {
+            "code": "ESTR 3106",
+            "title": "Principles of Programming Languages",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI3180. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived."
+          },
+          {
+            "code": "ESTR 3108",
+            "title": "Fundamentals of Artificial Intelligence",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent."
+          },
+          {
+            "code": "ESTR 4106",
+            "title": "Introduction to Cloud Computing and Storage",
+            "unit": "3.00",
+            "prereq": "Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken CSCI4180."
+          }
+        ]
+      }
+    ]
+  },
+  "explanatory_notes": "<table><tr> <td colspan=\"3\" style=\"width:406.0pt;padding:0in 5.4pt 0in 5.4pt\" valign=\"top\" width=\"541\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;text-align:justify; text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n Note</span><span lang=\"EN-US\">s</span><span lang=\"EN-US\">:</span></p> </td> <td colspan=\"2\" style=\"width:71.95pt;padding:0in 5.4pt 0in 5.4pt\" valign=\"top\" width=\"96\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr>\n<tr style=\"height:37.55pt\"> <td style=\"width:36.65pt;padding:0in 5.4pt 0in 5.4pt; height:37.55pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\">1.</span></p> </td> <td colspan=\"4\" style=\"width:441.3pt;padding:0in 5.4pt 0in 5.4pt; height:37.55pt\" valign=\"top\" width=\"588\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">Course(s) in Column A are equivalent\n\n to course(s) in Column B and can be used to fulfil</span><span lang=\"EN-US\">l</span><span lang=\"EN-US\"> the requirements of this Minor\n\n Programme.</span></p> </td> </tr>\n<tr style=\"height:1.0pt\"> <td style=\"width:36.65pt;border:none;border-right:\n\n solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border:solid windowtext 1.0pt; border-left:none;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><b><span lang=\"EN-US\">Column A</span></b></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border:solid windowtext 1.0pt; border-left:none;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><b><span lang=\"EN-US\">Column B</span></b></p> </td> <td style=\"width:21.3pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr>\n<tr style=\"height:1.0pt\"> <td style=\"width:36.65pt;border:none;border-right:\n\n solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border-top:none;border-left:\n\n none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI1120/1130/ESTR1100/1102</span></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI1510/1520/1530/1540</span></p> </td> <td style=\"width:21.3pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr>\n<tr style=\"height:1.0pt\"> <td style=\"width:36.65pt;border:none;border-right:\n\n solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border-top:none;border-left:\n\n none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">ENGG1110/ESTR1002</span></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI1510/1520/1530/1540</span></p> </td> <td style=\"width:21.3pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr>\n<tr style=\"height:1.0pt\"> <td style=\"width:36.65pt;border:none;border-right:\n\n solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border-top:none;border-left:\n\n none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CENG2400/ELEG2401/</span><span lang=\"EN-US\">3701/</span><span lang=\"EN-US\">ESTR2100</span></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI2510</span></p> </td> <td style=\"width:21.3pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr>\n<tr style=\"height:1.0pt\"> <td style=\"width:36.65pt;border:none;border-right:\n\n solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border-top:none;border-left:\n\n none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI2100/ESTR2102</span></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI2520</span></p> </td> <td style=\"width:21.3pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr>\n<tr style=\"height:1.0pt\"> <td style=\"width:36.65pt;border:none;border-right:\n\n solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border-top:none;border-left:\n\n none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">PHYS2061</span></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI1530</span></p> </td> <td style=\"width:21.3pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr>\n<tr style=\"height:1.0pt\"> <td style=\"width:36.65pt;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border:none; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:21.3pt;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr>\n<tr style=\"height:1.0pt\"> <td style=\"width:36.65pt;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\">2.</span></p> </td> <td colspan=\"4\" style=\"width:441.3pt;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"588\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">This Minor Programme is not\n\n applicable to students who major in Artificial Intelligence: Systems and\n\n Technologies, </span><span lang=\"EN-US\" style='font-family:\"TimesNewRomanPSMT\",serif'>Computational\n\n Data Science<span style=\"color:#2E98D4\">, </span></span><span lang=\"EN-US\">Computer\n\n Engineering, the </span><span lang=\"EN-US\">Bachelor of Engineering\n\n (Computer Engineering) and Bachelor of Business Administration\n\n (Integrated BBA Programme) Double Degree Option, and the Bachelor of\n\n Science (Computer Science) and Bachelor of Business Administration\n\n (Integrated BBA Programme) Double Degree Option, and students in the\n\n Mathematics-Multidisciplinary Stream of Mathematics Major Programme</span><span lang=\"EN-US\">.</span></p> </td> </tr>\n<tr style=\"height:1.0pt\"> <td style=\"width:36.65pt;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\">3.</span></p> </td> <td colspan=\"4\" style=\"width:441.3pt;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"588\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">No more than 9 units of courses\n\n taken to fulfill the requirements of the students’ Major Programme(s) and\n\n other Minor Programme(s) respectively can be used to fulfill the\n\n requirement of this Minor Programme.</span></p> </td> </tr>\n<tr style=\"height:1.0pt\"> <td style=\"width:36.65pt;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td colspan=\"4\" style=\"width:441.3pt;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"588\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr>\n<tr height=\"0\"> <td style=\"border:none\" width=\"49\"></td> <td style=\"border:none\" width=\"333\"></td> <td style=\"border:none\" width=\"159\"></td> <td style=\"border:none\" width=\"68\"></td> <td style=\"border:none\" width=\"28\"></td> </tr></table>"
+}

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minor: Information Engineering</title>
+<style>:root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
+        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+       background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
+h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
+     border-bottom:1px solid var(--border); color:#333; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
+.section { background:var(--card); padding:14px 18px; border-radius:8px;
+           border:1px solid var(--border); margin-bottom:16px; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
+table { width:100%; border-collapse:collapse; background:var(--card);
+        border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
+th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
+th { background:#fafafa; font-weight:600; color:#555; }
+tr:hover { background:#f9f9f9; }
+.nf { background:var(--warn-bg); color:var(--warn); }
+.nf:hover { background:#fff5eb; }
+.card { background:var(--card); border-radius:8px; padding:12px 18px; margin-bottom:8px;
+        border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.card:hover { border-color:var(--accent); }
+.card-code { font-weight:600; color:var(--accent); }
+.meta { color:var(--muted); font-size:.85em; }
+.tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
+       padding:2px 8px; font-size:.8em; margin-right:6px; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.section-stream { margin-left: 28px; }
+.section-stream + .course-details { margin-left: 28px; }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
+.nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    font-size:.95em; line-height:1.6; }
+.notes-point { display:flex; align-items:flex-start; gap:10px; padding:10px 14px;
+    cursor:default; transition:background .15s; }
+.notes-point:hover { background:#f0f4ff; }
+.point-idx { font-weight:600; color:var(--accent); min-width:22px; flex-shrink:0; }
+.point-text { flex:1; }
+.point-text p { margin:0; }
+.notes-table-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-table-section tr:hover { background:#f9f9f9; }
+
+/* ── Sidebar ── */
+.sidebar { width:280px; flex-shrink:0; height:100vh; position:sticky; top:0;
+    overflow-y:auto; background:var(--card); border-right:1px solid var(--border);
+    padding:12px 0; font-size:.88em; }
+.sidebar-header { padding:6px 18px 10px; font-weight:600; color:var(--muted);
+    border-bottom:1px solid var(--border); margin-bottom:6px; }
+.fac-group { margin:0; }
+.fac-group summary { padding:6px 16px; font-weight:600; font-size:.92em;
+    cursor:pointer; color:#555; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.fac-group summary:hover { color:var(--accent); }
+.sidebar a { display:block; padding:3px 16px 3px 22px; color:var(--text);
+    text-decoration:none; border-left:3px solid transparent;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sidebar a:hover { background:#f0f4ff; color:var(--accent); }
+.sidebar a.active { font-weight:600; color:var(--accent);
+    background:#e8f0fe; border-left-color:var(--accent); }
+.sidebar-toggle { display:none; position:fixed; top:8px; left:8px; z-index:100;
+    background:var(--card); border:1px solid var(--border); border-radius:6px;
+    padding:6px 10px; font-size:1.2em; cursor:pointer; }
+.sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.25);
+    z-index:98; }
+.content { flex:1; min-width:0; }
+.content-inner { max-width:960px; margin:0 auto; padding:20px; }
+
+/* ── Index page (no sidebar) ── */
+.page-index .container { max-width:960px; margin:0 auto; padding:20px; }
+
+@media (max-width:768px) {
+    body { display:block; }
+    .sidebar { position:fixed; left:-300px; top:0; z-index:99;
+        transition:left .25s; box-shadow:none; }
+    .sidebar.open { left:0; box-shadow:2px 0 12px rgba(0,0,0,.15); }
+    .sidebar-toggle { display:block; }
+    .sidebar-overlay.open { display:block; }
+    .content-inner { padding:12px; }
+    h1 { font-size:1.4em; }
+}
+</style>
+</head>
+<body>
+<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">&#9776;</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <div class="sidebar-header">Minor Programmes</div>
+  <nav><details class="fac-group" data-fac="Arts" open>
+<summary>Arts</summary>
+<a href="Anthropology.html" class="">Anthropology</a>
+<a href="Arab_Studies.html" class="">Arab Studies</a>
+<a href="Archaeology.html" class="">Archaeology</a>
+<a href="Chinese_Language_and_Literature.html" class="">Chinese Language and Literature</a>
+<a href="Creative_Writing_in_English.html" class="">Creative Writing in English</a>
+<a href="Cultural_Heritage_Studies.html" class="">Cultural Heritage Studies</a>
+<a href="Cultural_Management.html" class="">Cultural Management</a>
+<a href="Cultural_Studies.html" class="">Cultural Studies</a>
+<a href="Curating_and_Artistic_Strategies.html" class="">Curating and Artistic Strategies</a>
+<a href="English.html" class="">English</a>
+<a href="Film_and_Screen_Studies.html" class="">Film and Screen Studies</a>
+<a href="Fine_Arts.html" class="">Fine Arts</a>
+<a href="History.html" class="">History</a>
+<a href="Japanese_Language.html" class="">Japanese Language</a>
+<a href="Japanese_Studies.html" class="">Japanese Studies</a>
+<a href="Linguistics.html" class="">Linguistics</a>
+<a href="Music.html" class="">Music</a>
+<a href="Philosophy.html" class="">Philosophy</a>
+<a href="Public_History.html" class="">Public History</a>
+<a href="Religion_and_Health.html" class="">Religion and Health</a>
+<a href="Religious_Studies.html" class="">Religious Studies</a>
+<a href="Theology.html" class="">Theology</a>
+<a href="Translation.html" class="">Translation</a>
+</details>
+<details class="fac-group" data-fac="Education" open>
+<summary>Education</summary>
+<a href="Physical_Education,_Exercise_Science_and_Health.html" class="">Physical Education, Exercise Science and Health</a>
+</details>
+<details class="fac-group" data-fac="Engineering" open>
+<summary>Engineering</summary>
+<a href="Artificial_Intelligence_Systems_and_Technologies.html" class="">Artificial Intelligence: Systems and Technologies</a>
+<a href="Biomedical_Engineering.html" class="">Biomedical Engineering</a>
+<a href="Computer_Science.html" class="">Computer Science</a>
+<a href="Electronic_Engineering.html" class="">Electronic Engineering</a>
+<a href="Energy_Technology.html" class="">Energy Technology</a>
+<a href="Information_Engineering.html" class="active">&#9654; Information Engineering</a>
+<a href="Logistics_and_Supply_Chain_Management.html" class="">Logistics and Supply Chain Management</a>
+<a href="Mechanical_and_Automation_Engineering.html" class="">Mechanical and Automation Engineering</a>
+</details>
+<details class="fac-group" data-fac="Law" open>
+<summary>Law</summary>
+<a href="Law.html" class="">Law</a>
+</details>
+<details class="fac-group" data-fac="Medicine" open>
+<summary>Medicine</summary>
+<a href="Public_Health.html" class="">Public Health</a>
+</details>
+<details class="fac-group" data-fac="Science" open>
+<summary>Science</summary>
+<a href="Biochemistry.html" class="">Biochemistry</a>
+<a href="Biology.html" class="">Biology</a>
+<a href="Cell_and_Molecular_Biology.html" class="">Cell and Molecular Biology</a>
+<a href="Chemistry.html" class="">Chemistry</a>
+<a href="Earth_and_Environmental_Sciences.html" class="">Earth and Environmental Sciences</a>
+<a href="Mathematics.html" class="">Mathematics</a>
+<a href="Molecular_Biotechnology.html" class="">Molecular Biotechnology</a>
+<a href="Physics.html" class="">Physics</a>
+<a href="Risk_Management_Science.html" class="">Risk Management Science</a>
+<a href="Statistics.html" class="">Statistics</a>
+</details>
+<details class="fac-group" data-fac="Social Science" open>
+<summary>Social Science</summary>
+<a href="Applied_Diversity_Studies.html" class="">Applied Diversity Studies</a>
+<a href="Data_Science_and_Policy_Studies.html" class="">Data Science and Policy Studies</a>
+<a href="Economics.html" class="">Economics</a>
+<a href="Gender_Studies.html" class="">Gender Studies</a>
+<a href="Geography_and_Resource_Management.html" class="">Geography and Resource Management</a>
+<a href="Global_Communication.html" class="">Global Communication</a>
+<a href="Global_Studies.html" class="">Global Studies</a>
+<a href="Government_and_Public_Administration.html" class="">Government and Public Administration</a>
+<a href="Journalism_and_Communication.html" class="">Journalism and Communication</a>
+<a href="Psychology.html" class="">Psychology</a>
+<a href="Social_Policy.html" class="">Social Policy</a>
+<a href="Social_Welfare.html" class="">Social Welfare</a>
+<a href="Sociology.html" class="">Sociology</a>
+<a href="Urban_Studies.html" class="">Urban Studies</a>
+</details>
+<details class="fac-group" data-fac="Other" open>
+<summary>Other</summary>
+<a href="HB_Minor_Programme_in_Business.html" class="">Business</a>
+<a href="HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language.html" class="">Chinese Language (Cantonese) as a Second Language</a>
+<a href="HB_Minor_Programme_in_Chinese_Language_(Putonghua)_as_a_Second_Language.html" class="">Chinese Language (Putonghua) as a Second Language</a>
+<a href="HB_Minor_Programme_in_CU-ASK_Innovative_Problem_Solving.html" class="">CU-ASK: Innovative Problem Solving</a>
+<a href="HB_Minor_Programme_in_Data_Analytics_and_Informatics.html" class="">Data Analytics and Informatics</a>
+<a href="HB_Minor_Programme_in_Education.html" class="">Education</a>
+<a href="HB_Minor_Programme_in_Entrepreneurship_and_Innovation.html" class="">Entrepreneurship and Innovation</a>
+<a href="HB_Minor_Programme_in_French.html" class="">French</a>
+<a href="HB_Minor_Programme_in_German.html" class="">German</a>
+<a href="HB_Minor_Programme_in_Hong_Kong_Sign_Language.html" class="">Hong Kong Sign Language</a>
+<a href="HB_Minor_Programme_in_Korean.html" class="">Korean</a>
+<a href="HB_Minor_Programme_in_Spanish.html" class="">Spanish</a>
+</details></nav>
+  <script>
+(function(){var closed=JSON.parse(localStorage.getItem('sidebarCollapsed')||'[]');
+var groups=document.querySelectorAll('.fac-group');
+for(var i=0;i<groups.length;i++){if(closed.indexOf(groups[i].getAttribute('data-fac'))!==-1)groups[i].removeAttribute('open');}
+var st=localStorage.getItem('sidebarScroll');
+if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
+</script>
+</aside>
+<main class="content">
+  <div class="content-inner">
+<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Information Engineering</div>
+<div class="nav-bar"><a href="Energy_Technology.html">← Energy Technology</a><a href="Logistics_and_Supply_Chain_Management.html">Logistics and Supply Chain Management →</a></div>
+<div class="title-row"><h1>Information Engineering</h1><span class="meta">Engineering</span></div>
+<h2>Description</h2>
+<div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
+<h2>1. Required Courses: 9 units</h2>
+<div class="section"><div class="req-row"><span class="row-text">IERG2051/ESTR2302 or MIEG2051/ESTR2360, IERG2310/ESTR2300, IERG3310/ESTR3310</span></div></div>
+<details class="course-details"><summary>Show 8 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<tr><td>ESTR 2300</td><td>Principles of Communication Systems</td><td>3.00</td><td>Not for students who have taken ENGG2310 or IERG2310 or ELEG2310. Pre-requisite: ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051</td></tr>
+<tr><td>ESTR 2302</td><td>Signals and Systems</td><td>3.00</td><td>Pre-requisite: MATH1510. Not for students who have taken ENGG2030 or ESTR2206 or ESTR2360 or IERG2051 or MIEG2051.</td></tr>
+<tr><td>ESTR 2360</td><td>Fourier Analysis with Engineering Applications</td><td>3.00</td><td>Pre-requisite: MATH1510. Not for students who have taken ENGG2030 or ESTR2206 or ESTR2302 or IERG2051 or MIEG2051.</td></tr>
+<tr><td>ESTR 3310</td><td>Computer Networks</td><td>3.00</td><td>Pre-requisite: CSCI2100 or ESTR2102. Not for students who have taken CSCI4430 or ESTR4120 or IERG3310.</td></tr>
+<tr><td>IERG 2051</td><td>Signals and Systems</td><td>3.00</td><td>Prerequisite: MATH1510. Not for students who have taken ENGG2030 or ESTR2206 or ESTR2302 or ESTR2360 or MIEG2051.</td></tr>
+<tr><td>IERG 2310</td><td>Principles of Communication Systems</td><td>3.00</td><td>Prerequisite: ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051. Not for students who have taken ELEG2310 or ENGG2310 or ESTR2300</td></tr>
+<tr><td>IERG 3310</td><td>Computer Networks</td><td>3.00</td><td>Pre-requisite: CSCI2100 or ESTR2102 Not for students who have taken CSCI4430 or ESTR4120 or ESTR3310.</td></tr>
+<tr><td>MIEG 2051</td><td>Fourier Analysis with Engineering Applications</td><td>3.00</td><td>Prerequisite: MATH1010 or MATH1510 Not for students who have taken ENGG2030, ESTR2206, ESTR2302, ESTR2360 or IERG2051.</td></tr>
+</tbody></table></details>
+<h2>2. Elective Courses</h2>
+<div class="section"><div class="req-row"><span class="row-text">(a) IERG3010/ESTR3300, IERG3070, IERG3280/ESTR3302, IERG4004, IERG4030/ESTR4320, IERG4060, IERG4090/ESTR4302, IERG4100/ESTR4304, IERG4110/ESTR4314, IERG4120/ESTR4328, IERG4150/ESTR4322, IERG4180/ESTR4308, IERG4220, 4240, IERG4320/ESTR4324, IERG4340, IERG4360/ESTR4326, IERG5020, IERG5040/ENGG5392, IERG5090, IERG5100/ENGG5303, IERG5110, 5140, IERG5154/ENGG5301, IERG5200, 5230, IERG5240/ENGG5383, IERG5254, 5280, 5290, IERG5300/ENGG5302, IERG5310, 5320, 5330, 5350, 5360, 5380, 5400, 5590</span><span class="meta">(6 units)</span></div></div>
+<details class="course-details"><summary>Show 55 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<tr><td>ENGG 5301</td><td>Information Theory</td><td>3.00</td><td>For all students in Engineering Faculty;Exclusion: IERG5154</td></tr>
+<tr class="nf"><td>ENGG 5302</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr><td>ENGG 5303</td><td>Advanced Wireless Communications</td><td>3.00</td><td>For all students in Engineering Faculty Exclusion: IERG6270 or IERG5100</td></tr>
+<tr><td>ENGG 5383</td><td>Applied Cryptography</td><td>3.00</td><td>For all students in Engineering Faculty;Exclusion: IERG5240</td></tr>
+<tr><td>ENGG 5392</td><td>Lightwave System Technologies</td><td>3.00</td><td>For all students in Engineering Faculty;Exclusion: IERG5040</td></tr>
+<tr><td>ESTR 3300</td><td>Digital Communications</td><td>3.00</td><td>Not for students who have taken IERG3010. Pre-requisite: ENGG2310 or ESTR2300 or IERG2310.</td></tr>
+<tr><td>ESTR 3302</td><td>Networks: Technology, Economics, and Social Interactions</td><td>3.00</td><td>Not for students who have taken IERG3280.</td></tr>
+<tr><td>ESTR 4302</td><td>Networking Protocols and Systems</td><td>3.00</td><td>Pre-requisite: IERG3310 or ESTR3310. Not for students who have taken IERG4090.</td></tr>
+<tr><td>ESTR 4304</td><td>Wireless Communication Systems</td><td>3.00</td><td>Not for students who have taken IERG4100 or IEMS5701. Pre-requisite: ENGG2310 or ESTR2300 or ESTR3300 or IERG2310 or IERG3010.</td></tr>
+<tr><td>ESTR 4308</td><td>Network Software Design and Programming</td><td>3.00</td><td>Not for students who have taken IERG4180.</td></tr>
+<tr><td>ESTR 4314</td><td>Hands-on Wireless Communication</td><td>3.00</td><td>Not for students who have taken IERG4110. Pre-requisite: ENGG2310 or ESTR2300 or IERG2310.</td></tr>
+<tr><td>ESTR 4320</td><td>Optical Communications</td><td>3.00</td><td>Not for students who have taken ELEG3303 or ESTR3206 or IEMS5705 or IERG4030. Pre-requisite: ENGG2310 or ESTR2300 or IERG2310 or with the consent of the course instructor.ESTR4320</td></tr>
+<tr><td>ESTR 4322</td><td>Introduction to Cryptography</td><td>3.00</td><td>Not for students who have taken IERG4150.</td></tr>
+<tr><td>ESTR 4324</td><td>Data Science in Practice</td><td>3.00</td><td>Not for students who have taken IERG4320</td></tr>
+<tr><td>ESTR 4326</td><td>Blockchain and Applications</td><td>3.00</td><td>Not for students who have taken CSCI5590 or IEMS5725 or IERG4360 or IERG5590</td></tr>
+<tr><td>ESTR 4328</td><td>Functional Programming</td><td>3.00</td><td>Pre-requisite: IERG2080 or ESTR2306 or equivalent, or with instructor's written approval. Not for students who have taken IERG4120.</td></tr>
+<tr><td>IERG 3010</td><td>Digital Communications</td><td>3.00</td><td>Prerequisite: ENGG2310 or ESTR2300 or IERG2310. Not for students who have taken ESTR3300.</td></tr>
+<tr><td>IERG 3070</td><td>Operating Systems in Practice: A Linux Perspective</td><td>3.00</td><td>Pre-requisite: CSCI2100 or ESTR2102</td></tr>
+<tr><td>IERG 3280</td><td>Networks: Technology, Economics, and Social Interactions</td><td>3.00</td><td>Not for students who have taken ESTR3302.</td></tr>
+<tr><td>IERG 4004</td><td>E-payment Systems and Cryptocurrency Technologies</td><td>3.00</td><td>1.Not for students who have taken FTEC4004 2.Pre-requisite(s): CSCI4130 or ESTR4306 or IERG4130</td></tr>
+<tr><td>IERG 4030</td><td>Optical Communications</td><td>3.00</td><td>1.Not for students who have taken ELEG3303 or ESTR3206 or ESTR4320 or IEMS5705 2.Pre-requisite(s): ENGG2310 or ESTR2300 or IERG2310 or with the approval of the course instructor.</td></tr>
+<tr><td>IERG 4060</td><td>Real-time Embedded Systems</td><td>3.00</td><td>Pre-requisite: IERG3060 or equivalent</td></tr>
+<tr><td>IERG 4090</td><td>Networking Protocols and Systems</td><td>3.00</td><td>Prerequisite: IERG3310 or ESTR3310 Not for students who have taken ESTR4302.</td></tr>
+<tr><td>IERG 4100</td><td>Wireless Communication Systems</td><td>3.00</td><td>Prerequisite: ENGG2310 or ESTR2300 or ESTR3300 or IERG2310 or IERG3010. Not for students who have taken ESTR4304 or IEMS5701.</td></tr>
+<tr class="nf"><td>IERG 4110</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr><td>IERG 4120</td><td>Functional Programming</td><td>3.00</td><td>Pre-requisite: IERG2080 or ESTR2306 or equivalent, or with instructor's written approval. Not for students who have taken ESTR4328.</td></tr>
+<tr><td>IERG 4150</td><td>Introduction to Cryptography</td><td>3.00</td><td>Not for students who have taken ESTR4322</td></tr>
+<tr><td>IERG 4180</td><td>Network Software Design and Programming</td><td>3.00</td><td>Not for students who have taken ESTR4308.</td></tr>
+<tr><td>IERG 4220</td><td>Secure Software Engineering</td><td>3.00</td><td>—</td></tr>
+<tr><td>IERG 4240</td><td>Positioning Principles and Technologies</td><td>3.00</td><td>Pre-requisite: IERG2051 or ENGG2030 or MIEG2051 or ESTR2302 or ESTR2206 or ESTR2360</td></tr>
+<tr><td>IERG 4320</td><td>Data Science in Practice</td><td>3.00</td><td>Not for students who have taken ESTR4324</td></tr>
+<tr><td>IERG 4340</td><td>Emerging Technologies in Information Engineering</td><td>3.00</td><td>Not for students who have taken IEMS5717.</td></tr>
+<tr><td>IERG 4360</td><td>Blockchain and Applications</td><td>3.00</td><td>Not for students who have taken CSCI5590 or ESTR4326 or IEMS5725 or IERG5590</td></tr>
+<tr><td>IERG 5020</td><td>Telecommunication Switching and Network Systems</td><td>3.00</td><td>For all students in Engineering Faculty;Course Exclusion: IERG4020 or ESTR4318</td></tr>
+<tr class="nf"><td>IERG 5040</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr><td>IERG 5090</td><td>Advanced Networking Protocols and Systems</td><td>3.00</td><td>For all students in Engineering Faculty;Exclusion: IEMS5715</td></tr>
+<tr class="nf"><td>IERG 5100</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr><td>IERG 5110</td><td>Signal Processing in Wireless Communications and Sensing</td><td>3.00</td><td>For all students in Engineering Faculty Pre-requisite: IERG3010/ESTR3300 or written waiver with endorsement from instructor.</td></tr>
+<tr class="nf"><td>IERG 5140</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>IERG 5154</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr><td>IERG 5200</td><td>Channel Coding and Modulation</td><td>3.00</td><td>For all students in Engineering Faculty;Exclusion: MATH4260 and IERG4200</td></tr>
+<tr><td>IERG 5230</td><td>Algorithms and Realization of Internet of Things Systems</td><td>3.00</td><td>For all students in Engineering Faculty</td></tr>
+<tr class="nf"><td>IERG 5240</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr><td>IERG 5254</td><td>Network Information Theory</td><td>3.00</td><td>For all students in Engineering Faculty Exclusion: IERG6154</td></tr>
+<tr><td>IERG 5280</td><td>Wireless and Mobile Networking</td><td>3.00</td><td>For all students in Engineering Faculty</td></tr>
+<tr><td>IERG 5290</td><td>Network Coding Theory</td><td>3.00</td><td>For all students in Engineering Faculty</td></tr>
+<tr><td>IERG 5300</td><td>Random Processes</td><td>3.00</td><td>For all students in Engineering Faculty Exclusion: ENGG5302 or SEEM5580</td></tr>
+<tr><td>IERG 5310</td><td>Security & Privacy in Cyber Systems</td><td>3.00</td><td>For all students in Engineering Faculty</td></tr>
+<tr><td>IERG 5320</td><td>Digital Forensics</td><td>3.00</td><td>For all students in Engineering Faculty</td></tr>
+<tr class="nf"><td>IERG 5330</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr><td>IERG 5350</td><td>Reinforcement Learning</td><td>3.00</td><td>For all students in Engineering Faculty</td></tr>
+<tr><td>IERG 5360</td><td>Program Representation, Modeling and Understanding for Software Security</td><td>3.00</td><td>For all students in Engineering Faculty Pre-requisite: IERG4130 or CSCI4130 or ESTR4306 or IEMS5710, or written waiver with endorsement from instructor.</td></tr>
+<tr><td>IERG 5380</td><td>Quantum Information Processing</td><td>3.00</td><td>For all students in Engineering Faculty Exclusion: CSCI5370 and MAEG5110</td></tr>
+<tr><td>IERG 5400</td><td>Theory of Probability</td><td>3.00</td><td>For all students in Engineering Faculty Exclusion: IERG6300</td></tr>
+<tr><td>IERG 5590</td><td>Advanced Topics in Blockchain</td><td>3.00</td><td>For all students in Engineering Faculty;Exclusion: CSCI5590</td></tr>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">(b) CSCI3150/ESTR3102, CSCI3160/ESTR3104, IERG3050, IERG3300/ESTR3304, IERG3320/ESTR3306, IERG4080/ESTR4312, IERG4130/CSCI4130/ESTR4306, IERG4160/ELEG4512, IERG4190, 4210, 4230, IERG4300/ESTR4300, IERG4330/ESTR4316, IERG4350, 5130</span><span class="meta">(3 units)</span></div></div>
+<details class="course-details"><summary>Show 25 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<tr><td>CSCI 3150</td><td>Introduction to Operating Systems</td><td>3.00</td><td>Prerequisite: ESTR2102 or CSCI2100 or 2520. For senior-year entrants, the prerequisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent. Not for students who have taken ESTR3102.</td></tr>
+<tr><td>CSCI 3160</td><td>Design and Analysis of Algorithms</td><td>3.00</td><td>Not for students who have taken ESTR3104 or CSCI3190; Pre-requisites: (CSCI2100 or CSCI2520 or ESTR2102) AND (CSCI2110 or ENGG2440 or ESTR2004 or ESTR2362 or MIEG2440)</td></tr>
+<tr><td>CSCI 4130</td><td>Introduction to Cyber Security</td><td>3.00</td><td>Not for students who have taken ESTR4306 or IEMS5710 or IERG4130</td></tr>
+<tr><td>ELEG 4512</td><td>Digital Image Processing</td><td>3.00</td><td>Not for students who have taken ELEG4502 or IERG4160.</td></tr>
+<tr><td>ESTR 3102</td><td>Introduction to Operating Systems</td><td>3.00</td><td>Not for students who have taken CSCI3150. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent.</td></tr>
+<tr><td>ESTR 3104</td><td>Design and Analysis of Algorithms</td><td>3.00</td><td>Not for students who have taken CSCI3160 or CSCI3190. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004.</td></tr>
+<tr><td>ESTR 3304</td><td>Introduction to Stochastic Processes</td><td>3.00</td><td>Pre-requisite: IERG2470 or MIEG2440 or ENGG2430 or ENGG2450 or ENGG2460 or ENGG2470 or ESTR2002 or ESTR2005 or ESTR2010 or ESTR2012 or ESTR2018 or ESTR2308 or ESTR2362 Not for students who have taken IERG3300, IERG4140, IERG5300 or ENGG5302 or MATH4240.</td></tr>
+<tr><td>ESTR 3306</td><td>Social Media and Human Information Interaction</td><td>3.00</td><td>Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206. Not for students who have taken IERG3320.</td></tr>
+<tr><td>ESTR 4300</td><td>Web-scale Information Analytics</td><td>3.00</td><td>Not for students who have taken CSCI5510 or ENGG4030 or IERG4300.</td></tr>
+<tr><td>ESTR 4306</td><td>Introduction to Cyber Security</td><td>3.00</td><td>Not for students who have taken IERG4130 or IEMS5710 or CSCI4130.</td></tr>
+<tr><td>ESTR 4312</td><td>Building Scalable Internet-based Services</td><td>3.00</td><td>Not for students who have taken IERG4080. Pre-requisite: IERG3080.</td></tr>
+<tr><td>ESTR 4316</td><td>Programming Big Data Systems</td><td>3.00</td><td>Not for students who have taken IERG4330 or IEMS5730. Co-/Pre-requisite(s): ENGG4030 or ESTR4300 or IERG4300.</td></tr>
+<tr><td>IERG 3050</td><td>Simulation and Statistical Analysis</td><td>3.00</td><td>Pre-requisite: IERG2470 or MIEG2440 or ENGG2430 or 2450 or 2460 or 2470 or ESTR2002 or 2005 or 2010 or 2012 or 2018 or 2308 or 2362</td></tr>
+<tr><td>IERG 3300</td><td>Introduction to Stochastic Processes</td><td>3.00</td><td>Pre-requisite: IERG2470 or MIEG2440 or ENGG2430 or 2450 or 2460 or 2470 or ESTR2002 or 2005 or 2010 or 2012 or 2018 or 2308 or 2362 Not for students who have taken ESTR3304 or IERG4140 or IERG5300 or ENGG5302 or MATH4240</td></tr>
+<tr><td>IERG 3320</td><td>Social Media and Human Information Interaction</td><td>3.00</td><td>Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206 Not for students who have taken ESTR3306.</td></tr>
+<tr><td>IERG 4080</td><td>Building Scalable Internet-based Services</td><td>3.00</td><td>Pre-requisite: IERG3080. Not for students who have taken ESTR4312.</td></tr>
+<tr><td>IERG 4130</td><td>Introduction to Cyber Security</td><td>3.00</td><td>Not for students who have taken CSCI4130 or ESTR4306 or IEMS5710</td></tr>
+<tr><td>IERG 4160</td><td>Image Processing and Visual Understanding</td><td>3.00</td><td>Not for students who have taken ELEG4502 or ELEG4512.</td></tr>
+<tr><td>IERG 4190</td><td>Multimedia Coding and Processing</td><td>3.00</td><td>Prerequisite: ENGG2030 or ESTR2206 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051. Not for students who have taken IEMS5707.</td></tr>
+<tr><td>IERG 4210</td><td>Web Programming and Security</td><td>3.00</td><td>Not for students who have taken IEMS5718</td></tr>
+<tr><td>IERG 4230</td><td>Introduction to Internet of Things</td><td>3.00</td><td>—</td></tr>
+<tr><td>IERG 4300</td><td>Web-scale Information Analytics</td><td>3.00</td><td>Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300.</td></tr>
+<tr><td>IERG 4330</td><td>Programming Big Data Systems</td><td>3.00</td><td>Pre/Co-requisite: ENGG4030 or ESTR4300 or IERG4300. Not for students who have taken ESTR4316 or IEMS5730.</td></tr>
+<tr><td>IERG 4350</td><td>Cloud Computing Security</td><td>3.00</td><td>—</td></tr>
+<tr><td>IERG 5130</td><td>Probabilistic Models and Inference Algorithms for Machine Learning</td><td>3.00</td><td>For all students in Engineering Faculty</td></tr>
+</tbody></table></details>
+<h2>Explanatory Notes</h2>
+<div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Mathematics and Information Engineering.</span></div>
+<div class="section notes-point"><span class="point-idx">2.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>
+<div class="nav-bar nav-bar-bottom"><a href="Energy_Technology.html">← Energy Technology</a><a href="Logistics_and_Supply_Chain_Management.html">Logistics and Supply Chain Management →</a></div>
+  </div>
+</main>
+<script>
+(function(){
+  var sidebar = document.querySelector('.sidebar');
+  if(!sidebar) return;
+  var timer;
+  sidebar.addEventListener('scroll', function(){
+    clearTimeout(timer);
+    timer = setTimeout(function(){ localStorage.setItem('sidebarScroll', sidebar.scrollTop); }, 100);
+  });
+  var groups = document.querySelectorAll('.fac-group');
+  for(var i=0; i<groups.length; i++){
+    groups[i].addEventListener('toggle', function(){
+      var closed=[];
+      var all=document.querySelectorAll('.fac-group');
+      for(var j=0; j<all.length; j++){
+        if(!all[j].open) closed.push(all[j].getAttribute('data-fac'));
+      }
+      localStorage.setItem('sidebarCollapsed', JSON.stringify(closed));
+    });
+  }
+})();
+
+function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('open');
+  document.querySelector('.sidebar-overlay').classList.toggle('open');
+}
+</script>
+</body>
+</html>

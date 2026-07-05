@@ -86,7 +86,7 @@ def extract_minor_boxes(page):
     FIRST <td> contains 'Minor Programme Title' as a heading are matched,
     avoiding false positives from the 'Study Scheme' wrapper table.
     """
-    boxes = page.evaluate("""() => {
+    boxes = page.evaluate(r"""() => {
         // Find elements whose trimmed text starts with 'Minor Programme Title'
         // and is short enough to be a heading (not a cell containing it
         // incidentally).  Then walk up to the enclosing <table>.
@@ -101,15 +101,54 @@ def extract_minor_boxes(page):
             while (table && table.tagName !== 'TABLE') table = table.parentElement;
             if (!table) continue;
 
-            const key = table.outerHTML.slice(0, 800);
-            if (seenTables.has(key)) continue;
-            seenTables.add(key);
+            const dedupKey = table.outerHTML.slice(0, 800);
+            if (seenTables.has(dedupKey)) continue;
+            seenTables.add(dedupKey);
+
+            // If the title table doesn't contain requirement data,
+            // look for the next sibling table that does (GDRSN-style layout).
+            let fullHtml = table.outerHTML;
+            let tblText = table.innerText || table.textContent || '';
+            if (!tblText.includes('Minor Programme Requirement') &&
+                !/[A-Z]{4}\s*\d{4}/.test(tblText)) {
+                // First: walk direct siblings (tables in same parent container)
+                let next = table;
+                while ((next = next.nextElementSibling)) {
+                    if (next.tagName === 'TABLE') {
+                        const nt = next.innerText || next.textContent || '';
+                        if (nt.includes('Minor Programme Requirement') ||
+                            /[A-Z]{4}\s*\d{4}/.test(nt)) {
+                            fullHtml += next.outerHTML;
+                            break;
+                        }
+                    }
+                }
+                // Fallback: walk up to parent <tr> and check next <tr> siblings
+                if (fullHtml === table.outerHTML) {
+                    let row = table;
+                    while (row && row.tagName !== 'TR') row = row.parentElement;
+                    if (row) {
+                        let nextRow = row.nextElementSibling;
+                        while (nextRow) {
+                            if (nextRow.tagName === 'TR') {
+                                const nt = nextRow.innerText || nextRow.textContent || '';
+                                if (nt.includes('Minor Programme Requirement') ||
+                                    /[A-Z]{4}\s*\d{4}/.test(nt)) {
+                                    fullHtml += nextRow.outerHTML;
+                                    break;
+                                }
+                            }
+                            nextRow = nextRow.nextElementSibling;
+                        }
+                    }
+                }
+            }
 
             // Find the enclosing <td> to extract the minor title
             let titleTd = el;
             while (titleTd && titleTd.tagName !== 'TD') titleTd = titleTd.parentElement;
             const cellText = titleTd ? (titleTd.innerText || titleTd.textContent || '') : '';
-            const lines = cellText.split('\\n').map(s => s.trim()).filter(Boolean);
+            const lines = cellText.split('\n').map(s => s.trim()).filter(Boolean);
             const stopWords = ['Minor Programme Requirement', 'Explanatory Notes',
                                'Required Courses', 'Elective Courses', 'Units', 'Total:'];
             let title = '';
@@ -128,11 +167,11 @@ def extract_minor_boxes(page):
             // Fallback: regex on titleTd's innerHTML
             if (!title && titleTd) {
                 const m = titleTd.innerHTML.match(
-                    /Minor Programme Title<\\/[^>]+>\\s*(?:<[^>]+>)*\\s*([^<\\n]+)/
+                    /Minor Programme Title<\/[^>]+>\s*(?:<[^>]+>)*\s*([^<\n]+)/
                 );
                 if (m) title = m[1].trim();
             }
-            results.push({html: table.outerHTML, title: title || 'Unknown'});
+            results.push({html: fullHtml, title: title || 'Unknown'});
         }
         return results;
     }""")
@@ -222,11 +261,15 @@ def crawl_programs():
                         multi_minor_programs.append((adm_code, num_minors))
                     for box in minor_boxes:
                         safe_name = sanitise_filename(box["title"])
-                        filepath = ROOT / "minor_html" / f"{adm_code}_{safe_name}.html"
+                        filepath = ROOT / "minor_html" / f"{safe_name}.html"
+                        # Skip if already extracted from another major (same minor title)
+                        if filepath.exists():
+                            print(f"    Skipping {safe_name} — already exists")
+                            continue
                         with open(filepath, "w", encoding="utf-8") as f:
                             f.write(box["html"])
                         # Record faculty for this minor
-                        faculties[f"{adm_code}_{safe_name}"] = faculty
+                        faculties[safe_name] = faculty
                     print(f"  -> Saved {num_minors} minor section(s): " + ", ".join(b["title"] for b in minor_boxes))
                     total_extracted += num_minors
 
@@ -243,10 +286,17 @@ def crawl_programs():
 
         browser.close()
 
-    # Save faculty mapping
+    # Save faculty mapping (merge with existing if present)
     if faculties:
         fac_path = ROOT / "minor_html" / "_faculties.json"
-        fac_path.write_text(json.dumps(faculties, ensure_ascii=False, indent=2), encoding="utf-8")
+        existing = {}
+        if fac_path.exists():
+            try:
+                existing = json.loads(fac_path.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, UnicodeDecodeError):
+                pass
+        existing.update(faculties)
+        fac_path.write_text(json.dumps(existing, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"\nFaculty info saved: {fac_path}")
 
     # --- Summary ---

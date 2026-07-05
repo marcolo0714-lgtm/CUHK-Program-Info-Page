@@ -1,0 +1,649 @@
+{
+  "_auto_generated": true,
+  "title": "Urban Studies",
+  "faculty": "Social Science",
+  "source_file": "Urban_Studies",
+  "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
+  "required": {
+    "label": "1. Required Course: 3",
+    "units": "3",
+    "rows": [
+      {
+        "index": 1,
+        "text": "URSP1001",
+        "codes": [
+          "URSP 1001"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "URSP 1001",
+            "title": "Introduction to Urban Studies",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
+      }
+    ]
+  },
+  "elective": {
+    "label": "2. Elective Courses:",
+    "units": "",
+    "rows": [
+      {
+        "index": 1,
+        "text": "(a) Any two courses from the following:",
+        "codes": [],
+        "units": "6",
+        "courses": []
+      },
+      {
+        "index": 2,
+        "text": "URSP1003, 2100, 2200, 2300, 2400",
+        "codes": [
+          "URSP 1003",
+          "URSP 2100",
+          "URSP 2200",
+          "URSP 2300",
+          "URSP 2400"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "URSP 1003",
+            "title": "Introduction to Spatial Planning",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2100",
+            "title": "Urban Sustainability",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2200",
+            "title": "Urban Economic Studies",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2300",
+            "title": "Urban Design and Place Making Studio",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2400",
+            "title": "Studies of Cities in Comparative Perspective",
+            "unit": "3.00",
+            "prereq": ""
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "text": "(b) Any three courses from the following, with at least two at 3000 or above level [a]:",
+        "codes": [],
+        "units": "9",
+        "courses": []
+      },
+      {
+        "index": 4,
+        "text": "ANTH4410, ARCH3721, CURE2016, EPIN1020, 2010, GPAD2020, 2090, 2095, 2170, 2180, 3220, 3255, 3360, 3365, GRMD2102, 2104, 2105, 2303, 2321, 2401, 2501, 3102, 3104, 3106, 3108, 3202, 3203, 3224, 3301, 3302, 3304, 3305, 3323, 3403, 4203, 4204, 4302, 4402, 4502, 4503, HIST2500, SOCI2003, 2004, 2104, 2203, 2208, 3002, 3204, SOWK1001, 2160, 2203, 3250, URSP1003, 1004, 1005, 2010, 2020, 2030, 2040, 2050, 2060, 2070, 2100, 2200, 2300, 2400, 2700, 2800, 2900, 3050, 3100, 3300, 3400, 3600, 3700, 3800, 4050, 4100",
+        "codes": [
+          "ANTH 4410",
+          "ARCH 3721",
+          "CURE 2016",
+          "EPIN 1020",
+          "EPIN 2010",
+          "GPAD 2020",
+          "GPAD 2090",
+          "GPAD 2095",
+          "GPAD 2170",
+          "GPAD 2180",
+          "GPAD 3220",
+          "GPAD 3255",
+          "GPAD 3360",
+          "GPAD 3365",
+          "GRMD 2102",
+          "GRMD 2104",
+          "GRMD 2105",
+          "GRMD 2303",
+          "GRMD 2321",
+          "GRMD 2401",
+          "GRMD 2501",
+          "GRMD 3102",
+          "GRMD 3104",
+          "GRMD 3106",
+          "GRMD 3108",
+          "GRMD 3202",
+          "GRMD 3203",
+          "GRMD 3224",
+          "GRMD 3301",
+          "GRMD 3302",
+          "GRMD 3304",
+          "GRMD 3305",
+          "GRMD 3323",
+          "GRMD 3403",
+          "GRMD 4203",
+          "GRMD 4204",
+          "GRMD 4302",
+          "GRMD 4402",
+          "GRMD 4502",
+          "GRMD 4503",
+          "HIST 2500",
+          "SOCI 2003",
+          "SOCI 2004",
+          "SOCI 2104",
+          "SOCI 2203",
+          "SOCI 2208",
+          "SOCI 3002",
+          "SOCI 3204",
+          "SOWK 1001",
+          "SOWK 2160",
+          "SOWK 2203",
+          "SOWK 3250",
+          "URSP 1003",
+          "URSP 1004",
+          "URSP 1005",
+          "URSP 2010",
+          "URSP 2020",
+          "URSP 2030",
+          "URSP 2040",
+          "URSP 2050",
+          "URSP 2060",
+          "URSP 2070",
+          "URSP 2100",
+          "URSP 2200",
+          "URSP 2300",
+          "URSP 2400",
+          "URSP 2700",
+          "URSP 2800",
+          "URSP 2900",
+          "URSP 3050",
+          "URSP 3100",
+          "URSP 3300",
+          "URSP 3400",
+          "URSP 3600",
+          "URSP 3700",
+          "URSP 3800",
+          "URSP 4050",
+          "URSP 4100"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "ANTH 4410",
+            "title": "The Cultures of Cities",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ARCH 3721",
+            "title": "Land and City",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ARCH4721"
+          },
+          {
+            "code": "CURE 2016",
+            "title": "Modernity and Urban Culture",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "EPIN 1020",
+            "title": "Design Thinking and Practice",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "EPIN 2010",
+            "title": "Toolkit for Entrepreneurs",
+            "unit": "3.00",
+            "prereq": "Prerequisite:EPIN1010/1020/1030 or MGNT1070 or SOSC1001/1002 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.Co-requisite:at least any 2 other 2000(EPIN/non-EPIN)level courses."
+          },
+          {
+            "code": "GPAD 2020",
+            "title": "Politics of Culture",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GPAD 2090",
+            "title": "Governance and Public Policy",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GPAD 2095",
+            "title": "Public Policy Workshop",
+            "unit": "3.00",
+            "prereq": "Prerequisite: GPAD1050."
+          },
+          {
+            "code": "GPAD 2170",
+            "title": "Public Organization and Management",
+            "unit": "3.00",
+            "prereq": "Prerequisite: GPAD1030 or teacher's consent."
+          },
+          {
+            "code": "GPAD 2180",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "GPAD 3220",
+            "title": "Politics of Space",
+            "unit": "3.00",
+            "prereq": "-"
+          },
+          {
+            "code": "GPAD 3255",
+            "title": "Public Policy Analysis",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GPAD 3360",
+            "title": "Global Environmental Politics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken GLSD2401 or GLSD3401."
+          },
+          {
+            "code": "GPAD 3365",
+            "title": "Ethics and International Affairs",
+            "unit": "3.00",
+            "prereq": "Prerequisite: GPAD1095."
+          },
+          {
+            "code": "GRMD 2102",
+            "title": "Fundamental Statistics for Geographers",
+            "unit": "3.00",
+            "prereq": "Not for student who have taken STAT1011, 1012 and 2101."
+          },
+          {
+            "code": "GRMD 2104",
+            "title": "Remote Sensing of Environment",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2105",
+            "title": "Introduction to GIS",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2303",
+            "title": "Urban Geography",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2321",
+            "title": "Economic Geography",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 2401",
+            "title": "Sustainable Development",
+            "unit": "3.00",
+            "prereq": "GRMD2401 is double-coded with UGEC2171. Not for students who have taken UGEC2171, 2354 or 2775."
+          },
+          {
+            "code": "GRMD 2501",
+            "title": "Theory and Practice of Smart Cities",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3102",
+            "title": "Research Design and Methodology",
+            "unit": "3.00",
+            "prereq": "GRMD2102 or another statistics course which is approved by the instructor as a pre-requisite."
+          },
+          {
+            "code": "GRMD 3104",
+            "title": "Satellite Image Analysis",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3106",
+            "title": "Advanced GIS",
+            "unit": "3.00",
+            "prereq": "Prerequisite: GRMD2105."
+          },
+          {
+            "code": "GRMD 3108",
+            "title": "Cartography and Geovisualization",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3202",
+            "title": "Environmental Management",
+            "unit": "3.00",
+            "prereq": "-"
+          },
+          {
+            "code": "GRMD 3203",
+            "title": "Urban Environmental Problems",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3224",
+            "title": "Tourism Planning and Management",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3301",
+            "title": "Geography of China",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3302",
+            "title": "Population and Migration",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3304",
+            "title": "Cultural Geography",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3305",
+            "title": "Transport Geography",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3323",
+            "title": "Urban and Regional Planning",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 3403",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4203",
+            "title": "Ecosystem Restoration and Management",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4204",
+            "title": "Environmental Planning and Assessment",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4302",
+            "title": "Urban Planning Workshop",
+            "unit": "3.00",
+            "prereq": "Only for students who have taken URSP1001 or URSP2300 or GRMD3323 or are taking GRMD3323 at the same time."
+          },
+          {
+            "code": "GRMD 4402",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4502",
+            "title": "Urban Big Data Analysis and Application",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "GRMD 4503",
+            "title": "Smart City Policies and Governance",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 2500",
+            "title": "History of Hong Kong",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken UGEC2945 or HIST2501"
+          },
+          {
+            "code": "SOCI 2003",
+            "title": "Social Research Methods",
+            "unit": "3.00",
+            "prereq": "-"
+          },
+          {
+            "code": "SOCI 2004",
+            "title": "Social Statistics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken DSME2010, DSME2020, DSME2011, DSME2021, ECON2121, GRMD2102, SEEM2430, SPED2600, PSYC2010, STAT1011, STAT1012, STAT2001, STAT2006, STAT2101, STAT2102."
+          },
+          {
+            "code": "SOCI 2104",
+            "title": "Sociology and Hong Kong",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken SOCI1201, UGEC2865 or GEJC1020."
+          },
+          {
+            "code": "SOCI 2203",
+            "title": "Social Problems and Social Policy",
+            "unit": "3.00",
+            "prereq": "-"
+          },
+          {
+            "code": "SOCI 2208",
+            "title": "Urban Sociology",
+            "unit": "3.00",
+            "prereq": "-"
+          },
+          {
+            "code": "SOCI 3002",
+            "title": "Social Stratification",
+            "unit": "3.00",
+            "prereq": "-"
+          },
+          {
+            "code": "SOCI 3204",
+            "title": "Sociology of Crime and Deviance",
+            "unit": "3.00",
+            "prereq": "-"
+          },
+          {
+            "code": "SOWK 1001",
+            "title": "Introduction to Social Work and Social Welfare",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "SOWK 2160",
+            "title": "Economic Insecurity and Social Security in Global Contexts",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "SOWK 2203",
+            "title": "Mission-driven Social Enterprise",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "SOWK 3250",
+            "title": "Macro Social Work Theories and Practice",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 1003",
+            "title": "Introduction to Spatial Planning",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 1004",
+            "title": "Foundation of Digital Techniques for Urban Planning and Design",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 1005",
+            "title": "Dialogue with Urban Leaders",
+            "unit": "1.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2010",
+            "title": "Belt and Road for Collaborative Modernization",
+            "unit": "2.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2020",
+            "title": "(Re) Claiming the City",
+            "unit": "2.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2030",
+            "title": "Urban Cultures",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2040",
+            "title": "Real Estate and Construction Economics",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2050",
+            "title": "Socially Engaged Art",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2060",
+            "title": "Understanding City Through Field Trip Studies",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2070",
+            "title": "Urban Planning and Design Practices in China",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2100",
+            "title": "Urban Sustainability",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2200",
+            "title": "Urban Economic Studies",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2300",
+            "title": "Urban Design and Place Making Studio",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2400",
+            "title": "Studies of Cities in Comparative Perspective",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2700",
+            "title": "Urban Visualisation Studio",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2800",
+            "title": "Urban Form, Sense of Place and Well-Being",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 2900",
+            "title": "Recommoning",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 3050",
+            "title": "Special Topics in Urban Studies I",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 3100",
+            "title": "Housing Issues and Policy",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 3300",
+            "title": "Sustainable Urban Transport",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 3400",
+            "title": "Essentials of the Land Development Process",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 3600",
+            "title": "Designing Smart Cities",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 3700",
+            "title": "Urban Regeneration",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 3800",
+            "title": "Valuations for Sustainable Development",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 4050",
+            "title": "Special Topics in Urban Studies II",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "URSP 4100",
+            "title": "Urban Planning Theory and Practice",
+            "unit": "3.00",
+            "prereq": "Pre-requisite(s): URSP1001 or 1002 or 1003."
+          }
+        ]
+      }
+    ]
+  },
+  "explanatory_notes": "<table><tr style=\"page-break-inside:avoid\"> <td colspan=\"3\" style=\"width:469.8pt;border:none; padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"626\"> <p class=\"MsoNormal\" style=\"margin-top:0cm;margin-right:6.0pt;margin-bottom:\n\n 0cm;margin-left:5.4pt;margin-bottom:.0001pt;text-align:justify;text-justify:\n\n inter-ideograph;text-indent:-5.4pt;line-height:14.0pt;layout-grid-mode:\n\n char\">Explanatory Notes:</p> </td> </tr>\n<tr style=\"page-break-inside:avoid\"> <td style=\"width:37.6pt;border:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"50\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\"><span lang=\"DE\">1.</span></p> </td> <td colspan=\"2\" style=\"width:432.2pt;border:none; padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"576\"> <p class=\"MsoNormal\" style=\"margin-right:6.0pt;text-align:justify;text-justify:\n\n inter-ideograph;line-height:14.0pt;layout-grid-mode:char\"><span lang=\"EN-GB\">No\n\n more than 9 units of courses taken to fulfill the requirements of the\n\n students’ Major Programme(s) and other Minor Programme(s) respectively can\n\n be used to fulfill the requirement of this Minor Programme.</span></p> </td> </tr>\n<tr style=\"page-break-inside:avoid\"> <td style=\"width:37.6pt;border:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"50\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\"><span lang=\"DE\">[a]</span></p> </td> <td colspan=\"2\" style=\"width:432.2pt;border:none; padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"576\"> <p class=\"MsoNormal\" style=\"margin-right:6.0pt;text-align:justify;text-justify:\n\n inter-ideograph;line-height:14.0pt;layout-grid-mode:char\"><span lang=\"EN-GB\">The\n\n </span><span lang=\"EN-GB\">three cour</span><span lang=\"EN-GB\">ses should not\n\n include courses that have been used to fulfill the requirement of 2(a).</span></p> </td> </tr>\n<tr style=\"page-break-inside:avoid\"> <td style=\"width:37.6pt;border:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"50\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt;layout-grid-mode:char\"><span lang=\"DE\"> </span></p> </td> <td colspan=\"2\" style=\"width:432.2pt;border:none; padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"576\"> <p class=\"MsoNormal\" style=\"margin-right:6.0pt;text-align:justify;text-justify:\n\n inter-ideograph;line-height:14.0pt;layout-grid-mode:char\"><span lang=\"EN-GB\"> </span></p> </td> </tr></table>"
+}
