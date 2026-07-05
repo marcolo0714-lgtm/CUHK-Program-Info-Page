@@ -63,6 +63,22 @@ def extract_course_codes(text):
     return sorted(codes)
 
 
+def _clean_section_label(text):
+    """Remove trailing course codes from a section label so it reads
+    cleanly as a heading (e.g. 'Required Courses: CSCI1510 3' →
+    'Required Courses: 3').  The unit count at the end is preserved."""
+    text = text.strip()
+    # Strip trailing course code lists: "GPAD1020, 1030, 1095 3" etc.
+    # Optionally followed by a unit count at the very end.
+    text = re.sub(
+        r'\s*[A-Z]{4}\s*\d{4}'
+        r'(?:\s*[,/]\s*(?:[A-Z]{4}\s*)?\d{4})*'
+        r'(?:\s+\d{1,2}\s*)?$',
+        '', text
+    )
+    return text.strip()
+
+
 # ── HTML parsing ─────────────────────────────────────────────────────
 
 def get_minor_title(soup):
@@ -280,11 +296,11 @@ def parse_minor_html(html_text):
             if stripped_lower.startswith("required course"):
                 current_section = "req"
                 row_index = 0
-                required["label"] = row_text_flat
+                required["label"] = _clean_section_label(row_text_flat)
                 required["units"] = parse_unit_count(units_cell) or parse_unit_count(text_cell)
                 codes_in_row = extract_course_codes(text_cell)
                 if codes_in_row:
-                    display_text = re.sub(r"\s+", " ", text_cell)
+                    display_text = ", ".join(sorted(set(codes_in_row)))
                     row_index += 1
                     required["rows"].append({
                         "index": row_index,
@@ -297,11 +313,11 @@ def parse_minor_html(html_text):
             if stripped_lower.startswith("elective course"):
                 current_section = "ele"
                 row_index = 0
-                elective["label"] = row_text_flat
+                elective["label"] = _clean_section_label(row_text_flat)
                 elective["units"] = parse_unit_count(units_cell) or parse_unit_count(text_cell)
                 codes_in_row = extract_course_codes(text_cell)
                 if codes_in_row:
-                    display_text = re.sub(r"\s+", " ", text_cell)
+                    display_text = ", ".join(sorted(set(codes_in_row)))
                     row_index += 1
                     elective["rows"].append({
                         "index": row_index,
@@ -318,7 +334,7 @@ def parse_minor_html(html_text):
 
             # ── Course rows ──
             if current_section in ("req", "ele"):
-                if not text_cell or re.search(r"\bTotal\s*:", text_cell, re.IGNORECASE):
+                if not text_cell or not text_cell.strip() or re.search(r"\bTotal\s*:", text_cell, re.IGNORECASE):
                     continue
 
                 sec = sections[current_section]

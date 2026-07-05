@@ -240,6 +240,10 @@ def build_section_html(sec):
         all_courses = []
         for r in block:
             text = r["text"].strip()
+            if not text:
+                # Still collect courses from contentless rows
+                all_courses.extend(r.get("courses", []))
+                continue
             rh = f'<div class="{row_cls}">'
             rh += f'<span class="row-text">{text}</span>'
             if r.get("units"):
@@ -247,6 +251,8 @@ def build_section_html(sec):
             rh += '</div>'
             html_parts.append(rh)
             all_courses.extend(r.get("courses", []))
+        if not html_parts and not all_courses:
+            return
         lines.append(
             f'<div class="section{cls_suffix}">' + "".join(html_parts) + '</div>'
         )
@@ -266,6 +272,10 @@ def build_section_html(sec):
     while i < len(rows):
         row = rows[i]
         text = row["text"].strip()
+        # Skip entirely empty rows
+        if not text:
+            i += 1
+            continue
         is_stream = bool(STREAM_PATTERN.match(text))
 
         if is_stream:
@@ -349,15 +359,28 @@ def _render_note_group(rows, is_point):
         return '\n'.join(out)
     else:
         # Render as a data table
+        # Flatten: if a row's HTML contains nested <tr> elements (wrapper
+        # rows from the source), extract just the inner trs.
+        flat_rows = []
+        for r in rows:
+            if '<tr' in r.lower():
+                inner = re.findall(r'<tr[^>]*>(.*?)</tr>', r, re.DOTALL)
+                flat_rows.extend(inner)
+            else:
+                flat_rows.append(r)
+        rows = flat_rows
+        # Strip leading spacer row (empty after tag removal)
+        if rows:
+            first_norm = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', rows[0]).replace('\xa0', ' ')).strip()
+            if not first_norm:
+                rows = rows[1:]
+        # Now apply existing dedup/header-reorder logic
         if len(rows) >= 2:
             first_norm = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', rows[0]).replace('\xa0', ' ')).strip()
             last_norm = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', rows[-1]).replace('\xa0', ' ')).strip()
             if first_norm and first_norm == last_norm:
                 rows = rows[:-1]
             else:
-                # If the last row looks like a section header (contains
-                # both "courses" and "Equivalent") but the first row
-                # doesn't, move the header to the top.
                 is_header = lambda t: 'courses' in t.lower() and 'equivalent' in t.lower()
                 if is_header(last_norm) and not is_header(first_norm):
                     rows = [rows[-1]] + rows[:-1]
