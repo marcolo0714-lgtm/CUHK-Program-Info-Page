@@ -94,7 +94,7 @@ def extract_minor_boxes(page):
         const seenTables = new Set();
         const results = [];
         for (const el of candidates) {
-            const txt = (el.innerText || el.textContent || '').trim();
+            const txt = (el.innerText || el.textContent || '').replace(/\s+/g, ' ').trim();
             if (!txt.startsWith('Minor Programme Title') || txt.length > 50) continue;
 
             let table = el;

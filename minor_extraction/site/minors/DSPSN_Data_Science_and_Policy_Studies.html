@@ -34,6 +34,8 @@ tr:hover { background:#f9f9f9; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
 .req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.section-stream { margin-left: 28px; }
+.section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
            border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
@@ -210,43 +212,47 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="nav-bar"><a href="GDRSN_Applied_Diversity_Studies.html">← Applied Diversity Studies</a><a href="ECONN_Economics.html">Economics →</a></div>
 <div class="title-row"><h1>Data Science and Policy Studies</h1><span class="meta">Social Science</span></div>
 <h2>Description</h2>
-<div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
+<div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows: Units 1. Required Courses: 6 DSPS1001, 1003 2. Elective Courses: 12 12 units from the following, including a minimum of 6 units of courses at 3000 or above level: DSPS1004, 2102, 2103, 2104, 2201, 2202, 2301, 2320, 2501, 2520, 2730, 2830, 3190, 3202, 3310, 3320, 3330, 3340, 3350, 3501, 3790, 3791, 3802, 3803, 4203, 4310, 4803, 4804 Total: 18 Explanatory Note: 1. No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</pre></div>
+<h2>1. Required Courses: 6 units</h2>
+<div class="section"><div class="req-row"><span class="row-text">DSPS1001, 1003</span></div></div>
+<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<tr><td>DSPS 1001</td><td>Introduction to Policy Sciences</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 1003</td><td>Foundation of Data Science</td><td>3.00</td><td>—</td></tr>
+</tbody></table></details>
+<h2>2. Elective Courses: 12 units</h2>
+<div class="section"><div class="req-row"><span class="row-text">12 units from the following, including a minimum of 6 units of courses at 3000 or above level: DSPS1004, 2102, 2103, 2104, 2201, 2202, 2301, 2320, 2501, 2520, 2730, 2830, 3190, 3202, 3310, 3320, 3330, 3340, 3350, 3501, 3790, 3791, 3802, 3803, 4203, 4310, 4803, 4804</span></div></div>
+<details class="course-details"><summary>Show 28 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<tr><td>DSPS 1004</td><td>Statistics for Data Science and Policy Studies</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 2102</td><td>Introduction to Data Science Applications in Public Policy and Political Studies</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 2103</td><td>Intermediate Data Science Applications in Public Policy and Political Studies</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 2104</td><td>Advanced Programming for Data Science</td><td>3.00</td><td>Pre-requisite(s): DSPS1003</td></tr>
+<tr><td>DSPS 2201</td><td>Data Preprocessing for Data Analytics</td><td>3.00</td><td>Pre-requisite(s): DSPS2102 or (DSPS1003 and DSPS1004)</td></tr>
+<tr><td>DSPS 2202</td><td>Database Systems for Data Science</td><td>3.00</td><td>Pre-requisite(s): DSPS1003</td></tr>
+<tr><td>DSPS 2301</td><td>Policy Analysis and Design Thinking</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 2320</td><td>AI Governance and Public Policy</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 2501</td><td>Managing Technology and Policy Innovation</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 2520</td><td>Data Science Project Management</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 2730</td><td>Linear Algebra for Data Science</td><td>3.00</td><td>Pre-requisite(s): DSPS1003</td></tr>
+<tr><td>DSPS 2830</td><td>Calculus for Data Science</td><td>3.00</td><td>Pre-requisite(s): DSPS1003</td></tr>
+<tr><td>DSPS 3190</td><td>Big Data Analytics for Public Policy</td><td>3.00</td><td>Pre-requisite(s): DSPS2202</td></tr>
+<tr><td>DSPS 3202</td><td>Machine Learning for Public Policy</td><td>3.00</td><td>Pre-requisite(s): DSPS2201</td></tr>
+<tr><td>DSPS 3310</td><td>Collaborative Governance in a Global Context</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 3320</td><td>Data Science and Regulation</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 3330</td><td>Extended Reality (XR) for Data Visualization and Policy Narratives</td><td>3.00</td><td>Pre-requisite(s): DSPS1003</td></tr>
+<tr><td>DSPS 3340</td><td>Smart Cities and Internet of Things</td><td>3.00</td><td>Pre-requisite(s): DSPS1003</td></tr>
+<tr><td>DSPS 3350</td><td>Computer Simulation for Policymaking</td><td>3.00</td><td>Pre-requisite(s): DSPS1003 and DSPS1004</td></tr>
+<tr><td>DSPS 3501</td><td>Policy Leadership and Entrepreneurship Workshop</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 3790</td><td>Social Network Analysis for Public Policy</td><td>3.00</td><td>Pre-requisite(s): DSPS2201</td></tr>
+<tr><td>DSPS 3791</td><td>Natural Language Processing for Public Policy</td><td>3.00</td><td>Pre-requisite(s): DSPS3202</td></tr>
+<tr><td>DSPS 3802</td><td>Advanced Data Visualization</td><td>3.00</td><td>Pre-requisite(s): DSPS2201</td></tr>
+<tr><td>DSPS 3803</td><td>AI for Social Good</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 4203</td><td>Advanced Applications of Data Science in Public Policy</td><td>3.00</td><td>Pre-requisite(s): DSPS2201 and DSPS3202</td></tr>
+<tr><td>DSPS 4310</td><td>Data, Evidence and Public Policy</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 4803</td><td>Selected Topics in Data Science and Policy Studies III</td><td>3.00</td><td>—</td></tr>
+<tr><td>DSPS 4804</td><td>Selected Topics in Data Science and Policy Studies IV</td><td>3.00</td><td>—</td></tr>
+</tbody></table></details>
 <h2>Explanatory Notes</h2>
-<div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the
-
- requirements of the students’ Major Programme(s) and other Minor
-
- Programme(s) respectively can be used to fulfill the requirement of this
-
- Minor Programme.</span></div>
-<div class="notes-table-section"><table><tr> <td style="width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="46"> <p class="MsoNormal" style="line-height:15.0pt"><b> </b></p> </td> <td style="width:364.15pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="486"> <p class="MsoNormal" style="line-height:15.0pt"><b> </b></p> </td> <td style="width:56.55pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="75"> <p align="center" class="MsoNormal" style="text-align:center;line-height:
-
- 15.0pt">Units</p> </td> </tr></table></div>
-<div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Required Courses:    6</span></div>
-<div class="notes-table-section"><table><tr> <td style="width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="46"> <p class="MsoNormal" style="line-height:15.0pt"> </p> </td> <td style="width:364.15pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="486"> <p class="MsoNormal" style="line-height:15.0pt">DSPS1001, 1003             </p> </td> <td style="width:56.55pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="75"> <p align="center" class="MsoNormal" style="text-align:center;line-height:
-
- 15.0pt"> </p> </td> </tr></table></div>
-<div class="section notes-point"><span class="point-idx">2.</span><span class="point-text">Elective Courses:    12</span></div>
-<div class="notes-table-section"><table><tr> <td style="width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="46"> <p class="MsoNormal" style="line-height:15.0pt"> </p> </td> <td style="width:364.15pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="486"> <p class="MsoNormal" style="margin-right:9.25pt;text-align:justify; text-justify:inter-ideograph;line-height:15.0pt">12 units from the
-
- following, including a minimum of 6 units of courses at 3000 or above
-
- level:</p> <p class="MsoNormal" style="margin-right:9.25pt;text-align:justify; text-justify:inter-ideograph;line-height:15.0pt">DSPS1004, 2102, 2103, 2104,
-
- 2201, 2202, 2301, 2320, 2501, 2520, 2730, 2830, 3190, 3202, 3310, 3320,
-
- 3330, 3340, 3350, 3501, 3790, 3791, 3802, 3803, 4203, 4310, 4803, 4804</p> </td> <td style="width:56.55pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="75"> <p align="center" class="MsoNormal" style="text-align:center;line-height:
-
- 15.0pt"> </p> </td> </tr><tr> <td style="width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="46"> <p class="MsoNormal" style="line-height:15.0pt"> </p> </td> <td style="width:364.15pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="486"> <p align="right" class="MsoNormal" style="text-align:right;line-height:15.0pt"><b>Total:</b></p> </td> <td style="width:56.55pt;border:none;border-top:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="75"> <p align="center" class="MsoNormal" style="text-align:center;line-height:
-
- 15.0pt"><b>18</b></p> </td> </tr><tr> <td colspan="3" style="width:454.9pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="607"> <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:14.0pt">Explanatory Note:</p> </td> </tr></table></div>
-<div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the
-
- requirements of the students’ Major Programme(s) and other Minor
-
- Programme(s) respectively can be used to fulfill the requirement of this
-
- Minor Programme.</span></div>
+<div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>
 <div class="nav-bar nav-bar-bottom"><a href="GDRSN_Applied_Diversity_Studies.html">← Applied Diversity Studies</a><a href="ECONN_Economics.html">Economics →</a></div>
   </div>
 </main>

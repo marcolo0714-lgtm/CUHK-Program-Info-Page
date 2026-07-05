@@ -67,20 +67,31 @@ def extract_course_codes(text):
 
 def get_minor_title(soup):
     table = soup.find("table")
-    if not table:
-        return fallback_title(soup)
-    full_flat = re.sub(r"\s+", " ", table.get_text().replace("\xa0", " "))
-    m = re.search(r"Min\s*or\s*Programme\s*Title\s*", full_flat, re.IGNORECASE)
-    if not m:
-        return fallback_title(soup)
-    after = full_flat[m.end():].strip()
-    title = re.split(
-        r"\s*(?:Minor Programme Requirement|Explanatory Notes|Required Course|Elective Course|Units|Total)\b",
-        after, maxsplit=1, flags=re.IGNORECASE
-    )[0].strip(" :\xa0\n")
-    if not title:
-        return fallback_title(soup)
-    return clean_title(title)
+    if table:
+        full_flat = re.sub(r"\s+", " ", table.get_text().replace("\xa0", " "))
+        m = re.search(r"Min\s*or\s*Programme\s*Title\s*", full_flat, re.IGNORECASE)
+        if m:
+            after = full_flat[m.end():].strip()
+            title = re.split(
+                r"\s*(?:Minor Programme Requirement|Explanatory Notes|Required Course|Elective Course|Units|Total)\b",
+                after, maxsplit=1, flags=re.IGNORECASE
+            )[0].strip(" :\xa0\n")
+            if title:
+                return clean_title(title)
+
+    # Fallback: search the full soup text (title may be outside any <table>)
+    full_text = re.sub(r"\s+", " ", soup.get_text().replace("\xa0", " "))
+    m = re.search(r"Minor\s+Programme\s+Title\s*", full_text, re.IGNORECASE)
+    if m:
+        after = full_text[m.end():].strip()
+        title = re.split(
+            r"\s*(?:Minor Programme Requirement|Explanatory Notes|Required Course|Elective Course|Units|Total)\b",
+            after, maxsplit=1, flags=re.IGNORECASE
+        )[0].strip(" :\xa0\n")
+        if title:
+            return clean_title(title)
+
+    return fallback_title(soup)
 
 
 def fallback_title(soup):
@@ -112,6 +123,84 @@ def clean_title(title):
     return re.sub(r"\s+", " ", title).strip()
 
 
+def _find_requirement_rows(soup):
+    """Find the innermost <table> containing both 'Minor Programme Requirement'
+    and course code patterns.  Returns list of <tr> elements, or []."""
+    all_tables = soup.find_all("table")
+    candidates = []
+    for tbl in all_tables:
+        flat = re.sub(r"\s+", " ", tbl.get_text().replace("\xa0", " "))
+        if "Minor Programme Requirement" in flat and re.search(r"[A-Z]{4}\s*\d{4}", flat):
+            candidates.append(tbl)
+    if candidates:
+        candidates.sort(key=lambda t: len(t.get_text()))
+        return candidates[0].find_all("tr")
+
+    # Fallback: tables with the requirement marker but no course codes
+    fallback = []
+    for tbl in all_tables:
+        flat = re.sub(r"\s+", " ", tbl.get_text().replace("\xa0", " "))
+        if "Minor Programme Requirement" in flat:
+            fallback.append(tbl)
+    if fallback:
+        fallback.sort(key=lambda t: len(t.get_text()))
+        return fallback[0].find_all("tr")
+
+    # Last resort: scan all trs of the first table after the marker
+    outer_table = soup.find("table")
+    if outer_table:
+        all_rows = outer_table.find_all("tr")
+        start = 0
+        for i, tr in enumerate(all_rows):
+            flat = re.sub(r"\s+", " ", tr.get_text().replace("\xa0", " "))
+            if "Minor Programme Requirement" in flat:
+                start = i
+                break
+        return all_rows[start:]
+    return []
+
+
+def _try_split_multi_p_row(tr):
+    """If a <tr> has multiple <p> tags in its first column that are sub-point
+    labels like (a), (b), etc., split into a list of (index_cell, text_cell,
+    units_cell, tr_html) tuples.  Returns None if splitting is not applicable."""
+    tds = tr.find_all("td")
+    if len(tds) < 2:
+        return None
+
+    # Get per-column p-texts
+    col_ps = []
+    for td in tds:
+        ps = td.find_all("p")
+        col_ps.append([re.sub(r"\s+", " ", p.get_text().replace("\xa0", " ")).strip() for p in ps])
+
+    first_col = col_ps[0]
+    # Need at least 2 p-tags, and at least one should be a sub-point label
+    if len(first_col) < 2:
+        return None
+    label_pattern = re.compile(r"^\([a-z]\)", re.IGNORECASE)
+    has_label = any(label_pattern.match(p) for p in first_col if p)
+    if not has_label:
+        return None
+
+    # Determine how many logical sub-rows we have
+    n = max(len(pl) for pl in col_ps)
+    sub_rows = []
+    for i in range(n):
+        idx = col_ps[0][i] if i < len(col_ps[0]) else ""
+        # Collect middle column texts
+        mid_texts = []
+        for j in range(1, len(col_ps)):
+            if i < len(col_ps[j]):
+                mid_texts.append(col_ps[j][i])
+        mid_texts = [t for t in mid_texts if t]
+        text_cell = " ".join(mid_texts) if len(col_ps) > 2 else (mid_texts[0] if mid_texts else "")
+        unit = col_ps[-1][i] if i < len(col_ps[-1]) else ""
+        sub_rows.append((idx, text_cell, unit, str(tr)))
+
+    return sub_rows
+
+
 def parse_minor_html(html_text):
     soup = BeautifulSoup(html_text, "html.parser")
     title = get_minor_title(soup)
@@ -121,36 +210,7 @@ def parse_minor_html(html_text):
     description = ""
     notes_html = ""
 
-    rows = []
-    all_tables = soup.find_all("table")
-    candidate_tables = []
-    for tbl in all_tables:
-        flat = re.sub(r"\s+", " ", tbl.get_text().replace("\xa0", " "))
-        if "Minor Programme Requirement" in flat:
-            candidate_tables.append(tbl)
-    if candidate_tables:
-        candidate_tables.sort(key=lambda t: len(t.get_text()))
-        inner_table = None
-        for tbl in candidate_tables:
-            rows = tbl.find_all("tr")
-            tbl_text = re.sub(r"\s+", " ", tbl.get_text())
-            if re.search(r"[A-Z]{4}\s*\d{4}", tbl_text):
-                inner_table = tbl
-                break
-        if not inner_table:
-            inner_table = candidate_tables[0]
-            rows = inner_table.find_all("tr")
-    if not rows:
-        outer_table = soup.find("table")
-        if outer_table:
-            all_rows = outer_table.find_all("tr")
-            start = 0
-            for i, tr in enumerate(all_rows):
-                flat = re.sub(r"\s+", " ", tr.get_text().replace("\xa0", " "))
-                if "Minor Programme Requirement" in flat:
-                    start = i
-                    break
-            rows = all_rows[start:]
+    rows = _find_requirement_rows(soup)
 
     if not rows:
         return dict(title=title, description="(No requirement data found.)",
@@ -163,109 +223,119 @@ def parse_minor_html(html_text):
     row_index = 0  # sequential counter per section
 
     for tr in rows:
-        tds_in_row = tr.find_all("td")
-        row_text = tr.get_text(" ", strip=True).replace("\xa0", " ").strip()
-        row_text_flat = re.sub(r"\s+", " ", row_text)
-        lower = row_text_flat.lower()
+        # ── Detect multi-p sub-points and split ──
+        split_rows = _try_split_multi_p_row(tr)
+        sub_rows = split_rows if split_rows else [(None, None, None, str(tr))]
 
-        # ── Individual cell extraction ──
-        cell_texts = []
-        cell_clean = []
-        for td in tds_in_row:
-            ct = re.sub(r"\s+", " ", td.get_text().replace("\xa0", " ")).strip()
-            cell_texts.append(ct)
-            cell_clean.append(ct)
+        for sub_idx, sub_text_cell, sub_units, tr_html in sub_rows:
+            # If this is a sub-row from _try_split_multi_p_row, use the per-p values
+            if split_rows:
+                index_cell = sub_idx
+                text_cell = sub_text_cell
+                units_cell = sub_units
+                row_text = tr.get_text(" ", strip=True).replace("\xa0", " ")
+                # Reconstruct row_text for the sub-row
+                row_text_flat_parts = [p for p in (index_cell, text_cell, units_cell) if p]
+                row_text_flat = " ".join(row_text_flat_parts)
+            else:
+                # Standard cell extraction
+                tds_in_row = tr.find_all("td")
+                cell_clean = []
+                for td in tds_in_row:
+                    ct = re.sub(r"\s+", " ", td.get_text().replace("\xa0", " ")).strip()
+                    cell_clean.append(ct)
 
-        index_cell = cell_clean[0] if cell_clean else ""
-        text_cell = " ".join(cell_clean[1:-1]) if len(cell_clean) >= 3 else (cell_clean[1] if len(cell_clean) == 2 else "")
-        units_cell = cell_clean[-1] if len(cell_clean) >= 3 else (cell_clean[1] if len(cell_clean) == 2 and cell_clean[0] and not re.search(r"\d", cell_clean[0]) else "")
+                index_cell = cell_clean[0] if cell_clean else ""
+                text_cell = " ".join(cell_clean[1:-1]) if len(cell_clean) >= 3 else (cell_clean[1] if len(cell_clean) == 2 else "")
+                units_cell = cell_clean[-1] if len(cell_clean) >= 3 else (cell_clean[1] if len(cell_clean) == 2 and cell_clean[0] and not re.search(r"\d", cell_clean[0]) else "")
 
-        if len(cell_clean) == 2 and re.search(r"\d", cell_clean[0]):
-            # Two columns where first has a number — likely index+text combined, second is units
-            text_cell = cell_clean[0]
-            units_cell = cell_clean[1]
-            index_cell = ""
-        if len(cell_clean) == 1:
-            text_cell = cell_clean[0]
-            index_cell = ""
-            units_cell = ""
+                if len(cell_clean) == 2 and re.search(r"\d", cell_clean[0]):
+                    text_cell = cell_clean[0]
+                    units_cell = cell_clean[1]
+                    index_cell = ""
+                if len(cell_clean) == 1:
+                    text_cell = cell_clean[0]
+                    index_cell = ""
+                    units_cell = ""
 
-        # ── "Explanatory Notes" boundary ──
-        if "explanatory note" in lower:
-            current_section = "notes"
-            notes_parts.append(str(tr))
-            continue
+                row_text = tr.get_text(" ", strip=True).replace("\xa0", " ").strip()
+                row_text_flat = re.sub(r"\s+", " ", row_text)
 
-        if current_section == "notes":
-            notes_parts.append(str(tr))
-            continue
+            lower = row_text_flat.lower()
 
-        # ── Section marker detection ──
-        stripped = re.sub(r"^\d+\.\s*", "", text_cell).strip()
-        stripped_lower = stripped.lower()
-
-        if stripped_lower.startswith("required course"):
-            current_section = "req"
-            row_index = 0
-            required["label"] = row_text_flat
-            required["units"] = parse_unit_count(units_cell) or parse_unit_count(text_cell)
-            # Also extract codes from the label row itself
-            codes_in_row = extract_course_codes(text_cell)
-            if codes_in_row:
-                display_text = re.sub(r"\s+", " ", text_cell)
-                row_index += 1
-                required["rows"].append({
-                    "index": row_index,
-                    "text": display_text,
-                    "codes": sorted(set(codes_in_row)),
-                    "units": required["units"] if len(codes_in_row) == 1 else "",
-                })
-            continue
-
-        if stripped_lower.startswith("elective course"):
-            current_section = "ele"
-            row_index = 0
-            elective["label"] = row_text_flat
-            elective["units"] = parse_unit_count(units_cell) or parse_unit_count(text_cell)
-            codes_in_row = extract_course_codes(text_cell)
-            if codes_in_row:
-                display_text = re.sub(r"\s+", " ", text_cell)
-                row_index += 1
-                elective["rows"].append({
-                    "index": row_index,
-                    "text": display_text,
-                    "codes": sorted(set(codes_in_row)),
-                    "units": elective["units"] if len(codes_in_row) == 1 else "",
-                })
-            continue
-
-        # ── Description rows ──
-        if current_section == "init":
-            desc_parts.append(text_cell)
-            continue
-
-        # ── Course rows ──
-        if current_section in ("req", "ele"):
-            if not text_cell or re.search(r"\bTotal\s*:", text_cell, re.IGNORECASE):
+            # ── "Explanatory Notes" boundary ──
+            if re.match(r"^\s*(?:\d+\.\s*)?explanatory\s+note", lower):
+                current_section = "notes"
+                notes_parts.append(tr_html)
                 continue
 
-            sec = sections[current_section]
-            codes_in_row = extract_course_codes(text_cell)
-            row_units = parse_unit_count(units_cell) or ""
-            row_index += 1
+            if current_section == "notes":
+                notes_parts.append(tr_html)
+                continue
 
-            # Text: keep the original cell text (with codes), just collapsed whitespace
-            display_text = re.sub(r"\s+", " ", text_cell)
-            # Prepend the index label from the first column if present
-            if index_cell and index_cell not in (" ",):
-                display_text = f"{index_cell} {display_text}".strip()
+            # ── Section marker detection ──
+            stripped = re.sub(r"^\d+\.\s*", "", text_cell).strip()
+            stripped_lower = stripped.lower()
 
-            sec["rows"].append({
-                "index": row_index,
-                "text": display_text,
-                "codes": sorted(set(codes_in_row)),
-                "units": row_units,
-            })
+            if stripped_lower.startswith("required course"):
+                current_section = "req"
+                row_index = 0
+                required["label"] = row_text_flat
+                required["units"] = parse_unit_count(units_cell) or parse_unit_count(text_cell)
+                codes_in_row = extract_course_codes(text_cell)
+                if codes_in_row:
+                    display_text = re.sub(r"\s+", " ", text_cell)
+                    row_index += 1
+                    required["rows"].append({
+                        "index": row_index,
+                        "text": display_text,
+                        "codes": sorted(set(codes_in_row)),
+                        "units": required["units"] if len(codes_in_row) == 1 else "",
+                    })
+                continue
+
+            if stripped_lower.startswith("elective course"):
+                current_section = "ele"
+                row_index = 0
+                elective["label"] = row_text_flat
+                elective["units"] = parse_unit_count(units_cell) or parse_unit_count(text_cell)
+                codes_in_row = extract_course_codes(text_cell)
+                if codes_in_row:
+                    display_text = re.sub(r"\s+", " ", text_cell)
+                    row_index += 1
+                    elective["rows"].append({
+                        "index": row_index,
+                        "text": display_text,
+                        "codes": sorted(set(codes_in_row)),
+                        "units": elective["units"] if len(codes_in_row) == 1 else "",
+                    })
+                continue
+
+            # ── Description rows ──
+            if current_section == "init":
+                desc_parts.append(text_cell)
+                continue
+
+            # ── Course rows ──
+            if current_section in ("req", "ele"):
+                if not text_cell or re.search(r"\bTotal\s*:", text_cell, re.IGNORECASE):
+                    continue
+
+                sec = sections[current_section]
+                codes_in_row = extract_course_codes(text_cell)
+                row_units = parse_unit_count(units_cell) or ""
+                row_index += 1
+
+                display_text = re.sub(r"\s+", " ", text_cell)
+                if index_cell and index_cell not in (" ",):
+                    display_text = f"{index_cell} {display_text}".strip()
+
+                sec["rows"].append({
+                    "index": row_index,
+                    "text": display_text,
+                    "codes": sorted(set(codes_in_row)),
+                    "units": row_units,
+                })
 
     description = " ".join(desc_parts).strip()
     description = re.sub(r"\s+", " ", description)
@@ -273,12 +343,64 @@ def parse_minor_html(html_text):
     description = re.sub(r"Minor Programme Title\s+([\w\s,]+?)\s*(?=Students|$)", "", description, flags=re.IGNORECASE).strip()
     description = re.sub(r"\s+Units\s*$", "", description).strip()
     description = re.sub(r"\s+Total\s*:?\s*\d*\s*$", "", description).strip()
+    # Strip extraneous major-programme content that may precede the real description
+    m = re.search(r"Students are required to complete\b", description, re.IGNORECASE)
+    if m and m.start() > 10:
+        description = description[m.start():]
 
     # Wrap explanatory notes in a table tag if it contains <tr> elements
     notes_html = "\n".join(notes_parts).strip()
     if notes_html:
         if "<tr" in notes_html and not notes_html.strip().startswith("<table"):
             notes_html = "<table>" + notes_html + "</table>"
+
+    # Fallback: notes may be in a separate table or as plain <p> elements
+    # outside the requirement rows.  Search the raw HTML for "Explanatory Note"
+    # and capture the surrounding block.
+    if not notes_html:
+        # First, try finding a standalone table whose text starts with the notes header
+        for tbl in soup.find_all("table"):
+            flat = re.sub(r"\s+", " ", tbl.get_text().replace("\xa0", " ")).strip()
+            if re.match(r"^\s*Explanatory\s+Note", flat, re.IGNORECASE):
+                tbl_str = str(tbl)
+                if "<tr" in tbl_str:
+                    notes_html = tbl_str
+                    break
+        # Second: find the position of "Explanatory Note" in the raw HTML,
+        # then extract from the nearest preceding <table> or <p> to the next
+        # closing </td> or </table> after the notes content.
+        if not notes_html:
+            m = re.search(r"Explanatory\s+Note", html_text, re.IGNORECASE)
+            if m:
+                pos = m.start()
+                # Find the last opening tag before the notes
+                tag_start = max(
+                    html_text.rfind("<table", 0, pos),
+                    html_text.rfind("<p ", 0, pos),
+                    html_text.rfind("<p>", 0, pos),
+                )
+                if tag_start >= 0:
+                    # Find the closing tag after notes content
+                    # Look for </td> or </table> after the notes
+                    note_end_td = html_text.find("</td>", pos)
+                    note_end_table = html_text.find("</table>", pos)
+                    if note_end_td >= 0 and (note_end_table < 0 or note_end_td < note_end_table):
+                        tag_end = note_end_td
+                    elif note_end_table >= 0:
+                        tag_end = note_end_table
+                    else:
+                        tag_end = len(html_text)
+                    raw_block = html_text[tag_start:tag_end].strip()
+                    if raw_block:
+                        # Wrap each <p> element as a separate <tr><td> so
+                        # the site generator's header-stripping only removes
+                        # the "Explanatory Notes:" row, not the note content.
+                        ps = re.findall(r'<p\b[^>]*>(.*?)</p>', raw_block, re.DOTALL)
+                        if ps:
+                            trs = "".join(f"<tr><td>{p}</td></tr>" for p in ps)
+                            notes_html = f"<table>{trs}</table>"
+                        else:
+                            notes_html = f"<table><tr><td>{raw_block}</td></tr></table>"
 
     return dict(title=title, description=description,
                 required=required, elective=elective, notes_html=notes_html)

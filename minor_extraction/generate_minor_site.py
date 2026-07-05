@@ -38,6 +38,8 @@ tr:hover { background:#f9f9f9; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
 .req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.section-stream { margin-left: 28px; }
+.section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
            border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
@@ -208,41 +210,112 @@ def build_course_table(courses):
     return rows
 
 
+STREAM_PATTERN = re.compile(r'^\(\d+\)\s|^\(i[ivxlcdm]*\)\s', re.IGNORECASE)
+
+
+def _or_connected(prev_text, curr_text):
+    """True if two consecutive row texts are joined by 'OR'."""
+    p = prev_text.strip().upper()
+    c = curr_text.strip().upper()
+    return p.endswith("OR") or p.endswith("; OR") or c.startswith("OR") or c == "OR"
+
+
 def build_section_html(sec):
     """Return HTML for a required / elective section from JSON (row-based)."""
     lines = []
     label = sec.get("label", "")
     lines.append(f"<h2>{label}</h2>")
 
-    # Buffer consecutive row texts into one white box; flush at course tables
-    section_buf = ""
+    rows = sec.get("rows", [])
+    if not rows:
+        return "\n".join(lines)
 
-    for row in sec.get("rows", []):
-        row_html = '<div class="req-row">'
-        row_html += f'<span class="row-text">{row["text"]}</span>'
-        if row.get("units"):
-            row_html += f'<span class="meta">({row["units"]} units)</span>'
-        row_html += '</div>'
-
-        courses = row.get("courses", [])
-        section_buf += row_html
-
-        if courses:
-            lines.append(f'<div class="section">{section_buf}</div>')
-            section_buf = ""
-            tbody = build_course_table(courses)
+    # Helper: render a sequence of rows into one section box + course table
+    def _flush_block(block, is_stream=False):
+        if not block:
+            return
+        cls_suffix = ' section-stream' if is_stream else ''
+        row_cls = 'req-row'
+        html_parts = []
+        all_courses = []
+        for r in block:
+            text = r["text"].strip()
+            rh = f'<div class="{row_cls}">'
+            rh += f'<span class="row-text">{text}</span>'
+            if r.get("units"):
+                rh += f'<span class="meta">({r["units"]} units)</span>'
+            rh += '</div>'
+            html_parts.append(rh)
+            all_courses.extend(r.get("courses", []))
+        lines.append(
+            f'<div class="section{cls_suffix}">' + "".join(html_parts) + '</div>'
+        )
+        if all_courses:
+            tbody = build_course_table(all_courses)
             lines.append(
                 f'<details class="course-details">'
-                f'<summary>Show {len(courses)} course(s) →</summary>'
+                f'<summary>Show {len(all_courses)} course(s) →</summary>'
                 f"<table><thead><tr>"
                 f"<th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th>"
                 f"</tr></thead><tbody>\n{tbody}</tbody></table>"
                 f'</details>'
             )
 
-    # Flush remaining buffer
-    if section_buf:
-        lines.append(f'<div class="section">{section_buf}</div>')
+    buf = []
+    i = 0
+    while i < len(rows):
+        row = rows[i]
+        text = row["text"].strip()
+        is_stream = bool(STREAM_PATTERN.match(text))
+
+        if is_stream:
+            # Flush current buffer before the stream row
+            _flush_block(buf)
+            buf = []
+            # Stream rows may be OR-connected among themselves
+            stream_block = [row]
+            j = i + 1
+            while j < len(rows):
+                next_text = rows[j]["text"].strip()
+                next_is_stream = bool(STREAM_PATTERN.match(next_text))
+                if next_is_stream and _or_connected(stream_block[-1]["text"], next_text):
+                    stream_block.append(rows[j])
+                    j += 1
+                else:
+                    break
+            _flush_block(stream_block, is_stream=True)
+            i = j
+            continue
+
+        # Non-stream row: add to buffer
+        buf.append(row)
+
+        courses = row.get("courses", [])
+        has_courses = bool(courses)
+
+        if has_courses:
+            # Check if the NEXT row is OR-connected → extend buffer instead of flushing
+            j = i + 1
+            while j < len(rows):
+                next_row = rows[j]
+                next_text = next_row["text"].strip()
+                next_is_stream = bool(STREAM_PATTERN.match(next_text))
+                if next_is_stream:
+                    break
+                if _or_connected(buf[-1]["text"], next_text):
+                    buf.append(next_row)
+                    j += 1
+                else:
+                    break
+            # Flush OR-extended buffer
+            _flush_block(buf)
+            buf = []
+            i = j
+        else:
+            i += 1
+
+    # Flush any remaining buffer
+    _flush_block(buf)
 
     return "\n".join(lines)
 
@@ -276,6 +349,18 @@ def _render_note_group(rows, is_point):
         return '\n'.join(out)
     else:
         # Render as a data table
+        if len(rows) >= 2:
+            first_norm = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', rows[0]).replace('\xa0', ' ')).strip()
+            last_norm = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', rows[-1]).replace('\xa0', ' ')).strip()
+            if first_norm and first_norm == last_norm:
+                rows = rows[:-1]
+            else:
+                # If the last row looks like a section header (contains
+                # both "courses" and "Equivalent") but the first row
+                # doesn't, move the header to the top.
+                is_header = lambda t: 'courses' in t.lower() and 'equivalent' in t.lower()
+                if is_header(last_norm) and not is_header(first_norm):
+                    rows = [rows[-1]] + rows[:-1]
         tbl = ''.join(f'<tr>{r}</tr>' for r in rows)
         return f'<div class="notes-table-section"><table>{tbl}</table></div>'
 
@@ -322,40 +407,159 @@ def build_detail_page(data, prev_stem=None, prev_title=None, next_stem=None, nex
         )
         body.append("<h2>Explanatory Notes</h2>")
 
+        # ── Flatten nested table/tbody tags to avoid duplicate rows ──
+        notes = re.sub(r'</?(?:table|tbody|thead|tfoot)\b[^>]*>', '', notes, flags=re.IGNORECASE)
+
         # ── Parse notes into point rows vs data rows ──
         rows = re.findall(r'<tr[^>]*>(.*?)</tr>', notes, re.DOTALL)
-        points = []  # list of (html, is_point)
+        point_idx_pat = re.compile(r'^\s*(\d{1,2}\.|\[[a-z]\])')
+        find_idx_pat = re.compile(r'(?<!\d)(\d{1,2}\.)(?!\d)|(\[[a-z]\])')
 
+        def _has_point_label(row_html):
+            """Check if ANY <td> in the row starts with a point index like 1. or [a]."""
+            for td_html in re.findall(r'<td[^>]*>(.*?)</td>', row_html, re.DOTALL):
+                td_text = re.sub(r'<[^>]+>', '', td_html).replace('\xa0', ' ').strip()
+                if point_idx_pat.match(td_text):
+                    return True
+            return False
+
+        def _collect_indices(row_html):
+            """Return list of (label_str) for all point indices found in any <td>."""
+            indices = []
+            seen = set()
+            for td_html in re.findall(r'<td[^>]*>(.*?)</td>', row_html, re.DOTALL):
+                td_text = re.sub(r'<[^>]+>', '', td_html).replace('\xa0', ' ').strip()
+                for m in find_idx_pat.finditer(td_text):
+                    label = m.group(1) or m.group(2)
+                    if label and label not in seen:
+                        indices.append(label)
+                        seen.add(label)
+            return indices
+
+        # Classify: point if any td has index; data otherwise
+        # For point rows, try to split into separate point cards using <p> structure
+        classified = []
         for row_html in rows:
-            # Extract first <td> text to classify
-            first_td = re.search(r'<td[^>]*>(.*?)</td>', row_html, re.DOTALL)
-            idx_text = ""
-            if first_td:
-                idx_text = re.sub(r'<[^>]+>', '', first_td.group(1)).replace('\xa0', ' ').strip()
-            # Point row if first td has an index like "1.", "[a]", etc.
-            is_point = bool(re.match(r'^(\d+\.|\[[a-z]\])', idx_text))
-            points.append((row_html, is_point))
-
-        # ── Render: group consecutive same-type rows ──
-        buf = []
-        buf_is_point = None
-        for row_html, is_point in points:
-            # Skip empty spacer rows
             clean = re.sub(r'<[^>]+>', '', row_html).replace('\xa0', ' ').strip()
             if not clean:
                 continue
-            if buf_is_point is None:
-                buf_is_point = is_point
-                buf.append(row_html)
-            elif is_point == buf_is_point:
-                buf.append(row_html)
+            if _has_point_label(row_html):
+                indices = _collect_indices(row_html)
+
+                # ── Extract content <p> texts from non-index <td>s ──
+                content_paragraphs = []
+                for td_html in re.findall(r'<td[^>]*>(.*?)</td>', row_html, re.DOTALL):
+                    td_text = re.sub(r'<[^>]+>', '', td_html).replace('\xa0', ' ').strip()
+                    # Skip tds that contain only index labels (or are empty)
+                    if not td_text or point_idx_pat.match(td_text):
+                        continue
+                    # Extract non-empty <p> texts from this td
+                    for p_html in re.findall(r'<p[^>]*>(.*?)</p>', td_html, re.DOTALL):
+                        p_text = re.sub(r'<[^>]+>', '', p_html).replace('\xa0', ' ').strip()
+                        p_text = re.sub(r'\s+', ' ', p_text).strip()
+                        if p_text:
+                            content_paragraphs.append(p_text)
+
+                # ── Pair indices with content paragraphs ──
+                if content_paragraphs and len(content_paragraphs) >= len(indices):
+                    # One content paragraph per index (pair by position)
+                    for idx_label, cp in zip(indices, content_paragraphs):
+                        classified.append(('point', idx_label, cp))
+                    # Extra content paragraphs (beyond index count) go under the last index
+                    for extra in content_paragraphs[len(indices):]:
+                        if classified and classified[-1][0] == 'point':
+                            prev = classified[-1]
+                            classified[-1] = ('point', prev[1], prev[2] + ' ' + extra)
+                else:
+                    # Fallback: put entire row plain text with each index label
+                    plain_text = re.sub(r'\s+', ' ', clean).strip()
+                    # Try to split at index boundaries in plain text
+                    split_parts = re.split(r'(\s*\d{1,2}\.\s*|\s*\[[a-z]\][ \t]*)', plain_text)
+                    segments = []
+                    i = 0
+                    while i < len(split_parts):
+                        piece = split_parts[i].strip()
+                        if point_idx_pat.match(piece):
+                            label = piece
+                            content_parts = []
+                            j = i + 1
+                            while j < len(split_parts):
+                                next_piece = split_parts[j].strip()
+                                if point_idx_pat.match(next_piece):
+                                    break
+                                if next_piece:
+                                    content_parts.append(next_piece)
+                                j += 1
+                            content = ' '.join(content_parts).strip()
+                            segments.append((label, content))
+                            i = j
+                        else:
+                            i += 1
+                    # Fill in empty content from subsequent segments
+                    for si in range(len(segments)):
+                        if not segments[si][1]:
+                            # Look forward for first non-empty content
+                            for sj in range(si + 1, len(segments)):
+                                if segments[sj][1]:
+                                    segments[si] = (segments[si][0], segments[sj][1])
+                                    break
+                            if not segments[si][1] and si > 0:
+                                segments[si] = (segments[si][0], segments[si - 1][1])
+                    if segments:
+                        for label, content in segments:
+                            classified.append(('point', label, content))
+                    else:
+                        # Last resort: one card per index with full row text
+                        for idx_label in indices:
+                            classified.append(('point', idx_label, plain_text))
             else:
-                # Flush buffer
-                body.append(_render_note_group(buf, buf_is_point))
-                buf = [row_html]
-                buf_is_point = is_point
+                classified.append(('data', '', row_html))
+
+        # ── Deduplicate: remove repeating data blocks (source HTML artifact) ──
+        deduped = []
+        block_seen = set()
+        skipping = False
+        for item in classified:
+            if item[0] == 'point':
+                block_seen.clear()
+                skipping = False
+                deduped.append(item)
+            elif not skipping:
+                norm = re.sub(r'\s+', ' ', item[2]).strip()
+                if norm in block_seen:
+                    skipping = True  # reached duplicate block — skip rest
+                else:
+                    block_seen.add(norm)
+                    deduped.append(item)
+        classified = deduped
+
+        # ── Render: group consecutive same-type items ──
+        buf = []
+        buf_type = None
+        for item in classified:
+            if item[0] == 'point':
+                # Each point is rendered as its own card immediately
+                if buf_type == 'data' and buf:
+                    body.append(_render_note_group(buf, False))
+                    buf = []
+                buf_type = 'point'
+                # Render single point as a card
+                _, label, content = item
+                idx_text = label
+                body.append(
+                    f'<div class="section notes-point">'
+                    f'<span class="point-idx">{idx_text}</span>'
+                    f'<span class="point-text">{content}</span>'
+                    f'</div>'
+                )
+            else:
+                if buf_type == 'point' and buf:
+                    # Points already rendered individually above; nothing to flush
+                    buf = []
+                buf_type = 'data'
+                buf.append(item[2])
         if buf:
-            body.append(_render_note_group(buf, buf_is_point))
+            body.append(_render_note_group(buf, False))
 
     # Bottom nav
     body.append(build_nav(prev_stem, prev_title, next_stem, next_title, bottom=True))

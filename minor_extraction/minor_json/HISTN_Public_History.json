@@ -46,23 +46,14 @@
       },
       {
         "index": 2,
-        "text": "(b) (c) HIST2002, 2005, 2006, 2007 Any 2 courses from the following: HIST2010, 2701, 3441, 3701, 4702, 4703, 4704 Any 1 course from the following: HIST2110, 2500 or 2501, 3103, 3404, 3406, 3505, 4142, 4500, 4502, 4600, 4700, 4701, 4910",
+        "text": "HIST2002, 2005, 2006, 2007",
         "codes": [
           "HIST 2002",
           "HIST 2005",
           "HIST 2006",
-          "HIST 2007",
-          "HIST 2010",
-          "HIST 2110",
-          "HIST 2500",
-          "HIST 2701",
-          "HIST 3441",
-          "HIST 3701",
-          "HIST 4702",
-          "HIST 4703",
-          "HIST 4704"
+          "HIST 2007"
         ],
-        "units": "6",
+        "units": "",
         "courses": [
           {
             "code": "HIST 2002",
@@ -87,24 +78,35 @@
             "title": "Introduction to World History: Modern Era",
             "unit": "3.00",
             "prereq": ""
-          },
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "text": "(b) Any 2 courses from the following: 6",
+        "codes": [],
+        "units": "6",
+        "courses": []
+      },
+      {
+        "index": 4,
+        "text": "HIST2010, 2701, 3441, 3701, 4702, 4703, 4704",
+        "codes": [
+          "HIST 2010",
+          "HIST 2701",
+          "HIST 3441",
+          "HIST 3701",
+          "HIST 4702",
+          "HIST 4703",
+          "HIST 4704"
+        ],
+        "units": "",
+        "courses": [
           {
             "code": "HIST 2010",
             "title": "Oral History: Methods and Practices",
             "unit": "3.00",
             "prereq": ""
-          },
-          {
-            "code": "HIST 2110",
-            "title": "Walking through Chinese History",
-            "unit": "3.00",
-            "prereq": "Not for HIstory Majors. Not for student who have taken HIST1001."
-          },
-          {
-            "code": "HIST 2500",
-            "title": "History of Hong Kong",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken UGEC2945 or HIST2501"
           },
           {
             "code": "HIST 2701",
@@ -141,6 +143,36 @@
             "title": "Women, Society, and Politics in Modern China",
             "unit": "3.00",
             "prereq": ""
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "text": "(c) Any 1 course from the following: 3",
+        "codes": [],
+        "units": "3",
+        "courses": []
+      },
+      {
+        "index": 6,
+        "text": "HIST2110, 2500 or 2501, 3103, 3404, 3406, 3505, 4142, 4500, 4502, 4600, 4700, 4701, 4910",
+        "codes": [
+          "HIST 2110",
+          "HIST 2500"
+        ],
+        "units": "",
+        "courses": [
+          {
+            "code": "HIST 2110",
+            "title": "Walking through Chinese History",
+            "unit": "3.00",
+            "prereq": "Not for HIstory Majors. Not for student who have taken HIST1001."
+          },
+          {
+            "code": "HIST 2500",
+            "title": "History of Hong Kong",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken UGEC2945 or HIST2501"
           }
         ]
       }
