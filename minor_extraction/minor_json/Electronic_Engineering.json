@@ -48,11 +48,18 @@
     ]
   },
   "elective": {
-    "label": "2. Elective Courses (at least 6 units at 4000 level): 9",
+    "label": "2. Elective Courses",
     "units": "9",
     "rows": [
       {
         "index": 1,
+        "text": "(at least 6 units at 4000 level):",
+        "codes": [],
+        "units": "",
+        "courses": []
+      },
+      {
+        "index": 2,
         "text": "ELEG2310/ESTR2300, ELEG3103/ESTR3216, ELEG3201/ESTR3200, ELEG3202, 3207, ELEG3213/ESTR3214, ELEG3214, ELEG3301/ESTR3204, ELEG3302, ELEG3303/ESTR3206, ELEG3503, 3601, 3701, 3710, 4211, ELEG4214/ESTR4222, ELEG4215, 4216, ELEG4311/ESTR4216, ELEG4312, 4313, ELEG4511/ESTR4218, ELEG4512, 4701, ENGG3802, 3803",
         "codes": [
           "ELEG 2310",

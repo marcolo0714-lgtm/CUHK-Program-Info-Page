@@ -4,7 +4,44 @@ from pathlib import Path
 
 
 MINOR_JSON_DIR = Path(__file__).parent / "minor_json"
+COURSE_INFO_DIR = Path(__file__).parent.parent / "course_extraction" / "course_info"
 SITE_DIR = Path(__file__).parent / "site"
+
+
+# ── course resolution ─────────────────────────────────────────────────
+
+def load_course_index():
+    """Build ``{ 'DEPT 1234': {title, unit, prereq} }`` from course_info."""
+    index = {}
+    for jp in sorted(COURSE_INFO_DIR.glob("*.json")):
+        try:
+            data = json.loads(jp.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, FileNotFoundError):
+            continue
+        if not isinstance(data, list):
+            continue
+        for entry in data:
+            code = entry.get("code", "")
+            if code:
+                index[code] = {
+                    "title": entry.get("title", ""),
+                    "unit": entry.get("unit", ""),
+                    "prereq": entry.get("info", ""),
+                }
+    return index
+
+
+def resolve_courses(codes, course_index):
+    """Convert a list of 'DEPT 1234' strings into course objects."""
+    return [
+        {
+            "code": code,
+            "title": course_index.get(code, {}).get("title", ""),
+            "unit": course_index.get(code, {}).get("unit", ""),
+            "prereq": course_index.get(code, {}).get("prereq", ""),
+        }
+        for code in codes
+    ]
 
 
 CSS = """\
@@ -220,15 +257,46 @@ def _or_connected(prev_text, curr_text):
     return p.endswith("OR") or p.endswith("; OR") or c.startswith("OR") or c == "OR"
 
 
-def build_section_html(sec):
+def build_section_html(sec, course_index):
     """Return HTML for a required / elective section from JSON (row-based)."""
     lines = []
     label = sec.get("label", "")
+    # Sum unit counts from rows (the authoritative source)
+    total = 0
+    for r in sec.get("rows", []):
+        u = r.get("units", "")
+        if u and u.strip():
+            try:
+                total += int(u.strip())
+            except ValueError:
+                pass
+    # Fall back to the stored section-level unit if no row-level data
+    if total > 0:
+        sec_units = str(total)
+    else:
+        sec_units = sec.get("units", "").strip()
+    # Append unit count to heading if not already shown as a unit suffix
+    if sec_units:
+        # Check if label already ends with a unit-like pattern:
+        #  "X units", "X or Y units", " : X", " X or Y"
+        already_shown = re.search(
+            r'\b\d+\s*(?:or\s+\d+)?\s*units?\s*$'
+            r'|\b:\s*\d+\s*(?:or\s+\d+)?\s*$'
+            r'|\s+\d+\s*(?:or\s+\d+)?\s*$',
+            label, re.IGNORECASE
+        )
+        if not already_shown:
+            label = label.strip().rstrip(':') + f": {sec_units} units"
     lines.append(f"<h2>{label}</h2>")
 
     rows = sec.get("rows", [])
     if not rows:
         return "\n".join(lines)
+
+    # Helper: skip unit-only rows (text is just a bare digit with no codes)
+    def _is_unit_only(row):
+        t = row["text"].strip()
+        return re.match(r'^\d{1,2}\s*$', t) and not row.get("codes")
 
     # Helper: render a sequence of rows into one section box + course table
     def _flush_block(block, is_stream=False):
@@ -240,8 +308,7 @@ def build_section_html(sec):
         all_courses = []
         for r in block:
             text = r["text"].strip()
-            if not text:
-                # Still collect courses from contentless rows
+            if not text or _is_unit_only(r):
                 all_courses.extend(r.get("courses", []))
                 continue
             rh = f'<div class="{row_cls}">'
@@ -395,7 +462,7 @@ def build_nav(prev_stem, prev_title, next_stem, next_title, bottom=False):
     return f'<div class="{cls}">{left}{right}</div>'
 
 
-def build_detail_page(data, prev_stem=None, prev_title=None, next_stem=None, next_title=None):
+def build_detail_page(data, course_index, prev_stem=None, prev_title=None, next_stem=None, next_title=None):
     """Build the complete HTML body for one minor programme detail page."""
     title = data["title"]
 
@@ -416,10 +483,10 @@ def build_detail_page(data, prev_stem=None, prev_title=None, next_stem=None, nex
         body.append(f'<div class="section"><pre>{desc}</pre></div>')
 
     if data.get("required", {}).get("label"):
-        body.append(build_section_html(data["required"]))
+        body.append(build_section_html(data["required"], course_index))
 
     if data.get("elective", {}).get("label"):
-        body.append(build_section_html(data["elective"]))
+        body.append(build_section_html(data["elective"], course_index))
 
     notes = data.get("explanatory_notes", "")
     if notes:
@@ -447,11 +514,14 @@ def build_detail_page(data, prev_stem=None, prev_title=None, next_stem=None, nex
             return False
 
         def _collect_indices(row_html):
-            """Return list of (label_str) for all point indices found in any <td>."""
+            """Return labels for point indices found in index-column <td>s only."""
             indices = []
             seen = set()
             for td_html in re.findall(r'<td[^>]*>(.*?)</td>', row_html, re.DOTALL):
                 td_text = re.sub(r'<[^>]+>', '', td_html).replace('\xa0', ' ').strip()
+                # Only collect from tds that are index columns (start with a point label)
+                if not point_idx_pat.match(td_text):
+                    continue
                 for m in find_idx_pat.finditer(td_text):
                     label = m.group(1) or m.group(2)
                     if label and label not in seen:
@@ -494,49 +564,45 @@ def build_detail_page(data, prev_stem=None, prev_title=None, next_stem=None, nex
                             prev = classified[-1]
                             classified[-1] = ('point', prev[1], prev[2] + ' ' + extra)
                 else:
-                    # Fallback: put entire row plain text with each index label
-                    plain_text = re.sub(r'\s+', ' ', clean).strip()
-                    # Try to split at index boundaries in plain text
-                    split_parts = re.split(r'(\s*\d{1,2}\.\s*|\s*\[[a-z]\][ \t]*)', plain_text)
-                    segments = []
-                    i = 0
-                    while i < len(split_parts):
-                        piece = split_parts[i].strip()
-                        if point_idx_pat.match(piece):
-                            label = piece
-                            content_parts = []
-                            j = i + 1
-                            while j < len(split_parts):
-                                next_piece = split_parts[j].strip()
-                                if point_idx_pat.match(next_piece):
-                                    break
-                                if next_piece:
-                                    content_parts.append(next_piece)
-                                j += 1
-                            content = ' '.join(content_parts).strip()
-                            segments.append((label, content))
-                            i = j
-                        else:
-                            i += 1
-                    # Fill in empty content from subsequent segments
-                    for si in range(len(segments)):
-                        if not segments[si][1]:
-                            # Look forward for first non-empty content
-                            for sj in range(si + 1, len(segments)):
-                                if segments[sj][1]:
-                                    segments[si] = (segments[si][0], segments[sj][1])
-                                    break
-                            if not segments[si][1] and si > 0:
-                                segments[si] = (segments[si][0], segments[si - 1][1])
-                    if segments:
-                        for label, content in segments:
-                            classified.append(('point', label, content))
+                    # No content paragraphs to pair — use <p> structure from index tds
+                    # to split multi-point rows (e.g. "1." and "2." in same cell)
+                    if len(indices) > 1:
+                        # Extract <p> texts from index tds and pair with point labels
+                        p_texts = []
+                        for td_html in re.findall(r'<td[^>]*>(.*?)</td>', row_html, re.DOTALL):
+                            for p_html in re.findall(r'<p[^>]*>(.*?)</p>', td_html, re.DOTALL):
+                                pt = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', p_html).replace('\xa0', ' ')).strip()
+                                if pt:
+                                    p_texts.append(pt)
+                        # Walk through p texts: each time we hit a point label, start a new card
+                        current_label = None
+                        current_buf = []
+                        for pt in p_texts:
+                            m = point_idx_pat.match(pt)
+                            if m:
+                                # Flush previous card
+                                if current_label and current_buf:
+                                    classified.append(('point', current_label, ' '.join(current_buf)))
+                                current_label = m.group(1)
+                                # Strip the label from the first p
+                                pt = re.sub(r'^' + re.escape(m.group(1)) + r'\s*', '', pt)
+                                current_buf = [pt] if pt else []
+                            elif current_label:
+                                current_buf.append(pt)
+                        if current_label and current_buf:
+                            classified.append(('point', current_label, ' '.join(current_buf)))
                     else:
-                        # Last resort: one card per index with full row text
+                        # Single index: give it the full row text
+                        plain_text = re.sub(r'\s+', ' ', clean).strip()
                         for idx_label in indices:
                             classified.append(('point', idx_label, plain_text))
             else:
-                classified.append(('data', '', row_html))
+                # Skip data rows that are just whitespace / &nbsp;
+                data_norm = re.sub(r'<[^>]+>', '', row_html)
+                data_norm = data_norm.replace('&nbsp;', ' ').replace('\xa0', ' ')
+                data_norm = re.sub(r'\s+', ' ', data_norm).strip()
+                if data_norm:
+                    classified.append(('data', '', row_html))
 
         # ── Deduplicate: remove repeating data blocks (source HTML artifact) ──
         deduped = []
@@ -569,6 +635,9 @@ def build_detail_page(data, prev_stem=None, prev_title=None, next_stem=None, nex
                 # Render single point as a card
                 _, label, content = item
                 idx_text = label
+                # Strip leading repeated index from content (source HTML artifact)
+                prefix = re.escape(label.strip()) + r'\s*'
+                content = re.sub(r'^' + prefix, '', content, count=1)
                 body.append(
                     f'<div class="section notes-point">'
                     f'<span class="point-idx">{idx_text}</span>'
@@ -666,6 +735,8 @@ def generate():
     site_minors_dir = SITE_DIR / "minors"
     site_minors_dir.mkdir(parents=True, exist_ok=True)
 
+    course_index = load_course_index()
+
     json_files = sorted(MINOR_JSON_DIR.glob("*.json"))
     if not json_files:
         print("No JSON files found. Run generate_minor_json.py first.")
@@ -714,7 +785,7 @@ def generate():
         if i < len(index_order) - 1:
             next_info = (index_order[i + 1]["stem"], index_order[i + 1]["title"])
 
-        body = build_detail_page(data, 
+        body = build_detail_page(data, course_index,
                                  prev_stem=prev_info[0] if prev_info else None,
                                  prev_title=prev_info[1] if prev_info else None,
                                  next_stem=next_info[0] if next_info else None,

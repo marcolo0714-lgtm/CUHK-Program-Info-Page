@@ -63,20 +63,47 @@ def extract_course_codes(text):
     return sorted(codes)
 
 
+def _strip_trailing_unit(text):
+    """Remove trailing unit counts like ' 4' or ' 12' from text."""
+    return re.sub(r'\s+\d{1,2}\s*$', '', text)
+
+
 def _clean_section_label(text):
     """Remove trailing course codes from a section label so it reads
     cleanly as a heading (e.g. 'Required Courses: CSCI1510 3' →
-    'Required Courses: 3').  The unit count at the end is preserved."""
+    'Required Courses:').  Returns (heading, description) where
+    description is extra text that belongs in a text box below."""
     text = text.strip()
     # Strip trailing course code lists: "GPAD1020, 1030, 1095 3" etc.
-    # Optionally followed by a unit count at the very end.
     text = re.sub(
         r'\s*[A-Z]{4}\s*\d{4}'
         r'(?:\s*[,/]\s*(?:[A-Z]{4}\s*)?\d{4})*'
         r'(?:\s+\d{1,2}\s*)?$',
         '', text
     )
-    return text.strip()
+    text = text.strip()
+    # Remove leading "N. " prefix if present
+    heading = re.sub(r'^\d+\.\s*', '', text)
+    # Identify the core heading: "Required Courses" or "Elective Courses"
+    m = re.match(r'(?i)(required\s+courses?|elective\s+courses?)\s*:?\s*', heading)
+    if not m:
+        return text, ""
+    prefix = m.group()
+    remainder = heading[m.end():].strip()
+    # Strip leading footnote refs like "[a]:" or "[b] " — these belong in
+    # the heading, not as descriptive text.
+    remainder = re.sub(r'^\[[a-z]\](?:\s*:\s*)?\s*', '', remainder).strip()
+    # If the remainder is just a unit count (e.g. "3" or "6"), keep it
+    # in the heading — it's not descriptive text.
+    unit_suffix = ""
+    if re.match(r'^\d{1,2}(\s*or\s*\d{1,2})?\s*(?:units?)?$', remainder, re.IGNORECASE):
+        unit_suffix = " " + remainder
+        remainder = ""
+    # Reconstruct heading with original prefix number
+    num_prefix = re.match(r'^\d+\.\s*', text)
+    num = num_prefix.group(0) if num_prefix else ""
+    clean_heading = (num + prefix.strip() + unit_suffix).strip().rstrip(':')
+    return clean_heading, remainder
 
 
 # ── HTML parsing ─────────────────────────────────────────────────────
@@ -296,8 +323,17 @@ def parse_minor_html(html_text):
             if stripped_lower.startswith("required course"):
                 current_section = "req"
                 row_index = 0
-                required["label"] = _clean_section_label(row_text_flat)
+                heading, desc = _clean_section_label(row_text_flat)
+                required["label"] = heading
                 required["units"] = parse_unit_count(units_cell) or parse_unit_count(text_cell)
+                if desc:
+                    row_index += 1
+                    required["rows"].append({
+                        "index": row_index,
+                        "text": _strip_trailing_unit(desc),
+                        "codes": [],
+                        "units": "",
+                    })
                 codes_in_row = extract_course_codes(text_cell)
                 if codes_in_row:
                     display_text = ", ".join(sorted(set(codes_in_row)))
@@ -313,8 +349,17 @@ def parse_minor_html(html_text):
             if stripped_lower.startswith("elective course"):
                 current_section = "ele"
                 row_index = 0
-                elective["label"] = _clean_section_label(row_text_flat)
+                heading, desc = _clean_section_label(row_text_flat)
+                elective["label"] = heading
                 elective["units"] = parse_unit_count(units_cell) or parse_unit_count(text_cell)
+                if desc:
+                    row_index += 1
+                    elective["rows"].append({
+                        "index": row_index,
+                        "text": _strip_trailing_unit(desc),
+                        "codes": [],
+                        "units": "",
+                    })
                 codes_in_row = extract_course_codes(text_cell)
                 if codes_in_row:
                     display_text = ", ".join(sorted(set(codes_in_row)))
@@ -334,7 +379,10 @@ def parse_minor_html(html_text):
 
             # ── Course rows ──
             if current_section in ("req", "ele"):
-                if not text_cell or not text_cell.strip() or re.search(r"\bTotal\s*:", text_cell, re.IGNORECASE):
+                if not text_cell or not text_cell.strip():
+                    continue
+                # Skip total-unit summary rows
+                if re.search(r"\bTotal\s*:", text_cell, re.IGNORECASE) or re.search(r"\bTotal\s*:", row_text_flat, re.IGNORECASE):
                     continue
 
                 sec = sections[current_section]
@@ -345,6 +393,7 @@ def parse_minor_html(html_text):
                 display_text = re.sub(r"\s+", " ", text_cell)
                 if index_cell and index_cell not in (" ",):
                     display_text = f"{index_cell} {display_text}".strip()
+                display_text = _strip_trailing_unit(display_text)
 
                 sec["rows"].append({
                     "index": row_index,

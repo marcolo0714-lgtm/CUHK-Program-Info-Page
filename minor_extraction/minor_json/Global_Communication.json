@@ -5,7 +5,7 @@
   "source_file": "Global_Communication",
   "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
   "required": {
-    "label": "1. Required Courses:",
+    "label": "1. Required Courses",
     "units": "",
     "rows": [
       {
@@ -41,18 +41,25 @@
     ]
   },
   "elective": {
-    "label": "2. Elective Courses: At least 9 units of courses from (a) and (b) (courses that appear in both (a) and (b) can only be counted towards fulfillment of either (a) or (b)):",
+    "label": "2. Elective Courses",
     "units": "9",
     "rows": [
       {
         "index": 1,
-        "text": "(a) At least 3 units of the following courses: 3",
+        "text": "At least 9 units of courses from (a) and (b) (courses that appear in both (a) and (b) can only be counted towards fulfillment of either (a) or (b)):",
+        "codes": [],
+        "units": "",
+        "courses": []
+      },
+      {
+        "index": 2,
+        "text": "(a) At least 3 units of the following courses:",
         "codes": [],
         "units": "3",
         "courses": []
       },
       {
-        "index": 2,
+        "index": 3,
         "text": "COMM2180, 2540, 2590, 3550, 3700, 4250",
         "codes": [
           "COMM 2180",
@@ -103,14 +110,14 @@
         ]
       },
       {
-        "index": 3,
-        "text": "(b) At least 6 units of the following courses: 6",
+        "index": 4,
+        "text": "(b) At least 6 units of the following courses:",
         "codes": [],
         "units": "6",
         "courses": []
       },
       {
-        "index": 4,
+        "index": 5,
         "text": "COMM1150, 2140, 2180, 2210, 2440, 2540, 2570, 2590, 2600, 2610, 2710, 2733, 2740, 2741, 2811, 2812, 2813, 2814, 2830, 2840, 2850, 2910, 2920, 2922, 2925, 2926, 2928, 2930, 2932, 2940, 2962, 3131, 3132, 3191, 3193, 3550, 3610, 3620, 3630, 3640, 3650, 3660, 3670, 3680, 3681, 3682, 3690, 3700, 3711, 3721, 3722, 3733, 3740, 3750, 3800, 3810, 3811, 3812, 3820, 3830, 3831, 3832, 3840, 3841, 3850, 3855, 3860, 3881, 3888, 3910, 3920, 3921, 3922, 3930, 3933, 3939, 3940, 3941, 3963, 4040, 4191, 4250, 4730, 4733, 4848, 4935, 4956, 4962",
         "codes": [
           "COMM 1150",

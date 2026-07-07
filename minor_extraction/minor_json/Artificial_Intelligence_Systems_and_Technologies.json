@@ -41,11 +41,18 @@
     ]
   },
   "elective": {
-    "label": "2. Elective Courses : (at least 6 units at 3000 or above level) 12",
+    "label": "2. Elective Courses ",
     "units": "12",
     "rows": [
       {
         "index": 1,
+        "text": "(at least 6 units at 3000 or above level)",
+        "codes": [],
+        "units": "",
+        "courses": []
+      },
+      {
+        "index": 2,
         "text": "AIST2010, AIST3010/ESTR3112 or AIST3030/ESTR3114, AIST3120, AIST3510/SEEM3510, AIST4010/ESTR4140, BMEG3103, 3105, AIST1110 or CSCI1550 or 2040, CSCI2100/ESTR2102 or CSCI2520, CSCI3160/ESTR3104, CSCI3280, 4230, CSCI4250/ESTR4122, ENGG2760/ESTR2018 or STAT2001, ENGG2780/ESTR2020 or STAT2006 or 2102, IERG4300/ESTR4300, MAEG3080",
         "codes": [
           "AIST 1110",

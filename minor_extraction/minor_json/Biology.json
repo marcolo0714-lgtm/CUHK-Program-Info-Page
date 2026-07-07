@@ -5,7 +5,7 @@
   "source_file": "Biology",
   "description": "Students are required to complete a minimum of 24 units of courses, with at least 9 units at 3000 or above level, as follows:",
   "required": {
-    "label": "1. Required Courses:",
+    "label": "1. Required Courses",
     "units": "",
     "rows": [
       {
@@ -94,11 +94,18 @@
     ]
   },
   "elective": {
-    "label": "2. Elective Courses (12 units of courses from the following list, including any courses not taken in 1(b) and 1(c) above): 12",
+    "label": "2. Elective Courses",
     "units": "12",
     "rows": [
       {
         "index": 1,
+        "text": "(12 units of courses from the following list, including any courses not taken in 1(b) and 1(c) above):",
+        "codes": [],
+        "units": "",
+        "courses": []
+      },
+      {
+        "index": 2,
         "text": "BIOL2213, 2313, 2420, 3012, 3022, 3310, 3410, 3510, 3530, 3630, 3710, 4010, 4012, 4120, 4230, 4240, 4242, 4260, 4310, 4420, 4510, 4610",
         "codes": [
           "BIOL 2213",
@@ -259,13 +266,6 @@
             "prereq": ""
           }
         ]
-      },
-      {
-        "index": 2,
-        "text": "Total: 24",
-        "codes": [],
-        "units": "24",
-        "courses": []
       }
     ]
   },
