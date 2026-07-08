@@ -30,7 +30,7 @@ tr:hover { background:#f9f9f9; }
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
 .card-code { font-weight:600; color:var(--accent); }
-.meta { color:var(--muted); font-size:.85em; }
+.meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
 .req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
@@ -213,7 +213,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="title-row"><h1>Data Analytics and Informatics</h1><span class="meta">Other</span></div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
-<h2>1. Required Courses: 6 units</h2>
+<h2>1. Required Courses<span id="ref_a"><a href="#note_a">[a]</a></span>: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) i) ENGG2760/ESTR2018<span id="ref_b"><a href="#note_b">[b]</a></span>, ENGG2780/ESTR2020<a href="#note_b">[b]</a></span></div><div class="req-row"><span class="row-text">OR</span></div><div class="req-row"><span class="row-text">ii) IERG2470/ESTR2308<a href="#note_b">[b]</a></span></div></div>
 <details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>ENGG 2760</td><td>Probability for Engineers</td><td>2.00</td><td>Not for students who have taken ENGG2430 or 2450 or 2470 or ESTR2002 or 2005 or 2012 or 2018 or 2308 or 2362 or IERG2470 or MIEG2440</td></tr>

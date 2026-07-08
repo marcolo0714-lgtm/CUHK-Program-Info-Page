@@ -71,7 +71,7 @@ tr:hover { background:#f9f9f9; }
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
 .card-code { font-weight:600; color:var(--accent); }
-.meta { color:var(--muted); font-size:.85em; }
+.meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
 .req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }

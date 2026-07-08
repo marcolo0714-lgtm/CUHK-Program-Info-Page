@@ -85,7 +85,7 @@ def _clean_section_label(text):
     # Remove leading "N. " prefix if present
     heading = re.sub(r'^\d+\.\s*', '', text)
     # Identify the core heading: "Required Courses" or "Elective Courses"
-    m = re.match(r'(?i)(required\s+courses?|elective\s+courses?)\s*:?\s*', heading)
+    m = re.match(r'(?i)(required\s+courses?|elective\s+courses?)(?:\s*\[[a-z]\])?\s*:?\s*', heading)
     if not m:
         return text, ""
     prefix = m.group()
@@ -98,6 +98,8 @@ def _clean_section_label(text):
     unit_suffix = ""
     if re.match(r'^\d{1,2}(\s*or\s*\d{1,2})?\s*(?:units?)?$', remainder, re.IGNORECASE):
         unit_suffix = " " + remainder
+        if not re.search(r'units?', unit_suffix, re.IGNORECASE):
+            unit_suffix += " units"
         remainder = ""
     # Reconstruct heading with original prefix number
     num_prefix = re.match(r'^\d+\.\s*', text)
@@ -289,8 +291,23 @@ def parse_minor_html(html_text):
                     cell_clean.append(ct)
 
                 index_cell = cell_clean[0] if cell_clean else ""
-                text_cell = " ".join(cell_clean[1:-1]) if len(cell_clean) >= 3 else (cell_clean[1] if len(cell_clean) == 2 else "")
-                units_cell = cell_clean[-1] if len(cell_clean) >= 3 else (cell_clean[1] if len(cell_clean) == 2 and cell_clean[0] and not re.search(r"\d", cell_clean[0]) else "")
+                if len(cell_clean) >= 3:
+                    # Join middle cells, skipping any that are substrings of a
+                    # sibling (handles Cantonese-style duplicate columns).
+                    middle = []
+                    for i in range(1, len(cell_clean) - 1):
+                        c = cell_clean[i]
+                        if middle and c and (
+                            c in middle[-1] or middle[-1] in c or c in ' '.join(middle)
+                        ):
+                            continue
+                        if c:
+                            middle.append(c)
+                    text_cell = " ".join(middle)
+                    units_cell = cell_clean[-1]
+                else:
+                    text_cell = cell_clean[1] if len(cell_clean) == 2 else ""
+                    units_cell = cell_clean[1] if len(cell_clean) == 2 and cell_clean[0] and not re.search(r"\d", cell_clean[0]) else ""
 
                 if len(cell_clean) == 2 and re.search(r"\d", cell_clean[0]):
                     text_cell = cell_clean[0]
@@ -336,12 +353,12 @@ def parse_minor_html(html_text):
                     })
                 codes_in_row = extract_course_codes(text_cell)
                 if codes_in_row:
-                    display_text = ", ".join(sorted(set(codes_in_row)))
+                    display_text = ", ".join(list(dict.fromkeys(codes_in_row)))
                     row_index += 1
                     required["rows"].append({
                         "index": row_index,
                         "text": display_text,
-                        "codes": sorted(set(codes_in_row)),
+                        "codes": list(dict.fromkeys(codes_in_row)),
                         "units": required["units"] if len(codes_in_row) == 1 else "",
                     })
                 continue
@@ -362,12 +379,12 @@ def parse_minor_html(html_text):
                     })
                 codes_in_row = extract_course_codes(text_cell)
                 if codes_in_row:
-                    display_text = ", ".join(sorted(set(codes_in_row)))
+                    display_text = ", ".join(list(dict.fromkeys(codes_in_row)))
                     row_index += 1
                     elective["rows"].append({
                         "index": row_index,
                         "text": display_text,
-                        "codes": sorted(set(codes_in_row)),
+                        "codes": list(dict.fromkeys(codes_in_row)),
                         "units": elective["units"] if len(codes_in_row) == 1 else "",
                     })
                 continue
@@ -398,7 +415,7 @@ def parse_minor_html(html_text):
                 sec["rows"].append({
                     "index": row_index,
                     "text": display_text,
-                    "codes": sorted(set(codes_in_row)),
+                    "codes": list(dict.fromkeys(codes_in_row)),
                     "units": row_units,
                 })
 
@@ -412,6 +429,13 @@ def parse_minor_html(html_text):
     m = re.search(r"Students are required to complete\b", description, re.IGNORECASE)
     if m and m.start() > 10:
         description = description[m.start():]
+    # Strip table content that leaked into description (unit headers, course codes).
+    # Only match "Units" when followed by a digit (table column, not normal text).
+    description = re.sub(
+        r'\s+Units\s+\d+.*$|\s+\d+\.\s*Required\s+Course.*$|\s+\d+\.\s*Elective\s+Course.*$',
+        '', description, flags=re.IGNORECASE
+    )
+    description = description.strip()
 
     # Wrap explanatory notes in a table tag if it contains <tr> elements
     notes_html = "\n".join(notes_parts).strip()
@@ -467,8 +491,57 @@ def parse_minor_html(html_text):
                         else:
                             notes_html = f"<table><tr><td>{raw_block}</td></tr></table>"
 
+    required["rows"] = _merge_duplicate_rows(required["rows"])
+    elective["rows"] = _merge_duplicate_rows(elective["rows"])
     return dict(title=title, description=description,
                 required=required, elective=elective, notes_html=notes_html)
+
+
+def _merge_duplicate_rows(rows):
+    """Remove rows whose codes duplicate a prior row, and merge text-only
+    rows into adjacent rows (source-HTML split-cell artifacts)."""
+    if len(rows) <= 1:
+        return rows
+    seen_codes = {}  # frozenset(codes) -> text of first row with those codes
+    merged = []
+    for row in rows:
+        codes = row.get("codes", [])
+        text = row.get("text", "").strip()
+        # Skip rows with identical codes AND identical/similar text
+        if codes:
+            key = frozenset(codes)
+            if key in seen_codes:
+                # Only skip if this row's text is a substring of the previous
+                # one (true duplicate), not a different row with coincidental codes
+                prev_text = seen_codes.get(key, "")
+                if not text or text in prev_text or prev_text in text:
+                    continue
+            seen_codes[key] = text
+        # Skip pure spacer rows
+        if not text and not codes and not row.get("units", "").strip():
+            continue
+        merged.append(row)
+    # Pass 2: merge text-only rows (no codes) into adjacent rows.
+    if len(merged) > 1:
+        cleaned = []
+        for i, row in enumerate(merged):
+            codes = row.get("codes", [])
+            text = row.get("text", "").strip()
+            if not codes:
+                # Check if next row has codes and texts are related
+                if i + 1 < len(merged):
+                    nr = merged[i + 1]
+                    if nr.get("codes") and (text in nr["text"] or nr["text"].strip() in text):
+                        continue
+                # Check if previous row has codes and this text is in it
+                if i > 0 and merged[i - 1].get("codes"):
+                    prev_text = merged[i - 1]["text"]
+                    if text in prev_text:
+                        continue
+                # Text-only row with no relation to neighbors → keep it
+            cleaned.append(row)
+        merged = cleaned
+    return merged
 
 
 # ── JSON builder ─────────────────────────────────────────────────────
