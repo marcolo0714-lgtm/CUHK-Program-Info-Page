@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Minor: Risk Management Science</title>
 <style>:root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
-        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309; }
+        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309;
+        --tbl-border: #868a90; --tbl-border-light: #d5d8dc; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
@@ -21,9 +22,13 @@ a:hover { text-decoration:underline; }
 .section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
-th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
+th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
+th:first-child, td:first-child { white-space:nowrap; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
+td:nth-child(4) { word-break:break-word; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
+.eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px; margin-bottom:8px;
@@ -57,7 +62,7 @@ tr:hover { background:#f9f9f9; }
 .point-text p { margin:0; }
 .notes-table-section table { background:var(--card); border-collapse:collapse;
     border-radius:8px; overflow:hidden; }
-.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
 .notes-table-section tr:hover { background:#f9f9f9; }
 
 /* ── Sidebar ── */
@@ -229,13 +234,13 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(c) STAT2005 or one course from CSCI1510, 1520, 1530, 1540, 1550, 1580</span><span class="meta">(3 units)</span></div></div>
 <details class="course-details"><summary>Show 7 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<tr class="eq-row"><td>STAT 2005</td><td>Programming Languages for Statistics</td><td>3.00</td><td>—</td></tr>
 <tr><td>CSCI 1510</td><td>Computer Principles and C Programming</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1120 or CSCI1130 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102</td></tr>
 <tr><td>CSCI 1520</td><td>Computer Principles and C++ Programming</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102</td></tr>
 <tr><td>CSCI 1530</td><td>Computer Principles and Java Programming</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1030 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102</td></tr>
 <tr><td>CSCI 1540</td><td>Fundamental Computing with C++</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1550 or ESTR1100 or ESTR1102</td></tr>
 <tr><td>CSCI 1550</td><td>Computer Principles and Python Programming</td><td>3.00</td><td>Not for students who have taken ENGG1110 or ENGG1120 or ENGG1130 or CSCI1040 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI2040 or AIST1110 or IERG1080. Not for students of Faculty of Engineering.</td></tr>
 <tr><td>CSCI 1580</td><td>Visual Programming</td><td>3.00</td><td>Not for students who have taken ENGG1100 or ENGG1110 or ENGG2600 or 2601 or ESTR1000 or 1002 or 2008.</td></tr>
-<tr><td>STAT 2005</td><td>Programming Languages for Statistics</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(d) Three courses from RMSC4001, 4002, 4003, 4004, 4005, 4006, 4007, STAT4004</span><span class="meta">(9 units)</span></div></div>
 <details class="course-details"><summary>Show 8 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>

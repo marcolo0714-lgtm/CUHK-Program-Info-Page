@@ -61,11 +61,6 @@
         "index": 4,
         "text": "JASP1140, 1160, 1180, 1190, 2100, 2200, 2400, 2520, 2600, 2720, 2820, 2910, 2920, 3110, 3120, 3210, 3430, 3470, 3480, 3500, 3700, 3800, 3900, 4000, 4100, 4110, 4410, ANTH2350, 2327, HIST3380, 3381, 4420, LING1000, 2003, 2004, 2005, 2006, 3101, 3201, 3204, MGNT4530, SOCI2103",
         "codes": [
-          "ANTH 2327",
-          "ANTH 2350",
-          "HIST 3380",
-          "HIST 3381",
-          "HIST 4420",
           "JASP 1140",
           "JASP 1160",
           "JASP 1180",
@@ -93,6 +88,11 @@
           "JASP 4100",
           "JASP 4110",
           "JASP 4410",
+          "ANTH 2350",
+          "ANTH 2327",
+          "HIST 3380",
+          "HIST 3381",
+          "HIST 4420",
           "LING 1000",
           "LING 2003",
           "LING 2004",
@@ -106,36 +106,6 @@
         ],
         "units": "",
         "courses": [
-          {
-            "code": "ANTH 2327",
-            "title": "Ethnographies of Japan",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "ANTH 2350",
-            "title": "Meanings of Life",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "HIST 3380",
-            "title": "History of Traditional Japan",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken HIST3213 and HIST5507F."
-          },
-          {
-            "code": "HIST 3381",
-            "title": "History of Modern Japan",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "HIST 4420",
-            "title": "",
-            "unit": "",
-            "prereq": ""
-          },
           {
             "code": "JASP 1140",
             "title": "Japanese Cinema",
@@ -294,6 +264,36 @@
           },
           {
             "code": "JASP 4410",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2350",
+            "title": "Meanings of Life",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "ANTH 2327",
+            "title": "Ethnographies of Japan",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 3380",
+            "title": "History of Traditional Japan",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken HIST3213 and HIST5507F."
+          },
+          {
+            "code": "HIST 3381",
+            "title": "History of Modern Japan",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "HIST 4420",
             "title": "",
             "unit": "",
             "prereq": ""

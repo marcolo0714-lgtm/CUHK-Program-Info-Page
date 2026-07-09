@@ -66,16 +66,22 @@
         "index": 3,
         "text": "(c) STAT2005 or one course from CSCI1510, 1520, 1530, 1540, 1550, 1580",
         "codes": [
+          "STAT 2005",
           "CSCI 1510",
           "CSCI 1520",
           "CSCI 1530",
           "CSCI 1540",
           "CSCI 1550",
-          "CSCI 1580",
-          "STAT 2005"
+          "CSCI 1580"
         ],
         "units": "3",
         "courses": [
+          {
+            "code": "STAT 2005",
+            "title": "Programming Languages for Statistics",
+            "unit": "3.00",
+            "prereq": ""
+          },
           {
             "code": "CSCI 1510",
             "title": "Computer Principles and C Programming",
@@ -111,12 +117,6 @@
             "title": "Visual Programming",
             "unit": "3.00",
             "prereq": "Not for students who have taken ENGG1100 or ENGG1110 or ENGG2600 or 2601 or ESTR1000 or 1002 or 2008."
-          },
-          {
-            "code": "STAT 2005",
-            "title": "Programming Languages for Statistics",
-            "unit": "3.00",
-            "prereq": ""
           }
         ]
       },

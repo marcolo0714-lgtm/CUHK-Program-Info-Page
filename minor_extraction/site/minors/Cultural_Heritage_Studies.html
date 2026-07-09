@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Minor: Cultural Heritage Studies</title>
 <style>:root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
-        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309; }
+        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309;
+        --tbl-border: #868a90; --tbl-border-light: #d5d8dc; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
@@ -21,9 +22,13 @@ a:hover { text-decoration:underline; }
 .section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
-th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
+th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
+th:first-child, td:first-child { white-space:nowrap; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
+td:nth-child(4) { word-break:break-word; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
+.eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px; margin-bottom:8px;
@@ -57,7 +62,7 @@ tr:hover { background:#f9f9f9; }
 .point-text p { margin:0; }
 .notes-table-section table { background:var(--card); border-collapse:collapse;
     border-radius:8px; overflow:hidden; }
-.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
 .notes-table-section tr:hover { background:#f9f9f9; }
 
 /* ── Sidebar ── */
@@ -216,12 +221,12 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>1. Elective Courses: 18 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) HIST1000 or 1700</span><span class="meta">(3 units)</span></div></div>
 <details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>HIST 1000</td><td>History for Today</td><td>3.00</td><td>—</td></tr>
+<tr class="eq-row"><td>HIST 1000</td><td>History for Today</td><td>3.00</td><td>—</td></tr>
 <tr><td>HIST 1700</td><td>Introduction to Public History: Theory and Practice</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) ANTH2730 or 2760</span><span class="meta">(3 units)</span></div></div>
 <details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>ANTH 2730</td><td>Preserving Cultural Heritage</td><td>3.00</td><td>—</td></tr>
+<tr class="eq-row"><td>ANTH 2730</td><td>Preserving Cultural Heritage</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 2760</td><td>China's Cultural Heritage</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(c) Any 4 courses from the following two groups of courses, with at least 1 course from each group, and at least 2 courses at 3000 or above level<span id="ref_a"><a href="#note_a">[a]</a></span>:</span><span class="meta">(12 units)</span></div><div class="req-row"><span class="row-text">Anthropology courses:</span></div><div class="req-row"><span class="row-text">ANTH1410, 2370, 2520, 2720, 3350, 3370, 3790, 4210, 4720</span></div></div>
@@ -237,9 +242,20 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ANTH 4720</td><td>Museums and Anthropology</td><td>3.00</td><td>---</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">History courses:</span></div><div class="req-row"><span class="row-text">HIST2500 or 2501, 2701, 3406, 3441, 3505, 3701, 4500, 4502, 4600, 4700, 4702, 4703</span></div></div>
-<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>HIST 2500</td><td>History of Hong Kong</td><td>3.00</td><td>Not for students who have taken UGEC2945 or HIST2501</td></tr>
+<details class="course-details"><summary>Show 13 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<tr class="eq-row"><td>HIST 2500</td><td>History of Hong Kong</td><td>3.00</td><td>Not for students who have taken UGEC2945 or HIST2501</td></tr>
 <tr><td>HIST 2501</td><td>Hong Kong History in the Field</td><td>3.00</td><td>Not for HIstory Majors. Not for student who have taken HIST2500/ HIST2701.</td></tr>
+<tr><td>HIST 2701</td><td>Local History and Public History</td><td>3.00</td><td>Not for students who have taken HIST2501</td></tr>
+<tr class="nf"><td>HIST 3406</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr><td>HIST 3441</td><td>Museum and Heritage</td><td>3.00</td><td>—</td></tr>
+<tr><td>HIST 3505</td><td>Land Law and Custom in the New Territories</td><td>3.00</td><td>—</td></tr>
+<tr><td>HIST 3701</td><td>History, Memory, and Monuments</td><td>3.00</td><td>—</td></tr>
+<tr><td>HIST 4500</td><td>Topic Studies in Hong Kong History</td><td>3.00</td><td>—</td></tr>
+<tr class="nf"><td>HIST 4502</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr><td>HIST 4600</td><td>Topic Studies in Comparative History</td><td>3.00</td><td>—</td></tr>
+<tr><td>HIST 4700</td><td>Topic Studies in Public History</td><td>3.00</td><td>—</td></tr>
+<tr><td>HIST 4702</td><td>Digital History</td><td>3.00</td><td>—</td></tr>
+<tr><td>HIST 4703</td><td>Christianity in World History</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>

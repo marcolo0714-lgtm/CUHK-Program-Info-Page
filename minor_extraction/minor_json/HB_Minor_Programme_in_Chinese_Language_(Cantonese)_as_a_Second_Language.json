@@ -12,13 +12,20 @@
         "index": 1,
         "text": "LING1000, CLCC2213, 2223, 2243 and 3313",
         "codes": [
+          "LING 1000",
           "CLCC 2213",
           "CLCC 2223",
           "CLCC 2243",
-          "LING 1000"
+          "CLCC 3313"
         ],
         "units": "15",
         "courses": [
+          {
+            "code": "LING 1000",
+            "title": "Invitation to Linguistics",
+            "unit": "3.00",
+            "prereq": "LING1000 is double-coded with UGED1924. Not for students who have taken UGED1924."
+          },
           {
             "code": "CLCC 2213",
             "title": "Application of Vocabulary and Grammar II",
@@ -38,10 +45,10 @@
             "prereq": "Prerequisite:CLCC2213,2223,CCAN2213 or 2223 Not for students who have taken CLCC3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643 & 4913 CCAN3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643 & 4653"
           },
           {
-            "code": "LING 1000",
-            "title": "Invitation to Linguistics",
+            "code": "CLCC 3313",
+            "title": "Application of Vocabulary and Grammar III",
             "unit": "3.00",
-            "prereq": "LING1000 is double-coded with UGED1924. Not for students who have taken UGED1924."
+            "prereq": "Pre-requisite: CLCC2213(CCAN2213), CLCC2223(CCAN2223), CLCC2233(CCAN2233) or CLCC2243(CCAN2243)"
           }
         ]
       }
@@ -58,7 +65,8 @@
           "LING 2301",
           "LING 3202",
           "LING 3204",
-          "LING 3206"
+          "LING 3206",
+          "LING 3207"
         ],
         "units": "3",
         "courses": [
@@ -85,6 +93,12 @@
             "title": "Bilingualism",
             "unit": "3.00",
             "prereq": ""
+          },
+          {
+            "code": "LING 3207",
+            "title": "Bilingual Acquisition",
+            "unit": "3.00",
+            "prereq": ""
           }
         ]
       },
@@ -95,7 +109,8 @@
           "CLCC 3323",
           "CLCC 3343",
           "CLCC 4413",
-          "CLCC 4423"
+          "CLCC 4423",
+          "CLCC 4513"
         ],
         "units": "3",
         "courses": [
@@ -120,6 +135,12 @@
           {
             "code": "CLCC 4423",
             "title": "Colloquial Cantonese and Local Culture",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: CLCC3313(CCAN3313), CLCC3323(CCAN3323), CLCC3333(CCAN3333) or CLCC3343(CCAN3343)"
+          },
+          {
+            "code": "CLCC 4513",
+            "title": "Topics in the Hong Kong Special Administration Region",
             "unit": "3.00",
             "prereq": "Pre-requisite: CLCC3313(CCAN3313), CLCC3323(CCAN3323), CLCC3333(CCAN3333) or CLCC3343(CCAN3343)"
           }

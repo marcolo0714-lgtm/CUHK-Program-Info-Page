@@ -13,8 +13,8 @@
         "text": "CSCI3230/ESTR3108, CSCI3320",
         "codes": [
           "CSCI 3230",
-          "CSCI 3320",
-          "ESTR 3108"
+          "ESTR 3108",
+          "CSCI 3320"
         ],
         "units": "",
         "courses": [
@@ -25,16 +25,16 @@
             "prereq": "Not for students who have taken ESTR3108. Prerequisite: CSCI2100 or 2520 or ESTR2102 or equivalent."
           },
           {
-            "code": "CSCI 3320",
-            "title": "Fundamentals of Machine Learning",
-            "unit": "3.00",
-            "prereq": "Prerequisite: ENGG2430 or 2450 or 2760 or 2780 or ESTR2002 or 2005 or 2018 or 2020 or 2308 or 2362 or IERG2470 or MIEG2440 or STAT2001."
-          },
-          {
             "code": "ESTR 3108",
             "title": "Fundamentals of Artificial Intelligence",
             "unit": "3.00",
             "prereq": "Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent."
+          },
+          {
+            "code": "CSCI 3320",
+            "title": "Fundamentals of Machine Learning",
+            "unit": "3.00",
+            "prereq": "Prerequisite: ENGG2430 or 2450 or 2760 or 2780 or ESTR2002 or 2005 or 2018 or 2020 or 2308 or 2362 or IERG2470 or MIEG2440 or STAT2001."
           }
         ]
       }
@@ -55,49 +55,43 @@
         "index": 2,
         "text": "AIST2010, AIST3010/ESTR3112 or AIST3030/ESTR3114, AIST3120, AIST3510/SEEM3510, AIST4010/ESTR4140, BMEG3103, 3105, AIST1110 or CSCI1550 or 2040, CSCI2100/ESTR2102 or CSCI2520, CSCI3160/ESTR3104, CSCI3280, 4230, CSCI4250/ESTR4122, ENGG2760/ESTR2018 or STAT2001, ENGG2780/ESTR2020 or STAT2006 or 2102, IERG4300/ESTR4300, MAEG3080",
         "codes": [
-          "AIST 1110",
           "AIST 2010",
           "AIST 3010",
+          "ESTR 3112",
           "AIST 3030",
+          "ESTR 3114",
           "AIST 3120",
           "AIST 3510",
+          "SEEM 3510",
           "AIST 4010",
+          "ESTR 4140",
           "BMEG 3103",
           "BMEG 3105",
+          "AIST 1110",
           "CSCI 1550",
           "CSCI 2040",
           "CSCI 2100",
+          "ESTR 2102",
           "CSCI 2520",
           "CSCI 3160",
+          "ESTR 3104",
           "CSCI 3280",
           "CSCI 4230",
           "CSCI 4250",
-          "ENGG 2760",
-          "ENGG 2780",
-          "ESTR 2018",
-          "ESTR 2020",
-          "ESTR 2102",
-          "ESTR 3104",
-          "ESTR 3112",
-          "ESTR 3114",
           "ESTR 4122",
-          "ESTR 4140",
-          "ESTR 4300",
-          "IERG 4300",
-          "MAEG 3080",
-          "SEEM 3510",
+          "ENGG 2760",
+          "ESTR 2018",
           "STAT 2001",
+          "ENGG 2780",
+          "ESTR 2020",
           "STAT 2006",
-          "STAT 2102"
+          "STAT 2102",
+          "IERG 4300",
+          "ESTR 4300",
+          "MAEG 3080"
         ],
         "units": "",
         "courses": [
-          {
-            "code": "AIST 1110",
-            "title": "Introduction to Computing using Python",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: ENGG1110 or ESTR1002 Not for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080"
-          },
           {
             "code": "AIST 2010",
             "title": "Introduction to Computer Music: From Analysis to Algorithmic Music",
@@ -111,10 +105,22 @@
             "prereq": "Pre-requisite: ENGG1120/ESTR1005 or ENGG1130/ESTR1006 or MATH1510 Not for students who have taken AIST3030 or ESTR3112 or ESTR3114"
           },
           {
+            "code": "ESTR 3112",
+            "title": "Numerical Optimization",
+            "unit": "2.00",
+            "prereq": "Pre-requisite: ENGG1120/ESTR1005 or ENGG1130/ESTR1006 or MATH1510 Not for students who have taken AIST3010 or AIST3030 or ESTR3114"
+          },
+          {
             "code": "AIST 3030",
             "title": "Numerical Optimization",
             "unit": "3.00",
             "prereq": "Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510 Not for students who have taken AIST3010 or ESTR3112 or ESTR3114"
+          },
+          {
+            "code": "ESTR 3114",
+            "title": "Numerical Optimization",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510 Not for students who have taken AIST3010 or AIST3030 or ESTR3112"
           },
           {
             "code": "AIST 3120",
@@ -129,10 +135,22 @@
             "prereq": "Not for students who have taken SEEM3510"
           },
           {
+            "code": "SEEM 3510",
+            "title": "Human-computer Interaction",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken AIST3510"
+          },
+          {
             "code": "AIST 4010",
             "title": "Foundation of Applied Deep Learning",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR4140 Prerequisite: CSCI3230 or CSCI3320 or ESTR3108"
+          },
+          {
+            "code": "ESTR 4140",
+            "title": "Foundation of Applied Deep Learning",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: CSCI3230 or CSCI3320 or ESTR3108. Not for students who have taken AIST4010."
           },
           {
             "code": "BMEG 3103",
@@ -145,6 +163,12 @@
             "title": "Data Analytics for Personalized Genomics and Precision Medicine",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR3605."
+          },
+          {
+            "code": "AIST 1110",
+            "title": "Introduction to Computing using Python",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: ENGG1110 or ESTR1002 Not for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080"
           },
           {
             "code": "CSCI 1550",
@@ -165,6 +189,12 @@
             "prereq": "Not for students who have taken ESTR2102 or CSCI2520; Pre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ESTR1100 or ESTR1102 or ESTR2306 or IERG2080. For senior-year entrants, the prerequisite will be waived."
           },
           {
+            "code": "ESTR 2102",
+            "title": "Data Structures",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI2100 or CSC2520. Pre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ESTR1100 or ESTR1102 or ESTR2306 or IERG2080. For senior-year entrants, the pre-requisite will be waived."
+          },
+          {
             "code": "CSCI 2520",
             "title": "Data Structures and Applications",
             "unit": "3.00",
@@ -175,6 +205,12 @@
             "title": "Design and Analysis of Algorithms",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR3104 or CSCI3190; Pre-requisites: (CSCI2100 or CSCI2520 or ESTR2102) AND (CSCI2110 or ENGG2440 or ESTR2004 or ESTR2362 or MIEG2440)"
+          },
+          {
+            "code": "ESTR 3104",
+            "title": "Design and Analysis of Algorithms",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI3160 or CSCI3190. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004."
           },
           {
             "code": "CSCI 3280",
@@ -195,16 +231,16 @@
             "prereq": ""
           },
           {
+            "code": "ESTR 4122",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
             "code": "ENGG 2760",
             "title": "Probability for Engineers",
             "unit": "2.00",
             "prereq": "Not for students who have taken ENGG2430 or 2450 or 2470 or ESTR2002 or 2005 or 2012 or 2018 or 2308 or 2362 or IERG2470 or MIEG2440"
-          },
-          {
-            "code": "ENGG 2780",
-            "title": "Statistics for Engineers",
-            "unit": "2.00",
-            "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or 2020 Co-requisite(s): ENGG2760 or ESTR2018 or 2308 or IERG2470"
           },
           {
             "code": "ESTR 2018",
@@ -213,76 +249,22 @@
             "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2470 or ENGG2760 or ESTR2002 or ESTR2005 or ESTR2012 or ESTR2308 or ESTR2362 or IERG2470 or MIEG2440."
           },
           {
-            "code": "ESTR 2020",
-            "title": "Statistics for Engineers",
-            "unit": "2.00",
-            "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2780 or ESTR2002 or ESTR2005. Co-requisite(s): ENGG2760 or ESTR2018 or ESTR2308 or IERG2470"
-          },
-          {
-            "code": "ESTR 2102",
-            "title": "Data Structures",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken CSCI2100 or CSC2520. Pre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ESTR1100 or ESTR1102 or ESTR2306 or IERG2080. For senior-year entrants, the pre-requisite will be waived."
-          },
-          {
-            "code": "ESTR 3104",
-            "title": "Design and Analysis of Algorithms",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken CSCI3160 or CSCI3190. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004."
-          },
-          {
-            "code": "ESTR 3112",
-            "title": "Numerical Optimization",
-            "unit": "2.00",
-            "prereq": "Pre-requisite: ENGG1120/ESTR1005 or ENGG1130/ESTR1006 or MATH1510 Not for students who have taken AIST3010 or AIST3030 or ESTR3114"
-          },
-          {
-            "code": "ESTR 3114",
-            "title": "Numerical Optimization",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510 Not for students who have taken AIST3010 or AIST3030 or ESTR3112"
-          },
-          {
-            "code": "ESTR 4122",
-            "title": "",
-            "unit": "",
-            "prereq": ""
-          },
-          {
-            "code": "ESTR 4140",
-            "title": "Foundation of Applied Deep Learning",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: CSCI3230 or CSCI3320 or ESTR3108. Not for students who have taken AIST4010."
-          },
-          {
-            "code": "ESTR 4300",
-            "title": "Web-scale Information Analytics",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or IERG4300."
-          },
-          {
-            "code": "IERG 4300",
-            "title": "Web-scale Information Analytics",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300."
-          },
-          {
-            "code": "MAEG 3080",
-            "title": "Fundamentals of Machine Intelligence",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "SEEM 3510",
-            "title": "Human-computer Interaction",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken AIST3510"
-          },
-          {
             "code": "STAT 2001",
             "title": "Basic Concepts in Statistics and Probability I",
             "unit": "3.00",
             "prereq": "-"
+          },
+          {
+            "code": "ENGG 2780",
+            "title": "Statistics for Engineers",
+            "unit": "2.00",
+            "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or 2020 Co-requisite(s): ENGG2760 or ESTR2018 or 2308 or IERG2470"
+          },
+          {
+            "code": "ESTR 2020",
+            "title": "Statistics for Engineers",
+            "unit": "2.00",
+            "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2780 or ESTR2002 or ESTR2005. Co-requisite(s): ENGG2760 or ESTR2018 or ESTR2308 or IERG2470"
           },
           {
             "code": "STAT 2006",
@@ -295,6 +277,24 @@
             "title": "Basic Statistical Concepts and Methods II",
             "unit": "3.00",
             "prereq": "Not for students who have taken or register concurrently for STAT2006."
+          },
+          {
+            "code": "IERG 4300",
+            "title": "Web-scale Information Analytics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300."
+          },
+          {
+            "code": "ESTR 4300",
+            "title": "Web-scale Information Analytics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or IERG4300."
+          },
+          {
+            "code": "MAEG 3080",
+            "title": "Fundamentals of Machine Intelligence",
+            "unit": "3.00",
+            "prereq": ""
           }
         ]
       }

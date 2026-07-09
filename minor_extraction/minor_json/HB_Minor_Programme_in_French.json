@@ -29,7 +29,8 @@
         "text": "(b) FREN2001 and 3000, or 3050",
         "codes": [
           "FREN 2001",
-          "FREN 3000"
+          "FREN 3000",
+          "FREN 3050"
         ],
         "units": "6",
         "courses": [
@@ -44,6 +45,12 @@
             "title": "French IV",
             "unit": "3.00",
             "prereq": "1. Not for students who have taken FREN3001,3002,3050 or 3051 2. Prerequisite: FREN2001"
+          },
+          {
+            "code": "FREN 3050",
+            "title": "French III & IV",
+            "unit": "6.00",
+            "prereq": "1. Not for students who have taken FREN2001,3000,3001,3002 or 3051 2. Prerequisite: FREN2000 or 2050"
           }
         ]
       },

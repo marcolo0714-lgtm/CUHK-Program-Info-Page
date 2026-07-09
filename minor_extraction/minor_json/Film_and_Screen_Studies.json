@@ -34,10 +34,6 @@
         "index": 1,
         "text": "Any 5 courses from the following, with at least 3 CURE courses and at least 2 courses at 3000 or above level: CURE2024, 2030, 2040, 2066, 3026, 3033, 3034, 3066,4021, 4022, 4027, 4033, CHES3101, 3102, COMM2932, 3939 and JASP2200",
         "codes": [
-          "CHES 3101",
-          "CHES 3102",
-          "COMM 2932",
-          "COMM 3939",
           "CURE 2024",
           "CURE 2030",
           "CURE 2040",
@@ -50,34 +46,14 @@
           "CURE 4022",
           "CURE 4027",
           "CURE 4033",
+          "CHES 3101",
+          "CHES 3102",
+          "COMM 2932",
+          "COMM 3939",
           "JASP 2200"
         ],
         "units": "15",
         "courses": [
-          {
-            "code": "CHES 3101",
-            "title": "",
-            "unit": "",
-            "prereq": ""
-          },
-          {
-            "code": "CHES 3102",
-            "title": "East Asian Film Genres in a Globalizing World",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "COMM 2932",
-            "title": "Film Genres: Love, Death and Laughs",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "COMM 3939",
-            "title": "Film Directors",
-            "unit": "3.00",
-            "prereq": ""
-          },
           {
             "code": "CURE 2024",
             "title": "Taiwan New Cinema and Beyond: Authorship, Transnationality, Historiography",
@@ -147,6 +123,30 @@
           {
             "code": "CURE 4033",
             "title": "Documentary Studies: Theories and Practices",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "CHES 3101",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
+            "code": "CHES 3102",
+            "title": "East Asian Film Genres in a Globalizing World",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "COMM 2932",
+            "title": "Film Genres: Love, Death and Laughs",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "COMM 3939",
+            "title": "Film Directors",
             "unit": "3.00",
             "prereq": ""
           },

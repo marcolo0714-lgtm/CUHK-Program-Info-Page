@@ -12,7 +12,8 @@
         "index": 1,
         "text": "STAT1011[a], 2102[a]",
         "codes": [
-          "STAT 1011"
+          "STAT 1011",
+          "STAT 2102"
         ],
         "units": "",
         "courses": [
@@ -21,6 +22,12 @@
             "title": "Introduction to Statistics",
             "unit": "3.00",
             "prereq": "Not for students who have taken STAT1012 or consent of the instructor."
+          },
+          {
+            "code": "STAT 2102",
+            "title": "Basic Statistical Concepts and Methods II",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken or register concurrently for STAT2006."
           }
         ]
       }

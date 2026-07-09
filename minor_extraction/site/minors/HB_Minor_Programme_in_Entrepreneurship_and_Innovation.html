@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Minor: Entrepreneurship and Innovation</title>
 <style>:root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
-        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309; }
+        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309;
+        --tbl-border: #868a90; --tbl-border-light: #d5d8dc; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
@@ -21,9 +22,13 @@ a:hover { text-decoration:underline; }
 .section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
-th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
+th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
+th:first-child, td:first-child { white-space:nowrap; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
+td:nth-child(4) { word-break:break-word; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
+.eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px; margin-bottom:8px;
@@ -57,7 +62,7 @@ tr:hover { background:#f9f9f9; }
 .point-text p { margin:0; }
 .notes-table-section table { background:var(--card); border-collapse:collapse;
     border-radius:8px; overflow:hidden; }
-.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
 .notes-table-section tr:hover { background:#f9f9f9; }
 
 /* ── Sidebar ── */
@@ -216,27 +221,33 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>1. Required Courses<span id="ref_a"><a href="#note_a">[a]</a></span> : 3 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">EPIN2010 or MGNT2070</span></div></div>
 <details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>EPIN 2010</td><td>Toolkit for Entrepreneurs</td><td>3.00</td><td>Prerequisite:EPIN1010/1020/1030 or MGNT1070 or SOSC1001/1002 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.Co-requisite:at least any 2 other 2000(EPIN/non-EPIN)level courses.</td></tr>
+<tr class="eq-row"><td>EPIN 2010</td><td>Toolkit for Entrepreneurs</td><td>3.00</td><td>Prerequisite:EPIN1010/1020/1030 or MGNT1070 or SOSC1001/1002 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.Co-requisite:at least any 2 other 2000(EPIN/non-EPIN)level courses.</td></tr>
 <tr><td>MGNT 2070</td><td>NUvention: New Venture Creation</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses<a href="#note_a">[a]</a>: 15 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) 3 to 6 units of courses from the following:</span></div><div class="req-row"><span class="row-text">EPIN1010, EPIN1020 or MGNT1070, EPIN1030 or SOSC1002, SOSC1001</span></div></div>
 <details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>EPIN 1010</td><td>Anatomy of an Entrepreneur</td><td>3.00</td><td>—</td></tr>
-<tr><td>EPIN 1020</td><td>Design Thinking and Practice</td><td>3.00</td><td>—</td></tr>
-<tr><td>EPIN 1030</td><td>The Psychology of Creativity and Innovation</td><td>3.00</td><td>—</td></tr>
+<tr class="eq-row"><td>EPIN 1020</td><td>Design Thinking and Practice</td><td>3.00</td><td>—</td></tr>
 <tr><td>MGNT 1070</td><td>The Founder’s Journey: Entrepreneurial Mindset and Design Thinking</td><td>3.00</td><td>—</td></tr>
-<tr><td>SOSC 1001</td><td>Design Thinking in Social Innovation</td><td>3.00</td><td>—</td></tr>
+<tr class="eq-row"><td>EPIN 1030</td><td>The Psychology of Creativity and Innovation</td><td>3.00</td><td>—</td></tr>
 <tr><td>SOSC 1002</td><td>Managing Creativity and Group Dynamics in Innovation Teams</td><td>3.00</td><td>—</td></tr>
+<tr><td>SOSC 1001</td><td>Design Thinking in Social Innovation</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) 3 to 9 units of courses from the following:</span></div><div class="req-row"><span class="row-text">AIST1110 or CSCI1110 or 1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 2040, COMM2710, 2922, 2926, CSCI3310, EPIN3010, 3050, 4010, IERG3830, LAWS2331, MAEG2910, MGNT3070, MGNT4070 or SOWK2203, MGNT4090, 4130, 4570, SEEM1000, STAT1013, 2005, 3009, 4001</span></div></div>
-<details class="course-details"><summary>Show 24 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>AIST 1110</td><td>Introduction to Computing using Python</td><td>3.00</td><td>Pre-requisite: ENGG1110 or ESTR1002 Not for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080</td></tr>
+<details class="course-details"><summary>Show 30 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<tr class="eq-row"><td>AIST 1110</td><td>Introduction to Computing using Python</td><td>3.00</td><td>Pre-requisite: ENGG1110 or ESTR1002 Not for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080</td></tr>
+<tr class="nf class="eq-row""><td>CSCI 1110</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr class="eq-row"><td>CSCI 1120</td><td>Introduction to Computing Using C++</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1020 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ESTR1100 or ESTR1102</td></tr>
+<tr class="eq-row"><td>CSCI 1130</td><td>Introduction to Computing Using Java</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1030 or CSCI1120 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ESTR1100 or ESTR1102</td></tr>
+<tr class="eq-row"><td>CSCI 1510</td><td>Computer Principles and C Programming</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1120 or CSCI1130 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102</td></tr>
+<tr class="eq-row"><td>CSCI 1520</td><td>Computer Principles and C++ Programming</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102</td></tr>
+<tr class="eq-row"><td>CSCI 1530</td><td>Computer Principles and Java Programming</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1030 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102</td></tr>
+<tr class="eq-row"><td>CSCI 1540</td><td>Fundamental Computing with C++</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1550 or ESTR1100 or ESTR1102</td></tr>
+<tr><td>CSCI 2040</td><td>Introduction to Python</td><td>2.00</td><td>Pre-requisite: ENGG1110 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or ESTR1002 Not for students who have taken CSCI1040 or CSCI1550 or CSCI3230 or CSCI3320 or AIST1110 or IERG1080.</td></tr>
 <tr class="nf"><td>COMM 2710</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr><td>COMM 2922</td><td>Introduction to Creative and New Media</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2926</td><td>Creative Design and Layout</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>CSCI 1110</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>CSCI 1120</td><td>Introduction to Computing Using C++</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1020 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ESTR1100 or ESTR1102</td></tr>
 <tr><td>CSCI 3310</td><td>Mobile Computing and Applications Development</td><td>3.00</td><td>Pre-requisite: CSCI2100 or 2520 or ESTR2102 Not for students who have taken IERG3842</td></tr>
 <tr><td>EPIN 3010</td><td>Business Model Innovation for Startups</td><td>3.00</td><td>—</td></tr>
 <tr><td>EPIN 3050</td><td>Media Production and Presentation</td><td>3.00</td><td>Prerequisite: At least 1 EPIN-coded course or equivalents.</td></tr>
@@ -245,12 +256,12 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>LAWS 2331</td><td>Intellectual Property Law for Entrepreneurs</td><td>3.00</td><td>Not for students who have taken LAWS1010 or LAWS1020 or LAWS1041.</td></tr>
 <tr><td>MAEG 2910</td><td>Prototypes to Products</td><td>3.00</td><td>—</td></tr>
 <tr><td>MGNT 3070</td><td>Opportunities' Catching: Strategic Insights and Analysis</td><td>3.00</td><td>—</td></tr>
-<tr><td>MGNT 4070</td><td>Social Innovation and Entrepreneurship</td><td>3.00</td><td>—</td></tr>
+<tr class="eq-row"><td>MGNT 4070</td><td>Social Innovation and Entrepreneurship</td><td>3.00</td><td>—</td></tr>
+<tr><td>SOWK 2203</td><td>Mission-driven Social Enterprise</td><td>3.00</td><td>—</td></tr>
 <tr><td>MGNT 4090</td><td>Technology and Innovation Management</td><td>3.00</td><td>—</td></tr>
 <tr><td>MGNT 4130</td><td>Management Consulting and Change Management</td><td>3.00</td><td>Prerequisite: HTMG1010 or MGNT1020.</td></tr>
 <tr><td>MGNT 4570</td><td>Global Entrepreneurship</td><td>3.00</td><td>Pre-requisites: At least 2 2000-level or above courses in Faculty of Business Administration or Department of Economics</td></tr>
 <tr><td>SEEM 1000</td><td>Engineering Startups</td><td>3.00</td><td>Not for students who have taken SEEM3450</td></tr>
-<tr><td>SOWK 2203</td><td>Mission-driven Social Enterprise</td><td>3.00</td><td>—</td></tr>
 <tr><td>STAT 1013</td><td>Data Science Toolbox</td><td>3.00</td><td>—</td></tr>
 <tr><td>STAT 2005</td><td>Programming Languages for Statistics</td><td>3.00</td><td>—</td></tr>
 <tr><td>STAT 3009</td><td>Recommender Systems</td><td>3.00</td><td>—</td></tr>

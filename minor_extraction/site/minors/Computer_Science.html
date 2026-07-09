@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Minor: Computer Science</title>
 <style>:root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
-        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309; }
+        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309;
+        --tbl-border: #868a90; --tbl-border-light: #d5d8dc; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
@@ -21,9 +22,13 @@ a:hover { text-decoration:underline; }
 .section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
-th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
+th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
+th:first-child, td:first-child { white-space:nowrap; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
+td:nth-child(4) { word-break:break-word; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
+.eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px; margin-bottom:8px;
@@ -57,7 +62,7 @@ tr:hover { background:#f9f9f9; }
 .point-text p { margin:0; }
 .notes-table-section table { background:var(--card); border-collapse:collapse;
     border-radius:8px; overflow:hidden; }
-.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
 .notes-table-section tr:hover { background:#f9f9f9; }
 
 /* ── Sidebar ── */
@@ -239,18 +244,23 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(c) CENG3430/ESTR3100, CSCI1020, 1030, 1040, 3130, CSCI3150/ESTR3102, CSCI3160/ESTR3104, CSCI3170, CSCI3180/ESTR3106, CSCI3190, 3220, CSCI3230/ESTR3108, CSCI3250, 3260, 3280, 3310, 3320, 3350, 3360, 4120, 4130, 4140, CSCI4180/ESTR4106, CSCI4190</span><span class="meta">(3 units)</span></div></div>
 <details class="course-details"><summary>Show 30 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>CENG 3430</td><td>Rapid Prototyping of Digital Systems</td><td>3.00</td><td>Prerequisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent For senior-year entrants, the prerequisite will be waived. Not for students who have taken ESTR3100</td></tr>
+<tr class="eq-row"><td>CENG 3430</td><td>Rapid Prototyping of Digital Systems</td><td>3.00</td><td>Prerequisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent For senior-year entrants, the prerequisite will be waived. Not for students who have taken ESTR3100</td></tr>
+<tr><td>ESTR 3100</td><td>Rapid Prototyping of Digital Systems</td><td>3.00</td><td>Not for students who have taken CENG3430. Pre-requisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent. For senior-year entrants, the pre-requisite will be waived.</td></tr>
 <tr><td>CSCI 1020</td><td>Hands-on Introduction to C++</td><td>1.00</td><td>Not for students who have taken CSCI1120 or 1520 or 1540 or ESTR1100.</td></tr>
 <tr><td>CSCI 1030</td><td>Hands-on Introduction to Java</td><td>1.00</td><td>Not for students who have taken CSCI1130 or 1530 or ESTR1102.</td></tr>
 <tr class="nf"><td>CSCI 1040</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr><td>CSCI 3130</td><td>Formal Languages and Automata Theory</td><td>3.00</td><td>Pre-requisite: CSCI2110 or ENGG2440 or ESTR2004 or MIEG2440.</td></tr>
-<tr><td>CSCI 3150</td><td>Introduction to Operating Systems</td><td>3.00</td><td>Prerequisite: ESTR2102 or CSCI2100 or 2520. For senior-year entrants, the prerequisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent. Not for students who have taken ESTR3102.</td></tr>
-<tr><td>CSCI 3160</td><td>Design and Analysis of Algorithms</td><td>3.00</td><td>Not for students who have taken ESTR3104 or CSCI3190; Pre-requisites: (CSCI2100 or CSCI2520 or ESTR2102) AND (CSCI2110 or ENGG2440 or ESTR2004 or ESTR2362 or MIEG2440)</td></tr>
+<tr class="eq-row"><td>CSCI 3150</td><td>Introduction to Operating Systems</td><td>3.00</td><td>Prerequisite: ESTR2102 or CSCI2100 or 2520. For senior-year entrants, the prerequisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent. Not for students who have taken ESTR3102.</td></tr>
+<tr><td>ESTR 3102</td><td>Introduction to Operating Systems</td><td>3.00</td><td>Not for students who have taken CSCI3150. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent.</td></tr>
+<tr class="eq-row"><td>CSCI 3160</td><td>Design and Analysis of Algorithms</td><td>3.00</td><td>Not for students who have taken ESTR3104 or CSCI3190; Pre-requisites: (CSCI2100 or CSCI2520 or ESTR2102) AND (CSCI2110 or ENGG2440 or ESTR2004 or ESTR2362 or MIEG2440)</td></tr>
+<tr><td>ESTR 3104</td><td>Design and Analysis of Algorithms</td><td>3.00</td><td>Not for students who have taken CSCI3160 or CSCI3190. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004.</td></tr>
 <tr><td>CSCI 3170</td><td>Introduction to Database Systems</td><td>3.00</td><td>Prerequisite: CSCI2100 or 2520 or ESTR2102. For 2nd-year entrants, the prerequisite will be waived.</td></tr>
-<tr><td>CSCI 3180</td><td>Principles of Programming Languages</td><td>3.00</td><td>Not for students who have taken ESTR3106. Prerequisite: CSCI2100 or 2520 or ESTR2102. For senior-year entrants, the prerequisite will be waived.</td></tr>
+<tr class="eq-row"><td>CSCI 3180</td><td>Principles of Programming Languages</td><td>3.00</td><td>Not for students who have taken ESTR3106. Prerequisite: CSCI2100 or 2520 or ESTR2102. For senior-year entrants, the prerequisite will be waived.</td></tr>
+<tr><td>ESTR 3106</td><td>Principles of Programming Languages</td><td>3.00</td><td>Not for students who have taken CSCI3180. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived.</td></tr>
 <tr><td>CSCI 3190</td><td>Introduction to Discrete Mathematics and Algorithms</td><td>3.00</td><td>Not for students who have taken CSCI3160 or ENGG2440 or ESTR2004 or 3104. Prerequisite: CSCI2100 or CSCI2520 or ESTR2102. For 2nd-year entrants, the prerequisite will be waived.</td></tr>
 <tr><td>CSCI 3220</td><td>Algorithms for Bioinformatics</td><td>3.00</td><td>Not for students who have taken BMEG3102 or ESTR3110. </td></tr>
-<tr><td>CSCI 3230</td><td>Fundamentals of Artificial Intelligence</td><td>3.00</td><td>Not for students who have taken ESTR3108. Prerequisite: CSCI2100 or 2520 or ESTR2102 or equivalent.</td></tr>
+<tr class="eq-row"><td>CSCI 3230</td><td>Fundamentals of Artificial Intelligence</td><td>3.00</td><td>Not for students who have taken ESTR3108. Prerequisite: CSCI2100 or 2520 or ESTR2102 or equivalent.</td></tr>
+<tr><td>ESTR 3108</td><td>Fundamentals of Artificial Intelligence</td><td>3.00</td><td>Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent.</td></tr>
 <tr><td>CSCI 3250</td><td>Computers and Society</td><td>2.00</td><td>Not for students who have taken ENGG2601.</td></tr>
 <tr><td>CSCI 3260</td><td>Principles of Computer Graphics</td><td>3.00</td><td>Prerequisite: CSCI2100 or 2520 or ESTR2102.</td></tr>
 <tr><td>CSCI 3280</td><td>Introduction to Multimedia Systems</td><td>3.00</td><td>—</td></tr>
@@ -261,14 +271,9 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>CSCI 4120</td><td>Principles of Computer Game Software</td><td>3.00</td><td>1. Prerequisite: CSCI2100 or 2520 or ESTR2102;2. Prerequisite/Corequisite: CSCI3260 or 3550.</td></tr>
 <tr><td>CSCI 4130</td><td>Introduction to Cyber Security</td><td>3.00</td><td>Not for students who have taken ESTR4306 or IEMS5710 or IERG4130</td></tr>
 <tr><td>CSCI 4140</td><td>Open-source Software Project Development</td><td>3.00</td><td>Prerequisite: CSCI2100 or 2520 or ESTR2102.</td></tr>
-<tr><td>CSCI 4180</td><td>Introduction to Cloud Computing and Storage</td><td>3.00</td><td>Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken ESTR4106.</td></tr>
-<tr><td>CSCI 4190</td><td>Introduction to Social Networks</td><td>3.00</td><td>Pre-requisite: CSCI2100 or 2520 or ESTR2102.</td></tr>
-<tr><td>ESTR 3100</td><td>Rapid Prototyping of Digital Systems</td><td>3.00</td><td>Not for students who have taken CENG3430. Pre-requisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent. For senior-year entrants, the pre-requisite will be waived.</td></tr>
-<tr><td>ESTR 3102</td><td>Introduction to Operating Systems</td><td>3.00</td><td>Not for students who have taken CSCI3150. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent.</td></tr>
-<tr><td>ESTR 3104</td><td>Design and Analysis of Algorithms</td><td>3.00</td><td>Not for students who have taken CSCI3160 or CSCI3190. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004.</td></tr>
-<tr><td>ESTR 3106</td><td>Principles of Programming Languages</td><td>3.00</td><td>Not for students who have taken CSCI3180. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived.</td></tr>
-<tr><td>ESTR 3108</td><td>Fundamentals of Artificial Intelligence</td><td>3.00</td><td>Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent.</td></tr>
+<tr class="eq-row"><td>CSCI 4180</td><td>Introduction to Cloud Computing and Storage</td><td>3.00</td><td>Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken ESTR4106.</td></tr>
 <tr><td>ESTR 4106</td><td>Introduction to Cloud Computing and Storage</td><td>3.00</td><td>Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken CSCI4180.</td></tr>
+<tr><td>CSCI 4190</td><td>Introduction to Social Networks</td><td>3.00</td><td>Pre-requisite: CSCI2100 or 2520 or ESTR2102.</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Course(s) in Column A are equivalent to course(s) in Column B and can be used to fulfill the requirements of this Minor Programme.</span></div>

@@ -41,26 +41,33 @@ def parse_unit_count(text):
 
 
 def extract_course_codes(text):
-    """Return a sorted list of 'DEPT 1234' codes found in *text*."""
-    codes = set()
-    for m in re.finditer(r"([A-Z]{4})\s*(\d{4})([A-Za-z])?", text):
-        codes.add(f"{m.group(1)} {m.group(2)}{m.group(3) or ''}")
-    for m in re.finditer(r"([A-Z]{4})\s*(\d{4})([A-Za-z]?)\s*/\s*(\d{4})([A-Za-z]?)", text):
-        codes.add(f"{m.group(1)} {m.group(2)}{m.group(3) or ''}")
-        codes.add(f"{m.group(1)} {m.group(4)}{m.group(5) or ''}")
-    for m in re.finditer(r"([A-Z]{4})\s*(\d{4})([A-Za-z]?)\s*,\s+([\d,\s/]+)", text):
-        dept = m.group(1)
-        codes.add(f"{dept} {m.group(2)}{m.group(3) or ''}")
-        tail = m.group(4)
-        for nm in re.finditer(r"(\d{4})([A-Za-z]?)\s*(/\s*(\d{4})([A-Za-z]?)\s*)?", tail):
-            if nm.group(1):
-                codes.add(f"{dept} {nm.group(1)}{nm.group(2) or ''}")
-            if nm.group(4):
-                codes.add(f"{dept} {nm.group(4)}{nm.group(5) or ''}")
-    # "or 1700", "and 2760" after a known department
-    for m in re.finditer(r"([A-Z]{4})\s*\d{4}[A-Za-z]?\s+(?:or|and|/)\s+(\d{4})([A-Za-z]?)", text):
-        codes.add(f"{m.group(1)} {m.group(2)}{m.group(3) or ''}")
-    return sorted(codes)
+    """Return a list of 'DEPT 1234' codes in text order (deduplicated)."""
+    clean = re.sub(r'\[[a-z]\]', '', text)
+    clean = re.sub(r'(\d{4})\^', r'\1', clean)
+    seen = set()
+    codes = []
+    def add(code):
+        if code not in seen:
+            seen.add(code)
+            codes.append(code)
+    # Scan the text left to right, tracking the current department.
+    # Find each candidate (either DEPT+num or implicit num) and add it.
+    cur_dept = ""
+    for m in re.finditer(r'([A-Z]{4})\s*(\d{4})|(\d{4})', clean):
+        if m.group(1):  # explicit DEPT + NUM
+            dept = m.group(1)
+            num = m.group(2)
+            cur_dept = dept
+            add(f"{dept} {num}")
+        else:  # implicit NUM
+            num = m.group(3)
+            if cur_dept:
+                # Only accept if preceded by comma, slash, or/or in the text
+                start = m.start()
+                before = clean[max(0, start - 10):start]
+                if re.search(r'(?:,|/|or|and)\s*$', before):
+                    add(f"{cur_dept} {num}")
+    return codes
 
 
 def _strip_trailing_unit(text):

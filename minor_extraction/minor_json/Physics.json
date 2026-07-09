@@ -24,7 +24,37 @@
         "index": 2,
         "text": "PHYS1001[b] or 1002[b][c], 1111[b][c] or 1113[b][c], 1122, 2041[c], 2051[c], 2401, 3011, 3021, 3022, 3023, 3031, 3041, 3051, 3061, 3403, 3420, 3730, 4011, 4021, 4031, 4041, 4050, 4051, 4420, 4430, 4440, 4450, 4460, 4470",
         "codes": [
-          "PHYS 1001"
+          "PHYS 1001",
+          "PHYS 1002",
+          "PHYS 1111",
+          "PHYS 1113",
+          "PHYS 1122",
+          "PHYS 2041",
+          "PHYS 2051",
+          "PHYS 2401",
+          "PHYS 3011",
+          "PHYS 3021",
+          "PHYS 3022",
+          "PHYS 3023",
+          "PHYS 3031",
+          "PHYS 3041",
+          "PHYS 3051",
+          "PHYS 3061",
+          "PHYS 3403",
+          "PHYS 3420",
+          "PHYS 3730",
+          "PHYS 4011",
+          "PHYS 4021",
+          "PHYS 4031",
+          "PHYS 4041",
+          "PHYS 4050",
+          "PHYS 4051",
+          "PHYS 4420",
+          "PHYS 4430",
+          "PHYS 4440",
+          "PHYS 4450",
+          "PHYS 4460",
+          "PHYS 4470"
         ],
         "units": "",
         "courses": [
@@ -33,6 +63,186 @@
             "title": "Essential Physics",
             "unit": "3.00",
             "prereq": "1. For JUPAS entrants without attending HKDSE Physics or Combined Science with Physics component, including absentees. 2. For non-JUPAS students, please seek advice and permission from the Department of Physics."
+          },
+          {
+            "code": "PHYS 1002",
+            "title": "General Physics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken PHYS1111 or 1113."
+          },
+          {
+            "code": "PHYS 1111",
+            "title": "Introduction to Mechanics, Fluids, and Waves (University Physics I)",
+            "unit": "3.00",
+            "prereq": "For New Undergraduate Curriculum from 2012. Not for students who have taken PHYS1113."
+          },
+          {
+            "code": "PHYS 1113",
+            "title": "Mechanics, Fluids and Waves (University Physics I)",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken PHYS1111."
+          },
+          {
+            "code": "PHYS 1122",
+            "title": "University Physics II – Introduction to Optics and Modern Physics",
+            "unit": "3.00",
+            "prereq": "For New Curriculum Students."
+          },
+          {
+            "code": "PHYS 2041",
+            "title": "University Physics III – Introduction to Heat and Electromagnetism",
+            "unit": "3.00",
+            "prereq": "For New Curriculum Students."
+          },
+          {
+            "code": "PHYS 2051",
+            "title": "Quantitative Methods for Basic Physics",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: MATH1010 or 1018 or its equivalents, or permission of instructor."
+          },
+          {
+            "code": "PHYS 2401",
+            "title": "Introduction to Astronomy and Astrophysics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken UGEB2401 or UGEB2402."
+          },
+          {
+            "code": "PHYS 3011",
+            "title": "Classical Mechanics I",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS1111 or or 1113 or its equivalents, or premission of instructor."
+          },
+          {
+            "code": "PHYS 3021",
+            "title": "Quantum Mechanics I",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS1122 or its equivalents, or permission of instructor."
+          },
+          {
+            "code": "PHYS 3022",
+            "title": "Applied Quantum Mechanics",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS3021."
+          },
+          {
+            "code": "PHYS 3023",
+            "title": "Introduction to Quantum Information Physics",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS3021 or its equivalents, or permission of instructor."
+          },
+          {
+            "code": "PHYS 3031",
+            "title": "Thermodynamics and Statistical Physics",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS2041 and 2051 or their equivalents, or permission of instructor."
+          },
+          {
+            "code": "PHYS 3041",
+            "title": "Electromagnetic Theory I",
+            "unit": "3.00",
+            "prereq": "Prerequisite: PHYS2041 or its equivalents, or permission of instructor."
+          },
+          {
+            "code": "PHYS 3051",
+            "title": "Methods in Theoretical Physics I",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS2051 or MATH2020 or their equivalents, or permission of the instructor."
+          },
+          {
+            "code": "PHYS 3061",
+            "title": "Physics Simulations with AI Tools",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "PHYS 3403",
+            "title": "Introduction to Soft and Living Matter Physics",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS2041 or CHEM2300 or equivalent introductory course that covers thermodynamics, or permission of instructor."
+          },
+          {
+            "code": "PHYS 3420",
+            "title": "Topics in Contemporary Physics",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "PHYS 3730",
+            "title": "Basic Instrumentation",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "PHYS 4011",
+            "title": "Classical Mechanics II",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS3051 or its equivalents, or permission of the instructor."
+          },
+          {
+            "code": "PHYS 4021",
+            "title": "Quantum Mechanics II",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS3021 or its equivalents, or permission of instructor."
+          },
+          {
+            "code": "PHYS 4031",
+            "title": "Statistical Mechanics",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS2041 and 2051 or their equivalents, or permission of instructor."
+          },
+          {
+            "code": "PHYS 4041",
+            "title": "Electromagnetic Theory II",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS3041 or its equivalents, or permission of instructor."
+          },
+          {
+            "code": "PHYS 4050",
+            "title": "Solid State Physics",
+            "unit": "3.00",
+            "prereq": "Pre-requisite/Co-requisite: PHYS3021 or its equivalents, or permission of instructor."
+          },
+          {
+            "code": "PHYS 4051",
+            "title": "Methods in Theoretical Physics II",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS3051 or its equivalents, or permission of instructor."
+          },
+          {
+            "code": "PHYS 4420",
+            "title": "Physics in Meteorology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS3011. Students who have taken course on vector calculus-based physics or their equivalents may also seek course teacher's permission to register in the course."
+          },
+          {
+            "code": "PHYS 4430",
+            "title": "Astrophysics",
+            "unit": "3.00",
+            "prereq": ""
+          },
+          {
+            "code": "PHYS 4440",
+            "title": "Topics in Nanoscience and Technology",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS3021 or its equivalents, or permission of instructor."
+          },
+          {
+            "code": "PHYS 4450",
+            "title": "Optical Physics",
+            "unit": "3.00",
+            "prereq": "PHYS3041 or its equivalents, or permission of instructor."
+          },
+          {
+            "code": "PHYS 4460",
+            "title": "Relativity",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: PHYS3041 or its equivalents, or permission of the instructor."
+          },
+          {
+            "code": "PHYS 4470",
+            "title": "Nuclear and Particle Physics",
+            "unit": "3.00",
+            "prereq": ""
           }
         ]
       }

@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Minor: Japanese Studies</title>
 <style>:root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
-        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309; }
+        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309;
+        --tbl-border: #868a90; --tbl-border-light: #d5d8dc; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
@@ -21,9 +22,13 @@ a:hover { text-decoration:underline; }
 .section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
-th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
+th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
+th:first-child, td:first-child { white-space:nowrap; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
+td:nth-child(4) { word-break:break-word; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
+.eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px; margin-bottom:8px;
@@ -57,7 +62,7 @@ tr:hover { background:#f9f9f9; }
 .point-text p { margin:0; }
 .notes-table-section table { background:var(--card); border-collapse:collapse;
     border-radius:8px; overflow:hidden; }
-.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
 .notes-table-section tr:hover { background:#f9f9f9; }
 
 /* ── Sidebar ── */
@@ -222,11 +227,6 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) Any 4 courses from the following non-language courses:</span><span class="meta">(12 units)</span></div><div class="req-row"><span class="row-text">JASP1140, 1160, 1180, 1190, 2100, 2200, 2400, 2520, 2600, 2720, 2820, 2910, 2920, 3110, 3120, 3210, 3430, 3470, 3480, 3500, 3700, 3800, 3900, 4000, 4100, 4110, 4410, ANTH2350, 2327, HIST3380, 3381, 4420, LING1000, 2003, 2004, 2005, 2006, 3101, 3201, 3204, MGNT4530, SOCI2103</span></div></div>
 <details class="course-details"><summary>Show 42 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>ANTH 2327</td><td>Ethnographies of Japan</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2350</td><td>Meanings of Life</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 3380</td><td>History of Traditional Japan</td><td>3.00</td><td>Not for students who have taken HIST3213 and HIST5507F.</td></tr>
-<tr><td>HIST 3381</td><td>History of Modern Japan</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>HIST 4420</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr><td>JASP 1140</td><td>Japanese Cinema</td><td>3.00</td><td>Not for students who have taken GESC2080, JASP1150 or UGEC1302.</td></tr>
 <tr><td>JASP 1160</td><td>Japanese Popular Culture in Cultural Globalization</td><td>3.00</td><td>Not for students who have taken JASP1110 or UGEC1271</td></tr>
 <tr><td>JASP 1180</td><td>Modern Sino-Japanese Relations</td><td>3.00</td><td>—</td></tr>
@@ -254,6 +254,11 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>JASP 4100</td><td>Japanese Dialectology</td><td>3.00</td><td>Prerequisite: students should have one year studying experience in Japan or equivalent competence in Japanese.</td></tr>
 <tr><td>JASP 4110</td><td>Anthropology of Japan</td><td>3.00</td><td>Not for students who have taken JASP5615</td></tr>
 <tr class="nf"><td>JASP 4410</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr><td>ANTH 2350</td><td>Meanings of Life</td><td>3.00</td><td>—</td></tr>
+<tr><td>ANTH 2327</td><td>Ethnographies of Japan</td><td>3.00</td><td>—</td></tr>
+<tr><td>HIST 3380</td><td>History of Traditional Japan</td><td>3.00</td><td>Not for students who have taken HIST3213 and HIST5507F.</td></tr>
+<tr><td>HIST 3381</td><td>History of Modern Japan</td><td>3.00</td><td>—</td></tr>
+<tr class="nf"><td>HIST 4420</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr><td>LING 1000</td><td>Invitation to Linguistics</td><td>3.00</td><td>LING1000 is double-coded with UGED1924. Not for students who have taken UGED1924.</td></tr>
 <tr><td>LING 2003</td><td>Phonetics I</td><td>3.00</td><td>—</td></tr>
 <tr><td>LING 2004</td><td>Phonology I</td><td>3.00</td><td>Pre-requisite: LING2003</td></tr>

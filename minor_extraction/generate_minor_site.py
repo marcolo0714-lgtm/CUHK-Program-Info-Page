@@ -46,7 +46,8 @@ def resolve_courses(codes, course_index):
 
 CSS = """\
 :root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
-        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309; }
+        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309;
+        --tbl-border: #868a90; --tbl-border-light: #d5d8dc; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
@@ -62,9 +63,13 @@ a:hover { text-decoration:underline; }
 .section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
-th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
+th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
+th:first-child, td:first-child { white-space:nowrap; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
+td:nth-child(4) { word-break:break-word; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
+.eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px; margin-bottom:8px;
@@ -98,7 +103,7 @@ tr:hover { background:#f9f9f9; }
 .point-text p { margin:0; }
 .notes-table-section table { background:var(--card); border-collapse:collapse;
     border-radius:8px; overflow:hidden; }
-.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
 .notes-table-section tr:hover { background:#f9f9f9; }
 
 /* ── Sidebar ── */
@@ -223,14 +228,22 @@ def index_page(page_title, body):
 
 # ── page builders ────────────────────────────────────────────────────
 
-def build_course_table(courses):
-    """Return HTML <tbody> rows for a list of course objects."""
+def build_course_table(courses, eq_pairs=None):
+    """Return HTML <tbody> rows for a list of course objects.
+    eq_pairs: set of (code1, code2) tuples that are slash-separated equivalents."""
+    eq_pairs = eq_pairs or set()
     rows = ""
-    for c in courses:
+    for i, c in enumerate(courses):
+        cls = ""
+        # Check if this row is the FIRST of an equivalent pair
+        if i + 1 < len(courses):
+            next_code = courses[i + 1]["code"]
+            if (c["code"], next_code) in eq_pairs:
+                cls = ' class="eq-row"'
         if c.get("title"):
             prereq = c["prereq"] if c["prereq"] else "\u2014"
             rows += (
-                f"<tr>"
+                f"<tr{cls}>"
                 f"<td>{c['code']}</td>"
                 f"<td>{c['title']}</td>"
                 f"<td>{c['unit']}</td>"
@@ -239,7 +252,7 @@ def build_course_table(courses):
             )
         else:
             rows += (
-                f'<tr class="nf">'
+                f'<tr class="nf{cls}">'
                 f"<td>{c['code']}</td>"
                 f'<td colspan="3"><em>(not found in course_info)</em></td>'
                 f"</tr>\n"
@@ -306,6 +319,7 @@ def build_section_html(sec, course_index):
         row_cls = 'req-row'
         html_parts = []
         all_courses = []
+        all_texts = []
         for r in block:
             text = r["text"].strip()
             if not text or _is_unit_only(r):
@@ -318,13 +332,71 @@ def build_section_html(sec, course_index):
             rh += '</div>'
             html_parts.append(rh)
             all_courses.extend(r.get("courses", []))
+            all_texts.append(text)
         if not html_parts and not all_courses:
             return
         lines.append(
             f'<div class="section{cls_suffix}">' + "".join(html_parts) + '</div>'
         )
         if all_courses:
-            tbody = build_course_table(all_courses)
+            # Detect equivalent pairs: codes connected by single '/' or "or" in the text
+            eq_pairs = set()
+
+            def _last_dept(t, pos):
+                """Find the most recent department code before *pos* in *t*."""
+                best = ""
+                for dm in re.finditer(r'([A-Z]{4})\s*\d{4}', t):
+                    if dm.start() < pos:
+                        best = dm.group(1)
+                return best
+
+            for t in all_texts:
+                # Strip footnote refs that interfere with pattern matching
+                t = re.sub(r'\[[a-z]\]', '', t)
+                # Build pairs from slash-separated codes (all formats)
+                for m in re.finditer(r'([A-Z]{4})\s*(\d{4}[A-Za-z]?)\s*/\s*(\d{4}[A-Za-z]?)', t):
+                    c1 = f"{m.group(1)} {m.group(2)}"
+                    c2 = f"{m.group(1)} {m.group(3)}"
+                    eq_pairs.add((c1, c2))
+                for m in re.finditer(r'([A-Z]{4})\s*(\d{4}[A-Za-z]?)\s*/\s*([A-Z]{4})\s*(\d{4}[A-Za-z]?)', t):
+                    c1 = f"{m.group(1)} {m.group(2)}"
+                    c2 = f"{m.group(3)} {m.group(4)}"
+                    eq_pairs.add((c1, c2))
+                # Build pairs from "or"-connected codes.
+                # Find all code occurrences and "or" positions, then pair
+                # codes on either side of each "or".
+                code_positions = []  # (pos, dept, num)
+                for cm in re.finditer(r'([A-Z]{4})\s*(\d{4})\b', t):
+                    code_positions.append((cm.start(), cm.group(1), cm.group(2)))
+                # Also find implicit codes (just 4-digit numbers)
+                for cm in re.finditer(r'(?<![A-Z])(\d{4})(?![A-Za-z])', t):
+                    start = cm.start()
+                    before = t[max(0, start - 10):start]
+                    if re.search(r'(?:,|/|or|and)\s*$', before) or re.search(r'\s\s+$', before):
+                        dept = _last_dept(t, start)
+                        if dept:
+                            code_positions.append((start, dept, cm.group(1)))
+                code_positions.sort()
+                # Find all "or" positions
+                or_positions = [om.start() for om in re.finditer(r'\s+or\s+', t, re.IGNORECASE)]
+                for or_pos in or_positions:
+                    # Find the code immediately before this "or"
+                    before_code = None
+                    for cp in reversed(code_positions):
+                        if cp[0] < or_pos:
+                            before_code = cp
+                            break
+                    # Find the code immediately after this "or"
+                    after_code = None
+                    for cp in code_positions:
+                        if cp[0] > or_pos:
+                            after_code = cp
+                            break
+                    if before_code and after_code:
+                        c1 = f"{before_code[1]} {before_code[2]}"
+                        c2 = f"{after_code[1]} {after_code[2]}"
+                        eq_pairs.add((c1, c2))
+            tbody = build_course_table(all_courses, eq_pairs)
             lines.append(
                 f'<details class="course-details">'
                 f'<summary>Show {len(all_courses)} course(s) →</summary>'

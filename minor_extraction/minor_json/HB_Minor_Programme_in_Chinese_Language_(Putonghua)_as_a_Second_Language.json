@@ -12,13 +12,20 @@
         "index": 1,
         "text": "LING1000, CLCP2213, 2233, 2253 and 3313",
         "codes": [
+          "LING 1000",
           "CLCP 2213",
           "CLCP 2233",
           "CLCP 2253",
-          "LING 1000"
+          "CLCP 3313"
         ],
         "units": "15",
         "courses": [
+          {
+            "code": "LING 1000",
+            "title": "Invitation to Linguistics",
+            "unit": "3.00",
+            "prereq": "LING1000 is double-coded with UGED1924. Not for students who have taken UGED1924."
+          },
           {
             "code": "CLCP 2213",
             "title": "Application of Vocabulary and Grammar II",
@@ -38,10 +45,10 @@
             "prereq": "Pre-requisite: CLCP/CPTH2223 Not for students who have taken CLCP/CPTH3313 or above"
           },
           {
-            "code": "LING 1000",
-            "title": "Invitation to Linguistics",
+            "code": "CLCP 3313",
+            "title": "Application of Vocabulary and Grammar III",
             "unit": "3.00",
-            "prereq": "LING1000 is double-coded with UGED1924. Not for students who have taken UGED1924."
+            "prereq": "Prerequisites: CLCP/CPTH2233 Not for students who have taken CLCP/CPTH3333 or above"
           }
         ]
       }
@@ -58,7 +65,8 @@
           "LING 2301",
           "LING 3202",
           "LING 3204",
-          "LING 3206"
+          "LING 3206",
+          "LING 3207"
         ],
         "units": "3",
         "courses": [
@@ -85,6 +93,12 @@
             "title": "Bilingualism",
             "unit": "3.00",
             "prereq": ""
+          },
+          {
+            "code": "LING 3207",
+            "title": "Bilingual Acquisition",
+            "unit": "3.00",
+            "prereq": ""
           }
         ]
       },
@@ -102,7 +116,8 @@
           "CLCP 4443",
           "CLCP 4453",
           "CLCP 4513",
-          "CLCP 4533"
+          "CLCP 4533",
+          "CLCP 4633"
         ],
         "units": "3",
         "courses": [
@@ -171,6 +186,12 @@
             "title": "Advanced Topical Conversation II - Social Life",
             "unit": "3.00",
             "prereq": "Pre-requisite: CLCP4433/CPTH4433"
+          },
+          {
+            "code": "CLCP 4633",
+            "title": "Advanced Topical Conversation III - Chinese Diplomacy and Society",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: CLCP4533/CPTH4533"
           }
         ]
       }

@@ -12,7 +12,8 @@
         "index": 1,
         "text": "PSYC1000[a], 2010[b]",
         "codes": [
-          "PSYC 1000"
+          "PSYC 1000",
+          "PSYC 2010"
         ],
         "units": "",
         "courses": [
@@ -21,6 +22,12 @@
             "title": "General Psychology",
             "unit": "3.00",
             "prereq": "Not for students who have obtained the following grade in Psychology: IB - 5 or above (HL)/GCE-AL - C or above (AL)/Cambridge Pre-U - P2 or above (Principal course)/HKALE - C or above (AL)/AP Exam - 3 or above. Not for students who have taken UGED2581."
+          },
+          {
+            "code": "PSYC 2010",
+            "title": "Introduction to Statistics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken COMM3110, DSME2011, ECON2121, GRMD2102, LING3403, PHPC2015, SEEM2430, SOCI2004, SPED2600, STAT2101, 2102, 2001 or 2006."
           }
         ]
       }

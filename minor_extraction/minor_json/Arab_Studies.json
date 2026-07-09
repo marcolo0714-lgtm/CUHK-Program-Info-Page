@@ -42,23 +42,23 @@
         "index": 3,
         "text": "(i) CURE2180 or ARAB1000, and CURE2181; OR",
         "codes": [
-          "ARAB 1000",
           "CURE 2180",
+          "ARAB 1000",
           "CURE 2181"
         ],
         "units": "",
         "courses": [
           {
-            "code": "ARAB 1000",
-            "title": "Arabic I",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken ARAB2000,2001,2050,3000 or 3050"
-          },
-          {
             "code": "CURE 2180",
             "title": "Classical Arabic for Beginners I",
             "unit": "3.00",
             "prereq": "Not for students who have taken CURE2151 (Arabic Beginners I)"
+          },
+          {
+            "code": "ARAB 1000",
+            "title": "Arabic I",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ARAB2000,2001,2050,3000 or 3050"
           },
           {
             "code": "CURE 2181",

@@ -63,40 +63,40 @@
         "text": "ELEG2310/ESTR2300, ELEG3103/ESTR3216, ELEG3201/ESTR3200, ELEG3202, 3207, ELEG3213/ESTR3214, ELEG3214, ELEG3301/ESTR3204, ELEG3302, ELEG3303/ESTR3206, ELEG3503, 3601, 3701, 3710, 4211, ELEG4214/ESTR4222, ELEG4215, 4216, ELEG4311/ESTR4216, ELEG4312, 4313, ELEG4511/ESTR4218, ELEG4512, 4701, ENGG3802, 3803",
         "codes": [
           "ELEG 2310",
+          "ESTR 2300",
           "ELEG 3103",
+          "ESTR 3216",
           "ELEG 3201",
+          "ESTR 3200",
           "ELEG 3202",
           "ELEG 3207",
           "ELEG 3213",
+          "ESTR 3214",
           "ELEG 3214",
           "ELEG 3301",
+          "ESTR 3204",
           "ELEG 3302",
           "ELEG 3303",
+          "ESTR 3206",
           "ELEG 3503",
           "ELEG 3601",
           "ELEG 3701",
           "ELEG 3710",
           "ELEG 4211",
           "ELEG 4214",
+          "ESTR 4222",
           "ELEG 4215",
           "ELEG 4216",
           "ELEG 4311",
+          "ESTR 4216",
           "ELEG 4312",
           "ELEG 4313",
           "ELEG 4511",
+          "ESTR 4218",
           "ELEG 4512",
           "ELEG 4701",
           "ENGG 3802",
-          "ENGG 3803",
-          "ESTR 2300",
-          "ESTR 3200",
-          "ESTR 3204",
-          "ESTR 3206",
-          "ESTR 3214",
-          "ESTR 3216",
-          "ESTR 4216",
-          "ESTR 4218",
-          "ESTR 4222"
+          "ENGG 3803"
         ],
         "units": "",
         "courses": [
@@ -107,16 +107,34 @@
             "prereq": "Prerequisite: ENGG2030 or ESTR2206 Not for students who have taken ESTR2300 or ENGG2310 or IERG2310"
           },
           {
+            "code": "ESTR 2300",
+            "title": "Principles of Communication Systems",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENGG2310 or IERG2310 or ELEG2310. Pre-requisite: ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051"
+          },
+          {
             "code": "ELEG 3103",
             "title": "Robotic Perception and Intelligence",
             "unit": "3.00",
             "prereq": "Not for students who have taken MAEG3060 or ESTR3408 or ESTR3216; Prerequisite: ENGG2030 or ESTR2206 or with the consent of the instructor."
           },
           {
+            "code": "ESTR 3216",
+            "title": "Robotic Perception and Intelligence",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: ENGG2030 or with the consent of the instructor Not for students who have taken ELEG3103 or ESTR3408 or MAEG3060"
+          },
+          {
             "code": "ELEG 3201",
             "title": "Microelectronic Devices and Circuits",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR3200; Prerequisite: ELEG2202 or BMEG2300 or with the consent of the instructor."
+          },
+          {
+            "code": "ESTR 3200",
+            "title": "Microelectronic Devices and Circuits",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ELEG3201. Pre-requisite: ELEG2202 or BMEG2300 or with the consent of the instructor."
           },
           {
             "code": "ELEG 3202",
@@ -137,6 +155,12 @@
             "prereq": "Not for students who have taken ELEG3203 or ESTR3214."
           },
           {
+            "code": "ESTR 3214",
+            "title": "Fundamentals of Applied Electromagnetics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ELEG3213 or ELEG3203."
+          },
+          {
             "code": "ELEG 3214",
             "title": "Antennas and Wave Propagation for Wireless Communications",
             "unit": "3.00",
@@ -149,6 +173,12 @@
             "prereq": "Not for students who have taken ELEG2510 or ESTR3204."
           },
           {
+            "code": "ESTR 3204",
+            "title": "Principles of Semiconductor Devices",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ELEG2510 and ELEG3301."
+          },
+          {
             "code": "ELEG 3302",
             "title": "Fundamentals of Photonics",
             "unit": "3.00",
@@ -159,6 +189,12 @@
             "title": "Introduction to Optical Communications",
             "unit": "3.00",
             "prereq": "Not for students who have taken ELEG3320 or ESTR3206."
+          },
+          {
+            "code": "ESTR 3206",
+            "title": "Introduction to Optical Communications",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ELEG3303 or ELEG3320."
           },
           {
             "code": "ELEG 3503",
@@ -197,6 +233,12 @@
             "prereq": "Not for students who have taken ELEG4203 or ELEG4204 or ELEG4213 or ESTR4206 or ESTR4208 or ESTR4220 or ESTR4222. Pre-requisite: ELEG3203 or ELEG3213 or ESTR3214 or consent of the instructor."
           },
           {
+            "code": "ESTR 4222",
+            "title": "RF Circuits for Wireless Systems",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: ELEG3203 or ELEG3213 or ESTR3214 or consent of the instructor. Not for students who have taken ELEG4203 or ELEG4204 or ELEG4213 or ELEG4214 or ESTR4206 or ESTR4208 or ESTR4220."
+          },
+          {
             "code": "ELEG 4215",
             "title": "Power Converter Circuits",
             "unit": "3.00",
@@ -215,6 +257,12 @@
             "prereq": "Not for students who have taken ELEG4301 or ELEG4510 or ESTR4210 or ESTR4216. Prerequisites: ELEG3301 or ESTR3204 or consent of the instructor."
           },
           {
+            "code": "ESTR 4216",
+            "title": "Physics and Technology of Semiconductor Devices",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ELEG4301 or ELEG4311 or ELEG4510 or ESTR4210. Pre-requisite: ELEG3301 or ESTR3204 or consent of the instructor."
+          },
+          {
             "code": "ELEG 4312",
             "title": "Micro-optic Devices and Systems",
             "unit": "3.00",
@@ -231,6 +279,12 @@
             "title": "Digital Signal Processing and Applications",
             "unit": "3.00",
             "prereq": "Not for students who have taken ELEG4501 or ESTR4212 or ESTR4218. Pre-requisite: ELEG3503 or consent of the instructor."
+          },
+          {
+            "code": "ESTR 4218",
+            "title": "Digital Signal Processing and Applications",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ELEG4501 or ELEG4511 or ESTR4212. Pre-requisite: ELEG3503 or consent of the instructor."
           },
           {
             "code": "ELEG 4512",
@@ -255,60 +309,6 @@
             "title": "Engineering Entrepreneurship Development Project",
             "unit": "2.00",
             "prereq": "Pre-requisite: ENGG3802 with Grade B+ or above or with consent of instructor."
-          },
-          {
-            "code": "ESTR 2300",
-            "title": "Principles of Communication Systems",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken ENGG2310 or IERG2310 or ELEG2310. Pre-requisite: ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051"
-          },
-          {
-            "code": "ESTR 3200",
-            "title": "Microelectronic Devices and Circuits",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken ELEG3201. Pre-requisite: ELEG2202 or BMEG2300 or with the consent of the instructor."
-          },
-          {
-            "code": "ESTR 3204",
-            "title": "Principles of Semiconductor Devices",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken ELEG2510 and ELEG3301."
-          },
-          {
-            "code": "ESTR 3206",
-            "title": "Introduction to Optical Communications",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken ELEG3303 or ELEG3320."
-          },
-          {
-            "code": "ESTR 3214",
-            "title": "Fundamentals of Applied Electromagnetics",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken ELEG3213 or ELEG3203."
-          },
-          {
-            "code": "ESTR 3216",
-            "title": "Robotic Perception and Intelligence",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: ENGG2030 or with the consent of the instructor Not for students who have taken ELEG3103 or ESTR3408 or MAEG3060"
-          },
-          {
-            "code": "ESTR 4216",
-            "title": "Physics and Technology of Semiconductor Devices",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken ELEG4301 or ELEG4311 or ELEG4510 or ESTR4210. Pre-requisite: ELEG3301 or ESTR3204 or consent of the instructor."
-          },
-          {
-            "code": "ESTR 4218",
-            "title": "Digital Signal Processing and Applications",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken ELEG4501 or ELEG4511 or ESTR4212. Pre-requisite: ELEG3503 or consent of the instructor."
-          },
-          {
-            "code": "ESTR 4222",
-            "title": "RF Circuits for Wireless Systems",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: ELEG3203 or ELEG3213 or ESTR3214 or consent of the instructor. Not for students who have taken ELEG4203 or ELEG4204 or ELEG4213 or ELEG4214 or ESTR4206 or ESTR4208 or ESTR4220."
           }
         ]
       }

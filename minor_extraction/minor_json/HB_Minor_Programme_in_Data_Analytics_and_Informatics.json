@@ -13,8 +13,8 @@
         "text": "(a) i) ENGG2760/ESTR2018[b], ENGG2780/ESTR2020[b]",
         "codes": [
           "ENGG 2760",
-          "ENGG 2780",
           "ESTR 2018",
+          "ENGG 2780",
           "ESTR 2020"
         ],
         "units": "",
@@ -26,16 +26,16 @@
             "prereq": "Not for students who have taken ENGG2430 or 2450 or 2470 or ESTR2002 or 2005 or 2012 or 2018 or 2308 or 2362 or IERG2470 or MIEG2440"
           },
           {
-            "code": "ENGG 2780",
-            "title": "Statistics for Engineers",
-            "unit": "2.00",
-            "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or 2020 Co-requisite(s): ENGG2760 or ESTR2018 or 2308 or IERG2470"
-          },
-          {
             "code": "ESTR 2018",
             "title": "Probability for Engineers",
             "unit": "2.00",
             "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2470 or ENGG2760 or ESTR2002 or ESTR2005 or ESTR2012 or ESTR2308 or ESTR2362 or IERG2470 or MIEG2440."
+          },
+          {
+            "code": "ENGG 2780",
+            "title": "Statistics for Engineers",
+            "unit": "2.00",
+            "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or 2020 Co-requisite(s): ENGG2760 or ESTR2018 or 2308 or IERG2470"
           },
           {
             "code": "ESTR 2020",
@@ -56,22 +56,22 @@
         "index": 3,
         "text": "ii) IERG2470/ESTR2308[b]",
         "codes": [
-          "ESTR 2308",
-          "IERG 2470"
+          "IERG 2470",
+          "ESTR 2308"
         ],
         "units": "",
         "courses": [
-          {
-            "code": "ESTR 2308",
-            "title": "Probability Models and Applications",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2460 or ENGG2470 or ESTR2002 or ESTR2005 or ESTR2010 or ESTR2012 or ESTR2362 or IERG2470 or MIEG2440."
-          },
           {
             "code": "IERG 2470",
             "title": "Probability Models and Applications",
             "unit": "3.00",
             "prereq": "Not for students who have taken ENGG2430, ENGG2450, ENGG2460, ENGG2470, ESTR2002, ESTR2005, ESTR2010, ESTR2012, ESTR2308, ESTR2362 or MIEG2440"
+          },
+          {
+            "code": "ESTR 2308",
+            "title": "Probability Models and Applications",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2460 or ENGG2470 or ESTR2002 or ESTR2005 or ESTR2010 or ESTR2012 or ESTR2362 or IERG2470 or MIEG2440."
           }
         ]
       },
@@ -79,22 +79,22 @@
         "index": 4,
         "text": "(b) SEEM2460/ESTR2540[b]",
         "codes": [
-          "ESTR 2540",
-          "SEEM 2460"
+          "SEEM 2460",
+          "ESTR 2540"
         ],
         "units": "",
         "courses": [
-          {
-            "code": "ESTR 2540",
-            "title": "Introduction to Data Science",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken SEEM2460."
-          },
           {
             "code": "SEEM 2460",
             "title": "Introduction to Data Science",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR2540."
+          },
+          {
+            "code": "ESTR 2540",
+            "title": "Introduction to Data Science",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken SEEM2460."
           }
         ]
       }
@@ -121,30 +121,30 @@
           "CSCI 3220",
           "CSCI 3320",
           "CSCI 4180",
-          "CSCI 4190",
-          "ESTR 3302",
-          "ESTR 3306",
-          "ESTR 3512",
           "ESTR 4106",
-          "ESTR 4300",
-          "ESTR 4312",
-          "ESTR 4316",
-          "ESTR 4408",
-          "ESTR 4504",
-          "ESTR 4506",
+          "CSCI 4190",
           "IERG 3280",
+          "ESTR 3302",
           "IERG 3320",
+          "ESTR 3306",
           "IERG 4080",
+          "ESTR 4312",
           "IERG 4160",
           "IERG 4230",
           "IERG 4300",
+          "ESTR 4300",
           "IERG 4330",
+          "ESTR 4316",
           "MAEG 4010",
+          "ESTR 4408",
           "SEEM 3680",
+          "ESTR 3512",
           "SEEM 4630",
           "SEEM 4670",
           "SEEM 4680",
-          "SEEM 4720"
+          "ESTR 4504",
+          "SEEM 4720",
+          "ESTR 4506"
         ],
         "units": "",
         "courses": [
@@ -185,70 +185,16 @@
             "prereq": "Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken ESTR4106."
           },
           {
-            "code": "CSCI 4190",
-            "title": "Introduction to Social Networks",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: CSCI2100 or 2520 or ESTR2102."
-          },
-          {
-            "code": "ESTR 3302",
-            "title": "Networks: Technology, Economics, and Social Interactions",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken IERG3280."
-          },
-          {
-            "code": "ESTR 3306",
-            "title": "Social Media and Human Information Interaction",
-            "unit": "3.00",
-            "prereq": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206. Not for students who have taken IERG3320."
-          },
-          {
-            "code": "ESTR 3512",
-            "title": "Technology, Consulting and Analytics in Practice",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken ESTR4504, SEEM3680 or SEEM4680."
-          },
-          {
             "code": "ESTR 4106",
             "title": "Introduction to Cloud Computing and Storage",
             "unit": "3.00",
             "prereq": "Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken CSCI4180."
           },
           {
-            "code": "ESTR 4300",
-            "title": "Web-scale Information Analytics",
+            "code": "CSCI 4190",
+            "title": "Introduction to Social Networks",
             "unit": "3.00",
-            "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or IERG4300."
-          },
-          {
-            "code": "ESTR 4312",
-            "title": "Building Scalable Internet-based Services",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken IERG4080. Pre-requisite: IERG3080."
-          },
-          {
-            "code": "ESTR 4316",
-            "title": "Programming Big Data Systems",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken IERG4330 or IEMS5730. Co-/Pre-requisite(s): ENGG4030 or ESTR4300 or IERG4300."
-          },
-          {
-            "code": "ESTR 4408",
-            "title": "Computer-integrated Manufacturing",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG4010."
-          },
-          {
-            "code": "ESTR 4504",
-            "title": "",
-            "unit": "",
-            "prereq": ""
-          },
-          {
-            "code": "ESTR 4506",
-            "title": "Computational Finance",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken SEEM4720. Pre-requisite: SEEM2520 or SEEM3570 or SEEM3590 or ESTR3508 or ESTR3509."
+            "prereq": "Pre-requisite: CSCI2100 or 2520 or ESTR2102."
           },
           {
             "code": "IERG 3280",
@@ -257,16 +203,34 @@
             "prereq": "Not for students who have taken ESTR3302."
           },
           {
+            "code": "ESTR 3302",
+            "title": "Networks: Technology, Economics, and Social Interactions",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken IERG3280."
+          },
+          {
             "code": "IERG 3320",
             "title": "Social Media and Human Information Interaction",
             "unit": "3.00",
             "prereq": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206 Not for students who have taken ESTR3306."
           },
           {
+            "code": "ESTR 3306",
+            "title": "Social Media and Human Information Interaction",
+            "unit": "3.00",
+            "prereq": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206. Not for students who have taken IERG3320."
+          },
+          {
             "code": "IERG 4080",
             "title": "Building Scalable Internet-based Services",
             "unit": "3.00",
             "prereq": "Pre-requisite: IERG3080. Not for students who have taken ESTR4312."
+          },
+          {
+            "code": "ESTR 4312",
+            "title": "Building Scalable Internet-based Services",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken IERG4080. Pre-requisite: IERG3080."
           },
           {
             "code": "IERG 4160",
@@ -287,10 +251,22 @@
             "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300."
           },
           {
+            "code": "ESTR 4300",
+            "title": "Web-scale Information Analytics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI5510 or ENGG4030 or IERG4300."
+          },
+          {
             "code": "IERG 4330",
             "title": "Programming Big Data Systems",
             "unit": "3.00",
             "prereq": "Pre/Co-requisite: ENGG4030 or ESTR4300 or IERG4300. Not for students who have taken ESTR4316 or IEMS5730."
+          },
+          {
+            "code": "ESTR 4316",
+            "title": "Programming Big Data Systems",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken IERG4330 or IEMS5730. Co-/Pre-requisite(s): ENGG4030 or ESTR4300 or IERG4300."
           },
           {
             "code": "MAEG 4010",
@@ -299,10 +275,22 @@
             "prereq": "Not for students who have taken ESTR4408."
           },
           {
+            "code": "ESTR 4408",
+            "title": "Computer-integrated Manufacturing",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG4010."
+          },
+          {
             "code": "SEEM 3680",
             "title": "Technology, Consulting and Analytics in Practice",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR3512, ESTR4504 or SEEM4680."
+          },
+          {
+            "code": "ESTR 3512",
+            "title": "Technology, Consulting and Analytics in Practice",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken ESTR4504, SEEM3680 or SEEM4680."
           },
           {
             "code": "SEEM 4630",
@@ -323,10 +311,22 @@
             "prereq": "Not for students who have taken ESTR3512, ESTR4504 or SEEM3680."
           },
           {
+            "code": "ESTR 4504",
+            "title": "",
+            "unit": "",
+            "prereq": ""
+          },
+          {
             "code": "SEEM 4720",
             "title": "Computational Finance",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR4506. Prerequisite: SEEM2520 or SEEM3570 or SEEM3590 or ESTR3508 or ESTR3509."
+          },
+          {
+            "code": "ESTR 4506",
+            "title": "Computational Finance",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken SEEM4720. Pre-requisite: SEEM2520 or SEEM3570 or SEEM3590 or ESTR3508 or ESTR3509."
           }
         ]
       }

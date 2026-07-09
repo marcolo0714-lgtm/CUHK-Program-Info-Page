@@ -137,17 +137,22 @@
         "text": "(c) CENG3430/ESTR3100, CSCI1020, 1030, 1040, 3130, CSCI3150/ESTR3102, CSCI3160/ESTR3104, CSCI3170, CSCI3180/ESTR3106, CSCI3190, 3220, CSCI3230/ESTR3108, CSCI3250, 3260, 3280, 3310, 3320, 3350, 3360, 4120, 4130, 4140, CSCI4180/ESTR4106, CSCI4190",
         "codes": [
           "CENG 3430",
+          "ESTR 3100",
           "CSCI 1020",
           "CSCI 1030",
           "CSCI 1040",
           "CSCI 3130",
           "CSCI 3150",
+          "ESTR 3102",
           "CSCI 3160",
+          "ESTR 3104",
           "CSCI 3170",
           "CSCI 3180",
+          "ESTR 3106",
           "CSCI 3190",
           "CSCI 3220",
           "CSCI 3230",
+          "ESTR 3108",
           "CSCI 3250",
           "CSCI 3260",
           "CSCI 3280",
@@ -159,13 +164,8 @@
           "CSCI 4130",
           "CSCI 4140",
           "CSCI 4180",
-          "CSCI 4190",
-          "ESTR 3100",
-          "ESTR 3102",
-          "ESTR 3104",
-          "ESTR 3106",
-          "ESTR 3108",
-          "ESTR 4106"
+          "ESTR 4106",
+          "CSCI 4190"
         ],
         "units": "3",
         "courses": [
@@ -174,6 +174,12 @@
             "title": "Rapid Prototyping of Digital Systems",
             "unit": "3.00",
             "prereq": "Prerequisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent For senior-year entrants, the prerequisite will be waived. Not for students who have taken ESTR3100"
+          },
+          {
+            "code": "ESTR 3100",
+            "title": "Rapid Prototyping of Digital Systems",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CENG3430. Pre-requisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent. For senior-year entrants, the pre-requisite will be waived."
           },
           {
             "code": "CSCI 1020",
@@ -206,10 +212,22 @@
             "prereq": "Prerequisite: ESTR2102 or CSCI2100 or 2520. For senior-year entrants, the prerequisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent. Not for students who have taken ESTR3102."
           },
           {
+            "code": "ESTR 3102",
+            "title": "Introduction to Operating Systems",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI3150. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent."
+          },
+          {
             "code": "CSCI 3160",
             "title": "Design and Analysis of Algorithms",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR3104 or CSCI3190; Pre-requisites: (CSCI2100 or CSCI2520 or ESTR2102) AND (CSCI2110 or ENGG2440 or ESTR2004 or ESTR2362 or MIEG2440)"
+          },
+          {
+            "code": "ESTR 3104",
+            "title": "Design and Analysis of Algorithms",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI3160 or CSCI3190. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004."
           },
           {
             "code": "CSCI 3170",
@@ -222,6 +240,12 @@
             "title": "Principles of Programming Languages",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR3106. Prerequisite: CSCI2100 or 2520 or ESTR2102. For senior-year entrants, the prerequisite will be waived."
+          },
+          {
+            "code": "ESTR 3106",
+            "title": "Principles of Programming Languages",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI3180. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived."
           },
           {
             "code": "CSCI 3190",
@@ -240,6 +264,12 @@
             "title": "Fundamentals of Artificial Intelligence",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR3108. Prerequisite: CSCI2100 or 2520 or ESTR2102 or equivalent."
+          },
+          {
+            "code": "ESTR 3108",
+            "title": "Fundamentals of Artificial Intelligence",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent."
           },
           {
             "code": "CSCI 3250",
@@ -308,46 +338,16 @@
             "prereq": "Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken ESTR4106."
           },
           {
-            "code": "CSCI 4190",
-            "title": "Introduction to Social Networks",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: CSCI2100 or 2520 or ESTR2102."
-          },
-          {
-            "code": "ESTR 3100",
-            "title": "Rapid Prototyping of Digital Systems",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken CENG3430. Pre-requisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent. For senior-year entrants, the pre-requisite will be waived."
-          },
-          {
-            "code": "ESTR 3102",
-            "title": "Introduction to Operating Systems",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken CSCI3150. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived. Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent."
-          },
-          {
-            "code": "ESTR 3104",
-            "title": "Design and Analysis of Algorithms",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken CSCI3160 or CSCI3190. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004."
-          },
-          {
-            "code": "ESTR 3106",
-            "title": "Principles of Programming Languages",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken CSCI3180. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived."
-          },
-          {
-            "code": "ESTR 3108",
-            "title": "Fundamentals of Artificial Intelligence",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent."
-          },
-          {
             "code": "ESTR 4106",
             "title": "Introduction to Cloud Computing and Storage",
             "unit": "3.00",
             "prereq": "Co-requisite: CSCI3150 or ESTR3102. Not for students who have taken CSCI4180."
+          },
+          {
+            "code": "CSCI 4190",
+            "title": "Introduction to Social Networks",
+            "unit": "3.00",
+            "prereq": "Pre-requisite: CSCI2100 or 2520 or ESTR2102."
           }
         ]
       }

@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Minor: Hong Kong Sign Language</title>
 <style>:root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
-        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309; }
+        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309;
+        --tbl-border: #868a90; --tbl-border-light: #d5d8dc; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
@@ -21,9 +22,13 @@ a:hover { text-decoration:underline; }
 .section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
-th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--border); font-size:.92em; }
+th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
+th:first-child, td:first-child { white-space:nowrap; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
+td:nth-child(4) { word-break:break-word; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
+.eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px; margin-bottom:8px;
@@ -57,7 +62,7 @@ tr:hover { background:#f9f9f9; }
 .point-text p { margin:0; }
 .notes-table-section table { background:var(--card); border-collapse:collapse;
     border-radius:8px; overflow:hidden; }
-.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--border); }
+.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
 .notes-table-section tr:hover { background:#f9f9f9; }
 
 /* ── Sidebar ── */
@@ -215,14 +220,16 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses<span id="ref_a"><a href="#note_a">[a]</a></span>: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) HKSL1000 and 1002, or 1003</span><span class="meta">(6 units)</span></div></div>
-<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>HKSL 1000</td><td>Hong Kong Sign Language I</td><td>3.00</td><td>Not for students who have taken HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003</td></tr>
-<tr><td>HKSL 1002</td><td>Hong Kong Sign Language II</td><td>3.00</td><td>1. Not for students who have taken HKSL1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003 2. Prerequisite: HKSL1000</td></tr>
+<tr class="eq-row"><td>HKSL 1002</td><td>Hong Kong Sign Language II</td><td>3.00</td><td>1. Not for students who have taken HKSL1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003 2. Prerequisite: HKSL1000</td></tr>
+<tr><td>HKSL 1003</td><td>Hong Kong Sign Language I & II</td><td>6.00</td><td>Not for students who have taken HKSL1000, 1002(2000), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) HKSL2001 and 2002, or 2003</span><span class="meta">(6 units)</span></div></div>
-<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>HKSL 2001</td><td>Hong Kong Sign Language III</td><td>3.00</td><td>1.Not for students who have taken HKSL2002(3000), 2003(3050), 3001, 3002 or 3003 2.Pre-requisite: HKSL1002(2000) or 1003(2050)</td></tr>
-<tr><td>HKSL 2002</td><td>Hong Kong Sign Language IV</td><td>3.00</td><td>1. Not for students who have taken HKSL2003(3050), 3001, 3002 or 3003 2. Prerequisite: HKSL2001</td></tr>
+<tr class="eq-row"><td>HKSL 2002</td><td>Hong Kong Sign Language IV</td><td>3.00</td><td>1. Not for students who have taken HKSL2003(3050), 3001, 3002 or 3003 2. Prerequisite: HKSL2001</td></tr>
+<tr><td>HKSL 2003</td><td>Hong Kong Sign Language III & IV</td><td>6.00</td><td>1. Prerequisite: HKSL1002(2000) or 1003(2050) 2. Not for students who have taken HKSL2001, 2002(3000), 3001, 3002 or 3003</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">BMBL3002, 3003 or any HKSL courses at 3000 or above level</span><span class="meta">(6 units)</span></div></div>

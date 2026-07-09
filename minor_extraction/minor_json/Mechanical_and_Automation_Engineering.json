@@ -12,25 +12,13 @@
         "index": 1,
         "text": "MAEG2020/ESTR2400, MAEG3060/ESTR3408",
         "codes": [
-          "ESTR 2400",
-          "ESTR 3408",
           "MAEG 2020",
-          "MAEG 3060"
+          "ESTR 2400",
+          "MAEG 3060",
+          "ESTR 3408"
         ],
         "units": "",
         "courses": [
-          {
-            "code": "ESTR 2400",
-            "title": "Engineering Mechanics",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG2020"
-          },
-          {
-            "code": "ESTR 3408",
-            "title": "Introduction to Robotics",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG3060 or ELEG3103."
-          },
           {
             "code": "MAEG 2020",
             "title": "Engineering Mechanics",
@@ -38,10 +26,22 @@
             "prereq": "Not for students who have taken ESTR2400."
           },
           {
+            "code": "ESTR 2400",
+            "title": "Engineering Mechanics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG2020"
+          },
+          {
             "code": "MAEG 3060",
             "title": "Introduction to Robotics",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR3408 or ELEG3103."
+          },
+          {
+            "code": "ESTR 3408",
+            "title": "Introduction to Robotics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG3060 or ELEG3103."
           }
         ]
       }
@@ -56,33 +56,33 @@
         "text": "EEEN3030/ESTR3402, MAEG2030/ESTR2402, MAEG3010, MAEG3020/ESTR3404, MAEG3030, 3040, MAEG3050/ESTR3406, MAEG3070, 3080, MAEG4010/ESTR4408, MAEG4020/ESTR4410, MAEG4030/ESTR4412, MAEG4040/ESTR4414, MAEG4050/ESTR4416, MAEG4060, MAEG4070/ESTR4418, MAEG4080/ESTR4420",
         "codes": [
           "EEEN 3030",
-          "ESTR 2402",
           "ESTR 3402",
-          "ESTR 3404",
-          "ESTR 3406",
-          "ESTR 4408",
-          "ESTR 4410",
-          "ESTR 4412",
-          "ESTR 4414",
-          "ESTR 4416",
-          "ESTR 4418",
-          "ESTR 4420",
           "MAEG 2030",
+          "ESTR 2402",
           "MAEG 3010",
           "MAEG 3020",
+          "ESTR 3404",
           "MAEG 3030",
           "MAEG 3040",
           "MAEG 3050",
+          "ESTR 3406",
           "MAEG 3070",
           "MAEG 3080",
           "MAEG 4010",
+          "ESTR 4408",
           "MAEG 4020",
+          "ESTR 4410",
           "MAEG 4030",
+          "ESTR 4412",
           "MAEG 4040",
+          "ESTR 4414",
           "MAEG 4050",
+          "ESTR 4416",
           "MAEG 4060",
           "MAEG 4070",
-          "MAEG 4080"
+          "ESTR 4418",
+          "MAEG 4080",
+          "ESTR 4420"
         ],
         "units": "",
         "courses": [
@@ -93,76 +93,22 @@
             "prereq": "Not for students who have taken ENER3030 or ESTR3402."
           },
           {
-            "code": "ESTR 2402",
-            "title": "Thermodynamics",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG2030."
-          },
-          {
             "code": "ESTR 3402",
             "title": "Engineering Materials",
             "unit": "3.00",
             "prereq": "Not for students who have taken ENER3030 or EEEN3030."
           },
           {
-            "code": "ESTR 3404",
-            "title": "Manufacturing Technology",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG3020."
-          },
-          {
-            "code": "ESTR 3406",
-            "title": "Introduction to Control Systems",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG3050."
-          },
-          {
-            "code": "ESTR 4408",
-            "title": "Computer-integrated Manufacturing",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG4010."
-          },
-          {
-            "code": "ESTR 4410",
-            "title": "Finite Element Modelling and Analysis",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG4020."
-          },
-          {
-            "code": "ESTR 4412",
-            "title": "Heat Transfer",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG4030. Pre-requisite: MAEG2030 / ESTR2402 and MAEG3030, or with the consent of the course instructor."
-          },
-          {
-            "code": "ESTR 4414",
-            "title": "Mechatronic Systems",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG4040."
-          },
-          {
-            "code": "ESTR 4416",
-            "title": "Modern Control Systems Analysis and Design",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG4050."
-          },
-          {
-            "code": "ESTR 4418",
-            "title": "Engineering Optimization",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG4070."
-          },
-          {
-            "code": "ESTR 4420",
-            "title": "Introduction to Combustion",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken MAEG4080. Pre-requisite: MAEG2030 or ESTR2402 and MAEG3030."
-          },
-          {
             "code": "MAEG 2030",
             "title": "Thermodynamics",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR2402."
+          },
+          {
+            "code": "ESTR 2402",
+            "title": "Thermodynamics",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG2030."
           },
           {
             "code": "MAEG 3010",
@@ -175,6 +121,12 @@
             "title": "Manufacturing Technology",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR3404."
+          },
+          {
+            "code": "ESTR 3404",
+            "title": "Manufacturing Technology",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG3020."
           },
           {
             "code": "MAEG 3030",
@@ -195,6 +147,12 @@
             "prereq": "Not for students who have taken ESTR3406."
           },
           {
+            "code": "ESTR 3406",
+            "title": "Introduction to Control Systems",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG3050."
+          },
+          {
             "code": "MAEG 3070",
             "title": "Fundamentals of Computer-Aided Design",
             "unit": "3.00",
@@ -213,10 +171,22 @@
             "prereq": "Not for students who have taken ESTR4408."
           },
           {
+            "code": "ESTR 4408",
+            "title": "Computer-integrated Manufacturing",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG4010."
+          },
+          {
             "code": "MAEG 4020",
             "title": "Finite Element Modelling and Analysis",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR4410."
+          },
+          {
+            "code": "ESTR 4410",
+            "title": "Finite Element Modelling and Analysis",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG4020."
           },
           {
             "code": "MAEG 4030",
@@ -225,16 +195,34 @@
             "prereq": "Pre-requisite: MAEG2030/ESTR2402 and MAEG3030, or with the consent of the course instructor Not for students who have taken ESTR4412."
           },
           {
+            "code": "ESTR 4412",
+            "title": "Heat Transfer",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG4030. Pre-requisite: MAEG2030 / ESTR2402 and MAEG3030, or with the consent of the course instructor."
+          },
+          {
             "code": "MAEG 4040",
             "title": "Mechatronic Systems",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR4414."
           },
           {
+            "code": "ESTR 4414",
+            "title": "Mechatronic Systems",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG4040."
+          },
+          {
             "code": "MAEG 4050",
             "title": "Modern Control Systems Analysis and Design",
             "unit": "3.00",
             "prereq": "Not for students who have taken ESTR4416."
+          },
+          {
+            "code": "ESTR 4416",
+            "title": "Modern Control Systems Analysis and Design",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG4050."
           },
           {
             "code": "MAEG 4060",
@@ -249,10 +237,22 @@
             "prereq": "Not for students who have taken ESTR4418."
           },
           {
+            "code": "ESTR 4418",
+            "title": "Engineering Optimization",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG4070."
+          },
+          {
             "code": "MAEG 4080",
             "title": "Introduction to Combustion",
             "unit": "3.00",
             "prereq": "Pre-requisite: MAEG2030/ESTR2402 and MAEG3030. Not for students who have taken ESTR4420."
+          },
+          {
+            "code": "ESTR 4420",
+            "title": "Introduction to Combustion",
+            "unit": "3.00",
+            "prereq": "Not for students who have taken MAEG4080. Pre-requisite: MAEG2030 or ESTR2402 and MAEG3030."
           }
         ]
       }

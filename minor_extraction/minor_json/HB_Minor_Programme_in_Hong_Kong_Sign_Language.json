@@ -13,7 +13,8 @@
         "text": "(a) HKSL1000 and 1002, or 1003",
         "codes": [
           "HKSL 1000",
-          "HKSL 1002"
+          "HKSL 1002",
+          "HKSL 1003"
         ],
         "units": "6",
         "courses": [
@@ -28,6 +29,12 @@
             "title": "Hong Kong Sign Language II",
             "unit": "3.00",
             "prereq": "1. Not for students who have taken HKSL1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003 2. Prerequisite: HKSL1000"
+          },
+          {
+            "code": "HKSL 1003",
+            "title": "Hong Kong Sign Language I & II",
+            "unit": "6.00",
+            "prereq": "Not for students who have taken HKSL1000, 1002(2000), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003"
           }
         ]
       },
@@ -36,7 +43,8 @@
         "text": "(b) HKSL2001 and 2002, or 2003",
         "codes": [
           "HKSL 2001",
-          "HKSL 2002"
+          "HKSL 2002",
+          "HKSL 2003"
         ],
         "units": "6",
         "courses": [
@@ -51,6 +59,12 @@
             "title": "Hong Kong Sign Language IV",
             "unit": "3.00",
             "prereq": "1. Not for students who have taken HKSL2003(3050), 3001, 3002 or 3003 2. Prerequisite: HKSL2001"
+          },
+          {
+            "code": "HKSL 2003",
+            "title": "Hong Kong Sign Language III & IV",
+            "unit": "6.00",
+            "prereq": "1. Prerequisite: HKSL1002(2000) or 1003(2050) 2. Not for students who have taken HKSL2001, 2002(3000), 3001, 3002 or 3003"
           }
         ]
       }
