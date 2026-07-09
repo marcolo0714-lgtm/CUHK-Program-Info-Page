@@ -226,7 +226,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">(b) FREN2001 and 3000, or 3050</span><span class="meta">(6 units)</span></div></div>
 <details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>FREN 2001</td><td>French III</td><td>3.00</td><td>1. Not for students who have taken FREN3000,3001,3002,3050 or 3051 2. Prerequisite: FREN2000 or FREN2050</td></tr>
-<tr class="eq-row"><td>FREN 3000</td><td>French IV</td><td>3.00</td><td>1. Not for students who have taken FREN3001,3002,3050 or 3051 2. Prerequisite: FREN2001</td></tr>
+<tr><td>FREN 3000</td><td>French IV</td><td>3.00</td><td>1. Not for students who have taken FREN3001,3002,3050 or 3051 2. Prerequisite: FREN2001</td></tr>
 <tr><td>FREN 3050</td><td>French III & IV</td><td>6.00</td><td>1. Not for students who have taken FREN2001,3000,3001,3002 or 3051 2. Prerequisite: FREN2000 or 2050</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(c) FREN3001<span id="ref_c"><a href="#note_c">[c]</a></span></span><span class="meta">(3 units)</span></div></div>
@@ -269,6 +269,15 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
     });
   }
 })();
+
+// Prevent sidebar from navigating when clicking the already-active minor
+document.querySelectorAll('.sidebar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (this.classList.contains('active')) {
+      e.preventDefault();
+    }
+  });
+});
 
 function toggleSidebar() {
   document.querySelector('.sidebar').classList.toggle('open');

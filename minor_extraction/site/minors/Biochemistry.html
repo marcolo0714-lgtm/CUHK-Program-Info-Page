@@ -222,7 +222,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">BCHE2030, 3030/3730, 3080</span></div></div>
 <details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>BCHE 2030</td><td>Fundamentals of Biochemistry</td><td>3.00</td><td>-</td></tr>
-<tr><td>BCHE 3030</td><td>Methods in Biochemistry</td><td>3.00</td><td>Pre-requisite: BCHE2030 or permission of instructor.</td></tr>
+<tr class="eq-row"><td>BCHE 3030</td><td>Methods in Biochemistry</td><td>3.00</td><td>Pre-requisite: BCHE2030 or permission of instructor.</td></tr>
 <tr><td>BCHE 3730</td><td>Analytical Biochemistry Laboratory</td><td>2.00</td><td>Not for students who have taken BCHE3630. Pre-requisite: BCHE3650. Co-requisite: BCHE3030.</td></tr>
 <tr><td>BCHE 3080</td><td>Bioenergetics and Metabolism</td><td>3.00</td><td>Pre-requisite: BCHE2030 or permission of instructor.</td></tr>
 </tbody></table></details>
@@ -230,14 +230,14 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">BCHE3050/3070/3650^, 3110, 4030/4830^, 4040/4640^, 4060/4760^, 4070, 4080, 4090, 4130/4830^</span></div></div>
 <details class="course-details"><summary>Show 14 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr class="eq-row"><td>BCHE 3050</td><td>Molecular Biology</td><td>2.00</td><td>Not for students who have taken BCHE4010 or BIOL2310.</td></tr>
-<tr><td>BCHE 3070</td><td>Recombinant DNA Techniques</td><td>1.00</td><td>Not for students who have taken BCHE4020.</td></tr>
+<tr class="eq-row"><td>BCHE 3070</td><td>Recombinant DNA Techniques</td><td>1.00</td><td>Not for students who have taken BCHE4020.</td></tr>
 <tr><td>BCHE 3650</td><td>Molecular Biology and Recombinant DNA Laboratory</td><td>2.00</td><td>Not for students who have taken BCHE4610.</td></tr>
 <tr><td>BCHE 3110</td><td>Chemical Biology</td><td>3.00</td><td>Pre-requisite: BCHE2030 and one of the following three courses: CHEM1070 or 1072 or 1280.</td></tr>
-<tr><td>BCHE 4030</td><td>Clinical Biochemistry</td><td>3.00</td><td>Pre-requisite: BCHE2030 or permission of instructor.</td></tr>
+<tr class="eq-row"><td>BCHE 4030</td><td>Clinical Biochemistry</td><td>3.00</td><td>Pre-requisite: BCHE2030 or permission of instructor.</td></tr>
 <tr><td>BCHE 4830</td><td>Medical Biochemistry Laboratory</td><td>2.00</td><td>—</td></tr>
-<tr><td>BCHE 4040</td><td>Aspects of Neuroscience</td><td>3.00</td><td>Pre-requisite: BCHE2030 or permission of instructor.</td></tr>
+<tr class="eq-row"><td>BCHE 4040</td><td>Aspects of Neuroscience</td><td>3.00</td><td>Pre-requisite: BCHE2030 or permission of instructor.</td></tr>
 <tr><td>BCHE 4640</td><td>Aspects of Neuroscience Laboratory</td><td>2.00</td><td>—</td></tr>
-<tr><td>BCHE 4060</td><td>Basic and Applied Immunology</td><td>3.00</td><td>—</td></tr>
+<tr class="eq-row"><td>BCHE 4060</td><td>Basic and Applied Immunology</td><td>3.00</td><td>—</td></tr>
 <tr><td>BCHE 4760</td><td>Immunology and Haematology Laboratory</td><td>2.00</td><td>Not for students who have taken BCHE4660.</td></tr>
 <tr><td>BCHE 4070</td><td>Management and Accreditation of Biochemical Laboratory</td><td>3.00</td><td>Not for students who have taken BBMS6300. Pre-requisite: BCHE2030 or permission of instructor.</td></tr>
 <tr><td>BCHE 4080</td><td>Biochemistry for Forensic Sciences</td><td>2.00</td><td>Pre-requisite: BCHE2030 or permission of instructor.</td></tr>
@@ -271,6 +271,15 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
     });
   }
 })();
+
+// Prevent sidebar from navigating when clicking the already-active minor
+document.querySelectorAll('.sidebar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (this.classList.contains('active')) {
+      e.preventDefault();
+    }
+  });
+});
 
 function toggleSidebar() {
   document.querySelector('.sidebar').classList.toggle('open');

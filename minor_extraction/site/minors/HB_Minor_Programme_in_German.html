@@ -226,7 +226,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">(b) GERM2001 and 3000, or 3050</span><span class="meta">(6 units)</span></div></div>
 <details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>GERM 2001</td><td>German III</td><td>3.00</td><td>1. Not for students who have taken GERM3000,3001,3002,3050, 3051 or 4001 2. Prerequisite: GERM2000 or 2050</td></tr>
-<tr class="eq-row"><td>GERM 3000</td><td>German IV</td><td>3.00</td><td>1. Not for students who have taken GERM3001,3002,3050,3051 or 4001 2. Prerequisite: GERM2001</td></tr>
+<tr><td>GERM 3000</td><td>German IV</td><td>3.00</td><td>1. Not for students who have taken GERM3001,3002,3050,3051 or 4001 2. Prerequisite: GERM2001</td></tr>
 <tr><td>GERM 3050</td><td>German III & IV</td><td>6.00</td><td>1.Not for students who have taken GERM2001,3000,3001,3002,3051 or 4001 2.Prerequisite: GERM2000 or GERM2050</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(c) GERM3001<span id="ref_c"><a href="#note_c">[c]</a></span></span><span class="meta">(3 units)</span></div></div>
@@ -269,6 +269,15 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
     });
   }
 })();
+
+// Prevent sidebar from navigating when clicking the already-active minor
+document.querySelectorAll('.sidebar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (this.classList.contains('active')) {
+      e.preventDefault();
+    }
+  });
+});
 
 function toggleSidebar() {
   document.querySelector('.sidebar').classList.toggle('open');

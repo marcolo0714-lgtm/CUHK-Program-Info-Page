@@ -1,10 +1,15 @@
 import re
-for f in ['Artificial_Intelligence_Systems_and_Technologies.html','HB_Minor_Programme_in_Entrepreneurship_and_Innovation.html','Molecular_Biotechnology.html','Biochemistry.html','Physics.html']:
-    html = open(f,'r',encoding='utf-8').read()
-    count = len(re.findall(r'<tr class="eq-row"', html))
-    print(f + ': eq-row=' + str(count))
-# Show E&I eq-row codes
+# Biochemistry
+html = open('Biochemistry.html','r',encoding='utf-8').read()
+count = len(re.findall(r'class="eq-row"', html))
+print('Biochem eq-row classes:', count)
+# Show eq-row codes
+for m in re.finditer(r'<tr class="[^"]*eq-row[^"]*"><td>([^<]+)', html):
+    print('  eq:', m.group(1))
 print()
-html = open('HB_Minor_Programme_in_Entrepreneurship_and_Innovation.html','r',encoding='utf-8').read()
-for m in re.finditer(r'<tr class="eq-row"><td>([^<]+)', html):
-    print('E&I eq:', m.group(1))
+
+# AIST - check nf eq-row
+html2 = open('Artificial_Intelligence_Systems_and_Technologies.html','r',encoding='utf-8').read()
+for m in re.finditer(r'<tr class="[^"]*nf[^"]*"><td>([^<]+)', html2):
+    cls = re.search(r'class="([^"]+)"', m.group())
+    print('AIST nf: ' + m.group(1) + ' class=' + (cls.group(1) if cls else '?'))

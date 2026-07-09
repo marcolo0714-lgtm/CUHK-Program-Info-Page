@@ -169,6 +169,15 @@ JS = """\
   }
 })();
 
+// Prevent sidebar from navigating when clicking the already-active minor
+document.querySelectorAll('.sidebar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (this.classList.contains('active')) {
+      e.preventDefault();
+    }
+  });
+});
+
 function toggleSidebar() {
   document.querySelector('.sidebar').classList.toggle('open');
   document.querySelector('.sidebar-overlay').classList.toggle('open');
@@ -234,16 +243,17 @@ def build_course_table(courses, eq_pairs=None):
     eq_pairs = eq_pairs or set()
     rows = ""
     for i, c in enumerate(courses):
-        cls = ""
+        eq_cls = ""
         # Check if this row is the FIRST of an equivalent pair
         if i + 1 < len(courses):
             next_code = courses[i + 1]["code"]
             if (c["code"], next_code) in eq_pairs:
-                cls = ' class="eq-row"'
+                eq_cls = "eq-row"
         if c.get("title"):
             prereq = c["prereq"] if c["prereq"] else "\u2014"
+            tr_open = f'<tr class="{eq_cls}">' if eq_cls else '<tr>'
             rows += (
-                f"<tr{cls}>"
+                f"{tr_open}"
                 f"<td>{c['code']}</td>"
                 f"<td>{c['title']}</td>"
                 f"<td>{c['unit']}</td>"
@@ -251,8 +261,9 @@ def build_course_table(courses, eq_pairs=None):
                 f"</tr>\n"
             )
         else:
+            nf_cls = f"nf {eq_cls}".strip()
             rows += (
-                f'<tr class="nf{cls}">'
+                f'<tr class="{nf_cls}">'
                 f"<td>{c['code']}</td>"
                 f'<td colspan="3"><em>(not found in course_info)</em></td>'
                 f"</tr>\n"
@@ -270,7 +281,7 @@ def _or_connected(prev_text, curr_text):
     return p.endswith("OR") or p.endswith("; OR") or c.startswith("OR") or c == "OR"
 
 
-def build_section_html(sec, course_index):
+def build_section_html(sec, course_index, eq_pairs=None):
     """Return HTML for a required / elective section from JSON (row-based)."""
     lines = []
     label = sec.get("label", "")
@@ -300,6 +311,7 @@ def build_section_html(sec, course_index):
         )
         if not already_shown:
             label = label.strip().rstrip(':') + f": {sec_units} units"
+    eq_pairs = set(tuple(p) for p in (eq_pairs or []))
     lines.append(f"<h2>{label}</h2>")
 
     rows = sec.get("rows", [])
@@ -319,11 +331,10 @@ def build_section_html(sec, course_index):
         row_cls = 'req-row'
         html_parts = []
         all_courses = []
-        all_texts = []
         for r in block:
             text = r["text"].strip()
             if not text or _is_unit_only(r):
-                all_courses.extend(r.get("courses", []))
+                all_courses.extend(resolve_courses(r.get("codes", []), course_index))
                 continue
             rh = f'<div class="{row_cls}">'
             rh += f'<span class="row-text">{text}</span>'
@@ -331,71 +342,13 @@ def build_section_html(sec, course_index):
                 rh += f'<span class="meta">({r["units"]} units)</span>'
             rh += '</div>'
             html_parts.append(rh)
-            all_courses.extend(r.get("courses", []))
-            all_texts.append(text)
+            all_courses.extend(resolve_courses(r.get("codes", []), course_index))
         if not html_parts and not all_courses:
             return
         lines.append(
             f'<div class="section{cls_suffix}">' + "".join(html_parts) + '</div>'
         )
         if all_courses:
-            # Detect equivalent pairs: codes connected by single '/' or "or" in the text
-            eq_pairs = set()
-
-            def _last_dept(t, pos):
-                """Find the most recent department code before *pos* in *t*."""
-                best = ""
-                for dm in re.finditer(r'([A-Z]{4})\s*\d{4}', t):
-                    if dm.start() < pos:
-                        best = dm.group(1)
-                return best
-
-            for t in all_texts:
-                # Strip footnote refs that interfere with pattern matching
-                t = re.sub(r'\[[a-z]\]', '', t)
-                # Build pairs from slash-separated codes (all formats)
-                for m in re.finditer(r'([A-Z]{4})\s*(\d{4}[A-Za-z]?)\s*/\s*(\d{4}[A-Za-z]?)', t):
-                    c1 = f"{m.group(1)} {m.group(2)}"
-                    c2 = f"{m.group(1)} {m.group(3)}"
-                    eq_pairs.add((c1, c2))
-                for m in re.finditer(r'([A-Z]{4})\s*(\d{4}[A-Za-z]?)\s*/\s*([A-Z]{4})\s*(\d{4}[A-Za-z]?)', t):
-                    c1 = f"{m.group(1)} {m.group(2)}"
-                    c2 = f"{m.group(3)} {m.group(4)}"
-                    eq_pairs.add((c1, c2))
-                # Build pairs from "or"-connected codes.
-                # Find all code occurrences and "or" positions, then pair
-                # codes on either side of each "or".
-                code_positions = []  # (pos, dept, num)
-                for cm in re.finditer(r'([A-Z]{4})\s*(\d{4})\b', t):
-                    code_positions.append((cm.start(), cm.group(1), cm.group(2)))
-                # Also find implicit codes (just 4-digit numbers)
-                for cm in re.finditer(r'(?<![A-Z])(\d{4})(?![A-Za-z])', t):
-                    start = cm.start()
-                    before = t[max(0, start - 10):start]
-                    if re.search(r'(?:,|/|or|and)\s*$', before) or re.search(r'\s\s+$', before):
-                        dept = _last_dept(t, start)
-                        if dept:
-                            code_positions.append((start, dept, cm.group(1)))
-                code_positions.sort()
-                # Find all "or" positions
-                or_positions = [om.start() for om in re.finditer(r'\s+or\s+', t, re.IGNORECASE)]
-                for or_pos in or_positions:
-                    # Find the code immediately before this "or"
-                    before_code = None
-                    for cp in reversed(code_positions):
-                        if cp[0] < or_pos:
-                            before_code = cp
-                            break
-                    # Find the code immediately after this "or"
-                    after_code = None
-                    for cp in code_positions:
-                        if cp[0] > or_pos:
-                            after_code = cp
-                            break
-                    if before_code and after_code:
-                        c1 = f"{before_code[1]} {before_code[2]}"
-                        c2 = f"{after_code[1]} {after_code[2]}"
-                        eq_pairs.add((c1, c2))
             tbody = build_course_table(all_courses, eq_pairs)
             lines.append(
                 f'<details class="course-details">'
@@ -439,8 +392,8 @@ def build_section_html(sec, course_index):
         # Non-stream row: add to buffer
         buf.append(row)
 
-        courses = row.get("courses", [])
-        has_courses = bool(courses)
+        codes = row.get("codes", [])
+        has_courses = bool(codes)
 
         if has_courses:
             # Check if the NEXT row is OR-connected → extend buffer instead of flushing
@@ -554,11 +507,12 @@ def build_detail_page(data, course_index, prev_stem=None, prev_title=None, next_
         body.append("<h2>Description</h2>")
         body.append(f'<div class="section"><pre>{desc}</pre></div>')
 
+    eq_pairs = data.get("eq_pairs", [])
     if data.get("required", {}).get("label"):
-        body.append(build_section_html(data["required"], course_index))
+        body.append(build_section_html(data["required"], course_index, eq_pairs))
 
     if data.get("elective", {}).get("label"):
-        body.append(build_section_html(data["elective"], course_index))
+        body.append(build_section_html(data["elective"], course_index, eq_pairs))
 
     notes = data.get("explanatory_notes", "")
     if notes:
@@ -815,22 +769,28 @@ def generate():
         return
 
     index_cards = []
+    not_found_acc = set()
 
     # ── First pass: load all data into cards ──
     for json_path in json_files:
         stem = json_path.stem
         data = json.loads(json_path.read_text(encoding="utf-8"))
-        req_courses = [c for r in data.get("required", {}).get("rows", []) for c in r.get("courses", [])]
-        ele_courses = [c for r in data.get("elective", {}).get("rows", []) for c in r.get("courses", [])]
+        req_codes = [c for r in data.get("required", {}).get("rows", []) for c in r.get("codes", [])]
+        ele_codes = [c for r in data.get("elective", {}).get("rows", []) for c in r.get("codes", [])]
+        req_resolved = resolve_courses(req_codes, course_index)
+        ele_resolved = resolve_courses(ele_codes, course_index)
+        for c in req_resolved + ele_resolved:
+            if not c["title"]:
+                not_found_acc.add(c["code"])
         index_cards.append({
             "stem": stem,
             "data": data,
             "title": data["title"],
             "faculty": data.get("faculty", "Unknown"),
-            "req_count": len(req_courses),
-            "req_found": sum(1 for c in req_courses if c.get("title")),
-            "ele_count": len(ele_courses),
-            "ele_found": sum(1 for c in ele_courses if c.get("title")),
+            "req_count": len(req_resolved),
+            "req_found": sum(1 for c in req_resolved if c.get("title")),
+            "ele_count": len(ele_resolved),
+            "ele_found": sum(1 for c in ele_resolved if c.get("title")),
         })
 
     # ── Sort into index-page order (faculty groups, "Other" last, alpha by title within faculty) ──

@@ -250,7 +250,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ESTR 3104</td><td>Design and Analysis of Algorithms</td><td>3.00</td><td>Not for students who have taken CSCI3160 or CSCI3190. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004.</td></tr>
 <tr><td>CSCI 3280</td><td>Introduction to Multimedia Systems</td><td>3.00</td><td>—</td></tr>
 <tr><td>CSCI 4230</td><td>Computational Learning Theory</td><td>3.00</td><td>Prerequisite: ENGG2430 or 2450 or 2760 or 2780 or ESTR2002 or 2005 or 2018 or 2020 or 2308 or 2362 or IERG2470 or MIEG2440</td></tr>
-<tr class="nf class="eq-row""><td>CSCI 4250</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr class="nf eq-row"><td>CSCI 4250</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr class="nf"><td>ESTR 4122</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr class="eq-row"><td>ENGG 2760</td><td>Probability for Engineers</td><td>2.00</td><td>Not for students who have taken ENGG2430 or 2450 or 2470 or ESTR2002 or 2005 or 2012 or 2018 or 2308 or 2362 or IERG2470 or MIEG2440</td></tr>
 <tr class="eq-row"><td>ESTR 2018</td><td>Probability for Engineers</td><td>2.00</td><td>Not for students who have taken ENGG2430 or ENGG2450 or ENGG2470 or ENGG2760 or ESTR2002 or ESTR2005 or ESTR2012 or ESTR2308 or ESTR2362 or IERG2470 or MIEG2440.</td></tr>
@@ -297,6 +297,15 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
     });
   }
 })();
+
+// Prevent sidebar from navigating when clicking the already-active minor
+document.querySelectorAll('.sidebar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (this.classList.contains('active')) {
+      e.preventDefault();
+    }
+  });
+});
 
 function toggleSidebar() {
   document.querySelector('.sidebar').classList.toggle('open');

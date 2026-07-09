@@ -237,7 +237,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">(b) 3 to 9 units of courses from the following:</span></div><div class="req-row"><span class="row-text">AIST1110 or CSCI1110 or 1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 2040, COMM2710, 2922, 2926, CSCI3310, EPIN3010, 3050, 4010, IERG3830, LAWS2331, MAEG2910, MGNT3070, MGNT4070 or SOWK2203, MGNT4090, 4130, 4570, SEEM1000, STAT1013, 2005, 3009, 4001</span></div></div>
 <details class="course-details"><summary>Show 30 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr class="eq-row"><td>AIST 1110</td><td>Introduction to Computing using Python</td><td>3.00</td><td>Pre-requisite: ENGG1110 or ESTR1002 Not for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080</td></tr>
-<tr class="nf class="eq-row""><td>CSCI 1110</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr class="nf eq-row"><td>CSCI 1110</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr class="eq-row"><td>CSCI 1120</td><td>Introduction to Computing Using C++</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1020 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ESTR1100 or ESTR1102</td></tr>
 <tr class="eq-row"><td>CSCI 1130</td><td>Introduction to Computing Using Java</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1030 or CSCI1120 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ESTR1100 or ESTR1102</td></tr>
 <tr class="eq-row"><td>CSCI 1510</td><td>Computer Principles and C Programming</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1120 or CSCI1130 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102</td></tr>
@@ -306,6 +306,15 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
     });
   }
 })();
+
+// Prevent sidebar from navigating when clicking the already-active minor
+document.querySelectorAll('.sidebar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (this.classList.contains('active')) {
+      e.preventDefault();
+    }
+  });
+});
 
 function toggleSidebar() {
   document.querySelector('.sidebar').classList.toggle('open');

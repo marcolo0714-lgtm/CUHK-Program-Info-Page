@@ -1,5 +1,8 @@
 import re
-for f in ['Artificial_Intelligence_Systems_and_Technologies.html','HB_Minor_Programme_in_Entrepreneurship_and_Innovation.html','Molecular_Biotechnology.html','Biochemistry.html']:
-    html = open(f,'r',encoding='utf-8').read()
-    count = len(re.findall(r'<tr class="eq-row"', html))
-    print(f + ': eq-row=' + str(count))
+# Check eq-rows still working
+html = open('Artificial_Intelligence_Systems_and_Technologies.html','r',encoding='utf-8').read()
+eq_count = len(re.findall(r'class="[^"]*eq-row[^"]*"', html))
+print('AIST eq-row:', eq_count)
+# Check sidebar active-navigation prevention
+has_prevent = 'classList.contains' in open('Computer_Science.html','r',encoding='utf-8').read()
+print('Has active-link prevention:', has_prevent)

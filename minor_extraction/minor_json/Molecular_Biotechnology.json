@@ -9,23 +9,13 @@
     "units": "",
     "rows": [
       {
-        "index": 1,
         "text": "(a) MBTE4320",
         "codes": [
           "MBTE 4320"
         ],
-        "units": "3",
-        "courses": [
-          {
-            "code": "MBTE 4320",
-            "title": "Genetic Engineering",
-            "unit": "3.00",
-            "prereq": ""
-          }
-        ]
+        "units": "3"
       },
       {
-        "index": 2,
         "text": "(b) BCHE2030 or BIOL2120 or 2410 or LSCI1003 or SBMS1440",
         "codes": [
           "BCHE 2030",
@@ -34,39 +24,7 @@
           "LSCI 1003",
           "SBMS 1440"
         ],
-        "units": "2",
-        "courses": [
-          {
-            "code": "BCHE 2030",
-            "title": "Fundamentals of Biochemistry",
-            "unit": "3.00",
-            "prereq": "-"
-          },
-          {
-            "code": "BIOL 2120",
-            "title": "Cell Biology",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: LSCI1002."
-          },
-          {
-            "code": "BIOL 2410",
-            "title": "General Genetics",
-            "unit": "2.00",
-            "prereq": "Not for students who have taken BIOL2310. Pre-requisite: LSCI1002 and BIOL2120."
-          },
-          {
-            "code": "LSCI 1003",
-            "title": "Life Sciences for Engineers",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken LSCI1001."
-          },
-          {
-            "code": "SBMS 1440",
-            "title": "Cell and Molecular Biology in Biomedical Engineering",
-            "unit": "2.00",
-            "prereq": ""
-          }
-        ]
+        "units": "2"
       }
     ]
   },
@@ -75,7 +33,6 @@
     "units": "13",
     "rows": [
       {
-        "index": 1,
         "text": "MBTE2000, 2010, 3000, 3510, 3511, 3518, 3521, 3528, 3531, 3550, 3558, 3560, 3568, 4033, 4034, 4510, 4520, 4530",
         "codes": [
           "MBTE 2000",
@@ -97,119 +54,27 @@
           "MBTE 4520",
           "MBTE 4530"
         ],
-        "units": "",
-        "courses": [
-          {
-            "code": "MBTE 2000",
-            "title": "Introduction to Molecular Biotechnology",
-            "unit": "2.00",
-            "prereq": ""
-          },
-          {
-            "code": "MBTE 2010",
-            "title": "Diversity of Life: Applications and Sustainability",
-            "unit": "2.00",
-            "prereq": ""
-          },
-          {
-            "code": "MBTE 3000",
-            "title": "Business and Social Aspects of Biotechnology",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "MBTE 3510",
-            "title": "Medical Biotechnology",
-            "unit": "1.00",
-            "prereq": ""
-          },
-          {
-            "code": "MBTE 3511",
-            "title": "Industrial applications of plant genetic modification",
-            "unit": "1.00",
-            "prereq": "Not for students who have taken MBTE4510."
-          },
-          {
-            "code": "MBTE 3518",
-            "title": "Project in Medical Biotechnology",
-            "unit": "2.00",
-            "prereq": "Co-requisite: MBTE3510."
-          },
-          {
-            "code": "MBTE 3521",
-            "title": "Transgenic Technologies in Animals and their Applications",
-            "unit": "1.00",
-            "prereq": "Not for students who have taken MBTE4520."
-          },
-          {
-            "code": "MBTE 3528",
-            "title": "Project in Transgenic technologies in Animals and their Applications",
-            "unit": "2.00",
-            "prereq": "Not for students who have taken MBTE4520. Co-requisite: MBTE3521."
-          },
-          {
-            "code": "MBTE 3531",
-            "title": "Microbes and Bioremediation",
-            "unit": "1.00",
-            "prereq": "Not for students who have taken MBTE4530."
-          },
-          {
-            "code": "MBTE 3550",
-            "title": "Biotechnology for Environment and Sustainability",
-            "unit": "1.00",
-            "prereq": ""
-          },
-          {
-            "code": "MBTE 3558",
-            "title": "Project in Biotechnology for Environment and Sustainability",
-            "unit": "2.00",
-            "prereq": "Co-requisite: MBTE3550."
-          },
-          {
-            "code": "MBTE 3560",
-            "title": "Protein Engineering and Drug Design",
-            "unit": "1.00",
-            "prereq": ""
-          },
-          {
-            "code": "MBTE 3568",
-            "title": "Project in Protein Engineering and Drug Design",
-            "unit": "2.00",
-            "prereq": "Co-requisite: MBTE3560."
-          },
-          {
-            "code": "MBTE 4033",
-            "title": "Methods in Molecular Biotechnology Laboratory I",
-            "unit": "2.00",
-            "prereq": "Not for students who have taken BCHE3650, CMBI3010 or SBMS2105."
-          },
-          {
-            "code": "MBTE 4034",
-            "title": "Methods in Molecular Biotechnology Lab II",
-            "unit": "2.00",
-            "prereq": "Not for students who have taken CMBI3010. Pre-requisite: MBTE4033 or LSCI2002."
-          },
-          {
-            "code": "MBTE 4510",
-            "title": "Plant Biotechnology",
-            "unit": "3.00",
-            "prereq": "-"
-          },
-          {
-            "code": "MBTE 4520",
-            "title": "Animal Biotechnology",
-            "unit": "3.00",
-            "prereq": "-"
-          },
-          {
-            "code": "MBTE 4530",
-            "title": "Microbial Biotechnology",
-            "unit": "3.00",
-            "prereq": ""
-          }
-        ]
+        "units": ""
       }
     ]
   },
-  "explanatory_notes": "<table><tr> <td colspan=\"2\" style=\"width:358.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"478\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Explanatory Note:</p> </td> <td style=\"width:90.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"120\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b> </b></p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> </td> <td colspan=\"2\" style=\"width:414.05pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"552\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">No more than 9 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</p> </td> </tr>\n<tr> <td colspan=\"3\" style=\"width:448.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"598\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><b> </b></p> </td> </tr></table>"
+  "explanatory_notes": "<table><tr> <td colspan=\"2\" style=\"width:358.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"478\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Explanatory Note:</p> </td> <td style=\"width:90.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"120\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b> </b></p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> </td> <td colspan=\"2\" style=\"width:414.05pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"552\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">No more than 9 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</p> </td> </tr>\n<tr> <td colspan=\"3\" style=\"width:448.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"598\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><b> </b></p> </td> </tr></table>",
+  "eq_pairs": [
+    [
+      "BCHE 2030",
+      "BIOL 2120"
+    ],
+    [
+      "BIOL 2120",
+      "BIOL 2410"
+    ],
+    [
+      "BIOL 2410",
+      "LSCI 1003"
+    ],
+    [
+      "LSCI 1003",
+      "SBMS 1440"
+    ]
+  ]
 }

@@ -236,7 +236,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ESTR 4400</td><td>Kinetic Energy Harvesting Devices and Systems</td><td>3.00</td><td>Not for students who have taken ENER4010 or EEEN4010. Pre-requisite: MAEG3030 or with the consent of the course instructor.</td></tr>
 <tr class="eq-row"><td>EEEN 4020</td><td>Solar Energy and Photovoltaic Technology</td><td>3.00</td><td>Not for students who have taken ESTR4402 Pre-requisite(s): 1. ELEG2202 and EEEN2020 or 2. ELEG2202 and ELEG3201/ESTR3200</td></tr>
 <tr><td>ESTR 4402</td><td>Solar Energy and Photovoltaic Technology</td><td>3.00</td><td>Not for students who have taken EEEN4020. Pre-requisite: 1. ELEG2202 and EEEN2020, or 2. ELEG2202 and ELEG3201/ESTR3200.</td></tr>
-<tr class="nf class="eq-row""><td>EEEN 4030</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<tr class="nf eq-row"><td>EEEN 4030</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr class="nf"><td>ESTR 4404</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr class="eq-row"><td>EEEN 4050</td><td>Energy Storage Devices and Systems</td><td>3.00</td><td>Pre-requisite(s): ENER2010 and ENER2020, or EEEN2020, or with the consent of the course instructor. Not for students who have taken ENER4040, ENER4050, ESTR4406 or ESTR4422.</td></tr>
 <tr><td>ESTR 4422</td><td>Energy Storage Devices and Systems</td><td>3.00</td><td>Not for students who have taken ENER4040, ENER4050 or ESTR4406 or EEEN4050. Pre-requisite: ENER2010 AND ENER2020 or EEEN2020 or with the consent of the course instructor.</td></tr>
@@ -275,6 +275,15 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
     });
   }
 })();
+
+// Prevent sidebar from navigating when clicking the already-active minor
+document.querySelectorAll('.sidebar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (this.classList.contains('active')) {
+      e.preventDefault();
+    }
+  });
+});
 
 function toggleSidebar() {
   document.querySelector('.sidebar').classList.toggle('open');

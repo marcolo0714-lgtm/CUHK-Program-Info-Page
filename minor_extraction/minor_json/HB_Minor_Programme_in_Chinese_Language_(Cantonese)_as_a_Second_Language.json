@@ -9,7 +9,6 @@
     "units": "",
     "rows": [
       {
-        "index": 1,
         "text": "LING1000, CLCC2213, 2223, 2243 and 3313",
         "codes": [
           "LING 1000",
@@ -18,39 +17,7 @@
           "CLCC 2243",
           "CLCC 3313"
         ],
-        "units": "15",
-        "courses": [
-          {
-            "code": "LING 1000",
-            "title": "Invitation to Linguistics",
-            "unit": "3.00",
-            "prereq": "LING1000 is double-coded with UGED1924. Not for students who have taken UGED1924."
-          },
-          {
-            "code": "CLCC 2213",
-            "title": "Application of Vocabulary and Grammar II",
-            "unit": "3.00",
-            "prereq": "Prerequisite: CLCC1113,1123,1133,1143orCCAN1113,1123,1133,1143 Not for students taken CLCC2233,2243,3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643,4913orCAN2233,2243,3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643,4653"
-          },
-          {
-            "code": "CLCC 2223",
-            "title": "Oral Skills Practice II",
-            "unit": "3.00",
-            "prereq": "Prerequisite:CLCC1113,1123,1133,1143/CCAN1113,1123,1133,1143 Not for student taken CLCC2233,2243,3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533, 4633,4643,4913/CCAN2233,2243,3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643,4653"
-          },
-          {
-            "code": "CLCC 2243",
-            "title": "Listening Comprehension and Communication Skills II",
-            "unit": "3.00",
-            "prereq": "Prerequisite:CLCC2213,2223,CCAN2213 or 2223 Not for students who have taken CLCC3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643 & 4913 CCAN3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643 & 4653"
-          },
-          {
-            "code": "CLCC 3313",
-            "title": "Application of Vocabulary and Grammar III",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: CLCC2213(CCAN2213), CLCC2223(CCAN2223), CLCC2233(CCAN2233) or CLCC2243(CCAN2243)"
-          }
-        ]
+        "units": "15"
       }
     ]
   },
@@ -59,7 +26,6 @@
     "units": "",
     "rows": [
       {
-        "index": 1,
         "text": "(a) 1 course from the following: LING2301, 3202, 3204, 3206 or 3207",
         "codes": [
           "LING 2301",
@@ -68,42 +34,9 @@
           "LING 3206",
           "LING 3207"
         ],
-        "units": "3",
-        "courses": [
-          {
-            "code": "LING 2301",
-            "title": "Language and Society",
-            "unit": "3.00",
-            "prereq": "LING2301 is double-coded with UGEC2925. Not for students who have taken UGEC1925 or UGEC2925."
-          },
-          {
-            "code": "LING 3202",
-            "title": "Psycholinguistics",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken PSYC3430"
-          },
-          {
-            "code": "LING 3204",
-            "title": "Second Language Acquisition",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "LING 3206",
-            "title": "Bilingualism",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "LING 3207",
-            "title": "Bilingual Acquisition",
-            "unit": "3.00",
-            "prereq": ""
-          }
-        ]
+        "units": "3"
       },
       {
-        "index": 2,
         "text": "(b) 1 course from the following: CLCC3323, 3343, 4413, 4423 or 4513",
         "codes": [
           "CLCC 3323",
@@ -112,41 +45,19 @@
           "CLCC 4423",
           "CLCC 4513"
         ],
-        "units": "3",
-        "courses": [
-          {
-            "code": "CLCC 3323",
-            "title": "Oral Skills Practice III",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: CLCC2233(CCAN2233) or CLCC2243(CCAN2243) Not for students who have taken CLCC4413, 4423, 4433, 4443, 4513, 4523, 4533, 4633, 4643 & 4913 or CCAN4413, 4423, 4433, 4443, 4513, 4523, 4533, 4633, 4643 & 4653"
-          },
-          {
-            "code": "CLCC 3343",
-            "title": "Listening Comprehension and Communication Skills III",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "CLCC 4413",
-            "title": "Communication in Professional Settings",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: CLCC3313(CCAN3313), CLCC3323(CCAN3323), CLCC3333(CCAN3333) and CLCC3343(CCAN3343)"
-          },
-          {
-            "code": "CLCC 4423",
-            "title": "Colloquial Cantonese and Local Culture",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: CLCC3313(CCAN3313), CLCC3323(CCAN3323), CLCC3333(CCAN3333) or CLCC3343(CCAN3343)"
-          },
-          {
-            "code": "CLCC 4513",
-            "title": "Topics in the Hong Kong Special Administration Region",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: CLCC3313(CCAN3313), CLCC3323(CCAN3323), CLCC3333(CCAN3333) or CLCC3343(CCAN3343)"
-          }
-        ]
+        "units": "3"
       }
     ]
   },
-  "explanatory_notes": "<table><tr>\n<td colspan=\"3\" style=\"width:437.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"583\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n      Notes:</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:35.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">1.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:402.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"536\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">This\n\n      Minor Programme is not </span>for students whose native language is\n\n      Cantonese/Putonghua<span lang=\"EN-US\">. Students planning to minor in this\n\n      Programme should take the Cantonese placement tests offered by the\n\n      Yale-China Chinese Language </span>Academy<span lang=\"EN-US\">.  Declaration\n\n      of this Minor Programme is subject to the approval of the Department.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:35.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">2.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:402.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"536\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">Depending\n\n      on their proficiency in Cantonese, students may be asked to take advanced\n\n      level courses to substitute for the courses at the 2000 level to fulfill\n\n      the Minor Programme requirement. They should seek advice from the\n\n      Yale-China Chinese Language </span>Academy<span lang=\"EN-US\">for the substitute\n\n      courses for them to take.</span><span lang=\"EN-US\" style=\"font-size:11.0pt\"> </span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:35.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">3.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:402.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"536\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">All CLCC\n\n      courses taken to fulfill this Minor programme requirement cannot be\n\n      counted towards the fulfillment of the University Core Requirements.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:35.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">4.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:402.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"536\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\">No more than 10 units of\n\n      courses taken to fulfill the requirements of the students’</p>\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\">Major Programme(s) and\n\n      other Minor Programme(s) respectively can be used to</p>\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\">fulfill the requirement\n\n      of this Minor Programme.</p>\n</td>\n</tr>\n<tr>\n<td style=\"width:35.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n</td>\n<td colspan=\"2\" style=\"width:402.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"536\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n</td>\n</tr></table>"
+  "explanatory_notes": "<table><tr>\n<td colspan=\"3\" style=\"width:437.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"583\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">Explanatory\n\n      Notes:</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:35.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">1.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:402.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"536\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">This\n\n      Minor Programme is not </span>for students whose native language is\n\n      Cantonese/Putonghua<span lang=\"EN-US\">. Students planning to minor in this\n\n      Programme should take the Cantonese placement tests offered by the\n\n      Yale-China Chinese Language </span>Academy<span lang=\"EN-US\">.  Declaration\n\n      of this Minor Programme is subject to the approval of the Department.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:35.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">2.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:402.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"536\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">Depending\n\n      on their proficiency in Cantonese, students may be asked to take advanced\n\n      level courses to substitute for the courses at the 2000 level to fulfill\n\n      the Minor Programme requirement. They should seek advice from the\n\n      Yale-China Chinese Language </span>Academy<span lang=\"EN-US\">for the substitute\n\n      courses for them to take.</span><span lang=\"EN-US\" style=\"font-size:11.0pt\"> </span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:35.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">3.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:402.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"536\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">All CLCC\n\n      courses taken to fulfill this Minor programme requirement cannot be\n\n      counted towards the fulfillment of the University Core Requirements.</span></p>\n</td>\n</tr>\n<tr>\n<td style=\"width:35.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\">4.</span></p>\n</td>\n<td colspan=\"2\" style=\"width:402.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"536\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\">No more than 10 units of\n\n      courses taken to fulfill the requirements of the students’</p>\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\">Major Programme(s) and\n\n      other Minor Programme(s) respectively can be used to</p>\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\">fulfill the requirement\n\n      of this Minor Programme.</p>\n</td>\n</tr>\n<tr>\n<td style=\"width:35.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"47\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n</td>\n<td colspan=\"2\" style=\"width:402.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"536\">\n<p class=\"MsoNormal\" style=\"margin-right:.1pt;text-align:justify;\n\n      text-justify:inter-ideograph;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p>\n</td>\n</tr></table>",
+  "eq_pairs": [
+    [
+      "CLCC 4423",
+      "CLCC 4513"
+    ],
+    [
+      "LING 3206",
+      "LING 3207"
+    ]
+  ]
 }

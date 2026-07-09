@@ -6,32 +6,11 @@ from bs4 import BeautifulSoup
 
 
 MINOR_HTML_DIR = Path(__file__).parent / "minor_html"
-COURSE_INFO_DIR = Path(__file__).parent.parent / "course_extraction" / "course_info"
 MINOR_JSON_DIR = Path(__file__).parent / "minor_json"
 FACULTIES_PATH = MINOR_HTML_DIR / "_faculties.json"
 
 
 # ── helpers ──────────────────────────────────────────────────────────
-
-def load_course_index():
-    """Build ``{ 'DEPT 1234': {title, unit, info} }`` from all JSON files."""
-    index = {}
-    for json_path in sorted(COURSE_INFO_DIR.glob("*.json")):
-        try:
-            data = json.loads(json_path.read_text(encoding="utf-8"))
-        except (json.JSONDecodeError, FileNotFoundError):
-            continue
-        if not isinstance(data, list):
-            continue
-        for entry in data:
-            code = entry.get("code", "")
-            if code:
-                index[code] = {
-                    "title": entry.get("title", ""),
-                    "unit": entry.get("unit", ""),
-                    "info": entry.get("info", ""),
-                }
-    return index
 
 
 def parse_unit_count(text):
@@ -551,19 +530,61 @@ def _merge_duplicate_rows(rows):
     return merged
 
 
-# ── JSON builder ─────────────────────────────────────────────────────
+# ── equivalent pair detection ──────────────────────────────────────────
 
-def resolve_courses(codes, course_index):
-    """Convert a list of 'DEPT 1234' strings into course objects."""
-    return [
-        {
-            "code": code,
-            "title": course_index.get(code, {}).get("title", ""),
-            "unit": course_index.get(code, {}).get("unit", ""),
-            "prereq": course_index.get(code, {}).get("info", ""),
-        }
-        for code in codes
-    ]
+def detect_eq_pairs(rows):
+    """Return a list of [code1, code2] pairs for /-or-or-connected courses
+    across all rows in a section."""
+    all_texts = [r["text"] for r in rows if r["text"].strip()]
+    if not all_texts:
+        return []
+    eq_pairs = set()
+
+    def _last_dept(t, pos):
+        best = ""
+        for dm in re.finditer(r'([A-Z]{4})\s*\d{4}', t):
+            if dm.start() < pos:
+                best = dm.group(1)
+        return best
+
+    for t in all_texts:
+        t = re.sub(r'\[[a-z]\]', '', t)
+        t = re.sub(r'(\d{4})\^', r'\1', t)
+        # Find all code occurrences with departments
+        code_positions = []
+        for cm in re.finditer(r'([A-Z]{4})\s*(\d{4})\b', t):
+            code_positions.append((cm.start(), cm.group(1), cm.group(2)))
+        for cm in re.finditer(r'(?<![A-Z])(\d{4})(?![A-Za-z])', t):
+            start = cm.start()
+            before = t[max(0, start - 10):start]
+            if re.search(r'(?:,|/|or)\s*$', before) or re.search(r'\s\s+$', before):
+                dept = _last_dept(t, start)
+                if dept:
+                    code_positions.append((start, dept, cm.group(1)))
+        code_positions.sort()
+
+        def _pair(pos_list):
+            for pos in pos_list:
+                before_code = None
+                for cp in reversed(code_positions):
+                    if cp[0] < pos:
+                        before_code = cp; break
+                after_code = None
+                for cp in code_positions:
+                    if cp[0] > pos:
+                        after_code = cp; break
+                if before_code and after_code:
+                    c1 = f"{before_code[1]} {before_code[2]}"
+                    c2 = f"{after_code[1]} {after_code[2]}"
+                    eq_pairs.add((c1, c2))
+
+        _pair([sm.start() for sm in re.finditer(r'/(?![/*])', t)])
+        _pair([om.start() for om in re.finditer(r'\s+or\s+', t, re.IGNORECASE)])
+
+    return [[c1, c2] for c1, c2 in sorted(eq_pairs)]
+
+
+# ── JSON builder ─────────────────────────────────────────────────────
 
 
 def load_faculties():
@@ -576,23 +597,18 @@ def load_faculties():
         return {}
 
 
-def build_json(html_path, course_index, faculties):
+def build_json(html_path, faculties):
     """Parse one minor HTML file and return a JSON-serialisable dict."""
     stem = html_path.stem
     raw_html = html_path.read_text(encoding="utf-8")
     parsed = parse_minor_html(raw_html)
 
-    def resolve_rows(rows):
-        out = []
-        for r in rows:
-            out.append({
-                "index": r["index"],
-                "text": r["text"],
-                "codes": r["codes"],
-                "units": r["units"],
-                "courses": resolve_courses(r["codes"], course_index),
-            })
-        return out
+    def _just_codes(rows):
+        return [{"text": r["text"], "codes": r["codes"], "units": r["units"]} for r in rows]
+
+    req_rows = _just_codes(parsed["required"]["rows"])
+    ele_rows = _just_codes(parsed["elective"]["rows"])
+    eq_pairs = detect_eq_pairs(parsed["required"]["rows"] + parsed["elective"]["rows"])
 
     return {
         "_auto_generated": True,
@@ -603,14 +619,15 @@ def build_json(html_path, course_index, faculties):
         "required": {
             "label": parsed["required"]["label"],
             "units": parsed["required"]["units"],
-            "rows": resolve_rows(parsed["required"]["rows"]),
+            "rows": req_rows,
         },
         "elective": {
             "label": parsed["elective"]["label"],
             "units": parsed["elective"]["units"],
-            "rows": resolve_rows(parsed["elective"]["rows"]),
+            "rows": ele_rows,
         },
         "explanatory_notes": parsed["notes_html"],
+        "eq_pairs": eq_pairs,
     }
 
 
@@ -621,7 +638,6 @@ def generate():
         print(f"Directory not found: {MINOR_HTML_DIR}")
         return
 
-    course_index = load_course_index()
     faculties = load_faculties()
     MINOR_JSON_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -630,7 +646,6 @@ def generate():
         print("No minor HTML files found. Run extract_minor_sections.py first.")
         return
 
-    not_found_acc = set()
     skipped = 0
     written = 0
 
@@ -648,30 +663,17 @@ def generate():
                 skipped += 1
                 continue
 
-        data = build_json(html_path, course_index, faculties)
+        data = build_json(html_path, faculties)
         json_path.write_text(
             json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
         )
         written += 1
-
-        # Track not-found courses
-        for sec_name in ("required", "elective"):
-            for row in data[sec_name]["rows"]:
-                for c in row["courses"]:
-                    if not c["title"]:
-                        not_found_acc.add(c["code"])
 
     # ── Report ──
     print("\n" + "=" * 60)
     print(f"JSON files written: {written}")
     if skipped:
         print(f"JSON files skipped (manually edited): {skipped}")
-    if not_found_acc:
-        print(f"\nCourses not found in course_info ({len(not_found_acc)}):")
-        for cd in sorted(not_found_acc):
-            print(f"  {cd}")
-    else:
-        print("\n  (all course codes matched)")
 
     print(f"\nDone. JSON output: minor_json/")
 

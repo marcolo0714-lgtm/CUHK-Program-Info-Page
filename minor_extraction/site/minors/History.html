@@ -231,7 +231,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) 4 HIST courses excluding HIST1001 and 1002, with at least 2 courses at 3000 or above level</span><span class="meta">(12 units)</span></div></div>
 <details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>HIST 1001</td><td>Tradition and Transformation in Chinese History</td><td>3.00</td><td>Not for students who have taken UGEA2223 or 2230</td></tr>
+<tr class="eq-row"><td>HIST 1001</td><td>Tradition and Transformation in Chinese History</td><td>3.00</td><td>Not for students who have taken UGEA2223 or 2230</td></tr>
 <tr><td>HIST 1002</td><td>Tradition and Transformation in Western History</td><td>3.00</td><td>Not for students who have taken GENA2112 or UGEC1221</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
@@ -261,6 +261,15 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
     });
   }
 })();
+
+// Prevent sidebar from navigating when clicking the already-active minor
+document.querySelectorAll('.sidebar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (this.classList.contains('active')) {
+      e.preventDefault();
+    }
+  });
+});
 
 function toggleSidebar() {
   document.querySelector('.sidebar').classList.toggle('open');

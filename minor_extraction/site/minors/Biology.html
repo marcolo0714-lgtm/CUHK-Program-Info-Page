@@ -233,7 +233,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">(c) BIOL3560 and 3570 or BIOL3610 and 3620</span><span class="meta">(4 units)</span></div></div>
 <details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>BIOL 3560</td><td>Biology of Fungi and Non-Vascular Plants</td><td>2.00</td><td>Pre-requisite: LSCI1002.</td></tr>
-<tr class="eq-row"><td>BIOL 3570</td><td>Biology of Vascular Plants</td><td>2.00</td><td>Pre-requisite: BIOL3560.</td></tr>
+<tr><td>BIOL 3570</td><td>Biology of Vascular Plants</td><td>2.00</td><td>Pre-requisite: BIOL3560.</td></tr>
 <tr><td>BIOL 3610</td><td>Invertebrate Form and Function</td><td>2.00</td><td>Pre-requisite: LSCI1002 or permission of instructor (Not applicable to Old Curriculum students).</td></tr>
 <tr><td>BIOL 3620</td><td>Vertebrate Life</td><td>2.00</td><td>Pre-requisite: LSCI1002 and BIOL2210 or permission of instructor (Not applicable to Old Curriculum students).</td></tr>
 </tbody></table></details>
@@ -289,6 +289,15 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
     });
   }
 })();
+
+// Prevent sidebar from navigating when clicking the already-active minor
+document.querySelectorAll('.sidebar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (this.classList.contains('active')) {
+      e.preventDefault();
+    }
+  });
+});
 
 function toggleSidebar() {
   document.querySelector('.sidebar').classList.toggle('open');

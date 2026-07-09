@@ -9,27 +9,12 @@
     "units": "6",
     "rows": [
       {
-        "index": 1,
         "text": "DSPS1001, 1003",
         "codes": [
           "DSPS 1001",
           "DSPS 1003"
         ],
-        "units": "",
-        "courses": [
-          {
-            "code": "DSPS 1001",
-            "title": "Introduction to Policy Sciences",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 1003",
-            "title": "Foundation of Data Science",
-            "unit": "3.00",
-            "prereq": ""
-          }
-        ]
+        "units": ""
       }
     ]
   },
@@ -38,7 +23,6 @@
     "units": "12",
     "rows": [
       {
-        "index": 1,
         "text": "12 units from the following, including a minimum of 6 units of courses at 3000 or above level: DSPS1004, 2102, 2103, 2104, 2201, 2202, 2301, 2320, 2501, 2520, 2730, 2830, 3190, 3202, 3310, 3320, 3330, 3340, 3350, 3501, 3790, 3791, 3802, 3803, 4203, 4310, 4803, 4804",
         "codes": [
           "DSPS 1004",
@@ -70,179 +54,10 @@
           "DSPS 4803",
           "DSPS 4804"
         ],
-        "units": "",
-        "courses": [
-          {
-            "code": "DSPS 1004",
-            "title": "Statistics for Data Science and Policy Studies",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 2102",
-            "title": "Introduction to Data Science Applications in Public Policy and Political Studies",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 2103",
-            "title": "Intermediate Data Science Applications in Public Policy and Political Studies",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 2104",
-            "title": "Advanced Programming for Data Science",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS1003"
-          },
-          {
-            "code": "DSPS 2201",
-            "title": "Data Preprocessing for Data Analytics",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS2102 or (DSPS1003 and DSPS1004)"
-          },
-          {
-            "code": "DSPS 2202",
-            "title": "Database Systems for Data Science",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS1003"
-          },
-          {
-            "code": "DSPS 2301",
-            "title": "Policy Analysis and Design Thinking",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 2320",
-            "title": "AI Governance and Public Policy",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 2501",
-            "title": "Managing Technology and Policy Innovation",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 2520",
-            "title": "Data Science Project Management",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 2730",
-            "title": "Linear Algebra for Data Science",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS1003"
-          },
-          {
-            "code": "DSPS 2830",
-            "title": "Calculus for Data Science",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS1003"
-          },
-          {
-            "code": "DSPS 3190",
-            "title": "Big Data Analytics for Public Policy",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS2202"
-          },
-          {
-            "code": "DSPS 3202",
-            "title": "Machine Learning for Public Policy",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS2201"
-          },
-          {
-            "code": "DSPS 3310",
-            "title": "Collaborative Governance in a Global Context",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 3320",
-            "title": "Data Science and Regulation",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 3330",
-            "title": "Extended Reality (XR) for Data Visualization and Policy Narratives",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS1003"
-          },
-          {
-            "code": "DSPS 3340",
-            "title": "Smart Cities and Internet of Things",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS1003"
-          },
-          {
-            "code": "DSPS 3350",
-            "title": "Computer Simulation for Policymaking",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS1003 and DSPS1004"
-          },
-          {
-            "code": "DSPS 3501",
-            "title": "Policy Leadership and Entrepreneurship Workshop",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 3790",
-            "title": "Social Network Analysis for Public Policy",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS2201"
-          },
-          {
-            "code": "DSPS 3791",
-            "title": "Natural Language Processing for Public Policy",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS3202"
-          },
-          {
-            "code": "DSPS 3802",
-            "title": "Advanced Data Visualization",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS2201"
-          },
-          {
-            "code": "DSPS 3803",
-            "title": "AI for Social Good",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 4203",
-            "title": "Advanced Applications of Data Science in Public Policy",
-            "unit": "3.00",
-            "prereq": "Pre-requisite(s): DSPS2201 and DSPS3202"
-          },
-          {
-            "code": "DSPS 4310",
-            "title": "Data, Evidence and Public Policy",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 4803",
-            "title": "Selected Topics in Data Science and Policy Studies III",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "DSPS 4804",
-            "title": "Selected Topics in Data Science and Policy Studies IV",
-            "unit": "3.00",
-            "prereq": ""
-          }
-        ]
+        "units": ""
       }
     ]
   },
-  "explanatory_notes": "<table><tr> <td colspan=\"3\" style=\"width:454.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"607\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Explanatory Note:</p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td colspan=\"2\" style=\"width:420.7pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"561\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">No more than 9 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</p> </td> </tr>\n<tr> <td colspan=\"3\" style=\"width:454.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"607\"> <p class=\"MsoNormal\" style=\"line-height:15.0pt\"><b> </b></p> </td> </tr></table>"
+  "explanatory_notes": "<table><tr> <td colspan=\"3\" style=\"width:454.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"607\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Explanatory Note:</p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td colspan=\"2\" style=\"width:420.7pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"561\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">No more than 9 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</p> </td> </tr>\n<tr> <td colspan=\"3\" style=\"width:454.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"607\"> <p class=\"MsoNormal\" style=\"line-height:15.0pt\"><b> </b></p> </td> </tr></table>",
+  "eq_pairs": []
 }

@@ -14,14 +14,11 @@
     "units": "18",
     "rows": [
       {
-        "index": 1,
         "text": "(at least 9 units of PHYS courses at 3000 or above level)[a] :",
         "codes": [],
-        "units": "",
-        "courses": []
+        "units": ""
       },
       {
-        "index": 2,
         "text": "PHYS1001[b] or 1002[b][c], 1111[b][c] or 1113[b][c], 1122, 2041[c], 2051[c], 2401, 3011, 3021, 3022, 3023, 3031, 3041, 3051, 3061, 3403, 3420, 3730, 4011, 4021, 4031, 4041, 4050, 4051, 4420, 4430, 4440, 4450, 4460, 4470",
         "codes": [
           "PHYS 1001",
@@ -56,197 +53,19 @@
           "PHYS 4460",
           "PHYS 4470"
         ],
-        "units": "",
-        "courses": [
-          {
-            "code": "PHYS 1001",
-            "title": "Essential Physics",
-            "unit": "3.00",
-            "prereq": "1. For JUPAS entrants without attending HKDSE Physics or Combined Science with Physics component, including absentees. 2. For non-JUPAS students, please seek advice and permission from the Department of Physics."
-          },
-          {
-            "code": "PHYS 1002",
-            "title": "General Physics",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken PHYS1111 or 1113."
-          },
-          {
-            "code": "PHYS 1111",
-            "title": "Introduction to Mechanics, Fluids, and Waves (University Physics I)",
-            "unit": "3.00",
-            "prereq": "For New Undergraduate Curriculum from 2012. Not for students who have taken PHYS1113."
-          },
-          {
-            "code": "PHYS 1113",
-            "title": "Mechanics, Fluids and Waves (University Physics I)",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken PHYS1111."
-          },
-          {
-            "code": "PHYS 1122",
-            "title": "University Physics II – Introduction to Optics and Modern Physics",
-            "unit": "3.00",
-            "prereq": "For New Curriculum Students."
-          },
-          {
-            "code": "PHYS 2041",
-            "title": "University Physics III – Introduction to Heat and Electromagnetism",
-            "unit": "3.00",
-            "prereq": "For New Curriculum Students."
-          },
-          {
-            "code": "PHYS 2051",
-            "title": "Quantitative Methods for Basic Physics",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: MATH1010 or 1018 or its equivalents, or permission of instructor."
-          },
-          {
-            "code": "PHYS 2401",
-            "title": "Introduction to Astronomy and Astrophysics",
-            "unit": "3.00",
-            "prereq": "Not for students who have taken UGEB2401 or UGEB2402."
-          },
-          {
-            "code": "PHYS 3011",
-            "title": "Classical Mechanics I",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS1111 or or 1113 or its equivalents, or premission of instructor."
-          },
-          {
-            "code": "PHYS 3021",
-            "title": "Quantum Mechanics I",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS1122 or its equivalents, or permission of instructor."
-          },
-          {
-            "code": "PHYS 3022",
-            "title": "Applied Quantum Mechanics",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS3021."
-          },
-          {
-            "code": "PHYS 3023",
-            "title": "Introduction to Quantum Information Physics",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS3021 or its equivalents, or permission of instructor."
-          },
-          {
-            "code": "PHYS 3031",
-            "title": "Thermodynamics and Statistical Physics",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS2041 and 2051 or their equivalents, or permission of instructor."
-          },
-          {
-            "code": "PHYS 3041",
-            "title": "Electromagnetic Theory I",
-            "unit": "3.00",
-            "prereq": "Prerequisite: PHYS2041 or its equivalents, or permission of instructor."
-          },
-          {
-            "code": "PHYS 3051",
-            "title": "Methods in Theoretical Physics I",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS2051 or MATH2020 or their equivalents, or permission of the instructor."
-          },
-          {
-            "code": "PHYS 3061",
-            "title": "Physics Simulations with AI Tools",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "PHYS 3403",
-            "title": "Introduction to Soft and Living Matter Physics",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS2041 or CHEM2300 or equivalent introductory course that covers thermodynamics, or permission of instructor."
-          },
-          {
-            "code": "PHYS 3420",
-            "title": "Topics in Contemporary Physics",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "PHYS 3730",
-            "title": "Basic Instrumentation",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "PHYS 4011",
-            "title": "Classical Mechanics II",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS3051 or its equivalents, or permission of the instructor."
-          },
-          {
-            "code": "PHYS 4021",
-            "title": "Quantum Mechanics II",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS3021 or its equivalents, or permission of instructor."
-          },
-          {
-            "code": "PHYS 4031",
-            "title": "Statistical Mechanics",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS2041 and 2051 or their equivalents, or permission of instructor."
-          },
-          {
-            "code": "PHYS 4041",
-            "title": "Electromagnetic Theory II",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS3041 or its equivalents, or permission of instructor."
-          },
-          {
-            "code": "PHYS 4050",
-            "title": "Solid State Physics",
-            "unit": "3.00",
-            "prereq": "Pre-requisite/Co-requisite: PHYS3021 or its equivalents, or permission of instructor."
-          },
-          {
-            "code": "PHYS 4051",
-            "title": "Methods in Theoretical Physics II",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS3051 or its equivalents, or permission of instructor."
-          },
-          {
-            "code": "PHYS 4420",
-            "title": "Physics in Meteorology",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS3011. Students who have taken course on vector calculus-based physics or their equivalents may also seek course teacher's permission to register in the course."
-          },
-          {
-            "code": "PHYS 4430",
-            "title": "Astrophysics",
-            "unit": "3.00",
-            "prereq": ""
-          },
-          {
-            "code": "PHYS 4440",
-            "title": "Topics in Nanoscience and Technology",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS3021 or its equivalents, or permission of instructor."
-          },
-          {
-            "code": "PHYS 4450",
-            "title": "Optical Physics",
-            "unit": "3.00",
-            "prereq": "PHYS3041 or its equivalents, or permission of instructor."
-          },
-          {
-            "code": "PHYS 4460",
-            "title": "Relativity",
-            "unit": "3.00",
-            "prereq": "Pre-requisite: PHYS3041 or its equivalents, or permission of the instructor."
-          },
-          {
-            "code": "PHYS 4470",
-            "title": "Nuclear and Particle Physics",
-            "unit": "3.00",
-            "prereq": ""
-          }
-        ]
+        "units": ""
       }
     ]
   },
-  "explanatory_notes": "<table><tr> <td colspan=\"2\" style=\"width:367.5pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"490\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span style=\"color:black\">Explanatory\n\n Notes:</span></p> </td> <td style=\"width:102.3pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"136\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b><span style=\"color:black\"> </span></b></p> </td> </tr>\n<tr> <td style=\"width:31.65pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"42\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> </td> <td colspan=\"2\" style=\"width:438.15pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"584\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span style=\"font-size:11.5pt;color:black\">No more\n\n than 9 units of courses taken to fulfill the requirements of the\n\n students’ Major Programme(s) and other Minor Programme(s) respectively\n\n can be used to fulfill the requirement of this Minor Programme.</span></p> </td> </tr>\n<tr> <td style=\"width:31.65pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"42\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">[a]</p> </td> <td colspan=\"2\" style=\"width:438.15pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"584\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Certain prerequisite/co-requisite conditions for PHYS\n\n courses may be waived for Minor students.  Intending Minor students\n\n should consult the Department of Physics. </p> </td> </tr>\n<tr> <td style=\"width:31.65pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"42\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">[b]</p> </td> <td colspan=\"2\" style=\"width:438.15pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"584\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Students can only use PHYS1001 or 1002, PHYS1111 or\n\n 1113, but not both in the respective pair, to fulfill the requirements of\n\n this Minor Programme.</p> </td> </tr>\n<tr> <td style=\"width:31.65pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"42\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">[c]</p> </td> <td colspan=\"2\" style=\"width:438.15pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"584\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Students can take either the PHYS course, or its\n\n corresponding equivalent or closely related course (with a maximum of 6\n\n units), as listed below to fulfill the requirement, but not both:</p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> <table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" class=\"MsoNormalTable\" style=\"border-collapse:collapse;border:none\" width=\"566\"> <tbody><tr> <td colspan=\"2\" style=\"width:190.4pt;border:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"254\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS courses</p> </td> <td colspan=\"2\" style=\"width:234.3pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"312\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Equivalent/closely related courses</p> </td> </tr> <tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1002</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">General Physics</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1003</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">General Physics for\n\n Engineers</p> </td> </tr> <tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1111/1113</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Introduction to\n\n Mechanics, Fluids, and Waves (University Physics I)/</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Mechanics, Fluids and\n\n Waves (University Physics I)</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1110</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Engineering Physics:\n\n Mechanics and Thermodynamics</p> </td> </tr> <tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS2041</p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">University Physics III</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">ENGG1310 or 2520 or\n\n ESTR1003 or 2006</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Engineering Physics:\n\n Electromagnetics, Optics and Modern Physics/</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><a name=\"CRSE_TITLE$25\"></a><a href=\"javascript:submitAction_win0(document.win0,'CRSE_TITLE$25');\" title=\"View Course Details\"><span style=\"color:windowtext;text-decoration:\n\n none\">Engineering Physics II</span></a><span style='font-size:9.0pt; font-family:\"Arial\",sans-serif'> </span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> </tr> <tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS2051</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Quantitative Methods for\n\n Basic Physics</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">MATH2020/ 2028</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><a href=\"https://www.math.cuhk.edu.hk/course/1516/math2020b\"><span style=\"color:windowtext;text-decoration:none\">Advanced Calculus II/\n\n Honours Advanced Calculus II </span></a></p> </td> </tr> </tbody></table> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"></p> </td> </tr>\n<tr> <td colspan=\"2\" style=\"width:190.4pt;border:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"254\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS courses</p> </td> <td colspan=\"2\" style=\"width:234.3pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"312\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Equivalent/closely related courses</p> </td> </tr>\n<tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1002</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">General Physics</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1003</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">General Physics for\n\n Engineers</p> </td> </tr>\n<tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1111/1113</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Introduction to\n\n Mechanics, Fluids, and Waves (University Physics I)/</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Mechanics, Fluids and\n\n Waves (University Physics I)</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1110</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Engineering Physics:\n\n Mechanics and Thermodynamics</p> </td> </tr>\n<tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS2041</p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">University Physics III</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">ENGG1310 or 2520 or\n\n ESTR1003 or 2006</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Engineering Physics:\n\n Electromagnetics, Optics and Modern Physics/</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><a name=\"CRSE_TITLE$25\"></a><a href=\"javascript:submitAction_win0(document.win0,'CRSE_TITLE$25');\" title=\"View Course Details\"><span style=\"color:windowtext;text-decoration:\n\n none\">Engineering Physics II</span></a><span style='font-size:9.0pt; font-family:\"Arial\",sans-serif'> </span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> </tr>\n<tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS2051</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Quantitative Methods for\n\n Basic Physics</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">MATH2020/ 2028</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><a href=\"https://www.math.cuhk.edu.hk/course/1516/math2020b\"><span style=\"color:windowtext;text-decoration:none\">Advanced Calculus II/\n\n Honours Advanced Calculus II </span></a></p> </td> </tr>\n<tr> <td style=\"width:31.65pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"42\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td colspan=\"2\" style=\"width:438.15pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"584\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b> </b></p> </td> </tr></table>"
+  "explanatory_notes": "<table><tr> <td colspan=\"2\" style=\"width:367.5pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"490\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><span style=\"color:black\">Explanatory\n\n Notes:</span></p> </td> <td style=\"width:102.3pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"136\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b><span style=\"color:black\"> </span></b></p> </td> </tr>\n<tr> <td style=\"width:31.65pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"42\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> </td> <td colspan=\"2\" style=\"width:438.15pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"584\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span style=\"font-size:11.5pt;color:black\">No more\n\n than 9 units of courses taken to fulfill the requirements of the\n\n students’ Major Programme(s) and other Minor Programme(s) respectively\n\n can be used to fulfill the requirement of this Minor Programme.</span></p> </td> </tr>\n<tr> <td style=\"width:31.65pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"42\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">[a]</p> </td> <td colspan=\"2\" style=\"width:438.15pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"584\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Certain prerequisite/co-requisite conditions for PHYS\n\n courses may be waived for Minor students.  Intending Minor students\n\n should consult the Department of Physics. </p> </td> </tr>\n<tr> <td style=\"width:31.65pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"42\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">[b]</p> </td> <td colspan=\"2\" style=\"width:438.15pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"584\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Students can only use PHYS1001 or 1002, PHYS1111 or\n\n 1113, but not both in the respective pair, to fulfill the requirements of\n\n this Minor Programme.</p> </td> </tr>\n<tr> <td style=\"width:31.65pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"42\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">[c]</p> </td> <td colspan=\"2\" style=\"width:438.15pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"584\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Students can take either the PHYS course, or its\n\n corresponding equivalent or closely related course (with a maximum of 6\n\n units), as listed below to fulfill the requirement, but not both:</p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> <table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" class=\"MsoNormalTable\" style=\"border-collapse:collapse;border:none\" width=\"566\"> <tbody><tr> <td colspan=\"2\" style=\"width:190.4pt;border:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"254\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS courses</p> </td> <td colspan=\"2\" style=\"width:234.3pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"312\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Equivalent/closely related courses</p> </td> </tr> <tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1002</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">General Physics</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1003</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">General Physics for\n\n Engineers</p> </td> </tr> <tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1111/1113</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Introduction to\n\n Mechanics, Fluids, and Waves (University Physics I)/</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Mechanics, Fluids and\n\n Waves (University Physics I)</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1110</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Engineering Physics:\n\n Mechanics and Thermodynamics</p> </td> </tr> <tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS2041</p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">University Physics III</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">ENGG1310 or 2520 or\n\n ESTR1003 or 2006</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Engineering Physics:\n\n Electromagnetics, Optics and Modern Physics/</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><a name=\"CRSE_TITLE$25\"></a><a href=\"javascript:submitAction_win0(document.win0,'CRSE_TITLE$25');\" title=\"View Course Details\"><span style=\"color:windowtext;text-decoration:\n\n none\">Engineering Physics II</span></a><span style='font-size:9.0pt; font-family:\"Arial\",sans-serif'> </span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> </tr> <tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS2051</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Quantitative Methods for\n\n Basic Physics</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">MATH2020/ 2028</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><a href=\"https://www.math.cuhk.edu.hk/course/1516/math2020b\"><span style=\"color:windowtext;text-decoration:none\">Advanced Calculus II/\n\n Honours Advanced Calculus II </span></a></p> </td> </tr> </tbody></table> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"></p> </td> </tr>\n<tr> <td colspan=\"2\" style=\"width:190.4pt;border:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"254\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS courses</p> </td> <td colspan=\"2\" style=\"width:234.3pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"312\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Equivalent/closely related courses</p> </td> </tr>\n<tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1002</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">General Physics</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1003</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">General Physics for\n\n Engineers</p> </td> </tr>\n<tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1111/1113</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Introduction to\n\n Mechanics, Fluids, and Waves (University Physics I)/</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Mechanics, Fluids and\n\n Waves (University Physics I)</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1110</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Engineering Physics:\n\n Mechanics and Thermodynamics</p> </td> </tr>\n<tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS2041</p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">University Physics III</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">ENGG1310 or 2520 or\n\n ESTR1003 or 2006</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Engineering Physics:\n\n Electromagnetics, Optics and Modern Physics/</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><a name=\"CRSE_TITLE$25\"></a><a href=\"javascript:submitAction_win0(document.win0,'CRSE_TITLE$25');\" title=\"View Course Details\"><span style=\"color:windowtext;text-decoration:\n\n none\">Engineering Physics II</span></a><span style='font-size:9.0pt; font-family:\"Arial\",sans-serif'> </span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> </tr>\n<tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS2051</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Quantitative Methods for\n\n Basic Physics</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">MATH2020/ 2028</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><a href=\"https://www.math.cuhk.edu.hk/course/1516/math2020b\"><span style=\"color:windowtext;text-decoration:none\">Advanced Calculus II/\n\n Honours Advanced Calculus II </span></a></p> </td> </tr>\n<tr> <td style=\"width:31.65pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"42\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td colspan=\"2\" style=\"width:438.15pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"584\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b> </b></p> </td> </tr></table>",
+  "eq_pairs": [
+    [
+      "PHYS 1001",
+      "PHYS 1002"
+    ],
+    [
+      "PHYS 1111",
+      "PHYS 1113"
+    ]
+  ]
 }
