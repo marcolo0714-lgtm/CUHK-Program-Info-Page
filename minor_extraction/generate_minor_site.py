@@ -5,7 +5,7 @@ from pathlib import Path
 
 MINOR_JSON_DIR = Path(__file__).parent / "minor_json"
 COURSE_INFO_DIR = Path(__file__).parent.parent / "course_extraction" / "course_info"
-SITE_DIR = Path(__file__).parent / "site"
+SITE_DIR = Path(__file__).parent.parent / "site"
 OVERRIDE_FILE = Path(__file__).parent / "course_overrides.json"
 
 
