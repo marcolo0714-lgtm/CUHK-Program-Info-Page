@@ -6,6 +6,7 @@ from pathlib import Path
 MINOR_JSON_DIR = Path(__file__).parent / "minor_json"
 COURSE_INFO_DIR = Path(__file__).parent.parent / "course_extraction" / "course_info"
 SITE_DIR = Path(__file__).parent / "site"
+OVERRIDE_FILE = Path(__file__).parent / "course_overrides.json"
 
 
 # ── course resolution ─────────────────────────────────────────────────
@@ -487,9 +488,26 @@ def build_nav(prev_stem, prev_title, next_stem, next_title, bottom=False):
     return f'<div class="{cls}">{left}{right}</div>'
 
 
-def build_detail_page(data, course_index, prev_stem=None, prev_title=None, next_stem=None, next_title=None):
+def apply_overrides(data, overrides):
+    """Apply course code overrides to a minor's section rows in-place.
+    For each row whose text matches an override entry, replace the codes."""
+    stem = data.get("source_file", "")
+    minor_overrides = overrides.get(stem, {})
+    if not minor_overrides:
+        return
+    for section_name in ("required", "elective"):
+        for r in data.get(section_name, {}).get("rows", []):
+            text = r.get("text", "").strip()
+            if text in minor_overrides:
+                r["codes"] = minor_overrides[text]
+
+
+def build_detail_page(data, course_index, overrides, prev_stem=None, prev_title=None, next_stem=None, next_title=None):
     """Build the complete HTML body for one minor programme detail page."""
     title = data["title"]
+
+    # Apply course overrides before rendering sections
+    apply_overrides(data, overrides)
 
     # Title row with faculty right-aligned on same line
     body = [
@@ -763,6 +781,15 @@ def generate():
 
     course_index = load_course_index()
 
+    # Load course overrides (optional)
+    overrides = {}
+    if OVERRIDE_FILE.exists():
+        try:
+            overrides = json.loads(OVERRIDE_FILE.read_text(encoding="utf-8"))
+            print(f"Loaded course overrides: {len(overrides)} minor(s)")
+        except (json.JSONDecodeError, FileNotFoundError):
+            pass
+
     json_files = sorted(MINOR_JSON_DIR.glob("*.json"))
     if not json_files:
         print("No JSON files found. Run generate_minor_json.py first.")
@@ -775,6 +802,7 @@ def generate():
     for json_path in json_files:
         stem = json_path.stem
         data = json.loads(json_path.read_text(encoding="utf-8"))
+        apply_overrides(data, overrides)
         req_codes = [c for r in data.get("required", {}).get("rows", []) for c in r.get("codes", [])]
         ele_codes = [c for r in data.get("elective", {}).get("rows", []) for c in r.get("codes", [])]
         req_resolved = resolve_courses(req_codes, course_index)
@@ -817,7 +845,7 @@ def generate():
         if i < len(index_order) - 1:
             next_info = (index_order[i + 1]["stem"], index_order[i + 1]["title"])
 
-        body = build_detail_page(data, course_index,
+        body = build_detail_page(data, course_index, overrides,
                                  prev_stem=prev_info[0] if prev_info else None,
                                  prev_title=prev_info[1] if prev_info else None,
                                  next_stem=next_info[0] if next_info else None,
