@@ -37,10 +37,13 @@ tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
-.card { background:var(--card); border-radius:8px; padding:12px 18px; margin-bottom:8px;
+.card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
 .card-code { font-weight:600; color:var(--accent); }
+.card-grid { display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; }
+.card-grid > a { flex:1 0 400px; max-width:100%; text-decoration:none; display:flex; }
+.card-grid .card { width:100%; justify-content:flex-start; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
@@ -98,6 +101,12 @@ tr:hover { background:#f9f9f9; }
 /* ── Index page (no sidebar) ── */
 .page-index .container { max-width:960px; margin:0 auto; padding:20px; }
 
+/* ── Footer ── */
+.site-footer { margin-top:32px; padding-top:12px; border-top:1px solid var(--border);
+    font-size:0.82em; color:var(--muted); text-align:center; }
+.site-footer a { color:var(--muted); }
+.site-footer a:hover { color:var(--accent); }
+
 @media (max-width:768px) {
     body { display:block; }
     html, body { overflow-x:hidden; }
@@ -121,84 +130,106 @@ tr:hover { background:#f9f9f9; }
 <div class="container">
 <h1>CUHK Minor Programmes</h1><p class="meta">70 minor programmes &middot; Course info from CUHK course catalog</p>
 <h2>Arts</h2>
-<a href="minors/Anthropology.html"><div class="card"><div><span class="card-code">Anthropology</span></div><div class="meta"><span class="tag">1/1 req</span><span class="tag">59/59 ele</span></div></div></a>
-<a href="minors/Arab_Studies.html"><div class="card"><div><span class="card-code">Arab Studies</span></div><div class="meta"><span class="tag">6/6 req</span><span class="tag">4/4 ele</span></div></div></a>
-<a href="minors/Archaeology.html"><div class="card"><div><span class="card-code">Archaeology</span></div><div class="meta"><span class="tag">1/1 req</span><span class="tag">27/30 ele</span></div></div></a>
-<a href="minors/Chinese_Language_and_Literature.html"><div class="card"><div><span class="card-code">Chinese Language and Literature</span></div><div class="meta"><span class="tag">98/98 ele</span></div></div></a>
-<a href="minors/Creative_Writing_in_English.html"><div class="card"><div><span class="card-code">Creative Writing in English</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">7/10 ele</span></div></div></a>
-<a href="minors/Cultural_Heritage_Studies.html"><div class="card"><div><span class="card-code">Cultural Heritage Studies</span></div><div class="meta"><span class="tag">24/26 ele</span></div></div></a>
-<a href="minors/Cultural_Management.html"><div class="card"><div><span class="card-code">Cultural Management</span></div><div class="meta"><span class="tag">3/3 req</span><span class="tag">37/37 ele</span></div></div></a>
-<a href="minors/Cultural_Studies.html"><div class="card"><div><span class="card-code">Cultural Studies</span></div><div class="meta"><span class="tag">45/48 ele</span></div></div></a>
-<a href="minors/Curating_and_Artistic_Strategies.html"><div class="card"><div><span class="card-code">Curating and Artistic Strategies</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">8/8 ele</span></div></div></a>
-<a href="minors/English.html"><div class="card"><div><span class="card-code">English</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">106/106 ele</span></div></div></a>
-<a href="minors/Film_and_Screen_Studies.html"><div class="card"><div><span class="card-code">Film and Screen Studies</span></div><div class="meta"><span class="tag">1/1 req</span><span class="tag">15/17 ele</span></div></div></a>
-<a href="minors/Fine_Arts.html"><div class="card"><div><span class="card-code">Fine Arts</span></div><div class="meta"><span class="tag">3/3 req</span><span class="tag">71/77 ele</span></div></div></a>
-<a href="minors/History.html"><div class="card"><div><span class="card-code">History</span></div><div class="meta"><span class="tag">1/1 req</span><span class="tag">180/180 ele</span></div></div></a>
-<a href="minors/Japanese_Language.html"><div class="card"><div><span class="card-code">Japanese Language</span></div><div class="meta"><span class="tag">4/4 req</span><span class="tag">18/18 ele</span></div></div></a>
-<a href="minors/Japanese_Studies.html"><div class="card"><div><span class="card-code">Japanese Studies</span></div><div class="meta"><span class="tag">39/45 ele</span></div></div></a>
-<a href="minors/Linguistics.html"><div class="card"><div><span class="card-code">Linguistics</span></div><div class="meta"><span class="tag">1/1 req</span><span class="tag">72/72 ele</span></div></div></a>
-<a href="minors/Music.html"><div class="card"><div><span class="card-code">Music</span></div><div class="meta"><span class="tag">3/3 req</span><span class="tag">211/211 ele</span></div></div></a>
-<a href="minors/Philosophy.html"><div class="card"><div><span class="card-code">Philosophy</span></div><div class="meta"><span class="tag">1/1 req</span><span class="tag">122/122 ele</span></div></div></a>
-<a href="minors/Public_History.html"><div class="card"><div><span class="card-code">Public History</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">21/25 ele</span></div></div></a>
-<a href="minors/Religion_and_Health.html"><div class="card"><div><span class="card-code">Religion and Health</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">11/11 ele</span></div></div></a>
-<a href="minors/Religious_Studies.html"><div class="card"><div><span class="card-code">Religious Studies</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">52/52 ele</span></div></div></a>
-<a href="minors/Theology.html"><div class="card"><div><span class="card-code">Theology</span></div><div class="meta"><span class="tag">198/198 ele</span></div></div></a>
-<a href="minors/Translation.html"><div class="card"><div><span class="card-code">Translation</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">83/83 ele</span></div></div></a>
+<div class="card-grid">
+<a href="minors/Anthropology.html"><div class="card"><span class="card-code">Anthropology</span></div></a>
+<a href="minors/Arab_Studies.html"><div class="card"><span class="card-code">Arab Studies</span></div></a>
+<a href="minors/Archaeology.html"><div class="card"><span class="card-code">Archaeology</span></div></a>
+<a href="minors/Chinese_Language_and_Literature.html"><div class="card"><span class="card-code">Chinese Language and Literature</span></div></a>
+<a href="minors/Creative_Writing_in_English.html"><div class="card"><span class="card-code">Creative Writing in English</span></div></a>
+<a href="minors/Cultural_Heritage_Studies.html"><div class="card"><span class="card-code">Cultural Heritage Studies</span></div></a>
+<a href="minors/Cultural_Management.html"><div class="card"><span class="card-code">Cultural Management</span></div></a>
+<a href="minors/Cultural_Studies.html"><div class="card"><span class="card-code">Cultural Studies</span></div></a>
+<a href="minors/Curating_and_Artistic_Strategies.html"><div class="card"><span class="card-code">Curating and Artistic Strategies</span></div></a>
+<a href="minors/English.html"><div class="card"><span class="card-code">English</span></div></a>
+<a href="minors/Film_and_Screen_Studies.html"><div class="card"><span class="card-code">Film and Screen Studies</span></div></a>
+<a href="minors/Fine_Arts.html"><div class="card"><span class="card-code">Fine Arts</span></div></a>
+<a href="minors/History.html"><div class="card"><span class="card-code">History</span></div></a>
+<a href="minors/Japanese_Language.html"><div class="card"><span class="card-code">Japanese Language</span></div></a>
+<a href="minors/Japanese_Studies.html"><div class="card"><span class="card-code">Japanese Studies</span></div></a>
+<a href="minors/Linguistics.html"><div class="card"><span class="card-code">Linguistics</span></div></a>
+<a href="minors/Music.html"><div class="card"><span class="card-code">Music</span></div></a>
+<a href="minors/Philosophy.html"><div class="card"><span class="card-code">Philosophy</span></div></a>
+<a href="minors/Public_History.html"><div class="card"><span class="card-code">Public History</span></div></a>
+<a href="minors/Religion_and_Health.html"><div class="card"><span class="card-code">Religion and Health</span></div></a>
+<a href="minors/Religious_Studies.html"><div class="card"><span class="card-code">Religious Studies</span></div></a>
+<a href="minors/Theology.html"><div class="card"><span class="card-code">Theology</span></div></a>
+<a href="minors/Translation.html"><div class="card"><span class="card-code">Translation</span></div></a>
+</div>
 <h2>Education</h2>
-<a href="minors/Physical_Education,_Exercise_Science_and_Health.html"><div class="card"><div><span class="card-code">Physical Education, Exercise Science and Health</span></div><div class="meta"><span class="tag">40/40 ele</span></div></div></a>
+<div class="card-grid">
+<a href="minors/Physical_Education,_Exercise_Science_and_Health.html"><div class="card"><span class="card-code">Physical Education, Exercise Science and Health</span></div></a>
+</div>
 <h2>Engineering</h2>
-<a href="minors/Artificial_Intelligence_Systems_and_Technologies.html"><div class="card"><div><span class="card-code">Artificial Intelligence: Systems and Technologies</span></div><div class="meta"><span class="tag">3/3 req</span><span class="tag">32/34 ele</span></div></div></a>
-<a href="minors/Biomedical_Engineering.html"><div class="card"><div><span class="card-code">Biomedical Engineering</span></div><div class="meta"><span class="tag">4/4 req</span><span class="tag">39/39 ele</span></div></div></a>
-<a href="minors/Computer_Science.html"><div class="card"><div><span class="card-code">Computer Science</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">40/41 ele</span></div></div></a>
-<a href="minors/Electronic_Engineering.html"><div class="card"><div><span class="card-code">Electronic Engineering</span></div><div class="meta"><span class="tag">4/4 req</span><span class="tag">35/35 ele</span></div></div></a>
-<a href="minors/Energy_Technology.html"><div class="card"><div><span class="card-code">Energy Technology</span></div><div class="meta"><span class="tag">3/3 req</span><span class="tag">17/19 ele</span></div></div></a>
-<a href="minors/Information_Engineering.html"><div class="card"><div><span class="card-code">Information Engineering</span></div><div class="meta"><span class="tag">8/8 req</span><span class="tag">72/80 ele</span></div></div></a>
-<a href="minors/Logistics_and_Supply_Chain_Management.html"><div class="card"><div><span class="card-code">Logistics and Supply Chain Management</span></div><div class="meta"><span class="tag">5/5 req</span><span class="tag">12/12 ele</span></div></div></a>
-<a href="minors/Mechanical_and_Automation_Engineering.html"><div class="card"><div><span class="card-code">Mechanical and Automation Engineering</span></div><div class="meta"><span class="tag">4/4 req</span><span class="tag">28/28 ele</span></div></div></a>
+<div class="card-grid">
+<a href="minors/Artificial_Intelligence_Systems_and_Technologies.html"><div class="card"><span class="card-code">Artificial Intelligence: Systems and Technologies</span></div></a>
+<a href="minors/Biomedical_Engineering.html"><div class="card"><span class="card-code">Biomedical Engineering</span></div></a>
+<a href="minors/Computer_Science.html"><div class="card"><span class="card-code">Computer Science</span></div></a>
+<a href="minors/Electronic_Engineering.html"><div class="card"><span class="card-code">Electronic Engineering</span></div></a>
+<a href="minors/Energy_Technology.html"><div class="card"><span class="card-code">Energy Technology</span></div></a>
+<a href="minors/Information_Engineering.html"><div class="card"><span class="card-code">Information Engineering</span></div></a>
+<a href="minors/Logistics_and_Supply_Chain_Management.html"><div class="card"><span class="card-code">Logistics and Supply Chain Management</span></div></a>
+<a href="minors/Mechanical_and_Automation_Engineering.html"><div class="card"><span class="card-code">Mechanical and Automation Engineering</span></div></a>
+</div>
 <h2>Law</h2>
-<a href="minors/Law.html"><div class="card"><div><span class="card-code">Law</span></div><div class="meta"><span class="tag">6/6 req</span><span class="tag">310/310 ele</span></div></div></a>
+<div class="card-grid">
+<a href="minors/Law.html"><div class="card"><span class="card-code">Law</span></div></a>
+</div>
 <h2>Medicine</h2>
-<a href="minors/Public_Health.html"><div class="card"><div><span class="card-code">Public Health</span></div><div class="meta"><span class="tag">3/3 req</span><span class="tag">15/15 ele</span></div></div></a>
+<div class="card-grid">
+<a href="minors/Public_Health.html"><div class="card"><span class="card-code">Public Health</span></div></a>
+</div>
 <h2>Science</h2>
-<a href="minors/Biochemistry.html"><div class="card"><div><span class="card-code">Biochemistry</span></div><div class="meta"><span class="tag">4/4 req</span><span class="tag">14/14 ele</span></div></div></a>
-<a href="minors/Biology.html"><div class="card"><div><span class="card-code">Biology</span></div><div class="meta"><span class="tag">9/9 req</span><span class="tag">22/22 ele</span></div></div></a>
-<a href="minors/Cell_and_Molecular_Biology.html"><div class="card"><div><span class="card-code">Cell and Molecular Biology</span></div><div class="meta"><span class="tag">16/16 req</span></div></div></a>
-<a href="minors/Chemistry.html"><div class="card"><div><span class="card-code">Chemistry</span></div><div class="meta"><span class="tag">6/6 req</span><span class="tag">7/7 ele</span></div></div></a>
-<a href="minors/Earth_and_Environmental_Sciences.html"><div class="card"><div><span class="card-code">Earth and Environmental Sciences</span></div><div class="meta"><span class="tag">3/3 req</span><span class="tag">52/52 ele</span></div></div></a>
-<a href="minors/Mathematics.html"><div class="card"><div><span class="card-code">Mathematics</span></div><div class="meta"><span class="tag">119/119 ele</span></div></div></a>
-<a href="minors/Molecular_Biotechnology.html"><div class="card"><div><span class="card-code">Molecular Biotechnology</span></div><div class="meta"><span class="tag">6/6 req</span><span class="tag">18/18 ele</span></div></div></a>
-<a href="minors/Physics.html"><div class="card"><div><span class="card-code">Physics</span></div><div class="meta"><span class="tag">31/31 ele</span></div></div></a>
-<a href="minors/Risk_Management_Science.html"><div class="card"><div><span class="card-code">Risk Management Science</span></div><div class="meta"><span class="tag">1/1 req</span><span class="tag">17/17 ele</span></div></div></a>
-<a href="minors/Statistics.html"><div class="card"><div><span class="card-code">Statistics</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">18/18 ele</span></div></div></a>
+<div class="card-grid">
+<a href="minors/Biochemistry.html"><div class="card"><span class="card-code">Biochemistry</span></div></a>
+<a href="minors/Biology.html"><div class="card"><span class="card-code">Biology</span></div></a>
+<a href="minors/Cell_and_Molecular_Biology.html"><div class="card"><span class="card-code">Cell and Molecular Biology</span></div></a>
+<a href="minors/Chemistry.html"><div class="card"><span class="card-code">Chemistry</span></div></a>
+<a href="minors/Earth_and_Environmental_Sciences.html"><div class="card"><span class="card-code">Earth and Environmental Sciences</span></div></a>
+<a href="minors/Mathematics.html"><div class="card"><span class="card-code">Mathematics</span></div></a>
+<a href="minors/Molecular_Biotechnology.html"><div class="card"><span class="card-code">Molecular Biotechnology</span></div></a>
+<a href="minors/Physics.html"><div class="card"><span class="card-code">Physics</span></div></a>
+<a href="minors/Risk_Management_Science.html"><div class="card"><span class="card-code">Risk Management Science</span></div></a>
+<a href="minors/Statistics.html"><div class="card"><span class="card-code">Statistics</span></div></a>
+</div>
 <h2>Social Science</h2>
-<a href="minors/Applied_Diversity_Studies.html"><div class="card"><div><span class="card-code">Applied Diversity Studies</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">29/29 ele</span></div></div></a>
-<a href="minors/Data_Science_and_Policy_Studies.html"><div class="card"><div><span class="card-code">Data Science and Policy Studies</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">28/28 ele</span></div></div></a>
-<a href="minors/Economics.html"><div class="card"><div><span class="card-code">Economics</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">118/118 ele</span></div></div></a>
-<a href="minors/Gender_Studies.html"><div class="card"><div><span class="card-code">Gender Studies</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">47/52 ele</span></div></div></a>
-<a href="minors/Geography_and_Resource_Management.html"><div class="card"><div><span class="card-code">Geography and Resource Management</span></div><div class="meta"><span class="tag">47/47 ele</span></div></div></a>
-<a href="minors/Global_Communication.html"><div class="card"><div><span class="card-code">Global Communication</span></div><div class="meta"><span class="tag">3/3 req</span><span class="tag">90/94 ele</span></div></div></a>
-<a href="minors/Global_Studies.html"><div class="card"><div><span class="card-code">Global Studies</span></div><div class="meta"><span class="tag">74/76 ele</span></div></div></a>
-<a href="minors/Government_and_Public_Administration.html"><div class="card"><div><span class="card-code">Government and Public Administration</span></div><div class="meta"><span class="tag">3/3 req</span><span class="tag">93/93 ele</span></div></div></a>
-<a href="minors/Journalism_and_Communication.html"><div class="card"><div><span class="card-code">Journalism and Communication</span></div><div class="meta"><span class="tag">1/1 req</span><span class="tag">211/211 ele</span></div></div></a>
-<a href="minors/Psychology.html"><div class="card"><div><span class="card-code">Psychology</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">34/34 ele</span></div></div></a>
-<a href="minors/Social_Policy.html"><div class="card"><div><span class="card-code">Social Policy</span></div><div class="meta"><span class="tag">3/3 req</span><span class="tag">11/11 ele</span></div></div></a>
-<a href="minors/Social_Welfare.html"><div class="card"><div><span class="card-code">Social Welfare</span></div><div class="meta"><span class="tag">3/3 req</span><span class="tag">7/7 ele</span></div></div></a>
-<a href="minors/Sociology.html"><div class="card"><div><span class="card-code">Sociology</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">54/54 ele</span></div></div></a>
-<a href="minors/Urban_Studies.html"><div class="card"><div><span class="card-code">Urban Studies</span></div><div class="meta"><span class="tag">1/1 req</span><span class="tag">80/83 ele</span></div></div></a>
+<div class="card-grid">
+<a href="minors/Applied_Diversity_Studies.html"><div class="card"><span class="card-code">Applied Diversity Studies</span></div></a>
+<a href="minors/Data_Science_and_Policy_Studies.html"><div class="card"><span class="card-code">Data Science and Policy Studies</span></div></a>
+<a href="minors/Economics.html"><div class="card"><span class="card-code">Economics</span></div></a>
+<a href="minors/Gender_Studies.html"><div class="card"><span class="card-code">Gender Studies</span></div></a>
+<a href="minors/Geography_and_Resource_Management.html"><div class="card"><span class="card-code">Geography and Resource Management</span></div></a>
+<a href="minors/Global_Communication.html"><div class="card"><span class="card-code">Global Communication</span></div></a>
+<a href="minors/Global_Studies.html"><div class="card"><span class="card-code">Global Studies</span></div></a>
+<a href="minors/Government_and_Public_Administration.html"><div class="card"><span class="card-code">Government and Public Administration</span></div></a>
+<a href="minors/Journalism_and_Communication.html"><div class="card"><span class="card-code">Journalism and Communication</span></div></a>
+<a href="minors/Psychology.html"><div class="card"><span class="card-code">Psychology</span></div></a>
+<a href="minors/Social_Policy.html"><div class="card"><span class="card-code">Social Policy</span></div></a>
+<a href="minors/Social_Welfare.html"><div class="card"><span class="card-code">Social Welfare</span></div></a>
+<a href="minors/Sociology.html"><div class="card"><span class="card-code">Sociology</span></div></a>
+<a href="minors/Urban_Studies.html"><div class="card"><span class="card-code">Urban Studies</span></div></a>
+</div>
 <h2>Other</h2>
-<a href="minors/HB_Minor_Programme_in_Business.html"><div class="card"><div><span class="card-code">Business</span></div><div class="meta"><span class="tag">659/659 ele</span></div></div></a>
-<a href="minors/HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language.html"><div class="card"><div><span class="card-code">Chinese Language (Cantonese) as a Second Language</span></div><div class="meta"><span class="tag">5/5 req</span><span class="tag">10/10 ele</span></div></div></a>
-<a href="minors/HB_Minor_Programme_in_Chinese_Language_(Putonghua)_as_a_Second_Language.html"><div class="card"><div><span class="card-code">Chinese Language (Putonghua) as a Second Language</span></div><div class="meta"><span class="tag">5/5 req</span><span class="tag">17/17 ele</span></div></div></a>
-<a href="minors/HB_Minor_Programme_in_CU-ASK_Innovative_Problem_Solving.html"><div class="card"><div><span class="card-code">CU-ASK: Innovative Problem Solving</span></div><div class="meta"><span class="tag">6/6 req</span><span class="tag">101/105 ele</span></div></div></a>
-<a href="minors/HB_Minor_Programme_in_Data_Analytics_and_Informatics.html"><div class="card"><div><span class="card-code">Data Analytics and Informatics</span></div><div class="meta"><span class="tag">8/8 req</span><span class="tag">29/30 ele</span></div></div></a>
-<a href="minors/HB_Minor_Programme_in_Education.html"><div class="card"><div><span class="card-code">Education</span></div><div class="meta"><span class="tag">25/25 ele</span></div></div></a>
-<a href="minors/HB_Minor_Programme_in_Entrepreneurship_and_Innovation.html"><div class="card"><div><span class="card-code">Entrepreneurship and Innovation</span></div><div class="meta"><span class="tag">2/2 req</span><span class="tag">42/44 ele</span></div></div></a>
-<a href="minors/HB_Minor_Programme_in_French.html"><div class="card"><div><span class="card-code">French</span></div><div class="meta"><span class="tag">5/5 req</span><span class="tag">11/11 ele</span></div></div></a>
-<a href="minors/HB_Minor_Programme_in_German.html"><div class="card"><div><span class="card-code">German</span></div><div class="meta"><span class="tag">5/5 req</span><span class="tag">11/11 ele</span></div></div></a>
-<a href="minors/HB_Minor_Programme_in_Hong_Kong_Sign_Language.html"><div class="card"><div><span class="card-code">Hong Kong Sign Language</span></div><div class="meta"><span class="tag">6/6 req</span><span class="tag">6/6 ele</span></div></div></a>
-<a href="minors/HB_Minor_Programme_in_Korean.html"><div class="card"><div><span class="card-code">Korean</span></div><div class="meta"><span class="tag">5/5 req</span><span class="tag">11/11 ele</span></div></div></a>
-<a href="minors/HB_Minor_Programme_in_Spanish.html"><div class="card"><div><span class="card-code">Spanish</span></div><div class="meta"><span class="tag">5/5 req</span><span class="tag">13/13 ele</span></div></div></a>
+<div class="card-grid">
+<a href="minors/HB_Minor_Programme_in_Business.html"><div class="card"><span class="card-code">Business</span></div></a>
+<a href="minors/HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language.html"><div class="card"><span class="card-code">Chinese Language (Cantonese) as a Second Language</span></div></a>
+<a href="minors/HB_Minor_Programme_in_Chinese_Language_(Putonghua)_as_a_Second_Language.html"><div class="card"><span class="card-code">Chinese Language (Putonghua) as a Second Language</span></div></a>
+<a href="minors/HB_Minor_Programme_in_CU-ASK_Innovative_Problem_Solving.html"><div class="card"><span class="card-code">CU-ASK: Innovative Problem Solving</span></div></a>
+<a href="minors/HB_Minor_Programme_in_Data_Analytics_and_Informatics.html"><div class="card"><span class="card-code">Data Analytics and Informatics</span></div></a>
+<a href="minors/HB_Minor_Programme_in_Education.html"><div class="card"><span class="card-code">Education</span></div></a>
+<a href="minors/HB_Minor_Programme_in_Entrepreneurship_and_Innovation.html"><div class="card"><span class="card-code">Entrepreneurship and Innovation</span></div></a>
+<a href="minors/HB_Minor_Programme_in_French.html"><div class="card"><span class="card-code">French</span></div></a>
+<a href="minors/HB_Minor_Programme_in_German.html"><div class="card"><span class="card-code">German</span></div></a>
+<a href="minors/HB_Minor_Programme_in_Hong_Kong_Sign_Language.html"><div class="card"><span class="card-code">Hong Kong Sign Language</span></div></a>
+<a href="minors/HB_Minor_Programme_in_Korean.html"><div class="card"><span class="card-code">Korean</span></div></a>
+<a href="minors/HB_Minor_Programme_in_Spanish.html"><div class="card"><span class="card-code">Spanish</span></div></a>
+</div>
 
+<div class="site-footer">
+  <span>Sources: </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>
+  <span> &middot; </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&tv=F&lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
+</div>
 </div>
 </body>
 </html>
