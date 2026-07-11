@@ -100,13 +100,20 @@ tr:hover { background:#f9f9f9; }
 
 @media (max-width:768px) {
     body { display:block; }
+    html, body { overflow-x:hidden; }
     .sidebar { position:fixed; left:-300px; top:0; z-index:99;
         transition:left .25s; box-shadow:none; }
     .sidebar.open { left:0; box-shadow:2px 0 12px rgba(0,0,0,.15); }
+    .sidebar.open .sidebar-header { padding-top:42px; }
     .sidebar-toggle { display:block; }
     .sidebar-overlay.open { display:block; }
-    .content-inner { padding:12px; }
+    .content-inner { padding:44px 12px 12px; }
     h1 { font-size:1.4em; }
+    .meta { white-space:normal; }
+    .card { flex-wrap:wrap; }
+    th:first-child, td:first-child { white-space:normal; max-width:6em; }
+    th:nth-child(3), td:nth-child(3) { white-space:normal; }
+    th, td { padding:6px 8px; font-size:0.82em; }
 }
 </style>
 </head>
