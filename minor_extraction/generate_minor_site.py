@@ -73,10 +73,13 @@ tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
-.card { background:var(--card); border-radius:8px; padding:12px 18px; margin-bottom:8px;
+.card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
 .card-code { font-weight:600; color:var(--accent); }
+.card-grid { display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; }
+.card-grid > a { flex:1 0 400px; max-width:100%; text-decoration:none; display:flex; }
+.card-grid .card { width:100%; justify-content:flex-start; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
@@ -133,6 +136,12 @@ tr:hover { background:#f9f9f9; }
 
 /* ── Index page (no sidebar) ── */
 .page-index .container { max-width:960px; margin:0 auto; padding:20px; }
+
+/* ── Footer ── */
+.site-footer { margin-top:32px; padding-top:12px; border-top:1px solid var(--border);
+    font-size:0.82em; color:var(--muted); text-align:center; }
+.site-footer a { color:var(--muted); }
+.site-footer a:hover { color:var(--accent); }
 
 @media (max-width:768px) {
     body { display:block; }
@@ -192,6 +201,14 @@ function toggleSidebar() {
 }
 </script>"""
 
+FOOTER_HTML = """\
+<div class="site-footer">
+  <span>Sources: </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>
+  <span> &middot; </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&tv=F&lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
+</div>"""
+
 
 def minor_page(page_title, body, sidebar_html):
     return f"""<!DOCTYPE html>
@@ -225,6 +242,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;}})();
 <main class="content">
   <div class="content-inner">
 {body}
+{FOOTER_HTML}
   </div>
 </main>
 {JS}
@@ -250,6 +268,7 @@ def index_page(page_title, body):
 <body class="page-index">
 <div class="container">
 {body}
+{FOOTER_HTML}
 </div>
 </body>
 </html>"""
@@ -880,20 +899,17 @@ def generate():
     for c in index_order:
         fac = c["faculty"]
         if fac != last_fac:
-            cards_html += f'<h2>{fac}</h2>\n'
+            if last_fac is not None:
+                cards_html += '</div>\n'
+            cards_html += f'<h2>{fac}</h2>\n<div class="card-grid">\n'
             last_fac = fac
-        tags = ""
-        if c["req_count"]:
-            tags += f'<span class="tag">{c["req_found"]}/{c["req_count"]} req</span>'
-        if c["ele_count"]:
-            tags += f'<span class="tag">{c["ele_found"]}/{c["ele_count"]} ele</span>'
         cards_html += (
             f'<a href="minors/{c["stem"]}.html">'
             f'<div class="card">'
-            f'<div><span class="card-code">{c["title"]}</span></div>'
-            f'<div class="meta">{tags}</div>'
+            f'<span class="card-code">{c["title"]}</span>'
             f'</div></a>\n'
         )
+    cards_html += '</div>\n'
 
     index_body = (
         f"<h1>CUHK Minor Programmes</h1>"
