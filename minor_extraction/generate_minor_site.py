@@ -193,6 +193,9 @@ def minor_page(page_title, body, sidebar_html):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="prefetch-src 'none'">
+<script type="speculationrules">
+{{ "prefetch": [{{ "source": "list", "urls": [] }}] }}
+</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="icon" href="../favicon.ico" sizes="any">
 <title>{page_title}</title>
@@ -229,6 +232,9 @@ def index_page(page_title, body):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="prefetch-src 'none'">
+<script type="speculationrules">
+{{ "prefetch": [{{ "source": "list", "urls": [] }}] }}
+</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="icon" href="favicon.ico" sizes="any">
 <title>{page_title}</title>
