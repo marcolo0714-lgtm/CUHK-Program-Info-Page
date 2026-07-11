@@ -192,6 +192,8 @@ def minor_page(page_title, body, sidebar_html):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="prefetch-src 'none'">
+<link rel="icon" href="../favicon.ico" sizes="any">
 <title>{page_title}</title>
 <style>{CSS}</style>
 </head>
@@ -225,6 +227,8 @@ def index_page(page_title, body):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="prefetch-src 'none'">
+<link rel="icon" href="favicon.ico" sizes="any">
 <title>{page_title}</title>
 <style>{CSS}</style>
 </head>
