@@ -313,10 +313,15 @@ def resolve_subject_codes(subject, level_min, level_max, excluded_codes, course_
     return result
 
 
-def resolve_row(text, existing_codes, valid_subjects, course_index):
+def resolve_row(text, existing_codes, valid_subjects, course_index,
+                earlier_codes=None):
     """Analyze a row and return resolved codes.
     Returns (category, resolved_codes_list, reason) where
     category is "AUTO", "PARTIAL", "MANUAL", or "SKIP".
+
+    earlier_codes: set of course codes from rows earlier in the same minor.
+                   These are excluded from the resolved set to avoid
+                   duplicating courses already listed elsewhere.
     """
     existing_set = set(existing_codes)
 
@@ -365,8 +370,12 @@ def resolve_row(text, existing_codes, valid_subjects, course_index):
     level = extract_level_constraint(text)
     level_min, level_max = level if level else (None, None)
 
-    # Extract exclusion codes
+    # Extract exclusion codes from text
     excluded = extract_exclusion_codes(text, valid_subjects)
+
+    # Combine with codes from earlier rows in the same minor
+    earlier = earlier_codes or set()
+    full_exclude = excluded | earlier
 
     # Check for area filter that constrains the set of courses
     area_filtered = has_area_filter(text)
@@ -382,15 +391,15 @@ def resolve_row(text, existing_codes, valid_subjects, course_index):
                 unresolved_subs.add(subj)
                 continue
 
-            codes = resolve_subject_codes(subj, level_min, level_max, excluded, course_index)
+            codes = resolve_subject_codes(subj, level_min, level_max, full_exclude, course_index)
             if codes:
                 all_resolved.extend(codes)
             else:
                 unresolved_subs.add(subj)
 
     if all_resolved:
-        # Combine with existing codes, remove excluded-only codes
-        final = sorted(set(all_resolved) | (existing_set - excluded))
+        # Combine with existing codes, remove earlier+excluded codes
+        final = sorted(set(all_resolved) | (existing_set - full_exclude))
 
         if unresolved_subs:
             return ("PARTIAL", final,
@@ -406,11 +415,11 @@ def resolve_row(text, existing_codes, valid_subjects, course_index):
 
         # Re-resolve ignoring the lack of initial resolution
         for subj in sorted(subjects_in_text):
-            codes = resolve_subject_codes(subj, level_min, level_max, excluded, course_index)
+            codes = resolve_subject_codes(subj, level_min, level_max, full_exclude, course_index)
             all_resolved.extend(codes)
 
         if all_resolved:
-            final = sorted(set(all_resolved) | existing_set - excluded)
+            final = sorted(set(all_resolved) | existing_set - full_exclude)
             return ("AUTO", final,
                     f"resolved {len(final)} codes (existing codes were only exclusions/examples)")
 
@@ -431,6 +440,10 @@ def build_overrides(verbose=True):
         data = json.loads(jp.read_text(encoding="utf-8"))
         stem = data["source_file"]
 
+        # Collect codes from all rows in document order (required then elective).
+        # This lets later rows exclude courses already listed in earlier rows.
+        seen_codes = set()
+
         for section_name in ("required", "elective"):
             sec = data.get(section_name, {})
             for r in sec.get("rows", []):
@@ -440,8 +453,14 @@ def build_overrides(verbose=True):
                     continue
 
                 category, resolved, reason = resolve_row(
-                    text, codes, valid_subjects, course_index
+                    text, codes, valid_subjects, course_index,
+                    earlier_codes=seen_codes
                 )
+
+                # Track this row's own codes for exclusion from later rows
+                seen_codes.update(codes)
+                if resolved:
+                    seen_codes.update(resolved)
 
                 if category == "SKIP":
                     stats["SKIP"] += 1
