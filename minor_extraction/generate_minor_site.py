@@ -109,6 +109,12 @@ tr:hover { background:#f9f9f9; }
     border-radius:8px; overflow:hidden; }
 .notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
 .notes-table-section tr:hover { background:#f9f9f9; }
+.checker-btn { display:inline-block; padding:10px 24px; background:var(--accent);
+    color:#fff; border-radius:8px; font-weight:600; font-size:.95em;
+    text-decoration:none; margin-bottom:18px; }
+.checker-btn:hover { opacity:.9; text-decoration:none; }
+.checker-link { display:inline-block; font-size:.85em; color:var(--accent);
+    margin-left:12px; }
 
 /* ── Sidebar ── */
 .sidebar { width:280px; flex-shrink:0; height:100vh; position:sticky; top:0;
@@ -918,6 +924,7 @@ def generate():
         f"<h1>CUHK Minor Programmes</h1>"
         f'<p class="meta">{len(index_order)} minor programmes &middot; '
         f'Course info from CUHK course catalog</p>\n'
+        f'<a href="checker.html" class="checker-btn">Check Your Minor Progress &rarr;</a>\n'
         f"{cards_html}"
     )
     (SITE_DIR / "index.html").write_text(

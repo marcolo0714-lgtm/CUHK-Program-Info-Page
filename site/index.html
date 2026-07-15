@@ -73,6 +73,12 @@ tr:hover { background:#f9f9f9; }
     border-radius:8px; overflow:hidden; }
 .notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
 .notes-table-section tr:hover { background:#f9f9f9; }
+.checker-btn { display:inline-block; padding:10px 24px; background:var(--accent);
+    color:#fff; border-radius:8px; font-weight:600; font-size:.95em;
+    text-decoration:none; margin-bottom:18px; }
+.checker-btn:hover { opacity:.9; text-decoration:none; }
+.checker-link { display:inline-block; font-size:.85em; color:var(--accent);
+    margin-left:12px; }
 
 /* ── Sidebar ── */
 .sidebar { width:280px; flex-shrink:0; height:100vh; position:sticky; top:0;
@@ -132,6 +138,7 @@ tr:hover { background:#f9f9f9; }
 <body class="page-index">
 <div class="container">
 <h1>CUHK Minor Programmes</h1><p class="meta">70 minor programmes &middot; Course info from CUHK course catalog</p>
+<a href="checker.html" class="checker-btn">Check Your Minor Progress &rarr;</a>
 <h2>Arts</h2>
 <div class="card-grid">
 <a href="minors/Anthropology.html"><div class="card"><span class="card-code">Anthropology</span></div></a>
