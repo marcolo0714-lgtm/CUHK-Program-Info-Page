@@ -579,7 +579,28 @@ def detect_eq_pairs(rows):
                     eq_pairs.add((c1, c2))
 
         _pair([sm.start() for sm in re.finditer(r'/(?![/*])', t)])
-        _pair([om.start() for om in re.finditer(r'\s+or\s+', t, re.IGNORECASE)])
+
+        # For "or" patterns, create eq_pairs:
+        # - Cross-department: always include (e.g. "EPIN1020 or MGNT1070")
+        # - Same-department: include only if "and" is NOT in the row text
+        #   (e.g. "CSCI1120 or 1130" = equivalents; "KORE2001 and 3000, or 3050" = groups)
+        has_and = bool(re.search(r'\band\b', t, re.IGNORECASE))
+        or_positions = [om.start() for om in re.finditer(r'\s+or\s+', t, re.IGNORECASE)]
+        for pos in or_positions:
+            before_code = None
+            for cp in reversed(code_positions):
+                if cp[0] < pos:
+                    before_code = cp; break
+            after_code = None
+            for cp in code_positions:
+                if cp[0] > pos:
+                    after_code = cp; break
+            if before_code and after_code:
+                dept1, dept2 = before_code[1], after_code[1]
+                if dept1 != dept2 or not has_and:
+                    c1 = f"{dept1} {before_code[2]}"
+                    c2 = f"{dept2} {after_code[2]}"
+                    eq_pairs.add((c1, c2))
 
     return [[c1, c2] for c1, c2 in sorted(eq_pairs)]
 

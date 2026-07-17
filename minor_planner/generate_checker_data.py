@@ -102,57 +102,153 @@ def build_eq_norm(eq_pairs):
 # ── Level constraint extraction ─────────────────────────────────────────
 
 def extract_level_constraint(text):
-    """Extract sub-constraints like 'out of which at least X units at YYYY+ level'."""
+    """Extract level sub-constraints from text.
+    Handles 'at least X units/courses at YYYY+ level' and similar patterns.
+    X can be a digit ('6') or a word ('two', 'three')."""
+
+    def _n(s):
+        """Parse a digit or word-based number string to int."""
+        try:
+            return int(s)
+        except ValueError:
+            return WORD_TO_NUM.get(s.lower())
+
+    candidates = []
+
+    def _add(units=None, courses=None, min_level=None, max_level=None):
+        if min_level is not None and (units or courses):
+            candidates.append({
+                "min_units_needed": units,
+                "min_courses_needed": courses,
+                "min_level": min_level,
+                "max_level": max_level,
+            })
+
     # "out of which at least 6 units at 3000 to 5000 level"
     m = re.search(
-        r"out\s+of\s+which\s+at\s+least\s+(\d+)\s+units?"
+        r"out\s+of\s+which\s+at\s+least\s+(\w+)\s+units?"
         r"\s+(?:of\s+courses?\s+)?(?:are\s+)?at\s+(\d{4})\s+to\s+(\d{4})\s+level",
         text, re.IGNORECASE,
     )
     if m:
-        return {"min_units_needed": int(m.group(1)), "min_level": int(m.group(2)),
-                "max_level": int(m.group(3))}
+        _add(units=_n(m.group(1)), min_level=int(m.group(2)), max_level=int(m.group(3)))
 
     # "out of which at least 6 units at 3000 or above level"
     m = re.search(
-        r"out\s+of\s+which\s+at\s+least\s+(\d+)\s+units?"
+        r"out\s+of\s+which\s+at\s+least\s+(\w+)\s+units?"
         r"\s+(?:of\s+courses?\s+)?(?:are\s+)?at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
         text, re.IGNORECASE,
     )
     if m:
-        return {"min_units_needed": int(m.group(1)), "min_level": int(m.group(2)),
-                "max_level": None}
+        _add(units=_n(m.group(1)), min_level=int(m.group(2)))
 
-    # "with at least X courses at YYYY or above level"
+    # "with at least N courses at YYYY or above level"
     m = re.search(
-        r"with\s+at\s+least\s+(\d+)\s+courses?\s+at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
+        r"with\s+at\s+least\s+(\w+)\s+courses?\s+at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
         text, re.IGNORECASE,
     )
     if m:
-        return {"min_courses_needed": int(m.group(1)), "min_level": int(m.group(2)),
-                "max_level": None}
+        _add(courses=_n(m.group(1)), min_level=int(m.group(2)))
+
+    # "with at least N at YYYY or above level" (no "courses"/"units" between)
+    m = re.search(
+        r"with\s+at\s+least\s+(\w+)\s+at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
+        text, re.IGNORECASE,
+    )
+    if m:
+        _add(courses=_n(m.group(1)), min_level=int(m.group(2)))
+
+    # "another N courses at YYYY or above level"
+    m = re.search(
+        r"another\s+(\w+)\s+courses?\s+at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
+        text, re.IGNORECASE,
+    )
+    if m:
+        _add(courses=_n(m.group(1)), min_level=int(m.group(2)))
+
+    # "N courses at YYYY or above level" (standalone, without "with at least" or "another")
+    m = re.search(
+        r"(\w+)\s+courses?\s+at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
+        text, re.IGNORECASE,
+    )
+    if m:
+        _add(courses=_n(m.group(1)), min_level=int(m.group(2)))
+
+    # "at least X units at YYYY or above level" / "at YYYY level or above"
+    m = re.search(
+        r"at\s+least\s+(\w+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})\s+level\s+(?:or|and)\s+above",
+        text, re.IGNORECASE,
+    )
+    if m:
+        _add(units=_n(m.group(1)), min_level=int(m.group(2)))
+
+    m = re.search(
+        r"at\s+least\s+(\w+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
+        text, re.IGNORECASE,
+    )
+    if m:
+        _add(units=_n(m.group(1)), min_level=int(m.group(2)))
+
+    # "at least N units at XXXX level" (exact level, no "or above")
+    # CUHK convention: "at 3000 level" = 3000-3999, "at 4000 level" = 4000-4999
+    m = re.search(
+        r"at\s+least\s+(\w+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})\s+level(?!\s+(?:or|and)\s+above)",
+        text, re.IGNORECASE,
+    )
+    if m:
+        lvl = int(m.group(2))
+        _add(units=_n(m.group(1)), min_level=lvl, max_level=lvl + 999)
+
+    # "and N units at XXXX level" (second/third exact-level constraint)
+    for m in re.finditer(
+        r"and\s+(\w+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})\s+level",
+        text, re.IGNORECASE,
+    ):
+        lvl = int(m.group(2))
+        _add(units=_n(m.group(1)), min_level=lvl, max_level=lvl + 999)
+
+    # "including a minimum of X units at YYYY or above level"
+    m = re.search(
+        r"including\s+a\s+minimum\s+of\s+(\w+)\s+units?"
+        r"\s+(?:of\s+(?:elective\s+)?courses?\s+)?at\s+(\d{4})"
+        r"\s+(?:or|and)\s+above",
+        text, re.IGNORECASE,
+    )
+    if m:
+        _add(units=_n(m.group(1)), min_level=int(m.group(2)))
 
     # "with at least X units at YYYY to ZZZZ level"
     m = re.search(
-        r"with\s+at\s+least\s+(\d+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})"
+        r"with\s+at\s+least\s+(\w+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})"
         r"\s+to\s+(\d{4})\s+level",
         text, re.IGNORECASE,
     )
     if m:
-        return {"min_units_needed": int(m.group(1)), "min_level": int(m.group(2)),
-                "max_level": int(m.group(3))}
+        _add(units=_n(m.group(1)), min_level=int(m.group(2)), max_level=int(m.group(3)))
 
     # "with at least X units at YYYY or above level"
     m = re.search(
-        r"with\s+at\s+least\s+(\d+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})"
+        r"with\s+at\s+least\s+(\w+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})"
         r"\s+(?:or|and)\s+above(?:\s+level)?",
         text, re.IGNORECASE,
     )
     if m:
-        return {"min_units_needed": int(m.group(1)), "min_level": int(m.group(2)),
-                "max_level": None}
+        _add(units=_n(m.group(1)), min_level=int(m.group(2)))
 
-    return None
+    if not candidates:
+        return None
+
+    # Return all unique constraints (remove None fields from each)
+    seen = set()
+    result = []
+    for c in candidates:
+        key = (c.get("min_units_needed"), c.get("min_courses_needed"), c.get("min_level"), c.get("max_level"))
+        if key not in seen:
+            seen.add(key)
+            clean = {k: v for k, v in c.items() if v is not None}
+            if clean:
+                result.append(clean)
+    return result if result else None
 
 
 # ── Row merging (header + code-list) ────────────────────────────────────
@@ -208,12 +304,17 @@ def merge_header_code_rows(rows):
 
                 if _is_header_row(next_text, next_codes, next_units):
                     break
+                # Also break on rows with their own unit metadata (standalone requirements)
+                if next_units:
+                    break
 
                 if next_codes:
                     all_codes.extend(next_codes)
                     if next_text:
                         code_texts.append(next_text)
-                # else: sub-label with no codes, silently skip
+                elif next_text and not next_units:
+                    # Sub-label with no codes and no unit metadata — preserve as context
+                    code_texts.append(next_text)
 
                 j += 1
 
@@ -259,9 +360,20 @@ def determine_strategy(row, section_type):
     if not codes:
         return {"strategy": "label"}
 
+    # Patterns that apply regardless of section type (before required default)
+    # "(one course chosen from the following):"
+    m = re.search(r"\(\s*(\w+)\s+courses?\s+chosen\s+from\s+the\s+following", text, re.IGNORECASE)
+    if m:
+        w = m.group(1).lower()
+        n = WORD_TO_NUM.get(w)
+        if n is None:
+            try: n = int(w)
+            except ValueError: pass
+        if n:
+            return {"strategy": "pick_n", "n": n}
+
     if section_type == "required":
-        # If the row has units metadata and/or "or" in the text, it's not a simple "all"
-        has_or = bool(re.search(r"\bor\b", text, re.IGNORECASE))
+        # If the row has units metadata, use it as target
         if units_meta:
             try:
                 u = float(units_meta)
@@ -272,13 +384,22 @@ def determine_strategy(row, section_type):
                 return result
             except ValueError:
                 pass
-        if has_or:
-            # Required row with "or" but no units metadata → pick 1 of the deduplicated set
-            return {"strategy": "pick_n", "n": 1}
         return {"strategy": "all"}
 
     # ── Elective section ──
-    # Text-based patterns first (more specific), units_meta as fallback.
+    # Unit metadata from the JSON is authoritative — check it first
+    if units_meta:
+        try:
+            u = float(units_meta)
+            result = {"strategy": "units", "units_needed": u}
+            lc = extract_level_constraint(text)
+            if lc:
+                result["level_constraint"] = lc
+            return result
+        except ValueError:
+            pass
+
+    # Text-based patterns
 
     # "Any N courses from the following"
     m = re.search(r"Any\s+(\w+)\s+courses?\s+from\s+the\s+following", text, re.IGNORECASE)
@@ -389,8 +510,8 @@ def determine_strategy(row, section_type):
             result["level_constraint"] = lc
         return result
 
-    # "Any N units from the following"
-    m = re.search(r"Any\s+(\d+)\s+units?\s+from\s+the\s+following", text, re.IGNORECASE)
+    # "Any N units from the following" (allow "of courses" in between)
+    m = re.search(r"Any\s+(\d+)\s+units?\s+(?:of\s+courses?\s+)?from\s+the\s+following", text, re.IGNORECASE)
     if m:
         result = {"strategy": "units", "units_needed": float(m.group(1))}
         lc = extract_level_constraint(text)
@@ -398,8 +519,8 @@ def determine_strategy(row, section_type):
             result["level_constraint"] = lc
         return result
 
-    # "N units from the following"
-    m = re.search(r"(\d+)\s+units?\s+from\s+the\s+following", text, re.IGNORECASE)
+    # "N units from the following" (allow "of courses" in between)
+    m = re.search(r"(\d+)\s+units?\s+(?:of\s+courses?\s+)?from\s+the\s+following", text, re.IGNORECASE)
     if m:
         result = {"strategy": "units", "units_needed": float(m.group(1))}
         lc = extract_level_constraint(text)
@@ -495,20 +616,78 @@ def determine_strategy(row, section_type):
         n = int(m.group(1))
         return {"strategy": "pick_n", "n": n}
 
-    # Fallback: row has explicit unit metadata
-    if units_meta:
-        try:
-            u = float(units_meta)
-            result = {"strategy": "units", "units_needed": u}
-            lc = extract_level_constraint(text)
-            if lc:
-                result["level_constraint"] = lc
-            return result
-        except ValueError:
-            pass
-
     # Final fallback: has codes but no explicit rule
     return {"strategy": "any"}
+
+
+# ── Subject bucket / area detection ──────────────────────────────────────
+
+def detect_subject_constraints(text):
+    """Detect subject-based constraints in requirement text.
+    Returns dict with optional 'subject_min' (int) and 'subject_buckets' (list)
+    or None if no subject constraints found."""
+    result = {}
+
+    # "at least N subject areas from the following"
+    m = re.search(r"at\s+least\s+(\w+)\s+subject\s+areas?\s+from\s+the\s+following", text, re.IGNORECASE)
+    if m:
+        n = WORD_TO_NUM.get(m.group(1).lower())
+        if n is None:
+            try: n = int(m.group(1))
+            except ValueError: pass
+        if n:
+            result["subject_min"] = n
+
+    buckets = []
+
+    # "with X units of SUBJ courses and Y units of non-SUBJ courses"
+    m = re.search(
+        r"with\s+(\w+)\s+units?\s+of\s+([A-Z]{4})\s+courses?\s+and\s+(\w+)\s+units?\s+of\s+non-\2\s+courses?",
+        text, re.IGNORECASE,
+    )
+    if m:
+        x = WORD_TO_NUM.get(m.group(1).lower())
+        if x is None:
+            try: x = int(m.group(1))
+            except ValueError: pass
+        y = WORD_TO_NUM.get(m.group(3).lower())
+        if y is None:
+            try: y = int(m.group(3))
+            except ValueError: pass
+        subj = m.group(2).upper()
+        if x: buckets.append({"prefix": subj, "min_units": float(x)})
+        if y: buckets.append({"prefix": "!" + subj, "min_units": float(y)})
+
+    # "with a maximum of X units of non-SUBJ courses"
+    m = re.search(
+        r"with\s+a\s+maximum\s+of\s+(\w+)\s+units?\s+of\s+non-([A-Z]{4})\s+courses?",
+        text, re.IGNORECASE,
+    )
+    if m:
+        x = WORD_TO_NUM.get(m.group(1).lower())
+        if x is None:
+            try: x = int(m.group(1))
+            except ValueError: pass
+        subj = m.group(2).upper()
+        if x: buckets.append({"prefix": "!" + subj, "max_units": float(x)})
+
+    # "with at least N SUBJ courses" (e.g., "with at least 3 CURE courses")
+    m = re.search(
+        r"with\s+at\s+least\s+(\w+)\s+([A-Z]{4})\s+courses?\b",
+        text, re.IGNORECASE,
+    )
+    if m:
+        n = WORD_TO_NUM.get(m.group(1).lower())
+        if n is None:
+            try: n = int(m.group(1))
+            except ValueError: pass
+        subj = m.group(2).upper()
+        if n: buckets.append({"prefix": subj, "min_courses": int(n)})
+
+    if buckets:
+        result["subject_buckets"] = buckets
+
+    return result if result else None
 
 
 # ── Row target units ────────────────────────────────────────────────────
@@ -538,8 +717,15 @@ def compute_row_target(row, strategy_info, course_index):
         n = strategy_info.get("n", 0)
         if not codes or n == 0:
             return 0.0
-        avg_unit = sum(course_index.get(c, {}).get("unit", 3.0) for c in codes) / len(codes)
-        return n * avg_unit
+        # Use mode (most common non-zero unit) for clean integer targets
+        units = [course_index.get(c, {}).get("unit", 0.0) for c in codes]
+        nonzero = [u for u in units if u > 0]
+        if not nonzero:
+            return n * 3.0
+        # Find mode
+        from collections import Counter
+        mode_unit = Counter(nonzero).most_common(1)[0][0]
+        return n * mode_unit
     if strat == "any":
         return 0.0
     return 0.0
@@ -548,23 +734,36 @@ def compute_row_target(row, strategy_info, course_index):
 # ── OR group detection ──────────────────────────────────────────────────
 
 _OR_SPLIT = re.compile(r'\s+OR\s+')
+_OR_AND_SPLIT = re.compile(r'\s+or\s+', re.IGNORECASE)
 
 
 def build_or_groups(text, codes, eq_norm):
-    """If text contains ' OR ' (uppercase), split codes into OR groups.
-    Each group is a list of deduped codes (after eq_norm canonicalization).
-    Returns a list of lists, or None if no OR pattern detected."""
-    if not _OR_SPLIT.search(text):
+    """If text contains group-separating 'OR'/'or', split codes into groups.
+    - Uppercase ' OR ' always indicates group separation.
+    - Lowercase 'or' only indicates group separation when 'and' is also
+      present in the text (e.g. 'KORE2001 and 3000, or 3050').
+      Otherwise 'or' is between equivalent alternatives, handled by eq_pairs.
+    Returns a list of lists, or None if no group pattern detected."""
+    has_and = bool(re.search(r'\band\b', text, re.IGNORECASE))
+    or_split = _OR_SPLIT if _OR_SPLIT.search(text) else (
+        _OR_AND_SPLIT if has_and and _OR_AND_SPLIT.search(text) else None
+    )
+    if or_split is None:
         return None
 
-    # Find positions of ' OR ' boundaries
-    or_bounds = [m.start() for m in _OR_SPLIT.finditer(text)]
+    # Find positions of ' OR ' / 'or' boundaries
+    or_bounds = [m.start() for m in or_split.finditer(text)]
 
     # Find position of each code in text (normalized without space)
     code_positions = []
     for c in codes:
         normalized = c.replace(' ', '')
         pos = text.upper().find(normalized.upper())
+        # Fallback: try bare number (for codes like "KORE 3000" where
+        # the text only says "3000" with the dept inferred)
+        if pos < 0:
+            num = normalized[-4:]
+            pos = text.upper().find(num)
         code_positions.append((pos if pos >= 0 else 99999, c))
     code_positions.sort()
 
@@ -612,7 +811,12 @@ def generate():
         data = json.loads(jp.read_text(encoding="utf-8"))
         stem = data["source_file"]
 
-        # Apply course overrides first
+        # Extract total units from description ("minimum of X units")
+        desc = data.get("description", "")
+        total_m = re.search(r'minimum\s+of\s+(\d+)\s+units?', desc, re.IGNORECASE)
+        total_units = float(total_m.group(1)) if total_m else None
+
+        # Apply course overrides first (before merging)
         apply_overrides(data, overrides)
 
         # Build equivalence normalizer from eq_pairs
@@ -688,6 +892,7 @@ def generate():
                             dict(r, codes=g), {"strategy": "all"}, course_index
                         ) for g in or_groups
                     )
+                    section_target = section_target - target + min_target
                     target = min_target
                     row_out["units_needed"] = min_target
 
@@ -697,6 +902,32 @@ def generate():
                     row_out["units_needed"] = st["units_needed"]
                 if "level_constraint" in st:
                     row_out["level_constraint"] = st["level_constraint"]
+
+                # For pick_n rows, precompute mode unit for JS consistency
+                if st.get("strategy") == "pick_n" or st.get("strategy") == "pick_n":
+                    pick_units = [course_index.get(c, {}).get("unit", 0.0) for c in dedup_codes]
+                    pick_nonzero = [u for u in pick_units if u > 0]
+                    if pick_nonzero:
+                        from collections import Counter
+                        pick_mode = Counter(pick_nonzero).most_common(1)[0][0]
+                        row_out["pick_n_avg_unit"] = pick_mode
+
+                # Apply subject constraints from text
+                subj = detect_subject_constraints(r["text"])
+                if subj:
+                    if "subject_min" in subj:
+                        row_out["subject_min"] = subj["subject_min"]
+                    if "subject_buckets" in subj:
+                        row_out["subject_buckets"] = subj["subject_buckets"]
+
+                # Detect cross-row references ("excluding requirement X",
+                # "including courses not taken in X above", "should not include")
+                if re.search(
+                    r'(?:excluding|other\s+than|not\s+taken\s+(?:to\s+fulfill|in)|'
+                    r'should\s+not\s+include).*?(?:requirement|1\(|2\(|above\))',
+                    r["text"], re.IGNORECASE,
+                ):
+                    row_out["cross_row_exclude"] = True
 
                 rows_out.append(row_out)
                 strategy_counts[row_out["strategy"]] = strategy_counts.get(row_out["strategy"], 0) + 1
@@ -729,7 +960,8 @@ def generate():
                         pass
 
             if rows_out:
-                # If section has a units field that's higher than computed row sum, use it
+                # Use section `units` as target when it exceeds computed row sum
+                # (section units capture the total requirement; rows describe allocation)
                 sec_units_str = sec.get("units", "").strip()
                 if sec_units_str:
                     try:
@@ -747,9 +979,11 @@ def generate():
         minors_data[stem] = {
             "title": data["title"],
             "faculty": data.get("faculty", "Unknown"),
-            "description": data.get("description", ""),
+            "description": desc,
+            "total_units": total_units,
             "eq_norm": eq_norm,
             "sections": sections,
+            "global_level_constraint": extract_level_constraint(desc),
         }
 
     # Build course summary (title + unit)
