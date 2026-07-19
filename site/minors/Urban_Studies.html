@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -266,31 +270,31 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">(b) Any three courses from the following, with at least two at 3000 or above level <span id="ref_a"><a href="#note_a">[a]</a></span>:</span><span class="meta">(9 units)</span></div><div class="req-row"><span class="row-text">ANTH4410, ARCH3721, CURE2016, EPIN1020, 2010, GPAD2020, 2090, 2095, 2170, 2180, 3220, 3255, 3360, 3365, GRMD2102, 2104, 2105, 2303, 2321, 2401, 2501, 3102, 3104, 3106, 3108, 3202, 3203, 3224, 3301, 3302, 3304, 3305, 3323, 3403, 4203, 4204, 4302, 4402, 4502, 4503, HIST2500, SOCI2003, 2004, 2104, 2203, 2208, 3002, 3204, SOWK1001, 2160, 2203, 3250, URSP1003, 1004, 1005, 2010, 2020, 2030, 2040, 2050, 2060, 2070, 2100, 2200, 2300, 2400, 2700, 2800, 2900, 3050, 3100, 3300, 3400, 3600, 3700, 3800, 4050, 4100</span></div></div>
 <details class="course-details"><summary>Show 78 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>ANTH 4410</td><td>The Cultures of Cities</td><td>3.00</td><td>—</td></tr>
-<tr><td>ARCH 3721</td><td>Land and City</td><td>3.00</td><td>Not for students who have taken ARCH4721</td></tr>
+<tr><td>ARCH 3721</td><td>Land and City</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ARCH4721.</span></td></tr>
 <tr><td>CURE 2016</td><td>Modernity and Urban Culture</td><td>3.00</td><td>—</td></tr>
 <tr><td>EPIN 1020</td><td>Design Thinking and Practice</td><td>3.00</td><td>—</td></tr>
-<tr><td>EPIN 2010</td><td>Toolkit for Entrepreneurs</td><td>3.00</td><td>Prerequisite:EPIN1010/1020/1030 or MGNT1070 or SOSC1001/1002 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.Co-requisite:at least any 2 other 2000(EPIN/non-EPIN)level courses.</td></tr>
+<tr><td>EPIN 2010</td><td>Toolkit for Entrepreneurs</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite:EPIN1010/1020/1030 or MGNT1070 or SOSC1001/1002 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.</span><span class="prereq-sentence">Co-requisite:at least any 2 other 2000(EPIN/non-EPIN)level courses.</span></td></tr>
 <tr><td>GPAD 2020</td><td>Politics of Culture</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2090</td><td>Governance and Public Policy</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 2095</td><td>Public Policy Workshop</td><td>3.00</td><td>Prerequisite: GPAD1050.</td></tr>
-<tr><td>GPAD 2170</td><td>Public Organization and Management</td><td>3.00</td><td>Prerequisite: GPAD1030 or teacher's consent.</td></tr>
+<tr><td>GPAD 2095</td><td>Public Policy Workshop</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GPAD1050.</span></td></tr>
+<tr><td>GPAD 2170</td><td>Public Organization and Management</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GPAD1030 or teacher's consent.</span></td></tr>
 <tr class="nf"><td>GPAD 2180</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>GPAD 3220</td><td>Politics of Space</td><td>3.00</td><td>-</td></tr>
+<tr><td>GPAD 3220</td><td>Politics of Space</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>GPAD 3255</td><td>Public Policy Analysis</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 3360</td><td>Global Environmental Politics</td><td>3.00</td><td>Not for students who have taken GLSD2401 or GLSD3401.</td></tr>
-<tr><td>GPAD 3365</td><td>Ethics and International Affairs</td><td>3.00</td><td>Prerequisite: GPAD1095.</td></tr>
-<tr><td>GRMD 2102</td><td>Fundamental Statistics for Geographers</td><td>3.00</td><td>Not for student who have taken STAT1011, 1012 and 2101.</td></tr>
+<tr><td>GPAD 3360</td><td>Global Environmental Politics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GLSD2401 or GLSD3401.</span></td></tr>
+<tr><td>GPAD 3365</td><td>Ethics and International Affairs</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GPAD1095.</span></td></tr>
+<tr><td>GRMD 2102</td><td>Fundamental Statistics for Geographers</td><td>3.00</td><td><span class="prereq-sentence">Not for student who have taken STAT1011, 1012 and 2101.</span></td></tr>
 <tr><td>GRMD 2104</td><td>Remote Sensing of Environment</td><td>3.00</td><td>—</td></tr>
 <tr><td>GRMD 2105</td><td>Introduction to GIS</td><td>3.00</td><td>—</td></tr>
 <tr><td>GRMD 2303</td><td>Urban Geography</td><td>3.00</td><td>—</td></tr>
 <tr><td>GRMD 2321</td><td>Economic Geography</td><td>3.00</td><td>—</td></tr>
-<tr><td>GRMD 2401</td><td>Sustainable Development</td><td>3.00</td><td>GRMD2401 is double-coded with UGEC2171. Not for students who have taken UGEC2171, 2354 or 2775.</td></tr>
+<tr><td>GRMD 2401</td><td>Sustainable Development</td><td>3.00</td><td><span class="prereq-sentence">GRMD2401 is double-coded with UGEC2171.</span><span class="prereq-sentence">Not for students who have taken UGEC2171, 2354 or 2775.</span></td></tr>
 <tr><td>GRMD 2501</td><td>Theory and Practice of Smart Cities</td><td>3.00</td><td>—</td></tr>
-<tr><td>GRMD 3102</td><td>Research Design and Methodology</td><td>3.00</td><td>GRMD2102 or another statistics course which is approved by the instructor as a pre-requisite.</td></tr>
+<tr><td>GRMD 3102</td><td>Research Design and Methodology</td><td>3.00</td><td><span class="prereq-sentence">GRMD2102 or another statistics course which is approved by the instructor as a pre-requisite.</span></td></tr>
 <tr><td>GRMD 3104</td><td>Satellite Image Analysis</td><td>3.00</td><td>—</td></tr>
-<tr><td>GRMD 3106</td><td>Advanced GIS</td><td>3.00</td><td>Prerequisite: GRMD2105.</td></tr>
+<tr><td>GRMD 3106</td><td>Advanced GIS</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GRMD2105.</span></td></tr>
 <tr><td>GRMD 3108</td><td>Cartography and Geovisualization</td><td>3.00</td><td>—</td></tr>
-<tr><td>GRMD 3202</td><td>Environmental Management</td><td>3.00</td><td>-</td></tr>
+<tr><td>GRMD 3202</td><td>Environmental Management</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>GRMD 3203</td><td>Urban Environmental Problems</td><td>3.00</td><td>—</td></tr>
 <tr><td>GRMD 3224</td><td>Tourism Planning and Management</td><td>3.00</td><td>—</td></tr>
 <tr><td>GRMD 3301</td><td>Geography of China</td><td>3.00</td><td>—</td></tr>
@@ -301,18 +305,18 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="nf"><td>GRMD 3403</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr><td>GRMD 4203</td><td>Ecosystem Restoration and Management</td><td>3.00</td><td>—</td></tr>
 <tr><td>GRMD 4204</td><td>Environmental Planning and Assessment</td><td>3.00</td><td>—</td></tr>
-<tr><td>GRMD 4302</td><td>Urban Planning Workshop</td><td>3.00</td><td>Only for students who have taken URSP1001 or URSP2300 or GRMD3323 or are taking GRMD3323 at the same time.</td></tr>
+<tr><td>GRMD 4302</td><td>Urban Planning Workshop</td><td>3.00</td><td><span class="prereq-sentence">Only for students who have taken URSP1001 or URSP2300 or GRMD3323 or are taking GRMD3323 at the same time.</span></td></tr>
 <tr class="nf"><td>GRMD 4402</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr><td>GRMD 4502</td><td>Urban Big Data Analysis and Application</td><td>3.00</td><td>—</td></tr>
 <tr><td>GRMD 4503</td><td>Smart City Policies and Governance</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 2500</td><td>History of Hong Kong</td><td>3.00</td><td>Not for students who have taken UGEC2945 or HIST2501</td></tr>
-<tr><td>SOCI 2003</td><td>Social Research Methods</td><td>3.00</td><td>-</td></tr>
-<tr><td>SOCI 2004</td><td>Social Statistics</td><td>3.00</td><td>Not for students who have taken DSME2010, DSME2020, DSME2011, DSME2021, ECON2121, GRMD2102, SEEM2430, SPED2600, PSYC2010, STAT1011, STAT1012, STAT2001, STAT2006, STAT2101, STAT2102.</td></tr>
-<tr><td>SOCI 2104</td><td>Sociology and Hong Kong</td><td>3.00</td><td>Not for students who have taken SOCI1201, UGEC2865 or GEJC1020.</td></tr>
-<tr><td>SOCI 2203</td><td>Social Problems and Social Policy</td><td>3.00</td><td>-</td></tr>
-<tr><td>SOCI 2208</td><td>Urban Sociology</td><td>3.00</td><td>-</td></tr>
-<tr><td>SOCI 3002</td><td>Social Stratification</td><td>3.00</td><td>-</td></tr>
-<tr><td>SOCI 3204</td><td>Sociology of Crime and Deviance</td><td>3.00</td><td>-</td></tr>
+<tr><td>HIST 2500</td><td>History of Hong Kong</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken UGEC2945 or HIST2501.</span></td></tr>
+<tr><td>SOCI 2003</td><td>Social Research Methods</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>SOCI 2004</td><td>Social Statistics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken DSME2010, DSME2020, DSME2011, DSME2021, ECON2121, GRMD2102, SEEM2430, SPED2600, PSYC2010, STAT1011, STAT1012, STAT2001, STAT2006, STAT2101, STAT2102.</span></td></tr>
+<tr><td>SOCI 2104</td><td>Sociology and Hong Kong</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken SOCI1201, UGEC2865 or GEJC1020.</span></td></tr>
+<tr><td>SOCI 2203</td><td>Social Problems and Social Policy</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>SOCI 2208</td><td>Urban Sociology</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>SOCI 3002</td><td>Social Stratification</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>SOCI 3204</td><td>Sociology of Crime and Deviance</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOWK 1001</td><td>Introduction to Social Work and Social Welfare</td><td>3.00</td><td>—</td></tr>
 <tr><td>SOWK 2160</td><td>Economic Insecurity and Social Security in Global Contexts</td><td>3.00</td><td>—</td></tr>
 <tr><td>SOWK 2203</td><td>Mission-driven Social Enterprise</td><td>3.00</td><td>—</td></tr>
@@ -342,7 +346,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>URSP 3700</td><td>Urban Regeneration</td><td>3.00</td><td>—</td></tr>
 <tr><td>URSP 3800</td><td>Valuations for Sustainable Development</td><td>3.00</td><td>—</td></tr>
 <tr><td>URSP 4050</td><td>Special Topics in Urban Studies II</td><td>3.00</td><td>—</td></tr>
-<tr><td>URSP 4100</td><td>Urban Planning Theory and Practice</td><td>3.00</td><td>Pre-requisite(s): URSP1001 or 1002 or 1003.</td></tr>
+<tr><td>URSP 4100</td><td>Urban Planning Theory and Practice</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): URSP1001 or 1002 or 1003.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>

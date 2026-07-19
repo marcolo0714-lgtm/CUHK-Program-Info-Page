@@ -67,12 +67,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -83,7 +85,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -285,6 +289,73 @@ def index_page(page_title, body):
 
 # ── page builders ────────────────────────────────────────────────────
 
+def _format_prereq(prereq):
+    """Split prerequisite text into sentence-like <span> blocks with hanging indent.
+    Splits on periods, index numbers, semicolons, and key keywords."""
+    if prereq == "\u2014":
+        return "\u2014"
+
+    text = prereq
+    S = "@@BRK@@"
+
+    # 1. Sentence-ending periods only
+    #    "word." + space + uppercase = sentence end (word must be >= 2 chars
+    #    to skip single-letter abbreviations like "M.A.", "B.Sc.")
+    text = re.sub(r"(\b\w{2,}\.)\s+(?=[A-Z])", r"\1" + S, text)
+    #    Period after a 4-digit course code (e.g. "1028.")
+    text = re.sub(r"(?<=\d{4})\.\s+", "." + S, text)
+    #    NOTE: semicolons are NOT blindly split any more – only via step 3 below
+
+    # 2. Numbered items – "1.Something", "1)Something", spaced or not
+    #    Insert break before the index so it starts the new line
+    text = re.sub(
+        r"(?<!" + S + r")(\d+[.)])\s*(?=[A-Z])",
+        S + r"\1 ", text,
+    )
+
+    # 3. Keywords / semicolons that begin a new section
+    #    "Not for student(s)" – unless immediately after "Exclusion" / numbers
+    text = re.sub(
+        r"(?<!" + S + r")(?<!\bExclusion[=:\s])(?<!\d[.)]\s)(?=\bNot for students?\b)",
+        S, text, flags=re.IGNORECASE,
+    )
+    #    "Course Exclusion" (catch before bare "Exclusion")
+    text = re.sub(
+        r"(?<!" + S + r")(?<!\d[.)]\s)(?=\bCourse Exclusion\b)",
+        S, text,
+    )
+    #    "Prerequisite(s)" / "Pre-requisite(s)" – case-sensitive, not after slash
+    text = re.sub(
+        r"(?<!" + S + r")(?<!\d[.)]\s)(?<!\/)(?=\b(?:Pre[- ]?requisite|Prerequisite)s?\b)",
+        S, text,
+    )
+    #    "Corequisite(s)" / "Co-requisite(s)" – case-sensitive, not after slash
+    text = re.sub(
+        r"(?<!" + S + r")(?<!\d[.)]\s)(?<!\/)(?=\b(?:Co[- ]?requisite|Corequisite)s?\b)",
+        S, text,
+    )
+    #    "Exclusion" (= or :) – case-sensitive, not after "Course "
+    text = re.sub(
+        r"(?<!" + S + r")(?<!\d[.)]\s)(?<!\bCourse\s)(?=\bExclusion[=:])", S, text,
+    )
+    #    Semicolon only before an uppercase letter (sentence-like continuation)
+    #    "; but", "; or" (lowercase) stay on the same line
+    text = re.sub(r"(?<!" + S + r");(?=\s*[A-Z])", S, text)
+
+    # Split, clean, and wrap
+    sentences = []
+    for s in text.split(S):
+        s = s.strip().lstrip(";").strip()
+        if not s:
+            continue
+        if s[-1] not in ".!?:;":
+            s += "."
+        cls = "prereq-sentence" if not s.startswith("[") else "prereq-sentence prereq-indent"
+        sentences.append(f'<span class="{cls}">{s}</span>')
+
+    return "".join(sentences) if sentences else "\u2014"
+
+
 def build_course_table(courses, eq_pairs=None):
     """Return HTML <tbody> rows for a list of course objects.
     eq_pairs: set of (code1, code2) tuples that are slash-separated equivalents."""
@@ -299,6 +370,7 @@ def build_course_table(courses, eq_pairs=None):
                 eq_cls = "eq-row"
         if c.get("title"):
             prereq = c["prereq"] if c["prereq"] else "\u2014"
+            prereq = _format_prereq(prereq)
             tr_open = f'<tr class="{eq_cls}">' if eq_cls else '<tr>'
             rows += (
                 f"{tr_open}"
@@ -329,11 +401,11 @@ def _or_connected(prev_text, curr_text):
     return p.endswith("OR") or p.endswith("; OR") or c.startswith("OR") or c == "OR"
 
 
-def build_section_html(sec, course_index, eq_pairs=None):
+def build_section_html(sec, course_index, eq_pairs=None, is_single=False, desc_units=""):
     """Return HTML for a required / elective section from JSON (row-based)."""
     lines = []
     label = sec.get("label", "")
-    # Sum unit counts from rows (the authoritative source)
+    # Sum unit counts from rows
     total = 0
     for r in sec.get("rows", []):
         u = r.get("units", "")
@@ -342,15 +414,23 @@ def build_section_html(sec, course_index, eq_pairs=None):
                 total += int(u.strip())
             except ValueError:
                 pass
-    # Fall back to the stored section-level unit if no row-level data
-    if total > 0:
+    # For single-section minors, use description total if larger than row sum
+    if is_single and desc_units:
+        try:
+            desc_val = int(desc_units)
+            if desc_val > total:
+                sec_units = desc_units
+            else:
+                sec_units = str(total) if total > 0 else ""
+        except ValueError:
+            sec_units = str(total) if total > 0 else ""
+    elif total > 0:
         sec_units = str(total)
     else:
         sec_units = sec.get("units", "").strip()
     # Append unit count to heading if not already shown as a unit suffix
     if sec_units:
-        # Check if label already ends with a unit-like pattern:
-        #  "X units", "X or Y units", " : X", " X or Y"
+        # Check if label already ends with a unit-like pattern
         already_shown = re.search(
             r'\b\d+\s*(?:or\s+\d+)?\s*units?\s*$'
             r'|\b:\s*\d+\s*(?:or\s+\d+)?\s*$'
@@ -358,7 +438,11 @@ def build_section_html(sec, course_index, eq_pairs=None):
             label, re.IGNORECASE
         )
         if not already_shown:
-            label = label.strip().rstrip(':') + f": {sec_units} units"
+            sec_units_max = sec.get("units_max", "")
+            if sec_units_max:
+                label = label.strip().rstrip(':') + f": {sec_units} to {sec_units_max} units"
+            else:
+                label = label.strip().rstrip(':') + f": {sec_units} units"
     eq_pairs = set(tuple(p) for p in (eq_pairs or []))
     lines.append(f"<h2>{label}</h2>")
 
@@ -387,7 +471,10 @@ def build_section_html(sec, course_index, eq_pairs=None):
             rh = f'<div class="{row_cls}">'
             rh += f'<span class="row-text">{text}</span>'
             if r.get("units"):
-                rh += f'<span class="meta">({r["units"]} units)</span>'
+                if r.get("units_max"):
+                    rh += f'<span class="meta">({r["units"]} to {r["units_max"]} units)</span>'
+                else:
+                    rh += f'<span class="meta">({r["units"]} units)</span>'
             rh += '</div>'
             html_parts.append(rh)
             all_courses.extend(resolve_courses(r.get("codes", []), course_index))
@@ -573,11 +660,22 @@ def build_detail_page(data, course_index, overrides, prev_stem=None, prev_title=
         body.append(f'<div class="section"><pre>{desc}</pre></div>')
 
     eq_pairs = data.get("eq_pairs", [])
+    # Parse description total for single-section minors
+    desc_units = ""
+    has_req = data.get("required", {}).get("label")
+    has_ele = data.get("elective", {}).get("label")
+    is_single_section = bool(has_req) != bool(has_ele)  # exactly one section
+    if is_single_section:
+        desc = data.get("description", "")
+        dm = re.search(r'minimum\s+of\s+(\d+)\s+units?', desc, re.IGNORECASE)
+        if dm:
+            desc_units = dm.group(1)
+
     if data.get("required", {}).get("label"):
-        body.append(build_section_html(data["required"], course_index, eq_pairs))
+        body.append(build_section_html(data["required"], course_index, eq_pairs, is_single_section, desc_units))
 
     if data.get("elective", {}).get("label"):
-        body.append(build_section_html(data["elective"], course_index, eq_pairs))
+        body.append(build_section_html(data["elective"], course_index, eq_pairs, is_single_section, desc_units))
 
     notes = data.get("explanatory_notes", "")
     if notes:

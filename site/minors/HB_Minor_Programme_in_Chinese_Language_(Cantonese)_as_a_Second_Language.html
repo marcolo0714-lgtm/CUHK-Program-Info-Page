@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -252,28 +256,28 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>1. Required Courses: 15 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">LING1000, CLCC2213, 2223, 2243 and 3313</span><span class="meta">(15 units)</span></div></div>
 <details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>LING 1000</td><td>Invitation to Linguistics</td><td>3.00</td><td>LING1000 is double-coded with UGED1924. Not for students who have taken UGED1924.</td></tr>
-<tr><td>CLCC 2213</td><td>Application of Vocabulary and Grammar II</td><td>3.00</td><td>Prerequisite: CLCC1113,1123,1133,1143orCCAN1113,1123,1133,1143 Not for students taken CLCC2233,2243,3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643,4913orCAN2233,2243,3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643,4653</td></tr>
-<tr><td>CLCC 2223</td><td>Oral Skills Practice II</td><td>3.00</td><td>Prerequisite:CLCC1113,1123,1133,1143/CCAN1113,1123,1133,1143 Not for student taken CLCC2233,2243,3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533, 4633,4643,4913/CCAN2233,2243,3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643,4653</td></tr>
-<tr><td>CLCC 2243</td><td>Listening Comprehension and Communication Skills II</td><td>3.00</td><td>Prerequisite:CLCC2213,2223,CCAN2213 or 2223 Not for students who have taken CLCC3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643 & 4913 CCAN3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643 & 4653</td></tr>
-<tr><td>CLCC 3313</td><td>Application of Vocabulary and Grammar III</td><td>3.00</td><td>Pre-requisite: CLCC2213(CCAN2213), CLCC2223(CCAN2223), CLCC2233(CCAN2233) or CLCC2243(CCAN2243)</td></tr>
+<tr><td>LING 1000</td><td>Invitation to Linguistics</td><td>3.00</td><td><span class="prereq-sentence">LING1000 is double-coded with UGED1924.</span><span class="prereq-sentence">Not for students who have taken UGED1924.</span></td></tr>
+<tr><td>CLCC 2213</td><td>Application of Vocabulary and Grammar II</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: CLCC1113,1123,1133,1143orCCAN1113,1123,1133,1143.</span><span class="prereq-sentence">Not for students taken CLCC2233,2243,3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643,4913orCAN2233,2243,3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643,4653.</span></td></tr>
+<tr><td>CLCC 2223</td><td>Oral Skills Practice II</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite:CLCC1113,1123,1133,1143/CCAN1113,1123,1133,1143.</span><span class="prereq-sentence">Not for student taken CLCC2233,2243,3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533, 4633,4643,4913/CCAN2233,2243,3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643,4653.</span></td></tr>
+<tr><td>CLCC 2243</td><td>Listening Comprehension and Communication Skills II</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite:CLCC2213,2223,CCAN2213 or 2223.</span><span class="prereq-sentence">Not for students who have taken CLCC3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643 & 4913 CCAN3313,3323,3333,3343,4413,4423,4433,4443,4513,4523,4533,4633,4643 & 4653.</span></td></tr>
+<tr><td>CLCC 3313</td><td>Application of Vocabulary and Grammar III</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCC2213(CCAN2213), CLCC2223(CCAN2223), CLCC2233(CCAN2233) or CLCC2243(CCAN2243).</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) 1 course from the following: LING2301, 3202, 3204, 3206 or 3207</span><span class="meta">(3 units)</span></div></div>
 <details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>LING 2301</td><td>Language and Society</td><td>3.00</td><td>LING2301 is double-coded with UGEC2925. Not for students who have taken UGEC1925 or UGEC2925.</td></tr>
-<tr><td>LING 3202</td><td>Psycholinguistics</td><td>3.00</td><td>Not for students who have taken PSYC3430</td></tr>
+<tr><td>LING 2301</td><td>Language and Society</td><td>3.00</td><td><span class="prereq-sentence">LING2301 is double-coded with UGEC2925.</span><span class="prereq-sentence">Not for students who have taken UGEC1925 or UGEC2925.</span></td></tr>
+<tr><td>LING 3202</td><td>Psycholinguistics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken PSYC3430.</span></td></tr>
 <tr><td>LING 3204</td><td>Second Language Acquisition</td><td>3.00</td><td>—</td></tr>
 <tr class="eq-row"><td>LING 3206</td><td>Bilingualism</td><td>3.00</td><td>—</td></tr>
 <tr><td>LING 3207</td><td>Bilingual Acquisition</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) 1 course from the following: CLCC3323, 3343, 4413, 4423 or 4513</span><span class="meta">(3 units)</span></div></div>
 <details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>CLCC 3323</td><td>Oral Skills Practice III</td><td>3.00</td><td>Pre-requisite: CLCC2233(CCAN2233) or CLCC2243(CCAN2243) Not for students who have taken CLCC4413, 4423, 4433, 4443, 4513, 4523, 4533, 4633, 4643 & 4913 or CCAN4413, 4423, 4433, 4443, 4513, 4523, 4533, 4633, 4643 & 4653</td></tr>
+<tr><td>CLCC 3323</td><td>Oral Skills Practice III</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCC2233(CCAN2233) or CLCC2243(CCAN.</span><span class="prereq-sentence">2243) Not for students who have taken CLCC4413, 4423, 4433, 4443, 4513, 4523, 4533, 4633, 4643 & 4913 or CCAN4413, 4423, 4433, 4443, 4513, 4523, 4533, 4633, 4643 & 4653.</span></td></tr>
 <tr><td>CLCC 3343</td><td>Listening Comprehension and Communication Skills III</td><td>3.00</td><td>—</td></tr>
-<tr><td>CLCC 4413</td><td>Communication in Professional Settings</td><td>3.00</td><td>Pre-requisite: CLCC3313(CCAN3313), CLCC3323(CCAN3323), CLCC3333(CCAN3333) and CLCC3343(CCAN3343)</td></tr>
-<tr class="eq-row"><td>CLCC 4423</td><td>Colloquial Cantonese and Local Culture</td><td>3.00</td><td>Pre-requisite: CLCC3313(CCAN3313), CLCC3323(CCAN3323), CLCC3333(CCAN3333) or CLCC3343(CCAN3343)</td></tr>
-<tr><td>CLCC 4513</td><td>Topics in the Hong Kong Special Administration Region</td><td>3.00</td><td>Pre-requisite: CLCC3313(CCAN3313), CLCC3323(CCAN3323), CLCC3333(CCAN3333) or CLCC3343(CCAN3343)</td></tr>
+<tr><td>CLCC 4413</td><td>Communication in Professional Settings</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCC3313(CCAN3313), CLCC3323(CCAN3323), CLCC3333(CCAN3333) and CLCC3343(CCAN3343).</span></td></tr>
+<tr class="eq-row"><td>CLCC 4423</td><td>Colloquial Cantonese and Local Culture</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCC3313(CCAN3313), CLCC3323(CCAN3323), CLCC3333(CCAN3333) or CLCC3343(CCAN3343).</span></td></tr>
+<tr><td>CLCC 4513</td><td>Topics in the Hong Kong Special Administration Region</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCC3313(CCAN3313), CLCC3323(CCAN3323), CLCC3333(CCAN3333) or CLCC3343(CCAN3343).</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not for students whose native language is Cantonese/Putonghua. Students planning to minor in this Programme should take the Cantonese placement tests offered by the Yale-China Chinese Language Academy. Declaration of this Minor Programme is subject to the approval of the Department.</span></div>

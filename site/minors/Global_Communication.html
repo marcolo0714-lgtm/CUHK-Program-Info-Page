@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -259,7 +263,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>2. Elective Courses: 9 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">At least 9 units of courses from (a) and (b) (courses that appear in both (a) and (b) can only be counted towards fulfillment of either (a) or (b)):</span></div><div class="req-row"><span class="row-text">(a) At least 3 units of the following courses:</span><span class="meta">(3 units)</span></div><div class="req-row"><span class="row-text">COMM2180, 2540, 2590, 3550, 3700, 4250</span></div></div>
 <details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>COMM 2180</td><td>English News Production II</td><td>3.00</td><td>Prerequisite: COMM2120.</td></tr>
+<tr><td>COMM 2180</td><td>English News Production II</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: COMM2120.</span></td></tr>
 <tr><td>COMM 2540</td><td>Public Sphere and Global Media</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2590</td><td>Global Cinema</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3550</td><td>Global Finance for Communication Professionals</td><td>3.00</td><td>—</td></tr>
@@ -270,16 +274,16 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <details class="course-details"><summary>Show 88 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>COMM 1150</td><td>Introduction to Media Industries and Practices</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2140</td><td>Media and Social Development in Mainland China</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 2180</td><td>English News Production II</td><td>3.00</td><td>Prerequisite: COMM2120.</td></tr>
-<tr><td>COMM 2210</td><td>News and Society</td><td>3.00</td><td>Not for students who have taken COMM2910/UGEC2621 or UGEC2623.</td></tr>
-<tr><td>COMM 2440</td><td>Photojournalism</td><td>3.00</td><td>Not for students who have taken COMM2962.</td></tr>
+<tr><td>COMM 2180</td><td>English News Production II</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: COMM2120.</span></td></tr>
+<tr><td>COMM 2210</td><td>News and Society</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken COMM2910/UGEC2621 or UGEC2623.</span></td></tr>
+<tr><td>COMM 2440</td><td>Photojournalism</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken COMM2962.</span></td></tr>
 <tr><td>COMM 2540</td><td>Public Sphere and Global Media</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2570</td><td>Hong Kong Cinema</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2590</td><td>Global Cinema</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2600</td><td>Introduction to Chinese Journalism</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2610</td><td>Foreign News Desk Practice</td><td>3.00</td><td>—</td></tr>
 <tr class="nf"><td>COMM 2710</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>COMM 2733</td><td>Radio and Podcast Production</td><td>3.00</td><td>Not for students who have taken COMM2739.</td></tr>
+<tr><td>COMM 2733</td><td>Radio and Podcast Production</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken COMM2739.</span></td></tr>
 <tr><td>COMM 2740</td><td>Chinese Broadcast News</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2741</td><td>English Broadcast News</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2811</td><td>English Writing for Public Relations</td><td>3.00</td><td>—</td></tr>
@@ -288,27 +292,27 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>COMM 2814</td><td>Integrated Public Relations Campaign and Event Management</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2830</td><td>Accounting Planning and Management</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2840</td><td>Advertising and Society</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 2850</td><td>Introduction to Integrated Marketing Communications</td><td>3.00</td><td>Not for students who have taken COMM2810 or COMM2820. Not for old curriculum students.</td></tr>
-<tr><td>COMM 2910</td><td>News Analysis</td><td>3.00</td><td>Not for students who have taken COMM2210/UGEC2623 or UGEC2621.</td></tr>
+<tr><td>COMM 2850</td><td>Introduction to Integrated Marketing Communications</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken COMM2810 or COMM2820.</span><span class="prereq-sentence">Not for old curriculum students.</span></td></tr>
+<tr><td>COMM 2910</td><td>News Analysis</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken COMM2210/UGEC2623 or UGEC2621.</span></td></tr>
 <tr><td>COMM 2920</td><td>Media, Sex and Violence</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2922</td><td>Introduction to Creative and New Media</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2925</td><td>Principles of Editing in Creative Media</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2926</td><td>Creative Design and Layout</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2928</td><td>Art Direction</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 2930</td><td>Understanding Movies</td><td>3.00</td><td>Not for students who have taken UGEC2643.</td></tr>
+<tr><td>COMM 2930</td><td>Understanding Movies</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken UGEC2643.</span></td></tr>
 <tr><td>COMM 2932</td><td>Film Genres: Love, Death and Laughs</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2940</td><td>Internet, Digital Media and Information Society</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 2962</td><td>Photography</td><td>3.00</td><td>Not for students who have taken COMM2440.</td></tr>
+<tr><td>COMM 2962</td><td>Photography</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken COMM2440.</span></td></tr>
 <tr><td>COMM 3131</td><td>Special Topic in Communication Studies I</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3132</td><td>Special Topic in Communication Studies II</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3191</td><td>Film, Television and Hong Kong Culture</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3193</td><td>Media and Gender</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3550</td><td>Global Finance for Communication Professionals</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 3610</td><td>English News Content Management</td><td>3.00</td><td>Prerequisite: COMM2180.</td></tr>
+<tr><td>COMM 3610</td><td>English News Content Management</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: COMM2180.</span></td></tr>
 <tr><td>COMM 3620</td><td>Investigative Reporting</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3630</td><td>Digital Journalism</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3640</td><td>China News Reporting</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 3650</td><td>Social Media Analytics for Communication Professionals</td><td>3.00</td><td>Pre-requisite(s): ENGG1003</td></tr>
+<tr><td>COMM 3650</td><td>Social Media Analytics for Communication Professionals</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): ENGG1003.</span></td></tr>
 <tr><td>COMM 3660</td><td>Infographics and Data Visualization</td><td>3.00</td><td>—</td></tr>
 <tr class="nf"><td>COMM 3670</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr><td>COMM 3680</td><td>Business and Financial Reporting</td><td>3.00</td><td>—</td></tr>
@@ -320,7 +324,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>COMM 3721</td><td>Special Topic in Global Communication I</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3722</td><td>Special Topic in Global Communication II</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3733</td><td>Television Studio Production</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 3740</td><td>Advanced Broadcast News</td><td>3.00</td><td>Prerequisite: COMM2740.</td></tr>
+<tr><td>COMM 3740</td><td>Advanced Broadcast News</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: COMM2740.</span></td></tr>
 <tr><td>COMM 3750</td><td>Visual Storytelling in Journalism</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3800</td><td>Digital Media Design and Application</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3810</td><td>Public Relations and Social Theory</td><td>3.00</td><td>—</td></tr>
@@ -333,10 +337,10 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>COMM 3840</td><td>Chinese Copywriting for Advertising</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3841</td><td>English Copywriting for Advertising</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3850</td><td>Advertising Art Direction</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 3855</td><td>Media Investment and Performance Marketing</td><td>3.00</td><td>Prerequisite: COMM2820 or 2850.</td></tr>
+<tr><td>COMM 3855</td><td>Media Investment and Performance Marketing</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: COMM2820 or 2850.</span></td></tr>
 <tr><td>COMM 3860</td><td>Strategic Communication for Entrepreneurs</td><td>3.00</td><td>—</td></tr>
 <tr class="nf"><td>COMM 3881</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>COMM 3888</td><td>Financial Public Relations</td><td>3.00</td><td>Prerequisite: COMM2810 or 2850.</td></tr>
+<tr><td>COMM 3888</td><td>Financial Public Relations</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: COMM2810 or 2850.</span></td></tr>
 <tr><td>COMM 3910</td><td>Sound Production</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3920</td><td>Creative Writing in Media</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 3921</td><td>Special Topic in Creative and New Media I</td><td>3.00</td><td>—</td></tr>
@@ -351,11 +355,11 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>COMM 4191</td><td>Cultural Studies and Popular Culture</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 4250</td><td>Global Digital Platforms: Culture, Power and Politics</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 4730</td><td>Documentary</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 4733</td><td>Advanced Television Studio Production</td><td>3.00</td><td>Pre-requisite: COMM3733.</td></tr>
+<tr><td>COMM 4733</td><td>Advanced Television Studio Production</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: COMM3733.</span></td></tr>
 <tr><td>COMM 4848</td><td>New Media Advertising</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 4935</td><td>Cinematography</td><td>3.00</td><td>Prerequisite: COMM2922.</td></tr>
+<tr><td>COMM 4935</td><td>Cinematography</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: COMM2922.</span></td></tr>
 <tr><td>COMM 4956</td><td>Fundamentals of Computer Animation</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 4962</td><td>Advanced Photography</td><td>3.00</td><td>Prerequisite: COMM2440 or 2962.</td></tr>
+<tr><td>COMM 4962</td><td>Advanced Photography</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: COMM2440 or 2962.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>

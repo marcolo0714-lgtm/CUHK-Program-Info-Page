@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -260,7 +264,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>CURE 2411</td><td>Visual Arts Management</td><td>3.00</td><td>—</td></tr>
 <tr><td>CURE 3404</td><td>Public and Community Art</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3405</td><td>Design Your Exhibition – Curatorial Planning and Practice</td><td>3.00</td><td>1. Pre-requisite: CUMT2007 Curation in Arts and Culture or CURE2407 Curation in Arts and Culture 2. Not for students who have taken CUMT3005.</td></tr>
+<tr><td>CURE 3405</td><td>Design Your Exhibition – Curatorial Planning and Practice</td><td>3.00</td><td><span class="prereq-sentence">1. Pre-requisite: CUMT2007 Curation in Arts and Culture or CURE2407 Curation in Arts and Culture.</span><span class="prereq-sentence">2. Not for students who have taken CUMT3005.</span></td></tr>
 <tr><td>CURE 3408</td><td>Curating and Managing Arts Festival</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) Any 2 courses from the following<span id="ref_a"><a href="#note_a">[a]</a></span>: FAAS2208, 3108, 3229, 4201</span></div></div>

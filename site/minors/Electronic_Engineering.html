@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -252,49 +256,49 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>1. Required Courses : 9 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">ELEG2201, 2202<span id="ref_a"><a href="#note_a">[a]</a></span>, ENGG2030/ESTR2206</span></div></div>
 <details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>ELEG 2201</td><td>Digital Circuits and Computing Systems</td><td>3.00</td><td>Not for students who have taken ENGG2020.</td></tr>
-<tr><td>ELEG 2202</td><td>Fundamentals of Electric Circuits</td><td>3.00</td><td>Not for students who have taken BMEG2300.</td></tr>
-<tr class="eq-row"><td>ENGG 2030</td><td>Signals and Systems</td><td>3.00</td><td>Not for students who have taken ESTR2206 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051.</td></tr>
-<tr><td>ESTR 2206</td><td>Signals and Systems</td><td>3.00</td><td>Not for students who have taken ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051.</td></tr>
+<tr><td>ELEG 2201</td><td>Digital Circuits and Computing Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ENGG2020.</span></td></tr>
+<tr><td>ELEG 2202</td><td>Fundamentals of Electric Circuits</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken BMEG2300.</span></td></tr>
+<tr class="eq-row"><td>ENGG 2030</td><td>Signals and Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR2206 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051.</span></td></tr>
+<tr><td>ESTR 2206</td><td>Signals and Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 9 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(at least 6 units at 4000 level):</span></div><div class="req-row"><span class="row-text">ELEG2310/ESTR2300, ELEG3103/ESTR3216, ELEG3201/ESTR3200, ELEG3202, 3207, ELEG3213/ESTR3214, ELEG3214, ELEG3301/ESTR3204, ELEG3302, ELEG3303/ESTR3206, ELEG3503, 3601, 3701, 3710, 4211, ELEG4214/ESTR4222, ELEG4215, 4216, ELEG4311/ESTR4216, ELEG4312, 4313, ELEG4511/ESTR4218, ELEG4512, 4701, ENGG3802, 3803</span></div></div>
 <details class="course-details"><summary>Show 35 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr class="eq-row"><td>ELEG 2310</td><td>Principles of Communication Systems</td><td>3.00</td><td>Prerequisite: ENGG2030 or ESTR2206 Not for students who have taken ESTR2300 or ENGG2310 or IERG2310</td></tr>
-<tr><td>ESTR 2300</td><td>Principles of Communication Systems</td><td>3.00</td><td>Not for students who have taken ENGG2310 or IERG2310 or ELEG2310. Pre-requisite: ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051</td></tr>
-<tr class="eq-row"><td>ELEG 3103</td><td>Robotic Perception and Intelligence</td><td>3.00</td><td>Not for students who have taken MAEG3060 or ESTR3408 or ESTR3216; Prerequisite: ENGG2030 or ESTR2206 or with the consent of the instructor.</td></tr>
-<tr><td>ESTR 3216</td><td>Robotic Perception and Intelligence</td><td>3.00</td><td>Pre-requisite: ENGG2030 or with the consent of the instructor Not for students who have taken ELEG3103 or ESTR3408 or MAEG3060</td></tr>
-<tr class="eq-row"><td>ELEG 3201</td><td>Microelectronic Devices and Circuits</td><td>3.00</td><td>Not for students who have taken ESTR3200; Prerequisite: ELEG2202 or BMEG2300 or with the consent of the instructor.</td></tr>
-<tr><td>ESTR 3200</td><td>Microelectronic Devices and Circuits</td><td>3.00</td><td>Not for students who have taken ELEG3201. Pre-requisite: ELEG2202 or BMEG2300 or with the consent of the instructor.</td></tr>
-<tr><td>ELEG 3202</td><td>Analog Integrated Circuits</td><td>3.00</td><td>Not for students who have taken ELEG3210. Prerequisite: ELEG2202 or BMEG2300 or with the consent of the instructor.</td></tr>
-<tr><td>ELEG 3207</td><td>Introduction to Power Electronics</td><td>3.00</td><td>Pre-requisite: ELEG2202 or BMEG2300 or with the consent of the instructor.</td></tr>
-<tr class="eq-row"><td>ELEG 3213</td><td>Fundamentals of Applied Electromagnetics</td><td>3.00</td><td>Not for students who have taken ELEG3203 or ESTR3214.</td></tr>
-<tr><td>ESTR 3214</td><td>Fundamentals of Applied Electromagnetics</td><td>3.00</td><td>Not for students who have taken ELEG3213 or ELEG3203.</td></tr>
-<tr><td>ELEG 3214</td><td>Antennas and Wave Propagation for Wireless Communications</td><td>3.00</td><td>Co-requisite: ELEG3213 or ESTR3214 or consent of the instructor.</td></tr>
-<tr class="eq-row"><td>ELEG 3301</td><td>Principles of Semiconductor Devices</td><td>3.00</td><td>Not for students who have taken ELEG2510 or ESTR3204.</td></tr>
-<tr><td>ESTR 3204</td><td>Principles of Semiconductor Devices</td><td>3.00</td><td>Not for students who have taken ELEG2510 and ELEG3301.</td></tr>
-<tr><td>ELEG 3302</td><td>Fundamentals of Photonics</td><td>3.00</td><td>Not for students who have taken ELEG3010.</td></tr>
-<tr class="eq-row"><td>ELEG 3303</td><td>Introduction to Optical Communications</td><td>3.00</td><td>Not for students who have taken ELEG3320 or ESTR3206.</td></tr>
-<tr><td>ESTR 3206</td><td>Introduction to Optical Communications</td><td>3.00</td><td>Not for students who have taken ELEG3303 or ELEG3320.</td></tr>
-<tr><td>ELEG 3503</td><td>Introduction to Digital Signal Processing</td><td>3.00</td><td>Not for students who have taken ELEG3410. Prerequisite: ENGG2030 or ESTR2206 or consent of the instructor.</td></tr>
-<tr><td>ELEG 3601</td><td>Introduction to Electric Power Systems</td><td>3.00</td><td>Pre-requisite: (ELEG2202 or BMEG2300) and (ENGG1310 or ENGG2520 or ESTR1003), or with consent of the instructor.</td></tr>
-<tr><td>ELEG 3701</td><td>Embedded Systems Design</td><td>3.00</td><td>Not for students who have taken ELEG2401 or IERG3060 or IERG3810; Pre-requisite: (ELEG2201 and ELEG2202)or with the consent of the instructor.</td></tr>
-<tr><td>ELEG 3710</td><td>Electronic Product Design and Development</td><td>3.00</td><td>Not for students who have taken ELEG3700</td></tr>
-<tr><td>ELEG 4211</td><td>CMOS Digital Integrated Circuits Design</td><td>3.00</td><td>Not for students who have taken ELEG4201 or ELEG4260</td></tr>
-<tr class="eq-row"><td>ELEG 4214</td><td>RF Circuits for Wireless Systems</td><td>3.00</td><td>Not for students who have taken ELEG4203 or ELEG4204 or ELEG4213 or ESTR4206 or ESTR4208 or ESTR4220 or ESTR4222. Pre-requisite: ELEG3203 or ELEG3213 or ESTR3214 or consent of the instructor.</td></tr>
-<tr><td>ESTR 4222</td><td>RF Circuits for Wireless Systems</td><td>3.00</td><td>Pre-requisite: ELEG3203 or ELEG3213 or ESTR3214 or consent of the instructor. Not for students who have taken ELEG4203 or ELEG4204 or ELEG4213 or ELEG4214 or ESTR4206 or ESTR4208 or ESTR4220.</td></tr>
-<tr><td>ELEG 4215</td><td>Power Converter Circuits</td><td>3.00</td><td>Not for students who have taken ELEG4205. Prerequisite: ELEG3202 or consent of the instructor.</td></tr>
-<tr><td>ELEG 4216</td><td>Design Methodology of Modern Digital Circuits</td><td>3.00</td><td>Not for students who have taken ELEG3205.</td></tr>
-<tr class="eq-row"><td>ELEG 4311</td><td>Physics and Technology of Semiconductor Devices</td><td>3.00</td><td>Not for students who have taken ELEG4301 or ELEG4510 or ESTR4210 or ESTR4216. Prerequisites: ELEG3301 or ESTR3204 or consent of the instructor.</td></tr>
-<tr><td>ESTR 4216</td><td>Physics and Technology of Semiconductor Devices</td><td>3.00</td><td>Not for students who have taken ELEG4301 or ELEG4311 or ELEG4510 or ESTR4210. Pre-requisite: ELEG3301 or ESTR3204 or consent of the instructor.</td></tr>
-<tr><td>ELEG 4312</td><td>Micro-optic Devices and Systems</td><td>3.00</td><td>Not for students who have taken ELEG4302.</td></tr>
+<tr class="eq-row"><td>ELEG 2310</td><td>Principles of Communication Systems</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: ENGG2030 or ESTR2206.</span><span class="prereq-sentence">Not for students who have taken ESTR2300 or ENGG2310 or IERG2310.</span></td></tr>
+<tr><td>ESTR 2300</td><td>Principles of Communication Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ENGG2310 or IERG2310 or ELEG2310.</span><span class="prereq-sentence">Pre-requisite: ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051.</span></td></tr>
+<tr class="eq-row"><td>ELEG 3103</td><td>Robotic Perception and Intelligence</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG3060 or ESTR3408 or ESTR3216;</span><span class="prereq-sentence">Prerequisite: ENGG2030 or ESTR2206 or with the consent of the instructor.</span></td></tr>
+<tr><td>ESTR 3216</td><td>Robotic Perception and Intelligence</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: ENGG2030 or with the consent of the instructor.</span><span class="prereq-sentence">Not for students who have taken ELEG3103 or ESTR3408 or MAEG3060.</span></td></tr>
+<tr class="eq-row"><td>ELEG 3201</td><td>Microelectronic Devices and Circuits</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR3200;</span><span class="prereq-sentence">Prerequisite: ELEG2202 or BMEG2300 or with the consent of the instructor.</span></td></tr>
+<tr><td>ESTR 3200</td><td>Microelectronic Devices and Circuits</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG3201.</span><span class="prereq-sentence">Pre-requisite: ELEG2202 or BMEG2300 or with the consent of the instructor.</span></td></tr>
+<tr><td>ELEG 3202</td><td>Analog Integrated Circuits</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG3210.</span><span class="prereq-sentence">Prerequisite: ELEG2202 or BMEG2300 or with the consent of the instructor.</span></td></tr>
+<tr><td>ELEG 3207</td><td>Introduction to Power Electronics</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: ELEG2202 or BMEG2300 or with the consent of the instructor.</span></td></tr>
+<tr class="eq-row"><td>ELEG 3213</td><td>Fundamentals of Applied Electromagnetics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG3203 or ESTR3214.</span></td></tr>
+<tr><td>ESTR 3214</td><td>Fundamentals of Applied Electromagnetics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG3213 or ELEG3203.</span></td></tr>
+<tr><td>ELEG 3214</td><td>Antennas and Wave Propagation for Wireless Communications</td><td>3.00</td><td><span class="prereq-sentence">Co-requisite: ELEG3213 or ESTR3214 or consent of the instructor.</span></td></tr>
+<tr class="eq-row"><td>ELEG 3301</td><td>Principles of Semiconductor Devices</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG2510 or ESTR3204.</span></td></tr>
+<tr><td>ESTR 3204</td><td>Principles of Semiconductor Devices</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG2510 and ELEG3301.</span></td></tr>
+<tr><td>ELEG 3302</td><td>Fundamentals of Photonics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG3010.</span></td></tr>
+<tr class="eq-row"><td>ELEG 3303</td><td>Introduction to Optical Communications</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG3320 or ESTR3206.</span></td></tr>
+<tr><td>ESTR 3206</td><td>Introduction to Optical Communications</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG3303 or ELEG3320.</span></td></tr>
+<tr><td>ELEG 3503</td><td>Introduction to Digital Signal Processing</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG3410.</span><span class="prereq-sentence">Prerequisite: ENGG2030 or ESTR2206 or consent of the instructor.</span></td></tr>
+<tr><td>ELEG 3601</td><td>Introduction to Electric Power Systems</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: (ELEG2202 or BMEG2300) and (ENGG1310 or ENGG2520 or ESTR1003), or with consent of the instructor.</span></td></tr>
+<tr><td>ELEG 3701</td><td>Embedded Systems Design</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG2401 or IERG3060 or IERG3810;</span><span class="prereq-sentence">Pre-requisite: (ELEG2201 and ELEG2202)or with the consent of the instructor.</span></td></tr>
+<tr><td>ELEG 3710</td><td>Electronic Product Design and Development</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG3700.</span></td></tr>
+<tr><td>ELEG 4211</td><td>CMOS Digital Integrated Circuits Design</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG4201 or ELEG4260.</span></td></tr>
+<tr class="eq-row"><td>ELEG 4214</td><td>RF Circuits for Wireless Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG4203 or ELEG4204 or ELEG4213 or ESTR4206 or ESTR4208 or ESTR4220 or ESTR4222.</span><span class="prereq-sentence">Pre-requisite: ELEG3203 or ELEG3213 or ESTR3214 or consent of the instructor.</span></td></tr>
+<tr><td>ESTR 4222</td><td>RF Circuits for Wireless Systems</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: ELEG3203 or ELEG3213 or ESTR3214 or consent of the instructor.</span><span class="prereq-sentence">Not for students who have taken ELEG4203 or ELEG4204 or ELEG4213 or ELEG4214 or ESTR4206 or ESTR4208 or ESTR4220.</span></td></tr>
+<tr><td>ELEG 4215</td><td>Power Converter Circuits</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG4205.</span><span class="prereq-sentence">Prerequisite: ELEG3202 or consent of the instructor.</span></td></tr>
+<tr><td>ELEG 4216</td><td>Design Methodology of Modern Digital Circuits</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG3205.</span></td></tr>
+<tr class="eq-row"><td>ELEG 4311</td><td>Physics and Technology of Semiconductor Devices</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG4301 or ELEG4510 or ESTR4210 or ESTR4216.</span><span class="prereq-sentence">Prerequisites: ELEG3301 or ESTR3204 or consent of the instructor.</span></td></tr>
+<tr><td>ESTR 4216</td><td>Physics and Technology of Semiconductor Devices</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG4301 or ELEG4311 or ELEG4510 or ESTR4210.</span><span class="prereq-sentence">Pre-requisite: ELEG3301 or ESTR3204 or consent of the instructor.</span></td></tr>
+<tr><td>ELEG 4312</td><td>Micro-optic Devices and Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG4302.</span></td></tr>
 <tr><td>ELEG 4313</td><td>Integrated Photonics: Theory, Design and Practice</td><td>3.00</td><td>—</td></tr>
-<tr class="eq-row"><td>ELEG 4511</td><td>Digital Signal Processing and Applications</td><td>3.00</td><td>Not for students who have taken ELEG4501 or ESTR4212 or ESTR4218. Pre-requisite: ELEG3503 or consent of the instructor.</td></tr>
-<tr><td>ESTR 4218</td><td>Digital Signal Processing and Applications</td><td>3.00</td><td>Not for students who have taken ELEG4501 or ELEG4511 or ESTR4212. Pre-requisite: ELEG3503 or consent of the instructor.</td></tr>
-<tr><td>ELEG 4512</td><td>Digital Image Processing</td><td>3.00</td><td>Not for students who have taken ELEG4502 or IERG4160.</td></tr>
-<tr><td>ELEG 4701</td><td>Intelligent Interactive Robot Practice</td><td>3.00</td><td>Pre-requisite: CSCI1120 or ESTR1100 Introduction to Computing Using C++</td></tr>
+<tr class="eq-row"><td>ELEG 4511</td><td>Digital Signal Processing and Applications</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG4501 or ESTR4212 or ESTR4218.</span><span class="prereq-sentence">Pre-requisite: ELEG3503 or consent of the instructor.</span></td></tr>
+<tr><td>ESTR 4218</td><td>Digital Signal Processing and Applications</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG4501 or ELEG4511 or ESTR4212.</span><span class="prereq-sentence">Pre-requisite: ELEG3503 or consent of the instructor.</span></td></tr>
+<tr><td>ELEG 4512</td><td>Digital Image Processing</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ELEG4502 or IERG4160.</span></td></tr>
+<tr><td>ELEG 4701</td><td>Intelligent Interactive Robot Practice</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CSCI1120 or ESTR1100 Introduction to Computing Using C++.</span></td></tr>
 <tr><td>ENGG 3802</td><td>Introduction to Engineering Entrepreneurship</td><td>1.00</td><td>—</td></tr>
-<tr><td>ENGG 3803</td><td>Engineering Entrepreneurship Development Project</td><td>2.00</td><td>Pre-requisite: ENGG3802 with Grade B+ or above or with consent of instructor.</td></tr>
+<tr><td>ENGG 3803</td><td>Engineering Entrepreneurship Development Project</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: ENGG3802 with Grade B+ or above or with consent of instructor.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>

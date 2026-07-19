@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -252,24 +256,24 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>1. Required Courses<span id="ref_a"><a href="#note_a">[a]</a></span>: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) HKSL1000 and 1002, or 1003</span><span class="meta">(6 units)</span></div></div>
 <details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>HKSL 1000</td><td>Hong Kong Sign Language I</td><td>3.00</td><td>Not for students who have taken HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003</td></tr>
-<tr><td>HKSL 1002</td><td>Hong Kong Sign Language II</td><td>3.00</td><td>1. Not for students who have taken HKSL1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003 2. Prerequisite: HKSL1000</td></tr>
-<tr><td>HKSL 1003</td><td>Hong Kong Sign Language I & II</td><td>6.00</td><td>Not for students who have taken HKSL1000, 1002(2000), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003</td></tr>
+<tr><td>HKSL 1000</td><td>Hong Kong Sign Language I</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003.</span></td></tr>
+<tr><td>HKSL 1002</td><td>Hong Kong Sign Language II</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken HKSL1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003.</span><span class="prereq-sentence">2. Prerequisite: HKSL1000.</span></td></tr>
+<tr><td>HKSL 1003</td><td>Hong Kong Sign Language I & II</td><td>6.00</td><td><span class="prereq-sentence">Not for students who have taken HKSL1000, 1002(2000), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003.</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) HKSL2001 and 2002, or 2003</span><span class="meta">(6 units)</span></div></div>
 <details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>HKSL 2001</td><td>Hong Kong Sign Language III</td><td>3.00</td><td>1.Not for students who have taken HKSL2002(3000), 2003(3050), 3001, 3002 or 3003 2.Pre-requisite: HKSL1002(2000) or 1003(2050)</td></tr>
-<tr><td>HKSL 2002</td><td>Hong Kong Sign Language IV</td><td>3.00</td><td>1. Not for students who have taken HKSL2003(3050), 3001, 3002 or 3003 2. Prerequisite: HKSL2001</td></tr>
-<tr><td>HKSL 2003</td><td>Hong Kong Sign Language III & IV</td><td>6.00</td><td>1. Prerequisite: HKSL1002(2000) or 1003(2050) 2. Not for students who have taken HKSL2001, 2002(3000), 3001, 3002 or 3003</td></tr>
+<tr><td>HKSL 2001</td><td>Hong Kong Sign Language III</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken HKSL2002(3000), 2003(3050), 3001, 3002 or 3003.</span><span class="prereq-sentence">2. Pre-requisite: HKSL1002(2000) or 1003(2050).</span></td></tr>
+<tr><td>HKSL 2002</td><td>Hong Kong Sign Language IV</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken HKSL2003(3050), 3001, 3002 or 3003.</span><span class="prereq-sentence">2. Prerequisite: HKSL2001.</span></td></tr>
+<tr><td>HKSL 2003</td><td>Hong Kong Sign Language III & IV</td><td>6.00</td><td><span class="prereq-sentence">1. Prerequisite: HKSL1002(2000) or 1003(2050).</span><span class="prereq-sentence">2. Not for students who have taken HKSL2001, 2002(3000), 3001, 3002 or 3003.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">BMBL3002, 3003 or any HKSL courses at 3000 or above level</span><span class="meta">(6 units)</span></div></div>
 <details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>BMBL 3002</td><td>Introduction to Sign Language Interpreting</td><td>3.00</td><td>Prerequisite: HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003</td></tr>
-<tr><td>BMBL 3003</td><td>Special Topics in Sign Language Studies</td><td>3.00</td><td>Prerequisite: HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003</td></tr>
-<tr><td>HKSL 3001</td><td>Hong Kong Sign Language V</td><td>3.00</td><td>1.Prerequisite(s): HKSL2002(3000) or 2003(3050) 2.Not for students who have taken HKSL3002 or 3003</td></tr>
-<tr><td>HKSL 3002</td><td>Hong Kong Sign Language VI</td><td>3.00</td><td>1. Prerequisite: HKSL3001 2. Not for students who have taken HKSL3003</td></tr>
-<tr><td>HKSL 3003</td><td>Hong Kong Sign Language V & VI</td><td>6.00</td><td>1. Not for students who have taken HKSL3001 or 3002 2. Prerequisite: HKSL2002(3000) or 2003(3050)</td></tr>
+<tr><td>BMBL 3002</td><td>Introduction to Sign Language Interpreting</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003.</span></td></tr>
+<tr><td>BMBL 3003</td><td>Special Topics in Sign Language Studies</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: HKSL1002(2000), 1003(2050), 2001, 2002(3000), 2003(3050), 3001, 3002 or 3003.</span></td></tr>
+<tr><td>HKSL 3001</td><td>Hong Kong Sign Language V</td><td>3.00</td><td><span class="prereq-sentence">1. Prerequisite(s): HKSL2002(3000) or 2003(3050).</span><span class="prereq-sentence">2. Not for students who have taken HKSL3002 or 3003.</span></td></tr>
+<tr><td>HKSL 3002</td><td>Hong Kong Sign Language VI</td><td>3.00</td><td><span class="prereq-sentence">1. Prerequisite: HKSL3001.</span><span class="prereq-sentence">2. Not for students who have taken HKSL3003.</span></td></tr>
+<tr><td>HKSL 3003</td><td>Hong Kong Sign Language V & VI</td><td>6.00</td><td><span class="prereq-sentence">1. Not for students who have taken HKSL3001 or 3002.</span><span class="prereq-sentence">2. Prerequisite: HKSL2002(3000) or 2003(3050).</span></td></tr>
 <tr><td>HKSL 3100</td><td>Special Topics in Hong Kong Sign Language</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>

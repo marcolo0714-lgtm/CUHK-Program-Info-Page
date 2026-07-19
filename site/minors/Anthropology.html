@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -265,8 +269,8 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ANTH 2111</td><td>Contemporary Anthropological Theory</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 2210</td><td>Anthropological Field Methods</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 2230</td><td>Anthropology of Film</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2310</td><td>Gender and Culture</td><td>3.00</td><td>Not for students who have taken GENA2192 or UGEC2653</td></tr>
-<tr><td>ANTH 2324</td><td>Indian Cultures and Society</td><td>3.00</td><td>ANTH2324 is double-coded with UGEC2655. Not for students who have taken ANTH3324 or UGEC2655.</td></tr>
+<tr><td>ANTH 2310</td><td>Gender and Culture</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GENA2192 or UGEC2653.</span></td></tr>
+<tr><td>ANTH 2324</td><td>Indian Cultures and Society</td><td>3.00</td><td><span class="prereq-sentence">ANTH2324 is double-coded with UGEC2655.</span><span class="prereq-sentence">Not for students who have taken ANTH3324 or UGEC2655.</span></td></tr>
 <tr><td>ANTH 2327</td><td>Ethnographies of Japan</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 2330</td><td>Gender in Asia</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 2340</td><td>Magic, Myth and the Supernatural</td><td>3.00</td><td>—</td></tr>
@@ -280,7 +284,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ANTH 2402</td><td>Topics in Ethnography II</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 2403</td><td>Topics in Ethnography III</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 2404</td><td>Understanding Islam</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2410</td><td>Chinese Culture and Society</td><td>3.00</td><td>ANTH2410 is double-coded with UGEA2180. Not for students who have taken UGEA2180, 2190 or 2334.</td></tr>
+<tr><td>ANTH 2410</td><td>Chinese Culture and Society</td><td>3.00</td><td><span class="prereq-sentence">ANTH2410 is double-coded with UGEA2180.</span><span class="prereq-sentence">Not for students who have taken UGEA2180, 2190 or 2334.</span></td></tr>
 <tr><td>ANTH 2420</td><td>Culture and Modernity in China</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 2450</td><td>Peoples and Cultures of Southeast Asia</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 2510</td><td>Culture and Business</td><td>3.00</td><td>—</td></tr>
@@ -310,12 +314,12 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ANTH 3780</td><td>Archaeological Field Methods</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 3790</td><td>Archaeological Field Study</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 3820</td><td>Forensic Anthropology</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 4210</td><td>Ethnic Groups, Ethnic Relations and Identities</td><td>3.00</td><td>Not for students who have taken ANTH3340.</td></tr>
+<tr><td>ANTH 4210</td><td>Ethnic Groups, Ethnic Relations and Identities</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ANTH3340.</span></td></tr>
 <tr><td>ANTH 4220</td><td>Visual Anthropology</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 4321</td><td>Topics in Anthropology</td><td>3.00</td><td>—</td></tr>
 <tr><td>ANTH 4330</td><td>Medicine, Health and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 4720</td><td>Museums and Anthropology</td><td>3.00</td><td>---</td></tr>
-<tr><td>ANTH 4750</td><td>Archaeology of Food</td><td>3.00</td><td>Pre-requisite: ANTH1710 / UGEC1633 Understanding Archaeology</td></tr>
+<tr><td>ANTH 4720</td><td>Museums and Anthropology</td><td>3.00</td><td><span class="prereq-sentence">---.</span></td></tr>
+<tr><td>ANTH 4750</td><td>Archaeology of Food</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: ANTH1710 / UGEC1633 Understanding Archaeology.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Anthropology</span></div>

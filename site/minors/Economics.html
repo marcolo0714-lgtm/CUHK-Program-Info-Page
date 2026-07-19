@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -252,7 +256,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>1. Required Courses<span id="ref_a"><a href="#note_a">[a]</a></span>: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">ECON2011, 2021</span></div></div>
 <details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>ECON 2011</td><td>Basic Microeconomics</td><td>3.00</td><td>-</td></tr>
+<tr><td>ECON 2011</td><td>Basic Microeconomics</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>ECON 2021</td><td>Basic Macroeconomics</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 12 units</h2>
@@ -263,19 +267,19 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ECON 3121</td><td>Introductory Econometrics</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 3140</td><td>Financial Data Analysis</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 3150</td><td>Mathematical Methods in Economics III</td><td>3.00</td><td>—</td></tr>
-<tr><td>ECON 3160</td><td>Game Theory</td><td>3.00</td><td>-</td></tr>
+<tr><td>ECON 3160</td><td>Game Theory</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>ECON 3230</td><td>New Political Economy</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 3240</td><td>Economics of Transition</td><td>3.00</td><td>—</td></tr>
-<tr><td>ECON 3250</td><td>Chinese Economy: Heritage and Change</td><td>3.00</td><td>Not for students who have taken UGEC2461.</td></tr>
+<tr><td>ECON 3250</td><td>Chinese Economy: Heritage and Change</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken UGEC2461.</span></td></tr>
 <tr><td>ECON 3260</td><td>History of Economic Thought</td><td>3.00</td><td>—</td></tr>
-<tr><td>ECON 3310</td><td>Economy of China</td><td>3.00</td><td>-</td></tr>
+<tr><td>ECON 3310</td><td>Economy of China</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>ECON 3320</td><td>Asia-Pacific Economies</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 3350</td><td>China and the World Economy</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 3360</td><td>Chinese Economy in Transition</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 3370</td><td>Business Environment of China</td><td>3.00</td><td>—</td></tr>
-<tr><td>ECON 3380</td><td>Economy of Hong Kong</td><td>3.00</td><td>-</td></tr>
-<tr><td>ECON 3410</td><td>Money and Banking</td><td>3.00</td><td>-</td></tr>
-<tr><td>ECON 3420</td><td>Financial Economics</td><td>3.00</td><td>-</td></tr>
+<tr><td>ECON 3380</td><td>Economy of Hong Kong</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>ECON 3410</td><td>Money and Banking</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>ECON 3420</td><td>Financial Economics</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>ECON 3430</td><td>Public Finance</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 3440</td><td>Urban Economics</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 3460</td><td>Development Economics</td><td>3.00</td><td>—</td></tr>
@@ -283,10 +287,10 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ECON 3480</td><td>Industrial Organization</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 3500</td><td>Economies of Social and Environmental Issues</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 3510</td><td>Family Economics</td><td>3.00</td><td>—</td></tr>
-<tr><td>ECON 3520</td><td>Economics of Capital Markets</td><td>3.00</td><td>-</td></tr>
+<tr><td>ECON 3520</td><td>Economics of Capital Markets</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>ECON 3530</td><td>International Economic Relations</td><td>3.00</td><td>—</td></tr>
-<tr><td>ECON 3540</td><td>Foundations of Corporate Finance</td><td>3.00</td><td>Not for students who have taken FINA3088.</td></tr>
-<tr><td>ECON 3570</td><td>Information Technology and Economy</td><td>3.00</td><td>Not for students who have taken UGEB2580.</td></tr>
+<tr><td>ECON 3540</td><td>Foundations of Corporate Finance</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken FINA3088.</span></td></tr>
+<tr><td>ECON 3570</td><td>Information Technology and Economy</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken UGEB2580.</span></td></tr>
 <tr><td>ECON 3580</td><td>Emerging Financial Markets of China</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 3590</td><td>Business Economics</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 3610</td><td>International Trade</td><td>3.00</td><td>—</td></tr>
@@ -297,7 +301,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ECON 4110</td><td>Introductory Mathematical Economics</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 4120</td><td>Applied Forecasting Methods</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 4130</td><td>Machine Learning Methods in Economics</td><td>3.00</td><td>—</td></tr>
-<tr><td>ECON 4140</td><td>Capstone Project in Data Analytics</td><td>3.00</td><td>For students who have taken or are taking ECON4130 at the same term.</td></tr>
+<tr><td>ECON 4140</td><td>Capstone Project in Data Analytics</td><td>3.00</td><td><span class="prereq-sentence">For students who have taken or are taking ECON4130 at the same term.</span></td></tr>
 <tr><td>ECON 4430</td><td>Welfare Economics</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 4450</td><td>Economics of Derivatives</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 4460</td><td>Economic Growth and Technological Change</td><td>3.00</td><td>—</td></tr>
@@ -313,69 +317,69 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ECON 4903</td><td>Economics in Practice</td><td>2.00</td><td>—</td></tr>
 <tr><td>ECON 4910</td><td>Senior Thesis Research I</td><td>3.00</td><td>—</td></tr>
 <tr><td>ECON 4920</td><td>Senior Thesis Research II</td><td>3.00</td><td>—</td></tr>
-<tr><td>ECON 5010</td><td>Microeconomic Theory I</td><td>3.00</td><td>For students in PhD Economics or MPhil Economics</td></tr>
-<tr><td>ECON 5011</td><td>Microeconomic Theory</td><td>3.00</td><td>For students in MSc Economics</td></tr>
-<tr><td>ECON 5012</td><td>Microeconomic Analysis and Applications</td><td>3.00</td><td>For students in MSc Applied Economics</td></tr>
-<tr><td>ECON 5020</td><td>Macroeconomic Theory I</td><td>3.00</td><td>For students in PhD Economics or MPhil Economics</td></tr>
-<tr><td>ECON 5021</td><td>Macroeconomic Theory</td><td>3.00</td><td>For students in MSc Economics</td></tr>
-<tr><td>ECON 5022</td><td>Macroeconomic Analysis and Applications</td><td>3.00</td><td>For students in MSc Applied Economics</td></tr>
-<tr><td>ECON 5030</td><td>Microeconomic Theory II</td><td>3.00</td><td>For students in PhD Economics or MPhil Economics;Prerequisite: ECON5010</td></tr>
-<tr><td>ECON 5040</td><td>Macroeconomic Theory II</td><td>3.00</td><td>For students in PhD Economics or MPhil Economics;Prerequisite: ECON5020</td></tr>
-<tr><td>ECON 5100</td><td>Review of Quantitative Methods</td><td>3.00</td><td>For students in PhD Economics or MPhil Economics</td></tr>
-<tr><td>ECON 5101</td><td>Review of Quantitative Methods</td><td>3.00</td><td>For students in MSc Economics</td></tr>
-<tr><td>ECON 5102</td><td>Mathematics for Economic Analysis</td><td>3.00</td><td>For students in MSc Applied Economics</td></tr>
-<tr><td>ECON 5110</td><td>Mathematical Economics</td><td>3.00</td><td>For students in MPhil-PhD Economics or MSc in Economics</td></tr>
-<tr><td>ECON 5120</td><td>Econometric Theory and Applications</td><td>3.00</td><td>For students in PhD Economics or MPhil Economics</td></tr>
-<tr><td>ECON 5121</td><td>Econometric Theory and Applications</td><td>3.00</td><td>For students in MSc Economics</td></tr>
-<tr><td>ECON 5122</td><td>Econometric Analysis and Applications</td><td>3.00</td><td>For students in MSc Applied Economics</td></tr>
-<tr><td>ECON 5130</td><td>Applied Time Series Analysis</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics or Local/ Offshore MSc Economics</td></tr>
-<tr><td>ECON 5140</td><td>Advanced Forecasting Methods</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5150</td><td>Applied Econometrics</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5160</td><td>Game Theory</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5170</td><td>Computational Methods in Economics</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics;Prerequisite: ECON5020/ ECON5021/ ECON5022 and ECON5120/ ECON5121/ ECON5122</td></tr>
-<tr><td>ECON 5180</td><td>Economics and Data Science</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5181</td><td>Machine Learning Methods for Economists</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5310</td><td>Analysis of China’s Economy</td><td>3.00</td><td>For students in MPhil-PhD Economics or MSc in Economics</td></tr>
-<tr><td>ECON 5311</td><td>Analysis of China’s Economy</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5410</td><td>Monetary Economics</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5420</td><td>Financial Economics</td><td>3.00</td><td>For students in MPhil-PhD Economics or MSc in Economics</td></tr>
-<tr><td>ECON 5421</td><td>Financial Economics</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5430</td><td>Public Economics</td><td>3.00</td><td>For students in MPhil-PhD Economics or MSc in Economics</td></tr>
-<tr><td>ECON 5440</td><td>International Trade</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5450</td><td>International Finance</td><td>3.00</td><td>For students in MPhil-PhD Economics or MSc in Economics</td></tr>
-<tr><td>ECON 5451</td><td>International Finance</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5460</td><td>Development Economics</td><td>3.00</td><td>For students in MPhil-PhD Economics or MSc in Economics</td></tr>
-<tr><td>ECON 5461</td><td>Development Economics</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5470</td><td>Labour Economics</td><td>3.00</td><td>For students in MPhil-PhD Economics or MSc in Economics</td></tr>
-<tr><td>ECON 5471</td><td>Labour Economics</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5480</td><td>Industrial Organization</td><td>3.00</td><td>For students in PhD Economics or MPhil Economics</td></tr>
-<tr><td>ECON 5481</td><td>Industrial Organization</td><td>3.00</td><td>For students in MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5490</td><td>Corporate Finance</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics or Local/ Offshore MSc Economics</td></tr>
-<tr><td>ECON 5491</td><td>Corporate Finance</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5510</td><td>Behavioral Economics and Finance</td><td>3.00</td><td>For students in MPhil-PhD Economics or MSc in Economics</td></tr>
-<tr><td>ECON 5511</td><td>Behavioral Economics and Finance</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5520</td><td>Econometric Methods for Policy Evaluation</td><td>3.00</td><td>For students in MPhil-PhD Economics or MSc in Economics</td></tr>
-<tr><td>ECON 5522</td><td>Econometric Methods for Policy Evaluation</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5530</td><td>Health Economics</td><td>3.00</td><td>For students in MPhil-PhD Economics or MSc in Economics</td></tr>
-<tr><td>ECON 5532</td><td>Health Economics</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5542</td><td>Analysis of Fiscal and Monetary Policy in China</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5552</td><td>Economic Analysis of Public Policy in China</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5811</td><td>Global Economics and Finance Forum</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5821</td><td>Special Topics in Economics I</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5822</td><td>Special Topics in Economics I</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5831</td><td>Special Topics in Economics II</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5832</td><td>Special Topics in Economics II</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5841</td><td>Special Topics in Economics III</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5842</td><td>Special Topics in Economics III</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 5851</td><td>Research Development Project</td><td>1.00</td><td>For students in MSc Economics</td></tr>
-<tr><td>ECON 5861</td><td>Internship Experience in Economics</td><td>1.00</td><td>For students in MSc Economics</td></tr>
-<tr><td>ECON 6010</td><td>Seminar in Economic Theory</td><td>3.00</td><td>For students in MPhil-PhD Economics or MSc in Economics</td></tr>
-<tr><td>ECON 6810</td><td>Special Topics in Economics I</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 6820</td><td>Special Topics in Economics II</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 6830</td><td>Special Topics in Economics III</td><td>3.00</td><td>For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics</td></tr>
-<tr><td>ECON 8003</td><td>Thesis Research</td><td>3.00</td><td>For students in MPhil-PhD Economics</td></tr>
-<tr><td>ECON 8006</td><td>Thesis Research</td><td>6.00</td><td>For students in MPhil-PhD Economics</td></tr>
-<tr><td>ECON 8012</td><td>Thesis Research</td><td>12.00</td><td>For students in MPhil-PhD Economics</td></tr>
+<tr><td>ECON 5010</td><td>Microeconomic Theory I</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics or MPhil Economics.</span></td></tr>
+<tr><td>ECON 5011</td><td>Microeconomic Theory</td><td>3.00</td><td><span class="prereq-sentence">For students in MSc Economics.</span></td></tr>
+<tr><td>ECON 5012</td><td>Microeconomic Analysis and Applications</td><td>3.00</td><td><span class="prereq-sentence">For students in MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5020</td><td>Macroeconomic Theory I</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics or MPhil Economics.</span></td></tr>
+<tr><td>ECON 5021</td><td>Macroeconomic Theory</td><td>3.00</td><td><span class="prereq-sentence">For students in MSc Economics.</span></td></tr>
+<tr><td>ECON 5022</td><td>Macroeconomic Analysis and Applications</td><td>3.00</td><td><span class="prereq-sentence">For students in MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5030</td><td>Microeconomic Theory II</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics or MPhil Economics;</span><span class="prereq-sentence">Prerequisite: ECON5010.</span></td></tr>
+<tr><td>ECON 5040</td><td>Macroeconomic Theory II</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics or MPhil Economics;</span><span class="prereq-sentence">Prerequisite: ECON5020.</span></td></tr>
+<tr><td>ECON 5100</td><td>Review of Quantitative Methods</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics or MPhil Economics.</span></td></tr>
+<tr><td>ECON 5101</td><td>Review of Quantitative Methods</td><td>3.00</td><td><span class="prereq-sentence">For students in MSc Economics.</span></td></tr>
+<tr><td>ECON 5102</td><td>Mathematics for Economic Analysis</td><td>3.00</td><td><span class="prereq-sentence">For students in MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5110</td><td>Mathematical Economics</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr><td>ECON 5120</td><td>Econometric Theory and Applications</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics or MPhil Economics.</span></td></tr>
+<tr><td>ECON 5121</td><td>Econometric Theory and Applications</td><td>3.00</td><td><span class="prereq-sentence">For students in MSc Economics.</span></td></tr>
+<tr><td>ECON 5122</td><td>Econometric Analysis and Applications</td><td>3.00</td><td><span class="prereq-sentence">For students in MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5130</td><td>Applied Time Series Analysis</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics or Local/ Offshore MSc Economics.</span></td></tr>
+<tr><td>ECON 5140</td><td>Advanced Forecasting Methods</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5150</td><td>Applied Econometrics</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5160</td><td>Game Theory</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5170</td><td>Computational Methods in Economics</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics;</span><span class="prereq-sentence">Prerequisite: ECON5020/ ECON5021/ ECON5022 and ECON5120/ ECON5121/ ECON5122.</span></td></tr>
+<tr><td>ECON 5180</td><td>Economics and Data Science</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5181</td><td>Machine Learning Methods for Economists</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5310</td><td>Analysis of China’s Economy</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr><td>ECON 5311</td><td>Analysis of China’s Economy</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5410</td><td>Monetary Economics</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5420</td><td>Financial Economics</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr><td>ECON 5421</td><td>Financial Economics</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5430</td><td>Public Economics</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr><td>ECON 5440</td><td>International Trade</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5450</td><td>International Finance</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr><td>ECON 5451</td><td>International Finance</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5460</td><td>Development Economics</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr><td>ECON 5461</td><td>Development Economics</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5470</td><td>Labour Economics</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr><td>ECON 5471</td><td>Labour Economics</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5480</td><td>Industrial Organization</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics or MPhil Economics.</span></td></tr>
+<tr><td>ECON 5481</td><td>Industrial Organization</td><td>3.00</td><td><span class="prereq-sentence">For students in MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5490</td><td>Corporate Finance</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics or Local/ Offshore MSc Economics.</span></td></tr>
+<tr><td>ECON 5491</td><td>Corporate Finance</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5510</td><td>Behavioral Economics and Finance</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr><td>ECON 5511</td><td>Behavioral Economics and Finance</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5520</td><td>Econometric Methods for Policy Evaluation</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr><td>ECON 5522</td><td>Econometric Methods for Policy Evaluation</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5530</td><td>Health Economics</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr><td>ECON 5532</td><td>Health Economics</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5542</td><td>Analysis of Fiscal and Monetary Policy in China</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5552</td><td>Economic Analysis of Public Policy in China</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5811</td><td>Global Economics and Finance Forum</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5821</td><td>Special Topics in Economics I</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5822</td><td>Special Topics in Economics I</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5831</td><td>Special Topics in Economics II</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5832</td><td>Special Topics in Economics II</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5841</td><td>Special Topics in Economics III</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5842</td><td>Special Topics in Economics III</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 5851</td><td>Research Development Project</td><td>1.00</td><td><span class="prereq-sentence">For students in MSc Economics.</span></td></tr>
+<tr><td>ECON 5861</td><td>Internship Experience in Economics</td><td>1.00</td><td><span class="prereq-sentence">For students in MSc Economics.</span></td></tr>
+<tr><td>ECON 6010</td><td>Seminar in Economic Theory</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr><td>ECON 6810</td><td>Special Topics in Economics I</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 6820</td><td>Special Topics in Economics II</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 6830</td><td>Special Topics in Economics III</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr><td>ECON 8003</td><td>Thesis Research</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics.</span></td></tr>
+<tr><td>ECON 8006</td><td>Thesis Research</td><td>6.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics.</span></td></tr>
+<tr><td>ECON 8012</td><td>Thesis Research</td><td>12.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Economics.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Global Economics and Finance.</span></div>

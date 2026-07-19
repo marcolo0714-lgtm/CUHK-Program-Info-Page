@@ -745,9 +745,16 @@ def build_or_groups(text, codes, eq_norm):
       Otherwise 'or' is between equivalent alternatives, handled by eq_pairs.
     Returns a list of lists, or None if no group pattern detected."""
     has_and = bool(re.search(r'\band\b', text, re.IGNORECASE))
-    or_split = _OR_SPLIT if _OR_SPLIT.search(text) else (
-        _OR_AND_SPLIT if has_and and _OR_AND_SPLIT.search(text) else None
-    )
+    # Use lowercase "or" only when "and" is present AND the "or" is preceded
+    # by a comma/punctuation (group separator: "X and Y, or Z").
+    # Inline "or" pairs like "HIST2500 or 2501" should NOT create groups.
+    or_split = _OR_SPLIT if _OR_SPLIT.search(text) else None
+    if or_split is None and has_and:
+        for m in _OR_AND_SPLIT.finditer(text):
+            before = text[max(0, m.start() - 3):m.start()].strip()
+            if before.endswith(',') or before.endswith(')'):
+                or_split = _OR_AND_SPLIT
+                break
     if or_split is None:
         return None
 
@@ -782,6 +789,8 @@ def build_or_groups(text, codes, eq_norm):
     if current:
         groups.append(_dedup_group(current, eq_norm))
 
+    # Filter out empty groups (false "or" matches like "or above level")
+    groups = [g for g in groups if g]
     result = groups if len(groups) > 1 else None
     return result
 

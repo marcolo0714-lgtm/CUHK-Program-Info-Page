@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -252,36 +256,36 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>1. Elective Courses: 18 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(at least 9 units of PHYS courses at 3000 or above level)<span id="ref_a"><a href="#note_a">[a]</a></span> :</span></div><div class="req-row"><span class="row-text">PHYS1001<span id="ref_b"><a href="#note_b">[b]</a></span> or 1002<a href="#note_b">[b]</a><span id="ref_c"><a href="#note_c">[c]</a></span>, 1111<a href="#note_b">[b]</a><a href="#note_c">[c]</a> or 1113<a href="#note_b">[b]</a><a href="#note_c">[c]</a>, 1122, 2041<a href="#note_c">[c]</a>, 2051<a href="#note_c">[c]</a>, 2401, 3011, 3021, 3022, 3023, 3031, 3041, 3051, 3061, 3403, 3420, 3730, 4011, 4021, 4031, 4041, 4050, 4051, 4420, 4430, 4440, 4450, 4460, 4470</span></div></div>
 <details class="course-details"><summary>Show 31 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr class="eq-row"><td>PHYS 1001</td><td>Essential Physics</td><td>3.00</td><td>1. For JUPAS entrants without attending HKDSE Physics or Combined Science with Physics component, including absentees. 2. For non-JUPAS students, please seek advice and permission from the Department of Physics.</td></tr>
-<tr><td>PHYS 1002</td><td>General Physics</td><td>3.00</td><td>Not for students who have taken PHYS1111 or 1113.</td></tr>
-<tr class="eq-row"><td>PHYS 1111</td><td>Introduction to Mechanics, Fluids, and Waves (University Physics I)</td><td>3.00</td><td>For New Undergraduate Curriculum from 2012. Not for students who have taken PHYS1113.</td></tr>
-<tr><td>PHYS 1113</td><td>Mechanics, Fluids and Waves (University Physics I)</td><td>3.00</td><td>Not for students who have taken PHYS1111.</td></tr>
-<tr><td>PHYS 1122</td><td>University Physics II – Introduction to Optics and Modern Physics</td><td>3.00</td><td>For New Curriculum Students.</td></tr>
-<tr><td>PHYS 2041</td><td>University Physics III – Introduction to Heat and Electromagnetism</td><td>3.00</td><td>For New Curriculum Students.</td></tr>
-<tr><td>PHYS 2051</td><td>Quantitative Methods for Basic Physics</td><td>3.00</td><td>Pre-requisite: MATH1010 or 1018 or its equivalents, or permission of instructor.</td></tr>
-<tr><td>PHYS 2401</td><td>Introduction to Astronomy and Astrophysics</td><td>3.00</td><td>Not for students who have taken UGEB2401 or UGEB2402.</td></tr>
-<tr><td>PHYS 3011</td><td>Classical Mechanics I</td><td>3.00</td><td>Pre-requisite: PHYS1111 or or 1113 or its equivalents, or premission of instructor.</td></tr>
-<tr><td>PHYS 3021</td><td>Quantum Mechanics I</td><td>3.00</td><td>Pre-requisite: PHYS1122 or its equivalents, or permission of instructor.</td></tr>
-<tr><td>PHYS 3022</td><td>Applied Quantum Mechanics</td><td>3.00</td><td>Pre-requisite: PHYS3021.</td></tr>
-<tr><td>PHYS 3023</td><td>Introduction to Quantum Information Physics</td><td>3.00</td><td>Pre-requisite: PHYS3021 or its equivalents, or permission of instructor.</td></tr>
-<tr><td>PHYS 3031</td><td>Thermodynamics and Statistical Physics</td><td>3.00</td><td>Pre-requisite: PHYS2041 and 2051 or their equivalents, or permission of instructor.</td></tr>
-<tr><td>PHYS 3041</td><td>Electromagnetic Theory I</td><td>3.00</td><td>Prerequisite: PHYS2041 or its equivalents, or permission of instructor.</td></tr>
-<tr><td>PHYS 3051</td><td>Methods in Theoretical Physics I</td><td>3.00</td><td>Pre-requisite: PHYS2051 or MATH2020 or their equivalents, or permission of the instructor.</td></tr>
+<tr class="eq-row"><td>PHYS 1001</td><td>Essential Physics</td><td>3.00</td><td><span class="prereq-sentence">1. For JUPAS entrants without attending HKDSE Physics or Combined Science with Physics component, including absentees.</span><span class="prereq-sentence">2. For non-JUPAS students, please seek advice and permission from the Department of Physics.</span></td></tr>
+<tr><td>PHYS 1002</td><td>General Physics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken PHYS1111 or 1113.</span></td></tr>
+<tr class="eq-row"><td>PHYS 1111</td><td>Introduction to Mechanics, Fluids, and Waves (University Physics I)</td><td>3.00</td><td><span class="prereq-sentence">For New Undergraduate Curriculum from 2012.</span><span class="prereq-sentence">Not for students who have taken PHYS1113.</span></td></tr>
+<tr><td>PHYS 1113</td><td>Mechanics, Fluids and Waves (University Physics I)</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken PHYS1111.</span></td></tr>
+<tr><td>PHYS 1122</td><td>University Physics II – Introduction to Optics and Modern Physics</td><td>3.00</td><td><span class="prereq-sentence">For New Curriculum Students.</span></td></tr>
+<tr><td>PHYS 2041</td><td>University Physics III – Introduction to Heat and Electromagnetism</td><td>3.00</td><td><span class="prereq-sentence">For New Curriculum Students.</span></td></tr>
+<tr><td>PHYS 2051</td><td>Quantitative Methods for Basic Physics</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: MATH1010 or 1018 or its equivalents, or permission of instructor.</span></td></tr>
+<tr><td>PHYS 2401</td><td>Introduction to Astronomy and Astrophysics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken UGEB2401 or UGEB2402.</span></td></tr>
+<tr><td>PHYS 3011</td><td>Classical Mechanics I</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS1111 or or 1113 or its equivalents, or premission of instructor.</span></td></tr>
+<tr><td>PHYS 3021</td><td>Quantum Mechanics I</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS1122 or its equivalents, or permission of instructor.</span></td></tr>
+<tr><td>PHYS 3022</td><td>Applied Quantum Mechanics</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS3021.</span></td></tr>
+<tr><td>PHYS 3023</td><td>Introduction to Quantum Information Physics</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS3021 or its equivalents, or permission of instructor.</span></td></tr>
+<tr><td>PHYS 3031</td><td>Thermodynamics and Statistical Physics</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS2041 and 2051 or their equivalents, or permission of instructor.</span></td></tr>
+<tr><td>PHYS 3041</td><td>Electromagnetic Theory I</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PHYS2041 or its equivalents, or permission of instructor.</span></td></tr>
+<tr><td>PHYS 3051</td><td>Methods in Theoretical Physics I</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS2051 or MATH2020 or their equivalents, or permission of the instructor.</span></td></tr>
 <tr><td>PHYS 3061</td><td>Physics Simulations with AI Tools</td><td>3.00</td><td>—</td></tr>
-<tr><td>PHYS 3403</td><td>Introduction to Soft and Living Matter Physics</td><td>3.00</td><td>Pre-requisite: PHYS2041 or CHEM2300 or equivalent introductory course that covers thermodynamics, or permission of instructor.</td></tr>
+<tr><td>PHYS 3403</td><td>Introduction to Soft and Living Matter Physics</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS2041 or CHEM2300 or equivalent introductory course that covers thermodynamics, or permission of instructor.</span></td></tr>
 <tr><td>PHYS 3420</td><td>Topics in Contemporary Physics</td><td>3.00</td><td>—</td></tr>
 <tr><td>PHYS 3730</td><td>Basic Instrumentation</td><td>3.00</td><td>—</td></tr>
-<tr><td>PHYS 4011</td><td>Classical Mechanics II</td><td>3.00</td><td>Pre-requisite: PHYS3051 or its equivalents, or permission of the instructor.</td></tr>
-<tr><td>PHYS 4021</td><td>Quantum Mechanics II</td><td>3.00</td><td>Pre-requisite: PHYS3021 or its equivalents, or permission of instructor.</td></tr>
-<tr><td>PHYS 4031</td><td>Statistical Mechanics</td><td>3.00</td><td>Pre-requisite: PHYS2041 and 2051 or their equivalents, or permission of instructor.</td></tr>
-<tr><td>PHYS 4041</td><td>Electromagnetic Theory II</td><td>3.00</td><td>Pre-requisite: PHYS3041 or its equivalents, or permission of instructor.</td></tr>
-<tr><td>PHYS 4050</td><td>Solid State Physics</td><td>3.00</td><td>Pre-requisite/Co-requisite: PHYS3021 or its equivalents, or permission of instructor.</td></tr>
-<tr><td>PHYS 4051</td><td>Methods in Theoretical Physics II</td><td>3.00</td><td>Pre-requisite: PHYS3051 or its equivalents, or permission of instructor.</td></tr>
-<tr><td>PHYS 4420</td><td>Physics in Meteorology</td><td>3.00</td><td>Pre-requisite: PHYS3011. Students who have taken course on vector calculus-based physics or their equivalents may also seek course teacher's permission to register in the course.</td></tr>
+<tr><td>PHYS 4011</td><td>Classical Mechanics II</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS3051 or its equivalents, or permission of the instructor.</span></td></tr>
+<tr><td>PHYS 4021</td><td>Quantum Mechanics II</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS3021 or its equivalents, or permission of instructor.</span></td></tr>
+<tr><td>PHYS 4031</td><td>Statistical Mechanics</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS2041 and 2051 or their equivalents, or permission of instructor.</span></td></tr>
+<tr><td>PHYS 4041</td><td>Electromagnetic Theory II</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS3041 or its equivalents, or permission of instructor.</span></td></tr>
+<tr><td>PHYS 4050</td><td>Solid State Physics</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite/Co-requisite: PHYS3021 or its equivalents, or permission of instructor.</span></td></tr>
+<tr><td>PHYS 4051</td><td>Methods in Theoretical Physics II</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS3051 or its equivalents, or permission of instructor.</span></td></tr>
+<tr><td>PHYS 4420</td><td>Physics in Meteorology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS3011.</span><span class="prereq-sentence">Students who have taken course on vector calculus-based physics or their equivalents may also seek course teacher's permission to register in the course.</span></td></tr>
 <tr><td>PHYS 4430</td><td>Astrophysics</td><td>3.00</td><td>—</td></tr>
-<tr><td>PHYS 4440</td><td>Topics in Nanoscience and Technology</td><td>3.00</td><td>Pre-requisite: PHYS3021 or its equivalents, or permission of instructor.</td></tr>
-<tr><td>PHYS 4450</td><td>Optical Physics</td><td>3.00</td><td>PHYS3041 or its equivalents, or permission of instructor.</td></tr>
-<tr><td>PHYS 4460</td><td>Relativity</td><td>3.00</td><td>Pre-requisite: PHYS3041 or its equivalents, or permission of the instructor.</td></tr>
+<tr><td>PHYS 4440</td><td>Topics in Nanoscience and Technology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS3021 or its equivalents, or permission of instructor.</span></td></tr>
+<tr><td>PHYS 4450</td><td>Optical Physics</td><td>3.00</td><td><span class="prereq-sentence">PHYS3041 or its equivalents, or permission of instructor.</span></td></tr>
+<tr><td>PHYS 4460</td><td>Relativity</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHYS3041 or its equivalents, or permission of the instructor.</span></td></tr>
 <tr><td>PHYS 4470</td><td>Nuclear and Particle Physics</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>

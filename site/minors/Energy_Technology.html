@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -252,32 +256,32 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>1. Required Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">EEEN2020, MAEG2030/ESTR2402</span></div></div>
 <details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>EEEN 2020</td><td>Renewable Energy Technologies</td><td>3.00</td><td>Not for students who have taken ENER2020.</td></tr>
-<tr class="eq-row"><td>MAEG 2030</td><td>Thermodynamics</td><td>3.00</td><td>Not for students who have taken ESTR2402.</td></tr>
-<tr><td>ESTR 2402</td><td>Thermodynamics</td><td>3.00</td><td>Not for students who have taken MAEG2030.</td></tr>
+<tr><td>EEEN 2020</td><td>Renewable Energy Technologies</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ENER2020.</span></td></tr>
+<tr class="eq-row"><td>MAEG 2030</td><td>Thermodynamics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR2402.</span></td></tr>
+<tr><td>ESTR 2402</td><td>Thermodynamics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG2030.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">CHEM4280, EEEN2030, EEEN3020/ESTR3400, EEEN4010/ESTR4400, EEEN4020/ESTR4402, EEEN4030/ESTR4404, EEEN4050/ESTR4422, EEEN4060/ESTR4424, ELEG3207, MAEG4030/ESTR4412, MAEG4080/ESTR4420</span></div></div>
 <details class="course-details"><summary>Show 19 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>CHEM 4280</td><td>Chemistry in Biofuel</td><td>2.00</td><td>—</td></tr>
 <tr><td>EEEN 2030</td><td>Energy and Environmental Economics and Management</td><td>3.00</td><td>—</td></tr>
-<tr class="eq-row"><td>EEEN 3020</td><td>Energy Utilization and Human Behaviour</td><td>3.00</td><td>Not for students who have taken ESTR3400</td></tr>
-<tr><td>ESTR 3400</td><td>Energy Utilization and Human Behaviour</td><td>3.00</td><td>Not for students who have taken EEEN3020.</td></tr>
-<tr class="eq-row"><td>EEEN 4010</td><td>Kinetic Energy Harvesting Devices and Systems</td><td>3.00</td><td>Not for students who have taken ENER4010 or ESTR4400.</td></tr>
-<tr><td>ESTR 4400</td><td>Kinetic Energy Harvesting Devices and Systems</td><td>3.00</td><td>Not for students who have taken ENER4010 or EEEN4010. Pre-requisite: MAEG3030 or with the consent of the course instructor.</td></tr>
-<tr class="eq-row"><td>EEEN 4020</td><td>Solar Energy and Photovoltaic Technology</td><td>3.00</td><td>Not for students who have taken ESTR4402 Pre-requisite(s): 1. ELEG2202 and EEEN2020 or 2. ELEG2202 and ELEG3201/ESTR3200</td></tr>
-<tr><td>ESTR 4402</td><td>Solar Energy and Photovoltaic Technology</td><td>3.00</td><td>Not for students who have taken EEEN4020. Pre-requisite: 1. ELEG2202 and EEEN2020, or 2. ELEG2202 and ELEG3201/ESTR3200.</td></tr>
+<tr class="eq-row"><td>EEEN 3020</td><td>Energy Utilization and Human Behaviour</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR3400.</span></td></tr>
+<tr><td>ESTR 3400</td><td>Energy Utilization and Human Behaviour</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken EEEN3020.</span></td></tr>
+<tr class="eq-row"><td>EEEN 4010</td><td>Kinetic Energy Harvesting Devices and Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ENER4010 or ESTR4400.</span></td></tr>
+<tr><td>ESTR 4400</td><td>Kinetic Energy Harvesting Devices and Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ENER4010 or EEEN4010.</span><span class="prereq-sentence">Pre-requisite: MAEG3030 or with the consent of the course instructor.</span></td></tr>
+<tr class="eq-row"><td>EEEN 4020</td><td>Solar Energy and Photovoltaic Technology</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR4402.</span><span class="prereq-sentence">Pre-requisite(s):</span><span class="prereq-sentence">1. ELEG2202 and EEEN2020 or.</span><span class="prereq-sentence">2. ELEG2202 and ELEG3201/ESTR3200.</span></td></tr>
+<tr><td>ESTR 4402</td><td>Solar Energy and Photovoltaic Technology</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken EEEN4020.</span><span class="prereq-sentence">Pre-requisite:</span><span class="prereq-sentence">1. ELEG2202 and EEEN2020, or.</span><span class="prereq-sentence">2. ELEG2202 and ELEG3201/ESTR3200.</span></td></tr>
 <tr class="nf eq-row"><td>EEEN 4030</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr class="nf"><td>ESTR 4404</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr class="eq-row"><td>EEEN 4050</td><td>Energy Storage Devices and Systems</td><td>3.00</td><td>Pre-requisite(s): ENER2010 and ENER2020, or EEEN2020, or with the consent of the course instructor. Not for students who have taken ENER4040, ENER4050, ESTR4406 or ESTR4422.</td></tr>
-<tr><td>ESTR 4422</td><td>Energy Storage Devices and Systems</td><td>3.00</td><td>Not for students who have taken ENER4040, ENER4050 or ESTR4406 or EEEN4050. Pre-requisite: ENER2010 AND ENER2020 or EEEN2020 or with the consent of the course instructor.</td></tr>
-<tr class="eq-row"><td>EEEN 4060</td><td>Energy Distribution</td><td>3.00</td><td>Pre-requisite(s): ELEG2202 Not for students who have taken ENER4040, ENER4060, ESTR4406 or ESTR4424</td></tr>
-<tr><td>ESTR 4424</td><td>Energy Distribution</td><td>3.00</td><td>Not for students who have taken ENER4040, ENER4060, ESTR4406 or EEEN4060. Pre-requisite: ELEG2202 or equivalent.</td></tr>
-<tr><td>ELEG 3207</td><td>Introduction to Power Electronics</td><td>3.00</td><td>Pre-requisite: ELEG2202 or BMEG2300 or with the consent of the instructor.</td></tr>
-<tr class="eq-row"><td>MAEG 4030</td><td>Heat Transfer</td><td>3.00</td><td>Pre-requisite: MAEG2030/ESTR2402 and MAEG3030, or with the consent of the course instructor Not for students who have taken ESTR4412.</td></tr>
-<tr><td>ESTR 4412</td><td>Heat Transfer</td><td>3.00</td><td>Not for students who have taken MAEG4030. Pre-requisite: MAEG2030 / ESTR2402 and MAEG3030, or with the consent of the course instructor.</td></tr>
-<tr class="eq-row"><td>MAEG 4080</td><td>Introduction to Combustion</td><td>3.00</td><td>Pre-requisite: MAEG2030/ESTR2402 and MAEG3030. Not for students who have taken ESTR4420.</td></tr>
-<tr><td>ESTR 4420</td><td>Introduction to Combustion</td><td>3.00</td><td>Not for students who have taken MAEG4080. Pre-requisite: MAEG2030 or ESTR2402 and MAEG3030.</td></tr>
+<tr class="eq-row"><td>EEEN 4050</td><td>Energy Storage Devices and Systems</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): ENER2010 and ENER2020, or EEEN2020, or with the consent of the course instructor.</span><span class="prereq-sentence">Not for students who have taken ENER4040, ENER4050, ESTR4406 or ESTR4422.</span></td></tr>
+<tr><td>ESTR 4422</td><td>Energy Storage Devices and Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ENER4040, ENER4050 or ESTR4406 or EEEN4050.</span><span class="prereq-sentence">Pre-requisite: ENER2010 AND ENER2020 or EEEN2020 or with the consent of the course instructor.</span></td></tr>
+<tr class="eq-row"><td>EEEN 4060</td><td>Energy Distribution</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): ELEG2202.</span><span class="prereq-sentence">Not for students who have taken ENER4040, ENER4060, ESTR4406 or ESTR4424.</span></td></tr>
+<tr><td>ESTR 4424</td><td>Energy Distribution</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ENER4040, ENER4060, ESTR4406 or EEEN4060.</span><span class="prereq-sentence">Pre-requisite: ELEG2202 or equivalent.</span></td></tr>
+<tr><td>ELEG 3207</td><td>Introduction to Power Electronics</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: ELEG2202 or BMEG2300 or with the consent of the instructor.</span></td></tr>
+<tr class="eq-row"><td>MAEG 4030</td><td>Heat Transfer</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: MAEG2030/ESTR2402 and MAEG3030, or with the consent of the course instructor.</span><span class="prereq-sentence">Not for students who have taken ESTR4412.</span></td></tr>
+<tr><td>ESTR 4412</td><td>Heat Transfer</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG4030.</span><span class="prereq-sentence">Pre-requisite: MAEG2030 / ESTR2402 and MAEG3030, or with the consent of the course instructor.</span></td></tr>
+<tr class="eq-row"><td>MAEG 4080</td><td>Introduction to Combustion</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: MAEG2030/ESTR2402 and MAEG3030.</span><span class="prereq-sentence">Not for students who have taken ESTR4420.</span></td></tr>
+<tr><td>ESTR 4420</td><td>Introduction to Combustion</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG4080.</span><span class="prereq-sentence">Pre-requisite: MAEG2030 or ESTR2402 and MAEG3030.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Energy and Environmental Engineering.</span></div>

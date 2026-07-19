@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -252,11 +256,11 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>1. Required Courses<span id="ref_a"><a href="#note_a">[a]</a></span> : 3 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">EPIN2010 or MGNT2070</span></div></div>
 <details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr class="eq-row"><td>EPIN 2010</td><td>Toolkit for Entrepreneurs</td><td>3.00</td><td>Prerequisite:EPIN1010/1020/1030 or MGNT1070 or SOSC1001/1002 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.Co-requisite:at least any 2 other 2000(EPIN/non-EPIN)level courses.</td></tr>
+<tr class="eq-row"><td>EPIN 2010</td><td>Toolkit for Entrepreneurs</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite:EPIN1010/1020/1030 or MGNT1070 or SOSC1001/1002 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.</span><span class="prereq-sentence">Co-requisite:at least any 2 other 2000(EPIN/non-EPIN)level courses.</span></td></tr>
 <tr><td>MGNT 2070</td><td>NUvention: New Venture Creation</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
-<h2>2. Elective Courses<a href="#note_a">[a]</a>: 15 units</h2>
-<div class="section"><div class="req-row"><span class="row-text">(a) 3 to 6 units of courses from the following:</span></div><div class="req-row"><span class="row-text">EPIN1010, EPIN1020 or MGNT1070, EPIN1030 or SOSC1002, SOSC1001</span></div></div>
+<h2>2. Elective Courses<a href="#note_a">[a]</a>: 9 units</h2>
+<div class="section"><div class="req-row"><span class="row-text">(a) 3 to 6 units of courses from the following:</span><span class="meta">(3 to 6 units)</span></div><div class="req-row"><span class="row-text">EPIN1010, EPIN1020 or MGNT1070, EPIN1030 or SOSC1002, SOSC1001</span></div></div>
 <details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>EPIN 1010</td><td>Anatomy of an Entrepreneur</td><td>3.00</td><td>—</td></tr>
 <tr class="eq-row"><td>EPIN 1020</td><td>Design Thinking and Practice</td><td>3.00</td><td>—</td></tr>
@@ -265,49 +269,49 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>SOSC 1002</td><td>Managing Creativity and Group Dynamics in Innovation Teams</td><td>3.00</td><td>—</td></tr>
 <tr><td>SOSC 1001</td><td>Design Thinking in Social Innovation</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
-<div class="section"><div class="req-row"><span class="row-text">(b) 3 to 9 units of courses from the following:</span></div><div class="req-row"><span class="row-text">AIST1110 or CSCI1110 or 1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 2040, COMM2710, 2922, 2926, CSCI3310, EPIN3010, 3050, 4010, IERG3830, LAWS2331, MAEG2910, MGNT3070, MGNT4070 or SOWK2203, MGNT4090, 4130, 4570, SEEM1000, STAT1013, 2005, 3009, 4001</span></div></div>
+<div class="section"><div class="req-row"><span class="row-text">(b) 3 to 9 units of courses from the following:</span><span class="meta">(3 to 9 units)</span></div><div class="req-row"><span class="row-text">AIST1110 or CSCI1110 or 1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 2040, COMM2710, 2922, 2926, CSCI3310, EPIN3010, 3050, 4010, IERG3830, LAWS2331, MAEG2910, MGNT3070, MGNT4070 or SOWK2203, MGNT4090, 4130, 4570, SEEM1000, STAT1013, 2005, 3009, 4001</span></div></div>
 <details class="course-details"><summary>Show 30 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr class="eq-row"><td>AIST 1110</td><td>Introduction to Computing using Python</td><td>3.00</td><td>Pre-requisite: ENGG1110 or ESTR1002 Not for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080</td></tr>
+<tr class="eq-row"><td>AIST 1110</td><td>Introduction to Computing using Python</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: ENGG1110 or ESTR1002.</span><span class="prereq-sentence">Not for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080.</span></td></tr>
 <tr class="nf eq-row"><td>CSCI 1110</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr class="eq-row"><td>CSCI 1120</td><td>Introduction to Computing Using C++</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1020 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ESTR1100 or ESTR1102</td></tr>
-<tr class="eq-row"><td>CSCI 1130</td><td>Introduction to Computing Using Java</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1030 or CSCI1120 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ESTR1100 or ESTR1102</td></tr>
-<tr class="eq-row"><td>CSCI 1510</td><td>Computer Principles and C Programming</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1120 or CSCI1130 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102</td></tr>
-<tr class="eq-row"><td>CSCI 1520</td><td>Computer Principles and C++ Programming</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102</td></tr>
-<tr class="eq-row"><td>CSCI 1530</td><td>Computer Principles and Java Programming</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1030 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102</td></tr>
-<tr class="eq-row"><td>CSCI 1540</td><td>Fundamental Computing with C++</td><td>3.00</td><td>Not for students who have taken AIST1110 or CSCI1020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1550 or ESTR1100 or ESTR1102</td></tr>
-<tr><td>CSCI 2040</td><td>Introduction to Python</td><td>2.00</td><td>Pre-requisite: ENGG1110 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or ESTR1002 Not for students who have taken CSCI1040 or CSCI1550 or CSCI3230 or CSCI3320 or AIST1110 or IERG1080.</td></tr>
+<tr class="eq-row"><td>CSCI 1120</td><td>Introduction to Computing Using C++</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken AIST1110 or CSCI1020 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ESTR1100 or ESTR1102.</span></td></tr>
+<tr class="eq-row"><td>CSCI 1130</td><td>Introduction to Computing Using Java</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken AIST1110 or CSCI1030 or CSCI1120 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ESTR1100 or ESTR1102.</span></td></tr>
+<tr class="eq-row"><td>CSCI 1510</td><td>Computer Principles and C Programming</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken AIST1110 or CSCI1120 or CSCI1130 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102.</span></td></tr>
+<tr class="eq-row"><td>CSCI 1520</td><td>Computer Principles and C++ Programming</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken AIST1110 or CSCI1020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102.</span></td></tr>
+<tr class="eq-row"><td>CSCI 1530</td><td>Computer Principles and Java Programming</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken AIST1110 or CSCI1030 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102.</span></td></tr>
+<tr class="eq-row"><td>CSCI 1540</td><td>Fundamental Computing with C++</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken AIST1110 or CSCI1020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1550 or ESTR1100 or ESTR1102.</span></td></tr>
+<tr><td>CSCI 2040</td><td>Introduction to Python</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: ENGG1110 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or ESTR1002.</span><span class="prereq-sentence">Not for students who have taken CSCI1040 or CSCI1550 or CSCI3230 or CSCI3320 or AIST1110 or IERG1080.</span></td></tr>
 <tr class="nf"><td>COMM 2710</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr><td>COMM 2922</td><td>Introduction to Creative and New Media</td><td>3.00</td><td>—</td></tr>
 <tr><td>COMM 2926</td><td>Creative Design and Layout</td><td>3.00</td><td>—</td></tr>
-<tr><td>CSCI 3310</td><td>Mobile Computing and Applications Development</td><td>3.00</td><td>Pre-requisite: CSCI2100 or 2520 or ESTR2102 Not for students who have taken IERG3842</td></tr>
+<tr><td>CSCI 3310</td><td>Mobile Computing and Applications Development</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CSCI2100 or 2520 or ESTR2102.</span><span class="prereq-sentence">Not for students who have taken IERG3842.</span></td></tr>
 <tr><td>EPIN 3010</td><td>Business Model Innovation for Startups</td><td>3.00</td><td>—</td></tr>
-<tr><td>EPIN 3050</td><td>Media Production and Presentation</td><td>3.00</td><td>Prerequisite: At least 1 EPIN-coded course or equivalents.</td></tr>
-<tr><td>EPIN 4010</td><td>Special Topic in Entrepreneurship and Innovation</td><td>3.00</td><td>Prerequisite: Any one of the 1000- or 2000-level of EPIN-coded course, or with special permission granted by the instructor</td></tr>
-<tr><td>IERG 3830</td><td>Product Design and Development</td><td>3.00</td><td>-</td></tr>
-<tr><td>LAWS 2331</td><td>Intellectual Property Law for Entrepreneurs</td><td>3.00</td><td>Not for students who have taken LAWS1010 or LAWS1020 or LAWS1041.</td></tr>
+<tr><td>EPIN 3050</td><td>Media Production and Presentation</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: At least 1 EPIN-coded course or equivalents.</span></td></tr>
+<tr><td>EPIN 4010</td><td>Special Topic in Entrepreneurship and Innovation</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: Any one of the 1000- or 2000-level of EPIN-coded course, or with special permission granted by the instructor.</span></td></tr>
+<tr><td>IERG 3830</td><td>Product Design and Development</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>LAWS 2331</td><td>Intellectual Property Law for Entrepreneurs</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken LAWS1010 or LAWS1020 or LAWS1041.</span></td></tr>
 <tr><td>MAEG 2910</td><td>Prototypes to Products</td><td>3.00</td><td>—</td></tr>
 <tr><td>MGNT 3070</td><td>Opportunities' Catching: Strategic Insights and Analysis</td><td>3.00</td><td>—</td></tr>
 <tr class="eq-row"><td>MGNT 4070</td><td>Social Innovation and Entrepreneurship</td><td>3.00</td><td>—</td></tr>
 <tr><td>SOWK 2203</td><td>Mission-driven Social Enterprise</td><td>3.00</td><td>—</td></tr>
 <tr><td>MGNT 4090</td><td>Technology and Innovation Management</td><td>3.00</td><td>—</td></tr>
-<tr><td>MGNT 4130</td><td>Management Consulting and Change Management</td><td>3.00</td><td>Prerequisite: HTMG1010 or MGNT1020.</td></tr>
-<tr><td>MGNT 4570</td><td>Global Entrepreneurship</td><td>3.00</td><td>Pre-requisites: At least 2 2000-level or above courses in Faculty of Business Administration or Department of Economics</td></tr>
-<tr><td>SEEM 1000</td><td>Engineering Startups</td><td>3.00</td><td>Not for students who have taken SEEM3450</td></tr>
+<tr><td>MGNT 4130</td><td>Management Consulting and Change Management</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: HTMG1010 or MGNT1020.</span></td></tr>
+<tr><td>MGNT 4570</td><td>Global Entrepreneurship</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisites: At least 2 2000-level or above courses in Faculty of Business Administration or Department of Economics.</span></td></tr>
+<tr><td>SEEM 1000</td><td>Engineering Startups</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken SEEM3450.</span></td></tr>
 <tr><td>STAT 1013</td><td>Data Science Toolbox</td><td>3.00</td><td>—</td></tr>
 <tr><td>STAT 2005</td><td>Programming Languages for Statistics</td><td>3.00</td><td>—</td></tr>
 <tr><td>STAT 3009</td><td>Recommender Systems</td><td>3.00</td><td>—</td></tr>
 <tr><td>STAT 4001</td><td>Data Mining and Statistical Learning</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
-<div class="section"><div class="req-row"><span class="row-text">(c) 3 to 6 units of courses from the following:</span></div><div class="req-row"><span class="row-text">EPIN2900, 3020, 3021, 3022, 3040, 3900, 4000, 4900</span></div></div>
+<div class="section"><div class="req-row"><span class="row-text">(c) 3 to 6 units of courses from the following:</span><span class="meta">(3 to 6 units)</span></div><div class="req-row"><span class="row-text">EPIN2900, 3020, 3021, 3022, 3040, 3900, 4000, 4900</span></div></div>
 <details class="course-details"><summary>Show 8 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>EPIN 2900</td><td>Internship in Entrepreneurship and Innovation I</td><td>1.00</td><td>—</td></tr>
-<tr><td>EPIN 3020</td><td>Innovation Bootcamp</td><td>1.00</td><td>Prerequisite: EPIN2010 or MGNT 2070 or other equivalents. Prerequisites are exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge. Co-requisite: at least any 2 other 2000 (EPIN/non-EPIN) courses.</td></tr>
-<tr><td>EPIN 3021</td><td>Innovation Bootcamp - Inclusive and affordable medicine</td><td>1.00</td><td>Prerequisite: EPIN2010 or MGNT 2070 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge. Co-requisite: at least any 2 other 2000 (EPIN/non-EPIN) courses.</td></tr>
-<tr><td>EPIN 3022</td><td>Innovation Bootcamp - Pivot to Succeed</td><td>1.00</td><td>Prerequisite: EPIN2010 or MGNT 2070 or other equivalents. Prerequisites are exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge. Co-requisite: at least any 2 other 2000 (EPIN/non-EPIN) courses.</td></tr>
-<tr><td>EPIN 3040</td><td>Entrepreneurship Practicum</td><td>2.00</td><td>Prerequisite:EPIN1010/1020/1030 or MGNT1070 or SOCI1001/1002 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.Co-requisite:at least any 2 other 2000(EPIN/non-EPIN)level courses.</td></tr>
-<tr><td>EPIN 3900</td><td>Internship in Entrepreneurship and Innovation II</td><td>2.00</td><td>Prerequisite: At least 1 EPIN-coded course.</td></tr>
-<tr><td>EPIN 4000</td><td>EPIN Project</td><td>3.00</td><td>Prerequisite: EPIN2010 or other equivalents.</td></tr>
-<tr><td>EPIN 4900</td><td>Internship in Entrepreneurship and Innovation III</td><td>3.00</td><td>Prerequisite: At least 1 EPIN-coded course. EPIN2010 or MGNT 2070 is preferred.</td></tr>
+<tr><td>EPIN 3020</td><td>Innovation Bootcamp</td><td>1.00</td><td><span class="prereq-sentence">Prerequisite: EPIN2010 or MGNT 2070 or other equivalents.</span><span class="prereq-sentence">Prerequisites are exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.</span><span class="prereq-sentence">Co-requisite: at least any 2 other 2000 (EPIN/non-EPIN) courses.</span></td></tr>
+<tr><td>EPIN 3021</td><td>Innovation Bootcamp - Inclusive and affordable medicine</td><td>1.00</td><td><span class="prereq-sentence">Prerequisite: EPIN2010 or MGNT 2070 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.</span><span class="prereq-sentence">Co-requisite: at least any 2 other 2000 (EPIN/non-EPIN) courses.</span></td></tr>
+<tr><td>EPIN 3022</td><td>Innovation Bootcamp - Pivot to Succeed</td><td>1.00</td><td><span class="prereq-sentence">Prerequisite: EPIN2010 or MGNT 2070 or other equivalents.</span><span class="prereq-sentence">Prerequisites are exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.</span><span class="prereq-sentence">Co-requisite: at least any 2 other 2000 (EPIN/non-EPIN) courses.</span></td></tr>
+<tr><td>EPIN 3040</td><td>Entrepreneurship Practicum</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite:EPIN1010/1020/1030 or MGNT1070 or SOCI1001/1002 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.</span><span class="prereq-sentence">Co-requisite:at least any 2 other 2000(EPIN/non-EPIN)level courses.</span></td></tr>
+<tr><td>EPIN 3900</td><td>Internship in Entrepreneurship and Innovation II</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite: At least 1 EPIN-coded course.</span></td></tr>
+<tr><td>EPIN 4000</td><td>EPIN Project</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: EPIN2010 or other equivalents.</span></td></tr>
+<tr><td>EPIN 4900</td><td>Internship in Entrepreneurship and Innovation III</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: At least 1 EPIN-coded course.</span><span class="prereq-sentence">EPIN2010 or MGNT 2070 is preferred.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Integrated BBA Programme (including Double Degree/Dual Degree Programmes and Double Degree/Double Major Options) with Entrepreneurship Concentration.</span></div>

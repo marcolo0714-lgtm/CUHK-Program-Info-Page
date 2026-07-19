@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -258,13 +262,13 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">Any 5 courses from the following, with at least 3 CURE courses and at least 2 courses at 3000 or above level: CURE2024, 2030, 2040, 2066, 3026, 3033, 3034, 3066,4021, 4022, 4027, 4033, CHES3101, 3102, COMM2932, 3939 and JASP2200</span><span class="meta">(15 units)</span></div></div>
 <details class="course-details"><summary>Show 17 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>CURE 2024</td><td>Taiwan New Cinema and Beyond: Authorship, Transnationality, Historiography</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2030</td><td>Hong Kong Cinema</td><td>3.00</td><td>CURE2030 is double-coded with UGEC2241. Not for students who have taken UGEC2241 or 2774.</td></tr>
+<tr><td>CURE 2030</td><td>Hong Kong Cinema</td><td>3.00</td><td><span class="prereq-sentence">CURE2030 is double-coded with UGEC2241.</span><span class="prereq-sentence">Not for students who have taken UGEC2241 or 2774.</span></td></tr>
 <tr><td>CURE 2040</td><td>Television Studies</td><td>3.00</td><td>—</td></tr>
 <tr><td>CURE 2066</td><td>Foundation of Visual Design</td><td>3.00</td><td>—</td></tr>
 <tr class="nf"><td>CURE 3026</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
 <tr><td>CURE 3033</td><td>Film and Cultural Politics in Southeast Asia</td><td>3.00</td><td>—</td></tr>
 <tr><td>CURE 3034</td><td>Korean Media and Popular Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3066</td><td>Video Production</td><td>3.00</td><td>Pre-requisite: CURE2066</td></tr>
+<tr><td>CURE 3066</td><td>Video Production</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CURE2066.</span></td></tr>
 <tr><td>CURE 4021</td><td>World Cinema in East Asia: Theory and Practice</td><td>3.00</td><td>—</td></tr>
 <tr><td>CURE 4022</td><td>Critical Approaches to Pornography</td><td>3.00</td><td>—</td></tr>
 <tr><td>CURE 4027</td><td>Film Classics: Aesthetics and Politics</td><td>3.00</td><td>—</td></tr>

@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -254,13 +258,13 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>MUSC 1000</td><td>The Study of Music</td><td>3.00</td><td>—</td></tr>
 <tr><td>MUSC 1212</td><td>Fundamentals of Tonal Music I</td><td>2.00</td><td>—</td></tr>
-<tr><td>MUSC 1222</td><td>Fundamentals of Tonal Music II</td><td>2.00</td><td>Prerequisite: MUSC1212</td></tr>
+<tr><td>MUSC 1222</td><td>Fundamentals of Tonal Music II</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite: MUSC1212.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 11 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) Any 4 units from the following courses: MUSC2252, 2262, 2552, 2562, 2872, 2882</span><span class="meta">(4 units)</span></div></div>
 <details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>MUSC 2252</td><td>Materials and Structures of Music</td><td>2.00</td><td>Prerequisite: MUSC1222 or by consent of the instructor</td></tr>
-<tr><td>MUSC 2262</td><td>Advanced Harmonic Practice</td><td>2.00</td><td>Prerequisite: MUSC2252 OR by consent of the instructor.</td></tr>
+<tr><td>MUSC 2252</td><td>Materials and Structures of Music</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite: MUSC1222 or by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 2262</td><td>Advanced Harmonic Practice</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite: MUSC2252 OR by consent of the instructor.</span></td></tr>
 <tr><td>MUSC 2552</td><td>Music, Culture and Society</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 2562</td><td>Foundations of Chinese Music</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 2872</td><td>History of Western Music I</td><td>2.00</td><td>—</td></tr>
@@ -314,10 +318,10 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>MUSC 2042</td><td>Wind Orchestra IV</td><td>1.00</td><td>—</td></tr>
 <tr><td>MUSC 2233</td><td>Hymnology and Liturgical Music</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 2333</td><td>Music Information Technology</td><td>2.00</td><td>—</td></tr>
-<tr><td>MUSC 2511</td><td>Aural Practice and Perception I</td><td>1.00</td><td>Pre-requisite: Grade B or above in MUSC1222 or permission by the instructor</td></tr>
-<tr><td>MUSC 2521</td><td>Aural Practice and Perception II</td><td>1.00</td><td>Pre-requisite: MUSC2511 or permission by the instructor.</td></tr>
+<tr><td>MUSC 2511</td><td>Aural Practice and Perception I</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: Grade B or above in MUSC1222 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 2521</td><td>Aural Practice and Perception II</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: MUSC2511 or permission by the instructor.</span></td></tr>
 <tr><td>MUSC 2540</td><td>An Introduction to Arts Management</td><td>3.00</td><td>—</td></tr>
-<tr><td>MUSC 2542</td><td>Music in World Cultures</td><td>2.00</td><td>Prerequisite: MUSC2552 or permission by the instructor.</td></tr>
+<tr><td>MUSC 2542</td><td>Music in World Cultures</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite: MUSC2552 or permission by the instructor.</span></td></tr>
 <tr><td>MUSC 2543</td><td>Conducting</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 2545</td><td>Music Therapy</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 2612</td><td>Chinese Instrumental Music</td><td>2.00</td><td>—</td></tr>
@@ -345,19 +349,19 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>MUSC 3032</td><td>Orchestral Training VI</td><td>1.00</td><td>—</td></tr>
 <tr><td>MUSC 3041</td><td>Wind Orchestra V</td><td>1.00</td><td>—</td></tr>
 <tr><td>MUSC 3042</td><td>Wind Orchestra VI</td><td>1.00</td><td>—</td></tr>
-<tr><td>MUSC 3213</td><td>History of Western Music: Special Topic I</td><td>2.00</td><td>Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</td></tr>
-<tr><td>MUSC 3223</td><td>History of Western Music: Special Topic II</td><td>2.00</td><td>Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</td></tr>
-<tr><td>MUSC 3233</td><td>History of Western Music: Special Topic III</td><td>2.00</td><td>Pre-requisite: MUSC2872 and MUSC2882 OR by consent of the instructor</td></tr>
-<tr><td>MUSC 3243</td><td>History of Western Music: Special Topic IV</td><td>2.00</td><td>Pre-requisite: MUSC2872 and MUSC2882 OR by consent of the instructor</td></tr>
-<tr><td>MUSC 3323</td><td>Counterpoint (Tonal and Modern)</td><td>2.00</td><td>Prerequisite: MUSC2262 or permission by the instructor.</td></tr>
-<tr><td>MUSC 3333</td><td>Orchestral Techniques</td><td>2.00</td><td>Prerequisite: MUSC2262 or permission by the instructor.</td></tr>
-<tr><td>MUSC 3343</td><td>Composition I</td><td>3.00</td><td>Prerequisite: Grade B or above in MUSC3212 or MUSC2262, and departmental permission must be obtained prior to registration.</td></tr>
-<tr><td>MUSC 3353</td><td>Composition II</td><td>3.00</td><td>Prerequisite: MUSC3343</td></tr>
-<tr><td>MUSC 3363</td><td>Composition III</td><td>3.00</td><td>Prerequisite: MUSC3353.</td></tr>
-<tr><td>MUSC 3373</td><td>Scoring for Film and Television</td><td>2.00</td><td>Prerequisite: MUSC2333 or permission by the instructor.</td></tr>
+<tr><td>MUSC 3213</td><td>History of Western Music: Special Topic I</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3223</td><td>History of Western Music: Special Topic II</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3233</td><td>History of Western Music: Special Topic III</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: MUSC2872 and MUSC2882 OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3243</td><td>History of Western Music: Special Topic IV</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: MUSC2872 and MUSC2882 OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3323</td><td>Counterpoint (Tonal and Modern)</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite: MUSC2262 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 3333</td><td>Orchestral Techniques</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite: MUSC2262 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 3343</td><td>Composition I</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: Grade B or above in MUSC3212 or MUSC2262, and departmental permission must be obtained prior to registration.</span></td></tr>
+<tr><td>MUSC 3353</td><td>Composition II</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: MUSC3343.</span></td></tr>
+<tr><td>MUSC 3363</td><td>Composition III</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: MUSC3353.</span></td></tr>
+<tr><td>MUSC 3373</td><td>Scoring for Film and Television</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite: MUSC2333 or permission by the instructor.</span></td></tr>
 <tr><td>MUSC 3383</td><td>Electronic Music</td><td>2.00</td><td>—</td></tr>
-<tr><td>MUSC 3432</td><td>Tonal Music Analysis</td><td>2.00</td><td>Prerequisite: MUSC2252 or permission by the instructor.</td></tr>
-<tr><td>MUSC 3442</td><td>Post-tonal Music Analysis</td><td>2.00</td><td>Prerequisite: MUSC3432 or permission by the instructor.</td></tr>
+<tr><td>MUSC 3432</td><td>Tonal Music Analysis</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite: MUSC2252 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 3442</td><td>Post-tonal Music Analysis</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite: MUSC3432 or permission by the instructor.</span></td></tr>
 <tr><td>MUSC 3452</td><td>Theory and Analysis: Special Topic I</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 3462</td><td>Theory and Analysis: Special Topic II</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 3472</td><td>Theory and Analysis: Special Topic III</td><td>2.00</td><td>—</td></tr>
@@ -370,17 +374,17 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>MUSC 3532</td><td>Chinese Music: History and Theory III</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 3533</td><td>Piano Pedagogy</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 3542</td><td>Selected Topic in World Musics</td><td>2.00</td><td>—</td></tr>
-<tr><td>MUSC 3562</td><td>Chinese Music: Selected Topics</td><td>2.00</td><td>Prerequisite: MUSC2562 or permission by the instructor.</td></tr>
+<tr><td>MUSC 3562</td><td>Chinese Music: Selected Topics</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite: MUSC2562 or permission by the instructor.</span></td></tr>
 <tr><td>MUSC 3582</td><td>Selected Topic in Music and Society</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 3712</td><td>Composition: Special Topic I</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 3722</td><td>Composition: Special Topic II</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 3732</td><td>Composition: Special Topic III</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 3742</td><td>Composition: Special Topic IV</td><td>2.00</td><td>—</td></tr>
-<tr><td>MUSC 3802</td><td>Introduction to Jazz</td><td>2.00</td><td>Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</td></tr>
-<tr><td>MUSC 3832</td><td>Romanticism in Music</td><td>2.00</td><td>Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</td></tr>
-<tr><td>MUSC 3852</td><td>Music on Record</td><td>2.00</td><td>Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</td></tr>
-<tr><td>MUSC 3892</td><td>Approaches to Popular Music</td><td>2.00</td><td>Pre-requisite(s): MUSC2872 and MUSC2882 or permission by the instructor.</td></tr>
-<tr><td>MUSC 3902</td><td>History of Film Music</td><td>2.00</td><td>Pre-requisite: MUSC2872 and MUSC2882 OR by consent of the instructor</td></tr>
+<tr><td>MUSC 3802</td><td>Introduction to Jazz</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3832</td><td>Romanticism in Music</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3852</td><td>Music on Record</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3892</td><td>Approaches to Popular Music</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite(s): MUSC2872 and MUSC2882 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 3902</td><td>History of Film Music</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: MUSC2872 and MUSC2882 OR by consent of the instructor.</span></td></tr>
 <tr><td>MUSC 3912</td><td>Music Pedagogy: Special Topic I</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 3922</td><td>Music Pedagogy: Special Topic II</td><td>2.00</td><td>—</td></tr>
 <tr><td>MUSC 3923</td><td>Selected Study II</td><td>3.00</td><td>—</td></tr>
@@ -411,68 +415,68 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>MUSC 4032</td><td>Orchestral Training VIII</td><td>1.00</td><td>—</td></tr>
 <tr><td>MUSC 4041</td><td>Wind Orchestra VII</td><td>1.00</td><td>—</td></tr>
 <tr><td>MUSC 4042</td><td>Wind Orchestra VIII</td><td>1.00</td><td>—</td></tr>
-<tr><td>MUSC 4243</td><td>Research Methods in Music</td><td>2.00</td><td>Prerequisite(s): MUSC2262 and MUSC2882 (or permission by the instructor)</td></tr>
-<tr><td>MUSC 4513</td><td>Senior Pedagogy Project I</td><td>3.00</td><td>Co-requisite(s): MUSC4243</td></tr>
-<tr><td>MUSC 4523</td><td>Senior Pedagogy Project II</td><td>3.00</td><td>Prerequisite: MUSC4513</td></tr>
+<tr><td>MUSC 4243</td><td>Research Methods in Music</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite(s): MUSC2262 and MUSC2882 (or permission by the instructor).</span></td></tr>
+<tr><td>MUSC 4513</td><td>Senior Pedagogy Project I</td><td>3.00</td><td><span class="prereq-sentence">Co-requisite(s): MUSC4243.</span></td></tr>
+<tr><td>MUSC 4523</td><td>Senior Pedagogy Project II</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: MUSC4513.</span></td></tr>
 <tr><td>MUSC 4613</td><td>Senior Research Project I</td><td>3.00</td><td>—</td></tr>
-<tr><td>MUSC 4623</td><td>Senior Research Project II</td><td>3.00</td><td>Pre-requisite: MUSC4613</td></tr>
-<tr><td>MUSC 4813</td><td>Senior Thesis I</td><td>3.00</td><td>Co-requisite(s): MUSC4243</td></tr>
-<tr><td>MUSC 4823</td><td>Senior Thesis II</td><td>3.00</td><td>Prerequisite: MUSC4813</td></tr>
+<tr><td>MUSC 4623</td><td>Senior Research Project II</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: MUSC4613.</span></td></tr>
+<tr><td>MUSC 4813</td><td>Senior Thesis I</td><td>3.00</td><td><span class="prereq-sentence">Co-requisite(s): MUSC4243.</span></td></tr>
+<tr><td>MUSC 4823</td><td>Senior Thesis II</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: MUSC4813.</span></td></tr>
 <tr><td>MUSC 4862</td><td>Introduction to Transcription and Analysis</td><td>2.00</td><td>—</td></tr>
-<tr><td>MUSC 4883</td><td>Chinese Music Study: Special Topic I</td><td>2.00</td><td>Prerequisites: one from MUSC3512, 3522, 3532 and one from MUSC2612, 2622; but strongly recommended MUSC4862, or permission by the instructor.</td></tr>
-<tr><td>MUSC 4893</td><td>Chinese Music Study: Special Topic II</td><td>2.00</td><td>Prerequisite: MUSC4883 or permission by the instructor.</td></tr>
+<tr><td>MUSC 4883</td><td>Chinese Music Study: Special Topic I</td><td>2.00</td><td><span class="prereq-sentence">Prerequisites: one from MUSC3512, 3522, 3532 and one from MUSC2612, 2622; but strongly recommended MUSC4862, or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 4893</td><td>Chinese Music Study: Special Topic II</td><td>2.00</td><td><span class="prereq-sentence">Prerequisite: MUSC4883 or permission by the instructor.</span></td></tr>
 <tr><td>MUSC 4943</td><td>Selected Study IV</td><td>3.00</td><td>—</td></tr>
-<tr><td>MUSC 5101</td><td>Traditional Musical Culture in China</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5102</td><td>Musical Culture in Contemporary China</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5103</td><td>Music and Popular Culture in Hong Kong</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5104</td><td>Music in Film</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5106</td><td>Music-Making in Global Contexts</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5111</td><td>Special Topic I in “Music and Society”</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5112</td><td>Special Topic II in 'Music and Society'</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5201</td><td>Music Management and Promotion</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5202</td><td>Advanced Tonal Skills</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5203</td><td>Practical Composing and Arranging</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5204</td><td>Advanced Music Information Technology</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5205</td><td>Writing Music for the Church</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5206</td><td>Entrepreneurship and New Vision in Music</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5211</td><td>Special Topic III in ‘Music, Industry, and Creativity’</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5212</td><td>Special Topic IV in ‘Music, Industry, and Creativity’</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5301</td><td>Frontiers in Music Theory</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5302</td><td>Style, Interpretation and Performance Practice</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5303</td><td>Western Opera & Vocal Literature</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5304</td><td>Western Instrumental Literature</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5305</td><td>Practical Studies in Musicianship and Conducting (Choral)</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5306</td><td>Practical Studies in Musicianship and Conducting (Orchestral)</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5311</td><td>Special Topic V in 'Style and Interpretation'</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 5312</td><td>Special Topic VI in 'Style and Interpretation'</td><td>3.00</td><td>For MA Music</td></tr>
-<tr><td>MUSC 6000</td><td>Research Methods and Bibliography</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6050</td><td>Independent Study I</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6051</td><td>Independent Study II</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6100</td><td>Advanced Composition I</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6101</td><td>Advanced Composition II</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6150</td><td>Computer-Aided Composition</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6200</td><td>Ethnomusicology I: History and Theory</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6201</td><td>Ethnomusicology II: Current issues</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music;Prerequisite: MUSC6200</td></tr>
-<tr><td>MUSC 6250</td><td>Special Topic in Chinese Music I</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6251</td><td>Special Topic in Chinese Music II</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6252</td><td>Special Topic in Ethnomusicology I</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6253</td><td>Special Topic in Ethnomusicology II</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6350</td><td>Seminar in Musicology: Renaissance and Early Baroque Music</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6351</td><td>Seminar in Musicology: Late Baroque to 1870</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6352</td><td>Seminar in Musicology: From 1870 to the Present</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6353</td><td>Topics in Sacred Music</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6354</td><td>Topics in Western Opera</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6355</td><td>Topics in the Orchestra and Its Music</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6356</td><td>Musical Notation</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6357</td><td>Topics in Musicology I</td><td>3.00</td><td>For students in PhD/MPhil/DMus/MMus in Music</td></tr>
-<tr><td>MUSC 6358</td><td>Topics in Musicology II</td><td>3.00</td><td>For students in PhD/MPhil/DMus/MMus in Music</td></tr>
-<tr><td>MUSC 6400</td><td>Seminar in the Theory and Analysis of Music I</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6401</td><td>Advanced Tonal Music Theory and Analysis</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6402</td><td>Advanced Post-tonal Music Theory and Analysis</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6450</td><td>Seminar in the Theory and Analysis of Music II</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 6451</td><td>Special Topics: Theory and Analysis</td><td>3.00</td><td>For students in Doctor of Music, Master of Music, MPhil Music or PhD Music</td></tr>
-<tr><td>MUSC 8025</td><td>M.Phil./M.Mus. Thesis/Portfolio Preparation</td><td>3.00</td><td>For students in Master of Music or MPhil Music</td></tr>
-<tr><td>MUSC 8026</td><td>Ph.D./D.Mus. Dissertation/Portfolio Preparation</td><td>3.00</td><td>For students in Doctor of Music or PhD Music</td></tr>
+<tr><td>MUSC 5101</td><td>Traditional Musical Culture in China</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5102</td><td>Musical Culture in Contemporary China</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5103</td><td>Music and Popular Culture in Hong Kong</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5104</td><td>Music in Film</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5106</td><td>Music-Making in Global Contexts</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5111</td><td>Special Topic I in “Music and Society”</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5112</td><td>Special Topic II in 'Music and Society'</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5201</td><td>Music Management and Promotion</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5202</td><td>Advanced Tonal Skills</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5203</td><td>Practical Composing and Arranging</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5204</td><td>Advanced Music Information Technology</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5205</td><td>Writing Music for the Church</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5206</td><td>Entrepreneurship and New Vision in Music</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5211</td><td>Special Topic III in ‘Music, Industry, and Creativity’</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5212</td><td>Special Topic IV in ‘Music, Industry, and Creativity’</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5301</td><td>Frontiers in Music Theory</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5302</td><td>Style, Interpretation and Performance Practice</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5303</td><td>Western Opera & Vocal Literature</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5304</td><td>Western Instrumental Literature</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5305</td><td>Practical Studies in Musicianship and Conducting (Choral)</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5306</td><td>Practical Studies in Musicianship and Conducting (Orchestral)</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5311</td><td>Special Topic V in 'Style and Interpretation'</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5312</td><td>Special Topic VI in 'Style and Interpretation'</td><td>3.00</td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 6000</td><td>Research Methods and Bibliography</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6050</td><td>Independent Study I</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6051</td><td>Independent Study II</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6100</td><td>Advanced Composition I</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6101</td><td>Advanced Composition II</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6150</td><td>Computer-Aided Composition</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6200</td><td>Ethnomusicology I: History and Theory</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6201</td><td>Ethnomusicology II: Current issues</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music;</span><span class="prereq-sentence">Prerequisite: MUSC6200.</span></td></tr>
+<tr><td>MUSC 6250</td><td>Special Topic in Chinese Music I</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6251</td><td>Special Topic in Chinese Music II</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6252</td><td>Special Topic in Ethnomusicology I</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6253</td><td>Special Topic in Ethnomusicology II</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6350</td><td>Seminar in Musicology: Renaissance and Early Baroque Music</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6351</td><td>Seminar in Musicology: Late Baroque to 1870</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6352</td><td>Seminar in Musicology: From 1870 to the Present</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6353</td><td>Topics in Sacred Music</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6354</td><td>Topics in Western Opera</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6355</td><td>Topics in the Orchestra and Its Music</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6356</td><td>Musical Notation</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6357</td><td>Topics in Musicology I</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD/MPhil/DMus/MMus in Music.</span></td></tr>
+<tr><td>MUSC 6358</td><td>Topics in Musicology II</td><td>3.00</td><td><span class="prereq-sentence">For students in PhD/MPhil/DMus/MMus in Music.</span></td></tr>
+<tr><td>MUSC 6400</td><td>Seminar in the Theory and Analysis of Music I</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6401</td><td>Advanced Tonal Music Theory and Analysis</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6402</td><td>Advanced Post-tonal Music Theory and Analysis</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6450</td><td>Seminar in the Theory and Analysis of Music II</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6451</td><td>Special Topics: Theory and Analysis</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 8025</td><td>M.Phil./M.Mus. Thesis/Portfolio Preparation</td><td>3.00</td><td><span class="prereq-sentence">For students in Master of Music or MPhil Music.</span></td></tr>
+<tr><td>MUSC 8026</td><td>Ph.D./D.Mus. Dissertation/Portfolio Preparation</td><td>3.00</td><td><span class="prereq-sentence">For students in Doctor of Music or PhD Music.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Students planning to Minor in Music must have attained at least Grade 5 in theory and instrument/voice in the examination of the Associated Board of the Royal Schools of Music, or equivalent, and may be asked to attend an interview.</span></div>

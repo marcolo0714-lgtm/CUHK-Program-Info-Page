@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -252,27 +256,27 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>1. Required Courses: 9 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">SEEM2420, SEEM3620/ESTR3514, SEEM4750/ESTR4510</span><span class="meta">(9 units)</span></div></div>
 <details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>SEEM 2420</td><td>Operations Research I</td><td>3.00</td><td>Not for students who have taken ESTR2520 or FTEC2101.</td></tr>
-<tr class="eq-row"><td>SEEM 3620</td><td>Introduction to Logistics and Supply Chain Management</td><td>3.00</td><td>Not for students who have taken ESTR3514 or ESTR4500 or ESTR4502 or SEEM4600 or SEEM4610.</td></tr>
-<tr><td>ESTR 3514</td><td>Introduction to Logistics and Supply Chain Management</td><td>3.00</td><td>Not for students who have taken ESTR4500 or ESTR4502 or SEEM3620 or SEEM4600 or SEEM4610.</td></tr>
-<tr class="eq-row"><td>SEEM 4750</td><td>Advances in Logistics and Supply Chain Management</td><td>3.00</td><td>Not for students who have taken ESTR4500 or ESTR4502 or ESTR4510 or SEEM4600 or SEEM4610.</td></tr>
-<tr><td>ESTR 4510</td><td>Advances in Logistics and Supply Chain Management</td><td>3.00</td><td>Not for students who have taken ESTR4500 or ESTR4502 or SEEM4600 or SEEM4610 or SEEM4750</td></tr>
+<tr><td>SEEM 2420</td><td>Operations Research I</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR2520 or FTEC2101.</span></td></tr>
+<tr class="eq-row"><td>SEEM 3620</td><td>Introduction to Logistics and Supply Chain Management</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR3514 or ESTR4500 or ESTR4502 or SEEM4600 or SEEM4610.</span></td></tr>
+<tr><td>ESTR 3514</td><td>Introduction to Logistics and Supply Chain Management</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR4500 or ESTR4502 or SEEM3620 or SEEM4600 or SEEM4610.</span></td></tr>
+<tr class="eq-row"><td>SEEM 4750</td><td>Advances in Logistics and Supply Chain Management</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR4500 or ESTR4502 or ESTR4510 or SEEM4600 or SEEM4610.</span></td></tr>
+<tr><td>ESTR 4510</td><td>Advances in Logistics and Supply Chain Management</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR4500 or ESTR4502 or SEEM4600 or SEEM4610 or SEEM4750.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 9 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Any 3 courses from the following:</span><span class="meta">(9 units)</span></div><div class="req-row"><span class="row-text">SEEM3440/ESTR3500, SEEM3450/ESTR3502, SEEM3500, SEEM3630/ESTR3510, SEEM3650/ESTR3516, SEEM4670, SEEM4760/ESTR4512</span></div></div>
 <details class="course-details"><summary>Show 12 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr class="eq-row"><td>SEEM 3440</td><td>Operations Research II</td><td>3.00</td><td>Not for students who have taken ESTR2520 or ESTR3500 or FTEC2101.</td></tr>
-<tr><td>ESTR 3500</td><td>Operations Research II</td><td>3.00</td><td>Not for students who have taken ESTR2520 or FTEC2101 or SEEM3440.</td></tr>
-<tr class="eq-row"><td>SEEM 3450</td><td>Engineering Innovation and Entrepreneurship</td><td>3.00</td><td>Not for students who have taken ESTR3502.</td></tr>
-<tr><td>ESTR 3502</td><td>Engineering Innovation and Entrepreneurship</td><td>3.00</td><td>Not for students who have taken SEEM3450.</td></tr>
-<tr><td>SEEM 3500</td><td>Quality Control and Management</td><td>3.00</td><td>Prerequisites: SEEM2430 or ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or (ENGG2760/ESTR2018 and ENGG2780/ESTR2020) with the approval of the course instructor.</td></tr>
-<tr class="eq-row"><td>SEEM 3630</td><td>Service Management</td><td>3.00</td><td>Not for students who have taken ESTR3510.</td></tr>
-<tr><td>ESTR 3510</td><td>Service Management</td><td>3.00</td><td>Not for students who have taken SEEM3630.</td></tr>
-<tr class="eq-row"><td>SEEM 3650</td><td>Fundamentals in Decision and Data Analytics</td><td>3.00</td><td>1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020 & MATH1510; or (b) with course instructor's approval. 2. Not for students who have taken ESTR3516 or SEEM4480.</td></tr>
-<tr><td>ESTR 3516</td><td>Fundamentals in Decision and Data Analytics</td><td>3.00</td><td>1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020 & MATH1510; or (b) with course instructor's approval. 2. Not for students who have taken SEEM3650 or SEEM4480.</td></tr>
+<tr class="eq-row"><td>SEEM 3440</td><td>Operations Research II</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR2520 or ESTR3500 or FTEC2101.</span></td></tr>
+<tr><td>ESTR 3500</td><td>Operations Research II</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR2520 or FTEC2101 or SEEM3440.</span></td></tr>
+<tr class="eq-row"><td>SEEM 3450</td><td>Engineering Innovation and Entrepreneurship</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR3502.</span></td></tr>
+<tr><td>ESTR 3502</td><td>Engineering Innovation and Entrepreneurship</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken SEEM3450.</span></td></tr>
+<tr><td>SEEM 3500</td><td>Quality Control and Management</td><td>3.00</td><td><span class="prereq-sentence">Prerequisites: SEEM2430 or ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or (ENGG2760/ESTR2018 and ENGG2780/ESTR2020) with the approval of the course instructor.</span></td></tr>
+<tr class="eq-row"><td>SEEM 3630</td><td>Service Management</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR3510.</span></td></tr>
+<tr><td>ESTR 3510</td><td>Service Management</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken SEEM3630.</span></td></tr>
+<tr class="eq-row"><td>SEEM 3650</td><td>Fundamentals in Decision and Data Analytics</td><td>3.00</td><td><span class="prereq-sentence">1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020 & MATH1510; or (b) with course instructor's approval.</span><span class="prereq-sentence">2. Not for students who have taken ESTR3516 or SEEM4480.</span></td></tr>
+<tr><td>ESTR 3516</td><td>Fundamentals in Decision and Data Analytics</td><td>3.00</td><td><span class="prereq-sentence">1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020 & MATH1510; or (b) with course instructor's approval.</span><span class="prereq-sentence">2. Not for students who have taken SEEM3650 or SEEM4480.</span></td></tr>
 <tr><td>SEEM 4670</td><td>Service Systems</td><td>3.00</td><td>—</td></tr>
-<tr class="eq-row"><td>SEEM 4760</td><td>Stochastic Models for Decision Analytics</td><td>3.00</td><td>1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020, MATH1510 and SEEM2420; or (b) with course instructor's approval. 2. Not for students who have taken ESTR4512.</td></tr>
-<tr><td>ESTR 4512</td><td>Stochastic Models for Decision Analytics</td><td>3.00</td><td>1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020, MATH1510 and SEEM2420; or (b) with course instructor's approval. 2. Not for students who have taken SEEM4760.</td></tr>
+<tr class="eq-row"><td>SEEM 4760</td><td>Stochastic Models for Decision Analytics</td><td>3.00</td><td><span class="prereq-sentence">1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020, MATH1510 and SEEM2420; or (b) with course instructor's approval.</span><span class="prereq-sentence">2. Not for students who have taken ESTR4512.</span></td></tr>
+<tr><td>ESTR 4512</td><td>Stochastic Models for Decision Analytics</td><td>3.00</td><td><span class="prereq-sentence">1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020, MATH1510 and SEEM2420; or (b) with course instructor's approval.</span><span class="prereq-sentence">2. Not for students who have taken SEEM4760.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Systems Engineering and Engineering Management and the Bachelor of Engineering (Systems Engineering and Engineering Management) and Bachelor of Business Administration (Integrated BBA Programme) Double Degree Option; and students in the Mathematics-Multidisciplinary Stream of Mathematics Major Programme.</span></div>

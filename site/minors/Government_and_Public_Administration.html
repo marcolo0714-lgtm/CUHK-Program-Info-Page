@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -253,56 +257,56 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">(one course chosen from the following):</span></div><div class="req-row"><span class="row-text">GPAD 1020, GPAD 1030, GPAD 1095</span></div></div>
 <details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>GPAD 1020</td><td>Fundamentals of Government</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 1030</td><td>Fundamentals of Public Administration</td><td>3.00</td><td>Not for students who have taken UGEC1732.</td></tr>
+<tr><td>GPAD 1030</td><td>Fundamentals of Public Administration</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken UGEC1732.</span></td></tr>
 <tr><td>GPAD 1095</td><td>Issues of Political Philosophy</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 15 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Five GPAD courses, with at least two courses at 3000 or above level</span></div></div>
 <details class="course-details"><summary>Show 93 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>GPAD 1000</td><td>Learning GPA</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 1010</td><td>Political Debate</td><td>3.00</td><td>Not for students who have taken UGEC2711.</td></tr>
+<tr><td>GPAD 1010</td><td>Political Debate</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken UGEC2711.</span></td></tr>
 <tr><td>GPAD 1015</td><td>Politics and Mass Media</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 1016</td><td>Politics of Sports</td><td>3.00</td><td>Not for students who have taken GLSD3302.</td></tr>
-<tr><td>GPAD 1046</td><td>The Art of Leadership</td><td>3.00</td><td>Not for students who have taken GPAD1045, or GELD2111, 2112 and 3113.</td></tr>
+<tr><td>GPAD 1016</td><td>Politics of Sports</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GLSD3302.</span></td></tr>
+<tr><td>GPAD 1046</td><td>The Art of Leadership</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GPAD1045, or GELD2111, 2112 and 3113.</span></td></tr>
 <tr><td>GPAD 1050</td><td>Government of Hong Kong</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 1055</td><td>Parliamentary Practices and Procedures</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 1056</td><td>Introductory Game Theory</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 1065</td><td>Introduction to Contentious Politics in China</td><td>3.00</td><td>-</td></tr>
-<tr><td>GPAD 1066</td><td>China and the World</td><td>3.00</td><td>Not for students who have taken GLSD3106.</td></tr>
+<tr><td>GPAD 1065</td><td>Introduction to Contentious Politics in China</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>GPAD 1066</td><td>China and the World</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GLSD3106.</span></td></tr>
 <tr><td>GPAD 1070</td><td>Government and Politics of China</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 1073</td><td>Reading Chinese Culture and Politics through Movies</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 1074</td><td>Hong Kong Movies and Politics</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 1076</td><td>Thinking Politically</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 1077</td><td>Critical Debates in Hong Kong</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 1100</td><td>Politics, Law and Society</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 2015</td><td>Selected Topics in Hong Kong Politics I</td><td>3.00</td><td>Students who have taken GPAD1077 cannot take this course, unless teacher's consent has been obtained.</td></tr>
+<tr><td>GPAD 2015</td><td>Selected Topics in Hong Kong Politics I</td><td>3.00</td><td><span class="prereq-sentence">Students who have taken GPAD1077 cannot take this course, unless teacher's consent has been obtained.</span></td></tr>
 <tr><td>GPAD 2020</td><td>Politics of Culture</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2025</td><td>Selected Topics in Chinese Politics I</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 2026</td><td>Selected Topics in Chinese Politics II</td><td>3.00</td><td>-</td></tr>
+<tr><td>GPAD 2026</td><td>Selected Topics in Chinese Politics II</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>GPAD 2035</td><td>Selected Topics in Public Administration I</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 2036</td><td>Selected Topics in Public Administration II</td><td>3.00</td><td>-</td></tr>
-<tr><td>GPAD 2065</td><td>Values and Public Affairs</td><td>3.00</td><td>Not for students who have taken UGED2550 or GPAD1090.</td></tr>
+<tr><td>GPAD 2036</td><td>Selected Topics in Public Administration II</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>GPAD 2065</td><td>Values and Public Affairs</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken UGED2550 or GPAD1090.</span></td></tr>
 <tr><td>GPAD 2070</td><td>Social Networking Services, Social Listening and Public Affairs</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2075</td><td>Selected Topics in Political Theory I</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2085</td><td>Public Governance and Civil Service in Hong Kong</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2090</td><td>Governance and Public Policy</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 2095</td><td>Public Policy Workshop</td><td>3.00</td><td>Prerequisite: GPAD1050.</td></tr>
-<tr><td>GPAD 2111</td><td>Political Research Methodology</td><td>3.00</td><td>Not for students who have taken GPAD1110</td></tr>
-<tr><td>GPAD 2120</td><td>Democracies in the West</td><td>3.00</td><td>Prerequisite: GPAD1020 or exemption granted.</td></tr>
+<tr><td>GPAD 2095</td><td>Public Policy Workshop</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GPAD1050.</span></td></tr>
+<tr><td>GPAD 2111</td><td>Political Research Methodology</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GPAD1110.</span></td></tr>
+<tr><td>GPAD 2120</td><td>Democracies in the West</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GPAD1020 or exemption granted.</span></td></tr>
 <tr><td>GPAD 2130</td><td>Introductory Comparative Politics</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2140</td><td>Selected Topics in Comparative Politics I</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2145</td><td>Electoral Studies</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2150</td><td>Public Human Resources Management</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2160</td><td>Public Finance and Budgeting</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 2170</td><td>Public Organization and Management</td><td>3.00</td><td>Prerequisite: GPAD1030 or teacher's consent.</td></tr>
+<tr><td>GPAD 2170</td><td>Public Organization and Management</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GPAD1030 or teacher's consent.</span></td></tr>
 <tr><td>GPAD 2185</td><td>International Organizations</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2196</td><td>Public Opinion Research: Theories and Practices</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2215</td><td>Political Communication in Practice</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2300</td><td>Understanding Human Rights</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 2345</td><td>International Politics</td><td>3.00</td><td>Not for students who have taken GLSD2301 or UGEC2352.</td></tr>
+<tr><td>GPAD 2345</td><td>International Politics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GLSD2301 or UGEC2352.</span></td></tr>
 <tr><td>GPAD 2350</td><td>Chinese Foreign Policy</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 2355</td><td>Globalization and Politics</td><td>3.00</td><td>Not for students who have taken GLSD2301 or UGEC2352.</td></tr>
-<tr><td>GPAD 2370</td><td>Taiwan Studies</td><td>3.00</td><td>Not for students who have taken GPAD3370.</td></tr>
+<tr><td>GPAD 2355</td><td>Globalization and Politics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GLSD2301 or UGEC2352.</span></td></tr>
+<tr><td>GPAD 2370</td><td>Taiwan Studies</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GPAD3370.</span></td></tr>
 <tr><td>GPAD 2375</td><td>Asian International Relations</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2395</td><td>Asian Comparative Politics</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 2450</td><td>Introduction to Political Economy</td><td>3.00</td><td>—</td></tr>
@@ -311,21 +315,21 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>GPAD 3050</td><td>Inter-governmental Relations</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 3070</td><td>Contemporary Political Philosophy</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 3071</td><td>Gender and Politics</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 3111</td><td>Quantitative Methods in Political Science</td><td>3.00</td><td>Not for students who have taken DSPS2102.</td></tr>
-<tr><td>GPAD 3146</td><td>The Idea of Freedom</td><td>3.00</td><td>Not for students who have taken GPAD2146.</td></tr>
-<tr><td>GPAD 3160</td><td>Governance of European Union</td><td>3.00</td><td>Not for students who have taken GLBS3403 or GLSD3403.</td></tr>
+<tr><td>GPAD 3111</td><td>Quantitative Methods in Political Science</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken DSPS2102.</span></td></tr>
+<tr><td>GPAD 3146</td><td>The Idea of Freedom</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GPAD2146.</span></td></tr>
+<tr><td>GPAD 3160</td><td>Governance of European Union</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GLBS3403 or GLSD3403.</span></td></tr>
 <tr><td>GPAD 3161</td><td>The Rise of Populism in Europe</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 3190</td><td>Politics of Development</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 3220</td><td>Politics of Space</td><td>3.00</td><td>-</td></tr>
+<tr><td>GPAD 3220</td><td>Politics of Space</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>GPAD 3255</td><td>Public Policy Analysis</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 3260</td><td>Public Policy and Administration in China</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 3360</td><td>Global Environmental Politics</td><td>3.00</td><td>Not for students who have taken GLSD2401 or GLSD3401.</td></tr>
-<tr><td>GPAD 3365</td><td>Ethics and International Affairs</td><td>3.00</td><td>Prerequisite: GPAD1095.</td></tr>
-<tr><td>GPAD 3451</td><td>International Political Economy</td><td>3.00</td><td>Not for students who have taken GPAD2451 or GLSD2501.</td></tr>
+<tr><td>GPAD 3360</td><td>Global Environmental Politics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GLSD2401 or GLSD3401.</span></td></tr>
+<tr><td>GPAD 3365</td><td>Ethics and International Affairs</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GPAD1095.</span></td></tr>
+<tr><td>GPAD 3451</td><td>International Political Economy</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GPAD2451 or GLSD2501.</span></td></tr>
 <tr><td>GPAD 4020</td><td>Seminar in Public Administration</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 4027</td><td>Seminar in Chinese Politics</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 4030</td><td>Seminar in Hong Kong Studies</td><td>3.00</td><td>Prerequisite: GPAD1050, 2015 or 3016. Students taking this course should first obtain teacher's consent.</td></tr>
-<tr><td>GPAD 4065</td><td>Contentious Politics in China</td><td>3.00</td><td>Not for students who have taken GPAD1065.</td></tr>
+<tr><td>GPAD 4030</td><td>Seminar in Hong Kong Studies</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GPAD1050, 2015 or 3016.</span><span class="prereq-sentence">Students taking this course should first obtain teacher's consent.</span></td></tr>
+<tr><td>GPAD 4065</td><td>Contentious Politics in China</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GPAD1065.</span></td></tr>
 <tr><td>GPAD 4077</td><td>Seminar in Political Theory</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 4080</td><td>Political Analysis</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 4111</td><td>Applied Statistical Methods for the Social Sciences</td><td>3.00</td><td>—</td></tr>
@@ -339,19 +343,19 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>GPAD 4601</td><td>Independent Studies I</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 4602</td><td>Independent Studies II</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 4701</td><td>Graduation Thesis I</td><td>0.00</td><td>—</td></tr>
-<tr><td>GPAD 4702</td><td>Graduation Thesis II</td><td>6.00</td><td>Pre-requisite(s): GPAD4701.</td></tr>
+<tr><td>GPAD 4702</td><td>Graduation Thesis II</td><td>6.00</td><td><span class="prereq-sentence">Pre-requisite(s): GPAD4701.</span></td></tr>
 <tr><td>GPAD 4801</td><td>Professional Practicum I</td><td>3.00</td><td>—</td></tr>
 <tr><td>GPAD 4802</td><td>Professional Practicum II</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 5030</td><td>Independent Research</td><td>3.00</td><td>For students in MPhil-PhD Government and Public Administration</td></tr>
-<tr><td>GPAD 5050</td><td>Qualitative Methods of Political Research</td><td>3.00</td><td>For students in MPhil-PhD Government and Public Administration</td></tr>
-<tr><td>GPAD 5055</td><td>Quantitative Methods of Political Research</td><td>3.00</td><td>For students in MPhil-PhD Government and Public Administrtation</td></tr>
-<tr><td>GPAD 5080</td><td>Graduate Seminar</td><td>3.00</td><td>For students in MPhil-PhD Government and Public Administration</td></tr>
-<tr><td>GPAD 5090</td><td>Seminar in Sustainability Governance</td><td>3.00</td><td>For students in MPhil-PhD Government and Public Administration & Doctor of Social Science in Applied Social Science</td></tr>
-<tr><td>GPAD 5111</td><td>Advanced Social Science Research Methods</td><td>3.00</td><td>For students in MPhil-PhD Government and Public Administration</td></tr>
-<tr><td>GPAD 5290</td><td>Contemporary Political Science</td><td>3.00</td><td>For students in MPhil-PhD Government and Public Administration</td></tr>
-<tr><td>GPAD 8003</td><td>Thesis Research</td><td>3.00</td><td>For students in MPhil-PhD Government and Public Administration</td></tr>
-<tr><td>GPAD 8006</td><td>Thesis Research</td><td>6.00</td><td>For students in MPhil-PhD Government and Public Administration</td></tr>
-<tr><td>GPAD 8012</td><td>Thesis Research</td><td>12.00</td><td>For students in MPhil-PhD Government and Public Administration</td></tr>
+<tr><td>GPAD 5030</td><td>Independent Research</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Government and Public Administration.</span></td></tr>
+<tr><td>GPAD 5050</td><td>Qualitative Methods of Political Research</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Government and Public Administration.</span></td></tr>
+<tr><td>GPAD 5055</td><td>Quantitative Methods of Political Research</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Government and Public Administrtation.</span></td></tr>
+<tr><td>GPAD 5080</td><td>Graduate Seminar</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Government and Public Administration.</span></td></tr>
+<tr><td>GPAD 5090</td><td>Seminar in Sustainability Governance</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Government and Public Administration & Doctor of Social Science in Applied Social Science.</span></td></tr>
+<tr><td>GPAD 5111</td><td>Advanced Social Science Research Methods</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Government and Public Administration.</span></td></tr>
+<tr><td>GPAD 5290</td><td>Contemporary Political Science</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Government and Public Administration.</span></td></tr>
+<tr><td>GPAD 8003</td><td>Thesis Research</td><td>3.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Government and Public Administration.</span></td></tr>
+<tr><td>GPAD 8006</td><td>Thesis Research</td><td>6.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Government and Public Administration.</span></td></tr>
+<tr><td>GPAD 8012</td><td>Thesis Research</td><td>12.00</td><td><span class="prereq-sentence">For students in MPhil-PhD Government and Public Administration.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Students are advised not to take courses at 3000 or above level in their first year of attendance.</span></div>

@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -258,16 +262,16 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">(b) Language Requirement:</span><span class="meta">(6 units)</span></div></div>
 <div class="section section-stream"><div class="req-row"><span class="row-text">(i) CURE2180 or ARAB1000, and CURE2181; OR</span></div><div class="req-row"><span class="row-text">(ii) ARAB2050</span></div></div>
 <details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr class="eq-row"><td>CURE 2180</td><td>Classical Arabic for Beginners I</td><td>3.00</td><td>Not for students who have taken CURE2151 (Arabic Beginners I)</td></tr>
-<tr><td>ARAB 1000</td><td>Arabic I</td><td>3.00</td><td>Not for students who have taken ARAB2000,2001,2050,3000 or 3050</td></tr>
-<tr><td>CURE 2181</td><td>Classical Arabic for Beginners II</td><td>3.00</td><td>Pre-requisite: CURE2180 or ARAB1000 Not for students who have taken CURE2150 (Arabic Beginners II)</td></tr>
-<tr><td>ARAB 2050</td><td>Arabic I & II</td><td>6.00</td><td>Not for students who have taken ARAB1000,2000,2001,3000 or 3050</td></tr>
+<tr class="eq-row"><td>CURE 2180</td><td>Classical Arabic for Beginners I</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken CURE2151 (Arabic Beginners I).</span></td></tr>
+<tr><td>ARAB 1000</td><td>Arabic I</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ARAB2000,2001,2050,3000 or 3050.</span></td></tr>
+<tr><td>CURE 2181</td><td>Classical Arabic for Beginners II</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CURE2180 or ARAB1000.</span><span class="prereq-sentence">Not for students who have taken CURE2150 (Arabic Beginners II).</span></td></tr>
+<tr><td>ARAB 2050</td><td>Arabic I & II</td><td>6.00</td><td><span class="prereq-sentence">Not for students who have taken ARAB1000,2000,2001,3000 or 3050.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">2 courses from the following:</span><span class="meta">(6 units)</span></div><div class="req-row"><span class="row-text">CURE3114, 3378, 4157, 4158</span></div></div>
 <details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>CURE 3114</td><td>Islamic Scriptures: The Qur’an and Traditions of Muhammad</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3378</td><td>Fieldwork in Islamic Culture and Religion</td><td>3.00</td><td>Co-requisite(s): CURE1126 or CURE2151 or CURE1123/UGED1400</td></tr>
+<tr><td>CURE 3378</td><td>Fieldwork in Islamic Culture and Religion</td><td>3.00</td><td><span class="prereq-sentence">Co-requisite(s): CURE1126 or CURE2151 or CURE1123/UGED1400.</span></td></tr>
 <tr><td>CURE 4157</td><td>Special Topics in Religion, Culture and Heritage</td><td>3.00</td><td>—</td></tr>
 <tr><td>CURE 4158</td><td>Special Topics in Religion, Society and Contemporary Issues</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>

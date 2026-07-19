@@ -19,6 +19,26 @@ def parse_unit_count(text):
     return m.group(1) if m else ""
 
 
+def parse_range_units(units_cell, text_cell):
+    """Detect range patterns like '3 to 6', '9-11', '9−11', '13 or 14' and return (min, max) or None.
+    Checks both the units cell and the text cell. Only accepts numbers ≤ 100
+    (actual unit counts, not course-level numbers like '3000')."""
+    for source in [units_cell, text_cell]:
+        s = str(source)
+        m = re.search(r'(\d+)\s*[–\-−to]+\s*(\d+)\s+units?', s, re.IGNORECASE)
+        if not m:
+            m = re.search(r'(\d+)\s+or\s+(\d+)\s+units?', s, re.IGNORECASE)
+        if not m:
+            m = re.search(r'(\d+)\s*[–\-−to]+\s*(\d+)', s)
+        if not m:
+            m = re.search(r'(\d+)\s+or\s+(\d+)', s)
+        if m:
+            a, b = int(m.group(1)), int(m.group(2))
+            if a <= 100 and b <= 100:
+                return (str(a), str(b))
+    return None
+
+
 def extract_course_codes(text):
     """Return a list of 'DEPT 1234' codes in text order (deduplicated)."""
     clean = re.sub(r'\[[a-z]\]', '', text)
@@ -391,6 +411,7 @@ def parse_minor_html(html_text):
                 sec = sections[current_section]
                 codes_in_row = extract_course_codes(text_cell)
                 row_units = parse_unit_count(units_cell) or ""
+                range_units = parse_range_units(units_cell, text_cell)
                 row_index += 1
 
                 display_text = re.sub(r"\s+", " ", text_cell)
@@ -398,12 +419,17 @@ def parse_minor_html(html_text):
                     display_text = f"{index_cell} {display_text}".strip()
                 display_text = _strip_trailing_unit(display_text)
 
-                sec["rows"].append({
+                row_entry = {
                     "index": row_index,
                     "text": display_text,
                     "codes": list(dict.fromkeys(codes_in_row)),
                     "units": row_units,
-                })
+                }
+                if range_units:
+                    row_entry["units"] = range_units[0]  # min
+                    row_entry["units_max"] = range_units[1]  # max
+
+                sec["rows"].append(row_entry)
 
     description = " ".join(desc_parts).strip()
     description = re.sub(r"\s+", " ", description)
@@ -582,9 +608,9 @@ def detect_eq_pairs(rows):
 
         # For "or" patterns, create eq_pairs:
         # - Cross-department: always include (e.g. "EPIN1020 or MGNT1070")
-        # - Same-department: include only if "and" is NOT in the row text
-        #   (e.g. "CSCI1120 or 1130" = equivalents; "KORE2001 and 3000, or 3050" = groups)
-        has_and = bool(re.search(r'\band\b', t, re.IGNORECASE))
+        # - Same-department: include unless preceded by a comma
+        #   (", or X" = group separator like "KORE2001 and 3000, or 3050";
+        #    "X or Y" without comma = inline equivalent like "EDUC2120 or 4110")
         or_positions = [om.start() for om in re.finditer(r'\s+or\s+', t, re.IGNORECASE)]
         for pos in or_positions:
             before_code = None
@@ -597,10 +623,17 @@ def detect_eq_pairs(rows):
                     after_code = cp; break
             if before_code and after_code:
                 dept1, dept2 = before_code[1], after_code[1]
-                if dept1 != dept2 or not has_and:
+                if dept1 != dept2:
                     c1 = f"{dept1} {before_code[2]}"
                     c2 = f"{dept2} {after_code[2]}"
                     eq_pairs.add((c1, c2))
+                else:
+                    # Same dept: only include if "or" is NOT preceded by a comma
+                    before_or = t[max(0, pos - 5):pos].strip()
+                    if not before_or.endswith(','):
+                        c1 = f"{dept1} {before_code[2]}"
+                        c2 = f"{dept2} {after_code[2]}"
+                        eq_pairs.add((c1, c2))
 
     return [[c1, c2] for c1, c2 in sorted(eq_pairs)]
 
@@ -625,13 +658,36 @@ def build_json(html_path, faculties):
     parsed = parse_minor_html(raw_html)
 
     def _just_codes(rows):
-        return [{"text": r["text"], "codes": r["codes"], "units": r["units"]} for r in rows]
+        out = []
+        for r in rows:
+            entry = {"text": r["text"], "codes": r["codes"], "units": r["units"]}
+            if r.get("units_max"):
+                entry["units_max"] = r["units_max"]
+            out.append(entry)
+        return out
 
     req_rows = _just_codes(parsed["required"]["rows"])
     ele_rows = _just_codes(parsed["elective"]["rows"])
     eq_pairs = detect_eq_pairs(parsed["required"]["rows"] + parsed["elective"]["rows"])
 
-    return {
+    # Detect range units in section labels (e.g. "13 or 14 units")
+    req_units = parsed["required"]["units"]
+    ele_units = parsed["elective"]["units"]
+    req_units_max = ""
+    ele_units_max = ""
+    for sec_name in ("required", "elective"):
+        sec = parsed[sec_name]
+        label = sec.get("label", "")
+        range_match = parse_range_units(sec.get("units", ""), label)
+        if range_match:
+            if sec_name == "required":
+                req_units = range_match[0]
+                req_units_max = range_match[1]
+            else:
+                ele_units = range_match[0]
+                ele_units_max = range_match[1]
+
+    result = {
         "_auto_generated": True,
         "title": parsed["title"],
         "faculty": "Other" if stem.startswith("HB_") else faculties.get(stem, "Unknown"),
@@ -639,17 +695,36 @@ def build_json(html_path, faculties):
         "description": parsed["description"],
         "required": {
             "label": parsed["required"]["label"],
-            "units": parsed["required"]["units"],
+            "units": req_units,
             "rows": req_rows,
         },
         "elective": {
             "label": parsed["elective"]["label"],
-            "units": parsed["elective"]["units"],
+            "units": ele_units,
             "rows": ele_rows,
         },
         "explanatory_notes": parsed["notes_html"],
         "eq_pairs": eq_pairs,
     }
+
+    if req_units_max:
+        result["required"]["units_max"] = req_units_max
+    if ele_units_max:
+        result["elective"]["units_max"] = ele_units_max
+
+    # If exactly one section exists, use description's total_units as section units
+    desc = parsed.get("description", "")
+    total_m = re.search(r'minimum\s+of\s+(\d+)\s+units?', desc, re.IGNORECASE)
+    if total_m:
+        total_units = total_m.group(1)
+        has_req = parsed["required"].get("label") and parsed["required"].get("rows")
+        has_ele = parsed["elective"].get("label") and parsed["elective"].get("rows")
+        if has_req and not has_ele:
+            result["required"]["units"] = total_units
+        elif has_ele and not has_req:
+            result["elective"]["units"] = total_units
+
+    return result
 
 
 # ── main ─────────────────────────────────────────────────────────────

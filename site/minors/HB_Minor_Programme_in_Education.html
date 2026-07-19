@@ -31,12 +31,14 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
 th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:break-word; }
+td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
         border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .card:hover { border-color:var(--accent); }
@@ -47,7 +49,9 @@ tr:hover { background:#f9f9f9; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
@@ -249,44 +253,44 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="title-row"><h1>Education</h1><span class="meta">Other</span></div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
-<h2>1. Elective Courses: 16 units</h2>
-<div class="section"><div class="req-row"><span class="row-text">(a) One course chosen from each of the following study areas:</span><span class="meta">(7 units)</span></div></div>
+<h2>1. Elective Courses: 18 units</h2>
+<div class="section"><div class="req-row"><span class="row-text">(a) One course chosen from each of the following study areas:</span><span class="meta">(7 to 9 units)</span></div></div>
 <div class="section section-stream"><div class="req-row"><span class="row-text">(i) Area (1) Curriculum and Instruction: EDUC2120 or 4110</span></div></div>
 <details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>EDUC 2120</td><td>Principles and Implementation of Curriculum and Instructional Design</td><td>3.00</td><td>—</td></tr>
-<tr><td>EDUC 4110</td><td>Dynamic Curriculum Development for Innovative Learning Experiences</td><td>2.00</td><td>Pre-requisite: EDUC2120.</td></tr>
+<tr class="eq-row"><td>EDUC 2120</td><td>Principles and Implementation of Curriculum and Instructional Design</td><td>3.00</td><td>—</td></tr>
+<tr><td>EDUC 4110</td><td>Dynamic Curriculum Development for Innovative Learning Experiences</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: EDUC2120.</span></td></tr>
 </tbody></table></details>
 <div class="section section-stream"><div class="req-row"><span class="row-text">(ii) Area (2) Educational Administration and Policy: EDUC2220 or 2240</span></div></div>
 <details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>EDUC 2220</td><td>Educational Thought</td><td>2.00</td><td>Not for students who have taken UGED2682</td></tr>
+<tr class="eq-row"><td>EDUC 2220</td><td>Educational Thought</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken UGED2682.</span></td></tr>
 <tr><td>EDUC 2240</td><td>Understanding Schooling and Education Policy in Hong Kong</td><td>3.00</td><td>—</td></tr>
 </tbody></table></details>
 <div class="section section-stream"><div class="req-row"><span class="row-text">(iii) Area (3) Educational Psychology: EDUC2312 or 3311</span></div></div>
 <details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr class="eq-row"><td>EDUC 2312</td><td>Child and Adolescent Development</td><td>3.00</td><td>Nor for students who have taken PSYC2540</td></tr>
-<tr><td>EDUC 3311</td><td>Psychology Applied to Learning and Teaching</td><td>3.00</td><td>Not for students who have taken PSYC3550.</td></tr>
+<tr class="eq-row"><td>EDUC 2312</td><td>Child and Adolescent Development</td><td>3.00</td><td><span class="prereq-sentence">Nor for students who have taken PSYC2540.</span></td></tr>
+<tr><td>EDUC 3311</td><td>Psychology Applied to Learning and Teaching</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken PSYC3550.</span></td></tr>
 </tbody></table></details>
-<div class="section"><div class="req-row"><span class="row-text">(b) 9−11 units of courses chosen from the following<span id="ref_a"><a href="#note_a">[a]</a></span>:</span><span class="meta">(9 units)</span></div><div class="req-row"><span class="row-text">EDUC2120, 2210, 2220, 2240, 2312, 3140, 3150, 3200, 3201, 3260, 3270, 3280, 3290, 3311, 4110, 4131, 4320, 4330, 4340</span></div></div>
+<div class="section"><div class="req-row"><span class="row-text">(b) 9−11 units of courses chosen from the following<span id="ref_a"><a href="#note_a">[a]</a></span>:</span><span class="meta">(9 to 11 units)</span></div><div class="req-row"><span class="row-text">EDUC2120, 2210, 2220, 2240, 2312, 3140, 3150, 3200, 3201, 3260, 3270, 3280, 3290, 3311, 4110, 4131, 4320, 4330, 4340</span></div></div>
 <details class="course-details"><summary>Show 19 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
 <tr><td>EDUC 2120</td><td>Principles and Implementation of Curriculum and Instructional Design</td><td>3.00</td><td>—</td></tr>
-<tr><td>EDUC 2210</td><td>Education and Society in Hong Kong</td><td>2.00</td><td>Not for students who have taken UGEC2895</td></tr>
-<tr><td>EDUC 2220</td><td>Educational Thought</td><td>2.00</td><td>Not for students who have taken UGED2682</td></tr>
+<tr><td>EDUC 2210</td><td>Education and Society in Hong Kong</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken UGEC2895.</span></td></tr>
+<tr class="eq-row"><td>EDUC 2220</td><td>Educational Thought</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken UGED2682.</span></td></tr>
 <tr><td>EDUC 2240</td><td>Understanding Schooling and Education Policy in Hong Kong</td><td>3.00</td><td>—</td></tr>
-<tr><td>EDUC 2312</td><td>Child and Adolescent Development</td><td>3.00</td><td>Nor for students who have taken PSYC2540</td></tr>
+<tr><td>EDUC 2312</td><td>Child and Adolescent Development</td><td>3.00</td><td><span class="prereq-sentence">Nor for students who have taken PSYC2540.</span></td></tr>
 <tr><td>EDUC 3140</td><td>Curricular Strategies for Tackling Individual Differences</td><td>2.00</td><td>—</td></tr>
 <tr><td>EDUC 3150</td><td>Global Dialogues on Education for Sustainable Development in the Curriculum</td><td>2.00</td><td>—</td></tr>
 <tr><td>EDUC 3200</td><td>Developing Intercultural Competence: Experiential Learning</td><td>3.00</td><td>—</td></tr>
 <tr><td>EDUC 3201</td><td>Ethics and Professional Standards for Teachers</td><td>2.00</td><td>—</td></tr>
-<tr><td>EDUC 3260</td><td>Teacher Development and Leadership</td><td>2.00</td><td>Not for students who have taken EDUC3230 or 3250</td></tr>
-<tr><td>EDUC 3270</td><td>Engendering Education</td><td>2.00</td><td>Not for students who have taken GDRS2004 or UGEC2672</td></tr>
+<tr><td>EDUC 3260</td><td>Teacher Development and Leadership</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken EDUC3230 or 3250.</span></td></tr>
+<tr><td>EDUC 3270</td><td>Engendering Education</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken GDRS2004 or UGEC2672.</span></td></tr>
 <tr><td>EDUC 3280</td><td>An introduction to Moral and Citizenship Education</td><td>2.00</td><td>—</td></tr>
 <tr><td>EDUC 3290</td><td>Meaning Concerns, Life and Death Education</td><td>2.00</td><td>—</td></tr>
-<tr><td>EDUC 3311</td><td>Psychology Applied to Learning and Teaching</td><td>3.00</td><td>Not for students who have taken PSYC3550.</td></tr>
-<tr><td>EDUC 4110</td><td>Dynamic Curriculum Development for Innovative Learning Experiences</td><td>2.00</td><td>Pre-requisite: EDUC2120.</td></tr>
-<tr><td>EDUC 4131</td><td>e-Learning in Schools</td><td>2.00</td><td>Not for students who have taken EDUC4130.</td></tr>
+<tr><td>EDUC 3311</td><td>Psychology Applied to Learning and Teaching</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken PSYC3550.</span></td></tr>
+<tr><td>EDUC 4110</td><td>Dynamic Curriculum Development for Innovative Learning Experiences</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: EDUC2120.</span></td></tr>
+<tr><td>EDUC 4131</td><td>e-Learning in Schools</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken EDUC4130.</span></td></tr>
 <tr><td>EDUC 4320</td><td>Classroom Management and School Discipline</td><td>2.00</td><td>—</td></tr>
 <tr><td>EDUC 4330</td><td>School Guidance and Counselling</td><td>2.00</td><td>—</td></tr>
-<tr><td>EDUC 4340</td><td>Supporting Students with Special Educational Needs</td><td>2.00</td><td>Not for students who have taken LDTE4300.</td></tr>
+<tr><td>EDUC 4340</td><td>Supporting Students with Special Educational Needs</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken LDTE4300.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Chinese Language Education, Early Childhood Education, English Language Education, Exercise Science and Health Education, Human Movement Science and Health Studies, Learning Design and Technology, Mathematics and Mathematics Education, and Physical Education, Exercise Science and Health.</span></div>
