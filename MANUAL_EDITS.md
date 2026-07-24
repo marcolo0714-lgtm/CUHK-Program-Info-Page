@@ -80,3 +80,26 @@ _auto_generated was set to false in each file to prevent overwriting.
   required 7 + 2a's 4 = 11, to reach 18 total). Previously empty.
   The site generator now auto-computes the section total as 4 + 7 = 11 units,
   and the rows each display their individual unit counts.
+
+## Biochemistry (Biochemistry.json)
+- **eq_pairs**: Removed `["BCHE 3030", "BCHE 3730"]` from the equivalence pairs
+  list. These are not equivalent courses — BCHE 3030 (3u) and BCHE 3730 (2u) are
+  both required separately. Keeping them as equivalents caused the required
+  section to show only 9 units instead of the correct 11 (BCHE 2030, 3030, 3730, 3080).
+
+## Sociology (Sociology.json)
+- **elective.rows[0].units**: Set to `"15"`. The header row "from the following,
+  including a minimum of 6 units of elective courses at 3000 or above level" had
+  no unit metadata, causing the generator to incorrectly use the "6" (a level
+  constraint) as the row's `units_needed` instead of the correct section total of 15.
+  The `units` metadata ensures the generator uses the correct value, while the
+  level constraint (≥6 units at 3000+) is still separately extracted.
+
+## Molecular Biotechnology (Molecular_Biotechnology.json)
+- **required.units**: Set to `"6"`. Previously empty, causing the generator to
+  compute the section target as 3 (row a) + 2 (row b min) = 5. The correct total
+  for the required section is 6 (row a 3u + row b max 3u).
+- **elective.units**: Changed from `"13"` to `"14"`. The section label says
+  "13 or 14 units." Using the max (14) ensures sections sum to 6 + 14 = 20 ≥ 19
+  (the description's "minimum of 19 units"), allowing the checker to reach 100%.
+  The `units_max: "14"` field remains as the upper bound.

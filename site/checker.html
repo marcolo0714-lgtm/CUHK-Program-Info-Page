@@ -36587,6 +36587,7 @@ var CHECKER_DATA = {
                   "min_level": 3000
                 }
               ],
+              "allow_surplus": true,
               "pick_n_avg_unit": 3.0
             },
             {
@@ -36686,6 +36687,7 @@ var CHECKER_DATA = {
                   "min_level": 3000
                 }
               ],
+              "allow_surplus": true,
               "pick_n_avg_unit": 3.0
             }
           ]
@@ -36913,7 +36915,6 @@ var CHECKER_DATA = {
       "description": "Students are required to complete a minimum of 21 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 21.0,
       "eq_norm": {
-        "BCHE 3030": "BCHE 3730",
         "BCHE 3050": "BCHE 3650",
         "BCHE 3070": "BCHE 3650",
         "BCHE 4030": "BCHE 4830",
@@ -36947,7 +36948,7 @@ var CHECKER_DATA = {
                 }
               ],
               "strategy": "all",
-              "dedup_count": 3
+              "dedup_count": 4
             }
           ]
         },
@@ -38937,6 +38938,16 @@ var CHECKER_DATA = {
                 {
                   "min_courses_needed": 2,
                   "min_level": 3000
+                }
+              ],
+              "subject_buckets": [
+                {
+                  "prefix": "ANTH",
+                  "min_courses": 1
+                },
+                {
+                  "prefix": "HIST",
+                  "min_courses": 1
                 }
               ]
             }
@@ -47197,7 +47208,8 @@ var CHECKER_DATA = {
               ],
               "strategy": "units",
               "dedup_count": 3,
-              "units_needed": 7.0
+              "units_needed": 7.0,
+              "units_needed_max": 9.0
             },
             {
               "text": "(b) 9−11 units of courses chosen from the following[a]:\nEDUC2120, 2210, 2220, 2240, 2312, 3140, 3150, 3200, 3201, 3260, 3270, 3280, 3290, 3311, 4110, 4131, 4320, 4330, 4340",
@@ -47281,7 +47293,8 @@ var CHECKER_DATA = {
               ],
               "strategy": "units",
               "dedup_count": 16,
-              "units_needed": 9.0
+              "units_needed": 9.0,
+              "units_needed_max": 11.0
             }
           ]
         }
@@ -47368,7 +47381,8 @@ var CHECKER_DATA = {
               ],
               "strategy": "units",
               "dedup_count": 4,
-              "units_needed": 3.0
+              "units_needed": 3.0,
+              "units_needed_max": 6.0
             },
             {
               "text": "(b) 3 to 9 units of courses from the following:\nAIST1110 or CSCI1110 or 1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 2040, COMM2710, 2922, 2926, CSCI3310, EPIN3010, 3050, 4010, IERG3830, LAWS2331, MAEG2910, MGNT3070, MGNT4070 or SOWK2203, MGNT4090, 4130, 4570, SEEM1000, STAT1013, 2005, 3009, 4001",
@@ -47496,7 +47510,8 @@ var CHECKER_DATA = {
               ],
               "strategy": "units",
               "dedup_count": 21,
-              "units_needed": 3.0
+              "units_needed": 3.0,
+              "units_needed_max": 9.0
             },
             {
               "text": "(c) 3 to 6 units of courses from the following:\nEPIN2900, 3020, 3021, 3022, 3040, 3900, 4000, 4900",
@@ -47536,7 +47551,8 @@ var CHECKER_DATA = {
               ],
               "strategy": "units",
               "dedup_count": 8,
-              "units_needed": 3.0
+              "units_needed": 3.0,
+              "units_needed_max": 6.0
             }
           ]
         }
@@ -53179,7 +53195,7 @@ var CHECKER_DATA = {
       "sections": [
         {
           "label": "1. Required Courses",
-          "target_units": 5.0,
+          "target_units": 6.0,
           "rows": [
             {
               "text": "(a) MBTE4320",
@@ -53219,13 +53235,14 @@ var CHECKER_DATA = {
               ],
               "strategy": "units",
               "dedup_count": 1,
-              "units_needed": 2.0
+              "units_needed": 2.0,
+              "units_needed_max": 3.0
             }
           ]
         },
         {
           "label": "2. Elective Courses: 13 or 14 units",
-          "target_units": 13.0,
+          "target_units": 14.0,
           "rows": [
             {
               "text": "MBTE2000, 2010, 3000, 3510, 3511, 3518, 3521, 3528, 3531, 3550, 3558, 3560, 3568, 4033, 4034, 4510, 4520, 4530",
@@ -53305,9 +53322,10 @@ var CHECKER_DATA = {
               ],
               "strategy": "units",
               "dedup_count": 18,
-              "units_needed": 13.0
+              "units_needed": 14.0
             }
-          ]
+          ],
+          "target_units_max": 14.0
         }
       ],
       "global_level_constraint": [
@@ -56530,7 +56548,7 @@ var CHECKER_DATA = {
               ],
               "strategy": "units",
               "dedup_count": 54,
-              "units_needed": 6.0,
+              "units_needed": 15.0,
               "level_constraint": [
                 {
                   "min_units_needed": 6,
@@ -58388,7 +58406,7 @@ function countLevelMatches(matchedCodes, levelConstraint, studentUnits) {
   return {units: total, count: count};
 }
 
-function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, excludeCanon) {
+function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, excludeCanon, studentUnitList) {
   // Canonicalize and deduplicate requirement codes
   var seen = {};
   var reqCanon = [];
@@ -58401,14 +58419,16 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
     }
   }
 
-  // Match canonical codes (skip excluded)
+  // Match canonical codes (skip excluded, but allow spillover when units remain)
   var matchedCanon = [];
   var matchedUnits = 0;
   for (var i = 0; i < reqCanon.length; i++) {
     var rc = reqCanon[i];
-    if (studentCanonSet[rc.canon] && !(excludeCanon && excludeCanon[rc.canon])) {
+    var consumedAlready = excludeCanon ? (excludeCanon[rc.canon] || 0) : 0;
+    var totalAvail = (studentRawUnits[rc.canon] || studentUnits[rc.canon] || rc.unit || 3);
+    if (studentCanonSet[rc.canon] && consumedAlready < totalAvail) {
       matchedCanon.push(rc.canon);
-      matchedUnits += (studentUnits[rc.canon] || rc.unit || 3);
+      matchedUnits += Math.min(totalAvail - consumedAlready, (studentUnits[rc.canon] || rc.unit || 3));
     }
   }
 
@@ -58434,7 +58454,12 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
     if (studentCanonSet._exact && studentCanonSet._exact[oc.code]) {
       matchedExact[oc.code] = true;
     } else {
-      matchedEquiv[oc.code] = true;
+      // Only mark as equiv if the canonical still has remaining units
+      var consumeME = excludeCanon ? (excludeCanon[ocanon] || 0) : 0;
+      var totalME = studentRawUnits[ocanon] || studentUnits[ocanon] || 3;
+      if (consumeME < totalME) {
+        matchedEquiv[oc.code] = true;
+      }
     }
   }
 
@@ -58476,7 +58501,7 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
     progress = reqCanon.length > 0 ? matchedCanon.length / reqCanon.length : 0;
   } else if (strategy === 'pick_n') {
     var n = row.n || 1;
-    // Check all level constraints
+    // Check all level constraints (use expanded for counting)
     var constraints = row.level_constraint;
     if (constraints && !Array.isArray(constraints)) constraints = [constraints];
     var lcr = checkAllLevelConstraints(matchedCanon, constraints, studentUnits);
@@ -58485,16 +58510,43 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
 
     satisfied = matchedCanon.length >= n && lcOkPick;
     var effCount = 0;
-    // Progress with bucket allocation from strictest constraint
-    if (strictPick && strictPick.lc.min_courses_needed && n > 0) {
-      var lcNeed = strictPick.lc.min_courses_needed;
-      var freeNeed = Math.max(0, n - lcNeed);
-      var lcGot = Math.min(strictPick.lv.count, lcNeed);
-      var overflow = Math.max(0, strictPick.lv.count - lcNeed);
-      var freePool = Math.max(0, matchedCanon.length - strictPick.lv.count) + overflow;
-      var freeGot = Math.min(freePool, freeNeed);
-      progress = (lcGot + freeGot) / n;
-      effCount = lcGot + freeGot;
+    // Progress with bucket allocation from level constraints
+    if (strictPick && n > 0) {
+      var hasPickUnits = strictPick.lc.min_units_needed;
+      var hasPickCourses = strictPick.lc.min_courses_needed;
+      if (hasPickCourses) {
+        var lcNeed = strictPick.lc.min_courses_needed;
+        var freeNeed = Math.max(0, n - lcNeed);
+        var lcGot = Math.min(strictPick.lv.count, lcNeed);
+        var overflow = Math.max(0, strictPick.lv.count - lcNeed);
+        var freePool = Math.max(0, matchedCanon.length - strictPick.lv.count) + overflow;
+        var freeGot = Math.min(freePool, freeNeed);
+        progress = (lcGot + freeGot) / n;
+        effCount = lcGot + freeGot;
+      } else if (hasPickUnits) {
+        // Units-based constraint for pick_n (e.g. "4 courses, at least 6 units at 3000+")
+        var avgU = row.pick_n_avg_unit || 3;
+        if (!row.pick_n_avg_unit) {
+          var puTotal = 0, puCount = 0;
+          for (var i = 0; i < reqCanon.length; i++) {
+            var u2 = reqCanon[i].unit || 3;
+            if (u2 > 0) { puTotal += u2; puCount++; }
+          }
+          avgU = puCount > 0 ? puTotal / puCount : 3;
+        }
+        var lcNeedUnits = strictPick.lc.min_units_needed;
+        var lcNeedCourses = Math.ceil(lcNeedUnits / avgU);
+        var freeNeedPick = Math.max(0, n - lcNeedCourses);
+        var lcGotPick = Math.min(strictPick.lv.count, lcNeedCourses);
+        var overflowPick = Math.max(0, strictPick.lv.count - lcNeedCourses);
+        var freePoolPick = Math.max(0, matchedCanon.length - strictPick.lv.count) + overflowPick;
+        var freeGotPick = Math.min(freePoolPick, freeNeedPick);
+        progress = (lcGotPick + freeGotPick) / n;
+        effCount = lcGotPick + freeGotPick;
+      } else {
+        progress = Math.min(matchedCanon.length, n) / n;
+        effCount = progress * n;
+      }
     } else {
       progress = Math.min(matchedCanon.length, n) / n;
       effCount = progress * n;
@@ -58512,12 +58564,19 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
     rowTarget = n * avgU;
     // Use bucket allocation for earned if level constraint active
     if (strictPick && strictPick.lc.min_courses_needed) {
-      rowEarned = (lcGot + freeGot) * avgU;
+      rowEarned = (row.allow_surplus && lcOkPick) ? Math.max((lcGot + freeGot) * avgU, matchedUnits) : (lcGot + freeGot) * avgU;
+    } else if (strictPick && strictPick.lc.min_units_needed) {
+      // Units-based earned for pick_n (capped by freeNeedPick capacity)
+      var lcUnitsGot = Math.min(strictPick.lv.units, strictPick.lc.min_units_needed);
+      var freeCap = Math.max(0, (freeNeedPick || 0) * avgU);
+      var freeUnitsEarned = Math.max(0, Math.min(matchedUnits - strictPick.lv.units, freeCap));
+      rowEarned = (row.allow_surplus && lcOkPick) ? Math.max(lcUnitsGot + freeUnitsEarned, matchedUnits) : lcUnitsGot + freeUnitsEarned;
     } else {
-      rowEarned = Math.min(matchedCanon.length, n) * avgU;
+      rowEarned = row.allow_surplus ? matchedUnits : Math.min(matchedCanon.length, n) * avgU;
     }
   } else if (strategy === 'units') {
     var needed = row.units_needed || 0;
+    var neededMax = row.units_needed_max || needed; // use max for consumption cap
     var constraints2 = row.level_constraint;
     if (constraints2 && !Array.isArray(constraints2)) constraints2 = [constraints2];
     var lcr2 = checkAllLevelConstraints(matchedCanon, constraints2, studentUnits);
@@ -58525,47 +58584,92 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
     var strictU = lcr2.strictest;
     var greedySum = 0;
 
-    // Bucket allocation from strictest constraint
-    var hasUnitsLC = strictU && strictU.lc.min_units_needed && needed > 0;
-    var hasCoursesLC = strictU && strictU.lc.min_courses_needed && needed > 0 && matchedCanon.length > 0;
-    if (hasUnitsLC || hasCoursesLC) {
-      var estUnit = matchedUnits / Math.max(1, matchedCanon.length);
-      if (row.pick_n_avg_unit) estUnit = row.pick_n_avg_unit;
-      var levelNeeded = hasUnitsLC ? strictU.lc.min_units_needed : strictU.lc.min_courses_needed * estUnit;
-      var freeNeeded = Math.max(0, needed - levelNeeded);
-      var levelMatched = hasUnitsLC
-        ? Math.min(strictU.lv.units, levelNeeded)
-        : Math.min(strictU.lv.count * estUnit, levelNeeded);
-      var overflow = Math.max(0, (hasUnitsLC ? strictU.lv.units : strictU.lv.count * estUnit) - levelNeeded);
-      var freePool = Math.max(0, matchedUnits - (hasUnitsLC ? strictU.lv.units : strictU.lv.count * estUnit)) + overflow;
-      var freeMatched = Math.min(freePool, freeNeeded);
-      progress = (levelMatched + freeMatched) / needed;
-      greedySum = levelMatched + freeMatched;
+    // Bucket allocation across ALL level constraints (not just strictest)
+    var hasAnyLC = lcr2.results && lcr2.results.length > 0;
+    if (hasAnyLC) {
+      // Sum level needs and matched across all constraints
+      var totalLvlUnits = 0, totalLvlCourses = 0;
+      var matchedLvlUnits = 0, matchedLvlCourses = 0;
+      for (var li = 0; li < lcr2.results.length; li++) {
+        var r2 = lcr2.results[li];
+        if (r2.lc.min_units_needed) {
+          totalLvlUnits += r2.lc.min_units_needed;
+          matchedLvlUnits += Math.min(r2.lv.units, r2.lc.min_units_needed);
+        }
+        if (r2.lc.min_courses_needed) {
+          totalLvlCourses += r2.lc.min_courses_needed;
+          matchedLvlCourses += Math.min(r2.lv.count, r2.lc.min_courses_needed);
+        }
+      }
+      var hasULC = totalLvlUnits > 0 || totalLvlCourses > 0;
+      if (hasULC && needed > 0) {
+        var estUnit = matchedUnits / Math.max(1, matchedCanon.length);
+        if (row.pick_n_avg_unit) estUnit = row.pick_n_avg_unit;
+        // Level bucket: sum of all constraint requirements (in units)
+        var lvlNeeded = totalLvlUnits + totalLvlCourses * estUnit;
+        var freeNeeded = Math.max(0, needed - lvlNeeded);
+        // Level matched: sum of all constraint matches (in units)
+        var lvlMatched = matchedLvlUnits + matchedLvlCourses * estUnit;
+        var overflow = Math.max(0, lvlMatched - lvlNeeded);
+        var freePool = Math.max(0, matchedUnits - lvlMatched) + overflow;
+        var freeMatched = Math.min(freePool, freeNeeded);
+        progress = (lvlMatched + freeMatched) / needed;
+        greedySum = lvlMatched + freeMatched;
+      } else {
+        // Greedy: accumulate highest-unit courses first, allow last to overflow
+        greedySum = 0;
+        for (var gi = 0; gi < matchedCanon.length; gi++) {
+          var canon = matchedCanon[gi];
+          var alreadyGC = excludeCanon ? (excludeCanon[canon] || 0) : 0;
+          var rawGC = studentRawUnits[canon] || studentUnits[canon] || 3;
+          var gu = Math.min(rawGC - alreadyGC, studentUnits[canon] || 3);
+          if (gu <= 0) continue;
+          greedySum += gu;
+          if (greedySum >= neededMax) break;
+        }
+        progress = needed > 0 ? Math.min(greedySum, needed) / needed : 0;
+      }
     } else {
-      // Greedy: accumulate highest-unit courses first, allow last to overflow
+      // No level constraints — simple greedy
       greedySum = 0;
       for (var gi = 0; gi < matchedCanon.length; gi++) {
-        var gu = studentUnits[matchedCanon[gi]] || 3;
+        var canon = matchedCanon[gi];
+        var alreadyGC = excludeCanon ? (excludeCanon[canon] || 0) : 0;
+        var rawGC = studentRawUnits[canon] || studentUnits[canon] || 3;
+        var gu = Math.min(rawGC - alreadyGC, studentUnits[canon] || 3);
+        if (gu <= 0) continue;
         greedySum += gu;
-        if (greedySum >= needed) break;
+        if (greedySum >= neededMax) break;
       }
       progress = needed > 0 ? Math.min(greedySum, needed) / needed : 0;
     }
     satisfied = matchedUnits >= needed && lcOk;
     rowTarget = needed;
-    rowEarned = greedySum || 0;
-    // If level constraint exists, earned is capped by level contribution
-    if (strictU && (strictU.lc.min_units_needed || strictU.lc.min_courses_needed)) {
+    rowEarned = Math.min(greedySum || 0, neededMax);
+    // If level constraints exist, earned is capped by summed level contribution
+    if (lcr2.results && lcr2.results.length > 0) {
       var estUnit2 = matchedUnits / Math.max(1, matchedCanon.length);
       if (row.pick_n_avg_unit) estUnit2 = row.pick_n_avg_unit;
-      var lNeed = strictU.lc.min_units_needed || (strictU.lc.min_courses_needed * estUnit2);
-      var fNeed = Math.max(0, needed - lNeed);
-      var lvMatch = strictU.lc.min_units_needed ? strictU.lv.units : strictU.lv.count * estUnit2;
-      var lGot = Math.min(lvMatch, lNeed);
-      var ovf = Math.max(0, lvMatch - lNeed);
-      var fPool = Math.max(0, matchedUnits - lvMatch) + ovf;
-      var fGot = Math.min(fPool, fNeed);
-      rowEarned = lGot + fGot;
+      // Sum level needed and matched across all constraints
+      var sumLNeed = 0, sumLGot = 0;
+      for (var li2 = 0; li2 < lcr2.results.length; li2++) {
+        var r3 = lcr2.results[li2];
+        if (r3.lc.min_units_needed) {
+          sumLNeed += r3.lc.min_units_needed;
+          sumLGot += Math.min(r3.lv.units, r3.lc.min_units_needed);
+        }
+        if (r3.lc.min_courses_needed) {
+          sumLNeed += r3.lc.min_courses_needed * estUnit2;
+          sumLGot += Math.min(r3.lv.count * estUnit2, r3.lc.min_courses_needed * estUnit2);
+        }
+      }
+      if (sumLNeed > 0) {
+        var fNeed2 = Math.max(0, needed - sumLNeed);
+        var ovf2 = Math.max(0, sumLGot - sumLNeed);
+        var fPool2 = Math.max(0, matchedUnits - sumLGot) + ovf2;
+        var fGot2 = Math.min(fPool2, fNeed2);
+        rowEarned = Math.min(rowEarned, sumLGot + fGot2);
+      }
     }
   } else if (strategy === 'or_group') {
     // Find best group
@@ -58582,9 +58686,11 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
       var gMatched = [];
       var gUnits = 0;
       for (var ci = 0; ci < gCanon.length; ci++) {
-        if (studentCanonSet[gCanon[ci]] && !(excludeCanon && excludeCanon[gCanon[ci]])) {
+        var consumedAlready2 = excludeCanon ? (excludeCanon[gCanon[ci]] || 0) : 0;
+        var totalAvail2 = (studentRawUnits[gCanon[ci]] || studentUnits[gCanon[ci]] || 3);
+        if (studentCanonSet[gCanon[ci]] && consumedAlready2 < totalAvail2) {
           gMatched.push(gCanon[ci]);
-          gUnits += (studentUnits[gCanon[ci]] || 3);
+          gUnits += Math.min(totalAvail2 - consumedAlready2, (studentUnits[gCanon[ci]] || 3));
         }
       }
       var gProgress = gCanon.length > 0 ? gMatched.length / gCanon.length : 0;
@@ -58617,14 +58723,38 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
   } else if (strategy === 'units') {
     var cumSum = 0;
     for (var ci = 0; ci < matchedCanon.length; ci++) {
-      consumedCanon.push(matchedCanon[ci]);
-      cumSum += (studentUnits[matchedCanon[ci]] || 3);
+      var canon = matchedCanon[ci];
+      var alreadyCC = excludeCanon ? (excludeCanon[canon] || 0) : 0;
+      var rawCC = studentRawUnits[canon] || studentUnits[canon] || 3;
+      var guC = Math.min(rawCC - alreadyCC, studentUnits[canon] || 3);
+      if (guC <= 0) continue;
+      consumedCanon.push(canon);
+      cumSum += guC;
       if (cumSum >= rowEarned) break;
     }
   } else if (strategy === 'pick_n') {
     var limit = Math.min(matchedCanon.length, row.n || 1);
-    for (var ci = 0; ci < limit; ci++) {
-      consumedCanon.push(matchedCanon[ci]);
+    if (row.level_constraint && effCount > 0 && effCount < limit) { limit = effCount; }
+    if (row.allow_surplus) {
+      consumedCanon = matchedCanon.slice(); // floor: all matched count
+    } else if (row.level_constraint && strictPick && limit > 0) {
+      // Prioritize level-matching courses for consumedCanon
+      var lvlCourses = [], freeCourses = [];
+      for (var ci = 0; ci < matchedCanon.length; ci++) {
+        var canon = matchedCanon[ci];
+        var meets = true;
+        if (strictPick.lc.min_level || 0 > 0) {
+          meets = courseLevel(canon) >= (strictPick.lc.min_level || 0);
+          if (strictPick.lc.max_level != null) meets = meets && courseLevel(canon) <= strictPick.lc.max_level;
+        }
+        if (meets) lvlCourses.push(canon); else freeCourses.push(canon);
+      }
+      var lcTakePick = Math.min(lvlCourses.length, lcGotPick || 0);
+      var freeTakePick = Math.min(freeCourses.length, limit - lcTakePick);
+      for (var ci = 0; ci < lcTakePick; ci++) consumedCanon.push(lvlCourses[ci]);
+      for (var ci = 0; ci < freeTakePick; ci++) consumedCanon.push(freeCourses[ci]);
+    } else {
+      for (var ci = 0; ci < limit; ci++) consumedCanon.push(matchedCanon[ci]);
     }
   } else if (strategy === 'or_group') {
     consumedCanon = matchedCanon.slice();
@@ -58648,23 +58778,29 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
     rowEarned: rowEarned,
     rawStudentUnits: rawStudentUnitsTotal,
     n: row.n,
+    allow_surplus: row.allow_surplus || false,
     effCount: effCount,
     units_needed: row.units_needed,
+    units_needed_max: row.units_needed_max,
     level_constraint: row.level_constraint,
     eqLost: Math.max(0, rawStudentUnitsTotal - matchedUnits),
     levelLost: 0,
-    sectionLost: 0
+    sectionLost: 0,
+    subjectLost: 0,
+    bucketInfo: null,
+    bucketOk: true
   };
 
   // Compute level vs section cap losses
   if (strategy === 'units' || strategy === 'pick_n') {
     var noLcEarned = rowEarned;
+    var lcAllOk = (strategy === 'pick_n' && lcOkPick) || (strategy === 'units' && lcOk) || false;
     if (strategy === 'units') {
-      noLcEarned = Math.min(matchedUnits, rowTarget);
+      noLcEarned = matchedUnits;
     } else if (strategy === 'pick_n') {
-      noLcEarned = Math.min(matchedCanon.length, row.n || 1) * (rowTarget / (row.n || 1));
+      noLcEarned = matchedUnits;
     }
-    if (row.level_constraint && noLcEarned > rowEarned) {
+    if (row.level_constraint && !lcAllOk && noLcEarned > rowEarned) {
       result.levelLost = noLcEarned - rowEarned;
     }
     result.sectionLost = Math.max(0, matchedUnits - rowEarned - result.levelLost);
@@ -58687,6 +58823,9 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
   // 5b. Subject buckets (e.g., "6 units GDRS, 6 units non-GDRS")
   if (row.subject_buckets) {
     var allBucketsOk = true;
+    var bProgTotal = 0;
+    var bucketEarned = 0;
+    var bucketInfo = [];
     for (var bi = 0; bi < row.subject_buckets.length; bi++) {
       var b = row.subject_buckets[bi];
       var bPref = b.prefix;
@@ -58700,34 +58839,31 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
           bCourses++;
         }
       }
-      if (b.min_units && bUnits < b.min_units) allBucketsOk = false;
-      if (b.max_units && bUnits > b.max_units) allBucketsOk = false;
-      if (b.min_courses && bCourses < b.min_courses) allBucketsOk = false;
+      var bucketOk = true;
+      if (b.min_units && bUnits < b.min_units) bucketOk = false;
+      if (b.max_units && bUnits > b.max_units) bucketOk = false;
+      if (b.min_courses && bCourses < b.min_courses) bucketOk = false;
+      allBucketsOk = allBucketsOk && bucketOk;
+      // Accumulate progress per bucket
+      var bp = 1;
+      if (b.min_units && b.min_units > 0) bp = Math.min(bUnits, b.min_units) / b.min_units;
+      if (b.min_courses && b.min_courses > 0) bp = Math.min(bp, bCourses / b.min_courses);
+      bProgTotal += bp;
+      // Accumulate bucket-limited earned
+      if (b.min_units) bucketEarned += Math.min(bUnits, b.min_units);
+      else bucketEarned += bUnits;
+      bucketInfo.push({prefix: actualPref, isNeg: isNeg, units: bUnits, courses: bCourses, min_units: b.min_units, min_courses: b.min_courses});
     }
     if (!allBucketsOk) result.satisfied = false;
-    // Progress weighted by bucket satisfaction
-    if (row.subject_buckets.length > 0) {
-      var bProg = 0;
-      for (var bi = 0; bi < row.subject_buckets.length; bi++) {
-        var b2 = row.subject_buckets[bi];
-        var bPref2 = b2.prefix;
-        var isNeg2 = bPref2.charAt(0) === '!';
-        var actualPref2 = isNeg2 ? bPref2.substring(1) : bPref2;
-        var bUnits2 = 0, bCourses2 = 0;
-        for (var ci = 0; ci < matchedCanon.length; ci++) {
-          var mp2 = matchedCanon[ci].split(' ')[0];
-          if (isNeg2 ? (mp2 !== actualPref2) : (mp2 === actualPref2)) {
-            bUnits2 += (studentUnits[matchedCanon[ci]] || 3);
-            bCourses2++;
-          }
-        }
-        var bp = 1;
-        if (b2.min_units && b2.min_units > 0) bp = Math.min(bUnits2, b2.min_units) / b2.min_units;
-        if (b2.min_courses && b2.min_courses > 0) bp = Math.min(bp, bCourses2 / b2.min_courses);
-        bProg += bp;
-      }
-      result.progress = Math.min(result.progress, bProg / row.subject_buckets.length);
+    result.progress = Math.min(result.progress, bProgTotal / row.subject_buckets.length);
+    // Cap rowEarned by bucket constraints
+    var preBucketEarned = rowEarned;
+    if (bucketEarned < rowEarned) {
+      rowEarned = bucketEarned;
     }
+    result.subjectLost = Math.max(0, preBucketEarned - rowEarned);
+    result.bucketInfo = bucketInfo;
+    result.bucketOk = allBucketsOk;
   }
 
   // 5c. Multi-level constraints progress (use worst across all)
@@ -58748,7 +58884,9 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
   // Build student canonical set and unit map
   var studentCanonSet = {_exact: {}};
   var studentUnits = {};
-  var studentRawUnits = {}; // total raw units per canonical (for eq warning)
+  var studentUnitList = {};  // individual course units per canonical, sorted desc
+  var studentUnitIdx = {};   // how many courses consumed so far per canonical  
+  var studentRawUnits = {};  // total raw units per canonical (for eq warning)
   for (var i = 0; i < studentCourses.length; i++) {
     var c = studentCourses[i];
     var canon = canonFn(c.code);
@@ -58756,14 +58894,21 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
     studentCanonSet._exact[c.code] = true;
     var infoUnit = (courseIndex[c.code] && courseIndex[c.code].unit) || 0;
     var u = Math.max(c.unit, infoUnit, 0) || 3;
-    studentUnits[canon] = u;
+    if (!studentUnitList[canon]) studentUnitList[canon] = [];
+    studentUnitList[canon].push(u);
+    studentUnits[canon] = Math.max(studentUnits[canon] || 0, u);
     studentRawUnits[canon] = (studentRawUnits[canon] || 0) + u;
+  }
+  for (var key in studentUnitList) {
+    studentUnitList[key].sort(function(a,b){return b-a;});
+    studentUnitIdx[key] = 0;
   }
 
   var sections = [];
   var totalTarget = 0;
   var totalEarned = 0;
-  var usedCanonSet = {}; // track codes consumed across all sections
+  var usedCanonSet = {}; // track units consumed by canonical
+  var usedOriginalCodes = {}; // track which original codes were assigned to rows
 
   for (var si = 0; si < minorData.sections.length; si++) {
     var sec = minorData.sections[si];
@@ -58778,22 +58923,77 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
       if (!exclude && Object.keys(usedCanonSet).length > 0) {
         exclude = usedCanonSet;
       }
-      var mr = matchRow(rowData, studentCanonSet, studentUnits, studentRawUnits, canonFn, exclude);
+      // Snapshot usedCanonSet before this row (to detect first-consumed vs spillover)
+      var preUsed = {};
+      for (var key in usedCanonSet) { preUsed[key] = usedCanonSet[key]; }
+      var mr = matchRow(rowData, studentCanonSet, studentUnits, studentRawUnits, canonFn, exclude, studentUnitList);
+      mr.preUsed = preUsed;
+
+      // Build consumedCodes: pick one fresh original code per consumed canonical
+      mr.consumedCodes = [];
+      var seenCanon = {};
+      for (var ci = 0; ci < rowData.codes.length; ci++) {
+        var code = rowData.codes[ci].code;
+        var canon = canonFn(code);
+        if (mr.consumed && mr.consumed.indexOf(canon) !== -1 && !seenCanon[canon]) {
+          if (!usedOriginalCodes[code]) {
+            mr.consumedCodes.push(code);
+            seenCanon[canon] = true;
+          }
+        }
+      }
+      // Fallback: for canonicals that didn't get a fresh code, pick first available
+      var seenCanon2 = {};
+      for (var ci2 = 0; ci2 < rowData.codes.length; ci2++) {
+        var code2 = rowData.codes[ci2].code;
+        var canon2 = canonFn(code2);
+        if (mr.consumed && mr.consumed.indexOf(canon2) !== -1 && !seenCanon2[canon2]) {
+          seenCanon2[canon2] = true;
+          // Only add if this canonical isn't already covered by a consumedCode
+          var alreadyCovered = false;
+          for (var ck = 0; ck < mr.consumedCodes.length; ck++) {
+            if (canonFn(mr.consumedCodes[ck]) === canon2) { alreadyCovered = true; break; }
+          }
+          if (!alreadyCovered && mr.consumedCodes.indexOf(code2) === -1) {
+            mr.consumedCodes.push(code2);
+          }
+        }
+      }
+      for (var ci3 = 0; ci3 < mr.consumedCodes.length; ci3++) {
+        usedOriginalCodes[mr.consumedCodes[ci3]] = true;
+      }
+      // Adjust rowEarned to match actual catalog units of consumed codes
+      if (mr.strategy === 'units') {
+        var actualSum = 0;
+        for (var ci4 = 0; ci4 < mr.consumedCodes.length; ci4++) {
+          var cCode = mr.consumedCodes[ci4];
+          var cInfo = courseIndex[cCode];
+          actualSum += (cInfo && cInfo.unit) || (studentUnits[canonFn(cCode)] || 3);
+        }
+        mr.rowEarned = Math.min(actualSum || mr.rowEarned, mr.units_needed_max || mr.rowTarget);
+      }
       secEarned += mr.rowEarned;
       rows.push(mr);
-      // Track codes consumed by this row (for cross-row exclusion)
+      // Track units consumed by canonical (allow spillover of remaining units)
+      if (!mr.consumedUnits) mr.consumedUnits = {};
       for (var mi = 0; mi < mr.consumed.length; mi++) {
-        usedCanonSet[mr.consumed[mi]] = true;
+        var canon = mr.consumed[mi];
+        var remaining = (studentRawUnits[canon] || studentUnits[canon] || 3) - (usedCanonSet[canon] || 0);
+        var consumedNow = Math.min(remaining, studentUnits[canon] || 3);
+        usedCanonSet[canon] = (usedCanonSet[canon] || 0) + consumedNow;
+        mr.consumedUnits[canon] = (mr.consumedUnits[canon] || 0) + consumedNow;
       }
     }
 
-    secEarned = Math.min(secEarned, secTarget || secEarned + 1); // cap at target
+    var secCap = (sec.target_units_max != null ? sec.target_units_max : secTarget) || secEarned + 1;
+    secEarned = Math.min(secEarned, secCap); // cap at target (max when range present)
     totalTarget += secTarget;
     totalEarned += secEarned;
 
     sections.push({
       label: sec.label,
       target_units: secTarget,
+      target_units_max: sec.target_units_max,
       earned_units: secEarned,
       progress: secTarget > 0 ? secEarned / secTarget : 0,
       rows: rows
@@ -58888,14 +59088,32 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
       row.chipFlags = {};
       for (var ci = 0; ci < row.codes.length; ci++) {
         var code = row.codes[ci].code;
-        var canon = canonFn(code);
-        if (row.consumed && row.consumed.indexOf(canon) !== -1) {
-          row.chipFlags[code] = 'consumed';
-        } else if (usedCanonSet[canon]) {
-          row.chipFlags[code] = 'elsewhere';
-        } else if (row.matchedExact && row.matchedExact[code]) {
-          row.chipFlags[code] = 'elsewhere';
+        if (row.matchedExact && row.matchedExact[code]) {
+          if (row.consumedCodes && row.consumedCodes.indexOf(code) !== -1) {
+            row.chipFlags[code] = 'consumed';
+          } else {
+            row.chipFlags[code] = 'elsewhere';
+          }
+        } else if (row.matchedEquiv && row.matchedEquiv[code]) {
+          row.chipFlags[code] = 'equiv';
         }
+      }
+      // Split eqLost into external (used by other rows) vs truly wasted
+      row.externalLost = 0; row.wastedLost = 0;
+      var seenExt = {};
+      for (var ci = 0; ci < (row.codes || []).length; ci++) {
+        var canon = canonFn(row.codes[ci].code);
+        if (seenExt[canon]) continue;
+        if (!studentCanonSet[canon]) continue;
+        seenExt[canon] = true;
+        var totalRaw = studentRawUnits[canon] || studentUnits[canon] || 3;
+        var consumedByThis = (row.consumedUnits && row.consumedUnits[canon]) || 0;
+        var consumedTotal = usedCanonSet[canon] || 0;
+        row.externalLost += Math.max(0, consumedTotal - consumedByThis);
+        row.wastedLost += Math.max(0, totalRaw - consumedTotal);
+      }
+      if (row.wastedLost + row.externalLost > (row.eqLost || 0)) {
+        row.wastedLost = Math.max(0, (row.eqLost || 0) - row.externalLost);
       }
     }
   }
@@ -58951,7 +59169,7 @@ function buildResultCard(result, index) {
     var sec = result.sections[si];
     var secPct = Math.round(sec.progress * 100);
     html += '<div class="detail-section">';
-    html += '<h4>' + sec.label + ' (' + secPct + '% &middot; ' + sec.earned_units.toFixed(1) + '/' + sec.target_units.toFixed(1) + ' units)</h4>';
+    html += '<h4>' + sec.label + ' (' + secPct + '% &middot; ' + sec.earned_units.toFixed(1) + '/' + (sec.target_units_max != null ? sec.target_units.toFixed(1) + '-' + sec.target_units_max.toFixed(1) : sec.target_units.toFixed(1)) + ' units)</h4>';
 
     for (var ri = 0; ri < sec.rows.length; ri++) {
       var row = sec.rows[ri];
@@ -58965,7 +59183,8 @@ function buildResultCard(result, index) {
           html += ' (' + row.rowTarget.toFixed(1) + ' units)';
         }
       } else if (row.strategy === 'units') {
-        html += row.rowEarned.toFixed(1) + '/' + (row.units_needed || 0) + ' units';
+        var uTarget = row.units_needed || 0;
+        html += row.rowEarned.toFixed(1) + '/' + (row.units_needed_max != null ? uTarget.toFixed(1) + '-' + row.units_needed_max.toFixed(1) : uTarget.toFixed(1)) + ' units';
       } else if (row.strategy === 'all') {
         var dcount = row.dedup_count || row.codes.length;
         html += row.matched.length + '/' + dcount + ' courses';
@@ -59027,9 +59246,13 @@ function buildResultCard(result, index) {
           html += '<div class="detail-row-stat">&#9888; Level constraint: ' + lv + '</div>';
         }
       }
-      if (row.eqLost && row.eqLost > 0) {
-        html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.eqLost.toFixed(1) + ' units not counted toward this requirement</div>';
-      } else if (row.hasTrueEquivMatch) {
+      if (row.externalLost && row.externalLost > 0) {
+        html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.externalLost.toFixed(1) + ' units not used for this section</div>';
+      }
+      if (row.wastedLost && row.wastedLost > 0) {
+        html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.wastedLost.toFixed(1) + ' units from equivalent courses not counted</div>';
+      }
+      if (!row.externalLost && !row.wastedLost && row.hasTrueEquivMatch) {
         html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Equivalent course matches used</div>';
       }
       if (row.levelLost && row.levelLost > 0) {
@@ -59037,6 +59260,21 @@ function buildResultCard(result, index) {
       }
       if (row.sectionLost && row.sectionLost > 0 && !(row.levelLost && row.levelLost > 0)) {
         html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.sectionLost.toFixed(1) + ' units unusable (requirement already satisfied)</div>';
+      }
+      // Subject bucket warnings
+      if (row.subjectLost && row.subjectLost > 0) {
+        html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.subjectLost.toFixed(1) + ' units exceeding subject bucket limits</div>';
+      }
+      if (row.bucketInfo && !row.bucketOk) {
+        for (var bi = 0; bi < row.bucketInfo.length; bi++) {
+          var b = row.bucketInfo[bi];
+          if (b.min_units && b.units < b.min_units) {
+            html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Need ' + b.min_units + ' units from ' + (b.isNeg ? 'non-' : '') + b.prefix + ' (have ' + b.units.toFixed(1) + ')</div>';
+          }
+          if (b.min_courses && b.courses < b.min_courses) {
+            html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Need ' + b.min_courses + ' course(s) from ' + (b.isNeg ? 'non-' : '') + b.prefix + ' (have ' + b.courses + ')</div>';
+          }
+        }
       }
 
       html += '</div>';

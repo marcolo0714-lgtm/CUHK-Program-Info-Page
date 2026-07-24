@@ -281,6 +281,7 @@ def merge_header_code_rows(rows):
         text = row.get("text", "").strip()
         codes = row.get("codes", [])
         units_meta = row.get("units", "").strip()
+        units_max_meta = row.get("units_max", "").strip()
 
         if not text:
             i += 1
@@ -329,12 +330,14 @@ def merge_header_code_rows(rows):
                 "text": combined_text,
                 "codes": all_codes,
                 "units_meta": units_meta,
+                "units_max_meta": units_max_meta,
             })
         else:
             merged.append({
                 "text": text,
                 "codes": list(codes),
                 "units_meta": units_meta,
+                "units_max_meta": units_max_meta,
             })
 
         i += 1
@@ -355,6 +358,7 @@ def determine_strategy(row, section_type):
     text = row.get("text", "").strip()
     codes = row.get("codes", [])
     units_meta = row.get("units_meta", "").strip()
+    units_max_meta = row.get("units_max_meta", "").strip()
 
     # No codes → label (skip)
     if not codes:
@@ -401,6 +405,23 @@ def determine_strategy(row, section_type):
 
     # Text-based patterns
 
+    # "At least N courses" (word-number form) — floor
+    m = re.search(r"At\s+least\s+(\w+)\s+courses?\s+from\s+the\s+following", text, re.IGNORECASE)
+    if m:
+        w = m.group(1).lower()
+        n = WORD_TO_NUM.get(w)
+        if n is None:
+            try:
+                n = int(w)
+            except ValueError:
+                pass
+        if n:
+            result = {"strategy": "pick_n", "n": n, "allow_surplus": True}
+            lc = extract_level_constraint(text)
+            if lc:
+                result["level_constraint"] = lc
+            return result
+
     # "Any N courses from the following"
     m = re.search(r"Any\s+(\w+)\s+courses?\s+from\s+the\s+following", text, re.IGNORECASE)
     if m:
@@ -436,10 +457,10 @@ def determine_strategy(row, section_type):
                 result["level_constraint"] = lc
             return result
 
-    # "At least N courses from the following"
+    # "At least N courses from the following" — floor (allow surplus)
     m = re.search(r"At\s+least\s+(\d+)\s+courses?\s+from\s+the\s+following", text, re.IGNORECASE)
     if m:
-        result = {"strategy": "pick_n", "n": int(m.group(1))}
+        result = {"strategy": "pick_n", "n": int(m.group(1)), "allow_surplus": True}
         lc = extract_level_constraint(text)
         if lc:
             result["level_constraint"] = lc
@@ -601,11 +622,16 @@ def determine_strategy(row, section_type):
         return result
 
     # "from the following, including a minimum of N units at XXXX+"
+    # The "N units" here is a level constraint, not the row total.
+    # Only use as units_needed if the row has no units_meta (heuristic fallback).
     m = re.search(r"from\s+the\s+following,?\s+including\s+a\s+minimum\s+of\s+(\d+)\s+units?", text, re.IGNORECASE)
     if m:
-        # This is a continuation of a previous header — use the unit count as target
-        result = {"strategy": "units", "units_needed": float(m.group(1))}
         lc = extract_level_constraint(text)
+        if not units_meta:
+            # No explicit unit metadata — use the regex match as a fallback target
+            result = {"strategy": "units", "units_needed": float(m.group(1))}
+        else:
+            result = {"strategy": "units"}
         if lc:
             result["level_constraint"] = lc
         return result
@@ -622,7 +648,7 @@ def determine_strategy(row, section_type):
 
 # ── Subject bucket / area detection ──────────────────────────────────────
 
-def detect_subject_constraints(text):
+def detect_subject_constraints(text, codes=None):
     """Detect subject-based constraints in requirement text.
     Returns dict with optional 'subject_min' (int) and 'subject_buckets' (list)
     or None if no subject constraints found."""
@@ -686,6 +712,19 @@ def detect_subject_constraints(text):
 
     if buckets:
         result["subject_buckets"] = buckets
+
+    # AND-of-groups: "from each group" / "each group"
+    if re.search(r'from\s+each\s+(?:of\s+the\s+)?groups?\b|each\s+(?:of\s+the\s+)?groups?\s+of\s+courses?\b|at\s+least\s+\w+\s+courses?\s+from\s+each\s+group', text, re.IGNORECASE):
+        # Find distinct 4-letter prefixes from codes (group separation)
+        prefix_set = set()
+        for code in (codes or []):
+            if ' ' in code:
+                prefix_set.add(code.split(' ')[0])
+        # If exactly 2 distinct prefixes, encode each as subject_bucket with min_courses=1
+        if len(prefix_set) == 2:
+            for prefix in sorted(prefix_set):
+                buckets.append({"prefix": prefix, "min_courses": 1})
+            result["subject_buckets"] = buckets
 
     return result if result else None
 
@@ -851,6 +890,13 @@ def generate():
 
             for r in merged_rows:
                 st = determine_strategy(r, section_name)
+                # Preserve unit range max from row metadata
+                umax = r.get("units_max_meta", "").strip()
+                if umax:
+                    try:
+                        st["units_needed_max"] = float(umax)
+                    except ValueError:
+                        pass
                 if st.get("strategy") == "label":
                     continue
 
@@ -909,8 +955,12 @@ def generate():
                     row_out["n"] = st["n"]
                 if "units_needed" in st:
                     row_out["units_needed"] = st["units_needed"]
+                if "units_needed_max" in st:
+                    row_out["units_needed_max"] = st["units_needed_max"]
                 if "level_constraint" in st:
                     row_out["level_constraint"] = st["level_constraint"]
+                if "allow_surplus" in st:
+                    row_out["allow_surplus"] = st["allow_surplus"]
 
                 # For pick_n rows, precompute mode unit for JS consistency
                 if st.get("strategy") == "pick_n" or st.get("strategy") == "pick_n":
@@ -922,7 +972,7 @@ def generate():
                         row_out["pick_n_avg_unit"] = pick_mode
 
                 # Apply subject constraints from text
-                subj = detect_subject_constraints(r["text"])
+                subj = detect_subject_constraints(r["text"], codes)
                 if subj:
                     if "subject_min" in subj:
                         row_out["subject_min"] = subj["subject_min"]
@@ -984,6 +1034,13 @@ def generate():
                     "target_units": section_target,
                     "rows": rows_out,
                 })
+                # Preserve section-level unit range
+                sec_units_max_str = sec.get("units_max", "").strip()
+                if sec_units_max_str:
+                    try:
+                        sections[-1]["target_units_max"] = float(sec_units_max_str)
+                    except ValueError:
+                        pass
 
         minors_data[stem] = {
             "title": data["title"],
