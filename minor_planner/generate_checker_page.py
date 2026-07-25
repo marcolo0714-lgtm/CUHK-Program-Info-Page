@@ -281,10 +281,12 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
   var satisfied = false;
   var progress = 0;
 
-  // Sort matched courses by unit descending for unit-based strategies
-  // so section caps fill with the highest-value courses first
+  // Sort matched courses: higher level first, then higher unit
+  // This helps satisfy level constraints by consuming level-matching courses early
   if (strategy === 'units' || strategy === 'pick_n') {
     matchedCanon.sort(function(a, b) {
+      var la = courseLevel(a), lb = courseLevel(b);
+      if (la !== lb) return lb - la;
       var ua = studentUnits[a] || 3, ub = studentUnits[b] || 3;
       return ub - ua;
     });
@@ -533,8 +535,8 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
   } else if (strategy === 'pick_n') {
     var limit = Math.min(matchedCanon.length, row.n || 1);
     if (row.level_constraint && effCount > 0 && effCount < limit) { limit = effCount; }
-    if (row.allow_surplus) {
-      consumedCanon = matchedCanon.slice(); // floor: all matched count
+    if (row.allow_surplus && (typeof lcOkPick === 'undefined' ? true : lcOkPick)) {
+      consumedCanon = matchedCanon.slice(); // floor: all matched count (level OK or no LC)
     } else if (row.level_constraint && strictPick && limit > 0) {
       // Prioritize level-matching courses for consumedCanon
       var lvlCourses = [], freeCourses = [];
@@ -622,7 +624,9 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
   if (row.subject_buckets) {
     var allBucketsOk = true;
     var bProgTotal = 0;
-    var bucketEarned = 0;
+    var totalShortfall = 0;
+    var avgUnit = matchedUnits / Math.max(1, matchedCanon.length);
+    if (row.pick_n_avg_unit) avgUnit = row.pick_n_avg_unit;
     var bucketInfo = [];
     for (var bi = 0; bi < row.subject_buckets.length; bi++) {
       var b = row.subject_buckets[bi];
@@ -638,30 +642,33 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
         }
       }
       var bucketOk = true;
-      if (b.min_units && bUnits < b.min_units) bucketOk = false;
-      if (b.max_units && bUnits > b.max_units) bucketOk = false;
-      if (b.min_courses && bCourses < b.min_courses) bucketOk = false;
+      if (b.min_units && bUnits < b.min_units) {
+        bucketOk = false;
+        totalShortfall += b.min_units - bUnits;
+      }
+      if (b.max_units && bUnits > b.max_units) {
+        bucketOk = false;
+        totalShortfall += bUnits - b.max_units;
+      }
+      if (b.min_courses && bCourses < b.min_courses) {
+        bucketOk = false;
+        totalShortfall += (b.min_courses - bCourses) * avgUnit;
+      }
       allBucketsOk = allBucketsOk && bucketOk;
-      // Accumulate progress per bucket
       var bp = 1;
       if (b.min_units && b.min_units > 0) bp = Math.min(bUnits, b.min_units) / b.min_units;
       if (b.min_courses && b.min_courses > 0) bp = Math.min(bp, bCourses / b.min_courses);
       bProgTotal += bp;
-      // Accumulate bucket-limited earned
-      if (b.min_units) bucketEarned += Math.min(bUnits, b.min_units);
-      else bucketEarned += bUnits;
       bucketInfo.push({prefix: actualPref, isNeg: isNeg, units: bUnits, courses: bCourses, min_units: b.min_units, min_courses: b.min_courses});
     }
     if (!allBucketsOk) result.satisfied = false;
     result.progress = Math.min(result.progress, bProgTotal / row.subject_buckets.length);
-    // Cap rowEarned by bucket constraints
-    var preBucketEarned = rowEarned;
-    if (bucketEarned < rowEarned) {
-      rowEarned = bucketEarned;
-    }
-    result.subjectLost = Math.max(0, preBucketEarned - rowEarned);
+    // Bucket-limited earned = matched units minus total shortfall, capped at row target
+    var bucketEarned = Math.min(matchedUnits, Math.max(0, (rowTarget || matchedUnits) - totalShortfall));
     result.bucketInfo = bucketInfo;
     result.bucketOk = allBucketsOk;
+    result._bucketEarned = bucketEarned;
+    result._preBucketRowEarned = rowEarned;
   }
 
   // 5c. Multi-level constraints progress (use worst across all)
@@ -770,6 +777,45 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
         }
         mr.rowEarned = Math.min(actualSum || mr.rowEarned, mr.units_needed_max || mr.rowTarget);
       }
+      // Apply subject bucket cap after actualSum adjustment
+      if (mr._bucketEarned != null && mr._bucketEarned < mr.rowEarned) {
+        mr.subjectLost = Math.max(0, mr.rowEarned - mr._bucketEarned);
+        mr.rowEarned = mr._bucketEarned;
+      }
+      // Rebuild consumed to prefer courses that satisfy bucket minimums,
+      // and deprioritize courses limited by max_units
+      if (mr.bucketInfo && mr.bucketInfo.length > 0) {
+        var mustPreferred = [], neutral = [], postConsumed = [];
+        var mustUnits = 0, neutralUnits = 0, postUnits = 0;
+        for (var ci = 0; ci < mr.consumed.length; ci++) {
+          var canon = mr.consumed[ci];
+          var mp = canon.split(' ')[0];
+          var isPref = false, isLimited = false;
+          for (var bi = 0; bi < mr.bucketInfo.length; bi++) {
+            var b = mr.bucketInfo[bi];
+            if (!b.isNeg && (b.min_units || b.min_courses) && mp === b.prefix) isPref = true;
+            if (b.isNeg && (b.min_units || b.min_courses) && mp !== b.prefix) isPref = true;
+            if (b.isNeg && b.max_units && mp !== b.prefix) isLimited = true;
+            if (!b.isNeg && b.max_units && mp === b.prefix) isLimited = true;
+          }
+          if (isLimited && !isPref) {
+            postConsumed.push(canon); postUnits += (studentUnits[canon] || 3);
+          } else if (isPref) {
+            mustPreferred.push(canon); mustUnits += (studentUnits[canon] || 3);
+          } else {
+            neutral.push(canon); neutralUnits += (studentUnits[canon] || 3);
+          }
+        }
+        // Combine: must-preferred first, then neutral, then limited
+        var newConsumed2 = mustPreferred.slice().concat(neutral);
+        var cumTotal = mustUnits + neutralUnits;
+        for (var ci = 0; ci < postConsumed.length; ci++) {
+          if (cumTotal >= mr.rowEarned) break;
+          newConsumed2.push(postConsumed[ci]);
+          cumTotal += (studentUnits[postConsumed[ci]] || 3);
+        }
+        mr.consumed = newConsumed2;
+      }
       secEarned += mr.rowEarned;
       rows.push(mr);
       // Track units consumed by canonical (allow spillover of remaining units)
@@ -787,6 +833,28 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
     secEarned = Math.min(secEarned, secCap); // cap at target (max when range present)
     totalTarget += secTarget;
     totalEarned += secEarned;
+
+    // Finalize consumedCanon: truncate each row to match its earned units
+    for (var ri = 0; ri < rows.length; ri++) {
+      var row = rows[ri];
+      var cumRow = 0;
+      var newConsRows = [];
+      for (var ci = 0; ci < (row.consumed || []).length; ci++) {
+        var u = studentUnits[row.consumed[ci]] || 3;
+        if (cumRow + u > row.rowEarned + 0.01) break;
+        cumRow += u;
+        newConsRows.push(row.consumed[ci]);
+      }
+      row.consumed = newConsRows;
+      // Also rebuild consumedCodes to match
+      var newConsCodes = [];
+      for (var ci = 0; ci < (row.consumedCodes || []).length; ci++) {
+        var code = row.consumedCodes[ci];
+        var canon = canonFn(code);
+        if (newConsRows.indexOf(canon) !== -1) newConsCodes.push(code);
+      }
+      row.consumedCodes = newConsCodes;
+    }
 
     sections.push({
       label: sec.label,
