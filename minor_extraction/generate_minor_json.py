@@ -624,6 +624,13 @@ def detect_eq_pairs(rows):
             if before_code and after_code:
                 dept1, dept2 = before_code[1], after_code[1]
                 if dept1 != dept2:
+                    # Guard: check for substantive words between "or" and after_code.
+                    # If present, this "or" is a choice ("or one course from..."), not equivalence.
+                    or_match = re.match(r'\s+or\s+', t[pos:], re.IGNORECASE)
+                    or_end = pos + len(or_match.group(0)) if or_match else pos + 3
+                    between = t[or_end : after_code[0]].strip()
+                    if re.search(r'[a-zA-Z]{3,}', between):
+                        continue
                     c1 = f"{dept1} {before_code[2]}"
                     c2 = f"{dept2} {after_code[2]}"
                     eq_pairs.add((c1, c2))

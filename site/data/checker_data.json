@@ -36778,6 +36778,7 @@
       "description": "Students are required to complete a minimum of 21 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 21.0,
       "eq_norm": {
+        "BCHE 3030": "BCHE 3730",
         "BCHE 3050": "BCHE 3650",
         "BCHE 3070": "BCHE 3650",
         "BCHE 4030": "BCHE 4830",
@@ -36811,7 +36812,7 @@
                 }
               ],
               "strategy": "all",
-              "dedup_count": 4
+              "dedup_count": 3
             }
           ]
         },
@@ -36963,8 +36964,24 @@
                   "unit": 2.0
                 }
               ],
-              "strategy": "units",
+              "strategy": "or_group",
               "dedup_count": 3,
+              "or_groups": [
+                {
+                  "codes": [
+                    "BIOL 3560",
+                    "BIOL 3570"
+                  ],
+                  "dedup_count": 2
+                },
+                {
+                  "codes": [
+                    "BIOL 3610",
+                    "BIOL 3620"
+                  ],
+                  "dedup_count": 2
+                }
+              ],
               "units_needed": 4.0
             }
           ]
@@ -53058,7 +53075,7 @@
       "sections": [
         {
           "label": "1. Required Courses",
-          "target_units": 6.0,
+          "target_units": 5.0,
           "rows": [
             {
               "text": "(a) MBTE4320",
@@ -53105,7 +53122,7 @@
         },
         {
           "label": "2. Elective Courses: 13 or 14 units",
-          "target_units": 14.0,
+          "target_units": 13.0,
           "rows": [
             {
               "text": "MBTE2000, 2010, 3000, 3510, 3511, 3518, 3521, 3528, 3531, 3550, 3558, 3560, 3568, 4033, 4034, 4510, 4520, 4530",
@@ -53185,7 +53202,7 @@
               ],
               "strategy": "units",
               "dedup_count": 18,
-              "units_needed": 14.0
+              "units_needed": 13.0
             }
           ],
           "target_units_max": 14.0
@@ -54088,15 +54105,111 @@
                 {
                   "code": "MUSC 8026",
                   "unit": 3.0
+                },
+                {
+                  "code": "MUSC 2252",
+                  "unit": 2.0
+                },
+                {
+                  "code": "MUSC 2262",
+                  "unit": 2.0
+                },
+                {
+                  "code": "MUSC 2552",
+                  "unit": 2.0
+                },
+                {
+                  "code": "MUSC 2562",
+                  "unit": 2.0
+                },
+                {
+                  "code": "MUSC 2872",
+                  "unit": 2.0
+                },
+                {
+                  "code": "MUSC 2882",
+                  "unit": 2.0
                 }
               ],
               "strategy": "units",
-              "dedup_count": 205,
+              "dedup_count": 211,
               "units_needed": 7.0,
               "level_constraint": [
                 {
                   "min_units_needed": 6,
                   "min_level": 3000
+                }
+              ],
+              "subject_buckets": [
+                {
+                  "code_list": [
+                    "1001",
+                    "1002",
+                    "1031",
+                    "1032",
+                    "1041",
+                    "1042",
+                    "2001",
+                    "2002",
+                    "2031",
+                    "2032",
+                    "2041",
+                    "2042",
+                    "3001",
+                    "3002",
+                    "3031",
+                    "3032",
+                    "3041",
+                    "3042",
+                    "4001",
+                    "4002",
+                    "4031",
+                    "4032",
+                    "4041",
+                    "4042",
+                    "1013",
+                    "1014",
+                    "1017",
+                    "1018",
+                    "1019",
+                    "1023",
+                    "1024",
+                    "1027",
+                    "1028",
+                    "1029",
+                    "2013",
+                    "2014",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2023",
+                    "2024",
+                    "2027",
+                    "2028",
+                    "2029",
+                    "3013",
+                    "3014",
+                    "3017",
+                    "3018",
+                    "3019",
+                    "3023",
+                    "3024",
+                    "3027",
+                    "3028",
+                    "3029",
+                    "4013",
+                    "4014",
+                    "4017",
+                    "4018",
+                    "4019",
+                    "4023",
+                    "4024",
+                    "4027",
+                    "4028",
+                    "4029"
+                  ],
+                  "max_units": 4.0,
+                  "label": "Area 2B, Area 2C"
                 }
               ],
               "cross_row_exclude": true
@@ -54142,6 +54255,54 @@
             {
               "text": "PHIL courses other than PHIL1110 are elective courses. Students are required to take at least 6 units of courses at 3000 or above level.",
               "codes": [
+                {
+                  "code": "PHIL 1210",
+                  "unit": 3.0
+                },
+                {
+                  "code": "PHIL 1310",
+                  "unit": 3.0
+                },
+                {
+                  "code": "PHIL 1413",
+                  "unit": 3.0
+                },
+                {
+                  "code": "PHIL 2020",
+                  "unit": 3.0
+                },
+                {
+                  "code": "PHIL 2030",
+                  "unit": 3.0
+                },
+                {
+                  "code": "PHIL 2040",
+                  "unit": 3.0
+                },
+                {
+                  "code": "PHIL 2050",
+                  "unit": 3.0
+                },
+                {
+                  "code": "PHIL 2060",
+                  "unit": 3.0
+                },
+                {
+                  "code": "PHIL 2202",
+                  "unit": 3.0
+                },
+                {
+                  "code": "PHIL 2301",
+                  "unit": 3.0
+                },
+                {
+                  "code": "PHIL 2302",
+                  "unit": 3.0
+                },
+                {
+                  "code": "PHIL 2400",
+                  "unit": 3.0
+                },
                 {
                   "code": "PHIL 3000",
                   "unit": 3.0
@@ -54632,8 +54793,14 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 122,
-              "units_needed": 15.0
+              "dedup_count": 134,
+              "units_needed": 15.0,
+              "level_constraint": [
+                {
+                  "min_units_needed": 6,
+                  "min_level": 3000
+                }
+              ]
             }
           ]
         }
@@ -55823,6 +55990,12 @@
               "strategy": "pick_n",
               "dedup_count": 52,
               "n": 4,
+              "level_constraint": [
+                {
+                  "min_courses_needed": 2,
+                  "min_level": 3000
+                }
+              ],
               "pick_n_avg_unit": 3.0
             }
           ]
@@ -55840,9 +56013,7 @@
       "faculty": "Science",
       "description": "Students are required to complete a minimum of 21 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 21.0,
-      "eq_norm": {
-        "STAT 2005": "CSCI 1510"
-      },
+      "eq_norm": {},
       "sections": [
         {
           "label": "1. Required Course: 3 units",
@@ -55922,7 +56093,7 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 6,
+              "dedup_count": 7,
               "units_needed": 3.0
             },
             {
@@ -56411,7 +56582,7 @@
               ],
               "strategy": "units",
               "dedup_count": 54,
-              "units_needed": 15.0,
+              "units_needed": 6.0,
               "level_constraint": [
                 {
                   "min_units_needed": 6,

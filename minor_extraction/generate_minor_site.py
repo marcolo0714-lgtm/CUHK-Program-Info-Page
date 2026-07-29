@@ -426,6 +426,15 @@ def build_section_html(sec, course_index, eq_pairs=None, is_single=False, desc_u
             sec_units = str(total) if total > 0 else ""
     elif total > 0:
         sec_units = str(total)
+        # If section has an explicit units field larger than row sum, use it
+        sec_explicit = sec.get("units", "").strip()
+        if sec_explicit:
+            try:
+                sec_explicit_val = float(sec_explicit)
+                if sec_explicit_val > total:
+                    sec_units = sec_explicit
+            except ValueError:
+                pass
     else:
         sec_units = sec.get("units", "").strip()
     # Append unit count to heading if not already shown as a unit suffix

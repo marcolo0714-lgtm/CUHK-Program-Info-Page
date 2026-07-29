@@ -103,3 +103,25 @@ _auto_generated was set to false in each file to prevent overwriting.
   "13 or 14 units." Using the max (14) ensures sections sum to 6 + 14 = 20 ≥ 19
   (the description's "minimum of 19 units"), allowing the checker to reach 100%.
   The `units_max: "14"` field remains as the upper bound.
+
+## Sociology (Sociology.json)
+- **elective.rows[0].text**: Changed from `"from the following, including a minimum of 6 units of elective courses at 3000 or above level:"` to `"15 units from the following, including a minimum of 6 units of elective courses at 3000 or above level:"`. The original text had no unit count for the total elective requirement, causing the generator to misinterpret the "6 units" (a level constraint) as the row's `units_needed`.
+- **elective.rows[0].units**: Set to `"15"`. Provides the generator with authoritative unit metadata, ensuring `units_needed=15` instead of incorrectly using 6 (the level constraint value).
+
+## Biology (Biology.json)
+- **eq_pairs**: Removed `["BIOL 3560", "BIOL 3610"]` from the equivalence pairs list. These are NOT equivalent courses — BIOL 3560 pairs with BIOL 3570 (Group 1) and BIOL 3610 pairs with BIOL 3620 (Group 2). The false equivalence was created by the "or" detection treating the group-separating "or" as an equivalence pair. With the `or_group` strategy now handling row 1c correctly (via `build_or_groups` detecting the "and/or" pattern), this eq_pair is harmful —   it incorrectly makes Group 2 appear satisfied when only one of its courses is taken via equivalence.
+
+## Philosophy (course_overrides.json)
+- **Elective row override**: Expanded from 122 codes (only 3000+ level PHIL courses) to 134 codes (all PHIL courses from the catalog except PHIL 1110 which is the required course). The original override was incorrectly limited to 3000-level courses because the resolver interpreted "at least 6 units at 3000 or above" as a filter rather than a level constraint. The actual requirement is "PHIL courses other than PHIL1110" — ALL PHIL courses at any level count, with a level minimum of 6 units at 3000+.
+
+# Hardcoded Constants in Generator Scripts
+
+## AREA_CODE_LISTS in generate_checker_data.py
+- **Music Area 2B & 2C**: The 64 course numeric suffixes for Music Areas 2B
+  (Choral and Orchestral Ensemble) and 2C (Other Ensemble) are hardcoded
+  as the `AREA_CODE_LISTS` dict. The `detect_subject_constraints` function
+  parses requirement text like "not more than 4 units of courses from
+  Area 2B and/or 2C" and auto-generates a `subject_buckets` entry with
+  `code_list` and `max_units: 4`. This avoids editing the Music JSON file,
+  allowing annual regeneration to pick up the constraint automatically.
+  If CUHK adds/renames areas, update the `AREA_CODE_LISTS` constant.

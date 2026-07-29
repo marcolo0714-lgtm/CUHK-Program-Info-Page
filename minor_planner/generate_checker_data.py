@@ -142,6 +142,14 @@ def extract_level_constraint(text):
     if m:
         _add(units=_n(m.group(1)), min_level=int(m.group(2)))
 
+    # "of which at least N courses (are) at YYYY or above level"
+    m = re.search(
+        r"of\s+which\s+at\s+least\s+(\w+)\s+courses?\s+(?:are\s+)?at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
+        text, re.IGNORECASE,
+    )
+    if m:
+        _add(courses=_n(m.group(1)), min_level=int(m.group(2)))
+
     # "with at least N courses at YYYY or above level"
     m = re.search(
         r"with\s+at\s+least\s+(\w+)\s+courses?\s+at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
@@ -646,6 +654,41 @@ def determine_strategy(row, section_type):
     return {"strategy": "any"}
 
 
+# ── Area-based code lists (Music 2B/2C, etc.) ───────────────────────────
+
+AREA_CODE_LISTS = {
+    # Music Area 2B — Choral and Orchestral Ensemble Courses
+    "2B": [
+        "1001", "1002", "1031", "1032", "1041", "1042",
+        "2001", "2002", "2031", "2032", "2041", "2042",
+        "3001", "3002", "3031", "3032", "3041", "3042",
+        "4001", "4002", "4031", "4032", "4041", "4042",
+    ],
+    # Music Area 2C — Other Ensemble Courses
+    "2C": [
+        "1013", "1014", "1017", "1018", "1019",
+        "1023", "1024", "1027", "1028", "1029",
+        "2013", "2014", "2017", "2018", "2019",
+        "2023", "2024", "2027", "2028", "2029",
+        "3013", "3014", "3017", "3018", "3019",
+        "3023", "3024", "3027", "3028", "3029",
+        "4013", "4014", "4017", "4018", "4019",
+        "4023", "4024", "4027", "4028", "4029",
+    ],
+}
+
+
+def _resolve_area_codes(area_spec):
+    """Given e.g. '2B and/or 2C', return (combined_code_list, label)."""
+    parts = [p.strip().rstrip('.,;:') for p in re.split(r"\s+and/or\s+", area_spec)]
+    combined = []
+    for p in parts:
+        if p in AREA_CODE_LISTS:
+            combined.extend(AREA_CODE_LISTS[p])
+    label = ", ".join(f"Area {p}" for p in parts)
+    return combined, label
+
+
 # ── Subject bucket / area detection ──────────────────────────────────────
 
 def detect_subject_constraints(text, codes=None):
@@ -709,6 +752,22 @@ def detect_subject_constraints(text, codes=None):
             except ValueError: pass
         subj = m.group(2).upper()
         if n: buckets.append({"prefix": subj, "min_courses": int(n)})
+
+    # "not more than N units of courses from Area 2B and/or 2C"
+    m = re.search(
+        r"not\s+more\s+than\s+(\w+)\s+units?\s+of\s+courses?\s+from\s+Area\s+(\S+)(?:\s+and/or\s+(\S+))?",
+        text, re.IGNORECASE,
+    )
+    if m:
+        n = WORD_TO_NUM.get(m.group(1).lower())
+        if n is None:
+            try: n = int(m.group(1))
+            except ValueError: pass
+        if n:
+            area_spec = m.group(2) + (" and/or " + m.group(3) if m.group(3) else "")
+            code_list, label = _resolve_area_codes(area_spec)
+            if code_list:
+                buckets.append({"code_list": code_list, "max_units": float(n), "label": label})
 
     if buckets:
         result["subject_buckets"] = buckets
@@ -789,9 +848,13 @@ def build_or_groups(text, codes, eq_norm):
     # Inline "or" pairs like "HIST2500 or 2501" should NOT create groups.
     or_split = _OR_SPLIT if _OR_SPLIT.search(text) else None
     if or_split is None and has_and:
+        # When "or" separates AND-groups like "BIOL3560 and 3570 or BIOL3610 and 3620",
+        # the "and" appears between course code patterns, not English text.
+        # Only treat as OR-group if "and" connects course numbers (e.g. "\d{4} and \d{4}").
+        has_code_and = bool(re.search(r'\d{4}\s+and\s+(?:\d{4}|[A-Z]{4})', text, re.IGNORECASE))
         for m in _OR_AND_SPLIT.finditer(text):
             before = text[max(0, m.start() - 3):m.start()].strip()
-            if before.endswith(',') or before.endswith(')'):
+            if before.endswith(',') or before.endswith(')') or has_code_and:
                 or_split = _OR_AND_SPLIT
                 break
     if or_split is None:
@@ -1005,6 +1068,10 @@ def generate():
                             for r in any_rows:
                                 r["strategy"] = "units"
                                 r["units_needed"] = per_row
+                                # Extract level constraint from text (may have been missed for "any" rows)
+                                lc = extract_level_constraint(r["text"])
+                                if lc:
+                                    r["level_constraint"] = lc
                                 strategy_counts["units"] = strategy_counts.get("units", 0) + 1
                                 strategy_counts["any"] = max(0, strategy_counts.get("any", 0) - 1)
                                 # Recompute target contribution
