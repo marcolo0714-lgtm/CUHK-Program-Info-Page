@@ -55,6 +55,187 @@ def load_overrides():
     return {}
 
 
+# ── Explanatory notes HTML parser ──────────────────────────────────────
+
+def parse_explanatory_notes_html(notes):
+    """Parse raw Word-exported explanatory notes HTML into clean point-cards
+    matching the info-page format. Returns empty string if notes is empty."""
+    if not notes:
+        return ""
+
+    # Strip leading "Explanatory Note(s):" header row
+    notes = re.sub(
+        r'<tr[^>]*>.*?Explanatory\s+Note[s]?\s*:?.*?</tr>',
+        '', notes, count=1, flags=re.IGNORECASE | re.DOTALL
+    )
+
+    # Flatten nested table/tbody tags
+    notes = re.sub(r'</?(?:table|tbody|thead|tfoot)\b[^>]*>', '', notes, flags=re.IGNORECASE)
+
+    rows = re.findall(r'<tr[^>]*>(.*?)</tr>', notes, re.DOTALL)
+    if not rows:
+        return notes if notes.strip() else ""
+
+    point_idx_pat = re.compile(r'^\s*(\d{1,2}\.|\[[a-z]\])')
+    find_idx_pat = re.compile(r'(?<!\d)(\d{1,2}\.)(?!\d)|(\[[a-z]\])')
+
+    def _has_point_label(row_html):
+        for td_html in re.findall(r'<td[^>]*>(.*?)</td>', row_html, re.DOTALL):
+            td_text = re.sub(r'<[^>]+>', '', td_html).replace('\xa0', ' ').strip()
+            if point_idx_pat.match(td_text):
+                return True
+        return False
+
+    def _collect_indices(row_html):
+        indices = []
+        seen = set()
+        for td_html in re.findall(r'<td[^>]*>(.*?)</td>', row_html, re.DOTALL):
+            td_text = re.sub(r'<[^>]+>', '', td_html).replace('\xa0', ' ').strip()
+            if not point_idx_pat.match(td_text):
+                continue
+            for m in find_idx_pat.finditer(td_text):
+                label = m.group(1) or m.group(2)
+                if label and label not in seen:
+                    indices.append(label)
+                    seen.add(label)
+        return indices
+
+    classified = []
+    for row_html in rows:
+        clean = re.sub(r'<[^>]+>', '', row_html).replace('\xa0', ' ').strip()
+        if not clean:
+            continue
+        if _has_point_label(row_html):
+            indices = _collect_indices(row_html)
+            content_paragraphs = []
+            for td_html in re.findall(r'<td[^>]*>(.*?)</td>', row_html, re.DOTALL):
+                td_text = re.sub(r'<[^>]+>', '', td_html).replace('\xa0', ' ').strip()
+                if not td_text or point_idx_pat.match(td_text):
+                    continue
+                for p_html in re.findall(r'<p[^>]*>(.*?)</p>', td_html, re.DOTALL):
+                    p_text = re.sub(r'<[^>]+>', '', p_html).replace('\xa0', ' ').strip()
+                    p_text = re.sub(r'\s+', ' ', p_text).strip()
+                    if p_text:
+                        content_paragraphs.append(p_text)
+
+            if content_paragraphs and len(content_paragraphs) >= len(indices):
+                for idx_label, cp in zip(indices, content_paragraphs):
+                    classified.append(('point', idx_label, cp))
+                for extra in content_paragraphs[len(indices):]:
+                    if classified and classified[-1][0] == 'point':
+                        prev = classified[-1]
+                        classified[-1] = ('point', prev[1], prev[2] + ' ' + extra)
+            else:
+                if len(indices) > 1:
+                    p_texts = []
+                    for td_html in re.findall(r'<td[^>]*>(.*?)</td>', row_html, re.DOTALL):
+                        for p_html in re.findall(r'<p[^>]*>(.*?)</p>', td_html, re.DOTALL):
+                            pt = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', p_html).replace('\xa0', ' ')).strip()
+                            if pt:
+                                p_texts.append(pt)
+                    current_label = None
+                    current_buf = []
+                    for pt in p_texts:
+                        m = point_idx_pat.match(pt)
+                        if m:
+                            if current_label and current_buf:
+                                classified.append(('point', current_label, ' '.join(current_buf)))
+                            current_label = m.group(1)
+                            pt = re.sub(r'^' + re.escape(m.group(1)) + r'\s*', '', pt)
+                            current_buf = [pt] if pt else []
+                        elif current_label:
+                            current_buf.append(pt)
+                    if current_label and current_buf:
+                        classified.append(('point', current_label, ' '.join(current_buf)))
+                else:
+                    plain_text = re.sub(r'\s+', ' ', clean).strip()
+                    for idx_label in indices:
+                        classified.append(('point', idx_label, plain_text))
+        else:
+            data_norm = re.sub(r'<[^>]+>', '', row_html)
+            data_norm = data_norm.replace('&nbsp;', ' ').replace('\xa0', ' ')
+            data_norm = re.sub(r'\s+', ' ', data_norm).strip()
+            if data_norm:
+                classified.append(('data', '', row_html))
+
+    # Deduplicate
+    deduped = []
+    block_seen = set()
+    skipping = False
+    for item in classified:
+        if item[0] == 'point':
+            block_seen.clear()
+            skipping = False
+            deduped.append(item)
+        elif not skipping:
+            norm = re.sub(r'\s+', ' ', item[2]).strip()
+            if norm in block_seen:
+                skipping = True
+            else:
+                block_seen.add(norm)
+                deduped.append(item)
+
+    # Render
+    def _render_data_table(rows):
+        if not rows:
+            return ""
+        # Flatten nested <tr> elements
+        flat = []
+        for r in rows:
+            if '<tr' in r.lower():
+                inner = re.findall(r'<tr[^>]*>(.*?)</tr>', r, re.DOTALL)
+                flat.extend(inner)
+            else:
+                flat.append(r)
+        if not flat:
+            return ""
+        # Strip leading spacer row (empty after tag removal)
+        if flat:
+            first_norm = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', flat[0]).replace('\xa0', ' ')).strip()
+            if not first_norm:
+                flat = flat[1:]
+        if len(flat) >= 2:
+            first_norm = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', flat[0]).replace('\xa0', ' ')).strip()
+            last_norm = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', flat[-1]).replace('\xa0', ' ')).strip()
+            if first_norm and first_norm == last_norm:
+                flat = flat[:-1]
+            else:
+                is_header = lambda t: 'courses' in t.lower() and 'equivalent' in t.lower()
+                if is_header(last_norm) and not is_header(first_norm):
+                    flat = [flat[-1]] + flat[:-1]
+        return '<div class="notes-table-section"><table>' + ''.join('<tr>' + r + '</tr>' for r in flat) + '</table></div>'
+
+    parts = []
+    buf = []
+    buf_type = None
+    for item in deduped:
+        if item[0] == 'point':
+            if buf_type == 'data' and buf:
+                parts.append(_render_data_table(buf))
+                buf = []
+            buf_type = 'point'
+            _, label, content = item
+            idx_text = label
+            prefix = re.escape(label.strip()) + r'\s*'
+            content = re.sub(r'^' + prefix, '', content, count=1)
+            parts.append(
+                '<div class="section notes-point">'
+                '<span class="point-idx">' + idx_text + '</span>'
+                '<span class="point-text">' + content + '</span>'
+                '</div>'
+            )
+        else:
+            if buf_type == 'point' and buf:
+                pass  # points already rendered
+            buf_type = 'data'
+            buf.append(item[2])
+
+    if buf_type == 'data' and buf:
+        parts.append(_render_data_table(buf))
+
+    return ''.join(parts)
+
+
 def apply_overrides(data, overrides):
     stem = data.get("source_file", "")
     minor_overrides = overrides.get(stem, {})
@@ -1117,6 +1298,7 @@ def generate():
             "eq_norm": eq_norm,
             "sections": sections,
             "global_level_constraint": extract_level_constraint(desc),
+            "explanatory_notes": parse_explanatory_notes_html(data.get("explanatory_notes", "")),
         }
 
     # Build course summary (title + unit)

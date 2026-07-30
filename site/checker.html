@@ -89,6 +89,25 @@ tr.matched:hover { background:#e6f7ea; }
 .disclaimer { margin-top:24px; padding:12px 16px; border-left:3px solid var(--warn);
     font-size:.82em; color:var(--muted); background:var(--warn-bg); border-radius:4px; }
 
+/* Explanatory notes — matches info-page styling */
+.detail-notes { margin:14px 0 0; }
+.detail-notes h4 { font-size:.95em; margin-bottom:6px; color:#555; }
+.detail-notes .section { background:var(--card); padding:14px 18px; border-radius:8px;
+    border:1px solid var(--border); margin-bottom:12px; }
+.detail-notes .notes-point { display:flex; align-items:flex-start; gap:10px;
+    padding:10px 14px; cursor:default; transition:background .15s; }
+.detail-notes .notes-point:hover { background:#f0f4ff; }
+.detail-notes .point-idx { font-weight:600; color:var(--accent); min-width:22px;
+    flex-shrink:0; font-size:.82em; }
+.detail-notes .point-text { flex:1; font-size:.82em; line-height:1.55; color:var(--text); }
+.detail-notes .point-text p { margin:0; }
+.detail-notes .notes-table-section { overflow-x:auto; border-radius:8px; }
+.detail-notes .notes-table-section table { background:var(--card);
+    border-collapse:collapse; border-radius:8px; overflow:hidden; width:100%; }
+.detail-notes .notes-table-section td { padding:9px 13px;
+    border-bottom:1px solid var(--tbl-border); font-size:.82em; color:var(--text); }
+.detail-notes .notes-table-section tr:hover { background:#f9f9f9; }
+
 .site-footer { margin-top:20px; padding-top:12px; border-top:1px solid var(--border);
     font-size:.82em; color:var(--muted); text-align:center; }
 .site-footer a { color:var(--muted); }
@@ -36222,7 +36241,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Anthropology</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Applied_Diversity_Studies": {
       "title": "Applied Diversity Studies",
@@ -36399,7 +36419,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Gender Studies.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Arab_Studies": {
       "title": "Arab Studies",
@@ -36507,7 +36528,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Public Humanities, Religious Studies, and Theology.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Archaeology": {
       "title": "Archaeology",
@@ -36698,7 +36720,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Internship opportunities are offered to students of this Programme. Please refer to the website of Department of Anthropology for details.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 10 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Artificial_Intelligence_Systems_and_Technologies": {
       "title": "Artificial Intelligence: Systems and Technologies",
@@ -36907,7 +36930,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Computational Data Science, Computer Engineering, Computer Science, the Bachelor of Engineering (Computer Engineering) and Bachelor of Business Administration (Integrated BBA programme) Double Degree Option, the Bachelor of Science (Computer Science) and Bachelor of Business Administration (Integrated BBA Programme) Double Degree Option; and students in the Mathematics-Multidisciplinary Stream of Mathematics Major Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">Students should note that there are pre-requisite requirements for some of the courses.</span></div>"
     },
     "Biochemistry": {
       "title": "Biochemistry",
@@ -37029,7 +37053,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Courses labeled as ^ are laboratory courses.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 10 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Biology": {
       "title": "Biology",
@@ -37232,7 +37257,8 @@ var CHECKER_DATA = {
           "min_units_needed": 9,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 12 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Biomedical_Engineering": {
       "title": "Biomedical Engineering",
@@ -37463,7 +37489,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Cell_and_Molecular_Biology": {
       "title": "Cell and Molecular Biology",
@@ -37555,7 +37582,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 11 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Chemistry": {
       "title": "Chemistry",
@@ -37649,7 +37677,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 12 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Chinese_Language_and_Literature": {
       "title": "Chinese Language and Literature",
@@ -38479,7 +38508,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Chinese Language and Literature Major Programme and Chinese Language and Literature and Translation Double Major Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 10 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Computer_Science": {
       "title": "Computer Science",
@@ -38716,7 +38746,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Course(s) in Column A are equivalent to course(s) in Column B and can be used to fulfill the requirements of this Minor Programme.</span></div><div class=\"notes-table-section\"><table><tr> <td style=\"width:36.65pt;border:none;border-right:\n\n solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border:solid windowtext 1.0pt; border-left:none;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><b><span lang=\"EN-US\">Column A</span></b></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border:solid windowtext 1.0pt; border-left:none;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><b><span lang=\"EN-US\">Column B</span></b></p> </td> <td style=\"width:21.3pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr><tr> <td style=\"width:36.65pt;border:none;border-right:\n\n solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border-top:none;border-left:\n\n none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI1120/1130/ESTR1100/1102</span></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI1510/1520/1530/1540</span></p> </td> <td style=\"width:21.3pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr><tr> <td style=\"width:36.65pt;border:none;border-right:\n\n solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border-top:none;border-left:\n\n none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">ENGG1110/ESTR1002</span></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI1510/1520/1530/1540</span></p> </td> <td style=\"width:21.3pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr><tr> <td style=\"width:36.65pt;border:none;border-right:\n\n solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border-top:none;border-left:\n\n none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CENG2400/ELEG2401/</span><span lang=\"EN-US\">3701/</span><span lang=\"EN-US\">ESTR2100</span></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI2510</span></p> </td> <td style=\"width:21.3pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr><tr> <td style=\"width:36.65pt;border:none;border-right:\n\n solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border-top:none;border-left:\n\n none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI2100/ESTR2102</span></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI2520</span></p> </td> <td style=\"width:21.3pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr><tr> <td style=\"width:36.65pt;border:none;border-right:\n\n solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> <td style=\"width:249.9pt;border-top:none;border-left:\n\n none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"333\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">PHYS2061</span></p> </td> <td colspan=\"2\" style=\"width:170.1pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt;height:1.0pt\" valign=\"top\" width=\"227\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">CSCI1530</span></p> </td> <td style=\"width:21.3pt;border:none;padding:0in 5.4pt 0in 5.4pt; height:1.0pt\" valign=\"top\" width=\"28\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\"> </span></p> </td> </tr></table></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Artificial Intelligence: Systems and Technologies, Computational Data Science, Computer Engineering, the Bachelor of Engineering (Computer Engineering) and Bachelor of Business Administration (Integrated BBA Programme) Double Degree Option, and the Bachelor of Science (Computer Science) and Bachelor of Business Administration (Integrated BBA Programme) Double Degree Option, and students in the Mathematics-Multidisciplinary Stream of Mathematics Major Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Creative_Writing_in_English": {
       "title": "Creative Writing in English",
@@ -38807,7 +38838,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in English Major Programme, English and History Double Major Programme, History and English Double Major Programme, the Bachelor of Arts (English Studies) and Bachelor of Education (English Language Education).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Cultural_Heritage_Studies": {
       "title": "Cultural Heritage Studies",
@@ -38976,7 +39008,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Including one of the four courses under 1(a) and 1(b) not taken to fulfill the requirement of 1(a) or 1(b), which will be counted towards the group according to its subject area.</span></div>"
     },
     "Cultural_Management": {
       "title": "Cultural Management",
@@ -39192,7 +39225,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Public Humanities.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 10 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Courses that count towards the fulfilment of elective course requirements specified in 2(a) cannot be counted towards the fulfilment of the elective course requirements specified in 2(b).</span></div>"
     },
     "Cultural_Studies": {
       "title": "Cultural Studies",
@@ -39428,7 +39462,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Public Humanities.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Curating_and_Artistic_Strategies": {
       "title": "Curating and Artistic Strategies",
@@ -39520,7 +39555,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Public Humanities major students cannot take FAAS3108 and FAAS4201 to fulfill the elective course requirements specified in 2(b).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Data_Science_and_Policy_Studies": {
       "title": "Data Science and Policy Studies",
@@ -39688,7 +39724,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Earth_and_Environmental_Sciences": {
       "title": "Earth and Environmental Sciences",
@@ -39958,7 +39995,8 @@ var CHECKER_DATA = {
           ]
         }
       ],
-      "global_level_constraint": null
+      "global_level_constraint": null,
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Economics": {
       "title": "Economics",
@@ -40480,7 +40518,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Global Economics and Finance.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have passed DOTE1030 are exempted from ECON2011, in which case ECON2011 is to be replaced by any ECON course at 3000 or above level. Students who have passed DOTE1040 are exempted from ECON2021, in which case ECON2021 is to be replaced by any ECON course at 3000 or above level.</span></div>"
     },
     "Electronic_Engineering": {
       "title": "Electronic Engineering",
@@ -40689,7 +40728,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">BMEG2300 is equivalent to ELEG2202.</span></div>"
     },
     "Energy_Technology": {
       "title": "Energy Technology",
@@ -40829,7 +40869,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Energy and Environmental Engineering.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "English": {
       "title": "English",
@@ -41310,7 +41351,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in English Major Programme, English and History Double Major Programme, History and English Double Major Programme, the Bachelor of Arts (English Studies) and Bachelor of Education (English Language Education).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Film_and_Screen_Studies": {
       "title": "Film and Screen Studies",
@@ -41437,7 +41479,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Public Humanities.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Fine_Arts": {
       "title": "Fine Arts",
@@ -41815,7 +41858,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Fine Arts.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 12 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Excluding FAAS4180, 4183, 4280, 4283 and courses listed under 2(a).</span></div>"
     },
     "Gender_Studies": {
       "title": "Gender Studies",
@@ -42080,7 +42124,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Geography_and_Resource_Management": {
       "title": "Geography and Resource Management",
@@ -42297,7 +42342,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Global_Communication": {
       "title": "Global Communication",
@@ -42736,7 +42782,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">Units taken to fulfill the requirement of the Journalism and Communication Programme (including Major Programmes, Double Major Programmes, Double Degree Options and Minor Programme) and Global Studies Programme (including Major Programme and Minor Programme) cannot be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Global_Studies": {
       "title": "Global Studies",
@@ -43083,7 +43130,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Students are advised not to take courses at 3000 or above level in their first year of attendance.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 6 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Government_and_Public_Administration": {
       "title": "Government and Public Administration",
@@ -43518,7 +43566,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Students are advised not to take courses at 3000 or above level in their first year of attendance.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "HB_Minor_Programme_in_Business": {
       "title": "Business",
@@ -46194,7 +46243,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Risk Management Science, Global Economics and Finance, Quantitative Finance and Risk Management Science, Bachelor of Business Administration (Integrated BBA Programme) and Juris Doctor Programme, and programmes under the Faculty of Business Administration.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">This Minor Programme is also not applicable to students who pursue the following programmes: Bachelor of Business Administration in Integrated BBA Programme and Financial Technology Double Major Programme; Bachelor of Engineering in Financial Technology and Integrated BBA Programme Double Major Programme; Bachelor of Science in Biotechnology, Entrepreneurship and Healthcare Management; and Bachelor of Science in Interdisciplinary Data Analytics &amp; X Double Major Programme with 2nd Major in Integrated BBA Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">4.</span><span class=\"point-text\">Students must meet the requirement of a minimum cumulative GPA of 2.7 by the time they declare a Minor in Business.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">5.</span><span class=\"point-text\">Students should note that there are pre-requisite requirements for some of the courses.</span></div>"
     },
     "HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language": {
       "title": "Chinese Language (Cantonese) as a Second Language",
@@ -46308,7 +46358,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not for students whose native language is Cantonese/Putonghua. Students planning to minor in this Programme should take the Cantonese placement tests offered by the Yale-China Chinese Language Academy. Declaration of this Minor Programme is subject to the approval of the Department.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">Depending on their proficiency in Cantonese, students may be asked to take advanced level courses to substitute for the courses at the 2000 level to fulfill the Minor Programme requirement. They should seek advice from the Yale-China Chinese Language Academyfor the substitute courses for them to take.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">All CLCC courses taken to fulfill this Minor programme requirement cannot be counted towards the fulfillment of the University Core Requirements.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">4.</span><span class=\"point-text\">No more than 10 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "HB_Minor_Programme_in_Chinese_Language_(Putonghua)_as_a_Second_Language": {
       "title": "Chinese Language (Putonghua) as a Second Language",
@@ -46450,7 +46501,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not for students whose native language is Cantonese/Putonghua. Students planning to minor in this Programme should take the Putonghua placement tests offered by the Yale-China Chinese Language Academy. Declaration of this Minor Programme is subject to approval of the Department.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">Depending on their proficiency in Putonghua, students may be asked to take advanced level courses to substitute for the courses at the 2000 level to fulfill the Minor Programme requirement. They should seek advice from the Yale-China Chinese Language Academyfor the substitute courses for them to take.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">All CLCP courses taken to fulfill this Minor programme requirement cannot be counted towards the fulfillment of the University Core Requirements.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">4.</span><span class=\"point-text\">No more than 10 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "HB_Minor_Programme_in_CU-ASK_Innovative_Problem_Solving": {
       "title": "CU-ASK: Innovative Problem Solving",
@@ -46945,7 +46997,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 6 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "HB_Minor_Programme_in_Data_Analytics_and_Informatics": {
       "title": "Data Analytics and Informatics",
@@ -47178,7 +47231,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Artificial Intelligence: Systems and Technologies.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Non-engineering students who wish to use other courses to substitute the required courses will have to seek approval from the Programme Director.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">ESTR courses are developed based on ordinary engineering courses with additional course materials and challenging assessments. The courses are only applicable to students of the ELITE stream, who can choose a combination of the ESTR courses or the equivalent courses listed in the curriculum to fulfill the minor programme requirements.</span></div>"
     },
     "HB_Minor_Programme_in_Education": {
       "title": "Education",
@@ -47321,7 +47375,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Chinese Language Education, Early Childhood Education, English Language Education, Exercise Science and Health Education, Human Movement Science and Health Studies, Learning Design and Technology, Mathematics and Mathematics Education, and Physical Education, Exercise Science and Health.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Courses not taken to fulfill the requirements of 1(a)(i)−(iii) can be used to fulfill the requirement of 1(b).</span></div>"
     },
     "HB_Minor_Programme_in_Entrepreneurship_and_Innovation": {
       "title": "Entrepreneurship and Innovation",
@@ -47579,7 +47634,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Integrated BBA Programme (including Double Degree/Dual Degree Programmes and Double Degree/Double Major Options) with Entrepreneurship Concentration.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Except for EPIN courses, students should not take more than 6 units of courses offered by Departments/Schools of the same Faculty.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "HB_Minor_Programme_in_French": {
       "title": "French",
@@ -47717,7 +47773,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have prior knowledge of French before admission may be exempted from taking FREN2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students who have taken the summer intensive course FREN2050 will be recognized as having fulfilled this requirement.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[c]</span><span class=\"point-text\">Students who have taken the summer intensive course FREN3051 will be recognized as having fulfilled this requirement and 3 units of elective courses of Requirement (2).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "HB_Minor_Programme_in_German": {
       "title": "German",
@@ -47855,7 +47912,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have prior knowledge of German before admission may be exempted from taking GERM2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students who have taken the summer intensive course GERM2050 will be recognized as having fulfilled this requirement.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[c]</span><span class=\"point-text\">Students who have taken the summer intensive course GERM3051 will be recognized as having fulfilled this requirement and 3 units of elective courses of Requirement (2).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "HB_Minor_Programme_in_Hong_Kong_Sign_Language": {
       "title": "Hong Kong Sign Language",
@@ -47984,7 +48042,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Bimodal Bilingual Studies.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">Linguistics Major students can only take HKSL courses to fulfill the requirement of (2).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have prior knowledge of Hong Kong Sign Language before admission may be exempted from taking HKSL1000, 1002, 1003, 2001, 2002 and 2003. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div>"
     },
     "HB_Minor_Programme_in_Korean": {
       "title": "Korean",
@@ -48122,7 +48181,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have prior knowledge of Korean before admission may be exempted from taking KORE2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students who have taken the summer intensive course KORE2050 will be recognized as having fulfilled this requirement.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[c]</span><span class=\"point-text\">Students who have taken the summer intensive course KORE3051 will be recognized as having fulfilled this requirement and 3 units of elective courses of Requirement (2).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "HB_Minor_Programme_in_Spanish": {
       "title": "Spanish",
@@ -48268,7 +48328,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have prior knowledge of Spanish before admission may be exempted from taking SPAN2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students who have taken the summer intensive course SPAN2050 will be recognized as having fulfilled this requirement.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[c]</span><span class=\"point-text\">Students who have taken the summer intensive course SPAN3051 will be recognized as having fulfilled this requirement and 3 units of elective courses of Requirement (2).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "History": {
       "title": "History",
@@ -49050,7 +49111,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in History, History and English Double Major Programme, History and Japanese</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">Studies Double Major Programme, English and History Double Major Programme and Japanese Studies and History Double Major Programme. No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme</span></div>"
     },
     "Information_Engineering": {
       "title": "Information Engineering",
@@ -49484,7 +49546,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Mathematics and Information Engineering.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Japanese_Language": {
       "title": "Japanese Language",
@@ -49615,7 +49678,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have prior knowledge of Japanese before admission may be exempted from taking JASP1450, 1460, 2450 and 2460. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Japanese Studies.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[c]</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Japanese_Studies": {
       "title": "Japanese Studies",
@@ -49832,7 +49896,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Japanese Studies.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Journalism_and_Communication": {
       "title": "Journalism and Communication",
@@ -50722,7 +50787,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Requirement for declaration in Minors: Students should have obtained a pass or above in COMM1110 for declaration of a Minor in Journalism and Communication.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">Declaration of a Minor in Journalism and Communication in no way guarantees enrolment in courses with quotas due to limited facilities and manpower.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Law": {
       "title": "Law",
@@ -52029,7 +52095,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">The Minor in Law Programme is offered only to students of the Bachelor of Business Administration (Integrated BBA Programme) and Juris Doctor Double Degree Programme but who subsequently opt out of the Programme. Students who have completed LAWS1020, 1030, 1041, 1042, 2131 and 2132 will be exempted from LAWS6001, 6021 and 6023 in the Juris Doctor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 12 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Linguistics": {
       "title": "Linguistics",
@@ -52381,7 +52448,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Bimodal Bilingual Studies, and Linguistics, or students who double major in Linguistics and Translation, and Linguistics and Psychology.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Including courses listed under 2(a) and 2(b) not taken to fulfill the requirement of 2(a) or 2(b).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Logistics_and_Supply_Chain_Management": {
       "title": "Logistics and Supply Chain Management",
@@ -52500,7 +52568,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Systems Engineering and Engineering Management and the Bachelor of Engineering (Systems Engineering and Engineering Management) and Bachelor of Business Administration (Integrated BBA Programme) Double Degree Option; and students in the Mathematics-Multidisciplinary Stream of Mathematics Major Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Mathematics": {
       "title": "Mathematics",
@@ -53012,7 +53081,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Mathematics, Mathematics and Information Engineering, Mathematics and Mathematics Education and Interdisciplinary Data Analytics &amp; X Double Major Programme with second Major in Mathematics or Mathematics and Applied Mathematics.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Mechanical_and_Automation_Engineering": {
       "title": "Mechanical and Automation Engineering",
@@ -53196,7 +53266,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Molecular_Biotechnology": {
       "title": "Molecular Biotechnology",
@@ -53350,7 +53421,8 @@ var CHECKER_DATA = {
           "min_units_needed": 9,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Music": {
       "title": "Music",
@@ -54359,7 +54431,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Students planning to Minor in Music must have attained at least Grade 5 in theory and instrument/voice in the examination of the Associated Board of the Royal Schools of Music, or equivalent, and may be asked to attend an interview.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Music.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfil the requirement of this Minor Programme.</span></div>"
     },
     "Philosophy": {
       "title": "Philosophy",
@@ -54947,7 +55020,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This Minor Programme is not applicable to students who major in Philosophy.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Physical_Education,_Exercise_Science_and_Health": {
       "title": "Physical Education, Exercise Science and Health",
@@ -55144,7 +55218,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Exercise Science and Health Education, and Human Movement Science and Health Studies.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Physics": {
       "title": "Physics",
@@ -55300,7 +55375,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Certain prerequisite/co-requisite conditions for PHYS courses may be waived for Minor students. Intending Minor students should consult the Department of Physics.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students can only use PHYS1001 or 1002, PHYS1111 or 1113, but not both in the respective pair, to fulfill the requirements of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[c]</span><span class=\"point-text\">Students can take either the PHYS course, or its corresponding equivalent or closely related course (with a maximum of 6 units), as listed below to fulfill the requirement, but not both: PHYS courses Equivalent/closely related courses</span></div><div class=\"notes-table-section\"><table><tr> <td colspan=\"2\" style=\"width:190.4pt;border:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"254\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS courses</p> </td> <td colspan=\"2\" style=\"width:234.3pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"312\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Equivalent/closely related courses</p> </td> </tr><tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1002</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">General Physics</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1003</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">General Physics for\n\n Engineers</p> </td> </tr><tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1111/1113</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Introduction to\n\n Mechanics, Fluids, and Waves (University Physics I)/</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Mechanics, Fluids and\n\n Waves (University Physics I)</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS1110</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Engineering Physics:\n\n Mechanics and Thermodynamics</p> </td> </tr><tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS2041</p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"> </p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">University Physics III</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">ENGG1310 or 2520 or\n\n ESTR1003 or 2006</p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Engineering Physics:\n\n Electromagnetics, Optics and Modern Physics/</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><a name=\"CRSE_TITLE$25\"></a><a href=\"javascript:submitAction_win0(document.win0,'CRSE_TITLE$25');\" title=\"View Course Details\"><span style=\"color:windowtext;text-decoration:\n\n none\">Engineering Physics II</span></a><span style='font-size:9.0pt; font-family:\"Arial\",sans-serif'> </span></p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> </tr><tr> <td style=\"width:68.9pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"92\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">PHYS2051</p> </td> <td style=\"width:121.5pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"162\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Quantitative Methods for\n\n Basic Physics</p> </td> <td style=\"width:85.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">MATH2020/ 2028</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"> </p> </td> <td style=\"width:148.65pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"198\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\"><a href=\"https://www.math.cuhk.edu.hk/course/1516/math2020b\"><span style=\"color:windowtext;text-decoration:none\">Advanced Calculus II/\n\n Honours Advanced Calculus II </span></a></p> </td> </tr></table></div>"
     },
     "Psychology": {
       "title": "Psychology",
@@ -55487,7 +55563,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Entry requirement: Students are required to take PSYC1000 before being admitted to the Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students are advised to take PSYC1000. Students who have taken UGED2581 should take another PSYC course as a substitute of PSYC1000 to fulfil the Minor requirements.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students are advised to take PSYC2010. Students who have taken any of the equivalent statistics courses including COMM3110, DOTE2011, ECON2121, GRMD2102, LING3403, PHPC2015, SEEM2430, SOCI2004, SPED2600, STAT2001 and 2006, STAT2101 and 2102 are exempted from taking PSYC2010, and they are required to take another PSYC course listed under 2. Elective Courses to compensate for the units.</span></div>"
     },
     "Public_Health": {
       "title": "Public Health",
@@ -55607,7 +55684,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Community Health Practice, Gerontology, and Biotechnology, Entrepreneurship and Healthcare Management.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Public_History": {
       "title": "Public History",
@@ -55775,7 +55853,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in History, History and English Double Major Programme, History and Japanese Studies Double Major Programme, English and History Double Major Programme and Japanese Studies and History Double Major Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme</span></div>"
     },
     "Religion_and_Health": {
       "title": "Religion and Health",
@@ -55878,7 +55957,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Religious Studies.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Religious_Studies": {
       "title": "Religious Studies",
@@ -56143,7 +56223,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Religious Studies.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Risk_Management_Science": {
       "title": "Risk Management Science",
@@ -56281,7 +56362,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students can take either the STAT course or its corresponding equivalent or closely related course, but not both, as listed below to fulfill the requirement: STAT courses Equivalent/closely related courses</span></div><div class=\"notes-table-section\"><table><tr> <td colspan=\"2\" style=\"width:161.4pt;border:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"215\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">STAT courses</p> </td> <td colspan=\"2\" style=\"width:263.3pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"351\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Equivalent/closely related courses</p> </td> </tr><tr> <td rowspan=\"8\" style=\"width:68.0pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"91\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">STAT1011</p> </td> <td rowspan=\"8\" style=\"width:93.4pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"125\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Introduction to\n\n Statistics</p> </td> <td style=\"width:113.0pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"151\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">STAT1012</p> </td> <td style=\"width:150.3pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"200\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Statistics for Life\n\n Sciences</p> </td> </tr><tr> <td style=\"width:113.0pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"151\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">STAT2001</p> </td> <td style=\"width:150.3pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"200\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Basic Concepts in\n\n Statistics and Probability I</p> </td> </tr><tr> <td style=\"width:113.0pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"151\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">DOTE2011</p> </td> <td style=\"width:150.3pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"200\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Statistical Analysis for\n\n Business Decisions</p> </td> </tr><tr> <td style=\"width:113.0pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"151\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">FINA2220</p> </td> <td style=\"width:150.3pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"200\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Quantitative Methods for\n\n Actuarial Analysis I</p> </td> </tr><tr> <td style=\"width:113.0pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"151\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">ENGG2760 and 2780 (4 units)\n\n <u>or</u> ESTR2018 and 2020 (4 units)</p> </td> <td style=\"width:150.3pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"200\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Probability for Engineers\n\n (ENGG2760/ESTR2018)</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Statistics for Engineers\n\n (ENGG2780/ESTR2020)</p> </td> </tr><tr> <td style=\"width:113.0pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"151\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">ECON2121</p> </td> <td style=\"width:150.3pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"200\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Methods of Economic\n\n Statistics</p> </td> </tr><tr> <td style=\"width:113.0pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"151\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">GRMD2102</p> </td> <td style=\"width:150.3pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"200\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Fundamental Statistics\n\n for Geographers</p> </td> </tr><tr> <td style=\"width:113.0pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"151\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">SOCI2004</p> </td> <td style=\"width:150.3pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"200\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Social Statistics</p> </td> </tr><tr> <td rowspan=\"2\" style=\"width:68.0pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"91\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">STAT2102</p> </td> <td rowspan=\"2\" style=\"width:93.4pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"125\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Basic Statistical\n\n Concepts and Methods II</p> </td> <td style=\"width:113.0pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"151\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">STAT2006</p> </td> <td style=\"width:150.3pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"200\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Basic Concepts in\n\n Statistics and Probability II</p> </td> </tr><tr> <td style=\"width:113.0pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"151\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">DOTE2021</p> </td> <td style=\"width:150.3pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"200\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Applied Econometrics for\n\n Business Decisions</p> </td> </tr></table></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">No more than 10 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirements of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[c]</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Quantitative Finance and Risk Management Science.</span></div>"
     },
     "Social_Policy": {
       "title": "Social Policy",
@@ -56379,7 +56461,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">“Social Policy” and “Social Welfare” are two independent Minor Programmes. Students are required to indicate their choice to the Department when applying. On completion of the unit requirement, the name of the chosen Minor Programme will be shown on the transcript.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Social Work.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Social_Welfare": {
       "title": "Social Welfare",
@@ -56461,7 +56544,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">“Social Policy” and “Social Welfare” are two independent Minor Programmes. Students are required to indicate their choice to the Department when applying. On completion of the unit requirement, the name of the chosen Minor Programme will be shown on the transcript.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Social Work.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Sociology": {
       "title": "Sociology",
@@ -56735,7 +56819,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Statistics": {
       "title": "Statistics",
@@ -56867,7 +56952,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students can take either the STAT course or its corresponding equivalent or closely related course (with a maximum of 6 units), but not both, as listed below to fulfill the requirement:</span></div><div class=\"notes-table-section\"><table><tr> <td colspan=\"2\" style=\"width:164.0pt;border:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"219\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">STAT courses</p> </td> <td colspan=\"2\" style=\"width:260.7pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"348\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">Equivalent/closely related courses</p> </td> </tr><tr> <td rowspan=\"8\" style=\"width:74.95pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"100\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">STAT1011</p> </td> <td rowspan=\"8\" style=\"width:89.05pt;border-top:\n\n none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"119\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Introduction to\n\n Statistics</p> </td> <td style=\"width:77.95pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"104\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">STAT1012</p> </td> <td style=\"width:182.75pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"244\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Statistics for Life\n\n Sciences</p> </td> </tr><tr> <td style=\"width:77.95pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"104\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">STAT2001</p> </td> <td style=\"width:182.75pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"244\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Basic Concepts in\n\n Statistics and Probability I</p> </td> </tr><tr> <td style=\"width:77.95pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"104\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">DOTE2011</p> </td> <td style=\"width:182.75pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"244\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Statistical Analysis for\n\n Business Decisions</p> </td> </tr><tr> <td style=\"width:77.95pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"104\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">FINA2220</p> </td> <td style=\"width:182.75pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"244\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Quantitative Methods for\n\n Actuarial Analysis I</p> </td> </tr><tr> <td style=\"width:77.95pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"104\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">ENGG2760 and 2780 </p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">(4 units) <u>or</u> ESTR2018\n\n and 2020</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">(4 units) </p> </td> <td style=\"width:182.75pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"244\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Probability for Engineers</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">(ENGG2760/ESTR2018)</p> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Statistics for Engineers\n\n (ENGG2780/ESTR2020)</p> </td> </tr><tr> <td style=\"width:77.95pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"104\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">ECON2121</p> </td> <td style=\"width:182.75pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"244\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Methods of Economic\n\n Statistics</p> </td> </tr><tr> <td style=\"width:77.95pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"104\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">GRMD2102</p> </td> <td style=\"width:182.75pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"244\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Fundamental Statistics\n\n for Geographers</p> </td> </tr><tr> <td style=\"width:77.95pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"104\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">SOCI2004</p> </td> <td style=\"width:182.75pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"244\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Social Statistics</p> </td> </tr><tr> <td rowspan=\"2\" style=\"width:74.95pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"100\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">STAT2102</p> </td> <td rowspan=\"2\" style=\"width:89.05pt;border-top:\n\n none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"119\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Basic Statistical\n\n Concepts and Methods II</p> </td> <td style=\"width:77.95pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"104\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">STAT2006</p> </td> <td style=\"width:182.75pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"244\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Basic Concepts in\n\n Statistics and Probability II</p> </td> </tr><tr> <td style=\"width:77.95pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"104\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">DOTE2021</p> </td> <td style=\"width:182.75pt;border-top:none; border-left:none;border-bottom:solid windowtext 1.0pt;border-right:\n\n solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"244\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Applied Econometrics for\n\n Business Decisions</p> </td> </tr></table></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[c]</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Computational Data Science.</span></div>"
     },
     "Theology": {
       "title": "Theology",
@@ -57699,7 +57785,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Theology.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>"
     },
     "Translation": {
       "title": "Translation",
@@ -58087,7 +58174,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This Minor Programme is not applicable to students who major in Translation, Translation and Chinese Language &amp; Literature Double Major, Translation and Linguistics Double Major Programmes and Bachelor of Laws/Bachelor of Arts (Translation) Double Degree Option.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No more than 10 units of courses taken to fulfill the requirements of the students’ Major programmes and other Minor Programme(s) respectively can be used to fulfil the requirement of this Minor Programme.</span></div>"
     },
     "Urban_Studies": {
       "title": "Urban Studies",
@@ -58479,7 +58567,8 @@ var CHECKER_DATA = {
           "min_units_needed": 6,
           "min_level": 3000
         }
-      ]
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">The three courses should not include courses that have been used to fulfill the requirement of 2(a).</span></div>"
     }
   }
 };
@@ -59561,7 +59650,8 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
     total_target: totalTarget,
     total_earned: totalEarned,
     global_level_lost: globalLevelLost,
-    global_level_note: glNote
+    global_level_note: glNote,
+    explanatory_notes: minorData.explanatory_notes || ''
   };
 }
 
@@ -59721,6 +59811,9 @@ function buildResultCard(result, index) {
       html += '</div>';
     }
     html += '</div>';
+  }
+  if (result.explanatory_notes) {
+    html += '<div class="detail-notes"><h4>Explanatory Notes</h4>' + result.explanatory_notes + '</div>';
   }
   html += '</div>';
   html += '</div>';

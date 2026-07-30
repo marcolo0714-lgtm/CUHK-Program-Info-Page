@@ -98,6 +98,25 @@ tr.matched:hover { background:#e6f7ea; }
 .disclaimer { margin-top:24px; padding:12px 16px; border-left:3px solid var(--warn);
     font-size:.82em; color:var(--muted); background:var(--warn-bg); border-radius:4px; }
 
+/* Explanatory notes — matches info-page styling */
+.detail-notes { margin:14px 0 0; }
+.detail-notes h4 { font-size:.95em; margin-bottom:6px; color:#555; }
+.detail-notes .section { background:var(--card); padding:14px 18px; border-radius:8px;
+    border:1px solid var(--border); margin-bottom:12px; }
+.detail-notes .notes-point { display:flex; align-items:flex-start; gap:10px;
+    padding:10px 14px; cursor:default; transition:background .15s; }
+.detail-notes .notes-point:hover { background:#f0f4ff; }
+.detail-notes .point-idx { font-weight:600; color:var(--accent); min-width:22px;
+    flex-shrink:0; font-size:.82em; }
+.detail-notes .point-text { flex:1; font-size:.82em; line-height:1.55; color:var(--text); }
+.detail-notes .point-text p { margin:0; }
+.detail-notes .notes-table-section { overflow-x:auto; border-radius:8px; }
+.detail-notes .notes-table-section table { background:var(--card);
+    border-collapse:collapse; border-radius:8px; overflow:hidden; width:100%; }
+.detail-notes .notes-table-section td { padding:9px 13px;
+    border-bottom:1px solid var(--tbl-border); font-size:.82em; color:var(--text); }
+.detail-notes .notes-table-section tr:hover { background:#f9f9f9; }
+
 .site-footer { margin-top:20px; padding-top:12px; border-top:1px solid var(--border);
     font-size:.82em; color:var(--muted); text-align:center; }
 .site-footer a { color:var(--muted); }
@@ -1188,7 +1207,8 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
     total_target: totalTarget,
     total_earned: totalEarned,
     global_level_lost: globalLevelLost,
-    global_level_note: glNote
+    global_level_note: glNote,
+    explanatory_notes: minorData.explanatory_notes || ''
   };
 }
 
@@ -1348,6 +1368,9 @@ function buildResultCard(result, index) {
       html += '</div>';
     }
     html += '</div>';
+  }
+  if (result.explanatory_notes) {
+    html += '<div class="detail-notes"><h4>Explanatory Notes</h4>' + result.explanatory_notes + '</div>';
   }
   html += '</div>';
   html += '</div>';
