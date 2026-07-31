@@ -859,6 +859,92 @@ AREA_CODE_LISTS = {
 }
 
 
+# ── Equivalence pairs from explanatory notes ──────────────────────────
+
+EQ_NOTES = {
+    "Computer_Science": [
+        # Column A / Column B table: CSCI1120/1130/ESTR1100/1102  ≡  CSCI1510/1520/1530/1540
+        ["CSCI 1120", "CSCI 1130"], ["CSCI 1120", "ESTR 1100"], ["CSCI 1120", "ESTR 1102"],
+        ["CSCI 1120", "CSCI 1510"], ["CSCI 1120", "CSCI 1520"],
+        ["CSCI 1120", "CSCI 1530"], ["CSCI 1120", "CSCI 1540"],
+        # ENGG1110/ESTR1002  ≡  CSCI1510/1520/1530/1540
+        ["CSCI 1120", "ENGG 1110"], ["CSCI 1120", "ESTR 1002"],
+        # PHYS2061  ≡  CSCI1530  (CSCI1530 already in group above)
+        ["CSCI 1120", "PHYS 2061"],
+        # CENG2400/ELEG2401/3701/ESTR2100  ≡  CSCI2510
+        ["CENG 2400", "ELEG 2401"], ["CENG 2400", "ELEG 3701"],
+        ["CENG 2400", "ESTR 2100"], ["CENG 2400", "CSCI 2510"],
+        # CSCI2100/ESTR2102  ≡  CSCI2520
+        ["CSCI 2100", "ESTR 2102"], ["CSCI 2100", "CSCI 2520"],
+    ],
+    "Statistics": [
+        ["STAT 1011", "STAT 1012"], ["STAT 1011", "STAT 2001"],
+        ["STAT 1011", "DOTE 2011"], ["STAT 1011", "FINA 2220"],
+        ["STAT 1011", "ECON 2121"], ["STAT 1011", "GRMD 2102"],
+        ["STAT 1011", "SOCI 2004"],
+        ["STAT 2102", "STAT 2006"], ["STAT 2102", "DOTE 2021"],
+    ],
+    "Risk_Management_Science": [
+        ["STAT 1011", "STAT 1012"], ["STAT 1011", "STAT 2001"],
+        ["STAT 1011", "DOTE 2011"], ["STAT 1011", "FINA 2220"],
+        ["STAT 1011", "ECON 2121"], ["STAT 1011", "GRMD 2102"],
+        ["STAT 1011", "SOCI 2004"],
+        ["STAT 2102", "STAT 2006"], ["STAT 2102", "DOTE 2021"],
+    ],
+    "Physics": [
+        ["PHYS 1002", "PHYS 1003"],
+        ["PHYS 1111", "PHYS 1113"], ["PHYS 1111", "PHYS 1110"],
+        ["PHYS 2041", "ENGG 1310"], ["PHYS 2041", "ENGG 2520"],
+        ["PHYS 2041", "ESTR 1003"], ["PHYS 2041", "ESTR 2006"],
+        ["PHYS 2051", "MATH 2020"], ["PHYS 2051", "MATH 2028"],
+    ],
+    "Electronic_Engineering": [
+        ["ELEG 2202", "BMEG 2300"],
+    ],
+}
+
+# ── And-group equivalences (multiple courses together = one equivalent) ─
+
+AND_EQ_GROUPS = {
+    "Statistics": [
+        {"courses": ["ENGG 2760", "ENGG 2780"], "canon": "STAT 1011", "total_units": 4},
+        {"courses": ["ESTR 2018", "ESTR 2020"], "canon": "STAT 1011", "total_units": 4},
+    ],
+    "Risk_Management_Science": [
+        {"courses": ["ENGG 2760", "ENGG 2780"], "canon": "STAT 1011", "total_units": 4},
+        {"courses": ["ESTR 2018", "ESTR 2020"], "canon": "STAT 1011", "total_units": 4},
+    ],
+}
+
+# ── Subject buckets from Explanatory Notes (max units for equivalents) ─
+
+SUBJ_BUCKETS_NOTES = {
+    "Physics": [
+        {
+            "code_list": [
+                "1003", "1110", "1113", "1310", "2520",
+                "2006", "2020", "2028",
+            ],
+            "max_units": 6,
+            "label": "Equivalent/closely related courses",
+        }
+    ],
+}
+
+
+def _get_notes_eq_codes(stem):
+    """Return all course codes from Explanatory Notes that participate in
+    equivalence groups, to distinguish notes-sourced from normal eq_pairs."""
+    codes = set()
+    for pair in EQ_NOTES.get(stem, []):
+        codes.add(pair[0])
+        codes.add(pair[1])
+    for ag in AND_EQ_GROUPS.get(stem, []):
+        for c in ag["courses"]:
+            codes.add(c)
+    return sorted(codes)
+
+
 def _resolve_area_codes(area_spec):
     """Given e.g. '2B and/or 2C', return (combined_code_list, label)."""
     parts = [p.strip().rstrip('.,;:') for p in re.split(r"\s+and/or\s+", area_spec)]
@@ -1112,7 +1198,12 @@ def generate():
         apply_overrides(data, overrides)
 
         # Build equivalence normalizer from eq_pairs
-        eq_pairs = data.get("eq_pairs", [])
+        eq_pairs = list(data.get("eq_pairs", []))
+        # Merge equivalences from explanatory notes tables
+        if stem in EQ_NOTES:
+            for pair in EQ_NOTES[stem]:
+                if pair not in eq_pairs:
+                    eq_pairs.append(pair)
         eq_norm = build_eq_norm(eq_pairs)
 
         sections = []
@@ -1223,6 +1314,14 @@ def generate():
                     if "subject_buckets" in subj:
                         row_out["subject_buckets"] = subj["subject_buckets"]
 
+                # Merge subject_buckets from Explanatory Notes tables
+                if stem in SUBJ_BUCKETS_NOTES:
+                    if "subject_buckets" not in row_out:
+                        row_out["subject_buckets"] = []
+                    for b in SUBJ_BUCKETS_NOTES[stem]:
+                        if b not in row_out["subject_buckets"]:
+                            row_out["subject_buckets"].append(b)
+
                 # Detect cross-row references ("excluding requirement X",
                 # "including courses not taken in X above", "should not include")
                 if re.search(
@@ -1299,6 +1398,8 @@ def generate():
             "sections": sections,
             "global_level_constraint": extract_level_constraint(desc),
             "explanatory_notes": parse_explanatory_notes_html(data.get("explanatory_notes", "")),
+            "and_eq_groups": AND_EQ_GROUPS.get(stem, []),
+            "notes_eq_codes": _get_notes_eq_codes(stem),
         }
 
     # Build course summary (title + unit)

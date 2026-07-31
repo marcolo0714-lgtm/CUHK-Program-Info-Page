@@ -719,10 +719,17 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
       var bUnits = 0, bCourses = 0;
       if (b.code_list) {
         for (var ci = 0; ci < matchedCanon.length; ci++) {
-          var parts = matchedCanon[ci].split(' ');
-          var numSuffix = parts.length > 1 ? parts[1] : '';
-          if (b.code_list.indexOf(numSuffix) !== -1) {
-            bUnits += (studentUnits[matchedCanon[ci]] || 3);
+          var canon = matchedCanon[ci];
+          var isMatch = false;
+          for (var sci in studentCanonSet._exact) {
+            if (!studentCanonSet._exact.hasOwnProperty(sci) || sci === '__proto__') continue;
+            if (canonFn(sci) !== canon) continue;
+            var parts2 = sci.split(' ');
+            var numSuffix2 = parts2.length > 1 ? parts2[1] : '';
+            if (b.code_list.indexOf(numSuffix2) !== -1) { isMatch = true; break; }
+          }
+          if (isMatch) {
+            bUnits += (studentUnits[canon] || 3);
             bCourses++;
           }
         }
@@ -780,6 +787,28 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
 
 function scoreMinor(minorData, studentCourses, courseIndex) {
   var canonFn = makeCanonicalizer(minorData.eq_norm);
+
+  // Expand and-groups: if student has all courses in a multi-course equivalence,
+  // add the target canonical as a synthetic course with combined units
+  if (minorData.and_eq_groups && minorData.and_eq_groups.length) {
+    for (var ai = 0; ai < minorData.and_eq_groups.length; ai++) {
+      var ag = minorData.and_eq_groups[ai];
+      var allFound = true;
+      var sumUnit = 0;
+      for (var gi = 0; gi < ag.courses.length; gi++) {
+        var found = false;
+        for (var si = 0; si < studentCourses.length; si++) {
+          if (studentCourses[si].code === ag.courses[gi]) { found = true; sumUnit += studentCourses[si].unit || (courseIndex[ag.courses[gi]] && courseIndex[ag.courses[gi]].unit) || 0; break; }
+        }
+        if (!found) { allFound = false; break; }
+      }
+      if (allFound) {
+        var reqUnit = (courseIndex[ag.canon] && courseIndex[ag.canon].unit) || 0;
+        var cappedUnit = Math.min(ag.total_units || sumUnit || 4, reqUnit || 999);
+        studentCourses.push({code: ag.canon, unit: cappedUnit, _and_group: true});
+      }
+    }
+  }
 
   // Build student canonical set and unit map
   var studentCanonSet = {_exact: {}};
@@ -844,6 +873,45 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
       for (var key in usedCanonSet) { preUsed[key] = usedCanonSet[key]; }
       var mr = matchRow(rowData, studentCanonSet, studentUnits, studentRawUnits, canonFn, exclude, studentUnitList, globalMinLevel);
       mr.preUsed = preUsed;
+      mr.isNotesEquiv = false; // true when equivalence is from Explanatory Notes
+
+      // Detect explanatory-notes equivalences: student has a notes_eq_codes
+      // course that shares a canonical with a row code
+      if (minorData.notes_eq_codes && minorData.notes_eq_codes.length) {
+        var neqSet = minorData.notes_eq_codes;
+        for (var sci in studentCanonSet._exact) {
+          if (!studentCanonSet._exact.hasOwnProperty(sci) || sci === '__proto__') continue;
+          if (neqSet.indexOf(sci) < 0) continue;
+          var scCanon = canonFn(sci);
+          for (var rci = 0; rci < rowData.codes.length; rci++) {
+            if (scCanon === canonFn(rowData.codes[rci].code) && sci !== rowData.codes[rci].code) {
+              mr.isNotesEquiv = true;
+              break;
+            }
+          }
+          if (mr.isNotesEquiv) break;
+        }
+        // Also check and-groups: if an and-group was expanded and its target
+        // canon is in this row, mark as notes-equiv
+        if (!mr.isNotesEquiv && minorData.and_eq_groups && minorData.and_eq_groups.length) {
+          for (var agi = 0; agi < minorData.and_eq_groups.length; agi++) {
+            var ag = minorData.and_eq_groups[agi];
+            var allIn = true;
+            for (var gc = 0; gc < ag.courses.length; gc++) {
+              if (!studentCanonSet._exact[ag.courses[gc]]) { allIn = false; break; }
+            }
+            if (!allIn) continue;
+            var agCanon = canonFn(ag.canon);
+            for (var rci = 0; rci < rowData.codes.length; rci++) {
+              if (agCanon === canonFn(rowData.codes[rci].code)) {
+                mr.isNotesEquiv = true;
+                break;
+              }
+            }
+            if (mr.isNotesEquiv) break;
+          }
+        }
+      }
 
       // Build consumedCodes: prefer exact-match codes the student actually took,
       // and among exact matches for the same canonical, pick the highest-unit code.
@@ -921,8 +989,13 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
            for (var bi = 0; bi < mr.bucketInfo.length; bi++) {
              var b = mr.bucketInfo[bi];
              if (b.code_list) {
-               var numPart = canon.split(' ').length > 1 ? canon.split(' ')[1] : '';
-               var inList = b.code_list.indexOf(numPart) !== -1;
+               var inList = false;
+               for (var sci2 in studentCanonSet._exact) {
+                 if (!studentCanonSet._exact.hasOwnProperty(sci2) || sci2 === '__proto__') continue;
+                 if (canonFn(sci2) !== canon) continue;
+                 var np2 = sci2.split(' ').length > 1 ? sci2.split(' ')[1] : '';
+                 if (b.code_list.indexOf(np2) !== -1) { inList = true; break; }
+               }
                if ((b.min_units || b.min_courses) && inList) isPref = true;
                if (b.max_units && inList) isLimited = true;
              } else {
@@ -950,12 +1023,26 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
         }
         mr.consumed = newConsumed2;
         // Rebuild consumedCodes to match the new consumedCanon
+        // Prefer codes the student actually took (exact matches)
         var rebuiltCodes = [];
+        var rebSeenCanon = {};
         for (var ci = 0; ci < rowData.codes.length; ci++) {
           var code = rowData.codes[ci].code;
           var canon = canonFn(code);
-          if (mr.consumed.indexOf(canon) !== -1 && rebuiltCodes.indexOf(code) === -1) {
-            rebuiltCodes.push(code);
+          if (mr.consumed.indexOf(canon) !== -1 && !rebSeenCanon[canon]) {
+            if (studentCanonSet._exact && studentCanonSet._exact[code]) {
+              rebuiltCodes.push(code);
+              rebSeenCanon[canon] = true;
+            }
+          }
+        }
+        // Fallback: any code for remaining canonicals
+        for (var ci = 0; ci < rowData.codes.length; ci++) {
+          var code2 = rowData.codes[ci].code;
+          var canon2 = canonFn(code2);
+          if (mr.consumed.indexOf(canon2) !== -1 && !rebSeenCanon[canon2]) {
+            rebuiltCodes.push(code2);
+            rebSeenCanon[canon2] = true;
           }
         }
         mr.consumedCodes = rebuiltCodes;
@@ -1161,21 +1248,22 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
   // Note: global-level constraint only affects overall progress,
   // not individual section headings.
 
-  // Compute chip colors: green = consumed here, yellow = consumed elsewhere, red = equiv
+  // Compute chip colors: green = consumed here, yellow = consumed elsewhere
+  // Equivalent matches follow the same green/yellow logic as exact matches
   for (var si = 0; si < sections.length; si++) {
     for (var ri = 0; ri < sections[si].rows.length; ri++) {
       var row = sections[si].rows[ri];
       row.chipFlags = {};
       for (var ci = 0; ci < row.codes.length; ci++) {
         var code = row.codes[ci].code;
-        if (row.matchedExact && row.matchedExact[code]) {
+        var canon = canonFn(code);
+        if ((row.matchedExact && row.matchedExact[code]) ||
+            (row.matchedEquiv && row.matchedEquiv[code])) {
           if (row.consumedCodes && row.consumedCodes.indexOf(code) !== -1) {
             row.chipFlags[code] = 'consumed';
           } else {
             row.chipFlags[code] = 'elsewhere';
           }
-        } else if (row.matchedEquiv && row.matchedEquiv[code]) {
-          row.chipFlags[code] = 'equiv';
         }
       }
       // Split eqLost into external (used by other rows) vs truly wasted
@@ -1330,11 +1418,15 @@ function buildResultCard(result, index) {
       if (row.externalLost && row.externalLost > 0) {
         html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.externalLost.toFixed(1) + ' units not used for this section</div>';
       }
-      if (row.wastedLost && row.wastedLost > 0) {
-        html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.wastedLost.toFixed(1) + ' units from equivalent courses not counted</div>';
-      }
-      if (!row.externalLost && !row.wastedLost && row.hasTrueEquivMatch) {
-        html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Equivalent course matches used</div>';
+      if (row.isNotesEquiv) {
+        html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Explanatory Notes equivalent course used</div>';
+      } else {
+        if (row.wastedLost && row.wastedLost > 0) {
+          html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.wastedLost.toFixed(1) + ' units from equivalent courses not counted</div>';
+        }
+        if (!row.externalLost && !row.wastedLost && row.hasTrueEquivMatch) {
+          html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Equivalent course matches used</div>';
+        }
       }
       if (row.levelLost && row.levelLost > 0) {
         html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.levelLost.toFixed(1) + ' units capped by level constraint</div>';

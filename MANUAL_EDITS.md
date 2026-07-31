@@ -125,3 +125,21 @@ _auto_generated was set to false in each file to prevent overwriting.
   `code_list` and `max_units: 4`. This avoids editing the Music JSON file,
   allowing annual regeneration to pick up the constraint automatically.
   If CUHK adds/renames areas, update the `AREA_CODE_LISTS` constant.
+
+## EQ_NOTES in generate_checker_data.py
+- **5 minors** have equivalence tables or footnotes in their Explanatory
+  Notes that are NOT captured in the minor JSON's `eq_pairs`. These are
+  hardcoded as the `EQ_NOTES` dict, which is merged into `eq_pairs` at
+  build time:
+  - **Computer_Science**: Column A/B table — CSCI1120/1130/ESTR1100/1102 ≡ CSCI1510/1520/1530/1540;
+    ENGG1110/ESTR1002 ≡ CSCI1510-40; CENG2400/ELEG2401/3701/ESTR2100 ≡ CSCI2510;
+    CSCI2100/ESTR2102 ≡ CSCI2520; PHYS2061 ≡ CSCI1530
+  - **Statistics**: STAT1011 ≡ STAT1012/2001/DOTE2011/FINA2220/ECON2121/GRMD2102/SOCI2004;
+    STAT2102 ≡ STAT2006/DOTE2021
+  - **Risk_Management_Science**: Same STAT equivalence table as Statistics
+  - **Physics**: PHYS1002 ≡ PHYS1003; PHYS1111/1113 ≡ PHYS1110;
+    PHYS2041 ≡ ENGG1310/2520/ESTR1003/2006; PHYS2051 ≡ MATH2020/2028
+  - **Electronic_Engineering**: ELEG2202 ≡ BMEG2300
+  - The existing `build_eq_norm` (UnionFind) canonicalizes all equivalents to
+    a single root, so substitute courses produce red "equiv" chips on the
+    original requirement codes.
