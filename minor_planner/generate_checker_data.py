@@ -55,6 +55,109 @@ def load_overrides():
     return {}
 
 
+# ── Explanatory notes equivalence detection ──────────────────────────
+
+def detect_notes_eq_rules(raw_html):
+    """Scan raw explanatory notes HTML for equivalence/waiver/faculty-cap rules.
+    Returns dict with optional: eq_pairs, waiver_rules, faculty_caps."""
+    if not raw_html:
+        return {}
+
+    # Strip HTML to plain text
+    text = re.sub(r'<[^>]+>', ' ', raw_html)
+    text = re.sub(r'&nbsp;', ' ', text)
+    text = re.sub(r'\xa0', ' ', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+
+    result = {}
+    code_pat = r'([A-Z]{2,5}\s?\d{4})'
+    code_loose = r'([A-Z]{2,5})\s?(\d{4})'
+
+    def _norm_code(s):
+        """Normalize a course code like 'DOTE 1030' or 'DOTE1030'."""
+        s = s.strip().replace(' ', '')
+        m = re.match(r'([A-Z]{2,5})(\d{4})', s)
+        return f"{m.group(1)} {m.group(2)}" if m else s
+
+    # 1. Direct equivalence: "X is equivalent to Y"
+    eq_pairs = []
+    for m in re.finditer(
+        r'(?:^|\.\s+|\s+)' + code_pat + r'\s+is\s+equivalent\s+to\s+' + code_pat + r'\b',
+        text, re.IGNORECASE,
+    ):
+        a = _norm_code(m.group(1))
+        b = _norm_code(m.group(2))
+        eq_pairs.append([a, b])
+    if eq_pairs:
+        result["eq_pairs"] = eq_pairs
+
+    # 2. Exemption: single trigger ("passed X are exempted from Y")
+    waiver_rules = []
+    seen_waivers = set()
+    for m in re.finditer(
+        r'(?:passed|who\s+have\s+taken)\s+' + code_pat + r'\s+'
+        r'are\s+exempted\s+from(?:\s+taking)?\s+' + code_pat + r'\b',
+        text, re.IGNORECASE,
+    ):
+        trigger = _norm_code(m.group(1))
+        waived = _norm_code(m.group(2))
+        key = f"{trigger}|{waived}"
+        if key not in seen_waivers:
+            seen_waivers.add(key)
+            waiver_rules.append({"trigger": trigger, "waive": waived, "replace_section": 1})
+
+    # 2b. Multi-trigger: codes between "any of... including" and "are exempted from"
+    for m in re.finditer(
+        r'(?:have\s+taken|who\s+have\s+taken)\s+any\s+of\s+.*?\b(?:including\s+)?(.*?)\s*'
+        r'are\s+exempted\s+from(?:\s+taking)?\s+'
+        + code_pat + r'\b',
+        text, re.IGNORECASE,
+    ):
+        waived = _norm_code(m.group(2))
+        code_list_text = m.group(1)
+        for cm in re.finditer(code_loose, code_list_text, re.IGNORECASE):
+            trigger_code = _norm_code(f"{cm.group(1)} {cm.group(2)}")
+            if trigger_code != waived:
+                key = f"{trigger_code}|{waived}"
+                if key not in seen_waivers:
+                    seen_waivers.add(key)
+                    waiver_rules.append({"trigger": trigger_code, "waive": waived, "replace_section": 1})
+    if waiver_rules:
+        result["waiver_rules"] = waiver_rules
+
+    # 3. Substitution: "taken X should take another Y course as a substitute of Z"
+    for m in re.finditer(
+        r'(?:have\s+taken|who\s+have\s+taken)\s+' + code_pat + r'\s+'
+        r'should\s+take\s+another\s+\w+\s+courses?\s+as\s+a\s+substitute\s+of\s+'
+        + code_pat + r'\b',
+        text, re.IGNORECASE,
+    ):
+        trigger = _norm_code(m.group(1))
+        waived = _norm_code(m.group(2))
+        key = f"{trigger}|{waived}"
+        if key not in seen_waivers:
+            seen_waivers.add(key)
+            waiver_rules.append({"trigger": trigger, "waive": waived, "replace_section": 1})
+    if waiver_rules:
+        result["waiver_rules"] = waiver_rules
+
+    # 4. Faculty cap: "not more than N units... same Faculty"
+    m = re.search(
+        r'(?:not|should\s+not)\s+(?:take\s+)?more\s+than\s+(\d+)\s+units?[^.]*'
+        r'(?:same\s+Faculty)',
+        text, re.IGNORECASE,
+    )
+    if m:
+        cap = int(m.group(1))
+        exclude = None
+        em = re.search(r'except\s+(?:for\s+)?([A-Z]{2,5})\s+courses', text, re.IGNORECASE)
+        if em:
+            exclude = em.group(1).upper()
+        result["faculty_caps"] = {"max_units": cap, "exclude_prefix": exclude}
+
+    return result
+
+
 # ── Explanatory notes HTML parser ──────────────────────────────────────
 
 def parse_explanatory_notes_html(notes):
@@ -898,9 +1001,6 @@ EQ_NOTES = {
         ["PHYS 2041", "ESTR 1003"], ["PHYS 2041", "ESTR 2006"],
         ["PHYS 2051", "MATH 2020"], ["PHYS 2051", "MATH 2028"],
     ],
-    "Electronic_Engineering": [
-        ["ELEG 2202", "BMEG 2300"],
-    ],
 }
 
 # ── And-group equivalences (multiple courses together = one equivalent) ─
@@ -954,6 +1054,42 @@ def _resolve_area_codes(area_spec):
             combined.extend(AREA_CODE_LISTS[p])
     label = ", ".join(f"Area {p}" for p in parts)
     return combined, label
+
+
+def _get_faculty_caps(stem, raw_notes, row_all_codes):
+    """Detect faculty cap constraints and build prefix-to-faculty mapping."""
+    caps = {}
+    rules = detect_notes_eq_rules(raw_notes)
+    fc = rules.get("faculty_caps", {})
+    if not fc:
+        return caps
+    caps["max_units"] = fc["max_units"]
+    caps["exclude_prefix"] = fc.get("exclude_prefix", "")
+    prefixes = set()
+    for row_codes in row_all_codes:
+        for c in row_codes:
+            if " " in c:
+                pref = c.split(" ")[0]
+                if pref != caps["exclude_prefix"]:
+                    prefixes.add(pref)
+    KNOWN_GROUPS = {
+        "Business Admin": ["MGNT", "COMM"],
+        "Social Science": ["SOSC", "SOWK"],
+        "Engineering": ["CSCI", "AIST", "IERG", "MAEG", "SEEM", "BMEG", "ENGG", "ELEG"],
+        "Science": ["STAT", "PHYS", "CHEM", "BIOL", "BCHE"],
+        "Law": ["LAWS"],
+        "Arts": ["CHES", "FAAS", "PHIL", "CURE", "ANTH", "HIST"],
+    }
+    caps["groups"] = {}
+    unmatched = list(prefixes)
+    for fac, fac_prefixes in KNOWN_GROUPS.items():
+        for p in fac_prefixes:
+            if p in unmatched:
+                caps["groups"].setdefault(fac, []).append(p)
+                unmatched.remove(p)
+    for p in unmatched:
+        caps["groups"][p] = [p]
+    return caps
 
 
 # ── Subject bucket / area detection ──────────────────────────────────────
@@ -1204,6 +1340,13 @@ def generate():
             for pair in EQ_NOTES[stem]:
                 if pair not in eq_pairs:
                     eq_pairs.append(pair)
+        # Auto-detect equivalence/waiver/faculty-cap rules from notes text
+        notes_rules = detect_notes_eq_rules(data.get("explanatory_notes", ""))
+        for pair in notes_rules.get("eq_pairs", []):
+            if pair not in eq_pairs:
+                eq_pairs.append(pair)
+        waiver_rules = notes_rules.get("waiver_rules", [])
+        faculty_caps = notes_rules.get("faculty_caps", {})
         eq_norm = build_eq_norm(eq_pairs)
 
         sections = []
@@ -1389,6 +1532,17 @@ def generate():
                     except ValueError:
                         pass
 
+        # Build faculty caps with prefix groups from row codes
+        if faculty_caps and not faculty_caps.get("groups"):
+            all_row_codes = []
+            for sec_out in sections:
+                for row_out in sec_out["rows"]:
+                    for c in row_out.get("codes", []):
+                        all_row_codes.append(c["code"] if isinstance(c, dict) else c)
+            faculty_caps = _get_faculty_caps(
+                stem, data.get("explanatory_notes", ""), [all_row_codes]
+            )
+
         minors_data[stem] = {
             "title": data["title"],
             "faculty": data.get("faculty", "Unknown"),
@@ -1400,6 +1554,8 @@ def generate():
             "explanatory_notes": parse_explanatory_notes_html(data.get("explanatory_notes", "")),
             "and_eq_groups": AND_EQ_GROUPS.get(stem, []),
             "notes_eq_codes": _get_notes_eq_codes(stem),
+            "waiver_rules": waiver_rules,
+            "faculty_caps": faculty_caps,
         }
 
     # Build course summary (title + unit)

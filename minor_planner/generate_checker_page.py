@@ -74,6 +74,8 @@ a:hover { text-decoration:underline; }
     color:#dc2626; }
 .detail-course.elsewhere { background:#fefce8; border-color:#eab308;
     color:#b45309; }
+.detail-course.waived { background:#f0f4f8; border-color:#94a3b8;
+    color:#64748b; }
 .detail-row-stat { font-size:.82em; color:var(--muted); margin-top:2px; }
 
 /* Colors for progress */
@@ -810,6 +812,25 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
     }
   }
 
+  // Waiver rules: add synthetic courses so matching works,
+  // but waive earned contribution until replacement is taken
+  var waiverSet = {}; // waived course codes that are active
+  var waiverActive = false;
+  if (minorData.waiver_rules && minorData.waiver_rules.length) {
+    for (var wi = 0; wi < minorData.waiver_rules.length; wi++) {
+      var wr = minorData.waiver_rules[wi];
+      var hasTrigger = false;
+      for (var si = 0; si < studentCourses.length; si++) {
+        if (studentCourses[si].code === wr.trigger) { hasTrigger = true; break; }
+      }
+      if (!hasTrigger) continue;
+      var wUnit = (courseIndex[wr.waive] && courseIndex[wr.waive].unit) || 3;
+      studentCourses.push({code: wr.waive, unit: wUnit, _waived: true});
+      waiverSet[wr.waive] = true;
+      waiverActive = true;
+    }
+  }
+
   // Build student canonical set and unit map
   var studentCanonSet = {_exact: {}};
   var studentUnits = {};
@@ -821,6 +842,8 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
     var canon = canonFn(c.code);
     studentCanonSet[canon] = true;
     studentCanonSet._exact[c.code] = true;
+    if (c._waived) studentCanonSet._waived = studentCanonSet._waived || {};
+    if (c._waived) studentCanonSet._waived[canon] = true;
     var infoUnit = (courseIndex[c.code] && courseIndex[c.code].unit) || 0;
     var u = Math.max(c.unit, infoUnit, 0) || 3;
     if (!studentUnitList[canon]) studentUnitList[canon] = [];
@@ -1248,21 +1271,209 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
   // Note: global-level constraint only affects overall progress,
   // not individual section headings.
 
-  // Compute chip colors: green = consumed here, yellow = consumed elsewhere
-  // Equivalent matches follow the same green/yellow logic as exact matches
+  // Faculty cap: store excess for warning display
+  var globalFacLost = 0;
+
+  // Faculty cap: if minor has faculty_caps, cap same-faculty non-excluded units
+  if (minorData.faculty_caps && minorData.faculty_caps.max_units && minorData.faculty_caps.groups) {
+    var fcData = minorData.faculty_caps;
+    var facExclude = fcData.exclude_prefix || '';
+    var facGroups = fcData.groups;
+    var facCapMax = fcData.max_units;
+    var facUnitMap = {}; // faculty -> units
+    // Build reverse prefix->faculty map
+    var prefixToFac = {};
+    for (var fg in facGroups) {
+      if (!facGroups.hasOwnProperty(fg)) continue;
+      var prefixes = facGroups[fg];
+      for (var pi = 0; pi < prefixes.length; pi++) {
+        prefixToFac[prefixes[pi]] = fg;
+      }
+    }
+    // Sum consumed units per faculty across all rows
+    for (var si = 0; si < sections.length; si++) {
+      for (var ri = 0; ri < sections[si].rows.length; ri++) {
+        var facRow = sections[si].rows[ri];
+        var facConsumed = facRow.consumedCodes || [];
+        for (var fci = 0; fci < facConsumed.length; fci++) {
+          var fcCode = facConsumed[fci];
+          var fcPref = fcCode.split(' ')[0];
+          if (fcPref === facExclude) continue;
+          var fcFaculty = prefixToFac[fcPref];
+          if (!fcFaculty) continue;
+          var fcCanon = canonFn(fcCode);
+          facUnitMap[fcFaculty] = (facUnitMap[fcFaculty] || 0) + (studentUnits[fcCanon] || 3);
+        }
+      }
+    }
+    // Cap per-faculty and compute overage. Total progression = sum of min(per-fac, cap) + excluded
+    var facOver = 0;
+    for (var fk in facUnitMap) {
+      if (facUnitMap.hasOwnProperty(fk) && facUnitMap[fk] > facCapMax) {
+        facOver += facUnitMap[fk] - facCapMax;
+      }
+    }
+    if (facOver > 0) {
+      globalFacLost = facOver;
+      var cappedTotal = 0;
+      for (var fk2 in facUnitMap) {
+        if (facUnitMap.hasOwnProperty(fk2)) cappedTotal += Math.min(facUnitMap[fk2], facCapMax);
+      }
+      for (var si = 0; si < sections.length; si++) {
+        for (var ri = 0; ri < sections[si].rows.length; ri++) {
+          var fcr = sections[si].rows[ri];
+          var fcc = fcr.consumedCodes || [];
+          for (var fci2 = 0; fci2 < fcc.length; fci2++) {
+            if (fcc[fci2].split(' ')[0] === facExclude) {
+              cappedTotal += (studentUnits[canonFn(fcc[fci2])] || 3);
+            }
+          }
+        }
+      }
+      totalEarned = Math.min(totalEarned, Math.max(0, cappedTotal));
+      overall = totalTarget > 0 ? totalEarned / totalTarget : 0;
+    }
+  }
+
+  // Waiver adjustment: synthetic waived courses contribute to matching
+  // but their earned contribution is held back unless replacement is taken.
+  var waiverSatisfied = false; // true if ALL waived courses are satisfied
+  var waiverSatisfiedSet = {}; // per-course satisfied flags
+  if (waiverActive) {
+    var waivedUnitSum = 0;
+    var sectWaived = {};
+    for (var si = 0; si < sections.length; si++) {
+      sectWaived[si] = 0;
+      for (var ri = 0; ri < sections[si].rows.length; ri++) {
+        var wRow = sections[si].rows[ri];
+        wRow.waivedEarned = 0;
+        if (studentCanonSet._waived) {
+          for (var wci = 0; wci < wRow.codes.length; wci++) {
+            var wCanon = canonFn(wRow.codes[wci].code);
+            if (studentCanonSet._waived[wCanon]) {
+              var wu = (studentUnits[wCanon] || 3);
+              wRow.waivedEarned += wu;
+              waivedUnitSum += wu;
+              sectWaived[si] += wu;
+            }
+          }
+        }
+      }
+    }
+    // If total earned (excluding waived) + waived units covers the target,
+    // waived courses are satisfied: add their units to earned
+    var earnedNoWaive = Math.max(0, totalEarned - waivedUnitSum);
+    // Surplus: raw row contributions that exceed section caps
+    var surplusUnits = 0;
+    for (var si2 = 0; si2 < sections.length; si2++) {
+      var sec2 = sections[si2];
+      var rowRaw = 0;
+      for (var ri2 = 0; ri2 < sec2.rows.length; ri2++) {
+        rowRaw += sec2.rows[ri2].rowEarned;
+      }
+      if (rowRaw > sec2.earned_units) surplusUnits += rowRaw - sec2.earned_units;
+      for (var ri2 = 0; ri2 < sec2.rows.length; ri2++) {
+        var sr = sec2.rows[ri2];
+        if (sr.matched && sr.consumed && sr.matched.length > sr.consumed.length) {
+          surplusUnits += (sr.matched.length - sr.consumed.length) * (sr.pick_n_avg_unit || 3);
+        }
+      }
+    }
+    // Apply surplus to waived courses one by one (in order of row codes)
+    var remainingSurplus = surplusUnits + (earnedNoWaive >= totalTarget ? 999 : 0);
+    var allSatisfied = true;
+    for (var si = 0; si < sections.length; si++) {
+      for (var ri = 0; ri < sections[si].rows.length; ri++) {
+        var wr = sections[si].rows[ri];
+        for (var wci = 0; wci < wr.codes.length; wci++) {
+          var wcCode = wr.codes[wci].code;
+          var wCanon = canonFn(wcCode);
+          if (studentCanonSet._waived && studentCanonSet._waived[wCanon]) {
+            var wu = (courseIndex[wcCode] && courseIndex[wcCode].unit) || 3;
+            if (remainingSurplus >= wu) {
+              remainingSurplus -= wu;
+              waiverSatisfiedSet[wcCode] = true;
+            } else {
+              allSatisfied = false;
+            }
+          }
+        }
+      }
+    }
+    waiverSatisfied = allSatisfied;
+    if (!waiverSatisfied) {
+      // Only subtract unsatisfied waived units
+      for (var si = 0; si < sections.length; si++) {
+        var unsatSec = 0;
+        for (var ri = 0; ri < sections[si].rows.length; ri++) {
+          var wr = sections[si].rows[ri];
+          var unsatRow = 0;
+          for (var wci = 0; wci < wr.codes.length; wci++) {
+            var wcCode = wr.codes[wci].code;
+            var wCanon = canonFn(wcCode);
+            if (studentCanonSet._waived && studentCanonSet._waived[wCanon] && !waiverSatisfiedSet[wcCode]) {
+              var wu = (studentUnits[wCanon] || 3);
+              unsatRow += wu;
+              unsatSec += wu;
+            }
+          }
+          if (unsatRow > 0) wr.rowEarned = Math.max(0, wr.rowEarned - unsatRow);
+        }
+        if (unsatSec > 0) {
+          sections[si].earned_units = Math.max(0, sections[si].earned_units - unsatSec);
+          sections[si].progress = sections[si].target_units > 0 ? sections[si].earned_units / sections[si].target_units : 0;
+        }
+      }
+    }
+    // Recompute total from sections (avoids double-counting)
+    totalEarned = 0;
+    for (var si = 0; si < sections.length; si++) totalEarned += sections[si].earned_units;
+    if (minorData.total_units && minorData.total_units > 0) totalEarned = Math.min(totalEarned, totalTarget);
+    overall = totalTarget > 0 ? totalEarned / totalTarget : 0;
+  }
+
+  // Compute chip colors: green = consumed here, yellow = elsewhere, red = equiv, gray = waived
   for (var si = 0; si < sections.length; si++) {
     for (var ri = 0; ri < sections[si].rows.length; ri++) {
       var row = sections[si].rows[ri];
       row.chipFlags = {};
       for (var ci = 0; ci < row.codes.length; ci++) {
         var code = row.codes[ci].code;
-        var canon = canonFn(code);
+        var wCanon = canonFn(code);
+        var isWaived = studentCanonSet._waived && studentCanonSet._waived[wCanon];
         if ((row.matchedExact && row.matchedExact[code]) ||
             (row.matchedEquiv && row.matchedEquiv[code])) {
-          if (row.consumedCodes && row.consumedCodes.indexOf(code) !== -1) {
+          var isWSatisfied = waiverSatisfiedSet[code];
+          if (isWaived && !isWSatisfied) {
+            row.chipFlags[code] = 'waived';
+          } else if (row.consumedCodes && row.consumedCodes.indexOf(code) !== -1) {
             row.chipFlags[code] = 'consumed';
+          } else if (row.matchedEquiv && row.matchedEquiv[code]) {
+            row.chipFlags[code] = 'equiv';
           } else {
             row.chipFlags[code] = 'elsewhere';
+          }
+        }
+      }
+      // Waiver chips: codes that are waived but not matched
+      if (waiverActive) {
+        for (var ci = 0; ci < row.codes.length; ci++) {
+          var wCode = row.codes[ci].code;
+          if (waiverSet[wCode] && (!row.chipFlags || !row.chipFlags[wCode])) {
+            row.chipFlags[wCode] = totalEarned >= totalTarget ? 'consumed' : 'waived';
+          }
+        }
+      }
+      // Count waived courses in this row for progress display
+      // Only count UNSATISFIED waived codes that are also matched
+      row.waivedCount = 0;
+      if (waiverActive) {
+        var mSet = {};
+        if (row.matched) for (var mi = 0; mi < row.matched.length; mi++) mSet[row.matched[mi]] = true;
+        for (var wci = 0; wci < row.codes.length; wci++) {
+          var wcCode = row.codes[wci].code;
+          if (waiverSet[wcCode] && mSet[canonFn(wcCode)] && !waiverSatisfiedSet[wcCode]) {
+            row.waivedCount++;
           }
         }
       }
@@ -1296,7 +1507,9 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
     total_earned: totalEarned,
     global_level_lost: globalLevelLost,
     global_level_note: glNote,
-    explanatory_notes: minorData.explanatory_notes || ''
+    global_fac_lost: globalFacLost,
+    explanatory_notes: minorData.explanatory_notes || '',
+    waiver_satisfied: waiverSatisfied
   };
 }
 
@@ -1334,6 +1547,9 @@ function buildResultCard(result, index) {
   if (result.global_level_lost && result.global_level_lost > 0) {
     html += '<div class="detail-row" style="margin-bottom:8px;color:#dc2626;font-size:.88em;">&#9888; ' + result.global_level_lost.toFixed(1) + ' units capped by global level constraint' + (result.global_level_note || '') + '</div>';
   }
+  if (result.global_fac_lost && result.global_fac_lost > 0) {
+    html += '<div class="detail-row" style="margin-bottom:8px;color:#dc2626;font-size:.88em;">&#9888; ' + result.global_fac_lost.toFixed(1) + ' units exceeded same-faculty cap</div>';
+  }
   for (var si = 0; si < result.sections.length; si++) {
     var sec = result.sections[si];
     var secPct = Math.round(sec.progress * 100);
@@ -1356,7 +1572,8 @@ function buildResultCard(result, index) {
         html += row.rowEarned.toFixed(1) + '/' + (row.units_needed_max != null ? uTarget.toFixed(1) + '-' + row.units_needed_max.toFixed(1) : uTarget.toFixed(1)) + ' units';
       } else if (row.strategy === 'all') {
         var dcount = row.dedup_count || row.codes.length;
-        html += row.matched.length + '/' + dcount + ' courses';
+        var wc = row.waivedCount || 0;
+        html += Math.max(0, (row.matched ? row.matched.length : 0) - wc) + '/' + dcount + ' courses';
       } else if (row.strategy === 'or_group') {
         var bestGroup = 0;
         var bestProg = 0;
@@ -1393,6 +1610,8 @@ function buildResultCard(result, index) {
           var flag = row.chipFlags && row.chipFlags[codeObj.code];
           if (flag === 'consumed') {
             cls2 += ' matched';
+          } else if (flag === 'waived') {
+            cls2 += ' waived';
           } else if (flag === 'elsewhere') {
             cls2 += ' elsewhere';
           } else if (row.matchedEquiv && row.matchedEquiv[codeObj.code]) {
@@ -1420,6 +1639,12 @@ function buildResultCard(result, index) {
       }
       if (row.isNotesEquiv) {
         html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Explanatory Notes equivalent course used</div>';
+      } else if (row.waivedCount > 0) {
+        if (result.waiver_satisfied) {
+          html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Waiver satisfied — replacement courses cover exemption</div>';
+        } else {
+          html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Course waived — replacement needed</div>';
+        }
       } else {
         if (row.wastedLost && row.wastedLost > 0) {
           html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.wastedLost.toFixed(1) + ' units from equivalent courses not counted</div>';
