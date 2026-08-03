@@ -812,10 +812,12 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
     }
   }
 
-  // Waiver rules: add synthetic courses so matching works,
-  // but waive earned contribution until replacement is taken
+  // Waiver rules: add synthetic courses for waiver, track credit_units
   var waiverSet = {}; // waived course codes that are active
   var waiverActive = false;
+  var extraCreditTotal = 0;
+  var sectionCredit = {};
+  var sectionTriggers = {}; // section_idx -> [trigger_codes] for credit rules
   if (minorData.waiver_rules && minorData.waiver_rules.length) {
     for (var wi = 0; wi < minorData.waiver_rules.length; wi++) {
       var wr = minorData.waiver_rules[wi];
@@ -824,6 +826,16 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
         if (studentCourses[si].code === wr.trigger) { hasTrigger = true; break; }
       }
       if (!hasTrigger) continue;
+      // Credit-only rules (summer intensive course credit)
+      if (wr.credit_units > 0) {
+        extraCreditTotal += wr.credit_units;
+        var cs = wr.credit_section || 1;
+        sectionCredit[cs] = (sectionCredit[cs] || 0) + wr.credit_units;
+        if (!sectionTriggers[cs]) sectionTriggers[cs] = [];
+        sectionTriggers[cs].push(wr.trigger);
+        continue;
+      }
+      // Standard waiver rules
       var wUnit = (courseIndex[wr.waive] && courseIndex[wr.waive].unit) || 3;
       studentCourses.push({code: wr.waive, unit: wUnit, _waived: true});
       waiverSet[wr.waive] = true;
@@ -1425,10 +1437,37 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
         }
       }
     }
-    // Recompute total from sections (avoids double-counting)
+  }
+
+  // Add extra credit from summer course etc. rules (outside waiver block)
+  if (extraCreditTotal > 0) {
+    // Apply credit to target sections: add to section earned and to first row's earned
+    for (var csi in sectionCredit) {
+      if (sectionCredit.hasOwnProperty(csi)) {
+        var secIdx = parseInt(csi);
+        var cSec = sections[secIdx];
+        cSec.earned_units = Math.min(cSec.earned_units + sectionCredit[csi], cSec.target_units || 999);
+        cSec.progress = cSec.target_units > 0 ? cSec.earned_units / cSec.target_units : 0;
+        cSec._hasCredit = true;
+        // Also add credit to first row in the section (for row earned display)
+        if (cSec.rows && cSec.rows.length > 0) {
+          cSec.rows[0].rowEarned += sectionCredit[csi];
+          if (!cSec.rows[0].consumed) cSec.rows[0].consumed = [];
+          if (!cSec.rows[0].consumedCodes) cSec.rows[0].consumedCodes = [];
+          // Add trigger codes to consumedCodes so they show green
+          var triggers = sectionTriggers[csi] || [];
+          for (var ti = 0; ti < triggers.length; ti++) {
+            if (cSec.rows[0].consumedCodes.indexOf(triggers[ti]) < 0) {
+              cSec.rows[0].consumedCodes.push(triggers[ti]);
+            }
+          }
+        }
+      }
+    }
+    // Recompute total from sections
     totalEarned = 0;
     for (var si = 0; si < sections.length; si++) totalEarned += sections[si].earned_units;
-    if (minorData.total_units && minorData.total_units > 0) totalEarned = Math.min(totalEarned, totalTarget);
+    totalEarned = Math.min(totalEarned, totalTarget);
     overall = totalTarget > 0 ? totalEarned / totalTarget : 0;
   }
 
@@ -1509,7 +1548,8 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
     global_level_note: glNote,
     global_fac_lost: globalFacLost,
     explanatory_notes: minorData.explanatory_notes || '',
-    waiver_satisfied: waiverSatisfied
+    waiver_satisfied: waiverSatisfied,
+    has_extra_credit: extraCreditTotal > 0
   };
 }
 
@@ -1634,7 +1674,7 @@ function buildResultCard(result, index) {
           html += '<div class="detail-row-stat">&#9888; Level constraint: ' + lv + '</div>';
         }
       }
-      if (row.externalLost && row.externalLost > 0) {
+      if (row.externalLost && row.externalLost > 0 && !result.has_extra_credit) {
         html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.externalLost.toFixed(1) + ' units not used for this section</div>';
       }
       if (row.isNotesEquiv) {
@@ -1656,7 +1696,7 @@ function buildResultCard(result, index) {
       if (row.levelLost && row.levelLost > 0) {
         html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.levelLost.toFixed(1) + ' units capped by level constraint</div>';
       }
-      if (row.sectionLost && row.sectionLost > 0 && !(row.levelLost && row.levelLost > 0)) {
+      if (row.sectionLost && row.sectionLost > 0 && !(row.levelLost && row.levelLost > 0) && !result.has_extra_credit) {
         html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.sectionLost.toFixed(1) + ' units unusable (requirement already satisfied)</div>';
       }
       // Subject bucket warnings

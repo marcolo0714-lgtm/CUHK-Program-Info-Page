@@ -47708,7 +47708,10 @@
       "faculty": "Other",
       "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 18.0,
-      "eq_norm": {},
+      "eq_norm": {
+        "FREN 2000": "FREN 2050",
+        "FREN 3001": "FREN 3051"
+      },
       "sections": [
         {
           "label": "1. Required Courses",
@@ -47843,7 +47846,13 @@
       "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have prior knowledge of French before admission may be exempted from taking FREN2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students who have taken the summer intensive course FREN2050 will be recognized as having fulfilled this requirement.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[c]</span><span class=\"point-text\">Students who have taken the summer intensive course FREN3051 will be recognized as having fulfilled this requirement and 3 units of elective courses of Requirement (2).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
-      "waiver_rules": [],
+      "waiver_rules": [
+        {
+          "trigger": "FREN 3051",
+          "credit_units": 3,
+          "credit_section": 1
+        }
+      ],
       "faculty_caps": {}
     },
     "HB_Minor_Programme_in_German": {
@@ -47851,7 +47860,10 @@
       "faculty": "Other",
       "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 18.0,
-      "eq_norm": {},
+      "eq_norm": {
+        "GERM 2000": "GERM 2050",
+        "GERM 3001": "GERM 3051"
+      },
       "sections": [
         {
           "label": "1. Required Courses",
@@ -47986,7 +47998,13 @@
       "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have prior knowledge of German before admission may be exempted from taking GERM2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students who have taken the summer intensive course GERM2050 will be recognized as having fulfilled this requirement.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[c]</span><span class=\"point-text\">Students who have taken the summer intensive course GERM3051 will be recognized as having fulfilled this requirement and 3 units of elective courses of Requirement (2).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
-      "waiver_rules": [],
+      "waiver_rules": [
+        {
+          "trigger": "GERM 3051",
+          "credit_units": 3,
+          "credit_section": 1
+        }
+      ],
       "faculty_caps": {}
     },
     "HB_Minor_Programme_in_Hong_Kong_Sign_Language": {
@@ -48128,7 +48146,10 @@
       "faculty": "Other",
       "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 18.0,
-      "eq_norm": {},
+      "eq_norm": {
+        "KORE 2000": "KORE 2050",
+        "KORE 3001": "KORE 3051"
+      },
       "sections": [
         {
           "label": "1. Required Courses",
@@ -48263,7 +48284,13 @@
       "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have prior knowledge of Korean before admission may be exempted from taking KORE2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students who have taken the summer intensive course KORE2050 will be recognized as having fulfilled this requirement.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[c]</span><span class=\"point-text\">Students who have taken the summer intensive course KORE3051 will be recognized as having fulfilled this requirement and 3 units of elective courses of Requirement (2).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
-      "waiver_rules": [],
+      "waiver_rules": [
+        {
+          "trigger": "KORE 3051",
+          "credit_units": 3,
+          "credit_section": 1
+        }
+      ],
       "faculty_caps": {}
     },
     "HB_Minor_Programme_in_Spanish": {
@@ -48271,7 +48298,10 @@
       "faculty": "Other",
       "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 18.0,
-      "eq_norm": {},
+      "eq_norm": {
+        "SPAN 2000": "SPAN 2050",
+        "SPAN 3001": "SPAN 3051"
+      },
       "sections": [
         {
           "label": "1. Required Courses",
@@ -48414,7 +48444,13 @@
       "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have prior knowledge of Spanish before admission may be exempted from taking SPAN2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students who have taken the summer intensive course SPAN2050 will be recognized as having fulfilled this requirement.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[c]</span><span class=\"point-text\">Students who have taken the summer intensive course SPAN3051 will be recognized as having fulfilled this requirement and 3 units of elective courses of Requirement (2).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
-      "waiver_rules": [],
+      "waiver_rules": [
+        {
+          "trigger": "SPAN 3051",
+          "credit_units": 3,
+          "credit_section": 1
+        }
+      ],
       "faculty_caps": {}
     },
     "History": {

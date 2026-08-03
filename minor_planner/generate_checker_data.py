@@ -155,6 +155,39 @@ def detect_notes_eq_rules(raw_html):
             exclude = em.group(1).upper()
         result["faculty_caps"] = {"max_units": cap, "exclude_prefix": exclude}
 
+    # 5. Summer intensive course: "have taken X will be recognized as
+    #    having fulfilled this requirement [and N units of elective courses]"
+    for m in re.finditer(
+        r'have\s+taken\s+(?:the\s+summer\s+intensive\s+course\s+)?'
+        r'([A-Z]{2,5})\s?(\d{4})\s+will\s+be\s+recognized\s+as\s+having\s+fulfilled\s+this\s+requirement'
+        r'(?:\s+and\s+(\d+)\s+units?\s+of\s+elective\s+courses?)?',
+        text, re.IGNORECASE,
+    ):
+        prefix = m.group(1).upper()
+        course_num = m.group(2)
+        trigger = f"{prefix} {course_num}"
+        credit_units = int(m.group(3)) if m.group(3) else 0
+        # Determine target course from the pattern
+        if course_num in ("2050",):
+            target = f"{prefix} 2000"
+        elif course_num in ("3051",):
+            target = f"{prefix} 3001"
+        else:
+            continue
+        # [b]: eq_pair only ; [c]: eq_pair + credit
+        if target:
+            if not result.get("eq_pairs"):
+                result["eq_pairs"] = []
+            result["eq_pairs"].append([target, trigger])
+        if credit_units > 0:
+            if not result.get("waiver_rules"):
+                result["waiver_rules"] = []
+            result["waiver_rules"].append({
+                "trigger": trigger,
+                "credit_units": credit_units,
+                "credit_section": 1,
+            })
+
     return result
 
 
