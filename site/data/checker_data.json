@@ -36639,7 +36639,7 @@
           "target_units": 12.0,
           "rows": [
             {
-              "text": "AIST2010, AIST3010/ESTR3112 or AIST3030/ESTR3114, AIST3120, AIST3510/SEEM3510, AIST4010/ESTR4140, BMEG3103, 3105, AIST1110 or CSCI1550 or 2040, CSCI2100/ESTR2102 or CSCI2520, CSCI3160/ESTR3104, CSCI3280, 4230, CSCI4250/ESTR4122, ENGG2760/ESTR2018 or STAT2001, ENGG2780/ESTR2020 or STAT2006 or 2102, IERG4300/ESTR4300, MAEG3080",
+              "text": "(at least 6 units at 3000 or above level)\nAIST2010, AIST3010/ESTR3112 or AIST3030/ESTR3114, AIST3120, AIST3510/SEEM3510, AIST4010/ESTR4140, BMEG3103, 3105, AIST1110 or CSCI1550 or 2040, CSCI2100/ESTR2102 or CSCI2520, CSCI3160/ESTR3104, CSCI3280, 4230, CSCI4250/ESTR4122, ENGG2760/ESTR2018 or STAT2001, ENGG2780/ESTR2020 or STAT2006 or 2102, IERG4300/ESTR4300, MAEG3080",
               "codes": [
                 {
                   "code": "AIST 2010",
@@ -36780,6 +36780,12 @@
               ],
               "strategy": "units",
               "dedup_count": 17,
+              "level_constraint": [
+                {
+                  "min_units_needed": 6,
+                  "min_level": 3000
+                }
+              ],
               "units_needed": 12.0
             }
           ]
@@ -40545,7 +40551,7 @@
           "target_units": 9.0,
           "rows": [
             {
-              "text": "ELEG2310/ESTR2300, ELEG3103/ESTR3216, ELEG3201/ESTR3200, ELEG3202, 3207, ELEG3213/ESTR3214, ELEG3214, ELEG3301/ESTR3204, ELEG3302, ELEG3303/ESTR3206, ELEG3503, 3601, 3701, 3710, 4211, ELEG4214/ESTR4222, ELEG4215, 4216, ELEG4311/ESTR4216, ELEG4312, 4313, ELEG4511/ESTR4218, ELEG4512, 4701, ENGG3802, 3803",
+              "text": "(at least 6 units at 4000 level):\nELEG2310/ESTR2300, ELEG3103/ESTR3216, ELEG3201/ESTR3200, ELEG3202, 3207, ELEG3213/ESTR3214, ELEG3214, ELEG3301/ESTR3204, ELEG3302, ELEG3303/ESTR3206, ELEG3503, 3601, 3701, 3710, 4211, ELEG4214/ESTR4222, ELEG4215, 4216, ELEG4311/ESTR4216, ELEG4312, 4313, ELEG4511/ESTR4218, ELEG4512, 4701, ENGG3802, 3803",
               "codes": [
                 {
                   "code": "ELEG 2310",
@@ -40690,6 +40696,13 @@
               ],
               "strategy": "units",
               "dedup_count": 26,
+              "level_constraint": [
+                {
+                  "min_units_needed": 6,
+                  "min_level": 4000,
+                  "max_level": 4999
+                }
+              ],
               "units_needed": 9.0
             }
           ]
@@ -55174,13 +55187,13 @@
               ],
               "strategy": "units",
               "dedup_count": 134,
-              "units_needed": 15.0,
               "level_constraint": [
                 {
                   "min_units_needed": 6,
                   "min_level": 3000
                 }
-              ]
+              ],
+              "units_needed": 15.0
             }
           ]
         }
@@ -55422,7 +55435,7 @@
           "target_units": 18.0,
           "rows": [
             {
-              "text": "PHYS1001[b] or 1002[b][c], 1111[b][c] or 1113[b][c], 1122, 2041[c], 2051[c], 2401, 3011, 3021, 3022, 3023, 3031, 3041, 3051, 3061, 3403, 3420, 3730, 4011, 4021, 4031, 4041, 4050, 4051, 4420, 4430, 4440, 4450, 4460, 4470",
+              "text": "(at least 9 units of PHYS courses at 3000 or above level)[a] :\nPHYS1001[b] or 1002[b][c], 1111[b][c] or 1113[b][c], 1122, 2041[c], 2051[c], 2401, 3011, 3021, 3022, 3023, 3031, 3041, 3051, 3061, 3403, 3420, 3730, 4011, 4021, 4031, 4041, 4050, 4051, 4420, 4430, 4440, 4450, 4460, 4470",
               "codes": [
                 {
                   "code": "PHYS 1001",
@@ -55551,6 +55564,13 @@
               ],
               "strategy": "units",
               "dedup_count": 29,
+              "units_needed": 9.0,
+              "level_constraint": [
+                {
+                  "min_units_needed": 9,
+                  "min_level": 3000
+                }
+              ],
               "subject_buckets": [
                 {
                   "code_list": [
@@ -55566,8 +55586,7 @@
                   "max_units": 6,
                   "label": "Equivalent/closely related courses"
                 }
-              ],
-              "units_needed": 18.0
+              ]
             }
           ]
         }

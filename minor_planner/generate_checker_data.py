@@ -444,7 +444,7 @@ def extract_level_constraint(text):
     # "out of which at least 6 units at 3000 to 5000 level"
     m = re.search(
         r"out\s+of\s+which\s+at\s+least\s+(\w+)\s+units?"
-        r"\s+(?:of\s+courses?\s+)?(?:are\s+)?at\s+(\d{4})\s+to\s+(\d{4})\s+level",
+        r"\s+(?:of\s+(?:\w+\s+)?courses?\s+)?(?:are\s+)?at\s+(\d{4})\s+to\s+(\d{4})\s+level",
         text, re.IGNORECASE,
     )
     if m:
@@ -453,7 +453,7 @@ def extract_level_constraint(text):
     # "out of which at least 6 units at 3000 or above level"
     m = re.search(
         r"out\s+of\s+which\s+at\s+least\s+(\w+)\s+units?"
-        r"\s+(?:of\s+courses?\s+)?(?:are\s+)?at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
+        r"\s+(?:of\s+(?:\w+\s+)?courses?\s+)?(?:are\s+)?at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
         text, re.IGNORECASE,
     )
     if m:
@@ -501,14 +501,14 @@ def extract_level_constraint(text):
 
     # "at least X units at YYYY or above level" / "at YYYY level or above"
     m = re.search(
-        r"at\s+least\s+(\w+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})\s+level\s+(?:or|and)\s+above",
+        r"at\s+least\s+(\w+)\s+units?\s+(?:of\s+(?:\w+\s+)?courses?\s+)?at\s+(\d{4})\s+level\s+(?:or|and)\s+above",
         text, re.IGNORECASE,
     )
     if m:
         _add(units=_n(m.group(1)), min_level=int(m.group(2)))
 
     m = re.search(
-        r"at\s+least\s+(\w+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
+        r"at\s+least\s+(\w+)\s+units?\s+(?:of\s+(?:\w+\s+)?courses?\s+)?at\s+(\d{4})\s+(?:or|and)\s+above(?:\s+level)?",
         text, re.IGNORECASE,
     )
     if m:
@@ -517,7 +517,7 @@ def extract_level_constraint(text):
     # "at least N units at XXXX level" (exact level, no "or above")
     # CUHK convention: "at 3000 level" = 3000-3999, "at 4000 level" = 4000-4999
     m = re.search(
-        r"at\s+least\s+(\w+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})\s+level(?!\s+(?:or|and)\s+above)",
+        r"at\s+least\s+(\w+)\s+units?\s+(?:of\s+(?:\w+\s+)?courses?\s+)?at\s+(\d{4})\s+level(?!\s+(?:or|and)\s+above)",
         text, re.IGNORECASE,
     )
     if m:
@@ -526,7 +526,7 @@ def extract_level_constraint(text):
 
     # "and N units at XXXX level" (second/third exact-level constraint)
     for m in re.finditer(
-        r"and\s+(\w+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})\s+level",
+        r"and\s+(\w+)\s+units?\s+(?:of\s+(?:\w+\s+)?courses?\s+)?at\s+(\d{4})\s+level",
         text, re.IGNORECASE,
     ):
         lvl = int(m.group(2))
@@ -535,7 +535,7 @@ def extract_level_constraint(text):
     # "including a minimum of X units at YYYY or above level"
     m = re.search(
         r"including\s+a\s+minimum\s+of\s+(\w+)\s+units?"
-        r"\s+(?:of\s+(?:elective\s+)?courses?\s+)?at\s+(\d{4})"
+        r"\s+(?:of\s+(?:elective\s+)?(?:\w+\s+)?courses?\s+)?at\s+(\d{4})"
         r"\s+(?:or|and)\s+above",
         text, re.IGNORECASE,
     )
@@ -544,7 +544,7 @@ def extract_level_constraint(text):
 
     # "with at least X units at YYYY to ZZZZ level"
     m = re.search(
-        r"with\s+at\s+least\s+(\w+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})"
+        r"with\s+at\s+least\s+(\w+)\s+units?\s+(?:of\s+(?:\w+\s+)?courses?\s+)?at\s+(\d{4})"
         r"\s+to\s+(\d{4})\s+level",
         text, re.IGNORECASE,
     )
@@ -553,7 +553,7 @@ def extract_level_constraint(text):
 
     # "with at least X units at YYYY or above level"
     m = re.search(
-        r"with\s+at\s+least\s+(\w+)\s+units?\s+(?:of\s+courses?\s+)?at\s+(\d{4})"
+        r"with\s+at\s+least\s+(\w+)\s+units?\s+(?:of\s+(?:\w+\s+)?courses?\s+)?at\s+(\d{4})"
         r"\s+(?:or|and)\s+above(?:\s+level)?",
         text, re.IGNORECASE,
     )
@@ -580,7 +580,7 @@ def extract_level_constraint(text):
 
 _HEADER_PATTERN = re.compile(
     r"from\s+the\s+following|^Any\s+|^Choose\s+|^Select\s+|"
-    r"^At\s+least\s+|courses?\s+below|listed\s+below",
+    r"^At\s+least\s+|\(at\s+least\s+|courses?\s+below|listed\s+below",
     re.IGNORECASE,
 )
 
@@ -857,7 +857,7 @@ def determine_strategy(row, section_type):
         return result
 
     # "Any N units from the following" (allow "of courses" in between)
-    m = re.search(r"Any\s+(\d+)\s+units?\s+(?:of\s+courses?\s+)?from\s+the\s+following", text, re.IGNORECASE)
+    m = re.search(r"Any\s+(\d+)\s+units?\s+(?:of\s+(?:\w+\s+)?courses?\s+)?from\s+the\s+following", text, re.IGNORECASE)
     if m:
         result = {"strategy": "units", "units_needed": float(m.group(1))}
         lc = extract_level_constraint(text)
@@ -866,7 +866,7 @@ def determine_strategy(row, section_type):
         return result
 
     # "N units from the following" (allow "of courses" in between)
-    m = re.search(r"(\d+)\s+units?\s+(?:of\s+courses?\s+)?from\s+the\s+following", text, re.IGNORECASE)
+    m = re.search(r"(\d+)\s+units?\s+(?:of\s+(?:\w+\s+)?courses?\s+)?from\s+the\s+following", text, re.IGNORECASE)
     if m:
         result = {"strategy": "units", "units_needed": float(m.group(1))}
         lc = extract_level_constraint(text)
@@ -968,7 +968,11 @@ def determine_strategy(row, section_type):
         return {"strategy": "pick_n", "n": n}
 
     # Final fallback: has codes but no explicit rule
-    return {"strategy": "any"}
+    result = {"strategy": "any"}
+    lc = extract_level_constraint(text)
+    if lc:
+        result["level_constraint"] = lc
+    return result
 
 
 # ── Area-based code lists (Music 2B/2C, etc.) ───────────────────────────
