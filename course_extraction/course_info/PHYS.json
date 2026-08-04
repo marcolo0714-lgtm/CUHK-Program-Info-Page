@@ -3,574 +3,774 @@
         "code": "PHYS 1001",
         "title": "Essential Physics",
         "unit": "3.00",
-        "info": "1. For JUPAS entrants without attending HKDSE Physics or Combined Science with Physics component, including absentees. 2. For non-JUPAS students, please seek advice and permission from the Department of Physics."
+        "info": "1. For JUPAS entrants without attending HKDSE Physics or Combined Science with Physics component, including absentees. 2. For non-JUPAS students, please seek advice and permission from the Department of Physics.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 1002",
         "title": "General Physics",
         "unit": "3.00",
-        "info": "Not for students who have taken PHYS1111 or 1113."
+        "info": "Not for students who have taken PHYS1111 or 1113.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 1003",
         "title": "General Physics for Engineers",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 1004",
         "title": "Exploring the Physical World with STEM",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 1110",
         "title": "Engineering Physics: Mechanics and Thermodynamics",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 1111",
         "title": "Introduction to Mechanics, Fluids, and Waves (University Physics I)",
         "unit": "3.00",
-        "info": "For New Undergraduate Curriculum from 2012. Not for students who have taken PHYS1113."
+        "info": "For New Undergraduate Curriculum from 2012. Not for students who have taken PHYS1113.",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 1113",
         "title": "Mechanics, Fluids and Waves (University Physics I)",
         "unit": "3.00",
-        "info": "Not for students who have taken PHYS1111."
+        "info": "Not for students who have taken PHYS1111.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 1122",
         "title": "University Physics II – Introduction to Optics and Modern Physics",
         "unit": "3.00",
-        "info": "For New Curriculum Students."
+        "info": "For New Curriculum Students.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 1712",
         "title": "Physics Laboratory I",
         "unit": "1.00",
-        "info": "For New Curriculum Students."
+        "info": "For New Curriculum Students.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 2041",
         "title": "University Physics III – Introduction to Heat and Electromagnetism",
         "unit": "3.00",
-        "info": "For New Curriculum Students."
+        "info": "For New Curriculum Students.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 2051",
         "title": "Quantitative Methods for Basic Physics",
         "unit": "3.00",
-        "info": "Pre-requisite: MATH1010 or 1018 or its equivalents, or permission of instructor."
+        "info": "Pre-requisite: MATH1010 or 1018 or its equivalents, or permission of instructor.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 2061",
         "title": "Basic Computational Physics",
         "unit": "3.00",
-        "info": "Not for students who have taken CSCI2800 / 1510 / 1520 / 1110 / 1120. Pre-requisite/Co-requisite: MATH1010 or 1018 or 1520 or its equivalents, or permission of instructor."
+        "info": "Not for students who have taken CSCI2800 / 1510 / 1520 / 1110 / 1120. Pre-requisite/Co-requisite: MATH1010 or 1018 or 1520 or its equivalents, or permission of instructor.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 2401",
         "title": "Introduction to Astronomy and Astrophysics",
         "unit": "3.00",
-        "info": "Not for students who have taken UGEB2401 or UGEB2402."
+        "info": "Not for students who have taken UGEB2401 or UGEB2402.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 2510",
         "title": "Student Centred Learning I",
         "unit": "1.00",
-        "info": "For New Curriculum Students."
+        "info": "For New Curriculum Students.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 2520",
         "title": "Student Centred Learning II",
         "unit": "1.00",
-        "info": "For New Curriculum Students."
+        "info": "For New Curriculum Students.",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 2610",
         "title": "Short Project I",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 2711",
         "title": "Physics Laboratory II",
         "unit": "2.00",
-        "info": "For New Undergraduate Curriculum from 2012. Pre-requisite: PHYS1712."
+        "info": "For New Undergraduate Curriculum from 2012. Pre-requisite: PHYS1712.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 2722",
         "title": "Physics Laboratory III",
         "unit": "1.00",
-        "info": "For New Undergraduate Curriculum from 2012. Pre-requisite: PHYS1712 and PHYS2711."
+        "info": "For New Undergraduate Curriculum from 2012. Pre-requisite: PHYS1712 and PHYS2711.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 3011",
         "title": "Classical Mechanics I",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS1111 or or 1113 or its equivalents, or premission of instructor."
+        "info": "Pre-requisite: PHYS1111 or or 1113 or its equivalents, or premission of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 3021",
         "title": "Quantum Mechanics I",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS1122 or its equivalents, or permission of instructor."
+        "info": "Pre-requisite: PHYS1122 or its equivalents, or permission of instructor.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 3022",
         "title": "Applied Quantum Mechanics",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS3021."
+        "info": "Pre-requisite: PHYS3021.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 3023",
         "title": "Introduction to Quantum Information Physics",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS3021 or its equivalents, or permission of instructor."
+        "info": "Pre-requisite: PHYS3021 or its equivalents, or permission of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 3031",
         "title": "Thermodynamics and Statistical Physics",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS2041 and 2051 or their equivalents, or permission of instructor."
+        "info": "Pre-requisite: PHYS2041 and 2051 or their equivalents, or permission of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 3041",
         "title": "Electromagnetic Theory I",
         "unit": "3.00",
-        "info": "Prerequisite: PHYS2041 or its equivalents, or permission of instructor."
+        "info": "Prerequisite: PHYS2041 or its equivalents, or permission of instructor.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 3051",
         "title": "Methods in Theoretical Physics I",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS2051 or MATH2020 or their equivalents, or permission of the instructor."
+        "info": "Pre-requisite: PHYS2051 or MATH2020 or their equivalents, or permission of the instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 3061",
         "title": "Physics Simulations with AI Tools",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 3403",
         "title": "Introduction to Soft and Living Matter Physics",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS2041 or CHEM2300 or equivalent introductory course that covers thermodynamics, or permission of instructor."
+        "info": "Pre-requisite: PHYS2041 or CHEM2300 or equivalent introductory course that covers thermodynamics, or permission of instructor.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 3410",
         "title": "Practical Electronics",
         "unit": "3.00",
-        "info": "Not for students who have taken ELEG2202. Pre-requisite: PHYS2041 and PHYS2711, or permission of the instructor."
+        "info": "Not for students who have taken ELEG2202. Pre-requisite: PHYS2041 and PHYS2711, or permission of the instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 3420",
         "title": "Topics in Contemporary Physics",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 3430",
         "title": "Radio Observational Astronomy",
         "unit": "2.00",
-        "info": "Pre-requisite: PHYS2711."
+        "info": "Pre-requisite: PHYS2711.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 3440",
         "title": "Optical Observational Astronomy",
         "unit": "2.00",
-        "info": "Pre-requisite: PHYS2711."
+        "info": "Pre-requisite: PHYS2401 and PHYS2711, or their equivalents, or permission of instructor.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 3610",
         "title": "Short Project II",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 3630",
         "title": "Other Physics Learning Experience I",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 3710",
         "title": "Short Experimental Project I",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 3730",
         "title": "Basic Instrumentation",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 3810",
         "title": "Short Theoretical Project I",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 4011",
         "title": "Classical Mechanics II",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS3051 or its equivalents, or permission of the instructor."
+        "info": "Pre-requisite: PHYS3051 or its equivalents, or permission of the instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 4021",
         "title": "Quantum Mechanics II",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS3021 or its equivalents, or permission of instructor."
+        "info": "Pre-requisite: PHYS3021 or its equivalents, or permission of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 4031",
         "title": "Statistical Mechanics",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS2041 and 2051 or their equivalents, or permission of instructor."
+        "info": "Pre-requisite: PHYS2041 and 2051 or their equivalents, or permission of instructor.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 4041",
         "title": "Electromagnetic Theory II",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS3041 or its equivalents, or permission of instructor."
+        "info": "Pre-requisite: PHYS3041 or its equivalents, or permission of instructor.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 4050",
         "title": "Solid State Physics",
         "unit": "3.00",
-        "info": "Pre-requisite/Co-requisite: PHYS3021 or its equivalents, or permission of instructor."
+        "info": "Pre-requisite/Co-requisite: PHYS3021 or its equivalents, or permission of instructor.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 4051",
         "title": "Methods in Theoretical Physics II",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS3051 or its equivalents, or permission of instructor."
+        "info": "Pre-requisite: PHYS3051 or its equivalents, or permission of instructor.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 4061",
         "title": "Computational Physics and Machine Learning",
         "unit": "3.00",
-        "info": "Not for students who have taken PHYS5160. Pre-requisite: PHYS2061 or its equivalents, or permission of instructor."
+        "info": "Not for students who have taken PHYS5160. Pre-requisite: PHYS2061 or its equivalents, or permission of instructor.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 4420",
         "title": "Physics in Meteorology",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS3011. Students who have taken course on vector calculus-based physics or their equivalents may also seek course teacher's permission to register in the course."
+        "info": "Pre-requisite: PHYS3011. Students who have taken course on vector calculus-based physics or their equivalents may also seek course teacher's permission to register in the course.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 4430",
         "title": "Astrophysics",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 4440",
         "title": "Topics in Nanoscience and Technology",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS3021 or its equivalents, or permission of instructor."
+        "info": "Pre-requisite: PHYS3021 or its equivalents, or permission of instructor.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 4450",
         "title": "Optical Physics",
         "unit": "3.00",
-        "info": "PHYS3041 or its equivalents, or permission of instructor."
+        "info": "PHYS3041 or its equivalents, or permission of instructor.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 4460",
         "title": "Relativity",
         "unit": "3.00",
-        "info": "Pre-requisite: PHYS3041 or its equivalents, or permission of the instructor."
+        "info": "Pre-requisite: PHYS3041 or its equivalents, or permission of the instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 4470",
         "title": "Nuclear and Particle Physics",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 4480",
         "title": "Special Topics I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 4490",
         "title": "Special Topics II",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 4491",
         "title": "Special Topics III",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 4492",
         "title": "Special Topics IV",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 4610",
         "title": "Senior Project I",
         "unit": "3.00",
-        "info": "-"
+        "info": "-",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 4620",
         "title": "Senior Project II",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 4630",
         "title": "Other Physics Learning Experience",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 4710",
         "title": "Short Experimental Project II",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 4711",
         "title": "Short Experimental Project III",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 4712",
         "title": "Short Experimental Project IV",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 4801",
         "title": "Seminar I",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 4802",
         "title": "Seminar II",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 4811",
         "title": "Short Theoretical Project II",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 4812",
         "title": "Short Theoretical Project III",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 5061",
         "title": "From Computational Physics to Artificial Intelligence",
         "unit": "3.00",
-        "info": "For students in PHYS-MPHD, MSEG-MPHD, PHYS-MSC, BSc Physics;Prerequisite: PHYS3061 or PHYS4061 or sufficient programming skills in PYTHON and/or C. The registration of the course requires a permission of the instructor."
+        "info": "For students in PHYS-MPHD, MSEG-MPHD, PHYS-MSC, BSc Physics, AISC-MSC; Prerequisite: PHYS3061 or PHYS4061 or sufficient programming skills in PYTHON and/or C. The registration of the course requires a permission of the instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 5110",
         "title": "Fundamentals of Classical Mechanics and Special Relativity",
         "unit": "3.00",
-        "info": "For students in MSc Physics"
+        "info": "For students in MSc Physics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 5120",
         "title": "Fundamentals of Modern Quantum Mechanics",
         "unit": "3.00",
-        "info": "For MSc Physics"
+        "info": "For MSc Physics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 5130",
         "title": "Principles of Thermal and Statistical Physics",
         "unit": "3.00",
-        "info": "For students in MSc Physics"
+        "info": "For students in MSc Physics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 5140",
         "title": "Classical Electromagnetic Theory",
         "unit": "3.00",
-        "info": "For students in MSc Physics"
+        "info": "For students in MSc Physics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 5160",
         "title": "Computational Physics",
         "unit": "3.00",
-        "info": "For students in MSc Physics;Pre-requisite: A prior programming class or sufficient programming skills in PYTHON and/or C. The registration of the course requires a permission of the instructor. Exclusion: Not for students who have taken PHYS4061."
+        "info": "For students in PHYS-MSC, AISC-MSC;Pre-requisite: A prior programming class or sufficient programming skills in PYTHON and/or C. The registration of the course requires a permission of the instructor. Exclusion: Not for students who have taken PHYS4061.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 5320",
         "title": "Photonics: Materials and Devices",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 5330",
         "title": "Instrumentation I",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 5350",
         "title": "Techniques in Materials Characterization",
         "unit": "4.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 5410",
         "title": "Advanced Quantum Mechanics",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 5420",
         "title": "Classical Electrodynamics",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 5430",
         "title": "Solid State Theory",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 5450",
         "title": "Introduction to Soft Matter Physics",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "PHYS 5460",
         "title": "Instrumentation II",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 5510",
         "title": "Topics in Theoretical Physics (Advanced Statistical Mechanics)",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 5520",
         "title": "Topics in Theoretical Physics (Introduction to Many-body Theory)",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; MSc Physics; MPhil-PhD Materials Sci & Erg Pre-requisite: PHYS4021, 4031, 4050 or their equivalents, or permission of teacher."
+        "info": "For students in MPhil-PhD Physics; MSc Physics; MPhil-PhD Materials Sci & Erg Pre-requisite: PHYS4021, 4031, 4050 or their equivalents, or permission of teacher.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 5530",
         "title": "Topics in Theoretical Physics (Introduction to Particle Physics)",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 5540",
         "title": "Topics in Theoretical Physics (Advanced Computational Physics)",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 5550",
         "title": "Topics in Theoretical Physics (Quantum Optics)",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 5560",
         "title": "Topics in the Frontiers of Physics",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 5561",
         "title": "Topics in the Frontiers of Physics (General Relativity)",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MPhil-PhD Materials Sci & Erg"
+        "info": "For students in MPhil-PhD Physics; For students in MPhil-PhD Materials Sci & Erg",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 5562",
         "title": "Topics in Theoretical Physics (Astrophysics)",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics, MSc Physics or MPhil-PhD Materials Science & Engineering"
+        "info": "For students in MPhil-PhD Physics, MSc Physics or MPhil-PhD Materials Science & Engineering",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "PHYS 5580",
         "title": "Physics of Quantum Information and Quantum Computation",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg;For students in BSc Physics",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 5590",
         "title": "Modern Atomic Physics",
         "unit": "3.00",
-        "info": "For MSc Physics For MPhil-PhD Materials Sci & Erg For MPhil-PhD Physics"
+        "info": "For MSc Physics For MPhil-PhD Materials Sci & Erg For MPhil-PhD Physics",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 5610",
         "title": "Introduction to Biophysics",
         "unit": "3.00",
-        "info": "For students in MSc Physics, MPhil-PhD Materials Sci & Erg or MPhil-PhD Physics"
+        "info": "For students in MSc Physics, MPhil-PhD Materials Sci & Erg or MPhil-PhD Physics",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 5620",
         "title": "Topics in Experimental Physics (Thin Film Physics and Technology)",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 5660",
         "title": "Semiconductor Physics and Devices",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg"
+        "info": "For students in MPhil-PhD Physics; For students in MSc Physics; For students in MPhil-PhD Materials Sci & Erg",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "PHYS 5710",
         "title": "Guided Study",
         "unit": "3.00",
-        "info": "For students in MSc Physics; For students in MPhil-PhD Physics; For students in MPhil-PhD Materials Sci & Erg"
+        "info": "For students in MSc Physics; For students in MPhil-PhD Physics; For students in MPhil-PhD Materials Sci & Erg",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 5720",
         "title": "Guided Study",
         "unit": "3.00",
-        "info": "For students in MSc Physics; For students in MPhil-PhD Physics; For students in MPhil-PhD Materials Sci & Erg"
+        "info": "For students in MSc Physics; For students in MPhil-PhD Physics; For students in MPhil-PhD Materials Sci & Erg",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 5730",
         "title": "Guided Study",
         "unit": "3.00",
-        "info": "For MSc Physics"
+        "info": "For MSc Physics",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 5790",
         "title": "Guided Study",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics;For students in MPhil-PhD Materials Sci & Erg;For students in MSc Physics;For students in BSc Physics"
+        "info": "For students in MPhil-PhD Physics;For students in MPhil-PhD Materials Sci & Erg;For students in MSc Physics;For students in BSc Physics",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 5990",
         "title": "Project III",
         "unit": "3.00",
-        "info": "For students in MSc Physics"
+        "info": "For students in MSc Physics",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 5991",
         "title": "MSc Dissertation",
         "unit": "3.00",
-        "info": "For students in MSc Physics The registration of the course requires a permission of the instructor."
+        "info": "For students in MSc Physics The registration of the course requires a permission of the instructor.",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 7210",
         "title": "Guided Study",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Physics"
+        "info": "For students in MPhil-PhD Physics",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 8003",
         "title": "Thesis Research",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Physics"
+        "info": "For students in MPhil-PhD Physics",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 8006",
         "title": "Thesis Research",
         "unit": "6.00",
-        "info": "For students in MPhil-PhD Physics"
+        "info": "For students in MPhil-PhD Physics",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "PHYS 8012",
         "title": "Thesis Research",
         "unit": "12.00",
-        "info": "For students in MPhil-PhD Physics"
+        "info": "For students in MPhil-PhD Physics",
+        "term_1": true,
+        "term_2": true
     }
 ]

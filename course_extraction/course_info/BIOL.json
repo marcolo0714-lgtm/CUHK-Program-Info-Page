@@ -3,284 +3,380 @@
         "code": "BIOL 2120",
         "title": "Cell Biology",
         "unit": "3.00",
-        "info": "Pre-requisite: LSCI1002."
+        "info": "Pre-requisite: LSCI1002.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 2210",
         "title": "Ecology",
         "unit": "3.00",
-        "info": "Pre-requisite: LSCI1002 or LSCI1012."
+        "info": "Pre-requisite: LSCI1002 or LSCI1012.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 2213",
         "title": "Ecology Laboratory",
         "unit": "1.00",
-        "info": "Corequisite:BIOL2210"
+        "info": "Corequisite:BIOL2210",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 2313",
         "title": "Genetics Laboratory",
         "unit": "1.00",
-        "info": "Co-requisite: BIOL2410."
+        "info": "Co-requisite: BIOL2410.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 2410",
         "title": "General Genetics",
         "unit": "2.00",
-        "info": "Not for students who have taken BIOL2310. Pre-requisite: LSCI1002 and BIOL2120."
+        "info": "Not for students who have taken BIOL2310. Pre-requisite: LSCI1002 and BIOL2120.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 2420",
         "title": "Population Genetics",
         "unit": "1.00",
-        "info": "Co-requisite: BIOL2410."
+        "info": "Co-requisite: BIOL2410.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 3012",
         "title": "Biodiversity Laboratory I",
         "unit": "2.00",
-        "info": "Co-requisite: BIOL3560 and 3610."
+        "info": "Co-requisite: BIOL3560 and 3610.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 3022",
         "title": "Biodiversity Laboratory II",
         "unit": "2.00",
-        "info": "Co-requisite: BIOL3570 and 3620."
+        "info": "Co-requisite: BIOL3570 and 3620.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 3310",
         "title": "Human Biology",
         "unit": "3.00",
-        "info": "Pre-requisite: LSCI1002 (Not applicable to Old Curriculum students)."
+        "info": "Pre-requisite: LSCI1002 (Not applicable to Old Curriculum students).",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 3410",
         "title": "General Microbiology",
         "unit": "3.00",
-        "info": "Pre-requisite: BCHE2030 and BIOL2120."
+        "info": "Pre-requisite: BCHE2030 and BIOL2120.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 3510",
         "title": "Palaeobiology",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 3530",
         "title": "Plant Physiology",
         "unit": "3.00",
-        "info": "Pre-requisite: BCHE2030."
+        "info": "Pre-requisite: BCHE2030.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 3560",
         "title": "Biology of Fungi and Non-Vascular Plants",
         "unit": "2.00",
-        "info": "Pre-requisite: LSCI1002."
+        "info": "Pre-requisite: LSCI1002.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 3570",
         "title": "Biology of Vascular Plants",
         "unit": "2.00",
-        "info": "Pre-requisite: BIOL3560."
+        "info": "Pre-requisite: BIOL3560.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 3610",
         "title": "Invertebrate Form and Function",
         "unit": "2.00",
-        "info": "Pre-requisite: LSCI1002 or permission of instructor (Not applicable to Old Curriculum students)."
+        "info": "Pre-requisite: LSCI1002 or permission of instructor (Not applicable to Old Curriculum students).",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 3620",
         "title": "Vertebrate Life",
         "unit": "2.00",
-        "info": "Pre-requisite: LSCI1002 and BIOL2210 or permission of instructor (Not applicable to Old Curriculum students)."
+        "info": "Pre-requisite: LSCI1002 and BIOL2210 or permission of instructor (Not applicable to Old Curriculum students).",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 3630",
         "title": "Animal Physiology",
         "unit": "3.00",
-        "info": "Not for students who have taken FNSC4101. Prerequisite: BIOL2120 and BCHE2030."
+        "info": "Not for students who have taken FNSC4101. Prerequisite: BIOL2120 and BCHE2030.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 3710",
         "title": "Marine Biology",
         "unit": "3.00",
-        "info": "Pre-requisite: BIOL2210"
+        "info": "Pre-requisite: BIOL2210",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 4010",
         "title": "Evolutionary Biology",
         "unit": "3.00",
-        "info": "Prerequisite: BIOL2210 or BIOL2310 or BIOL2410."
+        "info": "Prerequisite: BIOL2210 or BIOL2310 or BIOL2410.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 4012",
         "title": "Field and Environmental Biology",
         "unit": "2.00",
-        "info": "Co-requisite: BIOL2210 and 3710."
+        "info": "Co-requisite: BIOL2210 and 3710.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 4120",
         "title": "Developmental Biology",
         "unit": "3.00",
-        "info": "Pre-requisite: BIOL2120."
+        "info": "Pre-requisite: BIOL2120.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 4230",
         "title": "Global Change Biology",
         "unit": "3.00",
-        "info": "Pre-requisite: BIOL2210."
+        "info": "Pre-requisite: BIOL2210.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 4240",
         "title": "Environmental Impact Assessment",
         "unit": "3.00",
-        "info": "Not for students who have taken ENSC4240. Pre-requisite: ENSC2270 or EESC2270 and BIOL2210."
+        "info": "Not for students who have taken ENSC4240. Pre-requisite: ENSC2270 or EESC2270 and BIOL2210.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 4242",
         "title": "Environmental Impact Assessment Laboratory",
         "unit": "2.00",
-        "info": "Not for students who have taken ENSC4242. Co-requisite: BIOL4240."
+        "info": "Not for students who have taken ENSC4242. Co-requisite: BIOL4240.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 4260",
         "title": "Conservation Biology",
         "unit": "3.00",
-        "info": "Not for students who have taken ENSC4260. Pre-requisite: BIOL2210."
+        "info": "Not for students who have taken ENSC4260. Pre-requisite: BIOL2210.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 4310",
         "title": "Human Genetics",
         "unit": "3.00",
-        "info": "Pre-requisite: BIOL2310 or BIOL2410."
+        "info": "Pre-requisite: BIOL2310 or BIOL2410.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 4420",
         "title": "Marine Microbial Ecology",
         "unit": "2.00",
-        "info": "Pre-requisite: BIOL3410."
+        "info": "Pre-requisite: BIOL3410.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 4510",
         "title": "Hong Kong Flora and Vegetation",
         "unit": "3.00",
-        "info": "Pre-requisite: LSCI1002."
+        "info": "Pre-requisite: LSCI1002.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 4610",
         "title": "Foundation for Secondary School Biology Teaching",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 4710",
         "title": "Fish Biology and Mariculture",
         "unit": "3.00",
-        "info": "Pre-requisite: LSCI1002 or consent of instructors."
+        "info": "Pre-requisite: LSCI1002 or consent of instructors.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 4901",
         "title": "Senior Experimental Project I",
         "unit": "2.00",
-        "info": "-"
+        "info": "-",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 4902",
         "title": "Senior Experimental Project II",
         "unit": "2.00",
-        "info": "-"
+        "info": "-",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 4903",
         "title": "Senior Experimental Project III",
         "unit": "2.00",
-        "info": "Pre-requisite: BIOL4902."
+        "info": "Pre-requisite: BIOL4902.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BIOL 4906",
         "title": "Internship",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BIOL 4907",
         "title": "Field Study",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 5101",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biology"
+        "info": "For students in MPhil-PhD Biology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 5201",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biology"
+        "info": "For students in MPhil-PhD Biology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 5301",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biology"
+        "info": "For students in MPhil-PhD Biology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 7101",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in PhD Biology or MPhil-PhD Biology"
+        "info": "For students in PhD Biology or MPhil-PhD Biology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 7201",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in PhD Biology or MPhil-PhD Biology"
+        "info": "For students in PhD Biology or MPhil-PhD Biology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 7301",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in PhD Biology or MPhil-PhD Biology"
+        "info": "For students in PhD Biology or MPhil-PhD Biology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 7401",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in PhD Biology or MPhil-PhD Biology"
+        "info": "For students in PhD Biology or MPhil-PhD Biology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 7501",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in PhD Biology or MPhil-PhD Biology"
+        "info": "For students in PhD Biology or MPhil-PhD Biology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 7601",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in PhD Biology or MPhil-PhD Biology"
+        "info": "For students in PhD Biology or MPhil-PhD Biology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 7701",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in PhD Biology or MPhil-PhD Biology"
+        "info": "For students in PhD Biology or MPhil-PhD Biology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 8003",
         "title": "Thesis Research",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Biology"
+        "info": "For students in MPhil-PhD Biology",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "BIOL 8006",
         "title": "Thesis Research",
         "unit": "6.00",
-        "info": "For students in MPhil-PhD Biology"
+        "info": "For students in MPhil-PhD Biology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BIOL 8012",
         "title": "Thesis Research",
         "unit": "12.00",
-        "info": "For students in MPhil-PhD Biology"
+        "info": "For students in MPhil-PhD Biology",
+        "term_1": false,
+        "term_2": false
     }
 ]

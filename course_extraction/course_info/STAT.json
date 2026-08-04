@@ -3,407 +3,548 @@
         "code": "STAT 1011",
         "title": "Introduction to Statistics",
         "unit": "3.00",
-        "info": "Not for students who have taken STAT1012 or consent of the instructor."
+        "info": "Not for students who have taken STAT1012 or consent of the instructor.",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "STAT 1012",
         "title": "Statistics for Life Sciences",
         "unit": "3.00",
-        "info": "Not for students who have taken STAT1011 or consent of the instructor."
+        "info": "Not for students who have taken STAT1011 or consent of the instructor.",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "STAT 1013",
         "title": "Data Science Toolbox",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 2001",
         "title": "Basic Concepts in Statistics and Probability I",
         "unit": "3.00",
-        "info": "-"
+        "info": "-",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "STAT 2005",
         "title": "Programming Languages for Statistics",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "STAT 2006",
         "title": "Basic Concepts in Statistics and Probability II",
         "unit": "3.00",
-        "info": "Pre-requisite: STAT2001 or ENGG2760 or ESTR2018 or consent of instructor."
+        "info": "Pre-requisite: STAT2001 or ENGG2760 or ESTR2018 or consent of instructor.",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "STAT 2011",
         "title": "Workshop on Data Exploration and Technical Writing",
         "unit": "3.00",
-        "info": "Co-requisite: STAT2005 or consent of instructor."
+        "info": "Co-requisite: STAT2005 or consent of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 2102",
         "title": "Basic Statistical Concepts and Methods II",
         "unit": "3.00",
-        "info": "Not for students who have taken or register concurrently for STAT2006."
+        "info": "Not for students who have taken or register concurrently for STAT2006.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 3001",
         "title": "Foundation of Financial and Managerial Statistics",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 3003",
         "title": "Survey Methods",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 3004",
         "title": "Basic Methods in Biomedical Statistics",
         "unit": "3.00",
-        "info": "-"
+        "info": "-",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "STAT 3005",
         "title": "Nonparametric statistics",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 3006",
         "title": "Statistical Computing",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 3007",
         "title": "Introduction to Stochastic Processes",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "STAT 3008",
         "title": "Applied Regression Analysis",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "STAT 3009",
         "title": "Recommender Systems",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 3010",
         "title": "Optimization for Statistics and Data Science",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 3011",
         "title": "Workshop on Data Analysis and Statistical Computing",
         "unit": "3.00",
-        "info": "Prerequisite:STAT2011 or consent of instructor"
+        "info": "Prerequisite:STAT2011 or consent of instructor",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 3210",
         "title": "Statistical Techniques in Life Sciences",
         "unit": "3.00",
-        "info": "Not for students who have taken STAT3004"
+        "info": "Not for students who have taken STAT3004",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "STAT 4001",
         "title": "Data Mining and Statistical Learning",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 4002",
         "title": "Applied Multivariate Analysis",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 4003",
         "title": "Statistical Inference",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 4004",
         "title": "Actuarial Science",
         "unit": "3.00",
-        "info": "Not for students who have taken or register concurrently for FINA3220."
+        "info": "Not for students who have taken or register concurrently for FINA3220.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "STAT 4005",
         "title": "Time Series",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "STAT 4006",
         "title": "Categorical Data Analysis",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 4007",
         "title": "Statistical Quality Control",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "STAT 4008",
         "title": "Survival Modelling",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 4010",
         "title": "Bayesian Learning",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 4011",
         "title": "Statistics Projects",
         "unit": "3.00",
-        "info": "Prerequisite:STAT3011 or consent of instructor"
+        "info": "Prerequisite:STAT3011 or consent of instructor",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 4012",
         "title": "Statistical Principles of Deep Learning with Business Applications",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 4013",
         "title": "Practicum",
         "unit": "3.00",
-        "info": "Prerequisite:STAT3011 or consent of instructor"
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "STAT 5005",
         "title": "Advanced Probability Theory",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Statistics"
+        "info": "For students in MPhil-PhD Statistics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 5010",
         "title": "Advanced Statistical Inference",
         "unit": "3.00",
-        "info": "For students in MPhil in Risk Management Science; or in MPhil-PhD in Statistics; or MSc in Advanced Studies in Statistics and Data Science"
+        "info": "For students in MPhil in Risk Management Science; or in MPhil-PhD in Statistics; or MSc in Advanced Studies in Statistics and Data Science",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 5020",
         "title": "Topics in Multivariate Analysis",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Statistics"
+        "info": "For students in MPhil-PhD Statistics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 5030",
         "title": "Linear Models",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Statistics"
+        "info": "For students in MPhil-PhD Statistics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 5040",
         "title": "Studies on Selected Topics I",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Statistics"
+        "info": "For students in MPhil-PhD Statistics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 5050",
         "title": "Advanced Statistical Computing",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Statistics"
+        "info": "For students in MPhil-PhD Statistics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 5060",
         "title": "Advanced Modeling and Data Analysis",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Statistics"
+        "info": "For students in MPhil-PhD Statistics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 5101",
         "title": "Foundations of Data Science",
         "unit": "3.00",
-        "info": "For students in MSc Data Sci & Business Stat"
+        "info": "For students in MSc Data Sci & Business Stat",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 5102",
         "title": "Regression in Practice",
         "unit": "3.00",
-        "info": "For students in MSc Data Sci & Business Stat"
+        "info": "For students in MSc Data Sci & Business Stat",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 5103",
         "title": "High-Dimensional Data Analysis",
         "unit": "3.00",
-        "info": "For students in MSc in Data Science and Business Statistics; or MSc Risk Management Science and MSc in Risk Management Science and Data Analytics; or MSc in Advanced Studies in Statistics and Data Science"
+        "info": "For students in MSc Data Science and Business Statistics; or MSc Risk Management Science and Data Analytics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 5104",
         "title": "Data Mining",
         "unit": "3.00",
-        "info": "For students in MSc Data Science and Business Statistics Prerequisite: STAT5101 and STAT5106"
+        "info": "For students in MSc Data Science and Business Statistics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 5105",
         "title": "Applied Survival Data Analysis",
         "unit": "3.00",
-        "info": "For students in MSc Data Science and Business Statistics or MSc Risk Management Science Prerequisite: STAT5102 and STAT5106"
+        "info": "For students in MSc Data Science and Business Statistics or MSc Risk Management Science",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 5106",
         "title": "Programming Techniques for Data Science",
         "unit": "3.00",
-        "info": "For students in MSc Data Sci & Business Stat"
+        "info": "For students in MSc Data Sci & Business Stat",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 5107",
         "title": "Discrete Data Analytics",
         "unit": "3.00",
-        "info": "For students in MSc Data Science and Business Statistics or MSc Advanced Studies in Statistics and Data Science"
+        "info": "For students in MSc Data Science and Business Statistics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 5202",
         "title": "Statistical Machine Learning",
         "unit": "3.00",
-        "info": "For students in MSc Advanced Studies in Statistics and Data Science"
+        "info": "For students in MSc Advanced Studies in Statistics and Data Science",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 5203",
         "title": "Applied Linear Models for Data Science",
         "unit": "3.00",
-        "info": "For students in MSc Advanced Studies in Statistics and Data Science"
+        "info": "For students in MSc Advanced Studies in Statistics and Data Science",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 5204",
         "title": "Optimization in Data Science",
         "unit": "3.00",
-        "info": "For students in MSc Advanced Studies in Statistics and Data Science"
+        "info": "For students in MSc Advanced Studies in Statistics and Data Science",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 5206",
         "title": "Data Management",
         "unit": "3.00",
-        "info": "For students in MSc Advanced Studies in Statistics and Data Science"
+        "info": "For students in MSc Advanced Studies in Statistics and Data Science",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 6040",
         "title": "Studies on Selected Topics II",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Statistics"
+        "info": "For students in MPhil-PhD Statistics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 6050",
         "title": "Studies on Selected Topics III",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Statistics"
+        "info": "For students in MPhil-PhD Statistics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 6060",
         "title": "Studies on Selected Topics IV",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Statistics"
+        "info": "For students in MPhil-PhD Statistics",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "STAT 6101",
         "title": "Statistics for Management",
         "unit": "3.00",
-        "info": "For students in MSc Data Sci & Business Stat"
+        "info": "For students in MSc Data Sci & Business Stat",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "STAT 6102",
         "title": "Stochastic Modelling",
         "unit": "3.00",
-        "info": "For students in MSc Data Sci & Business Stat"
+        "info": "For students in MSc Data Sci & Business Stat",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "STAT 6103",
         "title": "Simulations and Statistical Computing",
         "unit": "3.00",
-        "info": "For students in MSc Data Sci & Business Stat"
+        "info": "For students in MSc Data Sci & Business Stat",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "STAT 6104",
         "title": "Financial Time Series",
         "unit": "3.00",
-        "info": "For students in MSc in Data Science and Business Statistics, MSc Risk Management Science and MSc in Risk Management Science and Data Analytics Prerequisite: STAT5101 and STAT5102"
+        "info": "For students in MSc Data Science and Business Statistics and MSc Risk Management Science and Data Analytics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 6105",
         "title": "Basic Actuarial Principles and Their Applications",
         "unit": "3.00",
-        "info": "For students in MSc in Data Science and Business Statistics, MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
+        "info": "For students in MSc in Data Science and Business Statistics, MSc Risk Management Science and MSc in Risk Management Science and Data Analytics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 6106",
         "title": "Applied Bayesian Methods",
         "unit": "3.00",
-        "info": "For students in MSc in Data Science and Business Statistics"
+        "info": "For students in MSc in Data Science and Business Statistics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 6107",
         "title": "Selected Topics on Data Science and Business Statistics",
         "unit": "3.00",
-        "info": "For students in MSc in Data Science and Business Statistics, MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
+        "info": "For students in MSc in Data Science and Business Statistics, MSc Risk Management Science and MSc in Risk Management Science and Data Analytics",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "STAT 6108",
         "title": "Official Statistics and Structural Equation Modelling",
         "unit": "3.00",
-        "info": "For students in MSc in Data Science and Business Statistics; or MSc in Risk Management Science and Data Analytics; or MSc in Advanced Studies in Statistics and Data Science"
+        "info": "For students in MSc Data Science and Business Statistics; or MSc Risk Management Science and Data Analytics",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "STAT 6111",
         "title": "Research Workshop",
         "unit": "3.00",
-        "info": "For students in MSc Data Science and Business Statistics"
+        "info": "For students in MSc Data Science and Business Statistics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 6204",
         "title": "Advanced Time Series",
         "unit": "3.00",
-        "info": "For students in MSc Advanced Studies in Statistics and Data Science; or MSc in Risk Management Science and Data Analytics"
+        "info": "For students in MSc Advanced Studies in Statistics and Data Science; or MSc in Risk Management Science and Data Analytics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 6205",
         "title": "Probabilistic Machine Learning",
         "unit": "3.00",
-        "info": "For students in MSc Advanced Studies in Statistics and Data Science"
+        "info": "For students in MSc Advanced Studies in Statistics and Data Science",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 6206",
         "title": "Bayesian Statistics with Applications in Machine Learning",
         "unit": "3.00",
-        "info": "For students in MSc in Advanced Studies in Statistics and Data Science"
+        "info": "For students in MSc in Advanced Studies in Statistics and Data Science",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 6207",
         "title": "Applied Deep Learning",
         "unit": "3.00",
-        "info": "For students in MSc Data Science and Business Statistics"
+        "info": "For students in MSc Data Science and Business Statistics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "STAT 6209",
         "title": "Special Topics in Statistics",
         "unit": "3.00",
-        "info": "For students in MSc in Advanced Studies in Statistics and Data Science;For students in MSc in Risk Management Science and Data Analytics"
+        "info": "For students in MSc in Advanced Studies in Statistics and Data Science;For students in MSc in Risk Management Science and Data Analytics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 6210",
         "title": "Special Topics in Data Science",
         "unit": "3.00",
-        "info": "For students in MSc Advanced Studies in Statistics and Data Science"
+        "info": "For students in MSc Advanced Studies in Statistics and Data Science",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "STAT 6211",
         "title": "Research Workshop",
         "unit": "3.00",
-        "info": "For students in MSc Advanced Studies in Statistics and Data Science"
+        "info": "For students in MSc Advanced Studies in Statistics and Data Science",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "STAT 8003",
         "title": "Thesis Research",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Statistics"
+        "info": "For students in MPhil-PhD Statistics",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "STAT 8006",
         "title": "Thesis Research",
         "unit": "6.00",
-        "info": "For students in MPhil-PhD Statistics"
+        "info": "For students in MPhil-PhD Statistics",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "STAT 8012",
         "title": "Thesis Research",
         "unit": "12.00",
-        "info": "For students in MPhil-PhD Statistics"
+        "info": "For students in MPhil-PhD Statistics",
+        "term_1": true,
+        "term_2": true
     }
 ]

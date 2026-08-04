@@ -2,33 +2,45 @@
     {
         "code": "ASEI 1090",
         "title": "Field trip to GBA: Aerospace Sciences and Earth Informatics",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "ASEI 2010",
         "title": "Introduction to Aerospace Science and Earth Informatics",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "ASEI 2090",
         "title": "China Field Trip: Aerospace Science and Earth Informatics",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "ASEI 3010",
         "title": "Rocket and Spacecraft Dynamics",
         "unit": "3.00",
-        "info": "Pre-requisite(s): ENGG1125 or MATH1010 or MATH1510 or MATH1520"
+        "info": "Pre-requisite(s): ENGG1125 or MATH1010 or MATH1510 or MATH1520",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "ASEI 3020",
         "title": "Sensor Systems for Earth and Space Observation",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "ASEI 4010",
         "title": "Aerospace Earth Informatics",
         "unit": "3.00",
-        "info": "Pre-requisite(s): ENGG1125 or MATH1010 or MATH1510 or MATH1520"
+        "info": "Pre-requisite(s): ENGG1125 or MATH1010 or MATH1510 or MATH1520",
+        "term_1": false,
+        "term_2": false
     }
 ]

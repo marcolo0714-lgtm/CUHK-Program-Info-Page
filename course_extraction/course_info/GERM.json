@@ -3,110 +3,148 @@
         "code": "GERM 1000",
         "title": "German I",
         "unit": "3.00",
-        "info": "Not for students who have taken GERM2000,2001,2050,3000,3001,3002,3050,3051 or 4001"
+        "info": "Not for students who have taken GERM2000,2001,2050,3000,3001,3002,3050,3051 or 4001",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "GERM 1001",
         "title": "First Step in German",
         "unit": "1.00",
-        "info": "Not for students who have taken GERM1000,2000,2001,2050,3000,3001,3002,3050,3051or4001 From 2023-24, students can only earn up to 2 units of these courses: CLCP1001,CLCP1101,CLCC1001,CLCC1101,JASP1350,HKSL1001,SPAN1001,GERM1001,KORE1001,FREN1001"
+        "info": "Not for students who have taken GERM1000,2000,2001,2050,3000,3001,3002,3050,3051or4001 From 2023-24, students can only earn up to 2 units of these courses: CLCP1001,CLCP1101,CLCC1001,CLCC1101,JASP1350,HKSL1001,SPAN1001,GERM1001,KORE1001,FREN1001",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "GERM 1100",
         "title": "Germany Today",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "GERM 2000",
         "title": "German II",
         "unit": "3.00",
-        "info": "1. Not for students who have taken GERM2001,2050,3000,3001,3002,3050,3051 or 4001 2. Prerequisite: GERM1000"
+        "info": "1. Not for students who have taken GERM2001,2050,3000,3001,3002,3050,3051 or 4001 2. Prerequisite: GERM1000",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "GERM 2001",
         "title": "German III",
         "unit": "3.00",
-        "info": "1. Not for students who have taken GERM3000,3001,3002,3050, 3051 or 4001 2. Prerequisite: GERM2000 or 2050"
+        "info": "1. Not for students who have taken GERM3000,3001,3002,3050, 3051 or 4001 2. Prerequisite: GERM2000 or 2050",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "GERM 2020",
         "title": "Sounds of German",
         "unit": "3.00",
-        "info": "Prerequisite: GERM2000,2001,2050,3000,3001,3002,3050,3051 or 4001"
+        "info": "Prerequisite: GERM2000,2001,2050,3000,3001,3002,3050,3051 or 4001",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "GERM 2050",
         "title": "German I & II",
         "unit": "6.00",
-        "info": "Not for students who have taken GERM1000,2000,2001,3000,3001,3002,3050,3051 or 4001"
+        "info": "Not for students who have taken GERM1000,2000,2001,3000,3001,3002,3050,3051 or 4001",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "GERM 2100",
         "title": "Exploring German Literature",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "GERM 2200",
         "title": "German Cinema",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "GERM 3000",
         "title": "German IV",
         "unit": "3.00",
-        "info": "1. Not for students who have taken GERM3001,3002,3050,3051 or 4001 2. Prerequisite: GERM2001"
+        "info": "1. Not for students who have taken GERM3001,3002,3050,3051 or 4001 2. Prerequisite: GERM2001",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "GERM 3001",
         "title": "German V",
         "unit": "3.00",
-        "info": "1. Not for students who have taken GERM3002,3051 or 4001 2. Prerequisite: GERM3000 or GERM3050"
+        "info": "1. Not for students who have taken GERM3002,3051 or 4001 2. Prerequisite: GERM3000 or GERM3050",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "GERM 3002",
         "title": "German VI",
         "unit": "3.00",
-        "info": "1. Not for students who have taken GERM3051 or 4001 2. Prerequisite: GERM3001"
+        "info": "1. Not for students who have taken GERM3051 or 4001 2. Prerequisite: GERM3001",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "GERM 3020",
         "title": "German Conversation",
         "unit": "3.00",
-        "info": "Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001"
+        "info": "Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "GERM 3041",
         "title": "German for Professional Communication",
         "unit": "3.00",
-        "info": "Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001"
+        "info": "Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "GERM 3050",
         "title": "German III & IV",
         "unit": "6.00",
-        "info": "1.Not for students who have taken GERM2001,3000,3001,3002,3051 or 4001 2.Prerequisite: GERM2000 or GERM2050"
+        "info": "1.Not for students who have taken GERM2001,3000,3001,3002,3051 or 4001 2.Prerequisite: GERM2000 or GERM2050",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "GERM 3051",
         "title": "German V & VI",
         "unit": "6.00",
-        "info": "Not for students who have taken GERM3001,3002 or 4001 Prerequisite: GERM3000 or GERM3050"
+        "info": "Not for students who have taken GERM3001,3002 or 4001 Prerequisite: GERM3000 or GERM3050",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "GERM 3060",
         "title": "German through Fairy Tales",
         "unit": "3.00",
-        "info": "Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001"
+        "info": "Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "GERM 3100",
         "title": "Special Topics in German",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "GERM 4001",
         "title": "German VII",
         "unit": "3.00",
-        "info": "Prerequisites: GERM3002 or 3051"
+        "info": "Prerequisites: GERM3002 or 3051",
+        "term_1": false,
+        "term_2": false
     }
 ]

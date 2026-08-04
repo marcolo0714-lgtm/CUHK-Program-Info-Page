@@ -3,263 +3,353 @@
         "code": "FNSC 2001",
         "title": "Introduction to Food Science and Technology",
         "unit": "2.00",
-        "info": "Co-requisite: BCHE2030."
+        "info": "Co-requisite: BCHE2030.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 2002",
         "title": "Nutrition for Health",
         "unit": "2.00",
-        "info": "Pre-requisite: FNSC2001."
+        "info": "Pre-requisite: FNSC2001.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 2005",
         "title": "Ethics and Professionalism for Nutritionists",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 3001",
         "title": "Food Science Laboratory I",
         "unit": "2.00",
-        "info": "Co-requisite: FNSC3110."
+        "info": "Co-requisite: FNSC3110.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 3002",
         "title": "Nutritional Science Laboratory I",
         "unit": "2.00",
-        "info": "Prerequisite: FNSC3030. Co-requisite: FNSC3010."
+        "info": "Prerequisite: FNSC3030. Co-requisite: FNSC3010.",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "FNSC 3010",
         "title": "Nutrition and Human Development",
         "unit": "3.00",
-        "info": "Pre-requisite: FNSC3030. Co-requisite: FNSC3002."
+        "info": "Pre-requisite: FNSC3030. Co-requisite: FNSC3002.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 3030",
         "title": "Nutritional Biochemistry",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 3110",
         "title": "Food Chemistry and Analysis",
         "unit": "3.00",
-        "info": "Co-requisite: FNSC3001."
+        "info": "Co-requisite: FNSC3001.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 3180",
         "title": "Food Microbiology",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 4001",
         "title": "Food Science Laboratory II",
         "unit": "2.00",
-        "info": "Pre-requisite: FNSC4110. Co-requisite: FNSC4170."
+        "info": "Pre-requisite: FNSC4110. Co-requisite: FNSC4170.",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "FNSC 4002",
         "title": "Nutritional Science Laboratory II",
         "unit": "2.00",
-        "info": "Co-requisite: FNSC4120."
+        "info": "Co-requisite: FNSC4120.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 4101",
         "title": "Human Physiology for Nutrition Studies I",
         "unit": "3.00",
-        "info": "Not for students who have taken BIOL3630 or FNSC5130. Pre-requisite: LSCI1002 or LSCI1003."
+        "info": "Not for students who have taken BIOL3630 or FNSC5130. Pre-requisite: LSCI1002 or LSCI1003.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 4102",
         "title": "Human Physiology for Nutrition Studies II",
         "unit": "3.00",
-        "info": "Not for students who have taken BCHE4130 or FNSC5320. Pre-requisite: FNSC4101."
+        "info": "Not for students who have taken BCHE4130 or FNSC5320. Pre-requisite: FNSC4101.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 4110",
         "title": "Food Technology",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 4120",
         "title": "Community Nutrition",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 4150",
         "title": "Introduction to Medical Nutrition Therapy",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 4160",
         "title": "Nutrition Planning and Food Policy",
         "unit": "3.00",
-        "info": "Pre-requisite: FNSC4120."
+        "info": "Pre-requisite: FNSC4120.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 4170",
         "title": "Food Product Development and Quality Control",
         "unit": "3.00",
-        "info": "Pre-requisite: FNSC4110."
+        "info": "Pre-requisite: FNSC4110.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 4901",
         "title": "Senior Experimental Project I",
         "unit": "2.00",
-        "info": "-"
+        "info": "-",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 4902",
         "title": "Senior Experimental Project II",
         "unit": "2.00",
-        "info": "-"
+        "info": "-",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 4903",
         "title": "Senior Experimental Project III",
         "unit": "2.00",
-        "info": "Pre-requisite: FNSC4902."
+        "info": "Pre-requisite: FNSC4902.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 4906",
         "title": "Internship",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 4907",
         "title": "Nutrition Practicum",
         "unit": "2.00",
-        "info": "Pre-requisite: FNSC4906"
+        "info": "Pre-requisite: FNSC4906",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 5101",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Food & Nutritional Sciences"
+        "info": "For students in MPhil-PhD Food & Nutritional Sciences",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 5110",
         "title": "Chemical, Physical and Microbiological Characteristics of Food",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Food and Nutritional Sciences or MSc Nutrition, Food Science and Technology Not for students who have taken LSCI5811"
+        "info": "For students in MPhil-PhD Food and Nutritional Sciences or MSc Nutrition, Food Science and Technology Not for students who have taken LSCI5811",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 5120",
         "title": "Nutrition and the Challenge of Non-communicable Disease",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Food and Nutritional Sciences or MSc Nutrition, Food Science and Technology Not for students who have taken LSCI5812"
+        "info": "For students in MPhil-PhD Food and Nutritional Sciences or MSc Nutrition, Food Science and Technology Not for students who have taken LSCI5812",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 5201",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Food & Nutritional Sciences"
+        "info": "For students in MPhil-PhD Food & Nutritional Sciences",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 5210",
         "title": "Food Processing Technology and Food Biotechnology",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Food and Nutritional Sciences or MSc Nutrition, Food Science and Technology Not for students who have taken LSCI5821"
+        "info": "For students in MPhil-PhD Food and Nutritional Sciences or MSc Nutrition, Food Science and Technology Not for students who have taken LSCI5821",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 5220",
         "title": "Nutrition and Immunity across the Life Span",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Food and Nutritional Sciences or MSc Nutrition, Food Science and Technology Not for students who have taken LSCI5822"
+        "info": "For students in MPhil-PhD Food and Nutritional Sciences or MSc Nutrition, Food Science and Technology Not for students who have taken LSCI5822",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 5301",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Food & Nutritional Sci"
+        "info": "For students in MPhil-PhD Food & Nutritional Sci",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 5320",
         "title": "Nutritional Physiology",
         "unit": "3.00",
-        "info": "For students in MSc Nutrition, Food Science and Technology or MPhil-PhD Food and Nutritional Sciences Course Exclusion: LSCI5832"
+        "info": "For students in MSc Nutrition, Food Science and Technology or MPhil-PhD Food and Nutritional Sciences Course Exclusion: LSCI5832",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 5420",
         "title": "Applied Nutrition",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Food and Nutritional Sciences or MSc Nutrition, Food Science and Technology Not for students who have taken LSCI5842"
+        "info": "For students in MPhil-PhD Food and Nutritional Sciences or MSc Nutrition, Food Science and Technology Not for students who have taken LSCI5842",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 5430",
         "title": "Food Toxicology & Safety",
         "unit": "3.00",
-        "info": "For students in MSc Nutrition, Food Science and Technology or MPhil-PhD Food and Nutritional Sciences or BSc Food and Nutritional Sciences Not for students who have taken LSCI5843"
+        "info": "For students in MSc Nutrition, Food Science and Technology or MPhil-PhD Food and Nutritional Sciences or BSc Food and Nutritional Sciences Not for students who have taken LSCI5843",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 6313",
         "title": "Directed Research and Seminar I",
         "unit": "3.00",
-        "info": "For students in MSc Nutrition, Food Science and Technology"
+        "info": "For students in MSc Nutrition, Food Science and Technology",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "FNSC 6413",
         "title": "Directed Research and Seminar II",
         "unit": "3.00",
-        "info": "For students in MSc Nutrition, Food Science and Technology Prerequisite: FNSC6313"
+        "info": "For students in MSc Nutrition, Food Science and Technology Prerequisite: FNSC6313",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "FNSC 7101",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Food and Nutritional Sciences"
+        "info": "For students in MPhil-PhD Food and Nutritional Sciences",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 7201",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Food and Nutritional Sciences"
+        "info": "For students in MPhil-PhD Food and Nutritional Sciences",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 7301",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Food and Nutritional Sciences"
+        "info": "For students in MPhil-PhD Food and Nutritional Sciences",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 7401",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Food and Nutritional Sciences"
+        "info": "For students in MPhil-PhD Food and Nutritional Sciences",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 7501",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Food and Nutritional Sciences"
+        "info": "For students in MPhil-PhD Food and Nutritional Sciences",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 7601",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Food and Nutritional Sciences"
+        "info": "For students in MPhil-PhD Food and Nutritional Sciences",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 7701",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Food and Nutritional Sciences"
+        "info": "For students in MPhil-PhD Food and Nutritional Sciences",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 8003",
         "title": "Thesis Research",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Food & Nutritional Sciences"
+        "info": "For students in MPhil-PhD Food & Nutritional Sciences",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 8006",
         "title": "Thesis Research",
         "unit": "6.00",
-        "info": "For students in MPhil-PhD Food & Nutritional Sciences"
+        "info": "For students in MPhil-PhD Food & Nutritional Sciences",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "FNSC 8012",
         "title": "Thesis Research",
         "unit": "12.00",
-        "info": "For students in MPhil-PhD Food & Nutritional Sciences"
+        "info": "For students in MPhil-PhD Food & Nutritional Sciences",
+        "term_1": false,
+        "term_2": false
     }
 ]

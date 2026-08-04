@@ -3,59 +3,79 @@
         "code": "ITAL 1000",
         "title": "Italian I",
         "unit": "3.00",
-        "info": "Not for students who have taken ITAL2000,2001,2050,3000,3001,3002,3050 or 3051"
+        "info": "Not for students who have taken ITAL2000,2001,2050,3000,3001,3002,3050 or 3051",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "ITAL 1100",
         "title": "Society and Culture in Contemporary Italy",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "ITAL 2000",
         "title": "Italian II",
         "unit": "3.00",
-        "info": "1. Not for students who have taken ITAL2001,2050,3000,3001,3002,3050 or 3051 2. Prerequisite: ITAL1000"
+        "info": "1. Not for students who have taken ITAL2001,2050,3000,3001,3002,3050 or 3051 2. Prerequisite: ITAL1000",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "ITAL 2001",
         "title": "Italian III",
         "unit": "3.00",
-        "info": "1. Not for students who have taken ITAL3000,3001,3002,3050 or 3051 2. Prerequisite: ITAL2000 or 2050"
+        "info": "1. Not for students who have taken ITAL3000,3001,3002,3050 or 3051 2. Prerequisite: ITAL2000 or 2050",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "ITAL 2050",
         "title": "Italian I & II",
         "unit": "6.00",
-        "info": "Not for students who have taken ITAL1000,2000,2001,3000,3001,3002,3050 or 3051"
+        "info": "Not for students who have taken ITAL1000,2000,2001,3000,3001,3002,3050 or 3051",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "ITAL 3000",
         "title": "Italian IV",
         "unit": "3.00",
-        "info": "1. Not for students who have taken ITAL3001,3002,3050 or 3051 2. Prerequisite: ITAL2001"
+        "info": "1. Not for students who have taken ITAL3001,3002,3050 or 3051 2. Prerequisite: ITAL2001",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "ITAL 3001",
         "title": "Italian V",
         "unit": "3.00",
-        "info": "1. Not for students who have taken ITAL3002 or 3051 2. Prerequisite: ITAL3000 or 3050"
+        "info": "1. Not for students who have taken ITAL3002 or 3051 2. Prerequisite: ITAL3000 or 3050",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "ITAL 3002",
         "title": "Italian VI",
         "unit": "3.00",
-        "info": "1. Not for students who have taken ITAL3051 2. Prerequisite: ITAL3001"
+        "info": "1. Not for students who have taken ITAL3051 2. Prerequisite: ITAL3001",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "ITAL 3050",
         "title": "Italian III & IV",
         "unit": "6.00",
-        "info": "1.Pre-requisite: ITAL2000 or 2050 2.Not for students who have taken ITAL2001,3000,3001,3002 or 3051"
+        "info": "1.Pre-requisite: ITAL2000 or 2050 2.Not for students who have taken ITAL2001,3000,3001,3002 or 3051",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "ITAL 3051",
         "title": "Italian V & VI",
         "unit": "6.00",
-        "info": "1.Not for students who have taken ITAL3001 or 3002 2.Pre-requisite: ITAL3000 or 3050"
+        "info": "1.Not for students who have taken ITAL3001 or 3002 2.Pre-requisite: ITAL3000 or 3050",
+        "term_1": false,
+        "term_2": false
     }
 ]

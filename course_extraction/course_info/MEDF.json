@@ -3,44 +3,60 @@
         "code": "MEDF 1010",
         "title": "Foundation Course for Health Sciences I (for MBChB only)",
         "unit": "3.00",
-        "info": "FO - MBChB Major"
+        "info": "FO - MBChB Major",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "MEDF 1011",
         "title": "Foundation Course for Health Sciences I",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "MEDF 1012",
         "title": "Foundation Course for Health Sciences II",
         "unit": "3.00",
-        "info": "Not for students who have taken UGEC1920 or PHPC1001"
+        "info": "Not for students who have taken UGEC1920 or PHPC1001",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MEDF 1021",
         "title": "Public Health and Healthcare Ethics",
         "unit": "2.00",
-        "info": "Not for students who have taken UGEC1920 or PHPC1001"
+        "info": "Not for students who have taken UGEC1920 or PHPC1001",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MEDF 1031",
         "title": "Communication Skills",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MEDF 1041",
         "title": "Interprofessional Healthcare I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "MEDF 1042",
         "title": "Interprofessional Healthcare II",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MEDF 1120",
         "title": "Public Health",
         "unit": "2.00",
-        "info": "For MBChB Major Not for students who have taken UGEC1920 or PHPC1001"
+        "info": "For MBChB Major Not for students who have taken UGEC1920 or PHPC1001",
+        "term_1": false,
+        "term_2": false
     }
 ]

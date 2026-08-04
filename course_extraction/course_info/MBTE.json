@@ -2,208 +2,280 @@
     {
         "code": "MBTE 2000",
         "title": "Introduction to Molecular Biotechnology",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 2010",
         "title": "Diversity of Life: Applications and Sustainability",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 3000",
         "title": "Business and Social Aspects of Biotechnology",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "MBTE 3510",
         "title": "Medical Biotechnology",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "MBTE 3511",
         "title": "Industrial applications of plant genetic modification",
         "unit": "1.00",
-        "info": "Not for students who have taken MBTE4510."
+        "info": "Not for students who have taken MBTE4510.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "MBTE 3518",
         "title": "Project in Medical Biotechnology",
         "unit": "2.00",
-        "info": "Co-requisite: MBTE3510."
+        "info": "Co-requisite: MBTE3510.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "MBTE 3521",
         "title": "Transgenic Technologies in Animals and their Applications",
         "unit": "1.00",
-        "info": "Not for students who have taken MBTE4520."
+        "info": "Not for students who have taken MBTE4520.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 3528",
         "title": "Project in Transgenic technologies in Animals and their Applications",
         "unit": "2.00",
-        "info": "Not for students who have taken MBTE4520. Co-requisite: MBTE3521."
+        "info": "Not for students who have taken MBTE4520. Co-requisite: MBTE3521.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 3531",
         "title": "Microbes and Bioremediation",
         "unit": "1.00",
-        "info": "Not for students who have taken MBTE4530."
+        "info": "Not for students who have taken MBTE4530.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 3550",
         "title": "Biotechnology for Environment and Sustainability",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 3558",
         "title": "Project in Biotechnology for Environment and Sustainability",
         "unit": "2.00",
-        "info": "Co-requisite: MBTE3550."
+        "info": "Co-requisite: MBTE3550.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 3560",
         "title": "Protein Engineering and Drug Design",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 3568",
         "title": "Project in Protein Engineering and Drug Design",
         "unit": "2.00",
-        "info": "Co-requisite: MBTE3560."
+        "info": "Co-requisite: MBTE3560.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 4033",
         "title": "Methods in Molecular Biotechnology Laboratory I",
         "unit": "2.00",
-        "info": "Not for students who have taken BCHE3650, CMBI3010 or SBMS2105."
+        "info": "Not for students who have taken BCHE3650, CMBI3010 or SBMS2105.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "MBTE 4034",
         "title": "Methods in Molecular Biotechnology Lab II",
         "unit": "2.00",
-        "info": "Not for students who have taken CMBI3010. Pre-requisite: MBTE4033 or LSCI2002."
+        "info": "Not for students who have taken CMBI3010. Pre-requisite: MBTE4033 or LSCI2002.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 4320",
         "title": "Genetic Engineering",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "MBTE 4510",
         "title": "Plant Biotechnology",
         "unit": "3.00",
-        "info": "-"
+        "info": "-",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "MBTE 4520",
         "title": "Animal Biotechnology",
         "unit": "3.00",
-        "info": "-"
+        "info": "-",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 4530",
         "title": "Microbial Biotechnology",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 4901",
         "title": "Senior Experimental Project I",
         "unit": "2.00",
-        "info": "-"
+        "info": "-",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 4902",
         "title": "Senior Experimental Project II",
         "unit": "2.00",
-        "info": "-"
+        "info": "-",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "MBTE 4903",
         "title": "Senior Experimental Project III",
         "unit": "2.00",
-        "info": "-"
+        "info": "-",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "MBTE 4906",
         "title": "Internship",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 5101",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 5201",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 5301",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 7101",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 7201",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 7301",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 7401",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 7501",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 7601",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 7701",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 8003",
         "title": "Thesis Research",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "MBTE 8006",
         "title": "Thesis Research",
         "unit": "6.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "MBTE 8012",
         "title": "Thesis Research",
         "unit": "12.00",
-        "info": "For students in MPhil-PhD Molecular Biotechnology"
+        "info": "For students in MPhil-PhD Molecular Biotechnology",
+        "term_1": false,
+        "term_2": false
     }
 ]

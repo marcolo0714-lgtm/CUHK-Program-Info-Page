@@ -2,213 +2,285 @@
     {
         "code": "RMSC 1101",
         "title": "Elementary Concepts in Risk Management",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "RMSC 2001",
         "title": "Introduction to Risk Management",
         "unit": "3.00",
-        "info": "-"
+        "info": "-",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "RMSC 2101",
         "title": "Introductory Topics in Risk Management",
         "unit": "1.00",
-        "info": "Pre-requisite: RMSC1101 or consent of instructor."
+        "info": "Pre-requisite: RMSC1101 or consent of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 3001",
         "title": "Principles of Credit Risk Management",
         "unit": "3.00",
-        "info": "Pre-requisite: RMSC2001 or consent of instructor."
+        "info": "Pre-requisite: RMSC2001 or consent of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 3101",
         "title": "Special Topics in Risk Management",
-        "unit": "1.00"
+        "unit": "1.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 4001",
         "title": "Simulation Methods for Risk Management Science and Finance",
         "unit": "3.00",
-        "info": "Prerequisite:RMSC2001 or consent of instructor"
+        "info": "Prerequisite:RMSC2001 or consent of instructor",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "RMSC 4002",
         "title": "Financial Data Analytics with Machine Learning",
         "unit": "3.00",
-        "info": "Prerequisite:RMSC2001, STAT2001 and STAT2006, or consent of instructor"
+        "info": "Prerequisite:RMSC2001, STAT2001 and STAT2006, or consent of instructor",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "RMSC 4003",
         "title": "Statistical Modelling in Financial Markets",
         "unit": "3.00",
-        "info": "Prerequisite:RMSC2001 or consent of instructor"
+        "info": "Prerequisite:RMSC2001 or consent of instructor",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "RMSC 4004",
         "title": "Theory of Risk and Insurance",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 4005",
         "title": "Stochastic Calculus for Finance and Risk",
         "unit": "3.00",
-        "info": "Prerequisite:RMSC2001 or consent of instructor"
+        "info": "Prerequisite:RMSC2001 or consent of instructor",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 4006",
         "title": "Operational Risk Management",
         "unit": "3.00",
-        "info": "Pre-requisite: RMSC2001 or consent of instructor."
+        "info": "Pre-requisite: RMSC2001 or consent of instructor.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "RMSC 4007",
         "title": "Risk Management with Derivatives Concepts",
         "unit": "3.00",
-        "info": "Prerequisite: RMSC2001, 4001 & 4003 or consent of instructor."
+        "info": "Prerequisite: RMSC2001, 4001 & 4003 or consent of instructor.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "RMSC 4102",
         "title": "Research Project",
         "unit": "3.00",
-        "info": "Pre-requisite: RMSC3101 or consent of instructor."
+        "info": "Pre-requisite: RMSC3101 or consent of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 4112",
         "title": "Research Project in Risk Analytics",
         "unit": "3.00",
-        "info": "Pre-requisite: RMSC3101 or consent of instructor."
+        "info": "Pre-requisite: RMSC3101 or consent of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 4202",
         "title": "Practicum",
         "unit": "3.00",
-        "info": "Prerequisite: RMSC2001 & FINA2010 or 2110 or consent of instructor."
+        "info": "Prerequisite: RMSC2001 & FINA2010 or 2110 or consent of instructor.",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "RMSC 4212",
         "title": "Practicum in Risk Analytics",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "RMSC 5001",
         "title": "Advanced Statistical Theory in Risk Management",
         "unit": "3.00",
-        "info": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
+        "info": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 5002",
         "title": "Principles of Risk Management",
         "unit": "3.00",
-        "info": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
+        "info": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "RMSC 5003",
         "title": "Risk Measures",
         "unit": "3.00",
-        "info": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MPhil Risk Management Science"
+        "info": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MPhil Risk Management Science",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "RMSC 5004",
         "title": "Cases for Risk Management in Practice",
         "unit": "3.00",
-        "info": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MPhil Risk Management Science"
+        "info": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MPhil Risk Management Science",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 5101",
         "title": "Statistical Methods in Risk Management and Finance",
         "unit": "3.00",
-        "info": "For students in MSc in Data Science and Business Statistics, MSc in Risk Management Science and Data Analytics and MSc in Advanced Studies in Statistics and Data Science"
+        "info": "For students in MSc in Data Science and Business Statistics, MSc in Risk Management Science and Data Analytics and MSc in Advanced Studies in Statistics and Data Science",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "RMSC 5102",
         "title": "Simulation Techniques in Risk Management and Finance",
         "unit": "3.00",
-        "info": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
+        "info": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 6001",
         "title": "Interest Rates and Fixed Incomes Risk Management",
         "unit": "3.00",
-        "info": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MSc in Data Science and Business Statistics"
+        "info": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MSc in Data Science and Business Statistics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 6002",
         "title": "Credit Risk Management",
         "unit": "3.00",
-        "info": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
+        "info": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "RMSC 6003",
         "title": "Risk Management in Financial Institutions",
         "unit": "3.00",
-        "info": "For students in MSc in Data Science and Business Statistics, MSc in Risk Management Science and Data Analytics, MSc in Advanced Studies in Statistics and Data Science and MPhil Risk Management Science"
+        "info": "For students in MSc in Data Science and Business Statistics, MSc in Risk Management Science and Data Analytics, MSc in Advanced Studies in Statistics and Data Science and MPhil Risk Management Science",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "RMSC 6004",
         "title": "Special Topics in Risk Management",
         "unit": "3.00",
-        "info": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics, MPhil Risk Management Science and MSc in Data Science and Business Statistics"
+        "info": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics, MPhil Risk Management Science and MSc in Data Science and Business Statistics",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "RMSC 6005",
         "title": "Special Topics in Quantitative Finance",
         "unit": "3.00",
-        "info": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics, MPhil Risk Management Science and MSc in Data Science and Business Statistics"
+        "info": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics, MPhil Risk Management Science and MSc in Data Science and Business Statistics",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "RMSC 6006",
         "title": "Portfolio Theory with Risk Management Perspective",
         "unit": "3.00",
-        "info": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MPhil Risk Management Science"
+        "info": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MPhil Risk Management Science",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "RMSC 6007",
         "title": "Risk and Financial Data Analytics with Python",
         "unit": "3.00",
-        "info": "For students in MSc Risk Management Science and Data Analytics; MSc in Data Science and Business Statistics"
+        "info": "For students in MSc Risk Management Science and Data Analytics; MSc in Data Science and Business Statistics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 6008",
         "title": "Practicum",
         "unit": "3.00",
-        "info": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
+        "info": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 8206",
         "title": "Research for Thesis",
         "unit": "6.00",
-        "info": "For students in MPhil Risk Management Science"
+        "info": "For students in MPhil Risk Management Science",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 8207",
         "title": "Research for Thesis",
         "unit": "3.00",
-        "info": "For students in MPhil Risk Management Science"
+        "info": "For students in MPhil Risk Management Science",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 8301",
         "title": "Research for Thesis",
         "unit": "6.00",
-        "info": "For students in MPhil Risk Management Science"
+        "info": "For students in MPhil Risk Management Science",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "RMSC 8302",
         "title": "Research for Thesis",
         "unit": "6.00",
-        "info": "For students in MPhil Risk Management Science"
+        "info": "For students in MPhil Risk Management Science",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "RMSC 8303",
         "title": "Research for Thesis",
         "unit": "6.00",
-        "info": "For students in MPhil Risk Management Science"
+        "info": "For students in MPhil Risk Management Science",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "RMSC 8304",
         "title": "Research for Thesis",
         "unit": "6.00",
-        "info": "For students in MPhil Risk Management Science"
+        "info": "For students in MPhil Risk Management Science",
+        "term_1": false,
+        "term_2": false
     }
 ]

@@ -3,30 +3,40 @@
         "code": "GESH 1000",
         "title": "College Symposium",
         "unit": "0.00",
-        "info": "S.H. Ho College Symposium"
+        "info": "S.H. Ho College Symposium",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "GESH 1010",
         "title": "Orientation and Outreach",
         "unit": "3.00",
-        "info": "For Year 1 S.H. Ho College Students only"
+        "info": "For Year 1 S.H. Ho College Students only",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "GESH 2011",
         "title": "Service-learning: Bringing Knowledge to Life",
         "unit": "1.00",
-        "info": "1. For S.H. Ho College Year 2 or above students only. 2. Not for students who have taken GESH4010."
+        "info": "1. For S.H. Ho College Year 2 or above students only. 2. Not for students who have taken GESH4010.",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "GESH 2012",
         "title": "Service-learning: Action towards Personhood",
         "unit": "2.00",
-        "info": "For students who have already taken GESH2011 only. Not for students who have taken GESH4010."
+        "info": "For students who have already taken GESH2011 only. Not for students who have taken GESH4010.",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "GESH 4010",
         "title": "Work and Productive Life",
         "unit": "3.00",
-        "info": "For S.H. Ho College Year 3 or above students only. Not for students who have taken GESH2011 or 2012."
+        "info": "For S.H. Ho College Year 3 or above students only. Not for students who have taken GESH2011 or 2012.",
+        "term_1": false,
+        "term_2": false
     }
 ]

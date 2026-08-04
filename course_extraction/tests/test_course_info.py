@@ -147,6 +147,12 @@ class TestStoredIntegrity:
             assert "unit" in entry, f"[{major_code}] entry missing 'unit' key"
 
             code = entry["code"]
+
+            assert "term_1" in entry, f"[{major_code}] entry missing 'term_1' key: '{code}'"
+            assert "term_2" in entry, f"[{major_code}] entry missing 'term_2' key: '{code}'"
+            assert isinstance(entry.get("term_1"), bool), f"[{major_code}] 'term_1' not boolean: '{code}'"
+            assert isinstance(entry.get("term_2"), bool), f"[{major_code}] 'term_2' not boolean: '{code}'"
+
             number = parse_course_number(code)
 
             assert number is not None, (

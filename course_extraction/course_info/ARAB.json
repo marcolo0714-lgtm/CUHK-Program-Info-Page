@@ -3,24 +3,32 @@
         "code": "ARAB 1000",
         "title": "Arabic I",
         "unit": "3.00",
-        "info": "Not for students who have taken ARAB2000,2001,2050,3000 or 3050"
+        "info": "Not for students who have taken ARAB2000,2001,2050,3000 or 3050",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "ARAB 2000",
         "title": "Arabic II",
         "unit": "3.00",
-        "info": "Prerequisite: ARAB1000 Not for students who have taken ARAB2001,2050,3000 or 3050"
+        "info": "Prerequisite: ARAB1000 Not for students who have taken ARAB2001,2050,3000 or 3050",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "ARAB 2001",
         "title": "Arabic III",
         "unit": "3.00",
-        "info": "Pre-requisite: ARAB2000 or 2050 Not for students who have taken ARAB3000 or 3050"
+        "info": "Pre-requisite: ARAB2000 or 2050 Not for students who have taken ARAB3000 or 3050",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "ARAB 2050",
         "title": "Arabic I & II",
         "unit": "6.00",
-        "info": "Not for students who have taken ARAB1000,2000,2001,3000 or 3050"
+        "info": "Not for students who have taken ARAB1000,2000,2001,3000 or 3050",
+        "term_1": false,
+        "term_2": false
     }
 ]

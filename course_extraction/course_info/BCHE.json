@@ -2,235 +2,315 @@
     {
         "code": "BCHE 2000",
         "title": "Frontiers in Biochemistry",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BCHE 2030",
         "title": "Fundamentals of Biochemistry",
         "unit": "3.00",
-        "info": "-"
+        "info": "-",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BCHE 2070",
         "title": "Research Internship",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "BCHE 3030",
         "title": "Methods in Biochemistry",
         "unit": "3.00",
-        "info": "Pre-requisite: BCHE2030 or permission of instructor."
+        "info": "Pre-requisite: BCHE2030 or permission of instructor.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BCHE 3040",
         "title": "Proteins and Enzymes",
         "unit": "3.00",
-        "info": "Pre-requisite: BCHE2030 or permission of instructor."
+        "info": "Pre-requisite: BCHE2030 or permission of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BCHE 3050",
         "title": "Molecular Biology",
         "unit": "2.00",
-        "info": "Not for students who have taken BCHE4010 or BIOL2310."
+        "info": "Not for students who have taken BCHE4010 or BIOL2310.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BCHE 3070",
         "title": "Recombinant DNA Techniques",
         "unit": "1.00",
-        "info": "Not for students who have taken BCHE4020."
+        "info": "Not for students who have taken BCHE4020.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BCHE 3080",
         "title": "Bioenergetics and Metabolism",
         "unit": "3.00",
-        "info": "Pre-requisite: BCHE2030 or permission of instructor."
+        "info": "Pre-requisite: BCHE2030 or permission of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BCHE 3090",
         "title": "Self-study Modules in Biochemistry",
         "unit": "2.00",
-        "info": "Not for students who have taken BCHE3092. Pre-requisite: BCHE2000."
+        "info": "Not for students who have taken BCHE3092. Pre-requisite: BCHE2000.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 3092",
         "title": "Self-study Modules in Biochemistry and Professional Development",
         "unit": "3.00",
-        "info": "Not for students who have taken BCHE3090. Pre-requisite: BCHE2000."
+        "info": "Not for students who have taken BCHE3090. Pre-requisite: BCHE2000.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BCHE 3110",
         "title": "Chemical Biology",
         "unit": "3.00",
-        "info": "Pre-requisite: BCHE2030 and one of the following three courses: CHEM1070 or 1072 or 1280."
+        "info": "Pre-requisite: BCHE2030 and one of the following three courses: CHEM1070 or 1072 or 1280.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 3650",
         "title": "Molecular Biology and Recombinant DNA Laboratory",
         "unit": "2.00",
-        "info": "Not for students who have taken BCHE4610."
+        "info": "Not for students who have taken BCHE4610.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BCHE 3730",
         "title": "Analytical Biochemistry Laboratory",
         "unit": "2.00",
-        "info": "Not for students who have taken BCHE3630. Pre-requisite: BCHE3650. Co-requisite: BCHE3030."
+        "info": "Not for students who have taken BCHE3630. Pre-requisite: BCHE3650. Co-requisite: BCHE3030.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BCHE 4030",
         "title": "Clinical Biochemistry",
         "unit": "3.00",
-        "info": "Pre-requisite: BCHE2030 or permission of instructor."
+        "info": "Pre-requisite: BCHE2030 or permission of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BCHE 4040",
         "title": "Aspects of Neuroscience",
         "unit": "3.00",
-        "info": "Pre-requisite: BCHE2030 or permission of instructor."
+        "info": "Pre-requisite: BCHE2030 or permission of instructor.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BCHE 4060",
         "title": "Basic and Applied Immunology",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BCHE 4070",
         "title": "Management and Accreditation of Biochemical Laboratory",
         "unit": "3.00",
-        "info": "Not for students who have taken BBMS6300. Pre-requisite: BCHE2030 or permission of instructor."
+        "info": "Not for students who have taken BBMS6300. Pre-requisite: BCHE2030 or permission of instructor.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BCHE 4080",
         "title": "Biochemistry for Forensic Sciences",
         "unit": "2.00",
-        "info": "Pre-requisite: BCHE2030 or permission of instructor."
+        "info": "Pre-requisite: BCHE2030 or permission of instructor.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BCHE 4090",
         "title": "Biochemistry for Sport and Exercise",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BCHE 4130",
         "title": "Molecular Endocrinology",
         "unit": "3.00",
-        "info": "Not for students who have taken FNSC4102."
+        "info": "Not for students who have taken FNSC4102.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BCHE 4640",
         "title": "Aspects of Neuroscience Laboratory",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 4760",
         "title": "Immunology and Haematology Laboratory",
         "unit": "2.00",
-        "info": "Not for students who have taken BCHE4660."
+        "info": "Not for students who have taken BCHE4660.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BCHE 4830",
         "title": "Medical Biochemistry Laboratory",
-        "unit": "2.00"
+        "unit": "2.00",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BCHE 4901",
         "title": "Senior Experimental Project I",
         "unit": "2.00",
-        "info": "Not for students who have taken BCHE4910. Pre-requisite: BCHE3090 or BCHE3092."
+        "info": "Not for students who have taken BCHE4910. Pre-requisite: BCHE3090 or BCHE3092.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 4902",
         "title": "Senior Experimental Project II",
         "unit": "2.00",
-        "info": "Not for students who have taken BCHE4910. Pre-requisite: BCHE3090 or BCHE3092."
+        "info": "Not for students who have taken BCHE4910. Pre-requisite: BCHE3090 or BCHE3092.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "BCHE 4903",
         "title": "Senior Experimental Project III",
         "unit": "2.00",
-        "info": "Not for students who have taken BCHE4910. Pre-requisite: BCHE3090 (or BCHE3092) & BCHE4902."
+        "info": "Not for students who have taken BCHE4910. Pre-requisite: BCHE3090 (or BCHE3092) & BCHE4902.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "BCHE 4910",
         "title": "Group Research in Biochemistry",
         "unit": "3.00",
-        "info": "Not for students who have taken BCHE4902 or LSCI4000. Pre-requisite: BCHE3090 or BCHE3092."
+        "info": "Not for students who have taken BCHE4902 or LSCI4000. Pre-requisite: BCHE3090 or BCHE3092.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 5101",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 5201",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 5301",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 7101",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 7201",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 7301",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 7401",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 7501",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 7601",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 7701",
         "title": "Seminar",
         "unit": "1.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 8003",
         "title": "Thesis Research",
         "unit": "3.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "BCHE 8006",
         "title": "Thesis Research",
         "unit": "6.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "BCHE 8012",
         "title": "Thesis Research",
         "unit": "12.00",
-        "info": "For students in MPhil-PhD Biochemistry"
+        "info": "For students in MPhil-PhD Biochemistry",
+        "term_1": false,
+        "term_2": false
     }
 ]

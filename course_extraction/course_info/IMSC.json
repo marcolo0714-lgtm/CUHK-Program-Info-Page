@@ -3,168 +3,243 @@
         "code": "IMSC 1038",
         "title": "Algebra I",
         "unit": "3.00",
-        "info": "Not for students who have taken MATH1030/1038."
+        "info": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.",
+        "term_1": true,
+        "term_2": true
     },
     {
         "code": "IMSC 1113",
         "title": "Basic Physics I",
         "unit": "3.00",
-        "info": "Not for students who have taken PHYS1111 or 1113."
+        "info": "Not for students who have taken PHYS1111 or 1113.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "IMSC 1122",
         "title": "Basic Physics II",
         "unit": "3.00",
-        "info": "Not for students who have taken PHYS1122. Pre-requisite: IMSC2018."
+        "info": "Not for students who have taken PHYS1122.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 2018",
         "title": "Calculus I",
         "unit": "3.00",
-        "info": "Not for students who have taken any one of MATH2010/2018, 2020/2028. Co-requisite: IMSC1038."
+        "info": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "IMSC 2028",
         "title": "Calculus II",
         "unit": "3.00",
-        "info": "Not for students who have taken MATH2020/2028. Pre-requisite: IMSC2018."
+        "info": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221. Pre-requisite: IMSC2018.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "IMSC 2041",
         "title": "Basic Physics III",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "IMSC 2048",
         "title": "Algebra II",
         "unit": "3.00",
-        "info": "Not for students who have taken MATH2040/2048. Pre-requisite: IMSC1038."
+        "info": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221. Pre-requisite: IMSC1038.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "IMSC 2058",
         "title": "Analysis I",
         "unit": "3.00",
-        "info": "Not for students who have taken MATH2050/2058. Co-requisite: IMSC1038."
+        "info": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "IMSC 2068",
         "title": "Analysis II",
         "unit": "3.00",
-        "info": "Not for students who have taken MATH2060/2068. Pre-requisite: IMSC2058."
+        "info": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221. Pre-requisite: IMSC2058.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "IMSC 2078",
         "title": "Algebra III",
-        "unit": "3.00"
+        "unit": "3.00",
+        "info": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221. Pre-requisites: IMSC1038 and (IMSC2048 or MATH2046).",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "IMSC 2230",
         "title": "Complex Analysis",
-        "unit": "3.00"
+        "unit": "3.00",
+        "info": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221. Pre-requisite: IMSC2028.",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "IMSC 2240",
         "title": "Analysis III",
-        "unit": "3.00"
+        "unit": "3.00",
+        "info": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221. Pre-requisites: IMSC2028 and (IMSC2058 or IMSC2068 or MATH2066).",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 3250",
         "title": "Geometry I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "info": "Not for students who have taken MATH3070 or 4030 or 5061 or 5062 or 5070. Pre-requisite: IMSC2028.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "IMSC 3260",
         "title": "Topology I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "info": "Not for students who have taken MATH3070 or 4030 or 5061 or 5062 or 5070. Pre-requisite: IMSC2028.",
+        "term_1": true,
+        "term_2": false
     },
     {
         "code": "IMSC 3270",
         "title": "Differential Equations I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "info": "Not for students who have taken MATH3270 or 4220 or 5021 or 5022. Pre-requisite: IMSC2028",
+        "term_1": false,
+        "term_2": true
     },
     {
         "code": "IMSC 3280",
         "title": "Probability Theory I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "info": "Not for students who have taken MATH3280 or 4240. Pre-requisite: IMSC2028.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 3290",
         "title": "Numerical Mathematics I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "info": "Not for students who have taken MATH3230 or 3240 or 5211 or 5212. Pre-requisite: IMSC2028.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 3300",
         "title": "Mathematical Foundations of Data Analytics and Machine Learning",
-        "unit": "3.00"
+        "unit": "3.00",
+        "info": "Not for students who have taken MATH3320 or 3330 or 3340 or 4230 or 4280. Pre-requisite: IMSC2028.",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4011",
         "title": "Intermediate Topics in Algebra and Number Theory I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4012",
         "title": "Intermediate Topics in Algebra and Number Theory II",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4021",
         "title": "Intermediate Topics in Analysis and Differential Equations I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4022",
         "title": "Intermediate Topics in Analysis and Differential Equations II",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4031",
         "title": "Intermediate Topics in Geometry and Topology I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4032",
         "title": "Intermediate Topics in Geometry and Topology II",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4041",
         "title": "Intermediate Topics in Computational and Applied Mathematics I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4042",
         "title": "Intermediate Topics in Computational and Applied Mathematics II",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4051",
         "title": "Intermediate Topics in Probability and Statistics I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4052",
         "title": "Intermediate Topics in Probability and Statistics II",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4061",
         "title": "Intermediate Topics in Mathematical Physics I",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4062",
         "title": "Intermediate Topics in Mathematical Physics II",
-        "unit": "3.00"
+        "unit": "3.00",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4800",
         "title": "Undergraduate Project",
-        "unit": "3.00"
+        "unit": "3.00",
+        "info": "Not for students who have taken IMSC4900 or MATH4400 or MATH4900. Pre-requisites: IMSC2028 and IMSC2041 and IMSC2048 and IMSC2068 and IMSC2230 and MATH2221 and PHYS3011 and PHYS3021 and (IMSC2078 or 2240).",
+        "term_1": false,
+        "term_2": false
     },
     {
         "code": "IMSC 4900",
         "title": "Undergraduate Seminar",
-        "unit": "3.00"
+        "unit": "3.00",
+        "info": "Not for students who have taken IMSC4800 or MATH4400 or MATH4900. Pre-requisites: IMSC1038 and IMSC2028.",
+        "term_1": false,
+        "term_2": false
     }
 ]
