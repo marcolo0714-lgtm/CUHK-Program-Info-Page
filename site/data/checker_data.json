@@ -43212,6 +43212,14 @@
                   "unit": 3.0
                 },
                 {
+                  "code": "GPAD 1020",
+                  "unit": 3.0
+                },
+                {
+                  "code": "GPAD 1030",
+                  "unit": 3.0
+                },
+                {
                   "code": "GPAD 1046",
                   "unit": 3.0
                 },
@@ -43253,6 +43261,10 @@
                 },
                 {
                   "code": "GPAD 1077",
+                  "unit": 3.0
+                },
+                {
+                  "code": "GPAD 1095",
                   "unit": 3.0
                 },
                 {
@@ -43569,7 +43581,7 @@
                 }
               ],
               "strategy": "pick_n",
-              "dedup_count": 93,
+              "dedup_count": 96,
               "n": 5,
               "level_constraint": [
                 {
@@ -48516,6 +48528,10 @@
               "text": "(b) 4 HIST courses excluding HIST1001 and 1002, with at least 2 courses at 3000 or above level",
               "codes": [
                 {
+                  "code": "HIST 1000",
+                  "unit": 3.0
+                },
+                {
                   "code": "HIST 1700",
                   "unit": 3.0
                 },
@@ -49229,7 +49245,7 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 178,
+              "dedup_count": 179,
               "units_needed": 12.0,
               "level_constraint": [
                 {
@@ -50082,6 +50098,10 @@
               "text": "15 units of COMM courses",
               "codes": [
                 {
+                  "code": "COMM 1110",
+                  "unit": 3.0
+                },
+                {
                   "code": "COMM 1120",
                   "unit": 3.0
                 },
@@ -50927,7 +50947,7 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 211,
+              "dedup_count": 212,
               "units_needed": 15.0
             }
           ]
@@ -52335,6 +52355,10 @@
               "text": "(c) 2 LING courses excluding LING3405, 3406, 4000 and 4001[a]",
               "codes": [
                 {
+                  "code": "LING 1000",
+                  "unit": 3.0
+                },
+                {
                   "code": "LING 1001",
                   "unit": 3.0
                 },
@@ -52347,6 +52371,22 @@
                   "unit": 3.0
                 },
                 {
+                  "code": "LING 2003",
+                  "unit": 3.0
+                },
+                {
+                  "code": "LING 2004",
+                  "unit": 3.0
+                },
+                {
+                  "code": "LING 2005",
+                  "unit": 3.0
+                },
+                {
+                  "code": "LING 2006",
+                  "unit": 3.0
+                },
+                {
                   "code": "LING 2007",
                   "unit": 3.0
                 },
@@ -52356,6 +52396,10 @@
                 },
                 {
                   "code": "LING 2301",
+                  "unit": 3.0
+                },
+                {
+                  "code": "LING 3101",
                   "unit": 3.0
                 },
                 {
@@ -52379,11 +52423,19 @@
                   "unit": 3.0
                 },
                 {
+                  "code": "LING 3201",
+                  "unit": 3.0
+                },
+                {
                   "code": "LING 3202",
                   "unit": 3.0
                 },
                 {
                   "code": "LING 3203",
+                  "unit": 3.0
+                },
+                {
+                  "code": "LING 3204",
                   "unit": 3.0
                 },
                 {
@@ -52596,7 +52648,7 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 65,
+              "dedup_count": 72,
               "units_needed": 6.0
             }
           ]
@@ -53675,6 +53727,10 @@
               "text": "(b) Any MUSC courses other than the courses taken to fulfill requirement (1) and (2a) above, excluding MUSC1012, 1022, 1051, 1061, 2012, 2022, 2051, 2061, 3012, 3022, 3051, 3061, 4000, 4003, 4051, 4061. Courses taken should include at least 6 units of courses at 3000 or above level and not more than 4 units of courses from Area 2B and/or 2C.",
               "codes": [
                 {
+                  "code": "MUSC 1000",
+                  "unit": 3.0
+                },
+                {
                   "code": "MUSC 1001",
                   "unit": 1.0
                 },
@@ -53761,6 +53817,14 @@
                 {
                   "code": "MUSC 1042",
                   "unit": 1.0
+                },
+                {
+                  "code": "MUSC 1212",
+                  "unit": 2.0
+                },
+                {
+                  "code": "MUSC 1222",
+                  "unit": 2.0
                 },
                 {
                   "code": "MUSC 2001",
@@ -53855,6 +53919,14 @@
                   "unit": 2.0
                 },
                 {
+                  "code": "MUSC 2252",
+                  "unit": 2.0
+                },
+                {
+                  "code": "MUSC 2262",
+                  "unit": 2.0
+                },
+                {
                   "code": "MUSC 2333",
                   "unit": 2.0
                 },
@@ -53883,11 +53955,27 @@
                   "unit": 2.0
                 },
                 {
+                  "code": "MUSC 2552",
+                  "unit": 2.0
+                },
+                {
+                  "code": "MUSC 2562",
+                  "unit": 2.0
+                },
+                {
                   "code": "MUSC 2612",
                   "unit": 2.0
                 },
                 {
                   "code": "MUSC 2622",
+                  "unit": 2.0
+                },
+                {
+                  "code": "MUSC 2872",
+                  "unit": 2.0
+                },
+                {
+                  "code": "MUSC 2882",
                   "unit": 2.0
                 },
                 {
@@ -54493,34 +54581,10 @@
                 {
                   "code": "MUSC 8026",
                   "unit": 3.0
-                },
-                {
-                  "code": "MUSC 2252",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2262",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2552",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2562",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2872",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2882",
-                  "unit": 2.0
                 }
               ],
               "strategy": "units",
-              "dedup_count": 211,
+              "dedup_count": 214,
               "units_needed": 7.0,
               "level_constraint": [
                 {
@@ -54648,54 +54712,6 @@
             {
               "text": "PHIL courses other than PHIL1110 are elective courses. Students are required to take at least 6 units of courses at 3000 or above level.",
               "codes": [
-                {
-                  "code": "PHIL 1210",
-                  "unit": 3.0
-                },
-                {
-                  "code": "PHIL 1310",
-                  "unit": 3.0
-                },
-                {
-                  "code": "PHIL 1413",
-                  "unit": 3.0
-                },
-                {
-                  "code": "PHIL 2020",
-                  "unit": 3.0
-                },
-                {
-                  "code": "PHIL 2030",
-                  "unit": 3.0
-                },
-                {
-                  "code": "PHIL 2040",
-                  "unit": 3.0
-                },
-                {
-                  "code": "PHIL 2050",
-                  "unit": 3.0
-                },
-                {
-                  "code": "PHIL 2060",
-                  "unit": 3.0
-                },
-                {
-                  "code": "PHIL 2202",
-                  "unit": 3.0
-                },
-                {
-                  "code": "PHIL 2301",
-                  "unit": 3.0
-                },
-                {
-                  "code": "PHIL 2302",
-                  "unit": 3.0
-                },
-                {
-                  "code": "PHIL 2400",
-                  "unit": 3.0
-                },
                 {
                   "code": "PHIL 3000",
                   "unit": 3.0
@@ -55186,7 +55202,7 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 134,
+              "dedup_count": 122,
               "level_constraint": [
                 {
                   "min_units_needed": 6,
@@ -58264,6 +58280,14 @@
               "text": "Any 5 TRAN courses, excluding TRAN1000, with at least 6 units of courses at 3000 or above.",
               "codes": [
                 {
+                  "code": "TRAN 1010",
+                  "unit": 3.0
+                },
+                {
+                  "code": "TRAN 1030",
+                  "unit": 3.0
+                },
+                {
                   "code": "TRAN 1120",
                   "unit": 3.0
                 },
@@ -58597,7 +58621,7 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 83,
+              "dedup_count": 85,
               "units_needed": 15.0,
               "level_constraint": [
                 {

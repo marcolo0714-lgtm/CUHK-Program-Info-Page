@@ -373,9 +373,13 @@ def resolve_row(text, existing_codes, valid_subjects, course_index,
     # Extract exclusion codes from text
     excluded = extract_exclusion_codes(text, valid_subjects)
 
-    # Combine with codes from earlier rows in the same minor
+    # Only exclude earlier-row courses when the row text has a blanket
+    # cross-row reference (e.g., "and those listed above"). Dynamic
+    # references ("courses taken to fulfill requirement above") are
+    # handled by the checker's cross_row_exclude instead.
     earlier = earlier_codes or set()
-    full_exclude = excluded | earlier
+    _blanket_above = re.search(r'and\s+those\s+listed\s+above', text, re.IGNORECASE)
+    full_exclude = (excluded | earlier) if _blanket_above else excluded
 
     # Check for area filter that constrains the set of courses
     area_filtered = has_area_filter(text)
@@ -529,9 +533,23 @@ def diagnostic_mode():
 
 
 def apply_mode():
-    """Generate course_overrides.json."""
+    """Generate course_overrides.json, preserving manually-filled entries."""
     print("Resolving course descriptions...")
     overrides, stats = build_overrides(verbose=False)
+
+    # Preserve manually-filled codes from existing override file
+    if OVERRIDE_FILE.exists():
+        existing = json.loads(OVERRIDE_FILE.read_text(encoding="utf-8"))
+        preserved = 0
+        for stem, rows in existing.items():
+            for text, codes in rows.items():
+                if codes and len(codes) > 0:  # manually filled
+                    if stem in overrides and text in overrides[stem]:
+                        if not overrides[stem][text]:  # would be wiped as empty
+                            overrides[stem][text] = codes
+                            preserved += 1
+        if preserved:
+            print(f"Preserved {preserved} manually-filled entry(s) from existing overrides.")
 
     # Write the override file
     OVERRIDE_FILE.write_text(
