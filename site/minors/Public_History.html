@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,44 +259,44 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Course : 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">HIST1700, 1701</span></div></div>
-<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>HIST 1700</td><td>Introduction to Public History: Theory and Practice</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 1701</td><td>History for Tomorrow: Technology and the Humanities</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>HIST 1700</td><td>Introduction to Public History: Theory and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>HIST 1701</td><td>History for Tomorrow: Technology and the Humanities</td><td></td><td class="term-yes"></td><td>—</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) Any 1 course from the following:</span><span class="meta">(3 units)</span></div><div class="req-row"><span class="row-text">HIST2002, 2005, 2006, 2007</span></div></div>
-<details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>HIST 2002</td><td>Historiography (Advanced)</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 2005</td><td>Introduction to World History: Antiquity</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 2006</td><td>Introduction to World History: Middle Ages</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 2007</td><td>Introduction to World History: Modern Era</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>HIST 2002</td><td>Historiography (Advanced)</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>HIST 2005</td><td>Introduction to World History: Antiquity</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>HIST 2006</td><td>Introduction to World History: Middle Ages</td><td></td><td></td><td>—</td></tr>
+<tr><td>HIST 2007</td><td>Introduction to World History: Modern Era</td><td class="term-yes"></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) Any 2 courses from the following:</span><span class="meta">(6 units)</span></div><div class="req-row"><span class="row-text">HIST2010, 2701, 3441, 3701, 4702, 4703, 4704</span></div></div>
-<details class="course-details"><summary>Show 7 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>HIST 2010</td><td>Oral History: Methods and Practices</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 2701</td><td>Local History and Public History</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken HIST2501.</span></td></tr>
-<tr><td>HIST 3441</td><td>Museum and Heritage</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 3701</td><td>History, Memory, and Monuments</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 4702</td><td>Digital History</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 4703</td><td>Christianity in World History</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 4704</td><td>Women, Society, and Politics in Modern China</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 7 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>HIST 2010</td><td>Oral History: Methods and Practices</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>HIST 2701</td><td>Local History and Public History</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST2501.</span></td></tr>
+<tr><td>HIST 3441</td><td>Museum and Heritage</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>HIST 3701</td><td>History, Memory, and Monuments</td><td></td><td></td><td>—</td></tr>
+<tr><td>HIST 4702</td><td>Digital History</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>HIST 4703</td><td>Christianity in World History</td><td></td><td></td><td>—</td></tr>
+<tr><td>HIST 4704</td><td>Women, Society, and Politics in Modern China</td><td class="term-yes"></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(c) Any 1 course from the following:</span><span class="meta">(3 units)</span></div><div class="req-row"><span class="row-text">HIST2110, 2500 or 2501, 3103, 3404, 3406, 3505, 4142, 4500, 4502, 4600, 4700, 4701, 4910</span></div></div>
-<details class="course-details"><summary>Show 14 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>HIST 2110</td><td>Walking through Chinese History</td><td>3.00</td><td><span class="prereq-sentence">Not for HIstory Majors.</span><span class="prereq-sentence">Not for student who have taken HIST1001.</span></td></tr>
-<tr class="eq-row"><td>HIST 2500</td><td>History of Hong Kong</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken UGEC2945 or HIST2501.</span></td></tr>
-<tr><td>HIST 2501</td><td>Hong Kong History in the Field</td><td>3.00</td><td><span class="prereq-sentence">Not for HIstory Majors.</span><span class="prereq-sentence">Not for student who have taken HIST2500/ HIST2701.</span></td></tr>
-<tr><td>HIST 3103</td><td>Daily Life in Han China</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 3404</td><td>Historical Literature and Documents</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>HIST 3406</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>HIST 3505</td><td>Land Law and Custom in the New Territories</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 4142</td><td>History of Material Culture in Ancient China</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken HIST4140.</span></td></tr>
-<tr><td>HIST 4500</td><td>Topic Studies in Hong Kong History</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>HIST 4502</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>HIST 4600</td><td>Topic Studies in Comparative History</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 4700</td><td>Topic Studies in Public History</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>HIST 4701</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr class="nf"><td>HIST 4910</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
+<details class="course-details"><summary>Show 14 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>HIST 2110</td><td>Walking through Chinese History</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for HIstory Majors.</span><span class="prereq-sentence">Not for student who have taken HIST1001.</span></td></tr>
+<tr class="eq-row"><td>HIST 2500</td><td>History of Hong Kong</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2945 or HIST2501.</span></td></tr>
+<tr><td>HIST 2501</td><td>Hong Kong History in the Field</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for HIstory Majors.</span><span class="prereq-sentence">Not for student who have taken HIST2500/ HIST2701.</span></td></tr>
+<tr><td>HIST 3103</td><td>Daily Life in Han China</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>HIST 3404</td><td>Historical Literature and Documents</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr class="nf"><td>HIST 3406</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>HIST 3505</td><td>Land Law and Custom in the New Territories</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>HIST 4142</td><td>History of Material Culture in Ancient China</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST4140.</span></td></tr>
+<tr><td>HIST 4500</td><td>Topic Studies in Hong Kong History</td><td></td><td></td><td>—</td></tr>
+<tr class="nf"><td>HIST 4502</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>HIST 4600</td><td>Topic Studies in Comparative History</td><td></td><td></td><td>—</td></tr>
+<tr><td>HIST 4700</td><td>Topic Studies in Public History</td><td></td><td></td><td>—</td></tr>
+<tr class="nf"><td>HIST 4701</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>HIST 4910</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in History, History and English Double Major Programme, History and Japanese Studies Double Major Programme, English and History Double Major Programme and Japanese Studies and History Double Major Programme.</span></div>

@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,65 +259,65 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">GDRS1001 and 1002</span><span class="meta">(6 units)</span></div></div>
-<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>GDRS 1001</td><td>Thinking Gender: An Introduction to Gender Studies</td><td>3.00</td><td><span class="prereq-sentence">GDRS1001 is double-coded with UGEC1209.</span><span class="prereq-sentence">Not for students who have taken ANTH2310, GENA2192, UGEC1209 or 2653.</span></td></tr>
-<tr><td>GDRS 1002</td><td>Feminisms: Theories, Debates and Activism</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>GDRS 1001</td><td>Thinking Gender: An Introduction to Gender Studies</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">GDRS1001 is double-coded with UGEC1209.</span><span class="prereq-sentence">Not for students who have taken ANTH2310, GENA2192, UGEC1209 or 2653.</span></td></tr>
+<tr><td>GDRS 1002</td><td>Feminisms: Theories, Debates and Activism</td><td></td><td class="term-yes"></td><td>—</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Any 12 units from the following, with a maximum of 6 units of non-GDRS courses:</span></div><div class="req-row"><span class="row-text">ANTH1310, 2310, 2330, 3360, 3540, COMM2920, 3193, CURE2014, 2022, 2036, 2041, 3021, 3131, 3374, ENGE3230, 3690, GDRS2002, 2010, 2011, 3001, 3002, 3003, 3004, 3005, 3006, 3007, 3008, 3009, 3010, 3011, 3012, 3014, 3021, 3024, 3025, 3214, 3999, 4001, 4006, 4007, 4008, 4011, 4012, GPAD3071, HIST3420, 3421, JASP2520, LAWS2250, PHIL3373, PSYC3640, SOCI2218, 3208</span></div></div>
-<details class="course-details"><summary>Show 52 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>ANTH 1310</td><td>Marriage, Family and Kinship</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2310</td><td>Gender and Culture</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GENA2192 or UGEC2653.</span></td></tr>
-<tr><td>ANTH 2330</td><td>Gender in Asia</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3360</td><td>The Anthropology of the Body, Love and Emotions</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3540</td><td>Anthropology of Gender, Sexuality and the Law</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 2920</td><td>Media, Sex and Violence</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 3193</td><td>Media and Gender</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2014</td><td>Body Politics and Representations</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2022</td><td>Feminisms: Thoughts and Movements</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2036</td><td>Queer Theory and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2041</td><td>Gender and Theatre</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>CURE 3021</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr class="nf"><td>CURE 3131</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr class="nf"><td>CURE 3374</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr class="nf"><td>ENGE 3230</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>ENGE 3690</td><td>Gender and Language</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 2002</td><td>Sexuality and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 2010</td><td>Quantitative Research Methods in Gender Studies</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 2011</td><td>Qualitative Research Methods in Gender Studies</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken PSYC2070 and SOCI3231.</span></td></tr>
-<tr><td>GDRS 3001</td><td>Gender Studies: Special Topic I</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 3002</td><td>Gender Studies: Special Topic II</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 3003</td><td>Gender Studies: Field Study</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 3004</td><td>Love and Intimate Relationship</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 3005</td><td>Gender and Sexuality in Contemporary Society</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 3006</td><td>Living Feminisms: Creating a Nonviolent and Collaborative Future</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 3007</td><td>Understanding Masculinities and Social Change</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 3008</td><td>Public Policy and Social Minorities in Hong Kong</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 3009</td><td>Family and Society</td><td>3.00</td><td><span class="prereq-sentence">Not for student who have taken SOCI2218[3222].</span></td></tr>
-<tr><td>GDRS 3010</td><td>Being Trans: Understanding Transgender Lives in the Here and Now</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 3011</td><td>Women's Narratives and Hong Kong History</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 3012</td><td>Engendering Chinese Cultures</td><td>3.00</td><td><span class="prereq-sentence">GDRS3012 is double-coded with UGED3205.</span><span class="prereq-sentence">Not for students who have taken GDRS2007, UGED2205 or 3205.</span></td></tr>
-<tr><td>GDRS 3014</td><td>Experiential Guided Research</td><td>2.00</td><td>—</td></tr>
-<tr><td>GDRS 3021</td><td>LGBTQI+ Studies: Identities and social change</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 3024</td><td>Gender Biases in Education and the Workplace</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GDRS2004 or UGEC2672.</span></td></tr>
-<tr><td>GDRS 3025</td><td>Innovating the Future: Gender, Science and Technology</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 3214</td><td>Media Representations of Minorities in Hong Kong</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GDRS3026, UGEC3214 or UGEC3215.</span></td></tr>
-<tr><td>GDRS 3999</td><td>Talking Across Differences: Compassionate Communication in Action</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GEWS2161.</span></td></tr>
-<tr><td>GDRS 4001</td><td>Gender Studies: Advanced Seminars</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 4006</td><td>Gender in China</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 4007</td><td>Gender, Sexuality and Race in Political Issues</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 4008</td><td>Social Inequalities and Health: Towards Diversity and Equity</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 4011</td><td>Gendered Migration in Transnational Asia and beyond</td><td>3.00</td><td>—</td></tr>
-<tr><td>GDRS 4012</td><td>Gender Development from a Lifespan Perspective</td><td>3.00</td><td>—</td></tr>
-<tr><td>GPAD 3071</td><td>Gender and Politics</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 3420</td><td>Gender and History</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>HIST 3421</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>JASP 2520</td><td>Intimacy in Contemporary Japan</td><td>3.00</td><td>—</td></tr>
-<tr><td>LAWS 2250</td><td>Gender and the Law</td><td>3.00</td><td>—</td></tr>
-<tr><td>PHIL 3373</td><td>Philosophy of Love</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GDRS2003 or UGED2891.</span></td></tr>
-<tr><td>PSYC 3640</td><td>Psychology of Gender</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
-<tr><td>SOCI 2218</td><td>Marriage and Family</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken SOCI3222 (old code) or GESC2320.</span></td></tr>
-<tr><td>SOCI 3208</td><td>Gender and Society</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
+<details class="course-details"><summary>Show 52 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>ANTH 1310</td><td>Marriage, Family and Kinship</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 2310</td><td>Gender and Culture</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken GENA2192 or UGEC2653.</span></td></tr>
+<tr><td>ANTH 2330</td><td>Gender in Asia</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 3360</td><td>The Anthropology of the Body, Love and Emotions</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 3540</td><td>Anthropology of Gender, Sexuality and the Law</td><td></td><td></td><td>—</td></tr>
+<tr><td>COMM 2920</td><td>Media, Sex and Violence</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>COMM 3193</td><td>Media and Gender</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>CURE 2014</td><td>Body Politics and Representations</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2022</td><td>Feminisms: Thoughts and Movements</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CURE 2036</td><td>Queer Theory and Culture</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2041</td><td>Gender and Theatre</td><td></td><td></td><td>—</td></tr>
+<tr class="nf"><td>CURE 3021</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>CURE 3131</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>CURE 3374</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>ENGE 3230</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>ENGE 3690</td><td>Gender and Language</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GDRS 2002</td><td>Sexuality and Culture</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 2010</td><td>Quantitative Research Methods in Gender Studies</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GDRS 2011</td><td>Qualitative Research Methods in Gender Studies</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken PSYC2070 and SOCI3231.</span></td></tr>
+<tr><td>GDRS 3001</td><td>Gender Studies: Special Topic I</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3002</td><td>Gender Studies: Special Topic II</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3003</td><td>Gender Studies: Field Study</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GDRS 3004</td><td>Love and Intimate Relationship</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GDRS 3005</td><td>Gender and Sexuality in Contemporary Society</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3006</td><td>Living Feminisms: Creating a Nonviolent and Collaborative Future</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GDRS 3007</td><td>Understanding Masculinities and Social Change</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GDRS 3008</td><td>Public Policy and Social Minorities in Hong Kong</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3009</td><td>Family and Society</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for student who have taken SOCI2218[3222].</span></td></tr>
+<tr><td>GDRS 3010</td><td>Being Trans: Understanding Transgender Lives in the Here and Now</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3011</td><td>Women's Narratives and Hong Kong History</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3012</td><td>Engendering Chinese Cultures</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3014 [2]</td><td>Experiential Guided Research</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3021</td><td>LGBTQI+ Studies: Identities and social change</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GDRS 3024</td><td>Gender Biases in Education and the Workplace</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken GDRS2004 or UGEC2672.</span></td></tr>
+<tr><td>GDRS 3025</td><td>Innovating the Future: Gender, Science and Technology</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3214</td><td>Media Representations of Minorities in Hong Kong</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken GDRS3026, UGEC3214 or UGEC3215.</span></td></tr>
+<tr><td>GDRS 3999</td><td>Talking Across Differences: Compassionate Communication in Action</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken GEWS2161.</span></td></tr>
+<tr><td>GDRS 4001</td><td>Gender Studies: Advanced Seminars</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 4006</td><td>Gender in China</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 4007</td><td>Gender, Sexuality and Race in Political Issues</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GDRS 4008</td><td>Social Inequalities and Health: Towards Diversity and Equity</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GDRS 4011</td><td>Gendered Migration in Transnational Asia and beyond</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 4012</td><td>Gender Development from a Lifespan Perspective</td><td></td><td></td><td>—</td></tr>
+<tr><td>GPAD 3071</td><td>Gender and Politics</td><td></td><td></td><td>—</td></tr>
+<tr><td>HIST 3420</td><td>Gender and History</td><td></td><td></td><td>—</td></tr>
+<tr class="nf"><td>HIST 3421</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>JASP 2520</td><td>Intimacy in Contemporary Japan</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>LAWS 2250</td><td>Gender and the Law</td><td></td><td></td><td>—</td></tr>
+<tr><td>PHIL 3373</td><td>Philosophy of Love</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken GDRS2003 or UGED2891.</span></td></tr>
+<tr><td>PSYC 3640</td><td>Psychology of Gender</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<tr><td>SOCI 2218</td><td>Marriage and Family</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SOCI3222 (old code) or GESC2320.</span></td></tr>
+<tr><td>SOCI 3208</td><td>Gender and Society</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>

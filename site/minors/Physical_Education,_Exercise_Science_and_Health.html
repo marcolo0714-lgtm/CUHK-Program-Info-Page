@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,50 +259,50 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Elective Courses: 18 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) Professional Skills Courses 3 units of courses chosen from the following:</span><span class="meta">(3 units)</span></div><div class="req-row"><span class="row-text">SPED2011, 2021, 2031, 2041, 2051, 2061, 2111, 2112, 2122, 2131, 2134, 2141, 2211, 3220, 3250</span></div></div>
-<details class="course-details"><summary>Show 15 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>SPED 2011</td><td>Teaching Basketball: Theory and Practice</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 2021</td><td>Teaching Volleyball: Theory and Practice</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 2031</td><td>Teaching Soccer: Theory and Practice</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 2041</td><td>Teaching Handball: Theory and Practice</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 2051</td><td>Teaching Badminton: Theory and Practice</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 2061</td><td>Teaching Table Tennis: Theory and Practice</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 2111</td><td>Teaching Swimming I: Theory and Practice</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 2112</td><td>Teaching Swimming II: Theory and Practice</td><td>1.00</td><td><span class="prereq-sentence">Prerequisite: SPED2111 or SPED2110.</span></td></tr>
-<tr><td>SPED 2122</td><td>Fitness Training for Health and Sports Performance</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 2131</td><td>Teaching Track and Field Events I: Theory and Practice</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 2134</td><td>Teaching Track & Field Events II: Theory & Practice</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 2141</td><td>Fundamental Movement and Dance</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 2211</td><td>Teaching Gymnastics: Theory and Practice</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 3220</td><td>Alternative Sports</td><td>1.00</td><td>—</td></tr>
-<tr><td>SPED 3250</td><td>Teaching Dances: Theory and Practice</td><td>1.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 15 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>SPED 2011 [1]</td><td>Teaching Basketball: Theory and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 2021 [1]</td><td>Teaching Volleyball: Theory and Practice</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SPED 2031 [1]</td><td>Teaching Soccer: Theory and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 2041 [1]</td><td>Teaching Handball: Theory and Practice</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SPED 2051 [1]</td><td>Teaching Badminton: Theory and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 2061 [1]</td><td>Teaching Table Tennis: Theory and Practice</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SPED 2111 [1]</td><td>Teaching Swimming I: Theory and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 2112 [1]</td><td>Teaching Swimming II: Theory and Practice</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: SPED2111 or SPED2110.</span></td></tr>
+<tr><td>SPED 2122 [1]</td><td>Fitness Training for Health and Sports Performance</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SPED 2131 [1]</td><td>Teaching Track and Field Events I: Theory and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 2134 [1]</td><td>Teaching Track & Field Events II: Theory & Practice</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SPED 2141 [1]</td><td>Fundamental Movement and Dance</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 2211 [1]</td><td>Teaching Gymnastics: Theory and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 3220 [1]</td><td>Alternative Sports</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 3250 [1]</td><td>Teaching Dances: Theory and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) Theoretical Courses 15 units of courses chosen from the following:</span><span class="meta">(15 units)</span></div><div class="req-row"><span class="row-text">PHPC1001, 2007, 2016, SPED2520, 2540, 2600, 2610, 2710, 2720, 2810, 3410, 3430, 3440, 3450, 3550, 3630, 3731, 3820, 3910, 3920, 4560, 4570, 4640, 4830, 4900</span></div></div>
-<details class="course-details"><summary>Show 25 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>PHPC 1001</td><td>Foundations in Public Health</td><td>2.00</td><td><span class="prereq-sentence">PHPC1001 is double-coded with UGEC1920.</span><span class="prereq-sentence">Not for students who have taken MEDF1021, 1120, UGEC1920 or UGEC2930.</span></td></tr>
-<tr><td>PHPC 2007</td><td>Nutrition for Health and Exercise</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisites: MEDF1021or MEDF1120 or PHPC1001 or PHPC1012 or UGEC1920 or UGEC2930.</span></td></tr>
-<tr><td>PHPC 2016</td><td>Theories and Concepts of Health Behaviours</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHPC1022 or PHPC2008.</span><span class="prereq-sentence">Not for students who have taken CHPR3002, 3008, 4008 or PHPC1016.</span></td></tr>
-<tr><td>SPED 2520</td><td>Functional Human Anatomy and Sports Injuries</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SPED 2540</td><td>Introduction to Exercise Physiology</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: SPED2520 or PHPC1012.</span></td></tr>
-<tr><td>SPED 2600</td><td>Basic Statistics, Test and Measurement for Physical Education</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 2610</td><td>Introduction to Exercise Biomechanics</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite:SPED2520.</span></td></tr>
-<tr><td>SPED 2710</td><td>Sociology of Physical Education and Sports</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 2720</td><td>Foundation of Physical Education and Sports</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 2810</td><td>Psychomotor Learning</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 3410</td><td>Curriculum Planning for Physical Education</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 3430</td><td>Administration and Management in Physical Education and Sports</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 3440</td><td>Pedagogy of Secondary Physical Education</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 3450</td><td>Pedagogy of Primary Physical Education</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 3550</td><td>Physiology of Human Performance</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite:SPED2540.</span></td></tr>
-<tr><td>SPED 3630</td><td>Introduction to Research Methods</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite:SPED2600.</span></td></tr>
-<tr><td>SPED 3731</td><td>Selected Topics in Sports Sociology</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 3820</td><td>Introduction to Exercise and Sports Psychology</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 3910</td><td>Adapted Physical Education and Sports</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 3920</td><td>Human Growth and Health Education</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 4560</td><td>Physical Fitness Appraisal and Exercise Prescription</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite:SPED2540.</span></td></tr>
-<tr><td>SPED 4570</td><td>Education and Promotion of Exercise and Health</td><td>3.00</td><td>—</td></tr>
-<tr><td>SPED 4640</td><td>Human Kinematics and Kinetics</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite:SPED2610.</span></td></tr>
-<tr><td>SPED 4830</td><td>Psychological Aspects of Sports and Exercise</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite:SPED3820.</span></td></tr>
-<tr><td>SPED 4900</td><td>Research Project</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite:SPED3630.</span></td></tr>
+<details class="course-details"><summary>Show 25 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>PHPC 1001 [2]</td><td>Foundations in Public Health</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">PHPC1001 is double-coded with UGEC1920.</span><span class="prereq-sentence">Not for students who have taken MEDF1021, 1120, UGEC1920 or UGEC2930.</span></td></tr>
+<tr><td>PHPC 2007</td><td>Nutrition for Health and Exercise</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisites: MEDF1021or MEDF1120 or (MEDF1041 and MEDF.</span><span class="prereq-sentence">1042) PHPC1001 or PHPC1012 or UGEC1920 or UGEC2930.</span></td></tr>
+<tr><td>PHPC 2016</td><td>Theories and Concepts of Health Behaviours</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: PHPC1001 or PHPC1022 or PHPC2008.</span><span class="prereq-sentence">Not for students who have taken CHPR3002, 3008, 4008 or PHPC1016.</span></td></tr>
+<tr><td>SPED 2520</td><td>Functional Human Anatomy and Sports Injuries</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>SPED 2540</td><td>Introduction to Exercise Physiology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: SPED2520 or PHPC1012.</span></td></tr>
+<tr><td>SPED 2600</td><td>Basic Statistics, Test and Measurement for Physical Education</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 2610</td><td>Introduction to Exercise Biomechanics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite:SPED2520.</span></td></tr>
+<tr><td>SPED 2710</td><td>Sociology of Physical Education and Sports</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SPED 2720</td><td>Foundation of Physical Education and Sports</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 2810</td><td>Psychomotor Learning</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SPED 3410</td><td>Curriculum Planning for Physical Education</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 3430</td><td>Administration and Management in Physical Education and Sports</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SPED 3440</td><td>Pedagogy of Secondary Physical Education</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 3450</td><td>Pedagogy of Primary Physical Education</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 3550</td><td>Physiology of Human Performance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite:SPED2540.</span></td></tr>
+<tr><td>SPED 3630</td><td>Introduction to Research Methods</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite:SPED2600.</span></td></tr>
+<tr><td>SPED 3731</td><td>Selected Topics in Sports Sociology</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 3820</td><td>Introduction to Exercise and Sports Psychology</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 3910</td><td>Adapted Physical Education and Sports</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SPED 3920</td><td>Human Growth and Health Education</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SPED 4560</td><td>Physical Fitness Appraisal and Exercise Prescription</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite:SPED2540.</span></td></tr>
+<tr><td>SPED 4570</td><td>Education and Promotion of Exercise and Health</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SPED 4640</td><td>Human Kinematics and Kinetics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite:SPED2610.</span></td></tr>
+<tr><td>SPED 4830</td><td>Psychological Aspects of Sports and Exercise</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite:SPED3820.</span></td></tr>
+<tr><td>SPED 4900</td><td>Research Project</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite:SPED3630.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Exercise Science and Health Education, and Human Movement Science and Health Studies.</span></div>

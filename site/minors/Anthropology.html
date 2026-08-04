@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,71 +259,71 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 level or above, as follows:</pre></div>
 <h2>1. Required Course : 3 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">ANTH1010</span></div></div>
-<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>ANTH 1010</td><td>Humans and Culture</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>ANTH 1010</td><td>Humans and Culture</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses : 15 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Any 5 courses from the following, with at least 2 courses at 3000 or above level:</span></div><div class="req-row"><span class="row-text">ANTH1020, 1310, 1410, 1710, 2110, 2111, 2210, 2230, 2310, 2324, 2327, 2330, 2340, 2350, 2351, 2360, 2370, 2380, 2390, 2401, 2402, 2403, 2404, 2410, 2420, 2450, 2510, 2520, 2530, 2540, 2550, 2710, 2720, 2730, 2740, 2760, 2810, 3321, 3322, 3323, 3350, 3360, 3370, 3380, 3390, 3440, 3450, 3540, 3630, 3770, 3780, 3790, 3820, 4210, 4220, 4321, 4330, 4720, 4750</span></div></div>
-<details class="course-details"><summary>Show 59 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>ANTH 1020</td><td>Anthropology: The Study of Global Humanity</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 1310</td><td>Marriage, Family and Kinship</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 1410</td><td>Culture of Hong Kong</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 1710</td><td>Understanding Archaeology</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2110</td><td>History of Anthropological Theory</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2111</td><td>Contemporary Anthropological Theory</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2210</td><td>Anthropological Field Methods</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2230</td><td>Anthropology of Film</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2310</td><td>Gender and Culture</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GENA2192 or UGEC2653.</span></td></tr>
-<tr><td>ANTH 2324</td><td>Indian Cultures and Society</td><td>3.00</td><td><span class="prereq-sentence">ANTH2324 is double-coded with UGEC2655.</span><span class="prereq-sentence">Not for students who have taken ANTH3324 or UGEC2655.</span></td></tr>
-<tr><td>ANTH 2327</td><td>Ethnographies of Japan</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2330</td><td>Gender in Asia</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2340</td><td>Magic, Myth and the Supernatural</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2350</td><td>Meanings of Life</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2351</td><td>Death, Death Ritual and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2360</td><td>Ethics and the Human Experience</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2370</td><td>Intangible Heritage in Hong Kong</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2380</td><td>Environmental Crises and Cultures of Survival</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2390</td><td>Sports and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2401</td><td>Topics in Ethnography I</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2402</td><td>Topics in Ethnography II</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2403</td><td>Topics in Ethnography III</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2404</td><td>Understanding Islam</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2410</td><td>Chinese Culture and Society</td><td>3.00</td><td><span class="prereq-sentence">ANTH2410 is double-coded with UGEA2180.</span><span class="prereq-sentence">Not for students who have taken UGEA2180, 2190 or 2334.</span></td></tr>
-<tr><td>ANTH 2420</td><td>Culture and Modernity in China</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2450</td><td>Peoples and Cultures of Southeast Asia</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2510</td><td>Culture and Business</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2520</td><td>Globalization and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2530</td><td>Political Violence and Human Rights</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2540</td><td>Social Media and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2550</td><td>Working Cultures – Understanding Work in the 21st Century</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2710</td><td>Archaeology of China</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2720</td><td>Archaeology of Hong Kong</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2730</td><td>Preserving Cultural Heritage</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2740</td><td>Deciphering the Past: Culture, Archaeology and Science</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2760</td><td>China's Cultural Heritage</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2810</td><td>Human Evolution</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3321</td><td>Topics in Anthropology I</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3322</td><td>Topics in Anthropology II</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3323</td><td>Topics in Anthropology III</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3350</td><td>Food and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3360</td><td>The Anthropology of the Body, Love and Emotions</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3370</td><td>Tourism and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3380</td><td>Economy, Culture and Power</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3390</td><td>Disability and Difference</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3440</td><td>Anthropological Field Study</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3450</td><td>Seminars in the Anthropology of China</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3540</td><td>Anthropology of Gender, Sexuality and the Law</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3630</td><td>Language, Symbols and Society</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3770</td><td>Making Places: Landscapes, Culture and Society</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3780</td><td>Archaeological Field Methods</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3790</td><td>Archaeological Field Study</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 3820</td><td>Forensic Anthropology</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 4210</td><td>Ethnic Groups, Ethnic Relations and Identities</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ANTH3340.</span></td></tr>
-<tr><td>ANTH 4220</td><td>Visual Anthropology</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 4321</td><td>Topics in Anthropology</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 4330</td><td>Medicine, Health and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 4720</td><td>Museums and Anthropology</td><td>3.00</td><td><span class="prereq-sentence">---.</span></td></tr>
-<tr><td>ANTH 4750</td><td>Archaeology of Food</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: ANTH1710 / UGEC1633 Understanding Archaeology.</span></td></tr>
+<details class="course-details"><summary>Show 59 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>ANTH 1020</td><td>Anthropology: The Study of Global Humanity</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 1310</td><td>Marriage, Family and Kinship</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 1410</td><td>Culture of Hong Kong</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 1710</td><td>Understanding Archaeology</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 2110</td><td>History of Anthropological Theory</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2111</td><td>Contemporary Anthropological Theory</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2210</td><td>Anthropological Field Methods</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 2230</td><td>Anthropology of Film</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2310</td><td>Gender and Culture</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken GENA2192 or UGEC2653.</span></td></tr>
+<tr><td>ANTH 2324</td><td>Indian Cultures and Society</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">ANTH2324 is double-coded with UGEC2655.</span><span class="prereq-sentence">Not for students who have taken ANTH3324 or UGEC2655.</span></td></tr>
+<tr><td>ANTH 2327</td><td>Ethnographies of Japan</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2330</td><td>Gender in Asia</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2340</td><td>Magic, Myth and the Supernatural</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2350</td><td>Meanings of Life</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2351</td><td>Death, Death Ritual and Culture</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2360</td><td>Ethics and the Human Experience</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2370</td><td>Intangible Heritage in Hong Kong</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2380</td><td>Environmental Crises and Cultures of Survival</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2390</td><td>Sports and Culture</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2401</td><td>Topics in Ethnography I</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2402</td><td>Topics in Ethnography II</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 2403</td><td>Topics in Ethnography III</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2404</td><td>Understanding Islam</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2410</td><td>Chinese Culture and Society</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">ANTH2410 is double-coded with UGEA2180.</span><span class="prereq-sentence">Not for students who have taken UGEA2180, 2190 or 2334.</span></td></tr>
+<tr><td>ANTH 2420</td><td>Culture and Modernity in China</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2450</td><td>Peoples and Cultures of Southeast Asia</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 2510</td><td>Culture and Business</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2520</td><td>Globalization and Culture</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 2530</td><td>Political Violence and Human Rights</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2540</td><td>Social Media and Culture</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2550</td><td>Working Cultures – Understanding Work in the 21st Century</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2710</td><td>Archaeology of China</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2720</td><td>Archaeology of Hong Kong</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2730</td><td>Preserving Cultural Heritage</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 2740</td><td>Deciphering the Past: Culture, Archaeology and Science</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2760</td><td>China's Cultural Heritage</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 2810</td><td>Human Evolution</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 3321</td><td>Topics in Anthropology I</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 3322</td><td>Topics in Anthropology II</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 3323</td><td>Topics in Anthropology III</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 3350</td><td>Food and Culture</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 3360</td><td>The Anthropology of the Body, Love and Emotions</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 3370</td><td>Tourism and Culture</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 3380</td><td>Economy, Culture and Power</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 3390</td><td>Disability and Difference</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 3440</td><td>Anthropological Field Study</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 3450</td><td>Seminars in the Anthropology of China</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 3540</td><td>Anthropology of Gender, Sexuality and the Law</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 3630</td><td>Language, Symbols and Society</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 3770</td><td>Making Places: Landscapes, Culture and Society</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 3780</td><td>Archaeological Field Methods</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 3790</td><td>Archaeological Field Study</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 3820</td><td>Forensic Anthropology</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 4210</td><td>Ethnic Groups, Ethnic Relations and Identities</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ANTH3340.</span></td></tr>
+<tr><td>ANTH 4220</td><td>Visual Anthropology</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 4321</td><td>Topics in Anthropology</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 4330</td><td>Medicine, Health and Culture</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 4720</td><td>Museums and Anthropology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">---.</span></td></tr>
+<tr><td>ANTH 4750</td><td>Archaeology of Food</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ANTH1710 / UGEC1633 Understanding Archaeology.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Anthropology</span></div>

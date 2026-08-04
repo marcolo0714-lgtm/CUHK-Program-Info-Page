@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,47 +259,47 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">PSYC1000<span id="ref_a"><a href="#note_a">[a]</a></span>, 2010<span id="ref_b"><a href="#note_b">[b]</a></span></span></div></div>
-<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>PSYC 1000</td><td>General Psychology</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have obtained the following grade in Psychology: IB - 5 or above (HL)/GCE-AL - C or above (AL)/Cambridge Pre-U - P2 or above (Principal course)/HKALE - C or above (AL)/AP Exam - 3 or above.</span><span class="prereq-sentence">Not for students who have taken UGED2581.</span></td></tr>
-<tr><td>PSYC 2010</td><td>Introduction to Statistics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken COMM3110, DSME2011, ECON2121, GRMD2102, LING3403, PHPC2015, SEEM2430, SOCI2004, SPED2600, STAT2101, 2102, 2001 or 2006.</span></td></tr>
+<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>PSYC 1000</td><td>General Psychology</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have obtained the following grade in Psychology: IB - 5 or above (HL)/GCE-AL - C or above (AL)/Cambridge Pre-U - P2 or above (Principal course)/HKALE - C or above (AL)/AP Exam - 3 or above.</span><span class="prereq-sentence">Not for students who have taken UGED2581.</span></td></tr>
+<tr><td>PSYC 2010</td><td>Introduction to Statistics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken COMM3110, DSME2011, ECON2121, GRMD2102, LING3403, PHPC2015, SEEM2430, SOCI2004, SPED2600, STAT2101, 2102, 2001 or 2006.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Any four courses from the following: PSYC2050, 2070, 2190, 2240, 2300, 2350, 2540, 2620, 2650, 2780, 3001, 3002, 3003, 3004, 3005, 3360, 3370, 3430, 3440, 3450, 3460, 3470, 3550, 3610, 3630, 3640, 3660, 3700, 3720, 3730, 3740, 3750, 3810, 3820</span></div></div>
-<details class="course-details"><summary>Show 34 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>PSYC 2050</td><td>Psychological Testing</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC2010 or any of its equivalent courses (COMM3110, DSME2010 & 2020, ECON2121, GRMD2102, SEEM2430, SOCI1004, SPED2600, STAT2101 & 2102, or STAT2001 & 2006).</span></td></tr>
-<tr><td>PSYC 2070</td><td>Qualitative Research Methods</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
-<tr><td>PSYC 2190</td><td>Physiological Psychology</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 2240</td><td>Sensation and Perception</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: (PSYC1000 or UGEC2581 or UGED2581) and PSYC2010 or its equivalent courses (COMM3110, DSME2010 & 2020, ECON2121, GRMD2102, SEEM2430, SOCI1004, SPED2600, STAT2101 & 2102 or STAT2001 & 2006).</span></td></tr>
-<tr><td>PSYC 2300</td><td>Basic Learning Processes</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
-<tr><td>PSYC 2350</td><td>Memory and Cognition</td><td>3.00</td><td><span class="prereq-sentence">1. Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">2. Not for students who have taken UGEB2721 or LING2201.</span></td></tr>
-<tr><td>PSYC 2540</td><td>Developmental Psychology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite:PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken PSYC2530 or PSYC3540 or SOWK2110 or EDUC2310.</span></td></tr>
-<tr><td>PSYC 2620</td><td>Social Psychology</td><td>3.00</td><td><span class="prereq-sentence">Prerepuisite: PSYC1000 or PSYC1620 or PSYC1630 or UGED2581.</span></td></tr>
-<tr><td>PSYC 2650</td><td>Personality Psychology</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
-<tr><td>PSYC 2780</td><td>Neuropsychology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3001</td><td>Special Topics in Cognitive Science</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3002</td><td>Special Topics in Education and Human Development</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3003</td><td>Special Topics in Social and Industrial-Organizational Psychology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3004</td><td>Special Topics in Clinical and Health Psychology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3005</td><td>Special Topics in Psychology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3360</td><td>Human Intelligence</td><td>3.00</td><td><span class="prereq-sentence">1. Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">2. Not for students who have taken UGEB2721.</span></td></tr>
-<tr><td>PSYC 3370</td><td>Psychology and Law</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3430</td><td>Psychology of Language</td><td>3.00</td><td><span class="prereq-sentence">1. Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">2. Not for students who have taken ENGE3610 or LING3202.</span></td></tr>
-<tr><td>PSYC 3440</td><td>Psychology of Music</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3450</td><td>Problem Solving and Creativity</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3460</td><td>Machine Learning in Psychology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3470</td><td>Computational Modeling in Psychology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3550</td><td>Educational Psychology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken EDUC3311.</span></td></tr>
-<tr><td>PSYC 3610</td><td>Culture and Psychology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken PSYC1620.</span></td></tr>
-<tr><td>PSYC 3630</td><td>Culture, Groups and Social Behaviour</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC2620.</span></td></tr>
-<tr><td>PSYC 3640</td><td>Psychology of Gender</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3660</td><td>Emotion and Motivation</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3700</td><td>Abnormal Psychology</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken SOWK2140.</span></td></tr>
-<tr><td>PSYC 3720</td><td>Health Psychology</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3730</td><td>Professional Issues and Development in Mental Health Practice</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000.</span></td></tr>
-<tr><td>PSYC 3740</td><td>Evidence-based Mental Health Practice</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3750</td><td>Counseling Theories and their Applications to Clinical, Career and Organizational Settings</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3810</td><td>Applied Psychology in Business</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3820</td><td>Industrial-Organizational Psychology</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<details class="course-details"><summary>Show 34 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>PSYC 2050</td><td>Psychological Testing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC2010 or any of its equivalent courses (COMM3110, DSME2010 & 2020, ECON2121, GRMD2102, SEEM2430, SOCI1004, SPED2600, STAT2101 & 2102, or STAT2001 & 2006).</span></td></tr>
+<tr><td>PSYC 2070</td><td>Qualitative Research Methods</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<tr><td>PSYC 2190</td><td>Physiological Psychology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 2240</td><td>Sensation and Perception</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: (PSYC1000 or UGEC2581 or UGED2581) and PSYC2010 or its equivalent courses (COMM3110, DSME2010 & 2020, ECON2121, GRMD2102, SEEM2430, SOCI1004, SPED2600, STAT2101 & 2102 or STAT2001 & 2006).</span></td></tr>
+<tr><td>PSYC 2300</td><td>Basic Learning Processes</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<tr><td>PSYC 2350</td><td>Memory and Cognition</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">2. Not for students who have taken UGEB2721 or LING2201.</span></td></tr>
+<tr><td>PSYC 2540</td><td>Developmental Psychology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite:PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken PSYC2530 or PSYC3540 or SOWK2110 or EDUC2310.</span></td></tr>
+<tr><td>PSYC 2620</td><td>Social Psychology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerepuisite: PSYC1000 or PSYC1620 or PSYC1630 or UGED2581.</span></td></tr>
+<tr><td>PSYC 2650</td><td>Personality Psychology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<tr><td>PSYC 2780</td><td>Neuropsychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3001</td><td>Special Topics in Cognitive Science</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3002</td><td>Special Topics in Education and Human Development</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3003</td><td>Special Topics in Social and Industrial-Organizational Psychology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3004</td><td>Special Topics in Clinical and Health Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3005</td><td>Special Topics in Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3360</td><td>Human Intelligence</td><td></td><td></td><td><span class="prereq-sentence">1. Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">2. Not for students who have taken UGEB2721.</span></td></tr>
+<tr><td>PSYC 3370</td><td>Psychology and Law</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3430</td><td>Psychology of Language</td><td></td><td></td><td><span class="prereq-sentence">1. Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">2. Not for students who have taken ENGE3610 or LING3202.</span></td></tr>
+<tr><td>PSYC 3440</td><td>Psychology of Music</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3450</td><td>Problem Solving and Creativity</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3460</td><td>Machine Learning in Psychology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3470</td><td>Computational Modeling in Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3550</td><td>Educational Psychology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken EDUC3311.</span></td></tr>
+<tr><td>PSYC 3610</td><td>Culture and Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken PSYC1620.</span></td></tr>
+<tr><td>PSYC 3630</td><td>Culture, Groups and Social Behaviour</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC2620.</span></td></tr>
+<tr><td>PSYC 3640</td><td>Psychology of Gender</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3660</td><td>Emotion and Motivation</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3700</td><td>Abnormal Psychology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken SOWK2140.</span></td></tr>
+<tr><td>PSYC 3720</td><td>Health Psychology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3730</td><td>Professional Issues and Development in Mental Health Practice</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000.</span></td></tr>
+<tr><td>PSYC 3740</td><td>Evidence-based Mental Health Practice</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3750</td><td>Counseling Theories and their Applications to Clinical, Career and Organizational Settings</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3810</td><td>Applied Psychology in Business</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<tr><td>PSYC 3820</td><td>Industrial-Organizational Psychology</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Entry requirement: Students are required to take PSYC1000 before being admitted to the Minor Programme.</span></div>

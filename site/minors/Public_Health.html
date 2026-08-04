@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,29 +259,29 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">PHPC1001, 1017, 2017</span></div></div>
-<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>PHPC 1001</td><td>Foundations in Public Health</td><td>2.00</td><td><span class="prereq-sentence">PHPC1001 is double-coded with UGEC1920.</span><span class="prereq-sentence">Not for students who have taken MEDF1021, 1120, UGEC1920 or UGEC2930.</span></td></tr>
-<tr><td>PHPC 1017</td><td>Principles of Infectious Diseases</td><td>1.00</td><td><span class="prereq-sentence">Not for students who have taken PHPC1004.</span></td></tr>
-<tr><td>PHPC 2017</td><td>Epidemiology</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken PHPC1014.</span></td></tr>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>PHPC 1001 [2]</td><td>Foundations in Public Health</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">PHPC1001 is double-coded with UGEC1920.</span><span class="prereq-sentence">Not for students who have taken MEDF1021, 1120, UGEC1920 or UGEC2930.</span></td></tr>
+<tr><td>PHPC 1017 [1]</td><td>Principles of Infectious Diseases</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken PHPC1004.</span></td></tr>
+<tr><td>PHPC 2017</td><td>Epidemiology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken PHPC1014 or SBMS2101.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">12 units of courses chosen from the following, with at least 6 units of courses at 3000 or above level: PHPC1022, 2009, 2010, 2011, 2015, 2016, 2020, 3012, 3014, 3016, 3017, 3024, 3028, 4029, 4033</span></div></div>
-<details class="course-details"><summary>Show 15 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>PHPC 1022</td><td>Lifestyle and Health</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken PHPC2008.</span></td></tr>
-<tr><td>PHPC 2009</td><td>Environment and Work</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken CHPR2001.</span></td></tr>
-<tr><td>PHPC 2010</td><td>Health Care System & Policy</td><td>3.00</td><td>—</td></tr>
-<tr><td>PHPC 2011</td><td>Global Health</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite:PHPC1001 or MEDF1021 or UGEC1920 or UGEC2930.</span></td></tr>
-<tr><td>PHPC 2015</td><td>Biostatistics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken -COMM3110, DSME2010,2020,2011,2021, ECON2121, GRMD2102, PHPC1015, PSYC2010, SEEM2430, SOCI2004, SPED2600, STAT2101,2102,2001 or 2006.</span></td></tr>
-<tr><td>PHPC 2016</td><td>Theories and Concepts of Health Behaviours</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHPC1022 or PHPC2008.</span><span class="prereq-sentence">Not for students who have taken CHPR3002, 3008, 4008 or PHPC1016.</span></td></tr>
-<tr><td>PHPC 2020</td><td>Community-based Learning for Healthy Ageing</td><td>3.00</td><td>—</td></tr>
-<tr><td>PHPC 3012</td><td>Public Health Ethics and Law</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: PHPC1001 or UGEC1920 or MEDF1021 or UGEC2930.</span></td></tr>
-<tr><td>PHPC 3014</td><td>Evidence Based Public Health and Healthcare</td><td>3.00</td><td><span class="prereq-sentence">For students of new curriculum only.</span><span class="prereq-sentence">Not for students who have taken PHPC2014.</span><span class="prereq-sentence">Pre-requisites: PHPC2015 & PHPC2017.</span></td></tr>
-<tr><td>PHPC 3016</td><td>Environment and Health</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: PHPC2009 or CHPR2001.</span></td></tr>
-<tr><td>PHPC 3017</td><td>Work and Health</td><td>3.00</td><td>—</td></tr>
-<tr><td>PHPC 3024</td><td>Economics and Financing in Healthcare Systems</td><td>3.00</td><td>—</td></tr>
-<tr><td>PHPC 3028</td><td>Practical Data Collection, Management and Analysis</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken SOCI3229.</span><span class="prereq-sentence">Pre-requisites: (CHPR3117 or PHPC1014 or PHPC2017) and (CHPR3115 or PHPC1015 or PHPC2015).</span></td></tr>
-<tr><td>PHPC 4029</td><td>Health and Healthcare Organisation and Management</td><td>3.00</td><td>—</td></tr>
-<tr><td>PHPC 4033</td><td>Medical Sociology</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 15 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>PHPC 1022 [2]</td><td>Lifestyle, Behaviours and Health</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken PHPC2008.</span></td></tr>
+<tr><td>PHPC 2009</td><td>Environment and Work</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken CHPR2001.</span></td></tr>
+<tr><td>PHPC 2010</td><td>Health Care System & Policy</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>PHPC 2011</td><td>Global Health</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite:PHPC1001 or MEDF1021 or (MEDF1041 and MEDF1042) or UGEC1920 or UGEC2930.</span></td></tr>
+<tr><td>PHPC 2015</td><td>Biostatistics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken -COMM3110, DSME2010,2020,DOTE 2011,2021, ECON2121, GRMD2102, PHPC1015, 2005, PSYC2010, SBMS2101, SEEM2430, SOCI2004, SPED2600, STAT2101,2102,2001 or 2006.</span></td></tr>
+<tr><td>PHPC 2016</td><td>Theories and Concepts of Health Behaviours</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: PHPC1001 or PHPC1022 or PHPC2008.</span><span class="prereq-sentence">Not for students who have taken CHPR3002, 3008, 4008 or PHPC1016.</span></td></tr>
+<tr><td>PHPC 2020</td><td>Community-based Learning for Healthy Ageing</td><td></td><td></td><td>—</td></tr>
+<tr><td>PHPC 3012 [1]</td><td>Public Health Ethics and Law</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: PHPC1001 or UGEC1920 or MEDF1021 or (MEDF1041 and MEDF1042) or UGEC2930.</span></td></tr>
+<tr><td>PHPC 3014</td><td>Evidence Based Public Health and Healthcare</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students of new curriculum only.</span><span class="prereq-sentence">Not for students who have taken PHPC2014.</span><span class="prereq-sentence">Pre-requisites: PHPC2015 & PHPC2017.</span></td></tr>
+<tr><td>PHPC 3016</td><td>Environment and Health</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: PHPC2009 or CHPR2001.</span></td></tr>
+<tr><td>PHPC 3017</td><td>Work and Health</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>PHPC 3024</td><td>Economics and Financing in Healthcare Systems</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>PHPC 3028</td><td>Practical Data Collection, Management and Analysis</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken SOCI3229.</span><span class="prereq-sentence">Pre-requisites: (CHPR3117 or PHPC1014 or PHPC2017) and (CHPR3115 or PHPC1015 or PHPC2015).</span></td></tr>
+<tr><td>PHPC 4029</td><td>Health and Healthcare Organisation and Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>PHPC 4033</td><td>Medical Sociology</td><td class="term-yes"></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Community Health Practice, Gerontology, and Biotechnology, Entrepreneurship and Healthcare Management.</span></div>

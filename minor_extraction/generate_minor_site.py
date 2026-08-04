@@ -28,6 +28,8 @@ def load_course_index():
                     "title": entry.get("title", ""),
                     "unit": entry.get("unit", ""),
                     "prereq": entry.get("info", ""),
+                    "term_1": entry.get("term_1", False),
+                    "term_2": entry.get("term_2", False),
                 }
     return index
 
@@ -40,6 +42,8 @@ def resolve_courses(codes, course_index):
             "title": course_index.get(code, {}).get("title", ""),
             "unit": course_index.get(code, {}).get("unit", ""),
             "prereq": course_index.get(code, {}).get("prereq", ""),
+            "term_1": course_index.get(code, {}).get("term_1", False),
+            "term_2": course_index.get(code, {}).get("term_2", False),
         }
         for code in codes
     ]
@@ -66,13 +70,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -356,6 +364,26 @@ def _format_prereq(prereq):
     return "".join(sentences) if sentences else "\u2014"
 
 
+def _format_code_unit(code, unit):
+    """Combine code and unit: 'ANTH 1010' for 3u, 'MUSC 1001 [1]' otherwise."""
+    try:
+        u = float(unit) if unit else 3.0
+    except (ValueError, TypeError):
+        u = 3.0
+    if u == 3:
+        return code
+    if u == int(u):
+        return f"{code} [{int(u)}]"
+    return f"{code} [{u:.1f}]"
+
+
+def _format_term_cell(available):
+    """Return a <td> with green background if the course is available in that term."""
+    if available:
+        return '<td class="term-yes"></td>'
+    return "<td></td>"
+
+
 def build_course_table(courses, eq_pairs=None):
     """Return HTML <tbody> rows for a list of course objects.
     eq_pairs: set of (code1, code2) tuples that are slash-separated equivalents."""
@@ -371,12 +399,16 @@ def build_course_table(courses, eq_pairs=None):
         if c.get("title"):
             prereq = c["prereq"] if c["prereq"] else "\u2014"
             prereq = _format_prereq(prereq)
+            code_unit = _format_code_unit(c["code"], c.get("unit", ""))
+            t1_cell = _format_term_cell(c.get("term_1", False))
+            t2_cell = _format_term_cell(c.get("term_2", False))
             tr_open = f'<tr class="{eq_cls}">' if eq_cls else '<tr>'
             rows += (
                 f"{tr_open}"
-                f"<td>{c['code']}</td>"
+                f"<td>{code_unit}</td>"
                 f"<td>{c['title']}</td>"
-                f"<td>{c['unit']}</td>"
+                f"{t1_cell}"
+                f"{t2_cell}"
                 f"<td>{prereq}</td>"
                 f"</tr>\n"
             )
@@ -385,7 +417,7 @@ def build_course_table(courses, eq_pairs=None):
             rows += (
                 f'<tr class="{nf_cls}">'
                 f"<td>{c['code']}</td>"
-                f'<td colspan="3"><em>(not found in course_info)</em></td>'
+                f'<td colspan="4"><em>(not found in course_info)</em></td>'
                 f"</tr>\n"
             )
     return rows
@@ -498,7 +530,11 @@ def build_section_html(sec, course_index, eq_pairs=None, is_single=False, desc_u
                 f'<details class="course-details">'
                 f'<summary>Show {len(all_courses)} course(s) →</summary>'
                 f"<table><thead><tr>"
-                f"<th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th>"
+                f'<th title="Course code — [units] shown only when not 3">Code</th>'
+                f'<th title="Course title">Title</th>'
+                f'<th title="Available in 2026-27 Term 1">T1</th>'
+                f'<th title="Available in 2026-27 Term 2">T2</th>'
+                f'<th title="Enrollment requirements">Prerequisites</th>'
                 f"</tr></thead><tbody>\n{tbody}</tbody></table>"
                 f'</details>'
             )

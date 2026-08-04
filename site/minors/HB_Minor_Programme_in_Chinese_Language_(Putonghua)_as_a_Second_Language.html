@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,36 +259,36 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 21 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses: 15 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">LING1000, CLCP2213, 2233, 2253 and 3313</span><span class="meta">(15 units)</span></div></div>
-<details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>LING 1000</td><td>Invitation to Linguistics</td><td>3.00</td><td><span class="prereq-sentence">LING1000 is double-coded with UGED1924.</span><span class="prereq-sentence">Not for students who have taken UGED1924.</span></td></tr>
-<tr><td>CLCP 2213</td><td>Application of Vocabulary and Grammar II</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite:CLCP1133/CPTH1133.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH2233 or above.</span></td></tr>
-<tr><td>CLCP 2233</td><td>Communication in Context II</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCP/CPTH2213.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH3313 or above.</span></td></tr>
-<tr><td>CLCP 2253</td><td>Basic Presentation Skills and Daily Situations II</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCP/CPTH2223.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH3313 or above.</span></td></tr>
-<tr><td>CLCP 3313</td><td>Application of Vocabulary and Grammar III</td><td>3.00</td><td><span class="prereq-sentence">Prerequisites: CLCP/CPTH2233.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH3333 or above.</span></td></tr>
+<details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>LING 1000</td><td>Invitation to Linguistics</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">LING1000 is double-coded with UGED1924.</span><span class="prereq-sentence">Not for students who have taken UGED1924.</span></td></tr>
+<tr><td>CLCP 2213</td><td>Application of Vocabulary and Grammar II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite:CLCP1133/CPTH1133.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH2233 or above.</span></td></tr>
+<tr><td>CLCP 2233</td><td>Communication in Context II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: CLCP/CPTH2213.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH3313 or above.</span></td></tr>
+<tr><td>CLCP 2253</td><td>Basic Presentation Skills and Daily Situations II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: CLCP/CPTH2223.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH3313 or above.</span></td></tr>
+<tr><td>CLCP 3313</td><td>Application of Vocabulary and Grammar III</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisites: CLCP/CPTH2233.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH3333 or above.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) Any 1 course from the following: LING2301, 3202, 3204, 3206 or 3207</span><span class="meta">(3 units)</span></div></div>
-<details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>LING 2301</td><td>Language and Society</td><td>3.00</td><td><span class="prereq-sentence">LING2301 is double-coded with UGEC2925.</span><span class="prereq-sentence">Not for students who have taken UGEC1925 or UGEC2925.</span></td></tr>
-<tr><td>LING 3202</td><td>Psycholinguistics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken PSYC3430.</span></td></tr>
-<tr><td>LING 3204</td><td>Second Language Acquisition</td><td>3.00</td><td>—</td></tr>
-<tr class="eq-row"><td>LING 3206</td><td>Bilingualism</td><td>3.00</td><td>—</td></tr>
-<tr><td>LING 3207</td><td>Bilingual Acquisition</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>LING 2301</td><td>Language and Society</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">LING2301 is double-coded with UGEC2925.</span><span class="prereq-sentence">Not for students who have taken UGEC1925 or UGEC2925.</span></td></tr>
+<tr><td>LING 3202</td><td>Psycholinguistics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken PSYC3430.</span></td></tr>
+<tr><td>LING 3204</td><td>Second Language Acquisition</td><td></td><td></td><td>—</td></tr>
+<tr class="eq-row"><td>LING 3206</td><td>Bilingualism</td><td></td><td></td><td>—</td></tr>
+<tr><td>LING 3207</td><td>Bilingual Acquisition</td><td></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) Any 1 course from the following: CLCP2223, 3323, 3333, 3353, 4413, 4423, 4433, 4443, 4453, 4513, 4533 or 4633</span><span class="meta">(3 units)</span></div></div>
-<details class="course-details"><summary>Show 12 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>CLCP 2223</td><td>Oral Skills Practice II</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCP/CPTH1153.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH2233 or above.</span></td></tr>
-<tr><td>CLCP 3323</td><td>Oral Skills Practice III</td><td>3.00</td><td><span class="prereq-sentence">Prerequisites: CLCP/CPTH2253.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH3353 or above.</span></td></tr>
-<tr><td>CLCP 3333</td><td>Communication in Context III</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCP/CPTH3313.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH4413 or above.</span></td></tr>
-<tr><td>CLCP 3353</td><td>Presentation Skills and Daily Situations</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCP/CPTH3323.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH4413 or above.</span></td></tr>
-<tr><td>CLCP 4413</td><td>News Media and Presentation Skills I</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisites: CLCP/CPTH3333 and CLCP/CPTH3353.</span></td></tr>
-<tr><td>CLCP 4423</td><td>Essay Writing and Presentation Skills</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisites: CLCP/CPTH3333 and CLCP/CPTH3353.</span></td></tr>
-<tr><td>CLCP 4433</td><td>Advanced Topical Conversation I – Hot Topics</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisites: CLCP/CPTH3333 and CLCP/CPTH3353.</span></td></tr>
-<tr><td>CLCP 4443</td><td>Advanced Communication Skills on Business Topics I</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisites: CLCP/CPTH3333 and CLCP/CPTH3353.</span></td></tr>
-<tr><td>CLCP 4453</td><td>Advanced Communication Skills and Culture I</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisites: CLCP/CPTH3333 and CLCP/CPTH3353.</span></td></tr>
-<tr><td>CLCP 4513</td><td>News Media and Presentation Skills II</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCP4413/CPTH4413.</span></td></tr>
-<tr class="eq-row"><td>CLCP 4533</td><td>Advanced Topical Conversation II - Social Life</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCP4433/CPTH4433.</span></td></tr>
-<tr><td>CLCP 4633</td><td>Advanced Topical Conversation III - Chinese Diplomacy and Society</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CLCP4533/CPTH4533.</span></td></tr>
+<details class="course-details"><summary>Show 12 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>CLCP 2223</td><td>Oral Skills Practice II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: CLCP/CPTH1153.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH2233 or above.</span></td></tr>
+<tr><td>CLCP 3323</td><td>Oral Skills Practice III</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisites: CLCP/CPTH2253.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH3353 or above.</span></td></tr>
+<tr><td>CLCP 3333</td><td>Communication in Context III</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: CLCP/CPTH3313.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH4413 or above.</span></td></tr>
+<tr><td>CLCP 3353</td><td>Presentation Skills and Daily Situations</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: CLCP/CPTH3323.</span><span class="prereq-sentence">Not for students who have taken CLCP/CPTH4413 or above.</span></td></tr>
+<tr><td>CLCP 4413</td><td>News Media and Presentation Skills I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisites: CLCP/CPTH3333 and CLCP/CPTH3353.</span></td></tr>
+<tr><td>CLCP 4423</td><td>Essay Writing and Presentation Skills</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisites: CLCP/CPTH3333 and CLCP/CPTH3353.</span></td></tr>
+<tr><td>CLCP 4433</td><td>Advanced Topical Conversation I – Hot Topics</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisites: CLCP/CPTH3333 and CLCP/CPTH3353.</span></td></tr>
+<tr><td>CLCP 4443</td><td>Advanced Communication Skills on Business Topics I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisites: CLCP/CPTH3333 and CLCP/CPTH3353.</span></td></tr>
+<tr><td>CLCP 4453</td><td>Advanced Communication Skills and Culture I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisites: CLCP/CPTH3333 and CLCP/CPTH3353.</span></td></tr>
+<tr><td>CLCP 4513</td><td>News Media and Presentation Skills II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: CLCP4413/CPTH4413.</span></td></tr>
+<tr class="eq-row"><td>CLCP 4533</td><td>Advanced Topical Conversation II - Social Life</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: CLCP4433/CPTH4433.</span></td></tr>
+<tr><td>CLCP 4633</td><td>Advanced Topical Conversation III - Chinese Diplomacy and Society</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: CLCP4533/CPTH4533.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not for students whose native language is Cantonese/Putonghua. Students planning to minor in this Programme should take the Putonghua placement tests offered by the Yale-China Chinese Language Academy. Declaration of this Minor Programme is subject to approval of the Department.</span></div>

@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,21 +259,21 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses: 9 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">SOWK1001, 3310, 3320</span></div></div>
-<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>SOWK 1001</td><td>Introduction to Social Work and Social Welfare</td><td>3.00</td><td>—</td></tr>
-<tr><td>SOWK 3310</td><td>Social Welfare Administration</td><td>3.00</td><td>—</td></tr>
-<tr><td>SOWK 3320</td><td>Social Work Research</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>SOWK 1001</td><td>Introduction to Social Work and Social Welfare</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SOWK 3310</td><td>Social Welfare Administration</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SOWK 3320</td><td>Social Work Research</td><td></td><td class="term-yes"></td><td>—</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 9 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Any 9 units from the following:</span></div><div class="req-row"><span class="row-text">SOWK1130, 1150, 1160, 2020, 2110, 2140, 4540</span></div></div>
-<details class="course-details"><summary>Show 7 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>SOWK 1130</td><td>Living with Grief: Understanding Death, Dying and Bereavement</td><td>3.00</td><td>—</td></tr>
-<tr><td>SOWK 1150</td><td>Choices in Life: An Invitation to Self-Development</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken UGED2591, UGED1600, GESC2117, PSYC1030 or SOWK1113.</span></td></tr>
-<tr><td>SOWK 1160</td><td>Movies, Life and Social Work</td><td>3.00</td><td>—</td></tr>
-<tr><td>SOWK 2020</td><td>Philosophy and Principles of Social Work</td><td>3.00</td><td>—</td></tr>
-<tr><td>SOWK 2110</td><td>Human Behaviour and the Social Environment</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken SOWK1113 and PSYC2540.</span></td></tr>
-<tr><td>SOWK 2140</td><td>Mental Disorders</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken PSYC3700.</span></td></tr>
-<tr><td>SOWK 4540</td><td>Seminar IV: Social Work with People with Special Needs</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 7 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>SOWK 1130</td><td>Living with Grief: Understanding Death, Dying and Bereavement</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SOWK 1150</td><td>Choices in Life: An Invitation to Self-Development</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken UGED2591, UGED1600, GESC2117, PSYC1030 or SOWK1113.</span></td></tr>
+<tr><td>SOWK 1160</td><td>Movies, Life and Social Work</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SOWK 2020</td><td>Philosophy and Principles of Social Work</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SOWK 2110</td><td>Human Behaviour and the Social Environment</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken SOWK1113 and PSYC2540.</span></td></tr>
+<tr><td>SOWK 2140 [2]</td><td>Mental Disorders</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken PSYC3700.</span></td></tr>
+<tr><td>SOWK 4540</td><td>Seminar IV: Social Work with People with Special Needs</td><td></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">“Social Policy” and “Social Welfare” are two independent Minor Programmes. Students are required to indicate their choice to the Department when applying. On completion of the unit requirement, the name of the chosen Minor Programme will be shown on the transcript.</span></div>

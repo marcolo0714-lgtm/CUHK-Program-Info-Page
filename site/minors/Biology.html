@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,48 +259,48 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 24 units of courses, with at least 9 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) LSCI1002, 1012</span><span class="meta">(6 units)</span></div></div>
-<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>LSCI 1002</td><td>Introduction to Biological Sciences</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>LSCI 1012</td><td>Introduction to Life Forms in the Biosphere</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>LSCI 1002</td><td>Introduction to Biological Sciences</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>LSCI 1012</td><td>Introduction to Life Forms in the Biosphere</td><td></td><td class="term-yes"></td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) BIOL2120, 2210 or 2410</span><span class="meta">(2 units)</span></div></div>
-<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>BIOL 2120</td><td>Cell Biology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: LSCI1002.</span></td></tr>
-<tr class="eq-row"><td>BIOL 2210</td><td>Ecology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: LSCI1002 or LSCI1012.</span></td></tr>
-<tr><td>BIOL 2410</td><td>General Genetics</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken BIOL2310.</span><span class="prereq-sentence">Pre-requisite: LSCI1002 and BIOL2120.</span></td></tr>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>BIOL 2120</td><td>Cell Biology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: LSCI1002.</span></td></tr>
+<tr class="eq-row"><td>BIOL 2210</td><td>Ecology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: LSCI1002 or LSCI1012.</span></td></tr>
+<tr><td>BIOL 2410 [2]</td><td>General Genetics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken BIOL2310.</span><span class="prereq-sentence">Pre-requisite: LSCI1002 and BIOL2120.</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(c) BIOL3560 and 3570 or BIOL3610 and 3620</span><span class="meta">(4 units)</span></div></div>
-<details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>BIOL 3560</td><td>Biology of Fungi and Non-Vascular Plants</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: LSCI1002.</span></td></tr>
-<tr><td>BIOL 3570</td><td>Biology of Vascular Plants</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL3560.</span></td></tr>
-<tr><td>BIOL 3610</td><td>Invertebrate Form and Function</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: LSCI1002 or permission of instructor (Not applicable to Old Curriculum students).</span></td></tr>
-<tr><td>BIOL 3620</td><td>Vertebrate Life</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: LSCI1002 and BIOL2210 or permission of instructor (Not applicable to Old Curriculum students).</span></td></tr>
+<details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>BIOL 3560 [2]</td><td>Biology of Fungi and Non-Vascular Plants</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: LSCI1002.</span></td></tr>
+<tr><td>BIOL 3570 [2]</td><td>Biology of Vascular Plants</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: BIOL3560.</span></td></tr>
+<tr><td>BIOL 3610 [2]</td><td>Invertebrate Form and Function</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: LSCI1002 or permission of instructor (Not applicable to Old Curriculum students).</span></td></tr>
+<tr><td>BIOL 3620 [2]</td><td>Vertebrate Life</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: LSCI1002 and BIOL2210 or permission of instructor (Not applicable to Old Curriculum students).</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(12 units of courses from the following list, including any courses not taken in 1(b) and 1(c) above):</span></div><div class="req-row"><span class="row-text">BIOL2213, 2313, 2420, 3012, 3022, 3310, 3410, 3510, 3530, 3630, 3710, 4010, 4012, 4120, 4230, 4240, 4242, 4260, 4310, 4420, 4510, 4610</span></div></div>
-<details class="course-details"><summary>Show 22 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>BIOL 2213</td><td>Ecology Laboratory</td><td>1.00</td><td><span class="prereq-sentence">Corequisite:BIOL2210.</span></td></tr>
-<tr><td>BIOL 2313</td><td>Genetics Laboratory</td><td>1.00</td><td><span class="prereq-sentence">Co-requisite: BIOL2410.</span></td></tr>
-<tr><td>BIOL 2420</td><td>Population Genetics</td><td>1.00</td><td><span class="prereq-sentence">Co-requisite: BIOL2410.</span></td></tr>
-<tr><td>BIOL 3012</td><td>Biodiversity Laboratory I</td><td>2.00</td><td><span class="prereq-sentence">Co-requisite: BIOL3560 and 3610.</span></td></tr>
-<tr><td>BIOL 3022</td><td>Biodiversity Laboratory II</td><td>2.00</td><td><span class="prereq-sentence">Co-requisite: BIOL3570 and 3620.</span></td></tr>
-<tr><td>BIOL 3310</td><td>Human Biology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: LSCI1002 (Not applicable to Old Curriculum students).</span></td></tr>
-<tr><td>BIOL 3410</td><td>General Microbiology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 and BIOL2120.</span></td></tr>
-<tr><td>BIOL 3510</td><td>Palaeobiology</td><td>2.00</td><td>—</td></tr>
-<tr><td>BIOL 3530</td><td>Plant Physiology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: BCHE2030.</span></td></tr>
-<tr><td>BIOL 3630</td><td>Animal Physiology</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken FNSC4101.</span><span class="prereq-sentence">Prerequisite: BIOL2120 and BCHE2030.</span></td></tr>
-<tr><td>BIOL 3710</td><td>Marine Biology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2210.</span></td></tr>
-<tr><td>BIOL 4010</td><td>Evolutionary Biology</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: BIOL2210 or BIOL2310 or BIOL2410.</span></td></tr>
-<tr><td>BIOL 4012</td><td>Field and Environmental Biology</td><td>2.00</td><td><span class="prereq-sentence">Co-requisite: BIOL2210 and 3710.</span></td></tr>
-<tr><td>BIOL 4120</td><td>Developmental Biology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
-<tr><td>BIOL 4230</td><td>Global Change Biology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2210.</span></td></tr>
-<tr><td>BIOL 4240</td><td>Environmental Impact Assessment</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ENSC4240.</span><span class="prereq-sentence">Pre-requisite: ENSC2270 or EESC2270 and BIOL2210.</span></td></tr>
-<tr><td>BIOL 4242</td><td>Environmental Impact Assessment Laboratory</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken ENSC4242.</span><span class="prereq-sentence">Co-requisite: BIOL4240.</span></td></tr>
-<tr><td>BIOL 4260</td><td>Conservation Biology</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ENSC4260.</span><span class="prereq-sentence">Pre-requisite: BIOL2210.</span></td></tr>
-<tr><td>BIOL 4310</td><td>Human Genetics</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2310 or BIOL2410.</span></td></tr>
-<tr><td>BIOL 4420</td><td>Marine Microbial Ecology</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL3410.</span></td></tr>
-<tr><td>BIOL 4510</td><td>Hong Kong Flora and Vegetation</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: LSCI1002.</span></td></tr>
-<tr><td>BIOL 4610</td><td>Foundation for Secondary School Biology Teaching</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 22 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>BIOL 2213 [1]</td><td>Ecology Laboratory</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Corequisite:BIOL2210.</span></td></tr>
+<tr><td>BIOL 2313 [1]</td><td>Genetics Laboratory</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Co-requisite: BIOL2410.</span></td></tr>
+<tr><td>BIOL 2420 [1]</td><td>Population Genetics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Co-requisite: BIOL2410.</span></td></tr>
+<tr><td>BIOL 3012 [2]</td><td>Biodiversity Laboratory I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Co-requisite: BIOL3560 and 3610.</span></td></tr>
+<tr><td>BIOL 3022 [2]</td><td>Biodiversity Laboratory II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Co-requisite: BIOL3570 and 3620.</span></td></tr>
+<tr><td>BIOL 3310</td><td>Human Biology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: LSCI1002 (Not applicable to Old Curriculum students).</span></td></tr>
+<tr><td>BIOL 3410</td><td>General Microbiology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 and BIOL2120.</span></td></tr>
+<tr><td>BIOL 3510 [2]</td><td>Palaeobiology</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>BIOL 3530</td><td>Plant Physiology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: BCHE2030.</span></td></tr>
+<tr><td>BIOL 3630</td><td>Animal Physiology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken FNSC4101.</span><span class="prereq-sentence">Prerequisite: BIOL2120 and BCHE2030.</span></td></tr>
+<tr><td>BIOL 3710</td><td>Marine Biology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BIOL2210.</span></td></tr>
+<tr><td>BIOL 4010</td><td>Evolutionary Biology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: BIOL2210 or BIOL2310 or BIOL2410.</span></td></tr>
+<tr><td>BIOL 4012 [2]</td><td>Field and Environmental Biology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Co-requisite: BIOL2210 and 3710.</span></td></tr>
+<tr><td>BIOL 4120</td><td>Developmental Biology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
+<tr><td>BIOL 4230</td><td>Global Change Biology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BIOL2210.</span></td></tr>
+<tr><td>BIOL 4240</td><td>Environmental Impact Assessment</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENSC4240.</span><span class="prereq-sentence">Pre-requisite: ENSC2270 or EESC2270 and BIOL2210.</span></td></tr>
+<tr><td>BIOL 4242 [2]</td><td>Environmental Impact Assessment Laboratory</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENSC4242.</span><span class="prereq-sentence">Co-requisite: BIOL4240.</span></td></tr>
+<tr><td>BIOL 4260</td><td>Conservation Biology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ENSC4260.</span><span class="prereq-sentence">Pre-requisite: BIOL2210.</span></td></tr>
+<tr><td>BIOL 4310</td><td>Human Genetics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: BIOL2310 or BIOL2410.</span></td></tr>
+<tr><td>BIOL 4420 [2]</td><td>Marine Microbial Ecology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: BIOL3410.</span></td></tr>
+<tr><td>BIOL 4510</td><td>Hong Kong Flora and Vegetation</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: LSCI1002.</span></td></tr>
+<tr><td>BIOL 4610</td><td>Foundation for Secondary School Biology Teaching</td><td class="term-yes"></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 12 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>

@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,33 +259,33 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses<span id="ref_a"><a href="#note_a">[a]</a></span>: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) GERM2000<span id="ref_b"><a href="#note_b">[b]</a></span></span><span class="meta">(3 units)</span></div></div>
-<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>GERM 2000</td><td>German II</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken GERM2001,2050,3000,3001,3002,3050,3051 or 4001.</span><span class="prereq-sentence">2. Prerequisite: GERM1000.</span></td></tr>
+<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>GERM 2000</td><td>German II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Not for students who have taken GERM2001,2050,3000,3001,3002,3050,3051 or 4001.</span><span class="prereq-sentence">2. Prerequisite: GERM1000.</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) GERM2001 and 3000, or 3050</span><span class="meta">(6 units)</span></div></div>
-<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>GERM 2001</td><td>German III</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken GERM3000,3001,3002,3050, 3051 or 4001.</span><span class="prereq-sentence">2. Prerequisite: GERM2000 or 2050.</span></td></tr>
-<tr><td>GERM 3000</td><td>German IV</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken GERM3001,3002,3050,3051 or 4001.</span><span class="prereq-sentence">2. Prerequisite: GERM2001.</span></td></tr>
-<tr><td>GERM 3050</td><td>German III & IV</td><td>6.00</td><td><span class="prereq-sentence">1. Not for students who have taken GERM2001,3000,3001,3002,3051 or 4001.</span><span class="prereq-sentence">2. Prerequisite: GERM2000 or GERM2050.</span></td></tr>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>GERM 2001</td><td>German III</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken GERM3000,3001,3002,3050, 3051 or 4001.</span><span class="prereq-sentence">2. Prerequisite: GERM2000 or 2050.</span></td></tr>
+<tr><td>GERM 3000</td><td>German IV</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Not for students who have taken GERM3001,3002,3050,3051 or 4001.</span><span class="prereq-sentence">2. Prerequisite: GERM2001.</span></td></tr>
+<tr><td>GERM 3050 [6]</td><td>German III & IV</td><td></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken GERM2001,3000,3001,3002,3051 or 4001.</span><span class="prereq-sentence">2. Prerequisite: GERM2000 or GERM2050.</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(c) GERM3001<span id="ref_c"><a href="#note_c">[c]</a></span></span><span class="meta">(3 units)</span></div></div>
-<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>GERM 3001</td><td>German V</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken GERM3002,3051 or 4001.</span><span class="prereq-sentence">2. Prerequisite: GERM3000 or GERM3050.</span></td></tr>
+<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>GERM 3001</td><td>German V</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken GERM3002,3051 or 4001.</span><span class="prereq-sentence">2. Prerequisite: GERM3000 or GERM3050.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Any GERM courses other than GERM1000, 1001, 2050 and those listed above</span><span class="meta">(6 units)</span></div></div>
-<details class="course-details"><summary>Show 11 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>GERM 1100</td><td>Germany Today</td><td>3.00</td><td>—</td></tr>
-<tr><td>GERM 2020</td><td>Sounds of German</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GERM2000,2001,2050,3000,3001,3002,3050,3051 or 4001.</span></td></tr>
-<tr><td>GERM 2100</td><td>Exploring German Literature</td><td>3.00</td><td>—</td></tr>
-<tr><td>GERM 2200</td><td>German Cinema</td><td>3.00</td><td>—</td></tr>
-<tr><td>GERM 3002</td><td>German VI</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken GERM3051 or 4001.</span><span class="prereq-sentence">2. Prerequisite: GERM3001.</span></td></tr>
-<tr><td>GERM 3020</td><td>German Conversation</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001.</span></td></tr>
-<tr><td>GERM 3041</td><td>German for Professional Communication</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001.</span></td></tr>
-<tr><td>GERM 3051</td><td>German V & VI</td><td>6.00</td><td><span class="prereq-sentence">Not for students who have taken GERM3001,3002 or 4001.</span><span class="prereq-sentence">Prerequisite: GERM3000 or GERM3050.</span></td></tr>
-<tr><td>GERM 3060</td><td>German through Fairy Tales</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001.</span></td></tr>
-<tr><td>GERM 3100</td><td>Special Topics in German</td><td>3.00</td><td>—</td></tr>
-<tr><td>GERM 4001</td><td>German VII</td><td>3.00</td><td><span class="prereq-sentence">Prerequisites: GERM3002 or 3051.</span></td></tr>
+<details class="course-details"><summary>Show 11 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>GERM 1100</td><td>Germany Today</td><td></td><td></td><td>—</td></tr>
+<tr><td>GERM 2020</td><td>Sounds of German</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: GERM2000,2001,2050,3000,3001,3002,3050,3051 or 4001.</span></td></tr>
+<tr><td>GERM 2100</td><td>Exploring German Literature</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GERM 2200</td><td>German Cinema</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GERM 3002</td><td>German VI</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Not for students who have taken GERM3051 or 4001.</span><span class="prereq-sentence">2. Prerequisite: GERM3001.</span></td></tr>
+<tr><td>GERM 3020</td><td>German Conversation</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001.</span></td></tr>
+<tr><td>GERM 3041</td><td>German for Professional Communication</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001.</span></td></tr>
+<tr><td>GERM 3051 [6]</td><td>German V & VI</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken GERM3001,3002 or 4001.</span><span class="prereq-sentence">Prerequisite: GERM3000 or GERM3050.</span></td></tr>
+<tr><td>GERM 3060</td><td>German through Fairy Tales</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001.</span></td></tr>
+<tr><td>GERM 3100</td><td>Special Topics in German</td><td></td><td></td><td>—</td></tr>
+<tr><td>GERM 4001</td><td>German VII</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: GERM3002 or 3051.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx"><span id="note_a"><a href="#ref_a">[a]</a></span></span><span class="point-text">Students who have prior knowledge of German before admission may be exempted from taking GERM2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div>

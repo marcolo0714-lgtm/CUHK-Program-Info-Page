@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,24 +259,24 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses : 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">CURE2407, FAAS2117</span></div></div>
-<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>CURE 2407</td><td>Curation in Arts and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>FAAS 2117</td><td>Art in HK: from the Foundation of the Colony to the Early 21st Century</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>CURE 2407</td><td>Curation in Arts and Culture</td><td></td><td></td><td>—</td></tr>
+<tr><td>FAAS 2117</td><td>Art in HK: from the Foundation of the Colony to the Early 21st Century</td><td></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses : 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) Any 2 courses from the following: CURE2411, 3404, 3405, 3408</span></div></div>
-<details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>CURE 2411</td><td>Visual Arts Management</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3404</td><td>Public and Community Art</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3405</td><td>Design Your Exhibition – Curatorial Planning and Practice</td><td>3.00</td><td><span class="prereq-sentence">1. Pre-requisite: CUMT2007 Curation in Arts and Culture or CURE2407 Curation in Arts and Culture.</span><span class="prereq-sentence">2. Not for students who have taken CUMT3005.</span></td></tr>
-<tr><td>CURE 3408</td><td>Curating and Managing Arts Festival</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>CURE 2411</td><td>Visual Arts Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>CURE 3404</td><td>Public and Community Art</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 3405</td><td>Design Your Exhibition – Curatorial Planning and Practice</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Pre-requisite: CUMT2007 Curation in Arts and Culture or CURE2407 Curation in Arts and Culture.</span><span class="prereq-sentence">2. Not for students who have taken CUMT3005.</span></td></tr>
+<tr><td>CURE 3408</td><td>Curating and Managing Arts Festival</td><td></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) Any 2 courses from the following<span id="ref_a"><a href="#note_a">[a]</a></span>: FAAS2208, 3108, 3229, 4201</span></div></div>
-<details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>FAAS 2208</td><td>Basic Photography</td><td>3.00</td><td>—</td></tr>
-<tr><td>FAAS 3108</td><td>Contemporary Art: Artistic Strategies in a Postmodern Era</td><td>3.00</td><td>—</td></tr>
-<tr><td>FAAS 3229</td><td>Text and Image</td><td>3.00</td><td>—</td></tr>
-<tr><td>FAAS 4201</td><td>Art As Profession</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>FAAS 2208</td><td>Basic Photography</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>FAAS 3108</td><td>Contemporary Art: Artistic Strategies in a Postmodern Era</td><td></td><td></td><td>—</td></tr>
+<tr><td>FAAS 3229</td><td>Text and Image</td><td></td><td></td><td>—</td></tr>
+<tr><td>FAAS 4201</td><td>Art As Profession</td><td class="term-yes"></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Public Humanities major students cannot take FAAS3108 and FAAS4201 to fulfill the elective course requirements specified in 2(b).</span></div>

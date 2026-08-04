@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,24 +259,24 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 24 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses: 18 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">CHEM2120, 2200, 2300, 2400, 2860, 2870</span></div></div>
-<details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>CHEM 2120</td><td>Main Group Chemistry</td><td>2.00</td><td>—</td></tr>
-<tr><td>CHEM 2200</td><td>Organic Functional Groups: Structure and Reactivity</td><td>3.00</td><td>—</td></tr>
-<tr><td>CHEM 2300</td><td>Thermodynamics and Chemical Equilibrium</td><td>3.00</td><td>—</td></tr>
-<tr><td>CHEM 2400</td><td>Analytical Chemistry</td><td>2.00</td><td><span class="prereq-sentence">--.</span></td></tr>
-<tr><td>CHEM 2860</td><td>Integrated Chemistry Laboratory I</td><td>4.00</td><td><span class="prereq-sentence">Not for students who have taken CHEM2868.</span></td></tr>
-<tr><td>CHEM 2870</td><td>Integrated Chemistry Laboratory II</td><td>4.00</td><td><span class="prereq-sentence">Not for students who have taken CHEM2878.</span></td></tr>
+<details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>CHEM 2120 [2]</td><td>Main Group Chemistry</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CHEM 2200</td><td>Organic Functional Groups: Structure and Reactivity</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CHEM 2300</td><td>Thermodynamics and Chemical Equilibrium</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CHEM 2400 [2]</td><td>Analytical Chemistry</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">--.</span></td></tr>
+<tr><td>CHEM 2860 [4]</td><td>Integrated Chemistry Laboratory I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken CHEM2868.</span></td></tr>
+<tr><td>CHEM 2870 [4]</td><td>Integrated Chemistry Laboratory II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CHEM2878.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">At least six units from: CHEM3130, 3220, 3320, 3410, 4788, ENSC4525, 4535</span><span class="meta">(6 units)</span></div></div>
-<details class="course-details"><summary>Show 7 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>CHEM 3130</td><td>Transition Metal Chemistry</td><td>3.00</td><td>—</td></tr>
-<tr><td>CHEM 3220</td><td>Organic Reactions: Reactivity and Selectivity</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: CHEM2200.</span></td></tr>
-<tr><td>CHEM 3320</td><td>Chemical Kinetics</td><td>3.00</td><td>—</td></tr>
-<tr><td>CHEM 3410</td><td>Instrumental Analysis</td><td>3.00</td><td><span class="prereq-sentence">--.</span></td></tr>
-<tr><td>CHEM 4788</td><td>Chemical Applications in Forensic Science</td><td>2.00</td><td>—</td></tr>
-<tr><td>ENSC 4525</td><td>Advanced Environmental Chemistry</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: ENSC2515 or permission of the instructor.</span></td></tr>
-<tr><td>ENSC 4535</td><td>Chemical Treatment Processes</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: ENSC2515 or permission of the instructor.</span></td></tr>
+<details class="course-details"><summary>Show 7 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>CHEM 3130</td><td>Transition Metal Chemistry</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>CHEM 3220 [2]</td><td>Organic Reactions: Reactivity and Selectivity</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: CHEM2200.</span></td></tr>
+<tr><td>CHEM 3320</td><td>Chemical Kinetics</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CHEM 3410</td><td>Instrumental Analysis</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">--.</span></td></tr>
+<tr><td>CHEM 4788 [2]</td><td>Chemical Applications in Forensic Science</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ENSC 4525</td><td>Advanced Environmental Chemistry</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: ENSC2515 or permission of the instructor.</span></td></tr>
+<tr><td>ENSC 4535</td><td>Chemical Treatment Processes</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: ENSC2515 or permission of the instructor.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 12 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>

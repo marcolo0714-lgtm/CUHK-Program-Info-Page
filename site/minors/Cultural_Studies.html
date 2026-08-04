@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,58 +259,58 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level as follows:</pre></div>
 <h2>1. Elective Courses: 18 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) Any one course from the following:</span><span class="meta">(3 units)</span></div><div class="req-row"><span class="row-text">CURE1009, 2001, 2006, 3007, 4008</span></div></div>
-<details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>CURE 1009</td><td>Research Methods in Public Humanities</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2001</td><td>Introduction to Cultural Studies</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2006</td><td>Introduction to Film and Screen Studies</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3007</td><td>Gender and Sexuality in Cultural Studies</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 4008</td><td>Global Cultural Theories</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>CURE 1009</td><td>Research Methods in Public Humanities</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>CURE 2001</td><td>Introduction to Cultural Studies</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>CURE 2006</td><td>Introduction to Film and Screen Studies</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CURE 3007</td><td>Gender and Sexuality in Cultural Studies</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>CURE 4008</td><td>Global Cultural Theories</td><td></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) 5 CURE courses at 2000 or above level from Cultural Studies Area(s), with at least 2 courses at 3000 or above level, excluding the course taken to fulfill requirement 1(a) above</span><span class="meta">(15 units)</span></div></div>
-<details class="course-details"><summary>Show 43 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>CURE 2003</td><td>Cultural Studies of Space</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2005</td><td>Culture and Travel</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2006</td><td>Introduction to Film and Screen Studies</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2007</td><td>Celebrity, Stardom, and Hong Kong Popular Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2010</td><td>Understanding Digital Humanities</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2014</td><td>Body Politics and Representations</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2018</td><td>Living in the Anthropocene: Nature, Culture and Power</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2019</td><td>Power, Identity, and Inequality in Medicine</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2022</td><td>Feminisms: Thoughts and Movements</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2025</td><td>Contemporary Consumer Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2030</td><td>Hong Kong Cinema</td><td>3.00</td><td><span class="prereq-sentence">CURE2030 is double-coded with UGEC2241.</span><span class="prereq-sentence">Not for students who have taken UGEC2241 or 2774.</span></td></tr>
-<tr class="nf"><td>CURE 2031</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>CURE 2032</td><td>Youth and Popular Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2036</td><td>Queer Theory and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2040</td><td>Television Studies</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2042</td><td>Xiqu and Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2047</td><td>Performance Studies</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2051</td><td>Understanding Comic Arts</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2066</td><td>Foundation of Visual Design</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2145</td><td>New Religious Movements</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2228</td><td>Religious Traditions and Politics of the Arab World</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3003</td><td>Animals, Culture and Modern Society</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3007</td><td>Gender and Sexuality in Cultural Studies</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3011</td><td>Special Topics in Cultural Studies I</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3012</td><td>Special Topics in Cultural Studies II</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3013</td><td>Special Topics in Cultural Studies III</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3014</td><td>Special Topics in Cultural Studies IV</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3025</td><td>Technoscience and Culture</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>CURE 3026</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr class="nf"><td>CURE 3030</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>CURE 3032</td><td>The Politics and Culture of Nationalisms</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3033</td><td>Film and Cultural Politics in Southeast Asia</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3034</td><td>Korean Media and Popular Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3037</td><td>Community Making and Public Humanities</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3038</td><td>Writing Workshop: Cultural Criticism, Media Writing, and Transmedia Storytelling</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3066</td><td>Video Production</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CURE2066.</span></td></tr>
-<tr><td>CURE 3144</td><td>Spirituality, Psychology and Well-Being</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 4008</td><td>Global Cultural Theories</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 4021</td><td>World Cinema in East Asia: Theory and Practice</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 4028</td><td>Workshop in Creative Content</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 4031</td><td>Arts, Propaganda and Social Action</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 4033</td><td>Documentary Studies: Theories and Practices</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 4040</td><td>AI, Arts and Technology</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 43 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>CURE 2003</td><td>Cultural Studies of Space</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2005</td><td>Culture and Travel</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2006</td><td>Introduction to Film and Screen Studies</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CURE 2007</td><td>Celebrity, Stardom, and Hong Kong Popular Culture</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2010</td><td>Understanding Digital Humanities</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2014</td><td>Body Politics and Representations</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2018</td><td>Living in the Anthropocene: Nature, Culture and Power</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2019</td><td>Power, Identity, and Inequality in Medicine</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2022</td><td>Feminisms: Thoughts and Movements</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CURE 2025</td><td>Contemporary Consumer Culture</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2030</td><td>Hong Kong Cinema</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">CURE2030 is double-coded with UGEC2241.</span><span class="prereq-sentence">Not for students who have taken UGEC2241 or 2774.</span></td></tr>
+<tr class="nf"><td>CURE 2031</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>CURE 2032</td><td>Youth and Popular Culture</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2036</td><td>Queer Theory and Culture</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2040</td><td>Television Studies</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2042</td><td>Xiqu and Culture</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">CURE2042 is double-coded with UGEC2294.</span><span class="prereq-sentence">Not for students who have taken UGEA1065 or UGEC2294.</span></td></tr>
+<tr><td>CURE 2047</td><td>Performance Studies</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2051</td><td>Understanding Comic Arts</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>CURE 2066</td><td>Foundation of Visual Design</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CURE 2145</td><td>New Religious Movements</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2228</td><td>Religious Traditions and Politics of the Arab World</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 3003</td><td>Animals, Culture and Modern Society</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 3007</td><td>Gender and Sexuality in Cultural Studies</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>CURE 3011</td><td>Special Topics in Cultural Studies I</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 3012</td><td>Special Topics in Cultural Studies II</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 3013</td><td>Special Topics in Cultural Studies III</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>CURE 3014</td><td>Special Topics in Cultural Studies IV</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CURE 3025</td><td>Technoscience and Culture</td><td></td><td></td><td>—</td></tr>
+<tr class="nf"><td>CURE 3026</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>CURE 3030</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>CURE 3032</td><td>The Politics and Culture of Nationalisms</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 3033</td><td>Film and Cultural Politics in Southeast Asia</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 3034</td><td>Korean Media and Popular Culture</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CURE 3037</td><td>Community Making and Public Humanities</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 3038</td><td>Writing Workshop: Cultural Criticism, Media Writing, and Transmedia Storytelling</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 3066</td><td>Video Production</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: CURE2066.</span></td></tr>
+<tr><td>CURE 3144</td><td>Spirituality, Psychology and Well-Being</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 4008</td><td>Global Cultural Theories</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 4021</td><td>World Cinema in East Asia: Theory and Practice</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 4028</td><td>Workshop in Creative Content</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 4031</td><td>Arts, Propaganda and Social Action</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 4033</td><td>Documentary Studies: Theories and Practices</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 4040</td><td>AI, Arts and Technology</td><td></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Public Humanities.</span></div>

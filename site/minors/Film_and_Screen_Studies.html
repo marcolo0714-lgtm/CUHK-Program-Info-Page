@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,29 +259,29 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Course: 3 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">CURE2006</span><span class="meta">(3 units)</span></div></div>
-<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>CURE 2006</td><td>Introduction to Film and Screen Studies</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>CURE 2006</td><td>Introduction to Film and Screen Studies</td><td class="term-yes"></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 15 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Any 5 courses from the following, with at least 3 CURE courses and at least 2 courses at 3000 or above level: CURE2024, 2030, 2040, 2066, 3026, 3033, 3034, 3066,4021, 4022, 4027, 4033, CHES3101, 3102, COMM2932, 3939 and JASP2200</span><span class="meta">(15 units)</span></div></div>
-<details class="course-details"><summary>Show 17 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>CURE 2024</td><td>Taiwan New Cinema and Beyond: Authorship, Transnationality, Historiography</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2030</td><td>Hong Kong Cinema</td><td>3.00</td><td><span class="prereq-sentence">CURE2030 is double-coded with UGEC2241.</span><span class="prereq-sentence">Not for students who have taken UGEC2241 or 2774.</span></td></tr>
-<tr><td>CURE 2040</td><td>Television Studies</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 2066</td><td>Foundation of Visual Design</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>CURE 3026</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>CURE 3033</td><td>Film and Cultural Politics in Southeast Asia</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3034</td><td>Korean Media and Popular Culture</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 3066</td><td>Video Production</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: CURE2066.</span></td></tr>
-<tr><td>CURE 4021</td><td>World Cinema in East Asia: Theory and Practice</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 4022</td><td>Critical Approaches to Pornography</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 4027</td><td>Film Classics: Aesthetics and Politics</td><td>3.00</td><td>—</td></tr>
-<tr><td>CURE 4033</td><td>Documentary Studies: Theories and Practices</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>CHES 3101</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>CHES 3102</td><td>East Asian Film Genres in a Globalizing World</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 2932</td><td>Film Genres: Love, Death and Laughs</td><td>3.00</td><td>—</td></tr>
-<tr><td>COMM 3939</td><td>Film Directors</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 2200</td><td>Introduction to Japanese Animation, Comic and Game</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 17 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>CURE 2024</td><td>Taiwan New Cinema and Beyond: Authorship, Transnationality, Historiography</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2030</td><td>Hong Kong Cinema</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">CURE2030 is double-coded with UGEC2241.</span><span class="prereq-sentence">Not for students who have taken UGEC2241 or 2774.</span></td></tr>
+<tr><td>CURE 2040</td><td>Television Studies</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2066</td><td>Foundation of Visual Design</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr class="nf"><td>CURE 3026</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>CURE 3033</td><td>Film and Cultural Politics in Southeast Asia</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 3034</td><td>Korean Media and Popular Culture</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CURE 3066</td><td>Video Production</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: CURE2066.</span></td></tr>
+<tr><td>CURE 4021</td><td>World Cinema in East Asia: Theory and Practice</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 4022</td><td>Critical Approaches to Pornography</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 4027</td><td>Film Classics: Aesthetics and Politics</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 4033</td><td>Documentary Studies: Theories and Practices</td><td></td><td></td><td>—</td></tr>
+<tr class="nf"><td>CHES 3101</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>CHES 3102</td><td>East Asian Film Genres in a Globalizing World</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>COMM 2932</td><td>Film Genres: Love, Death and Laughs</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>COMM 3939</td><td>Film Directors</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>JASP 2200</td><td>Introduction to Japanese Animation, Comic and Game</td><td class="term-yes"></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Public Humanities.</span></div>

@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,33 +259,33 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses<span id="ref_a"><a href="#note_a">[a]</a></span>: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) FREN2000<span id="ref_b"><a href="#note_b">[b]</a></span></span><span class="meta">(3 units)</span></div></div>
-<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>FREN 2000</td><td>French II</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken FREN2001,2050,3000,3001,3002,3050 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN1000.</span></td></tr>
+<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>FREN 2000</td><td>French II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Not for students who have taken FREN2001,2050,3000,3001,3002,3050 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN1000.</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) FREN2001 and 3000, or 3050</span><span class="meta">(6 units)</span></div></div>
-<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>FREN 2001</td><td>French III</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken FREN3000,3001,3002,3050 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN2000 or FREN2050.</span></td></tr>
-<tr><td>FREN 3000</td><td>French IV</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken FREN3001,3002,3050 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN2001.</span></td></tr>
-<tr><td>FREN 3050</td><td>French III & IV</td><td>6.00</td><td><span class="prereq-sentence">1. Not for students who have taken FREN2001,3000,3001,3002 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN2000 or 2050.</span></td></tr>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>FREN 2001</td><td>French III</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken FREN3000,3001,3002,3050 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN2000 or FREN2050.</span></td></tr>
+<tr><td>FREN 3000</td><td>French IV</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Not for students who have taken FREN3001,3002,3050 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN2001.</span></td></tr>
+<tr><td>FREN 3050 [6]</td><td>French III & IV</td><td></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken FREN2001,3000,3001,3002 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN2000 or 2050.</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(c) FREN3001<span id="ref_c"><a href="#note_c">[c]</a></span></span><span class="meta">(3 units)</span></div></div>
-<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>FREN 3001</td><td>French V</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken FREN3002 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN3000 or 3050.</span></td></tr>
+<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>FREN 3001</td><td>French V</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken FREN3002 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN3000 or 3050.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Any FREN courses other than FREN1000, 1001, 2050 and those listed above</span><span class="meta">(6 units)</span></div></div>
-<details class="course-details"><summary>Show 11 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>FREN 1100</td><td>Made in France</td><td>3.00</td><td>—</td></tr>
-<tr><td>FREN 2020</td><td>Sounds of French</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: FREN2000,2050,3000,3001,3002,3050 or 3051.</span></td></tr>
-<tr><td>FREN 2100</td><td>Exploring French Literature</td><td>3.00</td><td>—</td></tr>
-<tr><td>FREN 3002</td><td>French VI</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken FREN3051.</span><span class="prereq-sentence">2. Prerequisite: FREN3001.</span></td></tr>
-<tr><td>FREN 3021</td><td>French Conversation</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: FREN3000,3001,3002,3050 or 3051.</span></td></tr>
-<tr><td>FREN 3031</td><td>French Reading and Creative Writing</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: FREN2001,2050,3000,3001,3002,3050 or 3051.</span></td></tr>
-<tr><td>FREN 3041</td><td>Business French I</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: FREN3000,3001,3002,3050 or 3051.</span></td></tr>
-<tr><td>FREN 3051</td><td>French V & VI</td><td>6.00</td><td><span class="prereq-sentence">1. Not for students who have taken FREN3001 or FREN3002.</span><span class="prereq-sentence">2. Prerequisite: FREN3000 or FREN3050.</span></td></tr>
-<tr><td>FREN 3060</td><td>French through Short Films</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: FREN3000,3001,3002,3050 or 3051.</span><span class="prereq-sentence">Not for students who have taken FREN3100 in 2nd term 2019-20.</span></td></tr>
-<tr><td>FREN 3100</td><td>Special Topics in French</td><td>3.00</td><td>—</td></tr>
-<tr><td>FREN 3110</td><td>French Through Literature</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): FREN3000,3050,3001,3002,3051 or equivalent competence.</span><span class="prereq-sentence">Not for students who have taken FREN3100 in 2016-17.</span></td></tr>
+<details class="course-details"><summary>Show 11 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>FREN 1100</td><td>Made in France</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>FREN 2020</td><td>Sounds of French</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FREN2000,2050,3000,3001,3002,3050 or 3051.</span></td></tr>
+<tr><td>FREN 2100</td><td>Exploring French Literature</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>FREN 3002</td><td>French VI</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Not for students who have taken FREN3051.</span><span class="prereq-sentence">2. Prerequisite: FREN3001.</span></td></tr>
+<tr><td>FREN 3021</td><td>French Conversation</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FREN3000,3001,3002,3050 or 3051.</span></td></tr>
+<tr><td>FREN 3031</td><td>French Reading and Creative Writing</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: FREN2001,2050,3000,3001,3002,3050 or 3051.</span></td></tr>
+<tr><td>FREN 3041</td><td>Business French I</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FREN3000,3001,3002,3050 or 3051.</span></td></tr>
+<tr><td>FREN 3051 [6]</td><td>French V & VI</td><td></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken FREN3001 or FREN3002.</span><span class="prereq-sentence">2. Prerequisite: FREN3000 or FREN3050.</span></td></tr>
+<tr><td>FREN 3060</td><td>French through Short Films</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FREN3000,3001,3002,3050 or 3051.</span><span class="prereq-sentence">Not for students who have taken FREN3100 in 2nd term 2019-20.</span></td></tr>
+<tr><td>FREN 3100</td><td>Special Topics in French</td><td></td><td></td><td>—</td></tr>
+<tr><td>FREN 3110</td><td>French Through Literature</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): FREN3000,3050,3001,3002,3051 or equivalent competence.</span><span class="prereq-sentence">Not for students who have taken FREN3100 in 2016-17.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx"><span id="note_a"><a href="#ref_a">[a]</a></span></span><span class="point-text">Students who have prior knowledge of French before admission may be exempted from taking FREN2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div>

@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,23 +259,23 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 22 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses: 22 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">BCHE3050, BIOL2120, 2410, CMBI3101, 4001, 4002, 4003, 4101, 4102, 4103, 4201, 4202, 4203, 4301, 4302, 4303</span></div></div>
-<details class="course-details"><summary>Show 16 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>BCHE 3050</td><td>Molecular Biology</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken BCHE4010 or BIOL2310.</span></td></tr>
-<tr><td>BIOL 2120</td><td>Cell Biology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: LSCI1002.</span></td></tr>
-<tr><td>BIOL 2410</td><td>General Genetics</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken BIOL2310.</span><span class="prereq-sentence">Pre-requisite: LSCI1002 and BIOL2120.</span></td></tr>
-<tr><td>CMBI 3101</td><td>Biology of Model Organisms for CMB Research</td><td>3.00</td><td>—</td></tr>
-<tr><td>CMBI 4001</td><td>Protein Trafficking</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
-<tr><td>CMBI 4002</td><td>Protein Folding</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 and BIOL2120.</span></td></tr>
-<tr><td>CMBI 4003</td><td>Signal Transduction</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
-<tr><td>CMBI 4101</td><td>Cancer Cell Biology</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
-<tr><td>CMBI 4102</td><td>Stem Cell Biology</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
-<tr><td>CMBI 4103</td><td>Neuronal Cell Biology</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
-<tr><td>CMBI 4201</td><td>Genomics and Transcriptomics</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
-<tr><td>CMBI 4202</td><td>Proteomics</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
-<tr><td>CMBI 4203</td><td>Metabolomics</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
-<tr><td>CMBI 4301</td><td>Current Topics in Cell Biology</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
-<tr><td>CMBI 4302</td><td>Current Topics in Molecular Biology</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
-<tr><td>CMBI 4303</td><td>Current Topics in Biotechniques</td><td>1.00</td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
+<details class="course-details"><summary>Show 16 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>BCHE 3050 [2]</td><td>Molecular Biology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken BCHE4010 or BIOL2310.</span></td></tr>
+<tr><td>BIOL 2120</td><td>Cell Biology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: LSCI1002.</span></td></tr>
+<tr><td>BIOL 2410 [2]</td><td>General Genetics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken BIOL2310.</span><span class="prereq-sentence">Pre-requisite: LSCI1002 and BIOL2120.</span></td></tr>
+<tr><td>CMBI 3101</td><td>Biology of Model Organisms for CMB Research</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>CMBI 4001 [1]</td><td>Protein Trafficking</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
+<tr><td>CMBI 4002 [1]</td><td>Protein Folding</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 and BIOL2120.</span></td></tr>
+<tr><td>CMBI 4003 [1]</td><td>Signal Transduction</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
+<tr><td>CMBI 4101 [1]</td><td>Cancer Cell Biology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
+<tr><td>CMBI 4102 [1]</td><td>Stem Cell Biology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
+<tr><td>CMBI 4103 [1]</td><td>Neuronal Cell Biology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
+<tr><td>CMBI 4201 [1]</td><td>Genomics and Transcriptomics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
+<tr><td>CMBI 4202 [1]</td><td>Proteomics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
+<tr><td>CMBI 4203 [1]</td><td>Metabolomics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
+<tr><td>CMBI 4301 [1]</td><td>Current Topics in Cell Biology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
+<tr><td>CMBI 4302 [1]</td><td>Current Topics in Molecular Biology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
+<tr><td>CMBI 4303 [1]</td><td>Current Topics in Biotechniques</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: BIOL2120.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 11 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>

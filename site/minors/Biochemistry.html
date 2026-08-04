@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,29 +259,29 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 21 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses: 11 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">BCHE2030, 3030/3730, 3080</span></div></div>
-<details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>BCHE 2030</td><td>Fundamentals of Biochemistry</td><td>3.00</td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr class="eq-row"><td>BCHE 3030</td><td>Methods in Biochemistry</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 or permission of instructor.</span></td></tr>
-<tr><td>BCHE 3730</td><td>Analytical Biochemistry Laboratory</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken BCHE3630.</span><span class="prereq-sentence">Pre-requisite: BCHE3650.</span><span class="prereq-sentence">Co-requisite: BCHE3030.</span></td></tr>
-<tr><td>BCHE 3080</td><td>Bioenergetics and Metabolism</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 or permission of instructor.</span></td></tr>
+<details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>BCHE 2030</td><td>Fundamentals of Biochemistry</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="eq-row"><td>BCHE 3030</td><td>Methods in Biochemistry</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 or permission of instructor.</span></td></tr>
+<tr><td>BCHE 3730 [2]</td><td>Analytical Biochemistry Laboratory</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken BCHE3630.</span><span class="prereq-sentence">Pre-requisite: BCHE3650.</span><span class="prereq-sentence">Co-requisite: BCHE3030.</span></td></tr>
+<tr><td>BCHE 3080</td><td>Bioenergetics and Metabolism</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 or permission of instructor.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 10 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">BCHE3050/3070/3650^, 3110, 4030/4830^, 4040/4640^, 4060/4760^, 4070, 4080, 4090, 4130/4830^</span></div></div>
-<details class="course-details"><summary>Show 14 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr class="eq-row"><td>BCHE 3050</td><td>Molecular Biology</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken BCHE4010 or BIOL2310.</span></td></tr>
-<tr class="eq-row"><td>BCHE 3070</td><td>Recombinant DNA Techniques</td><td>1.00</td><td><span class="prereq-sentence">Not for students who have taken BCHE4020.</span></td></tr>
-<tr><td>BCHE 3650</td><td>Molecular Biology and Recombinant DNA Laboratory</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken BCHE4610.</span></td></tr>
-<tr><td>BCHE 3110</td><td>Chemical Biology</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 and one of the following three courses: CHEM1070 or 1072 or 1280.</span></td></tr>
-<tr class="eq-row"><td>BCHE 4030</td><td>Clinical Biochemistry</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 or permission of instructor.</span></td></tr>
-<tr><td>BCHE 4830</td><td>Medical Biochemistry Laboratory</td><td>2.00</td><td>—</td></tr>
-<tr class="eq-row"><td>BCHE 4040</td><td>Aspects of Neuroscience</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 or permission of instructor.</span></td></tr>
-<tr><td>BCHE 4640</td><td>Aspects of Neuroscience Laboratory</td><td>2.00</td><td>—</td></tr>
-<tr class="eq-row"><td>BCHE 4060</td><td>Basic and Applied Immunology</td><td>3.00</td><td>—</td></tr>
-<tr><td>BCHE 4760</td><td>Immunology and Haematology Laboratory</td><td>2.00</td><td><span class="prereq-sentence">Not for students who have taken BCHE4660.</span></td></tr>
-<tr><td>BCHE 4070</td><td>Management and Accreditation of Biochemical Laboratory</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken BBMS6300.</span><span class="prereq-sentence">Pre-requisite: BCHE2030 or permission of instructor.</span></td></tr>
-<tr><td>BCHE 4080</td><td>Biochemistry for Forensic Sciences</td><td>2.00</td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 or permission of instructor.</span></td></tr>
-<tr><td>BCHE 4090</td><td>Biochemistry for Sport and Exercise</td><td>2.00</td><td>—</td></tr>
-<tr><td>BCHE 4130</td><td>Molecular Endocrinology</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken FNSC4102.</span></td></tr>
+<details class="course-details"><summary>Show 14 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr class="eq-row"><td>BCHE 3050 [2]</td><td>Molecular Biology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken BCHE4010 or BIOL2310.</span></td></tr>
+<tr class="eq-row"><td>BCHE 3070 [1]</td><td>Recombinant DNA Techniques</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken BCHE4020.</span></td></tr>
+<tr><td>BCHE 3650 [2]</td><td>Molecular Biology and Recombinant DNA Laboratory</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken BCHE4610.</span></td></tr>
+<tr><td>BCHE 3110</td><td>Chemical Biology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 and one of the following three courses: CHEM1070 or 1072 or 1280.</span></td></tr>
+<tr class="eq-row"><td>BCHE 4030</td><td>Clinical Biochemistry</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 or permission of instructor.</span></td></tr>
+<tr><td>BCHE 4830 [2]</td><td>Medical Biochemistry Laboratory</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr class="eq-row"><td>BCHE 4040</td><td>Aspects of Neuroscience</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 or permission of instructor.</span></td></tr>
+<tr><td>BCHE 4640 [2]</td><td>Aspects of Neuroscience Laboratory</td><td></td><td></td><td>—</td></tr>
+<tr class="eq-row"><td>BCHE 4060</td><td>Basic and Applied Immunology</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>BCHE 4760 [2]</td><td>Immunology and Haematology Laboratory</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken BCHE4660.</span></td></tr>
+<tr><td>BCHE 4070</td><td>Management and Accreditation of Biochemical Laboratory</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken BBMS6300.</span><span class="prereq-sentence">Pre-requisite: BCHE2030 or permission of instructor.</span></td></tr>
+<tr><td>BCHE 4080 [2]</td><td>Biochemistry for Forensic Sciences</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BCHE2030 or permission of instructor.</span></td></tr>
+<tr><td>BCHE 4090 [2]</td><td>Biochemistry for Sport and Exercise</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>BCHE 4130</td><td>Molecular Endocrinology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken FNSC4102.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Courses labeled as ^ are laboratory courses.</span></div>

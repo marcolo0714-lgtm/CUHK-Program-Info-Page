@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,55 +259,55 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Elective Courses: 18 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) Any 2 courses from the following:</span><span class="meta">(6 units)</span></div><div class="req-row"><span class="row-text">JASP1090, 1100, 1120</span></div></div>
-<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>JASP 1090</td><td>Understanding Japan</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken JASP1020.</span></td></tr>
-<tr><td>JASP 1100</td><td>Japanese Culture and Society</td><td>3.00</td><td><span class="prereq-sentence">Not for Japanese Studies Majors or students who have taken UGEC1232.</span></td></tr>
-<tr><td>JASP 1120</td><td>Understanding Japanese Languages and Culture</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>JASP 1090</td><td>Understanding Japan</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken JASP1020.</span></td></tr>
+<tr><td>JASP 1100</td><td>Japanese Culture and Society</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for Japanese Studies Majors or students who have taken UGEC1232.</span></td></tr>
+<tr><td>JASP 1120</td><td>Understanding Japanese Languages and Culture</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) Any 4 courses from the following non-language courses:</span><span class="meta">(12 units)</span></div><div class="req-row"><span class="row-text">JASP1140, 1160, 1180, 1190, 2100, 2200, 2400, 2520, 2600, 2720, 2820, 2910, 2920, 3110, 3120, 3210, 3430, 3470, 3480, 3500, 3700, 3800, 3900, 4000, 4100, 4110, 4410, ANTH2350, 2327, HIST3380, 3381, 4420, LING1000, 2003, 2004, 2005, 2006, 3101, 3201, 3204, MGNT4530, SOCI2103</span></div></div>
-<details class="course-details"><summary>Show 42 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>JASP 1140</td><td>Japanese Cinema</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken GESC2080, JASP1150 or UGEC1302.</span></td></tr>
-<tr><td>JASP 1160</td><td>Japanese Popular Culture in Cultural Globalization</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken JASP1110 or UGEC1271.</span></td></tr>
-<tr><td>JASP 1180</td><td>Modern Sino-Japanese Relations</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 1190</td><td>Tourism and Sustainable Development</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 2100</td><td>Japan and Asian Creative Industries</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 2200</td><td>Introduction to Japanese Animation, Comic and Game</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 2400</td><td>Culture of Japanese Mass Media</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 2520</td><td>Intimacy in Contemporary Japan</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 2600</td><td>Japanese Management</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 2720</td><td>History of Japanese Literature</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 2820</td><td>Introduction to Japanese Economy</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 2910</td><td>The History of 20th Century Japan</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 2920</td><td>Asia at War</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 3110</td><td>The Construction of Japanese Ethnic and Cultural Identity</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 3120</td><td>Everyday Life and Cultural Representation in Modern Japan</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>JASP 3210</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>JASP 3430</td><td>Japan and Hong Kong</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 3470</td><td>Japanese Youth Cultures in Asia</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>JASP 3480</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr class="nf"><td>JASP 3500</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>JASP 3700</td><td>Japanese Language and Society</td><td>3.00</td><td><span class="prereq-sentence">Students taking this course should possess Japanese Language Proficiency Test (JLPT) N2 certificate or having Japanese language proficiency equivalent to JLPT N2 level; or should have completed JASP2480/3340.</span></td></tr>
-<tr><td>JASP 3800</td><td>Japanese Philosophy</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>JASP 3900</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>JASP 4000</td><td>Special Topics in Japanese Studies</td><td>3.00</td><td>—</td></tr>
-<tr><td>JASP 4100</td><td>Japanese Dialectology</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: students should have one year studying experience in Japan or equivalent competence in Japanese.</span></td></tr>
-<tr><td>JASP 4110</td><td>Anthropology of Japan</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken JASP5615.</span></td></tr>
-<tr class="nf"><td>JASP 4410</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>ANTH 2350</td><td>Meanings of Life</td><td>3.00</td><td>—</td></tr>
-<tr><td>ANTH 2327</td><td>Ethnographies of Japan</td><td>3.00</td><td>—</td></tr>
-<tr><td>HIST 3380</td><td>History of Traditional Japan</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken HIST3213 and HIST5507F.</span></td></tr>
-<tr><td>HIST 3381</td><td>History of Modern Japan</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>HIST 4420</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>LING 1000</td><td>Invitation to Linguistics</td><td>3.00</td><td><span class="prereq-sentence">LING1000 is double-coded with UGED1924.</span><span class="prereq-sentence">Not for students who have taken UGED1924.</span></td></tr>
-<tr><td>LING 2003</td><td>Phonetics I</td><td>3.00</td><td>—</td></tr>
-<tr><td>LING 2004</td><td>Phonology I</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: LING2003.</span></td></tr>
-<tr><td>LING 2005</td><td>Syntax I</td><td>3.00</td><td>—</td></tr>
-<tr><td>LING 2006</td><td>Semantics</td><td>3.00</td><td>—</td></tr>
-<tr><td>LING 3101</td><td>Morphology</td><td>3.00</td><td>—</td></tr>
-<tr><td>LING 3201</td><td>First Language Acquisition</td><td>3.00</td><td>—</td></tr>
-<tr><td>LING 3204</td><td>Second Language Acquisition</td><td>3.00</td><td>—</td></tr>
-<tr><td>MGNT 4530</td><td>Japanese Business</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
-<tr><td>SOCI 2103</td><td>Japan in a Global Perspective</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken UGEC2260 or GESC2160 or UGEC1232/JASP1100.</span></td></tr>
+<details class="course-details"><summary>Show 42 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>JASP 1140</td><td>Japanese Cinema</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken GESC2080, JASP1150 or UGEC1302.</span></td></tr>
+<tr><td>JASP 1160</td><td>Japanese Popular Culture in Cultural Globalization</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken JASP1110 or UGEC1271.</span></td></tr>
+<tr><td>JASP 1180</td><td>Modern Sino-Japanese Relations</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>JASP 1190</td><td>Tourism and Sustainable Development</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>JASP 2100</td><td>Japan and Asian Creative Industries</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>JASP 2200</td><td>Introduction to Japanese Animation, Comic and Game</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>JASP 2400</td><td>Culture of Japanese Mass Media</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>JASP 2520</td><td>Intimacy in Contemporary Japan</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>JASP 2600</td><td>Japanese Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>JASP 2720</td><td>History of Japanese Literature</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>JASP 2820</td><td>Introduction to Japanese Economy</td><td></td><td></td><td>—</td></tr>
+<tr><td>JASP 2910</td><td>The History of 20th Century Japan</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>JASP 2920</td><td>Asia at War</td><td></td><td></td><td>—</td></tr>
+<tr><td>JASP 3110</td><td>The Construction of Japanese Ethnic and Cultural Identity</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>JASP 3120</td><td>Everyday Life and Cultural Representation in Modern Japan</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr class="nf"><td>JASP 3210</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>JASP 3430</td><td>Japan and Hong Kong</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>JASP 3470</td><td>Japanese Youth Cultures in Asia</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr class="nf"><td>JASP 3480</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>JASP 3500</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>JASP 3700</td><td>Japanese Language and Society</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Students taking this course should possess Japanese Language Proficiency Test (JLPT) N2 certificate or having Japanese language proficiency equivalent to JLPT N2 level; or should have completed JASP2480/3340.</span></td></tr>
+<tr><td>JASP 3800</td><td>Japanese Philosophy</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr class="nf"><td>JASP 3900</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>JASP 4000</td><td>Special Topics in Japanese Studies</td><td></td><td></td><td>—</td></tr>
+<tr><td>JASP 4100</td><td>Japanese Dialectology</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: students should have one year studying experience in Japan or equivalent competence in Japanese.</span></td></tr>
+<tr><td>JASP 4110</td><td>Anthropology of Japan</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken JASP5615.</span></td></tr>
+<tr class="nf"><td>JASP 4410</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>ANTH 2350</td><td>Meanings of Life</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ANTH 2327</td><td>Ethnographies of Japan</td><td></td><td></td><td>—</td></tr>
+<tr><td>HIST 3380</td><td>History of Traditional Japan</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST3213 and HIST5507F.</span></td></tr>
+<tr><td>HIST 3381</td><td>History of Modern Japan</td><td></td><td></td><td>—</td></tr>
+<tr class="nf"><td>HIST 4420</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>LING 1000</td><td>Invitation to Linguistics</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">LING1000 is double-coded with UGED1924.</span><span class="prereq-sentence">Not for students who have taken UGED1924.</span></td></tr>
+<tr><td>LING 2003</td><td>Phonetics I</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>LING 2004</td><td>Phonology I</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: LING2003.</span></td></tr>
+<tr><td>LING 2005</td><td>Syntax I</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>LING 2006</td><td>Semantics</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>LING 3101</td><td>Morphology</td><td></td><td></td><td>—</td></tr>
+<tr><td>LING 3201</td><td>First Language Acquisition</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>LING 3204</td><td>Second Language Acquisition</td><td></td><td></td><td>—</td></tr>
+<tr><td>MGNT 4530</td><td>Japanese Business</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
+<tr><td>SOCI 2103</td><td>Japan in a Global Perspective</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2260 or GESC2160 or UGEC1232/JASP1100.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx"><span id="note_a"><a href="#ref_a">[a]</a></span></span><span class="point-text">This Minor Programme is not applicable to students who major in Japanese Studies.</span></div>

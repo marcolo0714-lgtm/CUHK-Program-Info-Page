@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,43 +259,43 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses : 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">MAEG2020/ESTR2400, MAEG3060/ESTR3408</span></div></div>
-<details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr class="eq-row"><td>MAEG 2020</td><td>Engineering Mechanics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR2400.</span></td></tr>
-<tr><td>ESTR 2400</td><td>Engineering Mechanics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG2020.</span></td></tr>
-<tr class="eq-row"><td>MAEG 3060</td><td>Introduction to Robotics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR3408 or ELEG3103.</span></td></tr>
-<tr><td>ESTR 3408</td><td>Introduction to Robotics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG3060 or ELEG3103.</span></td></tr>
+<details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr class="eq-row"><td>MAEG 2020</td><td>Engineering Mechanics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR2400.</span></td></tr>
+<tr><td>ESTR 2400</td><td>Engineering Mechanics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG2020.</span></td></tr>
+<tr class="eq-row"><td>MAEG 3060</td><td>Introduction to Robotics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR3408 or ELEG3103.</span></td></tr>
+<tr><td>ESTR 3408</td><td>Introduction to Robotics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken MAEG3060 or ELEG3103.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses : 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">EEEN3030/ESTR3402, MAEG2030/ESTR2402, MAEG3010, MAEG3020/ESTR3404, MAEG3030, 3040, MAEG3050/ESTR3406, MAEG3070, 3080, MAEG4010/ESTR4408, MAEG4020/ESTR4410, MAEG4030/ESTR4412, MAEG4040/ESTR4414, MAEG4050/ESTR4416, MAEG4060, MAEG4070/ESTR4418, MAEG4080/ESTR4420</span></div></div>
-<details class="course-details"><summary>Show 28 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr class="eq-row"><td>EEEN 3030</td><td>Engineering Materials</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ENER3030 or ESTR3402.</span></td></tr>
-<tr><td>ESTR 3402</td><td>Engineering Materials</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ENER3030 or EEEN3030.</span></td></tr>
-<tr class="eq-row"><td>MAEG 2030</td><td>Thermodynamics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR2402.</span></td></tr>
-<tr><td>ESTR 2402</td><td>Thermodynamics</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG2030.</span></td></tr>
-<tr><td>MAEG 3010</td><td>Mechanics of Materials</td><td>3.00</td><td>—</td></tr>
-<tr class="eq-row"><td>MAEG 3020</td><td>Manufacturing Technology</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR3404.</span></td></tr>
-<tr><td>ESTR 3404</td><td>Manufacturing Technology</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG3020.</span></td></tr>
-<tr><td>MAEG 3030</td><td>Fluid Mechanics</td><td>3.00</td><td><span class="prereq-sentence">---.</span></td></tr>
-<tr><td>MAEG 3040</td><td>Mechanical Design</td><td>3.00</td><td>—</td></tr>
-<tr class="eq-row"><td>MAEG 3050</td><td>Introduction to Control Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR3406.</span></td></tr>
-<tr><td>ESTR 3406</td><td>Introduction to Control Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG3050.</span></td></tr>
-<tr><td>MAEG 3070</td><td>Fundamentals of Computer-Aided Design</td><td>3.00</td><td>—</td></tr>
-<tr><td>MAEG 3080</td><td>Fundamentals of Machine Intelligence</td><td>3.00</td><td>—</td></tr>
-<tr class="eq-row"><td>MAEG 4010</td><td>Computer-integrated Manufacturing</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR4408.</span></td></tr>
-<tr><td>ESTR 4408</td><td>Computer-integrated Manufacturing</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG4010.</span></td></tr>
-<tr class="eq-row"><td>MAEG 4020</td><td>Finite Element Modelling and Analysis</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR4410.</span></td></tr>
-<tr><td>ESTR 4410</td><td>Finite Element Modelling and Analysis</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG4020.</span></td></tr>
-<tr class="eq-row"><td>MAEG 4030</td><td>Heat Transfer</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: MAEG2030/ESTR2402 and MAEG3030, or with the consent of the course instructor.</span><span class="prereq-sentence">Not for students who have taken ESTR4412.</span></td></tr>
-<tr><td>ESTR 4412</td><td>Heat Transfer</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG4030.</span><span class="prereq-sentence">Pre-requisite: MAEG2030 / ESTR2402 and MAEG3030, or with the consent of the course instructor.</span></td></tr>
-<tr class="eq-row"><td>MAEG 4040</td><td>Mechatronic Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR4414.</span></td></tr>
-<tr><td>ESTR 4414</td><td>Mechatronic Systems</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG4040.</span></td></tr>
-<tr class="eq-row"><td>MAEG 4050</td><td>Modern Control Systems Analysis and Design</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR4416.</span></td></tr>
-<tr><td>ESTR 4416</td><td>Modern Control Systems Analysis and Design</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG4050.</span></td></tr>
-<tr><td>MAEG 4060</td><td>Virtual Reality Systems and Applications</td><td>3.00</td><td>—</td></tr>
-<tr class="eq-row"><td>MAEG 4070</td><td>Engineering Optimization</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken ESTR4418.</span></td></tr>
-<tr><td>ESTR 4418</td><td>Engineering Optimization</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG4070.</span></td></tr>
-<tr class="eq-row"><td>MAEG 4080</td><td>Introduction to Combustion</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: MAEG2030/ESTR2402 and MAEG3030.</span><span class="prereq-sentence">Not for students who have taken ESTR4420.</span></td></tr>
-<tr><td>ESTR 4420</td><td>Introduction to Combustion</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken MAEG4080.</span><span class="prereq-sentence">Pre-requisite: MAEG2030 or ESTR2402 and MAEG3030.</span></td></tr>
+<details class="course-details"><summary>Show 28 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr class="eq-row"><td>EEEN 3030</td><td>Engineering Materials</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ENER3030 or ESTR3402.</span></td></tr>
+<tr><td>ESTR 3402</td><td>Engineering Materials</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENER3030 or EEEN3030.</span></td></tr>
+<tr class="eq-row"><td>MAEG 2030</td><td>Thermodynamics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR2402.</span></td></tr>
+<tr><td>ESTR 2402</td><td>Thermodynamics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG2030.</span></td></tr>
+<tr><td>MAEG 3010</td><td>Mechanics of Materials</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr class="eq-row"><td>MAEG 3020</td><td>Manufacturing Technology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR3404.</span></td></tr>
+<tr><td>ESTR 3404</td><td>Manufacturing Technology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG3020.</span></td></tr>
+<tr><td>MAEG 3030</td><td>Fluid Mechanics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">(ENR) PR-MAEG2030/ESTR2402/Consent of the course instructor.</span></td></tr>
+<tr><td>MAEG 3040</td><td>Mechanical Design</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr class="eq-row"><td>MAEG 3050</td><td>Introduction to Control Systems</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3406.</span></td></tr>
+<tr><td>ESTR 3406</td><td>Introduction to Control Systems</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG3050.</span></td></tr>
+<tr><td>MAEG 3070</td><td>Fundamentals of Computer-Aided Design</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MAEG 3080</td><td>Fundamentals of Machine Intelligence</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr class="eq-row"><td>MAEG 4010</td><td>Computer-integrated Manufacturing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR4408.</span></td></tr>
+<tr><td>ESTR 4408</td><td>Computer-integrated Manufacturing</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG4010.</span></td></tr>
+<tr class="eq-row"><td>MAEG 4020</td><td>Finite Element Modelling and Analysis</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4410.</span></td></tr>
+<tr><td>ESTR 4410</td><td>Finite Element Modelling and Analysis</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG4020.</span></td></tr>
+<tr class="eq-row"><td>MAEG 4030</td><td>Heat Transfer</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: MAEG2030/ESTR2402 and MAEG3030, or with the consent of the course instructor.</span><span class="prereq-sentence">Not for students who have taken ESTR4412.</span></td></tr>
+<tr><td>ESTR 4412</td><td>Heat Transfer</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG4030.</span><span class="prereq-sentence">Pre-requisite: MAEG2030 / ESTR2402 and MAEG3030, or with the consent of the course instructor.</span></td></tr>
+<tr class="eq-row"><td>MAEG 4040</td><td>Mechatronic Systems</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4414.</span></td></tr>
+<tr><td>ESTR 4414</td><td>Mechatronic Systems</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG4040.</span></td></tr>
+<tr class="eq-row"><td>MAEG 4050</td><td>Modern Control Systems Analysis and Design</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR4416.</span></td></tr>
+<tr><td>ESTR 4416</td><td>Modern Control Systems Analysis and Design</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG4050.</span></td></tr>
+<tr><td>MAEG 4060</td><td>Virtual Reality Systems and Applications</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr class="eq-row"><td>MAEG 4070</td><td>Engineering Optimization</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4418.</span></td></tr>
+<tr><td>ESTR 4418</td><td>Engineering Optimization</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG4070.</span></td></tr>
+<tr class="eq-row"><td>MAEG 4080</td><td>Introduction to Combustion</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: MAEG2030/ESTR2402 and MAEG3030.</span><span class="prereq-sentence">Not for students who have taken ESTR4420.</span></td></tr>
+<tr><td>ESTR 4420</td><td>Introduction to Combustion</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG4080.</span><span class="prereq-sentence">Pre-requisite: MAEG2030 or ESTR2402 and MAEG3030.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>

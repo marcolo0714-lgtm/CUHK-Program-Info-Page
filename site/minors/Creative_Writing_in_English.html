@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,23 +259,23 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">ENGE3260, 3290</span></div></div>
-<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>ENGE 3260</td><td>Creative Writing</td><td>3.00</td><td>—</td></tr>
-<tr><td>ENGE 3290</td><td>Reading and Writing Short Stories</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>ENGE 3260</td><td>Creative Writing</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ENGE 3290</td><td>Reading and Writing Short Stories</td><td></td><td class="term-yes"></td><td>—</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Any 4 courses from the following: ENGE2210, 2390, 3280, 3300, 3310, 3320, 3360, 3370, 3420, 4200</span></div></div>
-<details class="course-details"><summary>Show 10 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>ENGE 2210</td><td>Song and Poetry: The Literature of Song and Song-Writing</td><td>3.00</td><td>—</td></tr>
-<tr><td>ENGE 2390</td><td>Reading Poetry</td><td>3.00</td><td>—</td></tr>
-<tr><td>ENGE 3280</td><td>Writing a Life Between Languages</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>ENGE 3300</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr class="nf"><td>ENGE 3310</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>ENGE 3320</td><td>Hong Kong Literature in English</td><td>3.00</td><td>—</td></tr>
-<tr><td>ENGE 3360</td><td>Special Topics in Creative Writing</td><td>3.00</td><td>—</td></tr>
-<tr><td>ENGE 3370</td><td>Writing Hong Kong</td><td>3.00</td><td>—</td></tr>
-<tr class="nf"><td>ENGE 3420</td><td colspan="3"><em>(not found in course_info)</em></td></tr>
-<tr><td>ENGE 4200</td><td>Advanced Creative Writing Workshop</td><td>3.00</td><td><span class="prereq-sentence">At least one of the following: ENGE3260 Creative Writing.</span><span class="prereq-sentence">ENGE3290 Reading and Writing Short Stories.</span><span class="prereq-sentence">ENGE3360 Special Topics in Creative Writing.</span><span class="prereq-sentence">OR ENGE3370 Writing Hong Kong.</span></td></tr>
+<details class="course-details"><summary>Show 10 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>ENGE 2210</td><td>Song and Poetry: The Literature of Song and Song-Writing</td><td></td><td></td><td>—</td></tr>
+<tr><td>ENGE 2390</td><td>Reading Poetry</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ENGE 3280</td><td>Writing a Life Between Languages</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr class="nf"><td>ENGE 3300</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>ENGE 3310</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>ENGE 3320</td><td>Hong Kong Literature in English</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ENGE 3360</td><td>Special Topics in Creative Writing</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>ENGE 3370</td><td>Writing Hong Kong</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr class="nf"><td>ENGE 3420</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr><td>ENGE 4200</td><td>Advanced Creative Writing Workshop</td><td></td><td></td><td><span class="prereq-sentence">At least one of the following: ENGE3260 Creative Writing.</span><span class="prereq-sentence">ENGE3290 Reading and Writing Short Stories.</span><span class="prereq-sentence">ENGE3360 Special Topics in Creative Writing.</span><span class="prereq-sentence">OR ENGE3370 Writing Hong Kong.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in English Major Programme, English and History Double Major Programme, History and English Double Major Programme, the Bachelor of Arts (English Studies) and Bachelor of Education (English Language Education).</span></div>

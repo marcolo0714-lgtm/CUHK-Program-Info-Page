@@ -30,13 +30,17 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center; }
-td:nth-child(4) { word-break:normal; overflow-wrap:anywhere; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -255,33 +259,33 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses<span id="ref_a"><a href="#note_a">[a]</a></span>: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) KORE2000<span id="ref_b"><a href="#note_b">[b]</a></span></span><span class="meta">(3 units)</span></div></div>
-<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>KORE 2000</td><td>Korean II</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken KORE2001,2050(1010),3000,3001,3002,3050(2010) or 3051(.</span><span class="prereq-sentence">3010) Prerequisite: KORE1000 (1001).</span></td></tr>
+<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>KORE 2000</td><td>Korean II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken KORE2001,2050(1010),3000,3001,3002,3050(2010) or 3051(.</span><span class="prereq-sentence">3010) Prerequisite: KORE1000 (1001).</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) KORE2001 and 3000, or 3050</span><span class="meta">(6 units)</span></div></div>
-<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>KORE 2001</td><td>Korean III</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken KORE3000,3001,3002,3050(2010) or 3051(3010).</span><span class="prereq-sentence">2. Prerequisite: KORE2000 (1002) or 2050 (1010).</span></td></tr>
-<tr><td>KORE 3000</td><td>Korean IV</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken KORE3001,3002,3050(2010) or 3051(3010).</span><span class="prereq-sentence">2. Prerequisite: KORE2001.</span></td></tr>
-<tr><td>KORE 3050</td><td>Korean III & IV</td><td>6.00</td><td><span class="prereq-sentence">1. Not for students who have taken KORE2001,3000(2002),3001,3002 or 3051(3010).</span><span class="prereq-sentence">2. Prerequisite: KORE2000 (1002) or 2050 (1010).</span></td></tr>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>KORE 2001</td><td>Korean III</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken KORE3000,3001,3002,3050(2010) or 3051(3010).</span><span class="prereq-sentence">2. Prerequisite: KORE2000 (1002) or 2050 (1010).</span></td></tr>
+<tr><td>KORE 3000</td><td>Korean IV</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Not for students who have taken KORE3001,3002,3050(2010) or 3051(3010).</span><span class="prereq-sentence">2. Prerequisite: KORE2001.</span></td></tr>
+<tr><td>KORE 3050 [6]</td><td>Korean III & IV</td><td></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken KORE2001,3000(2002),3001,3002 or 3051(3010).</span><span class="prereq-sentence">2. Prerequisite: KORE2000 (1002) or 2050 (1010).</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(c) KORE3001<span id="ref_c"><a href="#note_c">[c]</a></span></span><span class="meta">(3 units)</span></div></div>
-<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>KORE 3001</td><td>Korean V</td><td>3.00</td><td><span class="prereq-sentence">1. Not for students who have taken KORE3002 or 3051 (3010).</span><span class="prereq-sentence">2. Pre-requisite: KORE3000 (2002) or 3050 (2010).</span></td></tr>
+<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>KORE 3001</td><td>Korean V</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken KORE3002 or 3051 (3010).</span><span class="prereq-sentence">2. Pre-requisite: KORE3000 (2002) or 3050 (2010).</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Any KORE courses other than KORE1000, 1001, 2050 and those listed above</span><span class="meta">(6 units)</span></div></div>
-<details class="course-details"><summary>Show 11 course(s) →</summary><table><thead><tr><th>Code</th><th>Title</th><th>Units</th><th>Prerequisites</th></tr></thead><tbody>
-<tr><td>KORE 1100</td><td>Gateway to Korea</td><td>3.00</td><td>—</td></tr>
-<tr><td>KORE 3002</td><td>Korean VI</td><td>3.00</td><td><span class="prereq-sentence">Not for students who have taken KORE3051 (3010).</span><span class="prereq-sentence">Prerequisite: KORE3001.</span></td></tr>
-<tr><td>KORE 3020</td><td>Sounds of Korean</td><td>3.00</td><td><span class="prereq-sentence">Prerequisites: KORE3000,3001,3002,3050 or 3051.</span><span class="prereq-sentence">Not for students who have taken KORE3100 in 2nd term 2018-19 and 1st term 2019-20.</span></td></tr>
-<tr><td>KORE 3021</td><td>Korean Conversation</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: KORE3001, 3002 or 3051.</span></td></tr>
-<tr><td>KORE 3031</td><td>Creative Writing in Korean</td><td>3.00</td><td><span class="prereq-sentence">Prerequisites: KORE3001,3002 or 3051.</span><span class="prereq-sentence">Not for students who have taken KORE3100 in 2nd term 2019-20.</span></td></tr>
-<tr><td>KORE 3041</td><td>Business Korean</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisites: KORE3000,3001,3002,3050 or 3051.</span></td></tr>
-<tr><td>KORE 3051</td><td>Korean V & VI</td><td>6.00</td><td><span class="prereq-sentence">Not for students who have taken KORE3001 or KORE3002.</span><span class="prereq-sentence">Prerequisite: KORE3000 (2002) or KORE3050 (2010).</span></td></tr>
-<tr><td>KORE 3060</td><td>Korean through Drama</td><td>3.00</td><td><span class="prereq-sentence">Prerequisite: KORE3000,3001,3002,3050(2010) or 3051(3010).</span></td></tr>
-<tr><td>KORE 3061</td><td>Korean through Folktales</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite: KORE3000, 3001, 3002, 3050 or 3051.</span></td></tr>
-<tr><td>KORE 3062</td><td>Korean through Media</td><td>3.00</td><td><span class="prereq-sentence">Pre-requisite(s): KORE3001, KORE3002 or KORE3051.</span></td></tr>
-<tr><td>KORE 3100</td><td>Special Topics in Korean</td><td>3.00</td><td>—</td></tr>
+<details class="course-details"><summary>Show 11 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>KORE 1100</td><td>Gateway to Korea</td><td></td><td></td><td>—</td></tr>
+<tr><td>KORE 3002</td><td>Korean VI</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken KORE3051 (3010).</span><span class="prereq-sentence">Prerequisite: KORE3001.</span></td></tr>
+<tr><td>KORE 3020</td><td>Sounds of Korean</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisites: KORE3000,3001,3002,3050 or 3051.</span><span class="prereq-sentence">Not for students who have taken KORE3100 in 2nd term 2018-19 and 1st term 2019-20.</span></td></tr>
+<tr><td>KORE 3021</td><td>Korean Conversation</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: KORE3001, 3002 or 3051.</span></td></tr>
+<tr><td>KORE 3031</td><td>Creative Writing in Korean</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: KORE3001,3002 or 3051.</span><span class="prereq-sentence">Not for students who have taken KORE3100 in 2nd term 2019-20.</span></td></tr>
+<tr><td>KORE 3041</td><td>Business Korean</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisites: KORE3000,3001,3002,3050 or 3051.</span></td></tr>
+<tr><td>KORE 3051 [6]</td><td>Korean V & VI</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken KORE3001 or KORE3002.</span><span class="prereq-sentence">Prerequisite: KORE3000 (2002) or KORE3050 (2010).</span></td></tr>
+<tr><td>KORE 3060</td><td>Korean through Drama</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: KORE3000,3001,3002,3050(2010) or 3051(3010).</span></td></tr>
+<tr><td>KORE 3061</td><td>Korean through Folktales</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: KORE3000, 3001, 3002, 3050 or 3051.</span></td></tr>
+<tr><td>KORE 3062</td><td>Korean through Media</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite(s): KORE3001, KORE3002 or KORE3051.</span></td></tr>
+<tr><td>KORE 3100</td><td>Special Topics in Korean</td><td></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx"><span id="note_a"><a href="#ref_a">[a]</a></span></span><span class="point-text">Students who have prior knowledge of Korean before admission may be exempted from taking KORE2000, 2001, 2050, 3000, 3001 and 3050. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div>
