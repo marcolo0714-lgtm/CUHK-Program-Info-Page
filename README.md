@@ -24,6 +24,8 @@ Scrapes and validates course catalog data from the Chinese University of Hong Ko
 
 8. **Generate site** — `generate_minor_site.py` reads `minor_json/*.json` and `course_overrides.json`, resolves every course code against the catalog to attach titles/units/prerequisites, and renders a polished static site with collapsible course tables in `site/`.
 
+9. **Checker page** — `generate_checker_page.py` and `generate_checker_data.py` build a self-contained interactive checker (`site/checker.html`) that lets students paste their CUSIS transcript and see their progress toward every minor, including equivalence rules, cross-row exclusions, waiver rules, faculty caps, and level constraints — all auto-detected from explanatory notes.
+
 ## Quick start
 
 ### Install
@@ -91,7 +93,10 @@ python generate_minor_site.py       # → site/index.html + site/minors/
 │   ├── minor_html/                     # Raw extracted minor HTML (academy + HB_ prefix)
 │   │   └── _faculties.json             # Faculty name mapping
 │   ├── minor_json/                     # Structured minor JSON (per programme)
-├── site/                               # Generated static site (index.html + minors/)
+├── minor_planner/                      # Checker pipeline
+│   ├── generate_checker_data.py        # Builds resolved checker data
+│   └── generate_checker_page.py        # Generates interactive checker.html
+├── site/                               # Generated static site (index.html + minors/ + checker.html)
 └── user_data_dir/                      # Playwright persistent browser profile
 ```
 
@@ -105,6 +110,8 @@ python generate_minor_site.py       # → site/index.html + site/minors/
 | `generate_minor_json.py` | `minor_html/*.html` | `minor_json/*.json` (71 files) |
 | `resolve_course_descriptions.py` | `minor_json/` + `course_info/` | `course_overrides.json` |
 | `generate_minor_site.py` | `minor_json/` + `course_info/` + `course_overrides.json` | `site/` (static HTML) |
+| `generate_checker_data.py` | `minor_json/` + `course_info/` + `course_overrides.json` | `site/data/checker_data.json` |
+| `generate_checker_page.py` | `site/data/checker_data.json` | `site/checker.html` |
 
 ## Scraped data format
 
@@ -117,11 +124,13 @@ Each file is an array of objects:
     "code":  "ACCT 2111",
     "title": "Introductory Financial Accounting",
     "unit":  "3.00",
-    "info":  "Not for students who have taken ACCT1111"
+    "info":  "Not for students who have taken ACCT1111",
+    "term_1": true,
+    "term_2": false
 }
 ```
 
-The `info` field is only present when the course has enrollment requirements or restrictions.
+The `info` field is only present when the course has enrollment requirements or restrictions. `term_1`/`term_2` indicate 2026-27 Term 1/2 availability.
 
 ### Minor programme (`minor_json/<Programme>.json`)
 
@@ -270,11 +279,7 @@ To fix a missing-course entry:
 
 ### Future directions
 
-Ideas for contributors looking to extend this project:
-
-- **Prerequisite chain navigation** — hover or click on a prerequisite course code in any course info table to see that course's own prerequisites.
-- **Transcript upload / minor planner** — upload your CUSIS transcript and see which minors you're closest to completing (fewest remaining courses), taking double-counting rules into account.
-- **Course offering calendar** — add a column to each course info table showing whether the course is offered in Term 1, Term 2, or Summer for the current academic year (e.g., 2026-27), sourced from the CUHK course offering page.
-- **Double‑counting validation** — automatically flag courses that appear in both a student's major requirements and a selected minor, highlighting where the 9‑unit double‑counting limit is exceeded.
+- **Course offering calendar** — ~~add a column to each course info table showing whether the course is offered in Term 1, Term 2, or Summer for the current academic year~~ ✅ Done — T1/T2 columns with green highlights are shown in course tables on the info page.
+- **Transcript upload / minor planner** — upload your CUSIS transcript and see which minors you're closest to completing, taking double-counting rules into account. ✅ Done — see `site/checker.html`.
 - **Search & filter** — add keyword search and level-range filtering to the minor programme pages to quickly find courses matching specific criteria.
 - **Dark mode** — add a theme toggle to the generated site.
