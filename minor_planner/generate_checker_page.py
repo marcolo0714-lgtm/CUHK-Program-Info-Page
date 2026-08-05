@@ -1,16 +1,24 @@
 """
 Generate checker.html — interactive minor progress checker page.
-Reads checker_data.json and produces a self-contained static HTML page.
+Reads checker_data.json (courses) and checker_minors_{year}.json and produces
+a self-contained static HTML page.
 
-Usage:  python generate_checker_page.py
+Usage:  python generate_checker_page.py [--year 2025_26]
 """
 
 import json
+import argparse
 from pathlib import Path
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--year", default="2025_26", help="Admission year (e.g. 2025_26)")
+args = parser.parse_args()
+YEAR = args.year
+
 BASE = Path(__file__).parent.parent
-DATA_FILE = BASE / "site" / "data" / "checker_data.json"
-OUTPUT_FILE = BASE / "site" / "checker.html"
+DATA_FILE = BASE / "site" / "checker_data.json"
+MINORS_FILE = BASE / "site_tempdata" / f"checker_minors_{YEAR}.json"
+OUTPUT_FILE = BASE / "site" / YEAR / "checker.html"
 
 CHECKER_CSS = """\
 :root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
@@ -133,6 +141,11 @@ tr.matched:hover { background:#e6f7ea; }
     .result-header { flex-wrap:wrap; }
     .result-bar-wrap { width:100%; order:3; margin-top:4px; }
     .result-pct { order:2; }
+}
+.year-select {
+    font-size: 0.9rem; padding: 4px 10px; border: 1px solid var(--border);
+    border-radius: 6px; background: var(--card); color: var(--text);
+    margin-bottom: 16px; cursor: pointer;
 }
 """
 
@@ -1883,6 +1896,7 @@ CHECKER_HTML_TEMPLATE = """\
 <body>
 <div class="container">
   <a href="index.html" class="back-link">&larr; Back to Minor Programmes</a>
+  {year_select}
   <h1>Minor Progress Checker</h1>
   <p class="summary">Paste your CUSIS academic records to find which CUHK minor programmes you are closest to completing.</p>
 
@@ -1927,17 +1941,38 @@ def generate():
     if not DATA_FILE.exists():
         print(f"Error: {DATA_FILE} not found. Run generate_checker_data.py first.")
         return
+    if not MINORS_FILE.exists():
+        print(f"Error: {MINORS_FILE} not found. Run generate_checker_data.py --year {YEAR} first.")
+        return
 
-    checker_data = DATA_FILE.read_text(encoding="utf-8")
+    courses_data = DATA_FILE.read_text(encoding="utf-8")  # {"courses": {...}}
+    minors_data = MINORS_FILE.read_text(encoding="utf-8")  # {"minors": {...}}
+    # Merge using proper JSON parsing
+    courses_obj = json.loads(courses_data)
+    minors_obj = json.loads(minors_data)
+    merged = {"courses": courses_obj["courses"], "minors": minors_obj["minors"]}
+    checker_data = json.dumps(merged, ensure_ascii=False)
+
+    site_dir = BASE / "site"
+    available_years = sorted(
+        [d.name for d in site_dir.iterdir() if d.is_dir() and "_" in d.name and (d / "checker.html").exists()]
+    )
+    year_select = '<select onchange="window.location=this.value" class="year-select">' + "".join(
+        f'<option value="../{y}/checker.html" {"selected" if y == YEAR else ""}>{y.replace("_","-")}</option>'
+        for y in available_years
+    ) + '</select>'
 
     html = CHECKER_HTML_TEMPLATE.format(
         css=CHECKER_CSS,
         checker_data_json=checker_data,
         js=CHECKER_JS,
+        year=YEAR,
+        year_select=year_select,
     )
 
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_FILE.write_text(html, encoding="utf-8")
-    print(f"Generated: {OUTPUT_FILE}")
+    print(f"Generated: site/{YEAR}/checker.html")
     print(f"  Size: {len(html) / 1024:.0f} KB")
 
 

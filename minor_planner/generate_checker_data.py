@@ -2,24 +2,32 @@
 Generate checker_data.json — fully resolved minor requirements for the
 client-side progress checker.
 
-Usage:  python generate_checker_data.py
+Usage:  python generate_checker_data.py [--year 2025_26]
 
-Reads:  ../minor_extraction/minor_json/*.json
+Reads:  ../minor_extraction/minor_json/{year}/*.json
         ../course_extraction/course_info/*.json
-        ../minor_extraction/course_overrides.json
+        ../minor_extraction/course_overrides/{year}.json
 
-Output: ../site/data/checker_data.json
+Output: ../site/checker_data.json           (courses — year-agnostic)
+        ../site_tempdata/checker_minors_{year}.json  (minors — year-specific)
 """
 
 import json
 import re
+import argparse
 from pathlib import Path
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--year", default="2025_26", help="Admission year (e.g. 2025_26)")
+args = parser.parse_args()
+YEAR = args.year
+
 BASE = Path(__file__).parent.parent
-MINOR_JSON_DIR = BASE / "minor_extraction" / "minor_json"
+MINOR_JSON_DIR = BASE / "minor_extraction" / "minor_json" / YEAR
 COURSE_INFO_DIR = BASE / "course_extraction" / "course_info"
-OVERRIDE_FILE = BASE / "minor_extraction" / "course_overrides.json"
-OUTPUT_FILE = BASE / "site" / "data" / "checker_data.json"
+OVERRIDE_FILE = BASE / "minor_extraction" / "course_overrides" / f"{YEAR}.json"
+OUTPUT_FILE = BASE / "site" / "checker_data.json"
+MINORS_OUTPUT = BASE / "site_tempdata" / f"checker_minors_{YEAR}.json"
 
 
 # ── Helpers ─────────────────────────────────────────────────────────────
@@ -1602,15 +1610,18 @@ def generate():
     for code, info in course_index.items():
         courses_summary[code] = {"title": info["title"], "unit": info["unit"]}
 
-    output = {"courses": courses_summary, "minors": minors_data}
-
+    # Write courses (year-agnostic) to site/
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_FILE.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    OUTPUT_FILE.write_text(json.dumps({"courses": courses_summary}, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # Write minors (year-specific) to site_tempdata/
+    MINORS_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    MINORS_OUTPUT.write_text(json.dumps({"minors": minors_data}, ensure_ascii=False, indent=2), encoding="utf-8")
 
     total_rows = sum(
         len(s["rows"]) for m in minors_data.values() for s in m["sections"]
     )
-    print(f"Generated: {OUTPUT_FILE}")
+    print(f"Generated: site/checker_data.json, site_tempdata/checker_minors_{YEAR}.json")
     print(f"  Minors: {len(minors_data)}")
     print(f"  Sections: {sum(len(m['sections']) for m in minors_data.values())}")
     print(f"  Total rows: {total_rows}")

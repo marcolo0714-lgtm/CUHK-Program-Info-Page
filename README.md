@@ -12,19 +12,19 @@ Scrapes and validates course catalog data from the Chinese University of Hong Ko
 
 ### Minor programme info (`minor_extraction/`)
 
-3. **Extract (academy)** — `extract_minor_sections.py` scrapes the CUHK academic programs page (captcha + Playwright) to find minor programme boxes for every UG 2025 Full-time program and saves them as raw HTML in `minor_html/`.
+3. **Extract (academy)** — `extract_minor_sections.py` scrapes the CUHK academic programs page (captcha + Playwright) to find minor programme boxes for every UG Full-time program and saves them as raw HTML in `minor_html/{year}/`. Use `--year 2025_26` to specify the admission year.
 
-4. **Extract (handbook)** — `extract_handbook_minors.py` scrapes the CUHK Undergraduate Student Handbook (no captcha, plain HTTP) to find 12 additional "Other Minor Programmes" (language minors, interdisciplinary minors) and saves them as `minor_html/HB_*.html`.
+4. **Extract (handbook)** — `extract_handbook_minors.py` scrapes the CUHK Undergraduate Student Handbook (no captcha, plain HTTP) to find additional "Other Minor Programmes" (language minors, interdisciplinary minors) and saves them as `minor_html/{year}/HB_*.html`. Use `--year` flag.
 
-5. **Parse to JSON** — `generate_minor_json.py` parses each minor HTML into structured JSON (`minor_json/`) with course codes, units, and explanatory notes. Sets `_auto_generated: true` on each file.
+5. **Parse to JSON** — `generate_minor_json.py` parses each minor HTML into structured JSON (`minor_json/{year}/`) with course codes, units, and explanatory notes. Sets `_auto_generated: true` on each file. Use `--year` flag.
 
-6. **Resolve course descriptions** — `resolve_course_descriptions.py` scans all minor JSONs for text-only requirements (e.g., "18 units of MATH courses at 3000+" or "Any two LAWS courses at 3000 or above") and resolves them against the course catalog to generate concrete course code lists in `course_overrides.json`. Run without flags for a diagnostic report; run with `--apply` to write the file.
+6. **Resolve course descriptions** — `resolve_course_descriptions.py` scans all minor JSONs for text-only requirements (e.g., "18 units of MATH courses at 3000+" or "Any two LAWS courses at 3000 or above") and resolves them against the course catalog to generate concrete course code lists in `course_overrides/{year}.json`. Run without flags for a diagnostic report; run with `--apply --year 2025_26` to write the file.
 
-7. **Manually complete overrides** — `course_overrides.json` maps each minor's text-only requirement rows to a list of course codes. Entries the script cannot auto-resolve (e.g., "2 Art History Courses", "Cultural Management Area") are placed as empty arrays — edit these manually, then re-run the site generator.
+7. **Manually complete overrides** — `course_overrides/{year}.json` maps each minor's text-only requirement rows to a list of course codes. Entries the script cannot auto-resolve (e.g., "2 Art History Courses", "Cultural Management Area") are placed as empty arrays — edit these manually, then re-run the site generator.
 
-8. **Generate site** — `generate_minor_site.py` reads `minor_json/*.json` and `course_overrides.json`, resolves every course code against the catalog to attach titles/units/prerequisites, and renders a polished static site with collapsible course tables in `site/`.
+8. **Generate site** — `generate_minor_site.py` reads `minor_json/{year}/*.json` and `course_overrides/{year}.json`, resolves every course code against the catalog to attach titles/units/prerequisites, and renders a polished static site with collapsible course tables in `site/{year}/`. Use `--year` flag.
 
-9. **Checker page** — `generate_checker_page.py` and `generate_checker_data.py` build a self-contained interactive checker (`site/checker.html`) that lets students paste their CUSIS transcript and see their progress toward every minor, including equivalence rules, cross-row exclusions, waiver rules, faculty caps, and level constraints — all auto-detected from explanatory notes.
+9. **Checker page** — `generate_checker_page.py` and `generate_checker_data.py` build a self-contained interactive checker (`site/{year}/checker.html`) that lets students paste their CUSIS transcript and see their progress toward every minor, including equivalence rules, cross-row exclusions, waiver rules, faculty caps, and level constraints — all auto-detected from explanatory notes.
 
 ## Quick start
 
@@ -48,31 +48,33 @@ pytest tests/ -m live              # online: compare stored vs live website
 
 ```bash
 cd ..\minor_extraction
-python extract_minor_sections.py    # academy minors → minor_html/
-python extract_handbook_minors.py   # handbook minors → minor_html/HB_*.html
+python extract_minor_sections.py --year 2025_26    # academy minors → minor_html/{year}/
+python extract_handbook_minors.py --year 2025_26   # handbook minors → minor_html/{year}/HB_*.html
 ```
 
 ### 3. Parse minors to JSON
 
 ```bash
-python generate_minor_json.py       # HTML → minor_json/
+python generate_minor_json.py --year 2025_26       # HTML → minor_json/{year}/
 ```
 
 ### 4. Resolve text-only requirements
 
 ```bash
-python resolve_course_descriptions.py          # diagnostic: see what's resolvable
-python resolve_course_descriptions.py --apply  # generate course_overrides.json
-# edit course_overrides.json to fill any MANUAL entries (empty arrays)
+python resolve_course_descriptions.py                          # diagnostic: see what's resolvable
+python resolve_course_descriptions.py --apply --year 2025_26   # generate course_overrides/{year}.json
+# edit course_overrides/{year}.json to fill any MANUAL entries (empty arrays)
 ```
 
-### 5. Generate static site
+### 5. Generate site and checker
 
 ```bash
-python generate_minor_site.py       # → site/index.html + site/minors/
+python ..\minor_planner\generate_checker_data.py --year 2025_26
+python ..\minor_planner\generate_checker_page.py --year 2025_26
+python generate_minor_site.py --year 2025_26                    # static site → site/{year}/
 ```
 
-> **Note:** The site auto-reads `course_overrides.json` if present and injects course tables for resolved text-only rows. If the file is missing, the site still works — just without those tables.
+> **Note:** The site auto-reads `course_overrides/{year}.json` if present and injects course tables for resolved text-only rows. If the file is missing, the site still works — just without those tables.
 
 ## Structure
 
@@ -89,14 +91,25 @@ python generate_minor_site.py       # → site/index.html + site/minors/
 │   ├── generate_minor_json.py          # HTML → JSON parser
 │   ├── generate_minor_site.py          # JSON → HTML static site generator
 │   ├── resolve_course_descriptions.py  # Override diagnostic / generator
-│   ├── course_overrides.json           # Manual course resolution map
-│   ├── minor_html/                     # Raw extracted minor HTML (academy + HB_ prefix)
-│   │   └── _faculties.json             # Faculty name mapping
-│   ├── minor_json/                     # Structured minor JSON (per programme)
+│   ├── course_overrides/               # Per-year course resolution maps
+│   │   └── {year}.json
+│   ├── minor_html/                     # Raw extracted minor HTML (per year)
+│   │   └── {year}/
+│   │       └── _faculties.json          # Faculty name mapping
+│   ├── minor_json/                     # Structured minor JSON (per year)
+│   │   └── {year}/
 ├── minor_planner/                      # Checker pipeline
 │   ├── generate_checker_data.py        # Builds resolved checker data
 │   └── generate_checker_page.py        # Generates interactive checker.html
-├── site/                               # Generated static site (index.html + minors/ + checker.html)
+├── site/                               # Generated static site
+│   ├── index.html                      # Redirects to newest year
+│   ├── checker_data.json               # Course catalog (year-agnostic)
+│   └── {year}/
+│       ├── index.html                  # Minor programme list
+│       ├── checker.html                # Interactive checker
+│       └── minors/                     # Detail pages
+├── site_tempdata/                      # Intermediate checker data (per year)
+│   └── checker_minors_{year}.json
 └── user_data_dir/                      # Playwright persistent browser profile
 ```
 
