@@ -26,7 +26,10 @@ h2 { font-size:1.2em; margin:1.2em 0 .5em; padding-bottom:4px;
      border-bottom:1px solid var(--border); color:#333; }
 a { color:var(--accent); text-decoration:none; }
 a:hover { text-decoration:underline; }
-.back-link { font-size:.9em; margin-bottom:1em; display:inline-block; }
+.back-link { display:inline-block; padding:10px 24px; background:var(--accent);
+    color:#fff; border-radius:8px; font-weight:600; font-size:.95em;
+    text-decoration:none; margin-bottom:18px; }
+.back-link:hover { opacity:.9; text-decoration:none; }
 .section { background:var(--card); padding:14px 18px; border-radius:8px;
            border:1px solid var(--border); margin-bottom:12px; }
 .section textarea { width:100%; min-height:200px; font-family:'Courier New',monospace;
@@ -1906,6 +1909,8 @@ CHECKER_HTML_TEMPLATE = """\
     <a href="index.html">CUHK Minor Programmes</a>
     <span> &middot; </span>
     <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>
+    <span> &middot; </span>
+    <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
   </div>
 </div>
 <script>

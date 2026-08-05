@@ -228,6 +228,8 @@ FOOTER_HTML = """\
   <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>
   <span> &middot; </span>
   <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&tv=F&lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
+  <span> &middot; </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
 </div>"""
 
 
@@ -1070,7 +1072,8 @@ def generate():
     index_body = (
         f"<h1>CUHK Minor Programmes</h1>"
         f'<p class="meta">{len(index_order)} minor programmes &middot; '
-        f'Course info from CUHK course catalog</p>\n'
+        f'For students admitted in 2025-26</p>\n'
+        f'<br>\n'
         f'<a href="checker.html" class="checker-btn">Check Your Minor Progress &rarr;</a>\n'
         f"{cards_html}"
     )
