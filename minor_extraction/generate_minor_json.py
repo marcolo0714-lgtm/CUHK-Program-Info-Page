@@ -1,12 +1,17 @@
 import json
 import re
+import argparse
 from pathlib import Path
 
 from bs4 import BeautifulSoup
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--year", default="2025_26", help="Admission year (e.g. 2025_26)")
+args = parser.parse_args()
+YEAR = args.year
 
-MINOR_HTML_DIR = Path(__file__).parent / "minor_html"
-MINOR_JSON_DIR = Path(__file__).parent / "minor_json"
+MINOR_HTML_DIR = Path(__file__).parent / "minor_html" / YEAR
+MINOR_JSON_DIR = Path(__file__).parent / "minor_json" / YEAR
 FACULTIES_PATH = MINOR_HTML_DIR / "_faculties.json"
 
 
@@ -778,7 +783,7 @@ def generate():
     if skipped:
         print(f"JSON files skipped (manually edited): {skipped}")
 
-    print(f"\nDone. JSON output: minor_json/")
+    print(f"\nDone. JSON output: minor_json/{YEAR}/")
 
 
 if __name__ == "__main__":

@@ -2,19 +2,27 @@
 Resolve course descriptions in minor JSON files against course_info/.
 
 Usage:
-  python resolve_course_descriptions.py          # diagnostic mode
-  python resolve_course_descriptions.py --apply  # generate course_overrides.json
+  python resolve_course_descriptions.py                   # diagnostic mode
+  python resolve_course_descriptions.py --apply            # generate overrides
+  python resolve_course_descriptions.py --apply --year X   # specific year
 """
 
 import json
 import re
 import sys
+import argparse
 from pathlib import Path
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--apply", action="store_true", help="Generate override file")
+parser.add_argument("--year", default="2025_26", help="Admission year (e.g. 2025_26)")
+args = parser.parse_args()
+YEAR = args.year
+
 BASE = Path(__file__).parent.parent
-MINOR_JSON_DIR = Path(__file__).parent / "minor_json"
+MINOR_JSON_DIR = Path(__file__).parent / "minor_json" / YEAR
 COURSE_INFO_DIR = BASE / "course_extraction" / "course_info"
-OVERRIDE_FILE = Path(__file__).parent / "course_overrides.json"
+OVERRIDE_FILE = Path(__file__).parent / "course_overrides" / f"{YEAR}.json"
 
 
 # ── course index ──────────────────────────────────────────────────────
@@ -59,7 +67,7 @@ def extract_level_constraint(text):
     """
     # Guideline patterns that make a level constraint non-restrictive
     GUIDELINE_PATTERN = re.compile(
-        r"(?:with|out\s+of\s+which|should\s+include)\s+at\s+least",
+        r"(?:with|out\s+of\s+which|should\s+include|take|complete|include)\s+at\s+least",
         re.IGNORECASE,
     )
 

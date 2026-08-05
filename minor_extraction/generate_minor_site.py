@@ -1,12 +1,17 @@
 import json
 import re
+import argparse
 from pathlib import Path
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--year", default="2025_26", help="Admission year (e.g. 2025_26)")
+args = parser.parse_args()
+YEAR = args.year
 
-MINOR_JSON_DIR = Path(__file__).parent / "minor_json"
+MINOR_JSON_DIR = Path(__file__).parent / "minor_json" / YEAR
 COURSE_INFO_DIR = Path(__file__).parent.parent / "course_extraction" / "course_info"
-SITE_DIR = Path(__file__).parent.parent / "site"
-OVERRIDE_FILE = Path(__file__).parent / "course_overrides.json"
+SITE_DIR = Path(__file__).parent.parent / "site" / YEAR
+OVERRIDE_FILE = Path(__file__).parent / "course_overrides" / f"{YEAR}.json"
 
 
 # ── course resolution ─────────────────────────────────────────────────
@@ -180,6 +185,11 @@ tr:hover { background:#f9f9f9; }
     .notes-table-section { overflow-x:auto; -webkit-overflow-scrolling:touch; }
     .notes-table-section table { width:auto !important; max-width:none; }
     .notes-table-section td { white-space:normal; overflow-wrap:break-word; }
+}
+.year-select {
+    font-size: 0.9rem; padding: 4px 10px; border: 1px solid var(--border);
+    border-radius: 6px; background: var(--card); color: var(--text);
+    margin-bottom: 16px; cursor: pointer;
 }
 """
 
@@ -1069,10 +1079,24 @@ def generate():
         )
     cards_html += '</div>\n'
 
+    year_display = YEAR.replace("_", "-")
+
+    # Determine available years by scanning site/ subdirs
+    site_base = SITE_DIR.parent
+    available_years = sorted(
+        [d.name for d in site_base.iterdir() if d.is_dir() and "_" in d.name and (d / "index.html").exists()]
+    )
+    year_options = "".join(
+        f'<option value="../{y}/index.html" {"selected" if y == YEAR else ""}>{y.replace("_","-")}</option>'
+        for y in available_years
+    )
+
     index_body = (
+        f'<select onchange="window.location=this.value" class="year-select">'
+        f'{year_options}</select>\n'
         f"<h1>CUHK Minor Programmes</h1>"
         f'<p class="meta">{len(index_order)} minor programmes &middot; '
-        f'For students admitted in 2025-26</p>\n'
+        f'For students admitted in {year_display}</p>\n'
         f'<br>\n'
         f'<a href="checker.html" class="checker-btn">Check Your Minor Progress &rarr;</a>\n'
         f"{cards_html}"
@@ -1089,7 +1113,7 @@ def generate():
     print(f"{len(index_order)} minor programmes rendered")
     print(f"Required courses: {found_req}/{total_req} matched")
     print(f"Elective courses: {found_ele}/{total_ele} matched")
-    print(f"\nSite generated: site/index.html")
+    print(f"\nSite generated: site/{YEAR}/index.html")
 
 
 if __name__ == "__main__":

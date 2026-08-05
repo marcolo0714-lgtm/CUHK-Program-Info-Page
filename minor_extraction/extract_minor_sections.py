@@ -3,9 +3,15 @@ import sys
 import io
 import os
 import json
+import argparse
 from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--year", default="2025_26", help="Admission year (e.g. 2025_26)")
+args = parser.parse_args()
+YEAR = args.year
 
 ROOT = Path(__file__).parent
 
@@ -185,7 +191,7 @@ def crawl_programs():
     faculties = {}                 # adms -> faculty short name
     total_extracted = 0
 
-    os.makedirs(ROOT / "minor_html", exist_ok=True)
+    os.makedirs(ROOT / "minor_html" / YEAR, exist_ok=True)
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
@@ -194,7 +200,7 @@ def crawl_programs():
 
         page.goto(URL)
         page.locator("#ddl_acad_career").select_option(value="UG")
-        page.locator("#ddl_acad_year").select_option(value="2025")
+        page.locator("#ddl_acad_year").select_option(value=YEAR[:4])
         page.locator("#ddl_acad_load").select_option(value="F")
         page.wait_for_timeout(500)
 
@@ -261,7 +267,7 @@ def crawl_programs():
                         multi_minor_programs.append((adm_code, num_minors))
                     for box in minor_boxes:
                         safe_name = sanitise_filename(box["title"])
-                        filepath = ROOT / "minor_html" / f"{safe_name}.html"
+                        filepath = ROOT / "minor_html" / YEAR / f"{safe_name}.html"
                         # Skip if already extracted from another major (same minor title)
                         if filepath.exists():
                             print(f"    Skipping {safe_name} — already exists")
@@ -288,7 +294,7 @@ def crawl_programs():
 
     # Save faculty mapping (merge with existing if present)
     if faculties:
-        fac_path = ROOT / "minor_html" / "_faculties.json"
+        fac_path = ROOT / "minor_html" / YEAR / "_faculties.json"
         existing = {}
         if fac_path.exists():
             try:

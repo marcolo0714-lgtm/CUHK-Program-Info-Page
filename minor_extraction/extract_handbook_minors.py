@@ -1,13 +1,18 @@
 import re
+import argparse
 from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--year", default="2025_26", help="Admission year (e.g. 2025_26)")
+args = parser.parse_args()
+YEAR = args.year
 
 BASE = "https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/Handbook"
 INDEX_URL = f"{BASE}/Default.aspx?id=1840&tv=F&lang=en"
-OUTPUT_DIR = Path(__file__).parent / "minor_html"
+OUTPUT_DIR = Path(__file__).parent / "minor_html" / YEAR
 
 
 def fetch(url):
@@ -38,7 +43,8 @@ def extract():
     soup = fetch(INDEX_URL)
 
     minors = []
-    for a in soup.select("a[href*='Default.aspx?id=']"):
+    # Collect both Default.aspx and document.aspx links from the index
+    for a in soup.select("a[href]"):
         href = a.get("href", "")
         m = re.search(r"id=(\d+)", href)
         if not m:
@@ -47,38 +53,63 @@ def extract():
         if minor_id == "0" or minor_id == "1840":  # skip navigation/index links
             continue
         name = a.get_text(" ", strip=True)
-        minors.append((minor_id, name))
+        pages = ("Default.aspx", "document.aspx")
+        doc_type = next((t for t in pages if t in href), None)
+        minors.append((minor_id, name, doc_type))
 
-    print(f"Found {len(minors)} handbook minors")
+    print(f"Found {len(minors)} handbook minors from index page id=1840")
+
+    # Detect handbook year from the index page breadcrumb
+    handbook_year = None
+    year_m = re.search(r"Undergraduate Student Handbook (\d{4}-\d{2})", soup.get_text())
+    if year_m:
+        handbook_year = year_m.group(1)
+        print(f"Handbook year: {handbook_year}")
+    else:
+        print("WARNING: Could not detect handbook year")
+
     saved = 0
+    year_display = YEAR.replace("_", "-")
 
-    for minor_id, name in minors:
+    for minor_id, name, doc_type in minors:
         safe_name = sanitise_filename(name)
-        print(f"\n  [{minor_id}] {name}")
 
-        # ── Step 2: get document.aspx link (2025-26) ──
-        try:
-            minor_soup = fetch(f"{BASE}/Default.aspx?id={minor_id}&tv=F&lang=en")
-        except Exception as e:
-            print(f"    ERROR fetching minor page: {e}")
-            continue
+        if doc_type == "document.aspx":
+            if handbook_year and handbook_year != year_display:
+                print(f"\n  {name} — skipped (handbook is {handbook_year}, requested {year_display})")
+                continue
+            doc_link = f"/aqs_prd_applx/Public/Handbook/document.aspx?id={minor_id}&tv=F&lang=en"
+            doc_id = minor_id
+        else:
+            try:
+                minor_soup = fetch(f"{BASE}/Default.aspx?id={minor_id}&tv=F&lang=en")
+            except Exception as e:
+                print(f"\n  {name} — ERROR: {e}")
+                continue
 
-        doc_link = None
-        for a in minor_soup.select("a[href*='document.aspx?id=']"):
-            if "2025-26" in a.get_text():
-                doc_link = a.get("href", "")
-                break
-        if not doc_link:
+            doc_link = None
+            doc_id = None
             for a in minor_soup.select("a[href*='document.aspx?id=']"):
-                doc_link = a.get("href", "")
-                break
-        if not doc_link:
-            print("    No document link found — skipping")
-            continue
+                if year_display in a.get_text():
+                    doc_link = a.get("href", "")
+                    doc_id = re.search(r"id=(\d+)", doc_link).group(1) if doc_link else None
+                    break
+            if not doc_link:
+                for a in minor_soup.select("a[href*='document.aspx?id=']"):
+                    doc_link = a.get("href", "")
+                    doc_id = re.search(r"id=(\d+)", doc_link).group(1) if doc_link else None
+                    break
+            if not doc_link:
+                print(f"\n  {name} [{minor_id}] — no document link found")
+                continue
+
+        print(f"\n  [{doc_id}] {name}")
 
         # ── Step 3: find iframe src in document page ──
         if doc_link.startswith("/"):
             doc_url = f"https://rgsntl.rgs.cuhk.edu.hk{doc_link}"
+        elif doc_link.startswith("http"):
+            doc_url = doc_link
         else:
             doc_url = f"{BASE}/{doc_link}"
         try:
