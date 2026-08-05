@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="prefetch-src 'none'">
+<script type="speculationrules">
+{ "prefetch": [{ "source": "list", "urls": [] }] }
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="icon" href="../favicon.ico" sizes="any">
+<title>Minor: Applied Diversity Studies</title>
+<style>:root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
+        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309;
+        --tbl-border: #868a90; --tbl-border-light: #d5d8dc; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+       background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
+h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
+     border-bottom:1px solid var(--border); color:#333; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
+.section { background:var(--card); padding:14px 18px; border-radius:8px;
+           border:1px solid var(--border); margin-bottom:16px; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
+table { width:100%; border-collapse:collapse; background:var(--card);
+        border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
+th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
+th:first-child, td:first-child { white-space:nowrap; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
+th { background:#fafafa; font-weight:600; color:#555; }
+tr:hover { background:#f9f9f9; }
+.eq-row td { border-bottom-color: var(--tbl-border-light); }
+.nf { background:var(--warn-bg); color:var(--warn); }
+.nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
+.card { background:var(--card); border-radius:8px; padding:12px 18px;
+        border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.card:hover { border-color:var(--accent); }
+.card-code { font-weight:600; color:var(--accent); }
+.card-grid { display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; }
+.card-grid > a { flex:1 0 400px; max-width:100%; text-decoration:none; display:flex; }
+.card-grid .card { width:100%; justify-content:flex-start; }
+.meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
+.tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
+       padding:2px 8px; font-size:.8em; margin-right:6px; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
+.section-stream { margin-left: 28px; }
+.section-stream + .course-details { margin-left: 28px; }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
+.nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    font-size:.95em; line-height:1.6; }
+.notes-point { display:flex; align-items:flex-start; gap:10px; padding:10px 14px;
+    cursor:default; transition:background .15s; }
+.notes-point:hover { background:#f0f4ff; }
+.point-idx { font-weight:600; color:var(--accent); min-width:22px; flex-shrink:0; }
+.point-text { flex:1; }
+.point-text p { margin:0; }
+.notes-table-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
+.notes-table-section tr:hover { background:#f9f9f9; }
+.checker-btn { display:inline-block; padding:10px 24px; background:var(--accent);
+    color:#fff; border-radius:8px; font-weight:600; font-size:.95em;
+    text-decoration:none; margin-bottom:18px; }
+.checker-btn:hover { opacity:.9; text-decoration:none; }
+.checker-link { display:inline-block; font-size:.85em; color:var(--accent);
+    margin-left:12px; }
+
+/* ── Sidebar ── */
+.sidebar { width:280px; flex-shrink:0; height:100vh; position:sticky; top:0;
+    overflow-y:auto; background:var(--card); border-right:1px solid var(--border);
+    padding:12px 0; font-size:.88em; }
+.sidebar-header { padding:6px 18px 10px; font-weight:600; color:var(--muted);
+    border-bottom:1px solid var(--border); margin-bottom:6px; }
+.fac-group { margin:0; }
+.fac-group summary { padding:6px 16px; font-weight:600; font-size:.92em;
+    cursor:pointer; color:#555; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.fac-group summary:hover { color:var(--accent); }
+.sidebar a { display:block; padding:3px 16px 3px 22px; color:var(--text);
+    text-decoration:none; border-left:3px solid transparent;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sidebar a:hover { background:#f0f4ff; color:var(--accent); }
+.sidebar a.active { font-weight:600; color:var(--accent);
+    background:#e8f0fe; border-left-color:var(--accent); }
+.sidebar-toggle { display:none; position:fixed; top:8px; left:8px; z-index:100;
+    background:var(--card); border:1px solid var(--border); border-radius:6px;
+    padding:6px 10px; font-size:1.2em; cursor:pointer; }
+.sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.25);
+    z-index:98; }
+.content { flex:1; min-width:0; }
+.content-inner { max-width:960px; margin:0 auto; padding:20px; }
+
+/* ── Index page (no sidebar) ── */
+.page-index .container { max-width:960px; margin:0 auto; padding:20px; }
+
+/* ── Footer ── */
+.site-footer { margin-top:32px; padding-top:12px; border-top:1px solid var(--border);
+    font-size:0.82em; color:var(--muted); text-align:center; }
+.site-footer a { color:var(--muted); }
+.site-footer a:hover { color:var(--accent); }
+
+@media (max-width:768px) {
+    body { display:block; }
+    html, body { overflow-x:hidden; }
+    .sidebar { position:fixed; left:-300px; top:0; z-index:99;
+        transition:left .25s; box-shadow:none; }
+    .sidebar.open { left:0; box-shadow:2px 0 12px rgba(0,0,0,.15); }
+    .sidebar.open .sidebar-header { padding-top:42px; }
+    .sidebar-toggle { display:block; }
+    .sidebar-overlay.open { display:block; }
+    .content-inner { padding:44px 12px 12px; }
+    h1 { font-size:1.4em; }
+    .meta { white-space:normal; }
+    .card { flex-wrap:wrap; }
+    th:first-child, td:first-child { white-space:normal; max-width:6em; }
+    th:nth-child(3), td:nth-child(3) { white-space:normal; }
+    th, td { padding:6px 8px; font-size:0.82em; }
+    .notes-table-section { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .notes-table-section table { width:auto !important; max-width:none; }
+    .notes-table-section td { white-space:normal; overflow-wrap:break-word; }
+}
+.year-select {
+    font-size: 0.9rem; padding: 4px 10px; border: 1px solid var(--border);
+    border-radius: 6px; background: var(--card); color: var(--text);
+    margin-bottom: 16px; cursor: pointer;
+}
+</style>
+</head>
+<body>
+<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">&#9776;</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <div class="sidebar-header">Minor Programmes</div>
+  <nav><details class="fac-group" data-fac="Arts" open>
+<summary>Arts</summary>
+<a href="Anthropology.html" class="">Anthropology</a>
+<a href="Arab_Studies.html" class="">Arab Studies</a>
+<a href="Archaeology.html" class="">Archaeology</a>
+<a href="China_Studies.html" class="">China Studies</a>
+<a href="Chinese_Language_and_Literature.html" class="">Chinese Language and Literature</a>
+<a href="Creative_Writing_in_English.html" class="">Creative Writing in English</a>
+<a href="Cultural_Heritage_Studies.html" class="">Cultural Heritage Studies</a>
+<a href="Cultural_Management.html" class="">Cultural Management</a>
+<a href="Cultural_Studies.html" class="">Cultural Studies</a>
+<a href="Curating_and_Artistic_Strategies.html" class="">Curating and Artistic Strategies</a>
+<a href="English.html" class="">English</a>
+<a href="Film_and_Screen_Studies.html" class="">Film and Screen Studies</a>
+<a href="Fine_Arts.html" class="">Fine Arts</a>
+<a href="History.html" class="">History</a>
+<a href="Hong_Kong_Sign_Language.html" class="">Hong Kong Sign Language</a>
+<a href="Japanese_Language.html" class="">Japanese Language</a>
+<a href="Japanese_Studies.html" class="">Japanese Studies</a>
+<a href="Linguistics.html" class="">Linguistics</a>
+<a href="Music.html" class="">Music</a>
+<a href="Philosophy.html" class="">Philosophy</a>
+<a href="Public_History.html" class="">Public History</a>
+<a href="Religion_and_Health.html" class="">Religion and Health</a>
+<a href="Religious_Studies.html" class="">Religious Studies</a>
+<a href="Theology.html" class="">Theology</a>
+<a href="Translation.html" class="">Translation</a>
+</details>
+<details class="fac-group" data-fac="Education" open>
+<summary>Education</summary>
+<a href="Physical_Education,_Exercise_Science_and_Health.html" class="">Physical Education, Exercise Science and Health</a>
+</details>
+<details class="fac-group" data-fac="Engineering" open>
+<summary>Engineering</summary>
+<a href="Artificial_Intelligence_Systems_and_Technologies.html" class="">Artificial Intelligence: Systems and Technologies</a>
+<a href="Biomedical_Engineering.html" class="">Biomedical Engineering</a>
+<a href="Computer_Science.html" class="">Computer Science</a>
+<a href="Electronic_Engineering.html" class="">Electronic Engineering</a>
+<a href="Energy_Technology.html" class="">Energy Technology</a>
+<a href="Information_Engineering.html" class="">Information Engineering</a>
+<a href="Logistics_and_Supply_Chain_Management.html" class="">Logistics and Supply Chain Management</a>
+<a href="Mechanical_and_Automation_Engineering.html" class="">Mechanical and Automation Engineering</a>
+</details>
+<details class="fac-group" data-fac="Law" open>
+<summary>Law</summary>
+<a href="Law.html" class="">Law</a>
+</details>
+<details class="fac-group" data-fac="Medicine" open>
+<summary>Medicine</summary>
+<a href="Public_Health.html" class="">Public Health</a>
+</details>
+<details class="fac-group" data-fac="Science" open>
+<summary>Science</summary>
+<a href="Biochemistry.html" class="">Biochemistry</a>
+<a href="Biology.html" class="">Biology</a>
+<a href="Cell_and_Molecular_Biology.html" class="">Cell and Molecular Biology</a>
+<a href="Chemistry.html" class="">Chemistry</a>
+<a href="Earth_and_Environmental_Sciences.html" class="">Earth and Environmental Sciences</a>
+<a href="Mathematics.html" class="">Mathematics</a>
+<a href="Molecular_Biotechnology.html" class="">Molecular Biotechnology</a>
+<a href="Physics.html" class="">Physics</a>
+<a href="Risk_Management_Science.html" class="">Risk Management Science</a>
+<a href="Statistics.html" class="">Statistics</a>
+</details>
+<details class="fac-group" data-fac="Social Science" open>
+<summary>Social Science</summary>
+<a href="Applied_Diversity_Studies.html" class="active">&#9654; Applied Diversity Studies</a>
+<a href="Data_Science_and_Policy_Studies.html" class="">Data Science and Policy Studies</a>
+<a href="Economics.html" class="">Economics</a>
+<a href="Gender_Studies.html" class="">Gender Studies</a>
+<a href="Geography_and_Resource_Management.html" class="">Geography and Resource Management</a>
+<a href="Global_Communication.html" class="">Global Communication</a>
+<a href="Global_Studies.html" class="">Global Studies</a>
+<a href="Government_and_Public_Administration.html" class="">Government and Public Administration</a>
+<a href="Journalism_and_Communication.html" class="">Journalism and Communication</a>
+<a href="Psychology.html" class="">Psychology</a>
+<a href="Social_Policy.html" class="">Social Policy</a>
+<a href="Social_Welfare.html" class="">Social Welfare</a>
+<a href="Sociology.html" class="">Sociology</a>
+<a href="Urban_Studies.html" class="">Urban Studies</a>
+</details>
+<details class="fac-group" data-fac="Other" open>
+<summary>Other</summary>
+<a href="HB_Minor_Programme_in_Business.html" class="">Business</a>
+<a href="HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language.html" class="">Chinese Language (Cantonese) as a Second Language</a>
+<a href="HB_Minor_Programme_in_Chinese_Language_(Putonghua)_as_a_Second_Language.html" class="">Chinese Language (Putonghua) as a Second Language</a>
+<a href="HB_Minor_Programme_in_CU-ASK_Innovative_Problem_Solving.html" class="">CU-ASK: Innovative Problem Solving</a>
+<a href="HB_Minor_Programme_in_Data_Analytics_and_Informatics.html" class="">Data Analytics and Informatics</a>
+<a href="HB_Minor_Programme_in_Education.html" class="">Education</a>
+<a href="HB_Minor_Programme_in_Entrepreneurship_and_Innovation.html" class="">Entrepreneurship and Innovation</a>
+<a href="HB_Minor_Programme_in_French.html" class="">French</a>
+<a href="HB_Minor_Programme_in_German.html" class="">German</a>
+<a href="HB_Minor_Programme_in_Korean.html" class="">Korean</a>
+<a href="HB_Minor_Programme_in_Spanish.html" class="">Spanish</a>
+</details></nav>
+  <script>
+(function(){var closed=JSON.parse(localStorage.getItem('sidebarCollapsed')||'[]');
+var groups=document.querySelectorAll('.fac-group');
+for(var i=0;i<groups.length;i++){if(closed.indexOf(groups[i].getAttribute('data-fac'))!==-1)groups[i].removeAttribute('open');}
+var st=localStorage.getItem('sidebarScroll');
+if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
+</script>
+</aside>
+<main class="content">
+  <div class="content-inner">
+<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Applied Diversity Studies</div>
+<div class="nav-bar"><a href="Statistics.html">← Statistics</a><a href="Data_Science_and_Policy_Studies.html">Data Science and Policy Studies →</a></div>
+<div class="title-row"><h1>Applied Diversity Studies</h1><span class="meta">Social Science</span></div>
+<h2>Description</h2>
+<div class="section"><pre>Students are required to complete a minimum of 18 units of courses as follows:</pre></div>
+<h2>1. Required Courses: 6 units</h2>
+<div class="section"><div class="req-row"><span class="row-text">GDRS3008, 3018</span><span class="meta">(6 units)</span></div></div>
+<details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>GDRS 3008</td><td>Public Policy and Social Minorities in Hong Kong</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3018</td><td>Introduction to Diversity, Equity and Inclusion</td><td></td><td></td><td>—</td></tr>
+</tbody></table></details>
+<h2>2. Elective Courses: 12 units</h2>
+<div class="section"><div class="req-row"><span class="row-text">Any 12 units of courses from the following, with 6 units of GDRS courses and 6 units of non-GDRS courses:</span></div><div class="req-row"><span class="row-text">ANTH1410, 2404, 3390, 4210, COMM2814, 3700, CURE2018, 2036, EPIN1020, GDRS3006, 3010, 3015, 3016, 3017, 3021, 3025, 3214, 3999, 4008, GLSD4102, MGNT4070, SOCI3208, 3233, SOSC1001, 1002, SOWK1114, 2202, 2203, 2204</span></div></div>
+<details class="course-details"><summary>Show 29 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>ANTH 1410</td><td>Culture of Hong Kong</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 2404</td><td>Understanding Islam</td><td></td><td></td><td>—</td></tr>
+<tr><td>ANTH 3390</td><td>Disability and Difference</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>ANTH 4210</td><td>Ethnic Groups, Ethnic Relations and Identities</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ANTH3340.</span></td></tr>
+<tr><td>COMM 2814</td><td>Integrated Public Relations Campaign and Event Management</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>COMM 3700</td><td>Diversity Issues in Communication</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>CURE 2018</td><td>Living in the Anthropocene: Nature, Culture and Power</td><td></td><td></td><td>—</td></tr>
+<tr><td>CURE 2036</td><td>Queer Theory and Culture</td><td></td><td></td><td>—</td></tr>
+<tr><td>EPIN 1020</td><td>Design Thinking and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3006</td><td>Living Feminisms: Creating a Nonviolent and Collaborative Future</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GDRS 3010</td><td>Being Trans: Understanding Transgender Lives in the Here and Now</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3015</td><td>Minority Experiences in Hong Kong: Local Field Study</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3016</td><td>Interdisciplinary Seminars on Diversity, Equity and Inclusion: From Research to Practice</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3017</td><td>Advancing Diversity, Equity, and Inclusion in Organizations</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken GDRS2012.</span></td></tr>
+<tr><td>GDRS 3021</td><td>LGBTQI+ Studies: Identities and social change</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GDRS 3025</td><td>Innovating the Future: Gender, Science and Technology</td><td></td><td></td><td>—</td></tr>
+<tr><td>GDRS 3214</td><td>Media Representations of Minorities in Hong Kong</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken GDRS3026, UGEC3214 or UGEC3215.</span></td></tr>
+<tr><td>GDRS 3999</td><td>Talking Across Differences: Compassionate Communication in Action</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken GEWS2161.</span></td></tr>
+<tr><td>GDRS 4008</td><td>Social Inequalities and Health: Towards Diversity and Equity</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GLSD 4102</td><td>Developmental Study: Poverty, Inequality and Welfare of the World</td><td></td><td></td><td>—</td></tr>
+<tr><td>MGNT 4070</td><td>Social Innovation and Entrepreneurship</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SOCI 3208</td><td>Gender and Society</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>SOCI 3233</td><td>Sexualities and Society</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>SOSC 1001</td><td>Design Thinking in Social Innovation</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>SOSC 1002</td><td>Managing Creativity and Group Dynamics in Innovation Teams</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SOWK 1114</td><td>From Understanding to Empowering the Socially Disadvantaged</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken SOWK2190 or UGEC2014.</span></td></tr>
+<tr><td>SOWK 2202</td><td>Social Work and Cultural Diversity</td><td></td><td></td><td>—</td></tr>
+<tr><td>SOWK 2203</td><td>Mission-driven Social Enterprise</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>SOWK 2204</td><td>Social Innovation and Social Change for Good</td><td></td><td class="term-yes"></td><td>—</td></tr>
+</tbody></table></details>
+<h2>Explanatory Notes</h2>
+<div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Units taken to fulfill the requirement of the Gender Studies Programme (including Major Programme and Minor Programme) should not be used to fulfill the requirement of this Minor Programme.</span></div>
+<div class="nav-bar nav-bar-bottom"><a href="Statistics.html">← Statistics</a><a href="Data_Science_and_Policy_Studies.html">Data Science and Policy Studies →</a></div>
+<div class="site-footer">
+  <span>Sources: </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>
+  <span> &middot; </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&tv=F&lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
+  <span> &middot; </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
+</div>
+  </div>
+</main>
+<script>
+(function(){
+  var sidebar = document.querySelector('.sidebar');
+  if(!sidebar) return;
+  var timer;
+  sidebar.addEventListener('scroll', function(){
+    clearTimeout(timer);
+    timer = setTimeout(function(){ localStorage.setItem('sidebarScroll', sidebar.scrollTop); }, 100);
+  });
+  var groups = document.querySelectorAll('.fac-group');
+  for(var i=0; i<groups.length; i++){
+    groups[i].addEventListener('toggle', function(){
+      var closed=[];
+      var all=document.querySelectorAll('.fac-group');
+      for(var j=0; j<all.length; j++){
+        if(!all[j].open) closed.push(all[j].getAttribute('data-fac'));
+      }
+      localStorage.setItem('sidebarCollapsed', JSON.stringify(closed));
+    });
+  }
+})();
+
+// Prevent sidebar from navigating when clicking the already-active minor
+document.querySelectorAll('.sidebar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (this.classList.contains('active')) {
+      e.preventDefault();
+    }
+  });
+});
+
+function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('open');
+  document.querySelector('.sidebar-overlay').classList.toggle('open');
+}
+</script>
+</body>
+</html>

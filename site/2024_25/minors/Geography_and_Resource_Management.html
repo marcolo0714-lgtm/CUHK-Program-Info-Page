@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="prefetch-src 'none'">
+<script type="speculationrules">
+{ "prefetch": [{ "source": "list", "urls": [] }] }
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="icon" href="../favicon.ico" sizes="any">
+<title>Minor: Geography and Resource Management</title>
+<style>:root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
+        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309;
+        --tbl-border: #868a90; --tbl-border-light: #d5d8dc; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+       background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
+h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
+     border-bottom:1px solid var(--border); color:#333; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
+.section { background:var(--card); padding:14px 18px; border-radius:8px;
+           border:1px solid var(--border); margin-bottom:16px; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
+table { width:100%; border-collapse:collapse; background:var(--card);
+        border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
+th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
+th:first-child, td:first-child { white-space:nowrap; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
+th { background:#fafafa; font-weight:600; color:#555; }
+tr:hover { background:#f9f9f9; }
+.eq-row td { border-bottom-color: var(--tbl-border-light); }
+.nf { background:var(--warn-bg); color:var(--warn); }
+.nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
+.card { background:var(--card); border-radius:8px; padding:12px 18px;
+        border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.card:hover { border-color:var(--accent); }
+.card-code { font-weight:600; color:var(--accent); }
+.card-grid { display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; }
+.card-grid > a { flex:1 0 400px; max-width:100%; text-decoration:none; display:flex; }
+.card-grid .card { width:100%; justify-content:flex-start; }
+.meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
+.tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
+       padding:2px 8px; font-size:.8em; margin-right:6px; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
+.section-stream { margin-left: 28px; }
+.section-stream + .course-details { margin-left: 28px; }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
+.nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    font-size:.95em; line-height:1.6; }
+.notes-point { display:flex; align-items:flex-start; gap:10px; padding:10px 14px;
+    cursor:default; transition:background .15s; }
+.notes-point:hover { background:#f0f4ff; }
+.point-idx { font-weight:600; color:var(--accent); min-width:22px; flex-shrink:0; }
+.point-text { flex:1; }
+.point-text p { margin:0; }
+.notes-table-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
+.notes-table-section tr:hover { background:#f9f9f9; }
+.checker-btn { display:inline-block; padding:10px 24px; background:var(--accent);
+    color:#fff; border-radius:8px; font-weight:600; font-size:.95em;
+    text-decoration:none; margin-bottom:18px; }
+.checker-btn:hover { opacity:.9; text-decoration:none; }
+.checker-link { display:inline-block; font-size:.85em; color:var(--accent);
+    margin-left:12px; }
+
+/* ── Sidebar ── */
+.sidebar { width:280px; flex-shrink:0; height:100vh; position:sticky; top:0;
+    overflow-y:auto; background:var(--card); border-right:1px solid var(--border);
+    padding:12px 0; font-size:.88em; }
+.sidebar-header { padding:6px 18px 10px; font-weight:600; color:var(--muted);
+    border-bottom:1px solid var(--border); margin-bottom:6px; }
+.fac-group { margin:0; }
+.fac-group summary { padding:6px 16px; font-weight:600; font-size:.92em;
+    cursor:pointer; color:#555; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.fac-group summary:hover { color:var(--accent); }
+.sidebar a { display:block; padding:3px 16px 3px 22px; color:var(--text);
+    text-decoration:none; border-left:3px solid transparent;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sidebar a:hover { background:#f0f4ff; color:var(--accent); }
+.sidebar a.active { font-weight:600; color:var(--accent);
+    background:#e8f0fe; border-left-color:var(--accent); }
+.sidebar-toggle { display:none; position:fixed; top:8px; left:8px; z-index:100;
+    background:var(--card); border:1px solid var(--border); border-radius:6px;
+    padding:6px 10px; font-size:1.2em; cursor:pointer; }
+.sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.25);
+    z-index:98; }
+.content { flex:1; min-width:0; }
+.content-inner { max-width:960px; margin:0 auto; padding:20px; }
+
+/* ── Index page (no sidebar) ── */
+.page-index .container { max-width:960px; margin:0 auto; padding:20px; }
+
+/* ── Footer ── */
+.site-footer { margin-top:32px; padding-top:12px; border-top:1px solid var(--border);
+    font-size:0.82em; color:var(--muted); text-align:center; }
+.site-footer a { color:var(--muted); }
+.site-footer a:hover { color:var(--accent); }
+
+@media (max-width:768px) {
+    body { display:block; }
+    html, body { overflow-x:hidden; }
+    .sidebar { position:fixed; left:-300px; top:0; z-index:99;
+        transition:left .25s; box-shadow:none; }
+    .sidebar.open { left:0; box-shadow:2px 0 12px rgba(0,0,0,.15); }
+    .sidebar.open .sidebar-header { padding-top:42px; }
+    .sidebar-toggle { display:block; }
+    .sidebar-overlay.open { display:block; }
+    .content-inner { padding:44px 12px 12px; }
+    h1 { font-size:1.4em; }
+    .meta { white-space:normal; }
+    .card { flex-wrap:wrap; }
+    th:first-child, td:first-child { white-space:normal; max-width:6em; }
+    th:nth-child(3), td:nth-child(3) { white-space:normal; }
+    th, td { padding:6px 8px; font-size:0.82em; }
+    .notes-table-section { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .notes-table-section table { width:auto !important; max-width:none; }
+    .notes-table-section td { white-space:normal; overflow-wrap:break-word; }
+}
+.year-select {
+    font-size: 0.9rem; padding: 4px 10px; border: 1px solid var(--border);
+    border-radius: 6px; background: var(--card); color: var(--text);
+    margin-bottom: 16px; cursor: pointer;
+}
+</style>
+</head>
+<body>
+<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">&#9776;</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <div class="sidebar-header">Minor Programmes</div>
+  <nav><details class="fac-group" data-fac="Arts" open>
+<summary>Arts</summary>
+<a href="Anthropology.html" class="">Anthropology</a>
+<a href="Arab_Studies.html" class="">Arab Studies</a>
+<a href="Archaeology.html" class="">Archaeology</a>
+<a href="China_Studies.html" class="">China Studies</a>
+<a href="Chinese_Language_and_Literature.html" class="">Chinese Language and Literature</a>
+<a href="Creative_Writing_in_English.html" class="">Creative Writing in English</a>
+<a href="Cultural_Heritage_Studies.html" class="">Cultural Heritage Studies</a>
+<a href="Cultural_Management.html" class="">Cultural Management</a>
+<a href="Cultural_Studies.html" class="">Cultural Studies</a>
+<a href="Curating_and_Artistic_Strategies.html" class="">Curating and Artistic Strategies</a>
+<a href="English.html" class="">English</a>
+<a href="Film_and_Screen_Studies.html" class="">Film and Screen Studies</a>
+<a href="Fine_Arts.html" class="">Fine Arts</a>
+<a href="History.html" class="">History</a>
+<a href="Hong_Kong_Sign_Language.html" class="">Hong Kong Sign Language</a>
+<a href="Japanese_Language.html" class="">Japanese Language</a>
+<a href="Japanese_Studies.html" class="">Japanese Studies</a>
+<a href="Linguistics.html" class="">Linguistics</a>
+<a href="Music.html" class="">Music</a>
+<a href="Philosophy.html" class="">Philosophy</a>
+<a href="Public_History.html" class="">Public History</a>
+<a href="Religion_and_Health.html" class="">Religion and Health</a>
+<a href="Religious_Studies.html" class="">Religious Studies</a>
+<a href="Theology.html" class="">Theology</a>
+<a href="Translation.html" class="">Translation</a>
+</details>
+<details class="fac-group" data-fac="Education" open>
+<summary>Education</summary>
+<a href="Physical_Education,_Exercise_Science_and_Health.html" class="">Physical Education, Exercise Science and Health</a>
+</details>
+<details class="fac-group" data-fac="Engineering" open>
+<summary>Engineering</summary>
+<a href="Artificial_Intelligence_Systems_and_Technologies.html" class="">Artificial Intelligence: Systems and Technologies</a>
+<a href="Biomedical_Engineering.html" class="">Biomedical Engineering</a>
+<a href="Computer_Science.html" class="">Computer Science</a>
+<a href="Electronic_Engineering.html" class="">Electronic Engineering</a>
+<a href="Energy_Technology.html" class="">Energy Technology</a>
+<a href="Information_Engineering.html" class="">Information Engineering</a>
+<a href="Logistics_and_Supply_Chain_Management.html" class="">Logistics and Supply Chain Management</a>
+<a href="Mechanical_and_Automation_Engineering.html" class="">Mechanical and Automation Engineering</a>
+</details>
+<details class="fac-group" data-fac="Law" open>
+<summary>Law</summary>
+<a href="Law.html" class="">Law</a>
+</details>
+<details class="fac-group" data-fac="Medicine" open>
+<summary>Medicine</summary>
+<a href="Public_Health.html" class="">Public Health</a>
+</details>
+<details class="fac-group" data-fac="Science" open>
+<summary>Science</summary>
+<a href="Biochemistry.html" class="">Biochemistry</a>
+<a href="Biology.html" class="">Biology</a>
+<a href="Cell_and_Molecular_Biology.html" class="">Cell and Molecular Biology</a>
+<a href="Chemistry.html" class="">Chemistry</a>
+<a href="Earth_and_Environmental_Sciences.html" class="">Earth and Environmental Sciences</a>
+<a href="Mathematics.html" class="">Mathematics</a>
+<a href="Molecular_Biotechnology.html" class="">Molecular Biotechnology</a>
+<a href="Physics.html" class="">Physics</a>
+<a href="Risk_Management_Science.html" class="">Risk Management Science</a>
+<a href="Statistics.html" class="">Statistics</a>
+</details>
+<details class="fac-group" data-fac="Social Science" open>
+<summary>Social Science</summary>
+<a href="Applied_Diversity_Studies.html" class="">Applied Diversity Studies</a>
+<a href="Data_Science_and_Policy_Studies.html" class="">Data Science and Policy Studies</a>
+<a href="Economics.html" class="">Economics</a>
+<a href="Gender_Studies.html" class="">Gender Studies</a>
+<a href="Geography_and_Resource_Management.html" class="active">&#9654; Geography and Resource Management</a>
+<a href="Global_Communication.html" class="">Global Communication</a>
+<a href="Global_Studies.html" class="">Global Studies</a>
+<a href="Government_and_Public_Administration.html" class="">Government and Public Administration</a>
+<a href="Journalism_and_Communication.html" class="">Journalism and Communication</a>
+<a href="Psychology.html" class="">Psychology</a>
+<a href="Social_Policy.html" class="">Social Policy</a>
+<a href="Social_Welfare.html" class="">Social Welfare</a>
+<a href="Sociology.html" class="">Sociology</a>
+<a href="Urban_Studies.html" class="">Urban Studies</a>
+</details>
+<details class="fac-group" data-fac="Other" open>
+<summary>Other</summary>
+<a href="HB_Minor_Programme_in_Business.html" class="">Business</a>
+<a href="HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language.html" class="">Chinese Language (Cantonese) as a Second Language</a>
+<a href="HB_Minor_Programme_in_Chinese_Language_(Putonghua)_as_a_Second_Language.html" class="">Chinese Language (Putonghua) as a Second Language</a>
+<a href="HB_Minor_Programme_in_CU-ASK_Innovative_Problem_Solving.html" class="">CU-ASK: Innovative Problem Solving</a>
+<a href="HB_Minor_Programme_in_Data_Analytics_and_Informatics.html" class="">Data Analytics and Informatics</a>
+<a href="HB_Minor_Programme_in_Education.html" class="">Education</a>
+<a href="HB_Minor_Programme_in_Entrepreneurship_and_Innovation.html" class="">Entrepreneurship and Innovation</a>
+<a href="HB_Minor_Programme_in_French.html" class="">French</a>
+<a href="HB_Minor_Programme_in_German.html" class="">German</a>
+<a href="HB_Minor_Programme_in_Korean.html" class="">Korean</a>
+<a href="HB_Minor_Programme_in_Spanish.html" class="">Spanish</a>
+</details></nav>
+  <script>
+(function(){var closed=JSON.parse(localStorage.getItem('sidebarCollapsed')||'[]');
+var groups=document.querySelectorAll('.fac-group');
+for(var i=0;i<groups.length;i++){if(closed.indexOf(groups[i].getAttribute('data-fac'))!==-1)groups[i].removeAttribute('open');}
+var st=localStorage.getItem('sidebarScroll');
+if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
+</script>
+</aside>
+<main class="content">
+  <div class="content-inner">
+<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Geography and Resource Management</div>
+<div class="nav-bar"><a href="Gender_Studies.html">← Gender Studies</a><a href="Global_Communication.html">Global Communication →</a></div>
+<div class="title-row"><h1>Geography and Resource Management</h1><span class="meta">Social Science</span></div>
+<h2>Description</h2>
+<div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units of courses at 3000 level or above:</pre></div>
+<h2>1. Elective Courses: 18 units</h2>
+<div class="section"><div class="req-row"><span class="row-text">GRMD1003, 1301, 1302, 1401, 1402, 1403, 2102, 2104, 2105, 2106, 2209, 2221, 2232, 2292, 2303, 2321, 2401, 2402, 2403, 2501, 3102, 3104, 3106, 3108, 3202, 3203, 3205, 3209, 3224, 3301, 3302, 3304, 3305, 3323, 3401, 3402, 3404, 4003, 4004, 4101, 4202, 4203, 4204, 4302, 4403, 4502, 4503, 5110</span></div></div>
+<details class="course-details"><summary>Show 48 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>GRMD 1003 [2]</td><td>Understanding China through Cultural Landscape</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">GRMD1003 is double-coded with UGEA1212.</span><span class="prereq-sentence">Not for students who have taken UGEA1212 or GESC2380.</span></td></tr>
+<tr><td>GRMD 1301</td><td>Understanding Guangdong-Hong Kong-Macao Greater Bay Area</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 1302</td><td>People, Space and Place</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 1401</td><td>A World of Diversity</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken GRMD1404.</span></td></tr>
+<tr><td>GRMD 1402</td><td>Global Change and Environmental Sustainability</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken GRMD1023.</span></td></tr>
+<tr><td>GRMD 1403</td><td>Resources, Society and Environment</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 2102</td><td>Fundamental Statistics for Geographers</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for student who have taken STAT1011, 1012 and 2101.</span></td></tr>
+<tr><td>GRMD 2104</td><td>Remote Sensing of Environment</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 2105</td><td>Introduction to GIS</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 2106</td><td>Introduction to Satellite Design and Application</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 2209</td><td>Physical Geology</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 2221</td><td>Weather and Climate</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 2232</td><td>Fundamentals of Environmental Sciences</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 2292 [2]</td><td>Understanding Ecotourism</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 2303</td><td>Urban Geography</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 2321</td><td>Economic Geography</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 2401</td><td>Sustainable Development</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">GRMD2401 is double-coded with UGEC2171.</span><span class="prereq-sentence">Not for students who have taken UGEC2171, 2354 or 2775.</span></td></tr>
+<tr><td>GRMD 2402</td><td>Natural Resource Management</td><td></td><td></td><td>—</td></tr>
+<tr><td>GRMD 2403</td><td>Nature Conservation in Hong Kong</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 2501</td><td>Theory and Practice of Smart Cities</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 3102</td><td>Research Design and Methodology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">GRMD2102 or another statistics course which is approved by the instructor as a pre-requisite.</span></td></tr>
+<tr><td>GRMD 3104</td><td>Satellite Image Analysis</td><td></td><td></td><td>—</td></tr>
+<tr><td>GRMD 3106</td><td>Advanced GIS</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GRMD2105.</span></td></tr>
+<tr><td>GRMD 3108</td><td>Cartography and Geovisualization</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 3202</td><td>Environmental Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>GRMD 3203</td><td>Urban Environmental Problems</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 3205</td><td>Geomorphology</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 3209</td><td>Soil Science</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 3224</td><td>Tourism Planning and Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 3301</td><td>Geography of China</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 3302</td><td>Population and Migration</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 3304</td><td>Cultural Geography</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 3305</td><td>Transport Geography</td><td></td><td></td><td>—</td></tr>
+<tr><td>GRMD 3323</td><td>Urban and Regional Planning</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 3401</td><td>Energy Resources for Carbon Neutrality</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 3402</td><td>World Development</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 3404</td><td>Natural Hazards and Human Responses</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 4003</td><td>Special Topics in Geography and Resource Management I</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 4004</td><td>Special Topics in Geography and Resource Management II</td><td></td><td></td><td>—</td></tr>
+<tr><td>GRMD 4101</td><td>GIS Workshop</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: GRMD2105.</span></td></tr>
+<tr><td>GRMD 4202</td><td>Hydrology and Water Resources</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 4203</td><td>Ecosystem Restoration and Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>GRMD 4204</td><td>Environmental Planning and Assessment</td><td></td><td></td><td>—</td></tr>
+<tr><td>GRMD 4302</td><td>Urban Planning Workshop</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Only for students who have taken URSP1001 or URSP2300 or GRMD3323 or are taking GRMD3323 at the same time.</span></td></tr>
+<tr><td>GRMD 4403</td><td>Environmental and Resource Economics and Policy</td><td></td><td></td><td>—</td></tr>
+<tr><td>GRMD 4502</td><td>Urban Big Data Analysis and Application</td><td></td><td></td><td>—</td></tr>
+<tr><td>GRMD 4503</td><td>Smart City Policies and Governance</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>GRMD 5110</td><td>Statistical Applications in Geography</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Geography and Resource Management.</span></td></tr>
+</tbody></table></details>
+<div class="nav-bar nav-bar-bottom"><a href="Gender_Studies.html">← Gender Studies</a><a href="Global_Communication.html">Global Communication →</a></div>
+<div class="site-footer">
+  <span>Sources: </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>
+  <span> &middot; </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&tv=F&lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
+  <span> &middot; </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
+</div>
+  </div>
+</main>
+<script>
+(function(){
+  var sidebar = document.querySelector('.sidebar');
+  if(!sidebar) return;
+  var timer;
+  sidebar.addEventListener('scroll', function(){
+    clearTimeout(timer);
+    timer = setTimeout(function(){ localStorage.setItem('sidebarScroll', sidebar.scrollTop); }, 100);
+  });
+  var groups = document.querySelectorAll('.fac-group');
+  for(var i=0; i<groups.length; i++){
+    groups[i].addEventListener('toggle', function(){
+      var closed=[];
+      var all=document.querySelectorAll('.fac-group');
+      for(var j=0; j<all.length; j++){
+        if(!all[j].open) closed.push(all[j].getAttribute('data-fac'));
+      }
+      localStorage.setItem('sidebarCollapsed', JSON.stringify(closed));
+    });
+  }
+})();
+
+// Prevent sidebar from navigating when clicking the already-active minor
+document.querySelectorAll('.sidebar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (this.classList.contains('active')) {
+      e.preventDefault();
+    }
+  });
+});
+
+function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('open');
+  document.querySelector('.sidebar-overlay').classList.toggle('open');
+}
+</script>
+</body>
+</html>

@@ -1084,7 +1084,7 @@ def generate():
     # Determine available years by scanning site/ subdirs
     site_base = SITE_DIR.parent
     available_years = sorted(
-        [d.name for d in site_base.iterdir() if d.is_dir() and "_" in d.name and (d / "index.html").exists()]
+        [d.name for d in site_base.iterdir() if d.is_dir() and "_" in d.name and (d / "checker.html").exists()]
     )
     year_options = "".join(
         f'<option value="../{y}/index.html" {"selected" if y == YEAR else ""}>{y.replace("_","-")}</option>'

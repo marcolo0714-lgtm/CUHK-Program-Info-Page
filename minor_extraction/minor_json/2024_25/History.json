@@ -1,0 +1,49 @@
+{
+  "_auto_generated": true,
+  "title": "History",
+  "faculty": "Arts",
+  "source_file": "History",
+  "description": "Students are required to complete a minimum of 18 units of courses as follows:",
+  "required": {
+    "label": "1. Required Course : 3 units",
+    "units": "3",
+    "rows": [
+      {
+        "text": "HIST1000",
+        "codes": [
+          "HIST 1000"
+        ],
+        "units": ""
+      }
+    ]
+  },
+  "elective": {
+    "label": "2. Elective Courses ",
+    "units": "",
+    "rows": [
+      {
+        "text": "(a) HIST1001 or 1002",
+        "codes": [
+          "HIST 1001",
+          "HIST 1002"
+        ],
+        "units": "3"
+      },
+      {
+        "text": "(b) Four HIST courses excluding HIST1001 and 1002, with at least two courses at 3000 or above level",
+        "codes": [
+          "HIST 1001",
+          "HIST 1002"
+        ],
+        "units": "12"
+      }
+    ]
+  },
+  "explanatory_notes": "",
+  "eq_pairs": [
+    [
+      "HIST 1001",
+      "HIST 1002"
+    ]
+  ]
+}

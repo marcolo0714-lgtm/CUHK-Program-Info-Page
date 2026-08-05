@@ -1,5 +1,23 @@
 # Manual Edits & Hardcoded Constants
 
+## 0. Year Directory Setup
+
+Two new admission years were set up in August 2026:
+
+### 2024_25
+- Academy scraping of all major programme pages produced `minor_html/2024_25/`
+- `generate_minor_json.py` auto-generated all JSONs from the HTML
+- `resolve_course_descriptions.py` resolved elective course codes
+- Fewer manual JSON edits were needed than 2025_26 (4 files vs 10)
+
+### 2026_27
+- Academy scraping produced `minor_html/2026_27/`
+- `generate_minor_json.py` auto-generated all JSONs from the HTML
+- **Religion_and_Health** was **not scraped** by the academy extractor (reason unknown).
+  Manually inserted by copying the 2024_25 HTML and JSON to 2026_27 and setting
+  `_auto_generated: false`.
+- `resolve_course_descriptions.py` resolved elective course codes
+
 ---
 
 ## 1. Manual Entries in `course_overrides.json`
@@ -21,25 +39,48 @@ Department course listings.
 
 ---
 
-## 2. Manual Edits to `minor_json/*.json`
+## 2. `_auto_generated: false` JSON Files (by Year)
 
-These files had structural issues requiring direct edits. `_auto_generated` was
-set to `false` to prevent overwriting by `generate_minor_json.py`.
+Files with `_auto_generated: false` are skipped by `generate_minor_json.py` on
+regeneration to preserve manual structural fixes.
+
+### 2024_25 (4 files)
 
 | File | Edits |
 |---|---|
-| **Philosophy.json** | Merged split `<tr>` for note 2 (the "fulfill the requirements…" and "Programme(s) and other Minor…" were in separate rows) |
-| **AIST.json** | Added period to note index "2" → "2." so the generator recognises it as a note point |
-| **Business.json** (HB) | `elective.label`: dropped "12 units" (only row a); `elective.rows[0].units` set to "12" so total = 12+6=18 |
-| **Data_Analytics.json** (HB) | Flattened (a) section: three nested-or rows merged into one, removed "OR" row and "i)/ii)" |
-| **Japanese_Studies.json** | `elective.units`: moved "6" from section to `rows[0].units`; set `rows[2].units="12"` (total = 6+12=18) |
-| **Music.json** | `elective.rows[0].units` set to "4"; `rows[1].units` set to "7" (total = 4+7=11) |
-| **Chinese_Language_and_Literature.json** | (manual edit — appears in `_auto_generated: false` list) |
-| **Biochemistry.json** | Removed false eq_pair `["BCHE 3030", "BCHE 3730"]` — courses are NOT equivalent; they were collapsing required total from 11→9 |
-| **Biology.json** | Removed false eq_pair `["BIOL 3560", "BIOL 3610"]` — belong to different OR groups; `or_group` strategy now handles separation |
-| **Sociology.json** | Set `elective.rows[0].units="15"`; prepended "15 units from the following…" to row text — prevents generator from misinterpreting the "6 units" level constraint as the row target |
-| **Molecular_Biotechnology.json** | Set `required.units="6"`; changed `elective.units` from "13" to "14" (uses max of range so 6+14=20 ≥ 19) |
+| **Biochemistry.json** | Removed false eq_pair `["BCHE 3030", "BCHE 3730"]` |
+| **Biology.json** | Removed false eq_pair `["BIOL 3560", "BIOL 3610"]` |
+| **Molecular_Biotechnology.json** | Set `required.units="6"`; `elective.units` to "14" |
+| **Music.json** | `elective.rows[0].units` set to "4"; `rows[1].units` set to "7" |
 
+### 2025_26 (10 files)
+
+| File | Edits |
+|---|---|
+| **AIST.json** | Added period to note index "2" → "2." |
+| **Biochemistry.json** | Same as 2024_25 |
+| **Biology.json** | Same as 2024_25 |
+| **Chinese_Language_and_Literature.json** | Manual course code corrections |
+| **HB_Business.json** | `elective.label`: dropped "12 units"; `elective.rows[0].units` set to "12" |
+| **HB_Data_Analytics_and_Informatics.json** | Flattened nested-or rows, removed "OR" row |
+| **Japanese_Studies.json** | Moved "6" from section to `rows[0].units`; set `rows[2].units="12"` |
+| **Molecular_Biotechnology.json** | Same as 2024_25 |
+| **Music.json** | Same as 2024_25 |
+| **Philosophy.json** | Merged split `<tr>` for note 2 |
+| **Sociology.json** | Set `elective.rows[0].units="15"`; prepended "15 units from the following…" |
+
+### 2026_27 (6 files)
+
+| File | Edits |
+|---|---|
+| **Biochemistry.json** | Same as 2025_26 |
+| **Biology.json** | Same as 2025_26 |
+| **Japanese_Studies.json** | Same as 2025_26 |
+| **Molecular_Biotechnology.json** | Same as 2025_26 |
+| **Music.json** | Same as 2025_26 |
+| **Religion_and_Health.json** | **Manually created.** Not extracted by academy scraper. Copied from 2024_25 (course codes identical). `_auto_generated: false`. |
+
+---
 
 ## 3. Hardcoded Constants in `generate_checker_data.py`
 

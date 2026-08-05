@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="prefetch-src 'none'">
+<script type="speculationrules">
+{ "prefetch": [{ "source": "list", "urls": [] }] }
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="icon" href="../favicon.ico" sizes="any">
+<title>Minor: Music</title>
+<style>:root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
+        --text: #212529; --muted: #6c757d; --warn-bg: #fff8f0; --warn: #b45309;
+        --tbl-border: #868a90; --tbl-border-light: #d5d8dc; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+       background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
+.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+h1 { font-size:1.7em; }
+h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
+     border-bottom:1px solid var(--border); color:#333; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.breadcrumb { margin-bottom:1em; color:var(--muted); font-size:.9em; }
+.section { background:var(--card); padding:14px 18px; border-radius:8px;
+           border:1px solid var(--border); margin-bottom:16px; }
+.section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
+table { width:100%; border-collapse:collapse; background:var(--card);
+        border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
+th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
+th:first-child, td:first-child { white-space:nowrap; }
+th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
+    border-left:1px solid var(--tbl-border); }
+th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
+    border-right:1px solid var(--tbl-border); }
+td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
+th { background:#fafafa; font-weight:600; color:#555; }
+tr:hover { background:#f9f9f9; }
+.eq-row td { border-bottom-color: var(--tbl-border-light); }
+.nf { background:var(--warn-bg); color:var(--warn); }
+.nf:hover { background:#fff5eb; }
+.term-yes { background:#d4edda; }
+.prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
+.prereq-indent { text-indent:0; }
+.card { background:var(--card); border-radius:8px; padding:12px 18px;
+        border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.card:hover { border-color:var(--accent); }
+.card-code { font-weight:600; color:var(--accent); }
+.card-grid { display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; }
+.card-grid > a { flex:1 0 400px; max-width:100%; text-decoration:none; display:flex; }
+.card-grid .card { width:100%; justify-content:flex-start; }
+.meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
+.tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
+       padding:2px 8px; font-size:.8em; margin-right:6px; }
+.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row:first-child { padding-top:0; }
+.req-row:last-child { padding-bottom:0; }
+.section-stream { margin-left: 28px; }
+.section-stream + .course-details { margin-left: 28px; }
+.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
+           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
+.nav-bar a { font-size:.9em; }
+.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
+                  border-top:none; margin-top:0; padding-bottom:12px; }
+.course-details { margin-bottom:16px; }
+.course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
+    font-size:.9em; font-weight:500; }
+.course-details summary:hover { text-decoration:underline; }
+.course-details table { margin-top:8px; }
+.notes-section, .notes-section p, .notes-section span, .notes-section td {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif !important;
+    font-size:.95em; line-height:1.6; }
+.notes-point { display:flex; align-items:flex-start; gap:10px; padding:10px 14px;
+    cursor:default; transition:background .15s; }
+.notes-point:hover { background:#f0f4ff; }
+.point-idx { font-weight:600; color:var(--accent); min-width:22px; flex-shrink:0; }
+.point-text { flex:1; }
+.point-text p { margin:0; }
+.notes-table-section table { background:var(--card); border-collapse:collapse;
+    border-radius:8px; overflow:hidden; }
+.notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
+.notes-table-section tr:hover { background:#f9f9f9; }
+.checker-btn { display:inline-block; padding:10px 24px; background:var(--accent);
+    color:#fff; border-radius:8px; font-weight:600; font-size:.95em;
+    text-decoration:none; margin-bottom:18px; }
+.checker-btn:hover { opacity:.9; text-decoration:none; }
+.checker-link { display:inline-block; font-size:.85em; color:var(--accent);
+    margin-left:12px; }
+
+/* ── Sidebar ── */
+.sidebar { width:280px; flex-shrink:0; height:100vh; position:sticky; top:0;
+    overflow-y:auto; background:var(--card); border-right:1px solid var(--border);
+    padding:12px 0; font-size:.88em; }
+.sidebar-header { padding:6px 18px 10px; font-weight:600; color:var(--muted);
+    border-bottom:1px solid var(--border); margin-bottom:6px; }
+.fac-group { margin:0; }
+.fac-group summary { padding:6px 16px; font-weight:600; font-size:.92em;
+    cursor:pointer; color:#555; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.fac-group summary:hover { color:var(--accent); }
+.sidebar a { display:block; padding:3px 16px 3px 22px; color:var(--text);
+    text-decoration:none; border-left:3px solid transparent;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sidebar a:hover { background:#f0f4ff; color:var(--accent); }
+.sidebar a.active { font-weight:600; color:var(--accent);
+    background:#e8f0fe; border-left-color:var(--accent); }
+.sidebar-toggle { display:none; position:fixed; top:8px; left:8px; z-index:100;
+    background:var(--card); border:1px solid var(--border); border-radius:6px;
+    padding:6px 10px; font-size:1.2em; cursor:pointer; }
+.sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.25);
+    z-index:98; }
+.content { flex:1; min-width:0; }
+.content-inner { max-width:960px; margin:0 auto; padding:20px; }
+
+/* ── Index page (no sidebar) ── */
+.page-index .container { max-width:960px; margin:0 auto; padding:20px; }
+
+/* ── Footer ── */
+.site-footer { margin-top:32px; padding-top:12px; border-top:1px solid var(--border);
+    font-size:0.82em; color:var(--muted); text-align:center; }
+.site-footer a { color:var(--muted); }
+.site-footer a:hover { color:var(--accent); }
+
+@media (max-width:768px) {
+    body { display:block; }
+    html, body { overflow-x:hidden; }
+    .sidebar { position:fixed; left:-300px; top:0; z-index:99;
+        transition:left .25s; box-shadow:none; }
+    .sidebar.open { left:0; box-shadow:2px 0 12px rgba(0,0,0,.15); }
+    .sidebar.open .sidebar-header { padding-top:42px; }
+    .sidebar-toggle { display:block; }
+    .sidebar-overlay.open { display:block; }
+    .content-inner { padding:44px 12px 12px; }
+    h1 { font-size:1.4em; }
+    .meta { white-space:normal; }
+    .card { flex-wrap:wrap; }
+    th:first-child, td:first-child { white-space:normal; max-width:6em; }
+    th:nth-child(3), td:nth-child(3) { white-space:normal; }
+    th, td { padding:6px 8px; font-size:0.82em; }
+    .notes-table-section { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .notes-table-section table { width:auto !important; max-width:none; }
+    .notes-table-section td { white-space:normal; overflow-wrap:break-word; }
+}
+.year-select {
+    font-size: 0.9rem; padding: 4px 10px; border: 1px solid var(--border);
+    border-radius: 6px; background: var(--card); color: var(--text);
+    margin-bottom: 16px; cursor: pointer;
+}
+</style>
+</head>
+<body>
+<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">&#9776;</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <div class="sidebar-header">Minor Programmes</div>
+  <nav><details class="fac-group" data-fac="Arts" open>
+<summary>Arts</summary>
+<a href="Anthropology.html" class="">Anthropology</a>
+<a href="Arab_Studies.html" class="">Arab Studies</a>
+<a href="Archaeology.html" class="">Archaeology</a>
+<a href="China_Studies.html" class="">China Studies</a>
+<a href="Chinese_Language_and_Literature.html" class="">Chinese Language and Literature</a>
+<a href="Creative_Writing_in_English.html" class="">Creative Writing in English</a>
+<a href="Cultural_Heritage_Studies.html" class="">Cultural Heritage Studies</a>
+<a href="Cultural_Management.html" class="">Cultural Management</a>
+<a href="Cultural_Studies.html" class="">Cultural Studies</a>
+<a href="Curating_and_Artistic_Strategies.html" class="">Curating and Artistic Strategies</a>
+<a href="English.html" class="">English</a>
+<a href="Film_and_Screen_Studies.html" class="">Film and Screen Studies</a>
+<a href="Fine_Arts.html" class="">Fine Arts</a>
+<a href="History.html" class="">History</a>
+<a href="Hong_Kong_Sign_Language.html" class="">Hong Kong Sign Language</a>
+<a href="Japanese_Language.html" class="">Japanese Language</a>
+<a href="Japanese_Studies.html" class="">Japanese Studies</a>
+<a href="Linguistics.html" class="">Linguistics</a>
+<a href="Music.html" class="active">&#9654; Music</a>
+<a href="Philosophy.html" class="">Philosophy</a>
+<a href="Public_History.html" class="">Public History</a>
+<a href="Religion_and_Health.html" class="">Religion and Health</a>
+<a href="Religious_Studies.html" class="">Religious Studies</a>
+<a href="Theology.html" class="">Theology</a>
+<a href="Translation.html" class="">Translation</a>
+</details>
+<details class="fac-group" data-fac="Education" open>
+<summary>Education</summary>
+<a href="Physical_Education,_Exercise_Science_and_Health.html" class="">Physical Education, Exercise Science and Health</a>
+</details>
+<details class="fac-group" data-fac="Engineering" open>
+<summary>Engineering</summary>
+<a href="Artificial_Intelligence_Systems_and_Technologies.html" class="">Artificial Intelligence: Systems and Technologies</a>
+<a href="Biomedical_Engineering.html" class="">Biomedical Engineering</a>
+<a href="Computer_Science.html" class="">Computer Science</a>
+<a href="Electronic_Engineering.html" class="">Electronic Engineering</a>
+<a href="Energy_Technology.html" class="">Energy Technology</a>
+<a href="Information_Engineering.html" class="">Information Engineering</a>
+<a href="Logistics_and_Supply_Chain_Management.html" class="">Logistics and Supply Chain Management</a>
+<a href="Mechanical_and_Automation_Engineering.html" class="">Mechanical and Automation Engineering</a>
+</details>
+<details class="fac-group" data-fac="Law" open>
+<summary>Law</summary>
+<a href="Law.html" class="">Law</a>
+</details>
+<details class="fac-group" data-fac="Medicine" open>
+<summary>Medicine</summary>
+<a href="Public_Health.html" class="">Public Health</a>
+</details>
+<details class="fac-group" data-fac="Science" open>
+<summary>Science</summary>
+<a href="Biochemistry.html" class="">Biochemistry</a>
+<a href="Biology.html" class="">Biology</a>
+<a href="Cell_and_Molecular_Biology.html" class="">Cell and Molecular Biology</a>
+<a href="Chemistry.html" class="">Chemistry</a>
+<a href="Earth_and_Environmental_Sciences.html" class="">Earth and Environmental Sciences</a>
+<a href="Mathematics.html" class="">Mathematics</a>
+<a href="Molecular_Biotechnology.html" class="">Molecular Biotechnology</a>
+<a href="Physics.html" class="">Physics</a>
+<a href="Risk_Management_Science.html" class="">Risk Management Science</a>
+<a href="Statistics.html" class="">Statistics</a>
+</details>
+<details class="fac-group" data-fac="Social Science" open>
+<summary>Social Science</summary>
+<a href="Applied_Diversity_Studies.html" class="">Applied Diversity Studies</a>
+<a href="Data_Science_and_Policy_Studies.html" class="">Data Science and Policy Studies</a>
+<a href="Economics.html" class="">Economics</a>
+<a href="Gender_Studies.html" class="">Gender Studies</a>
+<a href="Geo-spatial_Science_for_Sustainability.html" class="">Geo-spatial Science for Sustainability</a>
+<a href="Geography_and_Resource_Management.html" class="">Geography and Resource Management</a>
+<a href="Global_Communication.html" class="">Global Communication</a>
+<a href="Global_Studies.html" class="">Global Studies</a>
+<a href="Government_and_Public_Administration.html" class="">Government and Public Administration</a>
+<a href="Journalism_and_Communication.html" class="">Journalism and Communication</a>
+<a href="Psychology.html" class="">Psychology</a>
+<a href="Social_Policy.html" class="">Social Policy</a>
+<a href="Social_Welfare.html" class="">Social Welfare</a>
+<a href="Sociology.html" class="">Sociology</a>
+<a href="Urban_Studies.html" class="">Urban Studies</a>
+</details>
+<details class="fac-group" data-fac="Other" open>
+<summary>Other</summary>
+<a href="HB_Minor_Programme_in_Business.html" class="">Business</a>
+<a href="HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language.html" class="">Chinese Language (Cantonese) as a Second Language</a>
+<a href="HB_Minor_Programme_in_Chinese_Language_(Putonghua)_as_a_Second_Language.html" class="">Chinese Language (Putonghua) as a Second Language</a>
+<a href="HB_Minor_Programme_in_Creative_Sustainable_Arts_Technology.html" class="">Creative Sustainable Arts Technology</a>
+<a href="HB_Minor_Programme_in_CU-ASK_Innovative_Problem_Solving.html" class="">CU-ASK: Innovative Problem Solving</a>
+<a href="HB_Minor_Programme_in_Data_Analytics_and_Informatics.html" class="">Data Analytics and Informatics</a>
+<a href="HB_Minor_Programme_in_Education.html" class="">Education</a>
+<a href="HB_Minor_Programme_in_Entrepreneurship_and_Innovation.html" class="">Entrepreneurship and Innovation</a>
+<a href="HB_Minor_Programme_in_French.html" class="">French</a>
+<a href="HB_Minor_Programme_in_German.html" class="">German</a>
+<a href="HB_Minor_Programme_in_Korean.html" class="">Korean</a>
+<a href="HB_Minor_Programme_in_Spanish.html" class="">Spanish</a>
+</details></nav>
+  <script>
+(function(){var closed=JSON.parse(localStorage.getItem('sidebarCollapsed')||'[]');
+var groups=document.querySelectorAll('.fac-group');
+for(var i=0;i<groups.length;i++){if(closed.indexOf(groups[i].getAttribute('data-fac'))!==-1)groups[i].removeAttribute('open');}
+var st=localStorage.getItem('sidebarScroll');
+if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
+</script>
+</aside>
+<main class="content">
+  <div class="content-inner">
+<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Music</div>
+<div class="nav-bar"><a href="Linguistics.html">← Linguistics</a><a href="Philosophy.html">Philosophy →</a></div>
+<div class="title-row"><h1>Music</h1><span class="meta">Arts</span></div>
+<h2>Description</h2>
+<div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
+<h2>1. Required Courses : 7 units</h2>
+<div class="section"><div class="req-row"><span class="row-text">MUSC1000, 1212, 1222</span></div></div>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>MUSC 1000</td><td>The Study of Music</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1212 [2]</td><td>Fundamentals of Tonal Music I</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1222 [2]</td><td>Fundamentals of Tonal Music II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MUSC1212.</span></td></tr>
+</tbody></table></details>
+<h2>2. Elective Courses: 11 units</h2>
+<div class="section"><div class="req-row"><span class="row-text">(a) Any 4 units from the following courses: MUSC2252, 2262, 2552, 2562, 2872, 2882</span><span class="meta">(4 units)</span></div></div>
+<details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>MUSC 2252 [2]</td><td>Materials and Structures of Music</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: MUSC1222 or by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 2262 [2]</td><td>Advanced Harmonic Practice</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MUSC2252 OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 2552 [2]</td><td>Music, Culture and Society</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2562 [2]</td><td>Foundations of Chinese Music</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2872 [2]</td><td>History of Western Music I</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2882 [2]</td><td>History of Western Music II</td><td></td><td class="term-yes"></td><td>—</td></tr>
+</tbody></table></details>
+<div class="section"><div class="req-row"><span class="row-text">(b) Any MUSC courses other than the courses taken to fulfill requirement (1) and (2a) above, excluding MUSC1012, 1022, 1051, 1061, 2012, 2022, 2051, 2061, 3012, 3022, 3051, 3061, 4000, 4003, 4051, 4061. Courses taken should include at least 6 units of courses at 3000 or above level and not more than 4 units of courses from Area 2B and/or 2C.</span><span class="meta">(7 units)</span></div></div>
+<details class="course-details"><summary>Show 214 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>MUSC 1000</td><td>The Study of Music</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1001 [1]</td><td>Choral Singing I</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1002 [1]</td><td>Choral Singing II</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 1011 [1]</td><td>Applied Music (Minor I)</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1013 [1]</td><td>African Drumming I</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1014 [1]</td><td>Chamber Music Ensemble I</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1015 [1]</td><td>Chinese Music Ensemble I</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1016 [1]</td><td>Early Music Ensemble I</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1017 [1]</td><td>Javanese Gamelan Ensemble I</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1018 [1]</td><td>Jazz Ensemble I</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1019 [1]</td><td>New Music Ensemble I</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1021 [1]</td><td>Applied Music (Minor II)</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 1023 [1]</td><td>African Drumming II</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 1024 [1]</td><td>Chamber Music Ensemble II</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 1025 [1]</td><td>Chinese Music Ensemble II</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1026 [1]</td><td>Early Music Ensemble II</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1027 [1]</td><td>Javanese Gamelan Ensemble II</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 1028 [1]</td><td>Jazz Ensemble II</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1029 [1]</td><td>New Music Ensemble II</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1031 [1]</td><td>Orchestral Training I</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1032 [1]</td><td>Orchestral Training II</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 1041 [1]</td><td>Wind Orchestra I</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1042 [1]</td><td>Wind Orchestra II</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 1212 [2]</td><td>Fundamentals of Tonal Music I</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1222 [2]</td><td>Fundamentals of Tonal Music II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MUSC1212.</span></td></tr>
+<tr><td>MUSC 2001 [1]</td><td>Choral Singing III</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2002 [1]</td><td>Choral Singing IV</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2011 [1]</td><td>Applied Music (Minor III)</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2013 [1]</td><td>African Drumming III</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2014 [1]</td><td>Chamber Music Ensemble III</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2015 [1]</td><td>Chinese Music Ensemble III</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2016 [1]</td><td>Early Music Ensemble III</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2017 [1]</td><td>Javanese Gamelan Ensemble III</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2018 [1]</td><td>Jazz Ensemble III</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2019 [1]</td><td>New Music Ensemble III</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2021 [1]</td><td>Applied Music (Minor IV)</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2023 [1]</td><td>African Drumming IV</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2024 [1]</td><td>Chamber Music Ensemble IV</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2025 [1]</td><td>Chinese Music Ensemble IV</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2026 [1]</td><td>Early Music Ensemble IV</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2027 [1]</td><td>Javanese Gamelan Ensemble IV</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2028 [1]</td><td>Jazz Ensemble IV</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2029 [1]</td><td>New Music Ensemble IV</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2031 [1]</td><td>Orchestral Training III</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2032 [1]</td><td>Orchestral Training IV</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2041 [1]</td><td>Wind Orchestra III</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2042 [1]</td><td>Wind Orchestra IV</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2233 [2]</td><td>Hymnology and Liturgical Music</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2252 [2]</td><td>Materials and Structures of Music</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: MUSC1222 or by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 2262 [2]</td><td>Advanced Harmonic Practice</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MUSC2252 OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 2333 [2]</td><td>Music Information Technology</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2511 [1]</td><td>Aural Practice and Perception I</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: Grade B or above in MUSC1222 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 2521 [1]</td><td>Aural Practice and Perception II</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: MUSC2511 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 2540</td><td>An Introduction to Arts Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2542 [2]</td><td>Music in World Cultures</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MUSC2552 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 2543 [2]</td><td>Conducting</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2545 [2]</td><td>Music Therapy</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2552 [2]</td><td>Music, Culture and Society</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2562 [2]</td><td>Foundations of Chinese Music</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2612 [2]</td><td>Chinese Instrumental Music</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2622 [2]</td><td>Chinese Operatic Music</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2872 [2]</td><td>History of Western Music I</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2882 [2]</td><td>History of Western Music II</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 2913</td><td>Selected Study I</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 3001 [1]</td><td>Choral Singing V</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3002 [1]</td><td>Choral Singing VI</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 3011 [1]</td><td>Applied Music (Minor V)</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3013 [1]</td><td>African Drumming V</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3014 [1]</td><td>Chamber Music Ensemble V</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3015 [1]</td><td>Chinese Music Ensemble V</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3016 [1]</td><td>Early Music Ensemble V</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3017 [1]</td><td>Javanese Gamelan Ensemble V</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3018 [1]</td><td>Jazz Ensemble V</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3019 [1]</td><td>New Music Ensemble V</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3021 [1]</td><td>Applied Music (Minor VI)</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 3023 [1]</td><td>African Drumming VI</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 3024 [1]</td><td>Chamber Music Ensemble VI</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 3025 [1]</td><td>Chinese Music Ensemble VI</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3026 [1]</td><td>Early Music Ensemble VI</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3027 [1]</td><td>Javanese Gamelan Ensemble VI</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 3028 [1]</td><td>Jazz Ensemble VI</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3029 [1]</td><td>New Music Ensemble VI</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3031 [1]</td><td>Orchestral Training V</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3032 [1]</td><td>Orchestral Training VI</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 3041 [1]</td><td>Wind Orchestra V</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3042 [1]</td><td>Wind Orchestra VI</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 3213 [2]</td><td>History of Western Music: Special Topic I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3223 [2]</td><td>History of Western Music: Special Topic II</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3233 [2]</td><td>History of Western Music: Special Topic III</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: MUSC2872 and MUSC2882 OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3243 [2]</td><td>History of Western Music: Special Topic IV</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: MUSC2872 and MUSC2882 OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3323 [2]</td><td>Counterpoint (Tonal and Modern)</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: MUSC2262 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 3333 [2]</td><td>Orchestral Techniques</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MUSC2262 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 3343</td><td>Composition I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: Grade B or above in MUSC3212 or MUSC2262, and departmental permission must be obtained prior to registration.</span></td></tr>
+<tr><td>MUSC 3353</td><td>Composition II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MUSC3343.</span></td></tr>
+<tr><td>MUSC 3363</td><td>Composition III</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: MUSC3353.</span></td></tr>
+<tr><td>MUSC 3373 [2]</td><td>Scoring for Film and Television</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MUSC2333 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 3383 [2]</td><td>Electronic Music</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3432 [2]</td><td>Tonal Music Analysis</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MUSC2252 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 3442 [2]</td><td>Post-tonal Music Analysis</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MUSC3432 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 3452 [2]</td><td>Theory and Analysis: Special Topic I</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3462 [2]</td><td>Theory and Analysis: Special Topic II</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3472 [2]</td><td>Theory and Analysis: Special Topic III</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3482 [2]</td><td>Theory and Analysis: Special Topic IV</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3492 [2]</td><td>Analysis and Performance</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 3502 [2]</td><td>Vocal/Instrumental Pedagogy</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 3512 [2]</td><td>Chinese Music: History and Theory I</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3522 [2]</td><td>Chinese Music: History and Theory II</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3530 [2]</td><td>Music Performer’s Issues</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3532 [2]</td><td>Chinese Music: History and Theory III</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3533 [2]</td><td>Piano Pedagogy</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3542 [2]</td><td>Selected Topic in World Musics</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3562 [2]</td><td>Chinese Music: Selected Topics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MUSC2562 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 3582 [2]</td><td>Selected Topic in Music and Society</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3712 [2]</td><td>Composition: Special Topic I</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3722 [2]</td><td>Composition: Special Topic II</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3732 [2]</td><td>Composition: Special Topic III</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3742 [2]</td><td>Composition: Special Topic IV</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3802 [2]</td><td>Introduction to Jazz</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3832 [2]</td><td>Romanticism in Music</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3852 [2]</td><td>Music on Record</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3892 [2]</td><td>Approaches to Popular Music</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): MUSC2872 and MUSC2882 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 3902 [2]</td><td>History of Film Music</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: MUSC2872 and MUSC2882 OR by consent of the instructor.</span></td></tr>
+<tr><td>MUSC 3912 [2]</td><td>Music Pedagogy: Special Topic I</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3922 [2]</td><td>Music Pedagogy: Special Topic II</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3923</td><td>Selected Study II</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 3932 [2]</td><td>Music Pedagogy: Special Topic III</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3933</td><td>Selected Study III</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 3942 [2]</td><td>Music Pedagogy: Special Topic IV</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4001 [1]</td><td>Choral Singing VII</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4002 [1]</td><td>Choral Singing VIII</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 4011 [1]</td><td>Applied Music (Minor VII)</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4012 [2]</td><td>Applied Music (Major XV)</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4013 [1]</td><td>African Drumming VII</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4014 [1]</td><td>Chamber Music Ensemble VII</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4015 [1]</td><td>Chinese Music Ensemble VII</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4016 [1]</td><td>Early Music Ensemble VII</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4017 [1]</td><td>Javanese Gamelan Ensemble VII</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4018 [1]</td><td>Jazz Ensemble VII</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4019 [1]</td><td>New Music Ensemble VII</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4021 [1]</td><td>Applied Music (Minor VIII)</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 4022 [2]</td><td>Applied Music (Major XVI)</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4023 [1]</td><td>African Drumming VIII</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 4024 [1]</td><td>Chamber Music Ensemble VIII</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 4025 [1]</td><td>Chinese Music Ensemble VIII</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4026 [1]</td><td>Early Music Ensemble VIII</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4027 [1]</td><td>Javanese Gamelan Ensemble VIII</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 4028 [1]</td><td>Jazz Ensemble VIII</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4029 [1]</td><td>New Music Ensemble VIII</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4031 [1]</td><td>Orchestral Training VII</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4032 [1]</td><td>Orchestral Training VIII</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 4041 [1]</td><td>Wind Orchestra VII</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4042 [1]</td><td>Wind Orchestra VIII</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 4243 [2]</td><td>Research Methods in Music</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite(s): MUSC2262 and MUSC2882 (or permission by the instructor).</span></td></tr>
+<tr><td>MUSC 4513</td><td>Senior Pedagogy Project I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Co-requisite(s): MUSC4243.</span></td></tr>
+<tr><td>MUSC 4523</td><td>Senior Pedagogy Project II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MUSC4513.</span></td></tr>
+<tr><td>MUSC 4613</td><td>Senior Research Project I</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 4623</td><td>Senior Research Project II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: MUSC4613.</span></td></tr>
+<tr><td>MUSC 4813</td><td>Senior Thesis I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Co-requisite(s): MUSC4243.</span></td></tr>
+<tr><td>MUSC 4823</td><td>Senior Thesis II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MUSC4813.</span></td></tr>
+<tr><td>MUSC 4862 [2]</td><td>Introduction to Transcription and Analysis</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4883 [2]</td><td>Chinese Music Study: Special Topic I</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: one from MUSC3512, 3522, 3532 and one from MUSC2612, 2622; but strongly recommended MUSC4862, or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 4893 [2]</td><td>Chinese Music Study: Special Topic II</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MUSC4883 or permission by the instructor.</span></td></tr>
+<tr><td>MUSC 4943</td><td>Selected Study IV</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
+<tr><td>MUSC 5101</td><td>Traditional Musical Culture in China</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5102</td><td>Musical Culture in Contemporary China</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5103</td><td>Music and Popular Culture in Hong Kong</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5104</td><td>Music in Film</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5106</td><td>Music-Making in Global Contexts</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5111</td><td>Special Topic I in “Music and Society”</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5112</td><td>Special Topic II in 'Music and Society'</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5201</td><td>Music Management and Promotion</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5202</td><td>Advanced Tonal Skills</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5203</td><td>Practical Composing and Arranging</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5204</td><td>Advanced Music Information Technology</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5205</td><td>Writing Music for the Church</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5206</td><td>Entrepreneurship and New Vision in Music</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5211</td><td>Special Topic III in ‘Music, Industry, and Creativity’</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5212</td><td>Special Topic IV in ‘Music, Industry, and Creativity’</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5301</td><td>Frontiers in Music Theory</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5302</td><td>Style, Interpretation and Performance Practice</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5303</td><td>Western Opera & Vocal Literature</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5304</td><td>Western Instrumental Literature</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5305</td><td>Practical Studies in Musicianship and Conducting (Choral)</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5306</td><td>Practical Studies in Musicianship and Conducting (Orchestral)</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5311</td><td>Special Topic V in 'Style and Interpretation'</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 5312</td><td>Special Topic VI in 'Style and Interpretation'</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr><td>MUSC 6000</td><td>Research Methods and Bibliography</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6050</td><td>Independent Study I</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6051</td><td>Independent Study II</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6100</td><td>Advanced Composition I</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6101</td><td>Advanced Composition II</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6150</td><td>Computer-Aided Composition</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6200</td><td>Ethnomusicology I: History and Theory</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6201</td><td>Ethnomusicology II: Current issues</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music;</span><span class="prereq-sentence">Prerequisite: MUSC6200.</span></td></tr>
+<tr><td>MUSC 6250</td><td>Special Topic in Chinese Music I</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6251</td><td>Special Topic in Chinese Music II</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6252</td><td>Special Topic in Ethnomusicology I</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6253</td><td>Special Topic in Ethnomusicology II</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6350</td><td>Seminar in Musicology: Renaissance and Early Baroque Music</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6351</td><td>Seminar in Musicology: Late Baroque to 1870</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6352</td><td>Seminar in Musicology: From 1870 to the Present</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6353</td><td>Topics in Sacred Music</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6354</td><td>Topics in Western Opera</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6355</td><td>Topics in the Orchestra and Its Music</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6356</td><td>Musical Notation</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6357</td><td>Topics in Musicology I</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD/MPhil/DMus/MMus in Music.</span></td></tr>
+<tr><td>MUSC 6358</td><td>Topics in Musicology II</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD/MPhil/DMus/MMus in Music.</span></td></tr>
+<tr><td>MUSC 6400</td><td>Seminar in the Theory and Analysis of Music I</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6401</td><td>Advanced Tonal Music Theory and Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6402</td><td>Advanced Post-tonal Music Theory and Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6450</td><td>Seminar in the Theory and Analysis of Music II</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 6451</td><td>Special Topics: Theory and Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
+<tr><td>MUSC 8025</td><td>M.Phil./M.Mus. Thesis/Portfolio Preparation</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Music or MPhil Music.</span></td></tr>
+<tr><td>MUSC 8026</td><td>Ph.D./D.Mus. Dissertation/Portfolio Preparation</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Doctor of Music or PhD Music.</span></td></tr>
+</tbody></table></details>
+<h2>Explanatory Notes</h2>
+<div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Students planning to Minor in Music must have attained at least Grade 5 in theory and instrument/voice in the examination of the Associated Board of the Royal Schools of Music, or equivalent, and may be asked to attend an interview.</span></div>
+<div class="section notes-point"><span class="point-idx">2.</span><span class="point-text">This Minor Programme is not applicable to students who major in Music.</span></div>
+<div class="section notes-point"><span class="point-idx">3.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfil the requirement of this Minor Programme.</span></div>
+<div class="nav-bar nav-bar-bottom"><a href="Linguistics.html">← Linguistics</a><a href="Philosophy.html">Philosophy →</a></div>
+<div class="site-footer">
+  <span>Sources: </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>
+  <span> &middot; </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&tv=F&lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
+  <span> &middot; </span>
+  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
+</div>
+  </div>
+</main>
+<script>
+(function(){
+  var sidebar = document.querySelector('.sidebar');
+  if(!sidebar) return;
+  var timer;
+  sidebar.addEventListener('scroll', function(){
+    clearTimeout(timer);
+    timer = setTimeout(function(){ localStorage.setItem('sidebarScroll', sidebar.scrollTop); }, 100);
+  });
+  var groups = document.querySelectorAll('.fac-group');
+  for(var i=0; i<groups.length; i++){
+    groups[i].addEventListener('toggle', function(){
+      var closed=[];
+      var all=document.querySelectorAll('.fac-group');
+      for(var j=0; j<all.length; j++){
+        if(!all[j].open) closed.push(all[j].getAttribute('data-fac'));
+      }
+      localStorage.setItem('sidebarCollapsed', JSON.stringify(closed));
+    });
+  }
+})();
+
+// Prevent sidebar from navigating when clicking the already-active minor
+document.querySelectorAll('.sidebar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (this.classList.contains('active')) {
+      e.preventDefault();
+    }
+  });
+});
+
+function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('open');
+  document.querySelector('.sidebar-overlay').classList.toggle('open');
+}
+</script>
+</body>
+</html>

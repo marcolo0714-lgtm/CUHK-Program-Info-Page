@@ -1,0 +1,36 @@
+{
+  "_auto_generated": true,
+  "title": "Translation",
+  "faculty": "Arts",
+  "source_file": "Translation",
+  "description": "Students are required to complete a minimum of 21 units of courses as follows:",
+  "required": {
+    "label": "1. Required Courses: 6 units",
+    "units": "6",
+    "rows": [
+      {
+        "text": "TRAN1010, 1030",
+        "codes": [
+          "TRAN 1010",
+          "TRAN 1030"
+        ],
+        "units": ""
+      }
+    ]
+  },
+  "elective": {
+    "label": "2. Elective Courses",
+    "units": "",
+    "rows": [
+      {
+        "text": "Any five TRAN courses, excluding TRAN1000, with at least 6 units of courses at 3000 or above level",
+        "codes": [
+          "TRAN 1000"
+        ],
+        "units": "15"
+      }
+    ]
+  },
+  "explanatory_notes": "",
+  "eq_pairs": []
+}
