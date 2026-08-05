@@ -315,9 +315,10 @@ def _format_prereq(prereq):
     #    NOTE: semicolons are NOT blindly split any more – only via step 3 below
 
     # 2. Numbered items – "1.Something", "1)Something", spaced or not
-    #    Insert break before the index so it starts the new line
+    #    (?<!\d) ensures we match the full number, not a substring like
+    #    "040)" within "CSCI2040)".  Insert break before the index.
     text = re.sub(
-        r"(?<!" + S + r")(\d+[.)])\s*(?=[A-Z])",
+        r"(?<!" + S + r")(?<!\d)(\d{1,3}[.)])\s*(?=[A-Z])",
         S + r"\1 ", text,
     )
 
@@ -618,10 +619,11 @@ def _render_note_group(rows, is_point):
             # Remove index text from content cell if duplicated
             content_html = re.sub(r'<[^>]+>', ' ', content_cell).replace('\xa0', ' ').strip()
             # Strip trailing empty <p>/<td> tags from right column of original table
-            content_html = re.sub(
-                r'\s*(<td[^>]*>)?\s*<p[^>]*>(?:\s|&nbsp;)*</p>\s*(</td>)?\s*$',
+            content_html = re.sub(r'\s*(<td[^>]*>)?\s*<p[^>]*>(?:\s|&nbsp;)*</p>\s*(</td>)?\s*$',
                 '', content_html, flags=re.IGNORECASE
             )
+            # Strip leading &nbsp; entities and whitespace from Word HTML
+            content_html = re.sub(r'^(&nbsp;|\s)+', '', content_html)
             out.append(
                 f'<div class="section notes-point">'
                 f'<span class="point-idx">{idx_text}</span>'
@@ -872,6 +874,8 @@ def build_detail_page(data, course_index, overrides, prev_stem=None, prev_title=
                 # Strip leading repeated index from content (source HTML artifact)
                 prefix = re.escape(label.strip()) + r'\s*'
                 content = re.sub(r'^' + prefix, '', content, count=1)
+                # Strip leading &nbsp; entities and whitespace from Word HTML
+                content = re.sub(r'^(&nbsp;|\s)+', '', content)
                 body.append(
                     f'<div class="section notes-point">'
                     f'<span class="point-idx">{idx_text}</span>'

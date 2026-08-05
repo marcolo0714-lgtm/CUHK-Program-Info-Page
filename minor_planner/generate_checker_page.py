@@ -1747,7 +1747,8 @@ function toggleDetail(index) {
   if (!isOpen) {
     detail.classList.add('open');
     arrow.innerHTML = '&#9650;';
-    detail.scrollIntoView({behavior:'smooth',block:'nearest'});
+    var card = document.getElementById('card-' + index);
+    if (card) card.scrollIntoView({behavior:'smooth', block:'start'});
   }
 }
 
@@ -1840,10 +1841,10 @@ function doParse() {
 
   renderResults(ALL_RESULTS);
 
-  // Scroll to first result card so it's near the top of the screen
+  // Scroll to parse section so it's at the top
   setTimeout(function() {
-    var firstCard = document.getElementById('card-0');
-    if (firstCard) firstCard.scrollIntoView({behavior:'smooth', block:'start'});
+    var parse = document.getElementById('parse-section');
+    if (parse) parse.scrollIntoView({behavior:'smooth', block:'start'});
   }, 50);
 }
 

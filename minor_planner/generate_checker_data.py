@@ -354,6 +354,8 @@ def parse_explanatory_notes_html(notes):
             idx_text = label
             prefix = re.escape(label.strip()) + r'\s*'
             content = re.sub(r'^' + prefix, '', content, count=1)
+            # Strip leading &nbsp; entities and whitespace from Word HTML
+            content = re.sub(r'^(&nbsp;|\s)+', '', content)
             parts.append(
                 '<div class="section notes-point">'
                 '<span class="point-idx">' + idx_text + '</span>'
