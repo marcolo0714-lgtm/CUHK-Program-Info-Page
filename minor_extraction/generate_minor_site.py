@@ -127,8 +127,8 @@ tr:hover { background:#f9f9f9; }
 .nav-bar { display:flex; justify-content:space-between; padding:12px 0;
            border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
 .nav-bar a { font-size:.9em; }
-.nav-bar-bottom { border-bottom:1px solid var(--border); margin-bottom:20px;
-                  border-top:none; margin-top:0; padding-bottom:12px; }
+.nav-bar-bottom { border-top:none; margin-top:0; padding-top:4px;
+                  border-bottom:none; margin-bottom:0; padding-bottom:12px; }
 .course-details { margin-bottom:16px; }
 .course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
     font-size:.9em; font-weight:500; }
@@ -170,9 +170,10 @@ tr:hover { background:#f9f9f9; }
 .sidebar a:hover { background:#f0f4ff; color:var(--accent); }
 .sidebar a.active { font-weight:600; color:var(--accent);
     background:#e8f0fe; border-left-color:var(--accent); }
-.sidebar-toggle { display:none; position:fixed; top:8px; left:8px; z-index:100;
-    background:var(--card); border:1px solid var(--border); border-radius:6px;
-    padding:6px 10px; font-size:1.2em; cursor:pointer; }
+.sidebar-toggle { display:none; flex-shrink:0; border:1px solid var(--border);
+    border-radius:6px; background:var(--card); padding:4px 8px; font-size:1.1em;
+    cursor:pointer; line-height:1; }
+.sidebar-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 .sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.25);
     z-index:98; }
 .content { flex:1; min-width:0; }
@@ -188,15 +189,20 @@ tr:hover { background:#f9f9f9; }
 .site-footer a:hover { color:var(--accent); }
 
 @media (max-width:768px) {
-    body { display:block; }
-    html, body { overflow-x:hidden; }
+    body { display:block; max-width:100vw; }
+    html { overflow-x:hidden; }
     .sidebar { position:fixed; left:-300px; top:0; z-index:99;
         transition:left .25s; box-shadow:none; }
     .sidebar.open { left:0; box-shadow:2px 0 12px rgba(0,0,0,.15); }
     .sidebar.open .sidebar-header { padding-top:42px; }
     .sidebar-toggle { display:block; }
     .sidebar-overlay.open { display:block; }
-    .content-inner { padding:44px 12px 12px; }
+    .content-inner { padding:0 12px 12px; }
+    .top-bar { position:sticky; top:0; z-index:50; margin:0; border-radius:0;
+        flex-direction:column; align-items:stretch; gap:4px; padding:6px 0 4px; }
+    .top-bar .breadcrumb { min-width:0; font-size:.85em; }
+    .top-bar .bar-row { display:flex; align-items:center; gap:8px; }
+    .top-bar .bar-controls { flex-wrap:wrap; }
     h1 { font-size:1.4em; }
     .meta { white-space:normal; }
     .card { flex-wrap:wrap; }
@@ -212,6 +218,27 @@ tr:hover { background:#f9f9f9; }
     border-radius: 6px; background: var(--card); color: var(--text);
     margin-bottom: 16px; cursor: pointer;
 }
+/* ── Sticky top bar ── */
+.top-bar { position:sticky; top:0; z-index:50; background:var(--bg);
+    padding:8px 0 6px; margin:-8px 0 0;
+    border-bottom:1px solid var(--border); }
+.top-bar .bar-row { display:flex; align-items:center; gap:12px; width:100%; }
+.top-bar .breadcrumb { margin-bottom:0; flex:1; min-width:200px; }
+.top-bar .bar-controls { display:flex; align-items:center; gap:8px;
+    font-size:.85em; white-space:nowrap; }
+.bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
+    border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
+.bar-year-select:hover { border-color:var(--accent); }
+#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+    border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
+    font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
+#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+body.prereq-hidden table th:nth-child(5),
+body.prereq-hidden table td:nth-child(5) { display:none; }
+/* ── Admission year ── */
+.admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
+/* ── Remove nav-bar top border when directly after top-bar ── */
+.top-bar + .nav-bar { border-top:none; padding-top:4px; margin-top:0; }
 """
 
 
@@ -234,6 +261,19 @@ JS = """\
         if(!all[j].open) closed.push(all[j].getAttribute('data-fac'));
       }
       localStorage.setItem('sidebarCollapsed', JSON.stringify(closed));
+    });
+  }
+  // Prerequisite toggle
+  var prereqBtn = document.getElementById('prereq-toggle');
+  if (prereqBtn) {
+    if (localStorage.getItem('hidePrereq') === 'true') {
+      document.body.classList.add('prereq-hidden');
+      prereqBtn.textContent = 'Show Prerequisites';
+    }
+    prereqBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('prereq-hidden');
+      localStorage.setItem('hidePrereq', hidden);
+      prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
     });
   }
 })();
@@ -280,7 +320,6 @@ def minor_page(page_title, body, sidebar_html):
 <style>{CSS}</style>
 </head>
 <body>
-<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">&#9776;</button>
 <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 <aside class="sidebar">
   <div class="sidebar-header">Minor Programmes</div>
@@ -760,16 +799,43 @@ def apply_overrides(data, overrides):
                 existing.append(p)
 
 
-def build_detail_page(data, course_index, overrides, prev_stem=None, prev_title=None, next_stem=None, next_title=None):
+def build_detail_page(data, course_index, overrides, year, available_years,
+                      prev_stem=None, prev_title=None, next_stem=None, next_title=None):
     """Build the complete HTML body for one minor programme detail page."""
     title = data["title"]
+    stem = data.get("source_file", "")
 
     # Apply course overrides before rendering sections
     apply_overrides(data, overrides)
 
-    # Title row with faculty right-aligned on same line
+    # ── Top bar (sticky) ──
+    year_display = year.replace("_", "-")
+    yr_items = []
+    for yr in available_years:
+        sel = ' selected' if yr == year else ''
+        yt = yr.replace("_", "-")
+        yr_site = SITE_DIR.parent / yr / "minors" / f"{stem}.html"
+        if yr_site.exists():
+            yr_items.append(f'<option value="../../{yr}/minors/{stem}.html"{sel}>{yt}</option>')
+        elif yr == year:
+            yr_items.append(f'<option value="../../{yr}/minors/{stem}.html"{sel}>{yt}</option>')
+    yr_select = '<select onchange="window.location=this.value" class="bar-year-select">' + ''.join(yr_items) + '</select>' if len(available_years) > 1 else ""
+
+    top_bar = (
+        f'<div class="top-bar">'
+        f'<div class="bar-row">'
+        f'<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">&#9776;</button>'
+        f'<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; {title}</div>'
+        f'<div class="bar-controls">'
+        f'{yr_select}'
+        f'<button id="prereq-toggle">Hide Prerequisites</button>'
+        f'</div>'
+        f'</div>'
+        f'</div>'
+    )
+
     body = [
-        f'<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; {title}</div>',
+        top_bar,
         build_nav(prev_stem, prev_title, next_stem, next_title),
     ]
     faculty = data.get("faculty", "")
@@ -777,6 +843,7 @@ def build_detail_page(data, course_index, overrides, prev_stem=None, prev_title=
     if faculty and faculty != "Unknown":
         title_html += f'<span class="meta">{faculty}</span>'
     body.append(f'<div class="title-row">{title_html}</div>')
+    body.append(f'<div class="admit-year">Applicable to students admitted in {year_display}.</div>')
 
     desc = data.get("description", "")
     if desc:
@@ -1132,6 +1199,12 @@ def generate(year):
         for c in sorted(by_faculty[fac], key=lambda c: c["title"].lower()):
             index_order.append(c)
 
+    # ── Determine available years before building detail pages ──
+    site_base = SITE_DIR.parent
+    all_years = sorted(
+        [d.name for d in site_base.iterdir() if d.is_dir() and "_" in d.name]
+    ) or [year]
+
     # ── Second pass: build pages in index order ──
     for i, card in enumerate(index_order):
         stem = card["stem"]
@@ -1143,7 +1216,7 @@ def generate(year):
         if i < len(index_order) - 1:
             next_info = (index_order[i + 1]["stem"], index_order[i + 1]["title"])
 
-        body = build_detail_page(data, course_index, overrides,
+        body = build_detail_page(data, course_index, overrides, year, all_years,
                                  prev_stem=prev_info[0] if prev_info else None,
                                  prev_title=prev_info[1] if prev_info else None,
                                  next_stem=next_info[0] if next_info else None,
@@ -1171,16 +1244,15 @@ def generate(year):
         )
     cards_html += '</div>\n'
 
-    year_display = YEAR.replace("_", "-")
+    year_display = year.replace("_", "-")
 
-    # Determine available years by scanning site/ subdirs
-    site_base = SITE_DIR.parent
-    available_years = sorted(
+    # Determine available years for index-page dropdown (must have checker.html)
+    checker_years = sorted(
         [d.name for d in site_base.iterdir() if d.is_dir() and "_" in d.name and (d / "checker.html").exists()]
     )
     year_options = "".join(
-        f'<option value="../{y}/index.html" {"selected" if y == YEAR else ""}>{y.replace("_","-")}</option>'
-        for y in available_years
+        f'<option value="../{y}/index.html" {"selected" if y == year else ""}>{y.replace("_","-")}</option>'
+        for y in checker_years
     )
 
     index_body = (
