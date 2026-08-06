@@ -994,7 +994,7 @@
           "min_level": 3000
         }
       ],
-      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Computational Data Science, Computer Engineering, Computer Science, the Bachelor of Engineering (Computer Engineering) and Bachelor of Business Administration (Integrated BBA programme) Double Degree Option, the Bachelor of Science (Computer Science) and Bachelor of Business Administration (Integrated BBA Programme) Double Degree Option; and students in the Mathematics-Multidisciplinary Stream of Mathematics Major Programme.</span></div><div class=\"notes-table-section\"><table><tr> <td style=\"width:36.65pt;padding:0cm 5.4pt 0cm 5.4pt; height:16.2pt\" valign=\"top\" width=\"49\"> <p class=\"MsoNormal\" style=\"margin-right:4.45pt;line-height:14.0pt\"><span lang=\"EN-US\">2</span></p> </td> <td colspan=\"2\" style=\"width:423.6pt;padding:0cm 5.4pt 0cm 5.4pt; height:16.2pt\" valign=\"top\" width=\"565\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">No more than 9 units of courses\n\n taken to fulfill the requirements of the students’ Major</span></p> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><span lang=\"EN-US\">Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</span></p> </td> </tr></table></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">Students should note that there are pre-requisite requirements for some of the courses.</span></div>",
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Computational Data Science, Computer Engineering, Computer Science, the Bachelor of Engineering (Computer Engineering) and Bachelor of Business Administration (Integrated BBA programme) Double Degree Option, the Bachelor of Science (Computer Science) and Bachelor of Business Administration (Integrated BBA Programme) Double Degree Option; and students in the Mathematics-Multidisciplinary Stream of Mathematics Major Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">Students should note that there are pre-requisite requirements for some of the courses.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
@@ -7902,7 +7902,7 @@
       },
       "sections": [
         {
-          "label": "1. Elective Courses: 12 units",
+          "label": "1. Elective Courses:",
           "target_units": 18.0,
           "rows": [
             {
@@ -7949,10 +7949,9 @@
                   "unit": 3.0
                 }
               ],
-              "strategy": "pick_n",
+              "strategy": "units",
               "dedup_count": 8,
-              "n": 4,
-              "pick_n_avg_unit": 3.0
+              "units_needed": 12.0
             },
             {
               "text": "(b) Two ACCT/DOTE/FINA/HTMG/MGNT/MKTG courses at 3000 or above level",
@@ -11493,10 +11492,10 @@
       "sections": [
         {
           "label": "1. Required Courses: 6 units",
-          "target_units": 10.0,
+          "target_units": 6.0,
           "rows": [
             {
-              "text": "(a) i) ENGG2760/ESTR2018[b], ENGG2780/ESTR2020[b]",
+              "text": "(a) ENGG2760/ESTR2018[b] AND ENGG2780/ESTR2020[b], OR IERG2470/ESTR2308[b]",
               "codes": [
                 {
                   "code": "ENGG 2760",
@@ -11513,14 +11512,7 @@
                 {
                   "code": "ESTR 2020",
                   "unit": 2.0
-                }
-              ],
-              "strategy": "all",
-              "dedup_count": 2
-            },
-            {
-              "text": "ii) IERG2470/ESTR2308[b]",
-              "codes": [
+                },
                 {
                   "code": "IERG 2470",
                   "unit": 3.0
@@ -11530,8 +11522,24 @@
                   "unit": 3.0
                 }
               ],
-              "strategy": "all",
-              "dedup_count": 1
+              "strategy": "or_group",
+              "dedup_count": 3,
+              "or_groups": [
+                {
+                  "codes": [
+                    "ENGG 2760",
+                    "ENGG 2780"
+                  ],
+                  "dedup_count": 2
+                },
+                {
+                  "codes": [
+                    "IERG 2470"
+                  ],
+                  "dedup_count": 1
+                }
+              ],
+              "units_needed": 3.0
             },
             {
               "text": "(b) SEEM2460/ESTR2540[b]",
@@ -14237,7 +14245,7 @@
       "eq_norm": {},
       "sections": [
         {
-          "label": "1. Elective Courses : 6 units",
+          "label": "1. Elective Courses",
           "target_units": 18.0,
           "rows": [
             {
@@ -17882,8 +17890,8 @@
       },
       "sections": [
         {
-          "label": "1. Required Courses",
-          "target_units": 5.0,
+          "label": "1. Required Courses: 5 or 6 units",
+          "target_units": 6.0,
           "rows": [
             {
               "text": "(a) MBTE4320",
@@ -17926,7 +17934,7 @@
         },
         {
           "label": "2. Elective Courses: 13 or 14 units",
-          "target_units": 13.0,
+          "target_units": 14.0,
           "rows": [
             {
               "text": "MBTE2000, 2010, 3000, 3510, 3511, 3518, 3521, 3528, 3531, 3550, 3558, 3560, 3568, 4033, 4034, 4510, 4520, 4530",
@@ -18006,7 +18014,7 @@
               ],
               "strategy": "units",
               "dedup_count": 18,
-              "units_needed": 13.0
+              "units_needed": 14.0
             }
           ],
           "target_units_max": 14.0
@@ -21392,7 +21400,7 @@
           "target_units": 15.0,
           "rows": [
             {
-              "text": "from the following, including a minimum of 6 units of elective courses at 3000 or above level:\nSOCI2003, 2004, 2101, 2103, 2104, 2106, 2116, 2203, 2208, 2216, 2218, 2219, 2220, 3001, 3002, 3003, 3102, 3204, 3207, 3208, 3221, 3223, 3224, 3226, 3227, 3229, 3230, 3231, 3233, 3234, 3235, 3236, 3237, 3238, 3239, 3240, 3241, 3242, 3243, 3244, 3245, 3451, 3452, 3453, 4201, 4204, 4205, 4208, 4209, 4210, 4211, 4351, 4352, 4353",
+              "text": "15 units from the following, including a minimum of 6 units of elective courses at 3000 or above level:\nSOCI2003, 2004, 2101, 2103, 2104, 2106, 2116, 2203, 2208, 2216, 2218, 2219, 2220, 3001, 3002, 3003, 3102, 3204, 3207, 3208, 3221, 3223, 3224, 3226, 3227, 3229, 3230, 3231, 3233, 3234, 3235, 3236, 3237, 3238, 3239, 3240, 3241, 3242, 3243, 3244, 3245, 3451, 3452, 3453, 4201, 4204, 4205, 4208, 4209, 4210, 4211, 4351, 4352, 4353",
               "codes": [
                 {
                   "code": "SOCI 2003",
@@ -21613,7 +21621,7 @@
               ],
               "strategy": "units",
               "dedup_count": 54,
-              "units_needed": 6.0,
+              "units_needed": 15.0,
               "level_constraint": [
                 {
                   "min_units_needed": 6,
