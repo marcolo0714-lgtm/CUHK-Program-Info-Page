@@ -54,23 +54,86 @@ def extract_course_codes(text):
         if code not in seen:
             seen.add(code)
             codes.append(code)
+    def insert_after(parent_code, code):
+        if code not in seen:
+            seen.add(code)
+            try:
+                idx = codes.index(parent_code)
+                codes.insert(idx + 1, code)
+            except ValueError:
+                codes.append(code)
     # Scan the text left to right, tracking the current department.
     # Find each candidate (either DEPT+num or implicit num) and add it.
     cur_dept = ""
+    position_index = []  # (text_position, canonical_code) for ordering
     for m in re.finditer(r'([A-Z]{4})\s*(\d{4})|(\d{4})', clean):
+        pos = m.start()
         if m.group(1):  # explicit DEPT + NUM
             dept = m.group(1)
             num = m.group(2)
             cur_dept = dept
-            add(f"{dept} {num}")
+            canonical = f"{dept} {num}"
+            add(canonical)
+            position_index.append((pos, canonical))
         else:  # implicit NUM
             num = m.group(3)
             if cur_dept:
-                # Only accept if preceded by comma, slash, or/or in the text
                 start = m.start()
                 before = clean[max(0, start - 10):start]
                 if re.search(r'(?:,|/|or|and)\s*$', before):
-                    add(f"{cur_dept} {num}")
+                    canonical = f"{cur_dept} {num}"
+                    add(canonical)
+                    position_index.append((start, canonical))
+    # Second pass: capture bracketed codes like [CODE], [*CODE], [#DEPTCODE]
+    # Insert them right after the preceding code in position order
+    last_dept = ""
+    for prev_m in re.finditer(r'([A-Z]{4})\s*(\d{4})|(\d{4})', clean):
+        if prev_m.group(1):
+            last_dept = prev_m.group(1)
+    # Cross-dept bracket: [#DEPT CODE] -> extract DEPT from within brackets
+    for m in re.finditer(r'\[#([A-Z]{4})\s*(\d{4})\]', clean):
+        dept = m.group(1)
+        num = m.group(2)
+        code = f"{dept} {num}"
+        # Find the immediately preceding code (by text position) and insert after it
+        pos = m.start()
+        prev_canonical = None
+        for pi in reversed(position_index):
+            if pi[0] < pos:
+                prev_canonical = pi[1]
+                break
+        if prev_canonical:
+            insert_after(prev_canonical, code)
+        else:
+            add(code)
+    # Same-dept bracket: [CODE] or [*CODE]
+    for m in re.finditer(r'\[\*?(\d{4})\]', clean):
+        num = m.group(1)
+        dept_for_bracket = cur_dept or last_dept
+        # Determine department from immediately preceding code
+        start = m.start()
+        before_text = clean[:start]
+        prev_code_m = None
+        for pm in re.finditer(r'([A-Z]{4})\s*(\d{4})|(\d{4})', before_text):
+            prev_code_m = pm
+        if prev_code_m:
+            if prev_code_m.group(1):
+                dept_for_bracket = prev_code_m.group(1)
+            elif cur_dept:
+                dept_for_bracket = cur_dept
+            elif last_dept:
+                dept_for_bracket = last_dept
+        code = f"{dept_for_bracket} {num}"
+        # Find the immediately preceding code and insert after it
+        prev_canonical = None
+        for pi in reversed(position_index):
+            if pi[0] < start:
+                prev_canonical = pi[1]
+                break
+        if prev_canonical:
+            insert_after(prev_canonical, code)
+        else:
+            add(code)
     return codes
 
 
@@ -646,6 +709,23 @@ def detect_eq_pairs(rows):
                         c1 = f"{dept1} {before_code[2]}"
                         c2 = f"{dept2} {after_code[2]}"
                         eq_pairs.add((c1, c2))
+
+        # ── Detect bracketed equivalences: CODE[CODE2] or CODE[*CODE2] ──
+        for m in re.finditer(r'(\d{4})\s*\[(\*?\d{4})\]', t):
+            code1 = m.group(1)
+            code2 = m.group(2).lstrip('*')
+            dept = _last_dept(t, m.start())
+            if dept:
+                eq_pairs.add((f"{dept} {code1}", f"{dept} {code2}"))
+
+        # ── Detect cross-dept bracketed equivalences: CODE [#DEPT CODE2] ──
+        for m in re.finditer(r'(\d{4})\s*\[#([A-Z]{4})\s*(\d{4})\]', t):
+            code1_num = m.group(1)
+            dept2 = m.group(2)
+            code2_num = m.group(3)
+            dept1 = _last_dept(t, m.start())
+            if dept1:
+                eq_pairs.add((f"{dept1} {code1_num}", f"{dept2} {code2_num}"))
 
     return [[c1, c2] for c1, c2 in sorted(eq_pairs)]
 

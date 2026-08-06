@@ -5,7 +5,9 @@
       "faculty": "Arts",
       "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 level or above, as follows:",
       "total_units": 18.0,
-      "eq_norm": {},
+      "eq_norm": {
+        "ANTH 2325": "ANTH 4330"
+      },
       "sections": [
         {
           "label": "1. Required Course : 3 units",
@@ -73,6 +75,10 @@
                 },
                 {
                   "code": "ANTH 2325",
+                  "unit": 3.0
+                },
+                {
+                  "code": "ANTH 4330",
                   "unit": 3.0
                 },
                 {
@@ -292,7 +298,7 @@
           "min_level": 3000
         }
       ],
-      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Anthropology</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"notes-table-section\"><table><tr> <td style=\"width:45.95pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"61\"> <p class=\"MsoListParagraph\" style=\"margin-top:0cm;margin-right:-6.2pt; margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;layout-grid-mode:\n\n char\"><span lang=\"EN-US\">[ ]</span></p> </td> <td style=\"width:352.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"471\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\">Old\n\n course code used in 2025-26 and before.</span></p> </td> <td style=\"width:85.35pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"114\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;layout-grid-mode:\n\n char\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr></table></div>",
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Anthropology</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[ ]</span><span class=\"point-text\">Old course code used in 2025-26 and before.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],

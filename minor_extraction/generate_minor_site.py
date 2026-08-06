@@ -750,8 +750,8 @@ def build_detail_page(data, course_index, overrides, prev_stem=None, prev_title=
 
         # ── Parse notes into point rows vs data rows ──
         rows = re.findall(r'<tr[^>]*>(.*?)</tr>', notes, re.DOTALL)
-        point_idx_pat = re.compile(r'^\s*(\d{1,2}\.|\[[a-z]\])')
-        find_idx_pat = re.compile(r'(?<!\d)(\d{1,2}\.)(?!\d)|(\[[a-z]\])')
+        point_idx_pat = re.compile(r'^\s*(\d{1,2}\.|\[[a-z\s*#]*\])')
+        find_idx_pat = re.compile(r'(?<!\d)(\d{1,2}\.)(?!\d)|(\[[a-z\s*#]*\])')
 
         def _has_point_label(row_html):
             """Check if ANY <td> in the row starts with a point index like 1. or [a]."""
@@ -902,6 +902,9 @@ def build_detail_page(data, course_index, overrides, prev_stem=None, prev_title=
                 buf.append(item[2])
         if buf:
             body.append(_render_note_group(buf, False))
+    else:
+        body.append("<h2>Explanatory Notes</h2>")
+        body.append('<div class="section notes-point"><span class="point-text">No explanatory notes are provided.</span></div>')
 
     # Bottom nav
     body.append(build_nav(prev_stem, prev_title, next_stem, next_title, bottom=True))

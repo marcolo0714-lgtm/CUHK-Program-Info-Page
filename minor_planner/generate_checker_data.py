@@ -220,8 +220,8 @@ def parse_explanatory_notes_html(notes):
     if not rows:
         return notes if notes.strip() else ""
 
-    point_idx_pat = re.compile(r'^\s*(\d{1,2}\.|\[[a-z]\])')
-    find_idx_pat = re.compile(r'(?<!\d)(\d{1,2}\.)(?!\d)|(\[[a-z]\])')
+    point_idx_pat = re.compile(r'^\s*(\d{1,2}\.|\[[a-z\s*#]*\])')
+    find_idx_pat = re.compile(r'(?<!\d)(\d{1,2}\.)(?!\d)|(\[[a-z\s*#]*\])')
 
     def _has_point_label(row_html):
         for td_html in re.findall(r'<td[^>]*>(.*?)</td>', row_html, re.DOTALL):

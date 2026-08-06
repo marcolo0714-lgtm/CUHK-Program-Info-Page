@@ -3,10 +3,10 @@
   "title": "Molecular Biotechnology",
   "faculty": "Science",
   "source_file": "Molecular_Biotechnology",
-  "description": "Students are required to complete a minimum of 19 units of courses as follows:",
+  "description": "Students are required to complete a minimum of 19 units of courses, with at least 9 units at 3000 or above level, as follows:",
   "required": {
     "label": "1. Required Courses",
-    "units": "6",
+    "units": "",
     "rows": [
       {
         "text": "(a) MBTE4320",
@@ -16,7 +16,7 @@
         "units": "3"
       },
       {
-        "text": "(b) BCHE2030, BIOL2120, 2410, LSCI1003 or SBMS1440",
+        "text": "(b) BCHE2030 or BIOL2120 or 2410 or LSCI1003 or SBMS1440",
         "codes": [
           "BCHE 2030",
           "BIOL 2120",
@@ -24,14 +24,14 @@
           "LSCI 1003",
           "SBMS 1440"
         ],
-        "units": "1",
-        "units_max": "2"
+        "units": "2",
+        "units_max": "3"
       }
     ]
   },
   "elective": {
-    "label": "2. Elective Courses: 14 or 15 units",
-    "units": "14",
+    "label": "2. Elective Courses: 13 or 14 units",
+    "units": "13",
     "rows": [
       {
         "text": "MBTE2000, 2010, 3000, 3510, 3511, 3518, 3521, 3528, 3531, 3550, 3558, 3560, 3568, 4033, 4034, 4510, 4520, 4530",
@@ -58,10 +58,22 @@
         "units": ""
       }
     ],
-    "units_max": "15"
+    "units_max": "14"
   },
-  "explanatory_notes": "",
+  "explanatory_notes": "<table><tr> <td colspan=\"2\" style=\"width:358.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"478\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">Explanatory Note:</p> </td> <td style=\"width:90.0pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"120\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;line-height:\n\n 14.0pt\"><b> </b></p> </td> </tr>\n<tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"line-height:14.0pt\">1.</p> </td> <td colspan=\"2\" style=\"width:414.05pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"552\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\">No more than 9 units of courses taken to fulfill the\n\n requirements of the students’ Major Programme(s) and other Minor\n\n Programme(s) respectively can be used to fulfill the requirement of this\n\n Minor Programme.</p> </td> </tr>\n<tr> <td colspan=\"3\" style=\"width:448.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"598\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; line-height:14.0pt\"><b> </b></p> </td> </tr></table>",
   "eq_pairs": [
+    [
+      "BCHE 2030",
+      "BIOL 2120"
+    ],
+    [
+      "BIOL 2120",
+      "BIOL 2410"
+    ],
+    [
+      "BIOL 2410",
+      "LSCI 1003"
+    ],
     [
       "LSCI 1003",
       "SBMS 1440"

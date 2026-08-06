@@ -5,7 +5,10 @@
       "faculty": "Arts",
       "description": "Students are required to complete a minimum of 18 units of courses as follows:",
       "total_units": 18.0,
-      "eq_norm": {},
+      "eq_norm": {
+        "ANTH 2325": "ANTH 4330",
+        "ANTH 3820": "ANTH 2820"
+      },
       "sections": [
         {
           "label": "1. Required Course : 3 units",
@@ -81,6 +84,10 @@
                 },
                 {
                   "code": "ANTH 2325",
+                  "unit": 3.0
+                },
+                {
+                  "code": "ANTH 4330",
                   "unit": 3.0
                 },
                 {
@@ -272,6 +279,10 @@
                   "unit": 3.0
                 },
                 {
+                  "code": "ANTH 2820",
+                  "unit": 0.0
+                },
+                {
                   "code": "ANTH 4210",
                   "unit": 3.0
                 },
@@ -311,7 +322,7 @@
         }
       ],
       "global_level_constraint": null,
-      "explanatory_notes": "<div class=\"notes-table-section\"><table><tr> <td style=\"width:45.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"61\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\">[ ]</span></p> </td> <td style=\"width:351.55pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"469\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\">Old\n\n course code used in 2024-25 and before.</span></p> </td> <td style=\"width:85.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"113\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;layout-grid-mode:\n\n char\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr><tr> <td style=\"width:45.85pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"61\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\">[*]</span></p> </td> <td style=\"width:351.55pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"469\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\">Old\n\n course code used in 2025-26 and before.</span></p> </td> <td style=\"width:85.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"113\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;layout-grid-mode:\n\n char\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr></table></div>",
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[ ]</span><span class=\"point-text\">Old course code used in 2024-25 and before.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[*]</span><span class=\"point-text\">Old course code used in 2025-26 and before.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
@@ -620,7 +631,9 @@
       "faculty": "Arts",
       "description": "Students are required to complete a minimum of 21 units of courses as follows:",
       "total_units": 21.0,
-      "eq_norm": {},
+      "eq_norm": {
+        "ANTH 3820": "ANTH 2820"
+      },
       "sections": [
         {
           "label": "1. Required Courses",
@@ -678,6 +691,10 @@
                 {
                   "code": "ANTH 3820",
                   "unit": 3.0
+                },
+                {
+                  "code": "ANTH 2820",
+                  "unit": 0.0
                 },
                 {
                   "code": "ANTH 4750",
@@ -800,7 +817,7 @@
         }
       ],
       "global_level_constraint": null,
-      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Internship opportunities are offered to students of this Programme. Please refer to the website of Department of Anthropology for details.</span></div><div class=\"notes-table-section\"><table><tr> <td style=\"width:31.75pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"42\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\">[ ]</span></p> </td> <td colspan=\"2\" style=\"width:451.65pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"602\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; layout-grid-mode:char\"><span lang=\"EN-US\">Old course code used in 2024-25\n\n and before.</span></p> </td> </tr></table></div>",
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Internship opportunities are offered to students of this Programme. Please refer to the website of Department of Anthropology for details.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[ ]</span><span class=\"point-text\">Old course code used in 2024-25 and before.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
@@ -1024,9 +1041,10 @@
     "Biochemistry": {
       "title": "Biochemistry",
       "faculty": "Science",
-      "description": "Students are required to complete a minimum of 21 units of courses as follows:",
+      "description": "Students are required to complete a minimum of 21 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 21.0,
       "eq_norm": {
+        "BCHE 3030": "BCHE 3730",
         "BCHE 3050": "BCHE 3650",
         "BCHE 3070": "BCHE 3650",
         "BCHE 4030": "BCHE 4830",
@@ -1060,7 +1078,7 @@
                 }
               ],
               "strategy": "all",
-              "dedup_count": 4
+              "dedup_count": 3
             }
           ]
         },
@@ -1135,8 +1153,13 @@
           ]
         }
       ],
-      "global_level_constraint": null,
-      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Courses labeled as ^ are laboratory courses.</span></div>",
+      "global_level_constraint": [
+        {
+          "min_units_needed": 6,
+          "min_level": 3000
+        }
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Courses labeled as ^ are laboratory courses.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">No more than 10 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
@@ -1145,10 +1168,11 @@
     "Biology": {
       "title": "Biology",
       "faculty": "Science",
-      "description": "Students are required to complete a minimum of 24 units of courses, with at least 9 units of courses at 3000 or above level, as follows:",
+      "description": "Students are required to complete a minimum of 24 units of courses, with at least 9 units at 3000 or above level, as follows:",
       "total_units": 24.0,
       "eq_norm": {
-        "BIOL 2210": "BIOL 2410"
+        "BIOL 2210": "BIOL 2410",
+        "BIOL 3560": "BIOL 3610"
       },
       "sections": [
         {
@@ -1212,7 +1236,7 @@
                 }
               ],
               "strategy": "or_group",
-              "dedup_count": 4,
+              "dedup_count": 3,
               "or_groups": [
                 {
                   "codes": [
@@ -1343,7 +1367,7 @@
           "min_level": 3000
         }
       ],
-      "explanatory_notes": "",
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 12 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
@@ -2400,6 +2424,419 @@
               "strategy": "units",
               "dedup_count": 92,
               "units_needed": 9.0
+            },
+            {
+              "text": "(c) Any one other Basic or Speciality course not taken to fulfill requirement 1(a) or 1(b)",
+              "codes": [
+                {
+                  "code": "CHLL 1110",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 1211",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 1401",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 2121",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 2131",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 2212",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 2302",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 2350",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 2403",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3110",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3121",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3131",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3132",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3141",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3142",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3143",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3144",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3145",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3146",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3151",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3161",
+                  "unit": 0.0
+                },
+                {
+                  "code": "CHLL 3162",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3221",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3222",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3223",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3231",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3232",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3233",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3310",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3311",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3312",
+                  "unit": 0.0
+                },
+                {
+                  "code": "CHLL 3313",
+                  "unit": 0.0
+                },
+                {
+                  "code": "CHLL 3314",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3315",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3316",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3317",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3321",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3322",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3323",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3324",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3341",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3351",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3402",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3403",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3404",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3405",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3406",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3407",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3408",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3409",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3410",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3411",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3412",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 3413",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4110",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4111",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4121",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4141",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4151",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4161",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4224",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4241",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4242",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4243",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4244",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4251",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4252",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4253",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4254",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4310",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4311",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4312",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4313",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4314",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4315",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4320",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4321",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4322",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4330",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4331",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4332",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4340",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4341",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4342",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4343",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4401",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4402",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4403",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4404",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4405",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4406",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4407",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4408",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4409",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4410",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4411",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4412",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4413",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4414",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4415",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CHLL 4416",
+                  "unit": 3.0
+                }
+              ],
+              "strategy": "units",
+              "dedup_count": 101,
+              "units_needed": 3.0,
+              "cross_row_exclude": true
             }
           ]
         }
@@ -2946,11 +3383,20 @@
       "faculty": "Arts",
       "description": "Students are required to complete a minimum of 21 units of courses as follows:",
       "total_units": 21.0,
-      "eq_norm": {},
+      "eq_norm": {
+        "CURE 1401": "CUMT 1001",
+        "CURE 1403": "CUMT 1003",
+        "CURE 2405": "CUMT 2005",
+        "CURE 2411": "CUMT 3001",
+        "CURE 2412": "CUMT 3002",
+        "CURE 3403": "CUMT 3003",
+        "CURE 3404": "CUMT 3004",
+        "CURE 4401": "CUMT 4001"
+      },
       "sections": [
         {
           "label": "1. Required Courses : 9 units",
-          "target_units": 18.0,
+          "target_units": 9.0,
           "rows": [
             {
               "text": "CURE1401 [#CUMT1001], CURE1403 [#CUMT1003], CURE4401 [#CUMT4001]",
@@ -2981,7 +3427,7 @@
                 }
               ],
               "strategy": "all",
-              "dedup_count": 6
+              "dedup_count": 3
             }
           ]
         },
@@ -3034,14 +3480,14 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 10,
+              "dedup_count": 5,
               "units_needed": 3.0
             }
           ]
         }
       ],
       "global_level_constraint": null,
-      "explanatory_notes": "<div class=\"notes-table-section\"><table><tr> <td style=\"width:34.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"46\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\">[#]</span></p> </td> <td style=\"width:371.3pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"495\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\" style=\"color:black\">Old course code used in 2024-25 and before.</span></p> </td> <td style=\"width:84.4pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"113\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;layout-grid-mode:\n\n char\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr></table></div>",
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[#]</span><span class=\"point-text\">Old course code used in 2024-25 and before.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
@@ -3052,7 +3498,11 @@
       "faculty": "Arts",
       "description": "Students are required to complete a minimum of 18 units of courses as follows:",
       "total_units": 18.0,
-      "eq_norm": {},
+      "eq_norm": {
+        "CURE 2001": "CURE 1001",
+        "CURE 2006": "CURE 1006",
+        "CURE 4008": "CURE 3008"
+      },
       "sections": [
         {
           "label": "1. Elective Courses",
@@ -3074,8 +3524,16 @@
                   "unit": 3.0
                 },
                 {
+                  "code": "CURE 1001",
+                  "unit": 0.0
+                },
+                {
                   "code": "CURE 2006",
                   "unit": 3.0
+                },
+                {
+                  "code": "CURE 1006",
+                  "unit": 0.0
                 },
                 {
                   "code": "CURE 3007",
@@ -3084,6 +3542,10 @@
                 {
                   "code": "CURE 4008",
                   "unit": 3.0
+                },
+                {
+                  "code": "CURE 3008",
+                  "unit": 0.0
                 }
               ],
               "strategy": "units",
@@ -3094,7 +3556,7 @@
         }
       ],
       "global_level_constraint": null,
-      "explanatory_notes": "<div class=\"notes-table-section\"><table><tr> <td style=\"width:44.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"60\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\">[ ]</span></p> </td> <td style=\"width:354.05pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"472\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\" style=\"color:black\">Old course code used in 2024-25 and before.</span></p> </td> <td style=\"width:3.0cm;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"113\"> <p align=\"center\" class=\"MsoNormal\" style=\"text-align:center;layout-grid-mode:\n\n char\"><b><span lang=\"EN-US\"> </span></b></p> </td> </tr></table></div>",
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[ ]</span><span class=\"point-text\">Old course code used in 2024-25 and before.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
@@ -3105,11 +3567,17 @@
       "faculty": "Arts",
       "description": "Students are required to complete a minimum of 18 units of courses as follows with at least 2 courses at 3000 or above level:",
       "total_units": 18.0,
-      "eq_norm": {},
+      "eq_norm": {
+        "CURE 2407": "CUMT 2007",
+        "CURE 2411": "CUMT 3001",
+        "CURE 3404": "CUMT 3004",
+        "CURE 3405": "CUMT 3005",
+        "CURE 3408": "CUMT 3008"
+      },
       "sections": [
         {
           "label": "1. Required Courses : 6 units",
-          "target_units": 9.0,
+          "target_units": 6.0,
           "rows": [
             {
               "text": "CURE2407 [#CUMT2007], FAAS2117",
@@ -3128,7 +3596,7 @@
                 }
               ],
               "strategy": "all",
-              "dedup_count": 3
+              "dedup_count": 2
             }
           ]
         },
@@ -3173,7 +3641,7 @@
                 }
               ],
               "strategy": "pick_n",
-              "dedup_count": 8,
+              "dedup_count": 4,
               "n": 2,
               "pick_n_avg_unit": 3.0
             },
@@ -3211,7 +3679,7 @@
           "min_level": 3000
         }
       ],
-      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">CUMT major students cannot take FAAS3108 and FAAS4201 to fulfill the elective course requirements specified in 2(b).</span></div><div class=\"notes-table-section\"><table><tr> <td style=\"width:32.25pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"43\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\">[#]</span></p> </td> <td colspan=\"3\" style=\"width:451.2pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"602\"> <p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph; layout-grid-mode:char\"><span lang=\"EN-US\" style=\"color:black\">Old course\n\n code used in 2024-25 and before.</span></p> </td> </tr></table></div>",
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">CUMT major students cannot take FAAS3108 and FAAS4201 to fulfill the elective course requirements specified in 2(b).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[#]</span><span class=\"point-text\">Old course code used in 2024-25 and before.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
@@ -5045,7 +5513,9 @@
       "faculty": "Arts",
       "description": "Students are required to complete a minimum of 18 units of courses as follows:",
       "total_units": 18.0,
-      "eq_norm": {},
+      "eq_norm": {
+        "CURE 2006": "CURE 1006"
+      },
       "sections": [
         {
           "label": "1. Required Courses",
@@ -5057,6 +5527,10 @@
                 {
                   "code": "CURE 2006",
                   "unit": 3.0
+                },
+                {
+                  "code": "CURE 1006",
+                  "unit": 0.0
                 }
               ],
               "strategy": "units",
@@ -5169,7 +5643,7 @@
         }
       ],
       "global_level_constraint": null,
-      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Cultural Studies.</span></div><div class=\"notes-table-section\"><table><tr> <td style=\"width:44.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"60\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\">[ ]</span></p> </td> <td colspan=\"2\" style=\"width:437.05pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"583\"> <p class=\"MsoNormal\" style=\"layout-grid-mode:char\"><span lang=\"EN-US\" style=\"color:black\">Old course code used in 2024-25 and before.</span></p> </td> </tr></table></div>",
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Cultural Studies.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[ ]</span><span class=\"point-text\">Old course code used in 2024-25 and before.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
@@ -12432,7 +12906,14 @@
       "faculty": "Arts",
       "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 18.0,
-      "eq_norm": {},
+      "eq_norm": {
+        "BMBL 1002": "BMBL 3001",
+        "BMBL 2004": "BMBL 4001",
+        "HKSL 1002": "HKSL 2000",
+        "HKSL 1003": "HKSL 2050",
+        "HKSL 2002": "HKSL 3000",
+        "HKSL 2003": "HKSL 3050"
+      },
       "sections": [
         {
           "label": "1. Required Courses",
@@ -12450,8 +12931,16 @@
                   "unit": 3.0
                 },
                 {
+                  "code": "HKSL 2000",
+                  "unit": 0.0
+                },
+                {
                   "code": "HKSL 1003",
                   "unit": 6.0
+                },
+                {
+                  "code": "HKSL 2050",
+                  "unit": 0.0
                 }
               ],
               "strategy": "or_group",
@@ -12485,8 +12974,16 @@
                   "unit": 3.0
                 },
                 {
+                  "code": "HKSL 3000",
+                  "unit": 0.0
+                },
+                {
                   "code": "HKSL 2003",
                   "unit": 6.0
+                },
+                {
+                  "code": "HKSL 3050",
+                  "unit": 0.0
                 }
               ],
               "strategy": "or_group",
@@ -12613,7 +13110,7 @@
           "min_level": 3000
         }
       ],
-      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Bimodal Bilingual Studies.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">Linguistics Major students can only take HKSL courses to fulfill the requirement of (2).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have prior knowledge of Hong Kong Sign Language before admission may be exempted from taking HKSL1000, 1002[2000], 1003[2050], 2001, 2002[3000] and 2003[3050]. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students who take HKSL3050 will only be recognized as completing 3 units of courses at 3000 or above level by taking this course. They will have to complete an extra 3 units of courses at 3000 or above level to fulfill the relevant requirements.</span></div><div class=\"notes-table-section\"><table><tr> <td style=\"width:43.1pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"57\"> <p class=\"MsoNormal\" style=\"margin-right:.1pt;layout-grid-mode:char\"><span lang=\"EN-US\">[ ]</span></p> </td> <td colspan=\"2\" style=\"width:428.9pt;padding:0cm 5.4pt 0cm 5.4pt\" valign=\"top\" width=\"572\"> <p class=\"MsoNormal\" style=\"margin-top:0cm;margin-right:19.0pt;margin-bottom:\n\n 0cm;margin-left:12.65pt;margin-bottom:.0001pt;text-align:justify; text-justify:inter-ideograph;layout-grid-mode:char\"><span lang=\"EN-US\">Old\n\n course code used in 2024-25 and before.</span></p> </td> </tr></table></div>",
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Bimodal Bilingual Studies.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">Linguistics Major students can only take HKSL courses to fulfill the requirement of (2).</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Students who have prior knowledge of Hong Kong Sign Language before admission may be exempted from taking HKSL1000, 1002[2000], 1003[2050], 2001, 2002[3000] and 2003[3050]. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students who take HKSL3050 will only be recognized as completing 3 units of courses at 3000 or above level by taking this course. They will have to complete an extra 3 units of courses at 3000 or above level to fulfill the relevant requirements.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[ ]</span><span class=\"point-text\">Old course code used in 2024-25 and before.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
@@ -16831,15 +17328,18 @@
     "Molecular_Biotechnology": {
       "title": "Molecular Biotechnology",
       "faculty": "Science",
-      "description": "Students are required to complete a minimum of 19 units of courses as follows:",
+      "description": "Students are required to complete a minimum of 19 units of courses, with at least 9 units at 3000 or above level, as follows:",
       "total_units": 19.0,
       "eq_norm": {
+        "BCHE 2030": "SBMS 1440",
+        "BIOL 2120": "SBMS 1440",
+        "BIOL 2410": "SBMS 1440",
         "LSCI 1003": "SBMS 1440"
       },
       "sections": [
         {
           "label": "1. Required Courses",
-          "target_units": 6.0,
+          "target_units": 5.0,
           "rows": [
             {
               "text": "(a) MBTE4320",
@@ -16854,7 +17354,7 @@
               "units_needed": 3.0
             },
             {
-              "text": "(b) BCHE2030, BIOL2120, 2410, LSCI1003 or SBMS1440",
+              "text": "(b) BCHE2030 or BIOL2120 or 2410 or LSCI1003 or SBMS1440",
               "codes": [
                 {
                   "code": "BCHE 2030",
@@ -16878,15 +17378,15 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 4,
-              "units_needed": 1.0,
-              "units_needed_max": 2.0
+              "dedup_count": 1,
+              "units_needed": 2.0,
+              "units_needed_max": 3.0
             }
           ]
         },
         {
-          "label": "2. Elective Courses: 14 or 15 units",
-          "target_units": 14.0,
+          "label": "2. Elective Courses: 13 or 14 units",
+          "target_units": 13.0,
           "rows": [
             {
               "text": "MBTE2000, 2010, 3000, 3510, 3511, 3518, 3521, 3528, 3531, 3550, 3558, 3560, 3568, 4033, 4034, 4510, 4520, 4530",
@@ -16966,14 +17466,19 @@
               ],
               "strategy": "units",
               "dedup_count": 18,
-              "units_needed": 14.0
+              "units_needed": 13.0
             }
           ],
-          "target_units_max": 15.0
+          "target_units_max": 14.0
         }
       ],
-      "global_level_constraint": null,
-      "explanatory_notes": "",
+      "global_level_constraint": [
+        {
+          "min_units_needed": 9,
+          "min_level": 3000
+        }
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
@@ -16982,7 +17487,7 @@
     "Music": {
       "title": "Music",
       "faculty": "Arts",
-      "description": "Students are required to complete a minimum of 18 units of courses as follows:",
+      "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 18.0,
       "eq_norm": {},
       "sections": [
@@ -17048,859 +17553,75 @@
               "units_needed": 4.0
             },
             {
-              "text": "(b) Any MUSC courses other than the courses taken to fulfill requirement (1) and (2a) above, excluding MUSC1012, 1022, 1051, 1061, 2012, 2022, 2051, 2061, 3012, 3022, 3051, 3061, 4000, 4003, 4012, 4022, 4051, 4061. Courses taken should include at least 6 units of courses at 3000 or above level and not more than 4 units of courses from Area 2B and/or 2C.",
+              "text": "(b) Any MUSC courses other than the courses taken to fulfill requirement (1) and (2a) above, excluding MUSC1012, 1022, 1051, 1061, 2012, 2022, 2051, 2061, 3012, 3022, 3051, 3061, 4000, 4003, 4051, 4061. Courses taken should include at least 6 units of courses at 3000 or above level and not more than 4 units of courses from Area 2B and/or 2C.",
               "codes": [
                 {
-                  "code": "MUSC 1000",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 1001",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1002",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1011",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1013",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1014",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1015",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1016",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1017",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1018",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1019",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1021",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1023",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1024",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1025",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1026",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1027",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1028",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1029",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1031",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1032",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1041",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1042",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 1212",
+                  "code": "MUSC 1012",
                   "unit": 2.0
                 },
                 {
-                  "code": "MUSC 1222",
+                  "code": "MUSC 1022",
                   "unit": 2.0
                 },
                 {
-                  "code": "MUSC 2001",
+                  "code": "MUSC 1051",
                   "unit": 1.0
                 },
                 {
-                  "code": "MUSC 2002",
+                  "code": "MUSC 1061",
                   "unit": 1.0
                 },
                 {
-                  "code": "MUSC 2011",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2013",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2014",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2015",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2016",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2017",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2018",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2019",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2021",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2023",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2024",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2025",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2026",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2027",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2028",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2029",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2031",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2032",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2041",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2042",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 2233",
+                  "code": "MUSC 2012",
                   "unit": 2.0
                 },
                 {
-                  "code": "MUSC 2252",
+                  "code": "MUSC 2022",
                   "unit": 2.0
                 },
                 {
-                  "code": "MUSC 2262",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2333",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2511",
+                  "code": "MUSC 2051",
                   "unit": 1.0
                 },
                 {
-                  "code": "MUSC 2521",
+                  "code": "MUSC 2061",
                   "unit": 1.0
                 },
                 {
-                  "code": "MUSC 2540",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 2542",
+                  "code": "MUSC 3012",
                   "unit": 2.0
                 },
                 {
-                  "code": "MUSC 2543",
+                  "code": "MUSC 3022",
                   "unit": 2.0
                 },
                 {
-                  "code": "MUSC 2545",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2552",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2562",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2612",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2622",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2872",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2882",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 2913",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 3001",
+                  "code": "MUSC 3051",
                   "unit": 1.0
                 },
                 {
-                  "code": "MUSC 3002",
+                  "code": "MUSC 3061",
                   "unit": 1.0
                 },
                 {
-                  "code": "MUSC 3011",
+                  "code": "MUSC 4000",
+                  "unit": 3.0
+                },
+                {
+                  "code": "MUSC 4003",
+                  "unit": 3.0
+                },
+                {
+                  "code": "MUSC 4051",
                   "unit": 1.0
                 },
                 {
-                  "code": "MUSC 3013",
+                  "code": "MUSC 4061",
                   "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3014",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3015",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3016",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3017",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3018",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3019",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3021",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3023",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3024",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3025",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3026",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3027",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3028",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3029",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3031",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3032",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3041",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3042",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 3213",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3223",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3233",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3243",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3323",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3333",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3343",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 3353",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 3363",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 3373",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3383",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3432",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3442",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3452",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3462",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3472",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3482",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3492",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3502",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3512",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3522",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3530",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3532",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3533",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3542",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3562",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3582",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3712",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3722",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3732",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3742",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3802",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3832",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3852",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3892",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3902",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3912",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3922",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3923",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 3932",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 3933",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 3942",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 4001",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4002",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4011",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4013",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4014",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4015",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4016",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4017",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4018",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4019",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4021",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4023",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4024",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4025",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4026",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4027",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4028",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4029",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4031",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4032",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4041",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4042",
-                  "unit": 1.0
-                },
-                {
-                  "code": "MUSC 4243",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 4513",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 4523",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 4613",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 4623",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 4813",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 4823",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 4862",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 4883",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 4893",
-                  "unit": 2.0
-                },
-                {
-                  "code": "MUSC 4943",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5101",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5102",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5103",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5104",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5106",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5111",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5112",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5201",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5202",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5203",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5204",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5205",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5206",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5211",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5212",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5301",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5302",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5303",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5304",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5305",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5306",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5311",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 5312",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6000",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6050",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6051",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6100",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6101",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6150",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6200",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6201",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6250",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6251",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6252",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6253",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6350",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6351",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6352",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6353",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6354",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6355",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6356",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6357",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6358",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6400",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6401",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6402",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6450",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 6451",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 8025",
-                  "unit": 3.0
-                },
-                {
-                  "code": "MUSC 8026",
-                  "unit": 3.0
                 }
               ],
               "strategy": "units",
-              "dedup_count": 212,
+              "dedup_count": 16,
               "units_needed": 7.0,
               "level_constraint": [
                 {
@@ -17985,8 +17706,13 @@
           ]
         }
       ],
-      "global_level_constraint": null,
-      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Students planning to Minor in Music must have attained at least Grade 5 in theory and instrument/voice in the examination of the Associated Board of the Royal Schools of Music, or equivalent, and may be asked to attend an interview.</span></div>",
+      "global_level_constraint": [
+        {
+          "min_units_needed": 6,
+          "min_level": 3000
+        }
+      ],
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">Students planning to Minor in Music must have attained at least Grade 5 in theory and instrument/voice in the examination of the Associated Board of the Royal Schools of Music, or equivalent, and may be asked to attend an interview.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">2.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Music.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">3.</span><span class=\"point-text\">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfil the requirement of this Minor Programme.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
