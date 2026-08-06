@@ -397,6 +397,9 @@ def parse_minor_html(html_text):
                 else:
                     text_cell = cell_clean[1] if len(cell_clean) == 2 else ""
                     units_cell = cell_clean[1] if len(cell_clean) == 2 and cell_clean[0] and not re.search(r"\d", cell_clean[0]) else ""
+                    # When second cell is empty, the first cell holds the content
+                    if len(cell_clean) == 2 and not text_cell.strip():
+                        text_cell = cell_clean[0]
 
                 if len(cell_clean) == 2 and re.search(r"\d", cell_clean[0]):
                     text_cell = cell_clean[0]

@@ -3,11 +3,25 @@
   "title": "Education",
   "faculty": "Other",
   "source_file": "HB_Minor_Programme_in_Education",
-  "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows: EDUC2120, 2140, 2240, 3160, 3201, 3330, 4360",
+  "description": "Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:",
   "required": {
-    "label": "",
-    "units": "",
-    "rows": []
+    "label": "Required Courses ",
+    "units": "18",
+    "rows": [
+      {
+        "text": "EDUC2120, 2140, 2240, 3160, 3201, 3330, 4360",
+        "codes": [
+          "EDUC 2120",
+          "EDUC 2140",
+          "EDUC 2240",
+          "EDUC 3160",
+          "EDUC 3201",
+          "EDUC 3330",
+          "EDUC 4360"
+        ],
+        "units": "18"
+      }
+    ]
   },
   "elective": {
     "label": "",
