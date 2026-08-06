@@ -681,6 +681,35 @@ def build_nav(prev_stem, prev_title, next_stem, next_title, bottom=False):
     return f'<div class="{cls}">{left}{right}</div>'
 
 
+def _normalize_override_entry(raw_code):
+    """Normalize a raw override code entry (may be no-space or have bracket
+    notation). Returns (code_str, alt_code_str) or (code_str, None).
+    'ANTH2370'       -> ('ANTH 2370', None)
+    'CURE3409 [#CUMT3009]' -> ('CURE 3409', 'CUMT 3009')  # cross-dept eq
+    'CURE2001[1001]' -> ('CURE 2001', 'CURE 1001')  # same-dept eq
+    'CURE2006 [1006]' -> ('CURE 2006', 'CURE 1006')  # same-dept eq with space
+    'CURE4008[3008]' -> ('CURE 4008', 'CURE 3008')  # same-dept eq"""
+    s = raw_code.strip()
+    # Cross-dept bracket equivalence: CODE [#DEPT CODE]
+    m = re.match(r'^([A-Z]{2,5})(\d{4})\s*\[#([A-Z]{2,5})(\d{4})\]$', s)
+    if m:
+        return (f"{m.group(1)} {m.group(2)}", f"{m.group(3)} {m.group(4)}")
+    # Same-dept bracket equivalence: CODE[*CODE] or CODE[CODE]
+    m = re.match(r'^([A-Z]{2,5})(\d{4})\s*\[\*?(\d{4})\]$', s)
+    if m:
+        return (f"{m.group(1)} {m.group(2)}", f"{m.group(1)} {m.group(3)}")
+    # Same-dept bracket equivalence with space: CODE [*CODE] or CODE [CODE]
+    m = re.match(r'^([A-Z]{2,5})\s*(\d{4})\s*\[\*?(\d{4})\]$', s)
+    if m:
+        return (f"{m.group(1)} {m.group(2)}", f"{m.group(1)} {m.group(3)}")
+    # Plain code without space: DEPT1234
+    m = re.match(r'^([A-Z]{2,5})(\d{4})$', s)
+    if m:
+        return (f"{m.group(1)} {m.group(2)}", None)
+    # Already normalized "DEPT 1234"
+    return (s, None)
+
+
 def apply_overrides(data, overrides):
     """Apply course code overrides to a minor's section rows in-place.
     For each row whose text matches an override entry, replace the codes."""
@@ -688,11 +717,26 @@ def apply_overrides(data, overrides):
     minor_overrides = overrides.get(stem, {})
     if not minor_overrides:
         return
+    extra_eq_pairs = []
     for section_name in ("required", "elective"):
         for r in data.get(section_name, {}).get("rows", []):
             text = r.get("text", "").strip()
             if text in minor_overrides:
-                r["codes"] = minor_overrides[text]
+                raw_codes = minor_overrides[text]
+                normalized = []
+                for entry in raw_codes:
+                    code_a, code_b = _normalize_override_entry(entry)
+                    if code_a:
+                        normalized.append(code_a)
+                    if code_b:
+                        normalized.append(code_b)
+                        extra_eq_pairs.append([code_a, code_b])
+                r["codes"] = normalized
+    if extra_eq_pairs:
+        existing = data.setdefault("eq_pairs", [])
+        for p in extra_eq_pairs:
+            if p not in existing:
+                existing.append(p)
 
 
 def build_detail_page(data, course_index, overrides, prev_stem=None, prev_title=None, next_stem=None, next_title=None):

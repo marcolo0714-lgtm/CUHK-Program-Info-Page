@@ -109,31 +109,26 @@ def extract_course_codes(text):
     # Same-dept bracket: [CODE] or [*CODE]
     for m in re.finditer(r'\[\*?(\d{4})\]', clean):
         num = m.group(1)
-        dept_for_bracket = cur_dept or last_dept
-        # Determine department from immediately preceding code
+        # Determine department from position_index (first pass already got depts right)
         start = m.start()
-        before_text = clean[:start]
-        prev_code_m = None
-        for pm in re.finditer(r'([A-Z]{4})\s*(\d{4})|(\d{4})', before_text):
-            prev_code_m = pm
-        if prev_code_m:
-            if prev_code_m.group(1):
-                dept_for_bracket = prev_code_m.group(1)
-            elif cur_dept:
-                dept_for_bracket = cur_dept
-            elif last_dept:
-                dept_for_bracket = last_dept
-        code = f"{dept_for_bracket} {num}"
-        # Find the immediately preceding code and insert after it
-        prev_canonical = None
+        dept_for_bracket = ""
         for pi in reversed(position_index):
             if pi[0] < start:
-                prev_canonical = pi[1]
+                dept_for_bracket = pi[1][:4]  # extract DEPT prefix from canonical code
                 break
-        if prev_canonical:
-            insert_after(prev_canonical, code)
-        else:
-            add(code)
+        if not dept_for_bracket:
+            dept_for_bracket = cur_dept or last_dept
+        if dept_for_bracket:
+            code = f"{dept_for_bracket} {num}"
+            prev_canonical = None
+            for pi in reversed(position_index):
+                if pi[0] < start:
+                    prev_canonical = pi[1]
+                    break
+            if prev_canonical:
+                insert_after(prev_canonical, code)
+            else:
+                add(code)
     return codes
 
 
