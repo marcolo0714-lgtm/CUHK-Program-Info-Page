@@ -1044,7 +1044,6 @@
       "description": "Students are required to complete a minimum of 21 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 21.0,
       "eq_norm": {
-        "BCHE 3030": "BCHE 3730",
         "BCHE 3050": "BCHE 3650",
         "BCHE 3070": "BCHE 3650",
         "BCHE 4030": "BCHE 4830",
@@ -1078,7 +1077,7 @@
                 }
               ],
               "strategy": "all",
-              "dedup_count": 3
+              "dedup_count": 4
             }
           ]
         },
@@ -1171,8 +1170,7 @@
       "description": "Students are required to complete a minimum of 24 units of courses, with at least 9 units at 3000 or above level, as follows:",
       "total_units": 24.0,
       "eq_norm": {
-        "BIOL 2210": "BIOL 2410",
-        "BIOL 3560": "BIOL 3610"
+        "BIOL 2210": "BIOL 2410"
       },
       "sections": [
         {
@@ -1236,7 +1234,7 @@
                 }
               ],
               "strategy": "or_group",
-              "dedup_count": 3,
+              "dedup_count": 4,
               "or_groups": [
                 {
                   "codes": [
@@ -20964,7 +20962,7 @@
           "min_level": 3000
         }
       ],
-      "explanatory_notes": "",
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Religious Studies.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],

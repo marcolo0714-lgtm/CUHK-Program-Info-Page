@@ -1021,7 +1021,6 @@
       "description": "Students are required to complete a minimum of 21 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 21.0,
       "eq_norm": {
-        "BCHE 3030": "BCHE 3730",
         "BCHE 3050": "BCHE 3650",
         "BCHE 3070": "BCHE 3650",
         "BCHE 4030": "BCHE 4830",
@@ -1055,7 +1054,7 @@
                 }
               ],
               "strategy": "all",
-              "dedup_count": 3
+              "dedup_count": 4
             }
           ]
         },
@@ -1148,8 +1147,7 @@
       "description": "Students are required to complete a minimum of 24 units of courses, with at least 9 units at 3000 or above level, as follows:",
       "total_units": 24.0,
       "eq_norm": {
-        "BIOL 2210": "BIOL 2410",
-        "BIOL 3560": "BIOL 3610"
+        "BIOL 2210": "BIOL 2410"
       },
       "sections": [
         {
@@ -1213,7 +1211,7 @@
                 }
               ],
               "strategy": "or_group",
-              "dedup_count": 3,
+              "dedup_count": 4,
               "or_groups": [
                 {
                   "codes": [
@@ -3432,6 +3430,160 @@
               "strategy": "units",
               "dedup_count": 5,
               "units_needed": 3.0
+            },
+            {
+              "text": "(b) Any 9 units Cultural Management Area(s), with at least 3 units at 3000 or above level [a]",
+              "codes": [
+                {
+                  "code": "ANTH 2370",
+                  "unit": 3.0
+                },
+                {
+                  "code": "ANTH 2730",
+                  "unit": 3.0
+                },
+                {
+                  "code": "ANTH 4720",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2403",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2404",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2405",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2406",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2407",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2408",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2409",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2410",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2411",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2412",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3036",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3401",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3402",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3403",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3404",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3405",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3406",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3407",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3408",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3409",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3411",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3508",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4401",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4403",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4404",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4405",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4408",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4411",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4421",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4431",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4441",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3108",
+                  "unit": 3.0
+                }
+              ],
+              "strategy": "units",
+              "dedup_count": 35,
+              "units_needed": 9.0,
+              "level_constraint": [
+                {
+                  "min_units_needed": 3,
+                  "min_level": 3000
+                }
+              ]
             }
           ]
         }
@@ -3486,6 +3638,201 @@
               "strategy": "units",
               "dedup_count": 5,
               "units_needed": 3.0
+            },
+            {
+              "text": "(b) Five CURE courses at 2000 or above level from Cultural Studies Area(s), with at least 2 courses at 3000 or above level, excluding the course taken to fulfill requirement 1(a) above",
+              "codes": [
+                {
+                  "code": "CURE 2003",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2005",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2006",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2007",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2008",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2010",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2011",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2014",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2018",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2019",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2022",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2025",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2030",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2031",
+                  "unit": 0.0
+                },
+                {
+                  "code": "CURE 2032",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2036",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2040",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2042",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2047",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2051",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2066",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2145",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2228",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3003",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3007",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3011",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3012",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3013",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3014",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3025",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3026",
+                  "unit": 0.0
+                },
+                {
+                  "code": "CURE 3030",
+                  "unit": 0.0
+                },
+                {
+                  "code": "CURE 3032",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3033",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3034",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3037",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3038",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3066",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3144",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4008",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4021",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4028",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4031",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4033",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4040",
+                  "unit": 3.0
+                }
+              ],
+              "strategy": "units",
+              "dedup_count": 45,
+              "units_needed": 15.0,
+              "level_constraint": [
+                {
+                  "min_courses_needed": 2,
+                  "min_level": 3000
+                }
+              ],
+              "cross_row_exclude": true
             }
           ]
         }
@@ -5608,7 +5955,7 @@
         },
         {
           "label": "2. Elective Courses",
-          "target_units": 4.0,
+          "target_units": 16.0,
           "rows": [
             {
               "text": "(a) Any two courses from the following: FAAS1100, 1110, 1130, 1140",
@@ -5633,6 +5980,318 @@
               "strategy": "units",
               "dedup_count": 4,
               "units_needed": 4.0
+            },
+            {
+              "text": "(b) Two Art History Courses[a]",
+              "codes": [
+                {
+                  "code": "FAAS 2100",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2101",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2102",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2103",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2104",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2105",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2106",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2110",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2113",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2116",
+                  "unit": 0.0
+                },
+                {
+                  "code": "FAAS 2117",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2118",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2119",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3102",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3104",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3105",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3108",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3109",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3110",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3111",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3112",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3113",
+                  "unit": 0.0
+                },
+                {
+                  "code": "FAAS 3114",
+                  "unit": 0.0
+                },
+                {
+                  "code": "FAAS 3115",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3116",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3117",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3119",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3120",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3223",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4100",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4101",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4102",
+                  "unit": 0.0
+                },
+                {
+                  "code": "FAAS 4106",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4109",
+                  "unit": 0.0
+                },
+                {
+                  "code": "FAAS 4116",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4119",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4201",
+                  "unit": 3.0
+                }
+              ],
+              "strategy": "units",
+              "dedup_count": 37,
+              "units_needed": 6.0
+            },
+            {
+              "text": "(c) Two Studio Art Courses[a]",
+              "codes": [
+                {
+                  "code": "FAAS 2201",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2203",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2204",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2206",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2208",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2211",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2217",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2218",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 2219",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3111",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3200",
+                  "unit": 0.0
+                },
+                {
+                  "code": "FAAS 3201",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3202",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3203",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3204",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3206",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3210",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3211",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3212",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3216",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3219",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3221",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3223",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3224",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3229",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3234",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3236",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 3246",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4101",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4201",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4202",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4203",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4210",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4211",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4212",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4213",
+                  "unit": 3.0
+                },
+                {
+                  "code": "FAAS 4214",
+                  "unit": 3.0
+                }
+              ],
+              "strategy": "units",
+              "dedup_count": 37,
+              "units_needed": 6.0
             }
           ]
         }
@@ -20178,7 +20837,7 @@
           "min_level": 3000
         }
       ],
-      "explanatory_notes": "",
+      "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Religious Studies.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
       "waiver_rules": [],
@@ -20209,6 +20868,235 @@
               ],
               "strategy": "all",
               "dedup_count": 2
+            }
+          ]
+        },
+        {
+          "label": "2. Elective Courses: 12 units",
+          "target_units": 12.0,
+          "rows": [
+            {
+              "text": "Four CURE courses at 2000 or above level from the Religious Studies Areas, of which at least two courses are at 3000 or above level",
+              "codes": [
+                {
+                  "code": "CURE 2112",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2113",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2114",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2115",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2125",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2130",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2131",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2139",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2142",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2144",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2145",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2154",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2155",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2156",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2160",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2161",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2163",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2164",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2165",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2166",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2167",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2170",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2180",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2181",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2225",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2226",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2227",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2228",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2375",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 2377",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3114",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3115",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3116",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3122",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3126",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3130",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3132",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3134",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3136",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3142",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3144",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3145",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3147",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3375",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3377",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 3378",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4121",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4134",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4153",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4157",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4158",
+                  "unit": 3.0
+                },
+                {
+                  "code": "CURE 4159",
+                  "unit": 3.0
+                }
+              ],
+              "strategy": "pick_n",
+              "dedup_count": 52,
+              "n": 4,
+              "level_constraint": [
+                {
+                  "min_courses_needed": 2,
+                  "min_level": 3000
+                }
+              ],
+              "pick_n_avg_unit": 3.0
             }
           ]
         }

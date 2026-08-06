@@ -18,16 +18,31 @@ import argparse
 from pathlib import Path
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--year", default="2025_26", help="Admission year (e.g. 2025_26)")
+parser.add_argument("--year", default=None, help="Admission year (e.g. 2025_26). If omitted, processes all years.")
 args = parser.parse_args()
-YEAR = args.year
 
 BASE = Path(__file__).parent.parent
-MINOR_JSON_DIR = BASE / "minor_extraction" / "minor_json" / YEAR
+MINOR_JSON_BASE = BASE / "minor_extraction" / "minor_json"
 COURSE_INFO_DIR = BASE / "course_extraction" / "course_info"
-OVERRIDE_FILE = BASE / "minor_extraction" / "course_overrides" / f"{YEAR}.json"
 OUTPUT_FILE = BASE / "site" / "checker_data.json"
-MINORS_OUTPUT = BASE / "site_tempdata" / f"checker_minors_{YEAR}.json"
+
+def _detect_years():
+    years = []
+    for d in MINOR_JSON_BASE.iterdir():
+        if d.is_dir() and not d.name.endswith('_copy'):
+            years.append(d.name)
+    return sorted(years)
+
+TARGET_YEARS = [args.year] if args.year else _detect_years()
+if not TARGET_YEARS:
+    import sys
+    print("No year directories found in minor_json/.")
+    sys.exit(1)
+print(f"Processing years: {', '.join(TARGET_YEARS)}")
+
+MINOR_JSON_DIR = None
+OVERRIDE_FILE = None
+MINORS_OUTPUT = None
 
 
 # ── Helpers ─────────────────────────────────────────────────────────────
@@ -207,11 +222,28 @@ def parse_explanatory_notes_html(notes):
     if not notes:
         return ""
 
-    # Strip leading "Explanatory Note(s):" header row
-    notes = re.sub(
-        r'<tr[^>]*>.*?Explanatory\s+Note[s]?\s*:?.*?</tr>',
-        '', notes, count=1, flags=re.IGNORECASE | re.DOTALL
-    )
+    # Strip the "Explanatory Note(s):" row or text.
+    # If the first row is a standalone header (no point index like "1." or "[a]"),
+    # remove the entire <tr>. Otherwise, strip just the label text.
+    row_pat = re.compile(r'<tr[^>]*>(.*?)</tr>', re.DOTALL)
+    first_tr_m = row_pat.search(notes)
+    if first_tr_m:
+        first_tr_content = first_tr_m.group(1)
+        clean_tr = re.sub(r'<[^>]+>', '', first_tr_content).replace('\xa0', ' ').strip()
+        clean_tr = re.sub(r'\s+', ' ', clean_tr)
+        has_header = bool(re.search(r'Explanatory\s+Note[s]?\s*:', clean_tr, re.IGNORECASE))
+        has_point = bool(re.search(r'(?:\d{1,2}\.)|(?:\[[a-z\s*#]*\])', clean_tr))
+        if has_header and not has_point:
+            notes = row_pat.sub('', notes, count=1)
+        else:
+            notes = re.sub(
+                r'<p[^>]*>\s*(?:<[^>]+>)*\s*Explanatory\s+Note[s]?\s*:?\s*(?:</[^>]+>)*\s*</p>',
+                '', notes, count=1, flags=re.IGNORECASE | re.DOTALL
+            )
+            notes = re.sub(
+                r'(?:<p[^>]*>)?\s*(?:<[^>]+>)*\s*Explanatory\s+Note[s]?\s*:\s*(?:</[^>]+>)*\s*(?:</p>)?',
+                '', notes, count=1, flags=re.IGNORECASE
+            )
 
     # Flatten nested table/tbody tags
     notes = re.sub(r'</?(?:table|tbody|thead|tfoot)\b[^>]*>', '', notes, flags=re.IGNORECASE)
@@ -1404,7 +1436,13 @@ def _dedup_group(codes, eq_norm):
 
 # ── Main ────────────────────────────────────────────────────────────────
 
-def generate():
+def generate(year):
+    global MINOR_JSON_DIR, OVERRIDE_FILE, MINORS_OUTPUT
+    MINOR_JSON_DIR = MINOR_JSON_BASE / year
+    OVERRIDE_FILE = BASE / "minor_extraction" / "course_overrides" / f"{year}.json"
+    MINORS_OUTPUT = BASE / "site_tempdata" / f"checker_minors_{year}.json"
+
+    print(f"\n--- {year} ---")
     course_index = load_course_index()
     overrides = load_overrides()
     print(f"Loaded course overrides for {len(overrides)} minor(s)")
@@ -1665,7 +1703,7 @@ def generate():
     total_rows = sum(
         len(s["rows"]) for m in minors_data.values() for s in m["sections"]
     )
-    print(f"Generated: site/checker_data.json, site_tempdata/checker_minors_{YEAR}.json")
+    print(f"Generated: site/checker_data.json, site_tempdata/checker_minors_{year}.json")
     print(f"  Minors: {len(minors_data)}")
     print(f"  Sections: {sum(len(m['sections']) for m in minors_data.values())}")
     print(f"  Total rows: {total_rows}")
@@ -1677,4 +1715,5 @@ def generate():
 
 
 if __name__ == "__main__":
-    generate()
+    for yr in TARGET_YEARS:
+        generate(yr)

@@ -8,17 +8,37 @@ Usage:  python generate_checker_page.py [--year 2025_26]
 
 import json
 import argparse
+import sys
 from pathlib import Path
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--year", default="2025_26", help="Admission year (e.g. 2025_26)")
+parser.add_argument("--year", default=None, help="Admission year (e.g. 2025_26). If omitted, processes all years.")
 args = parser.parse_args()
-YEAR = args.year
 
 BASE = Path(__file__).parent.parent
 DATA_FILE = BASE / "site" / "checker_data.json"
-MINORS_FILE = BASE / "site_tempdata" / f"checker_minors_{YEAR}.json"
-OUTPUT_FILE = BASE / "site" / YEAR / "checker.html"
+MINORS_FILE_TEMPLATE = BASE / "site_tempdata" / "checker_minors_{}.json"
+
+def _detect_years():
+    """Detect years from checker_minors_*.json files in site_tempdata."""
+    years = []
+    temp_dir = BASE / "site_tempdata"
+    if temp_dir.exists():
+        for f in temp_dir.glob("checker_minors_*.json"):
+            name = f.stem
+            y = name.replace("checker_minors_", "")
+            if y and not y.endswith("_copy"):
+                years.append(y)
+    return sorted(years)
+
+TARGET_YEARS = [args.year] if args.year else _detect_years()
+if not TARGET_YEARS:
+    print("No year files found in site_tempdata/. Run generate_checker_data.py first.")
+    sys.exit(1)
+print(f"Processing years: {', '.join(TARGET_YEARS)}")
+
+MINORS_FILE = None
+OUTPUT_FILE = None
 
 CHECKER_CSS = """\
 :root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
@@ -1937,12 +1957,17 @@ var CHECKER_DATA = {checker_data_json};
 </html>"""
 
 
-def generate():
+def generate(year):
+    global MINORS_FILE, OUTPUT_FILE
+    MINORS_FILE = MINORS_FILE_TEMPLATE.with_name(f"checker_minors_{year}.json")
+    OUTPUT_FILE = BASE / "site" / year / "checker.html"
+
+    print(f"\n--- {year} ---")
     if not DATA_FILE.exists():
         print(f"Error: {DATA_FILE} not found. Run generate_checker_data.py first.")
         return
     if not MINORS_FILE.exists():
-        print(f"Error: {MINORS_FILE} not found. Run generate_checker_data.py --year {YEAR} first.")
+        print(f"Error: {MINORS_FILE} not found. Run generate_checker_data.py --year {year} first.")
         return
 
     courses_data = DATA_FILE.read_text(encoding="utf-8")  # {"courses": {...}}
@@ -1958,7 +1983,7 @@ def generate():
         [d.name for d in site_dir.iterdir() if d.is_dir() and "_" in d.name and (d / "checker.html").exists()]
     )
     year_select = '<select onchange="window.location=this.value" class="year-select">' + "".join(
-        f'<option value="../{y}/checker.html" {"selected" if y == YEAR else ""}>{y.replace("_","-")}</option>'
+        f'<option value="../{y}/checker.html" {"selected" if y == year else ""}>{y.replace("_","-")}</option>'
         for y in available_years
     ) + '</select>'
 
@@ -1966,15 +1991,16 @@ def generate():
         css=CHECKER_CSS,
         checker_data_json=checker_data,
         js=CHECKER_JS,
-        year=YEAR,
+        year=year,
         year_select=year_select,
     )
 
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_FILE.write_text(html, encoding="utf-8")
-    print(f"Generated: site/{YEAR}/checker.html")
+    print(f"Generated: site/{year}/checker.html")
     print(f"  Size: {len(html) / 1024:.0f} KB")
 
 
 if __name__ == "__main__":
-    generate()
+    for yr in TARGET_YEARS:
+        generate(yr)

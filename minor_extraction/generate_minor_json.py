@@ -1,18 +1,38 @@
 import json
 import re
 import argparse
+import sys
 from pathlib import Path
 
 from bs4 import BeautifulSoup
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--year", default="2025_26", help="Admission year (e.g. 2025_26)")
+parser.add_argument("--year", default=None, help="Admission year (e.g. 2025_26). If omitted, processes all years.")
 args = parser.parse_args()
-YEAR = args.year
 
-MINOR_HTML_DIR = Path(__file__).parent / "minor_html" / YEAR
-MINOR_JSON_DIR = Path(__file__).parent / "minor_json" / YEAR
-FACULTIES_PATH = MINOR_HTML_DIR / "_faculties.json"
+BASE = Path(__file__).parent
+MINOR_HTML_BASE = BASE / "minor_html"
+MINOR_JSON_BASE = BASE / "minor_json"
+
+def _detect_years():
+    years = set()
+    for d in MINOR_HTML_BASE.iterdir():
+        if d.is_dir() and not d.name.endswith('_copy'):
+            years.add(d.name)
+    for d in MINOR_JSON_BASE.iterdir():
+        if d.is_dir() and not d.name.endswith('_copy'):
+            years.add(d.name)
+    return sorted(years)
+
+TARGET_YEARS = [args.year] if args.year else _detect_years()
+if not TARGET_YEARS:
+    print("No year directories found.")
+    sys.exit(1)
+print(f"Processing years: {', '.join(TARGET_YEARS)}")
+
+MINOR_HTML_DIR = None
+MINOR_JSON_DIR = None
+FACULTIES_PATH = None
 
 
 # ── helpers ──────────────────────────────────────────────────────────
@@ -816,9 +836,16 @@ def build_json(html_path, faculties):
 
 # ── main ─────────────────────────────────────────────────────────────
 
-def generate():
+def generate(year):
+    global MINOR_HTML_DIR, MINOR_JSON_DIR, FACULTIES_PATH
+    MINOR_HTML_DIR = MINOR_HTML_BASE / year
+    MINOR_JSON_DIR = MINOR_JSON_BASE / year
+    FACULTIES_PATH = MINOR_HTML_DIR / "_faculties.json"
+
+    print(f"\n--- {year} ---")
     if not MINOR_HTML_DIR.exists():
         print(f"Directory not found: {MINOR_HTML_DIR}")
+        print("Run extract_minor_sections.py first.")
         return
 
     faculties = load_faculties()
@@ -853,13 +880,12 @@ def generate():
         written += 1
 
     # ── Report ──
-    print("\n" + "=" * 60)
     print(f"JSON files written: {written}")
     if skipped:
         print(f"JSON files skipped (manually edited): {skipped}")
-
-    print(f"\nDone. JSON output: minor_json/{YEAR}/")
+    print(f"Done. JSON output: minor_json/{year}/")
 
 
 if __name__ == "__main__":
-    generate()
+    for yr in TARGET_YEARS:
+        generate(yr)

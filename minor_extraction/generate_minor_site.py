@@ -1,17 +1,38 @@
 import json
 import re
 import argparse
+import sys
 from pathlib import Path
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--year", default="2025_26", help="Admission year (e.g. 2025_26)")
+parser.add_argument("--year", default=None, help="Admission year (e.g. 2025_26). If omitted, processes all years.")
 args = parser.parse_args()
-YEAR = args.year
 
-MINOR_JSON_DIR = Path(__file__).parent / "minor_json" / YEAR
+BASE_DIR = Path(__file__).parent
+MINOR_JSON_BASE = BASE_DIR / "minor_json"
 COURSE_INFO_DIR = Path(__file__).parent.parent / "course_extraction" / "course_info"
-SITE_DIR = Path(__file__).parent.parent / "site" / YEAR
-OVERRIDE_FILE = Path(__file__).parent / "course_overrides" / f"{YEAR}.json"
+
+def _detect_years():
+    """Return sorted list of year directory names (excluding *_copy backups)."""
+    years = []
+    for d in MINOR_JSON_BASE.iterdir():
+        if d.is_dir() and d.name != d.name.rstrip('_copy'):
+            # Skip directories ending in _copy
+            if d.name.endswith('_copy'):
+                continue
+        if d.is_dir() and not d.name.endswith('_copy'):
+            years.append(d.name)
+    return sorted(years)
+
+TARGET_YEARS = [args.year] if args.year else _detect_years()
+if not TARGET_YEARS:
+    print("No year directories found in minor_json/. Run generate_minor_json.py first.")
+    sys.exit(1)
+print(f"Processing years: {', '.join(TARGET_YEARS)}")
+
+MINOR_JSON_DIR = None   # set per-year in generate()
+SITE_DIR = None
+OVERRIDE_FILE = None
 
 
 # ── course resolution ─────────────────────────────────────────────────
@@ -782,11 +803,32 @@ def build_detail_page(data, course_index, overrides, prev_stem=None, prev_title=
 
     notes = data.get("explanatory_notes", "")
     if notes:
-        # Strip leading "Explanatory Note(s):" row
-        notes = re.sub(
-            r'<tr[^>]*>.*?Explanatory\s+Note[s]?\s*:?.*?</tr>',
-            '', notes, count=1, flags=re.IGNORECASE | re.DOTALL
-        )
+        # Strip the "Explanatory Note(s):" row or text.
+        # If the first row is a standalone header (no point index like "1." or "[a]"),
+        # remove the entire <tr>. Otherwise, strip just the label text.
+        row_pat = re.compile(r'<tr[^>]*>(.*?)</tr>', re.DOTALL)
+        first_tr_m = row_pat.search(notes)
+        strip_entire_row = False
+        if first_tr_m:
+            first_tr_content = first_tr_m.group(1)
+            clean_tr = re.sub(r'<[^>]+>', '', first_tr_content).replace('\xa0', ' ').strip()
+            clean_tr = re.sub(r'\s+', ' ', clean_tr)
+            has_header = bool(re.search(r'Explanatory\s+Note[s]?\s*:', clean_tr, re.IGNORECASE))
+            has_point = bool(re.search(r'(?:\d{1,2}\.)|(?:\[[a-z\s*#]*\])', clean_tr))
+            if has_header and not has_point:
+                strip_entire_row = True
+
+        if strip_entire_row:
+            notes = row_pat.sub('', notes, count=1)
+        else:
+            notes = re.sub(
+                r'<p[^>]*>\s*(?:<[^>]+>)*\s*Explanatory\s+Note[s]?\s*:?\s*(?:</[^>]+>)*\s*</p>',
+                '', notes, count=1, flags=re.IGNORECASE | re.DOTALL
+            )
+            notes = re.sub(
+                r'(?:<p[^>]*>)?\s*(?:<[^>]+>)*\s*Explanatory\s+Note[s]?\s*:\s*(?:</[^>]+>)*\s*(?:</p>)?',
+                '', notes, count=1, flags=re.IGNORECASE
+            )
         body.append("<h2>Explanatory Notes</h2>")
 
         # ── Flatten nested table/tbody tags to avoid duplicate rows ──
@@ -1023,11 +1065,14 @@ def build_sidebar_html(index_order, active_stem):
         parts.append('</details>')
     return '\n'.join(parts)
 
-def generate():
-    if not MINOR_JSON_DIR.exists():
-        print(f"Directory not found: {MINOR_JSON_DIR}")
-        print("Run generate_minor_json.py first.")
-        return
+def generate(year):
+    global MINOR_JSON_DIR, SITE_DIR, OVERRIDE_FILE, YEAR
+    YEAR = year
+    MINOR_JSON_DIR = MINOR_JSON_BASE / year
+    SITE_DIR = Path(__file__).parent.parent / "site" / year
+    OVERRIDE_FILE = BASE_DIR / "course_overrides" / f"{year}.json"
+
+    print(f"\n--- {year} ---")
 
     site_minors_dir = SITE_DIR / "minors"
     site_minors_dir.mkdir(parents=True, exist_ok=True)
@@ -1160,8 +1205,9 @@ def generate():
     print(f"{len(index_order)} minor programmes rendered")
     print(f"Required courses: {found_req}/{total_req} matched")
     print(f"Elective courses: {found_ele}/{total_ele} matched")
-    print(f"\nSite generated: site/{YEAR}/index.html")
+    print(f"\nSite generated: site/{year}/index.html")
 
 
 if __name__ == "__main__":
-    generate()
+    for yr in TARGET_YEARS:
+        generate(yr)
