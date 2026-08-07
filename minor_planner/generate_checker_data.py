@@ -628,6 +628,36 @@ def extract_level_constraint(text):
     if m:
         _add(units=_n(m.group(1)), min_level=int(m.group(2)))
 
+    # "Including at least X units of courses at YYYY or above level"
+    m = re.search(
+        r"including\s+at\s+least\s+(\w+)\s+units?"
+        r"\s+(?:of\s+(?:elective\s+)?(?:\w+\s+)?courses?\s+)?at\s+(\d{4})"
+        r"\s+(?:or|and)\s+above",
+        text, re.IGNORECASE,
+    )
+    if m:
+        _add(units=_n(m.group(1)), min_level=int(m.group(2)))
+
+    # "required to take at least X units of courses at YYYY level or above"
+    m = re.search(
+        r"required\s+to\s+take\s+at\s+least\s+(\w+)\s+units?"
+        r"\s+(?:of\s+(?:elective\s+)?(?:\w+\s+)?courses?\s+)?at\s+(\d{4})"
+        r"\s+level\s+(?:or|and)\s+above",
+        text, re.IGNORECASE,
+    )
+    if m:
+        _add(units=_n(m.group(1)), min_level=int(m.group(2)))
+
+    # "take at least X units of courses at YYYY level or above"
+    m = re.search(
+        r"take\s+at\s+least\s+(\w+)\s+units?"
+        r"\s+(?:of\s+(?:elective\s+)?(?:\w+\s+)?courses?\s+)?at\s+(\d{4})"
+        r"\s+level\s+(?:or|and)\s+above",
+        text, re.IGNORECASE,
+    )
+    if m:
+        _add(units=_n(m.group(1)), min_level=int(m.group(2)))
+
     # "with at least X units at YYYY to ZZZZ level"
     m = re.search(
         r"with\s+at\s+least\s+(\w+)\s+units?\s+(?:of\s+(?:\w+\s+)?courses?\s+)?at\s+(\d{4})"
@@ -1679,7 +1709,9 @@ def generate(year):
             "total_units": total_units,
             "eq_norm": eq_norm,
             "sections": sections,
-            "global_level_constraint": extract_level_constraint(desc),
+            "global_level_constraint": extract_level_constraint(
+                desc + " " + re.sub(r"<[^>]+>", " ", data.get("explanatory_notes", "")).replace("\xa0", " ")
+            ),
             "explanatory_notes": parse_explanatory_notes_html(data.get("explanatory_notes", "")),
             "and_eq_groups": AND_EQ_GROUPS.get(stem, []),
             "notes_eq_codes": _get_notes_eq_codes(stem),
