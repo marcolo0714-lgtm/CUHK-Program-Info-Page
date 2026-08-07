@@ -6503,7 +6503,12 @@
           ]
         }
       ],
-      "global_level_constraint": null,
+      "global_level_constraint": [
+        {
+          "min_units_needed": 6,
+          "min_level": 3000
+        }
+      ],
       "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Including at least 6 units of courses at 3000 or above level.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Excluding FAAS4180, 4182, 4280, 4282 and courses listed under 2(a).</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],
@@ -12282,7 +12287,12 @@
           ]
         }
       ],
-      "global_level_constraint": null,
+      "global_level_constraint": [
+        {
+          "min_units_needed": 6,
+          "min_level": 3000
+        }
+      ],
       "explanatory_notes": "<div class=\"section notes-point\"><span class=\"point-idx\">1.</span><span class=\"point-text\">This Minor Programme is not applicable to students who major in Integrated BBA Programme (including Double Degree/Dual Degree Programmes and Double Degree/Double Major Options) with Entrepreneurship Concentration.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[a]</span><span class=\"point-text\">Except for EPIN courses, students should not take more than 6 units of courses offered by Departments/Schools of the same Faculty.</span></div><div class=\"section notes-point\"><span class=\"point-idx\">[b]</span><span class=\"point-text\">Students are required to take at least 6 units of courses at 3000 level or above.</span></div>",
       "and_eq_groups": [],
       "notes_eq_codes": [],

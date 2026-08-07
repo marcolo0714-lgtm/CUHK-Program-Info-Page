@@ -213,12 +213,12 @@ function makeCanonicalizer(eqNorm) {
 }
 
 // ── Level constraint helpers ──────────────────────────────────────────────
-function checkAllLevelConstraints(matchedCanon, constraints, studentUnits) {
+function checkAllLevelConstraints(matchedCanon, constraints, studentUnits, studentMaxLevel) {
   if (!constraints || !constraints.length) return {allOk: true, results: [], strictest: null};
   var allOk = true, results = [], strictest = null, minProgress = 1;
   for (var i = 0; i < constraints.length; i++) {
     var lc = constraints[i];
-    var lv = countLevelMatches(matchedCanon, lc, studentUnits);
+    var lv = countLevelMatches(matchedCanon, lc, studentUnits, studentMaxLevel);
     var ok = true;
     if (lc.min_units_needed) ok = ok && lv.units >= lc.min_units_needed;
     if (lc.min_courses_needed) ok = ok && lv.count >= lc.min_courses_needed;
@@ -244,14 +244,14 @@ function courseLevel(code) {
   return parseInt(parts[1]) || 0;
 }
 
-function countLevelMatches(matchedCodes, levelConstraint, studentUnits) {
+function countLevelMatches(matchedCodes, levelConstraint, studentUnits, studentMaxLevel) {
   var minLevel = levelConstraint.min_level || 0;
   var maxLevel = levelConstraint.max_level; // null means no upper bound
   var total = 0;
   var count = 0;
   for (var i = 0; i < matchedCodes.length; i++) {
     var c = matchedCodes[i];
-    var lvl = courseLevel(c);
+    var lvl = (studentMaxLevel && studentMaxLevel[c]) || courseLevel(c);
     var within = lvl >= minLevel;
     if (maxLevel !== null && maxLevel !== undefined) within = within && lvl <= maxLevel;
     if (within) {
@@ -366,10 +366,11 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
     // Separate into two groups: high-priority (first sortMaxPriority level-matching
     // courses by unit desc), then everything else by unit desc.
     var hiPriority = [], loPriority = [];
+    var effLevel = function(canon) { return (studentCanonSet._maxLevel && studentCanonSet._maxLevel[canon]) || courseLevel(canon); };
     if (sortMinLevel > 0 && sortMaxPriority > 0) {
       for (var si = 0; si < matchedCanon.length; si++) {
         var canon = matchedCanon[si];
-        if (courseLevel(canon) >= sortMinLevel) hiPriority.push(canon);
+        if (effLevel(canon) >= sortMinLevel) hiPriority.push(canon);
         else loPriority.push(canon);
       }
       hiPriority.sort(function(a, b) { return (studentUnits[b] || 3) - (studentUnits[a] || 3); });
@@ -378,8 +379,8 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
     } else {
       matchedCanon.sort(function(a, b) {
         if (sortMinLevel > 0) {
-          var aMeets = courseLevel(a) >= sortMinLevel;
-          var bMeets = courseLevel(b) >= sortMinLevel;
+          var aMeets = effLevel(a) >= sortMinLevel;
+          var bMeets = effLevel(b) >= sortMinLevel;
           if (aMeets !== bMeets) return bMeets - aMeets;
         }
         return (studentUnits[b] || 3) - (studentUnits[a] || 3);
@@ -402,7 +403,7 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
     // Check all level constraints (use expanded for counting)
     var constraints = row.level_constraint;
     if (constraints && !Array.isArray(constraints)) constraints = [constraints];
-    var lcr = checkAllLevelConstraints(matchedCanon, constraints, studentUnits);
+    var lcr = checkAllLevelConstraints(matchedCanon, constraints, studentUnits, studentCanonSet._maxLevel);
     var lcOkPick = lcr.allOk;
     var strictPick = lcr.strictest;
 
@@ -477,7 +478,7 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
     var neededMax = row.units_needed_max || needed; // use max for consumption cap
     var constraints2 = row.level_constraint;
     if (constraints2 && !Array.isArray(constraints2)) constraints2 = [constraints2];
-    var lcr2 = checkAllLevelConstraints(matchedCanon, constraints2, studentUnits);
+    var lcr2 = checkAllLevelConstraints(matchedCanon, constraints2, studentUnits, studentCanonSet._maxLevel);
     var lcOk = lcr2.allOk;
     var strictU = lcr2.strictest;
     var greedySum = 0;
@@ -642,7 +643,7 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
         var canon = matchedCanon[ci];
         var meets = true;
         if (strictPick.lc.min_level || 0 > 0) {
-          meets = courseLevel(canon) >= (strictPick.lc.min_level || 0);
+          meets = ((studentCanonSet._maxLevel && studentCanonSet._maxLevel[canon]) || courseLevel(canon)) >= (strictPick.lc.min_level || 0);
           if (strictPick.lc.max_level != null) meets = meets && courseLevel(canon) <= strictPick.lc.max_level;
         }
         if (meets) lvlCourses.push(canon); else freeCourses.push(canon);
@@ -816,7 +817,7 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
   if (row.level_constraint) {
     var mlcList = Array.isArray(row.level_constraint) ? row.level_constraint : [row.level_constraint];
     if (mlcList.length > 1) {
-      var mlcr = checkAllLevelConstraints(matchedCanon, mlcList, studentUnits);
+      var mlcr = checkAllLevelConstraints(matchedCanon, mlcList, studentUnits, studentCanonSet._maxLevel);
       result.progress = Math.min(result.progress, mlcr.minProgress || 1);
     }
   }
@@ -880,19 +881,23 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
     }
   }
 
-  // Build student canonical set and unit map
-  var studentCanonSet = {_exact: {}};
-  var studentUnits = {};
-  var studentUnitList = {};  // individual course units per canonical, sorted desc
-  var studentUnitIdx = {};   // how many courses consumed so far per canonical  
-  var studentRawUnits = {};  // total raw units per canonical (for eq warning)
-  for (var i = 0; i < studentCourses.length; i++) {
-    var c = studentCourses[i];
-    var canon = canonFn(c.code);
-    studentCanonSet[canon] = true;
-    studentCanonSet._exact[c.code] = true;
-    if (c._waived) studentCanonSet._waived = studentCanonSet._waived || {};
-    if (c._waived) studentCanonSet._waived[canon] = true;
+   // Build student canonical set and unit map
+   var studentCanonSet = {_exact: {}, _maxLevel: {}};
+   var studentUnits = {};
+   var studentUnitList = {};  // individual course units per canonical, sorted desc
+   var studentUnitIdx = {};   // how many courses consumed so far per canonical  
+   var studentRawUnits = {};  // total raw units per canonical (for eq warning)
+   for (var i = 0; i < studentCourses.length; i++) {
+     var c = studentCourses[i];
+     var canon = canonFn(c.code);
+     studentCanonSet[canon] = true;
+     studentCanonSet._exact[c.code] = true;
+     // Track max course level per canonical (for equivalent courses at different levels)
+     if (!studentCanonSet._maxLevel[canon] || courseLevel(c.code) > studentCanonSet._maxLevel[canon]) {
+       studentCanonSet._maxLevel[canon] = courseLevel(c.code);
+     }
+     if (c._waived) studentCanonSet._waived = studentCanonSet._waived || {};
+     if (c._waived) studentCanonSet._waived[canon] = true;
     var infoUnit = (courseIndex[c.code] && courseIndex[c.code].unit) || 0;
     var u = Math.max(c.unit, infoUnit, 0) || 3;
     if (!studentUnitList[canon]) studentUnitList[canon] = [];
@@ -987,6 +992,7 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
 
       // Build consumedCodes: prefer exact-match codes the student actually took,
       // and among exact matches for the same canonical, pick the highest-unit code.
+      // When units are equal, prefer the higher course number (more advanced level).
       mr.consumedCodes = [];
       var seenCanon = {};
       // First pass: collect candidate exact-match codes per canonical
@@ -997,7 +1003,8 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
         if (mr.consumed && mr.consumed.indexOf(canon) !== -1 && !seenCanon[canon]) {
           if (!usedOriginalCodes[code] && studentCanonSet._exact && studentCanonSet._exact[code]) {
             var cfUnit = (courseIndex[code] && courseIndex[code].unit) || (studentUnits[canon] || 3);
-            if (!candidates[canon] || cfUnit > candidates[canon].unit) {
+            var existing = candidates[canon];
+            if (!existing || cfUnit > existing.unit || (cfUnit === existing.unit && courseLevel(code) > courseLevel(existing.code))) {
               candidates[canon] = {code: code, unit: cfUnit};
             }
           }
@@ -1274,7 +1281,7 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
     var strictGLC = null;
     var strictLv = null;
     for (var i = 0; i < glcList.length; i++) {
-      var lv = countLevelMatches(allStudentCanon, glcList[i], studentUnits);
+      var lv = countLevelMatches(allStudentCanon, glcList[i], studentUnits, studentCanonSet._maxLevel);
       if (!strictGLC || (glcList[i].min_level || 0) > (strictGLC.min_level || 0)) {
         strictGLC = glcList[i];
         strictLv = lv;
