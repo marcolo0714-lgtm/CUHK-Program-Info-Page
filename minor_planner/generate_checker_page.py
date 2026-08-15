@@ -9,6 +9,9 @@ Usage:  python generate_checker_page.py [--year 2025_26]
 import json
 import argparse
 import sys
+import re
+from html.parser import HTMLParser
+from html import unescape
 from pathlib import Path
 
 parser = argparse.ArgumentParser()
@@ -39,6 +42,155 @@ print(f"Processing years: {', '.join(TARGET_YEARS)}")
 
 MINORS_FILE = None
 OUTPUT_FILE = None
+
+
+class _NotesTableParser(HTMLParser):
+    """Collect the visible text of each table cell in explanatory notes."""
+
+    def __init__(self):
+        super().__init__()
+        self.rows = []
+        self._row = None
+        self._cell = None
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() == "tr":
+            self._row = []
+        elif tag.lower() in {"td", "th"} and self._row is not None:
+            self._cell = []
+
+    def handle_data(self, data):
+        if self._cell is not None:
+            self._cell.append(data)
+
+    def handle_endtag(self, tag):
+        tag = tag.lower()
+        if tag in {"td", "th"} and self._cell is not None:
+            self._row.append(" ".join(self._cell))
+            self._cell = None
+        elif tag == "tr" and self._row is not None:
+            self.rows.append(self._row)
+            self._row = None
+
+
+def _courses_in_table_cell(text):
+    """Expand compact cells such as CSCI1120/1130/ESTR1100/1102."""
+    courses = []
+    prefix = None
+    for match in re.finditer(r"(?:(?P<prefix>[A-Z]{4})\s*)?(?P<number>\d{4})", text.upper()):
+        if match.group("prefix"):
+            prefix = match.group("prefix")
+        if prefix:
+            courses.append(f"{prefix} {match.group('number')}")
+    return courses
+
+
+def _extract_direct_notes_equivalences(notes_html):
+    """Recover directional Column A -> Column B pairings from notes tables.
+
+    checker_minors stores a transitive equivalence canonicalizer, which is right
+    for unit matching but cannot retain which displayed requirement a notes-table
+    course replaces. Equal-length alternatives are paired positionally; a list
+    on the left may also map to a single course on the right.
+    """
+    if not notes_html or "<table" not in notes_html.lower():
+        return {}
+    parser = _NotesTableParser()
+    parser.feed(notes_html)
+    direct = {}
+    for row in parser.rows:
+        course_cells = [_courses_in_table_cell(cell) for cell in row]
+        course_cells = [courses for courses in course_cells if courses]
+        if len(course_cells) < 2:
+            continue
+        left, right = course_cells[0], course_cells[1]
+        if len(left) == len(right):
+            direct.update(zip(left, right))
+        elif len(right) == 1:
+            direct.update((course, right[0]) for course in left)
+    return direct
+
+
+_WORD_NUMBERS = {
+    "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
+    "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
+}
+
+
+def _enrich_checker_rules(minor):
+    """Add rule details that the intermediate flattened data cannot express."""
+    for section in minor.get("sections", []):
+        for row in section.get("rows", []):
+            text = row.get("text", "")
+            # Keep the subject and level portions joined for requirements such
+            # as "at least two GLSD courses at 3000 or above level".
+            for match in re.finditer(
+                r"at\s+least\s+(\w+)\s+([A-Z]{4})\s+courses?\s+at\s+(\d{4})\s+or\s+above\s+level",
+                text,
+                re.IGNORECASE,
+            ):
+                raw_count, prefix, raw_level = match.groups()
+                count = _WORD_NUMBERS.get(raw_count.lower())
+                if count is None and raw_count.isdigit():
+                    count = int(raw_count)
+                if count is None:
+                    continue
+                for bucket in row.get("subject_buckets", []):
+                    if bucket.get("prefix", "").upper() == prefix.upper() and bucket.get("min_courses") == count:
+                        bucket["min_level"] = int(raw_level)
+
+        # A single row sometimes begins with a level minimum, causing the
+        # intermediate parser to mistake that minimum for the row's total. The
+        # section target remains authoritative for the total requirement.
+        if len(section.get("rows", [])) == 1:
+            row = section["rows"][0]
+            section_target = section.get("target_units") or 0
+            row_target = row.get("units_needed") or 0
+            constraints = row.get("level_constraint") or []
+            if not isinstance(constraints, list):
+                constraints = [constraints]
+            level_minimum_was_used_as_total = any(
+                constraint.get("min_units_needed") == row_target
+                for constraint in constraints
+            )
+            if row.get("strategy") == "units" and section_target > row_target and level_minimum_was_used_as_total:
+                row["units_needed"] = section_target
+
+    # The global allocator works in units. A course-count level requirement can
+    # be converted without ambiguity when every eligible course has the same
+    # positive unit value (e.g. two 3-unit Public History courses = 6 units).
+    positive_units = {
+        course.get("unit")
+        for section in minor.get("sections", [])
+        for row in section.get("rows", [])
+        for course in row.get("codes", [])
+        if course.get("unit", 0) > 0
+    }
+    if len(positive_units) == 1:
+        common_unit = positive_units.pop()
+        constraints = minor.get("global_level_constraint") or []
+        if not isinstance(constraints, list):
+            constraints = [constraints]
+        for constraint in constraints:
+            if constraint.get("min_courses_needed") and not constraint.get("min_units_needed"):
+                constraint["min_units_needed"] = constraint["min_courses_needed"] * common_unit
+
+    notes_text = re.sub(r"<[^>]+>", " ", minor.get("explanatory_notes", ""))
+    notes_text = re.sub(r"\s+", " ", unescape(notes_text))
+    level_unit_caps = {}
+    for match in re.finditer(
+        r"(?:take|taken)\s+([A-Z]{4})\s*(\d{4}).{0,160}?only\s+be\s+recognized\s+as\s+completing\s+"
+        r"(\d+(?:\.\d+)?)\s+units?\s+of\s+courses?\s+at\s+(\d{4})",
+        notes_text,
+        re.IGNORECASE,
+    ):
+        prefix, number, units, min_level = match.groups()
+        level_unit_caps[f"{prefix.upper()} {number}"] = {
+            "units": float(units),
+            "min_level": int(min_level),
+        }
+    if level_unit_caps:
+        minor["level_unit_caps"] = level_unit_caps
 
 CHECKER_CSS = """\
 :root { --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --accent: #2563eb;
@@ -243,6 +395,13 @@ function courseLevel(code) {
   return parseInt(parts[1]) || 0;
 }
 
+function maxLevelUpperBound(maxLevel) {
+  // A handbook phrase such as "to 5000 level" includes the whole 5xxx band.
+  // Parsed bounds already ending in 999 are exact and remain unchanged.
+  if (maxLevel && maxLevel % 1000 === 0) return maxLevel + 999;
+  return maxLevel;
+}
+
 function countLevelMatches(matchedCodes, levelConstraint, studentUnits, studentMaxLevel) {
   var minLevel = levelConstraint.min_level || 0;
   var maxLevel = levelConstraint.max_level; // null means no upper bound
@@ -252,7 +411,7 @@ function countLevelMatches(matchedCodes, levelConstraint, studentUnits, studentM
     var c = matchedCodes[i];
     var lvl = (studentMaxLevel && studentMaxLevel[c]) || courseLevel(c);
     var within = lvl >= minLevel;
-    if (maxLevel !== null && maxLevel !== undefined) within = within && lvl <= maxLevel;
+    if (maxLevel !== null && maxLevel !== undefined) within = within && lvl <= maxLevelUpperBound(maxLevel);
     if (within) {
       total += (studentUnits[c] || 0);
       count += 1;
@@ -261,7 +420,7 @@ function countLevelMatches(matchedCodes, levelConstraint, studentUnits, studentM
   return {units: total, count: count};
 }
 
-function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, excludeCanon, studentUnitList, globalMinLevel) {
+function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, excludeCanon, studentUnitList, globalMinLevel, globalMinUnits) {
   // Canonicalize and deduplicate requirement codes
   var seen = {};
   var reqCanon = [];
@@ -344,6 +503,7 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
     // and only prioritize as many courses as the constraints actually need.
     var sortMinLevel = 0;
     var sortMaxPriority = Infinity; // max courses to prioritize by level
+    var sortUnitPriority = 0;
     if (row.level_constraint) {
       var slcList = Array.isArray(row.level_constraint) ? row.level_constraint : [row.level_constraint];
       sortMinLevel = slcList[0].min_level || 0;
@@ -355,18 +515,24 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
         if (slcList[sli].min_level >= sortMinLevel && slcList[sli].min_courses_needed) {
           sortMaxPriority = Math.min(sortMaxPriority, slcList[sli].min_courses_needed);
         }
+        if (slcList[sli].min_level >= sortMinLevel && slcList[sli].min_units_needed) {
+          sortUnitPriority = Math.max(sortUnitPriority, slcList[sli].min_units_needed);
+        }
       }
       if (sortMaxPriority === Infinity) sortMaxPriority = 0;
     }
-    if (globalMinLevel && (!sortMinLevel || globalMinLevel < sortMinLevel)) {
+    if (globalMinLevel && globalMinUnits > 0 && (!sortMinLevel || globalMinLevel < sortMinLevel)) {
       sortMinLevel = globalMinLevel;
-      sortMaxPriority = Infinity; // global constraint may need all matching courses
+      sortMaxPriority = 0;
+      sortUnitPriority = globalMinUnits || 0;
+    } else if (globalMinLevel && globalMinUnits > 0 && globalMinLevel === sortMinLevel) {
+      sortUnitPriority = Math.max(sortUnitPriority, globalMinUnits || 0);
     }
     // Separate into two groups: high-priority (first sortMaxPriority level-matching
     // courses by unit desc), then everything else by unit desc.
     var hiPriority = [], loPriority = [];
     var effLevel = function(canon) { return (studentCanonSet._maxLevel && studentCanonSet._maxLevel[canon]) || courseLevel(canon); };
-    if (sortMinLevel > 0 && sortMaxPriority > 0) {
+    if (sortMinLevel > 0 && (sortMaxPriority > 0 || sortUnitPriority > 0)) {
       for (var si = 0; si < matchedCanon.length; si++) {
         var canon = matchedCanon[si];
         if (effLevel(canon) >= sortMinLevel) hiPriority.push(canon);
@@ -374,6 +540,14 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
       }
       hiPriority.sort(function(a, b) { return (studentUnits[b] || 3) - (studentUnits[a] || 3); });
       loPriority.sort(function(a, b) { return (studentUnits[b] || 3) - (studentUnits[a] || 3); });
+      if (sortUnitPriority > 0) {
+        var priorityUnits = 0, unitPriorityCount = 0;
+        while (unitPriorityCount < hiPriority.length && priorityUnits < sortUnitPriority) {
+          priorityUnits += (studentUnits[hiPriority[unitPriorityCount]] || 3);
+          unitPriorityCount++;
+        }
+        sortMaxPriority = Math.max(sortMaxPriority, unitPriorityCount);
+      }
       matchedCanon = hiPriority.slice(0, sortMaxPriority).concat(loPriority).concat(hiPriority.slice(sortMaxPriority));
     } else {
       matchedCanon.sort(function(a, b) {
@@ -395,9 +569,10 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
     rowEarned = matchedUnits;
     progress = reqCanon.length > 0 ? matchedCanon.length / reqCanon.length : 0;
   } else if (strategy === 'pick_n') {
-    // For CUHK minors, a course-count row ("N courses") is always a floor,
-    // since the section header states a unit total.  Allow surplus courses.
-    if (!row.allow_surplus) row.allow_surplus = true;
+    // Only explicit "at least N" rows may consume surplus. Exact "N courses"
+    // and "one course chosen" rows stop after N and leave the rest available
+    // to later rows or sections.
+    row.allow_surplus = row.allow_surplus === true;
     var n = row.n || 1;
     // Check all level constraints (use expanded for counting)
     var constraints = row.level_constraint;
@@ -643,7 +818,7 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
         var meets = true;
         if (strictPick.lc.min_level || 0 > 0) {
           meets = ((studentCanonSet._maxLevel && studentCanonSet._maxLevel[canon]) || courseLevel(canon)) >= (strictPick.lc.min_level || 0);
-          if (strictPick.lc.max_level != null) meets = meets && courseLevel(canon) <= strictPick.lc.max_level;
+          if (strictPick.lc.max_level != null) meets = meets && courseLevel(canon) <= maxLevelUpperBound(strictPick.lc.max_level);
         }
         if (meets) lvlCourses.push(canon); else freeCourses.push(canon);
       }
@@ -756,6 +931,11 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
       var isNeg = bPref.charAt(0) === '!';
       var actualPref = isNeg ? bPref.substring(1) : bPref;
       var bUnits = 0, bCourses = 0;
+      var bucketLevelOk = function(canon) {
+        if (!b.min_level) return true;
+        var effectiveLevel = (studentCanonSet._maxLevel && studentCanonSet._maxLevel[canon]) || courseLevel(canon);
+        return effectiveLevel >= b.min_level;
+      };
       if (b.code_list) {
         for (var ci = 0; ci < matchedCanon.length; ci++) {
           var canon = matchedCanon[ci];
@@ -767,7 +947,7 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
             var numSuffix2 = parts2.length > 1 ? parts2[1] : '';
             if (b.code_list.indexOf(numSuffix2) !== -1) { isMatch = true; break; }
           }
-          if (isMatch) {
+          if (isMatch && bucketLevelOk(canon)) {
             bUnits += (studentUnits[canon] || 3);
             bCourses++;
           }
@@ -775,7 +955,7 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
       } else {
         for (var ci = 0; ci < matchedCanon.length; ci++) {
           var mp = matchedCanon[ci].split(' ')[0];
-          if (isNeg ? (mp !== actualPref) : (mp === actualPref)) {
+          if ((isNeg ? (mp !== actualPref) : (mp === actualPref)) && bucketLevelOk(matchedCanon[ci])) {
             bUnits += (studentUnits[matchedCanon[ci]] || 3);
             bCourses++;
           }
@@ -799,7 +979,7 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
       if (b.min_units && b.min_units > 0) bp = Math.min(bUnits, b.min_units) / b.min_units;
       if (b.min_courses && b.min_courses > 0) bp = Math.min(bp, bCourses / b.min_courses);
       bProgTotal += bp;
-      bucketInfo.push({prefix: actualPref, isNeg: isNeg, units: bUnits, courses: bCourses, min_units: b.min_units, min_courses: b.min_courses, max_units: b.max_units, code_list: b.code_list, label: b.label});
+      bucketInfo.push({prefix: actualPref, isNeg: isNeg, units: bUnits, courses: bCourses, min_units: b.min_units, min_courses: b.min_courses, max_units: b.max_units, min_level: b.min_level, code_list: b.code_list, label: b.label});
     }
     if (!allBucketsOk) result.satisfied = false;
     result.progress = Math.min(result.progress, bProgTotal / row.subject_buckets.length);
@@ -917,15 +1097,20 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
 
   // Compute global level threshold for sorting preference
   var globalMinLevel = 0;
+  var globalMinUnits = 0;
   var glcForSort = minorData.global_level_constraint;
   if (glcForSort) {
     var glcSortList = Array.isArray(glcForSort) ? glcForSort : [glcForSort];
     for (var gli = 0; gli < glcSortList.length; gli++) {
       if (glcSortList[gli].min_level && (!globalMinLevel || glcSortList[gli].min_level < globalMinLevel)) {
         globalMinLevel = glcSortList[gli].min_level;
+        globalMinUnits = glcSortList[gli].min_units_needed || 0;
+      } else if (glcSortList[gli].min_level === globalMinLevel) {
+        globalMinUnits = Math.max(globalMinUnits, glcSortList[gli].min_units_needed || 0);
       }
     }
   }
+  var globalRemainingUnits = globalMinUnits;
 
   for (var si = 0; si < minorData.sections.length; si++) {
     var sec = minorData.sections[si];
@@ -947,9 +1132,36 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
       // Snapshot usedCanonSet before this row (to detect first-consumed vs spillover)
       var preUsed = {};
       for (var key in usedCanonSet) { preUsed[key] = usedCanonSet[key]; }
-      var mr = matchRow(rowData, studentCanonSet, studentUnits, studentRawUnits, canonFn, exclude, studentUnitList, globalMinLevel);
+      var mr = matchRow(rowData, studentCanonSet, studentUnits, studentRawUnits, canonFn, exclude, studentUnitList, globalMinLevel, globalRemainingUnits);
       mr.preUsed = preUsed;
       mr.isNotesEquiv = false; // true when equivalence is from Explanatory Notes
+
+      // A flattened equivalence class is sufficient for matching units, but an
+      // explanatory table can specify which particular requirement course an
+      // external course replaces. Preserve that directional display target.
+      var preferredEqCodes = {};
+      if (minorData.notes_eq_targets) {
+        for (var sci in studentCanonSet._exact) {
+          if (!studentCanonSet._exact.hasOwnProperty(sci) || sci === '__proto__') continue;
+          var targetCode = minorData.notes_eq_targets[sci];
+          if (!targetCode) continue;
+          var targetCanon = canonFn(targetCode);
+          for (var rci = 0; rci < rowData.codes.length; rci++) {
+            if (rowData.codes[rci].code === targetCode && canonFn(rowData.codes[rci].code) === canonFn(sci)) {
+              preferredEqCodes[targetCanon] = targetCode;
+              // Only the directly paired requirement is a match. Other members
+              // of the transitive class must remain uncoloured, not red.
+              for (var rci2 = 0; rci2 < rowData.codes.length; rci2++) {
+                if (canonFn(rowData.codes[rci2].code) === targetCanon) {
+                  delete mr.matchedEquiv[rowData.codes[rci2].code];
+                }
+              }
+              mr.matchedEquiv[targetCode] = true;
+              break;
+            }
+          }
+        }
+      }
 
       // Detect explanatory-notes equivalences: student has a notes_eq_codes
       // course that shares a canonical with a row code
@@ -1017,6 +1229,15 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
           seenCanon[canon2] = true;
         }
       }
+      // If there was no exact requirement-code match, use the directional
+      // target recovered from the explanatory equivalence table.
+      for (var preferredCanon in preferredEqCodes) {
+        if (!preferredEqCodes.hasOwnProperty(preferredCanon) || seenCanon[preferredCanon]) continue;
+        if (mr.consumed && mr.consumed.indexOf(preferredCanon) !== -1) {
+          mr.consumedCodes.push(preferredEqCodes[preferredCanon]);
+          seenCanon[preferredCanon] = true;
+        }
+      }
       // Fallback: for canonicals that didn't get a fresh code, pick first available
       var seenCanon2 = {};
       for (var ci2 = 0; ci2 < rowData.codes.length; ci2++) {
@@ -1057,47 +1278,97 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
       // Rebuild consumed from ALL matched courses, preferring courses that
       // satisfy bucket minimums and deprioritizing limited-by-max courses
       if (mr.bucketInfo && mr.bucketInfo.length > 0) {
-        var mustPreferred = [], neutral = [], postConsumed = [];
-        var mustUnits = 0, neutralUnits = 0, postUnits = 0;
         var allMatched = mr.matched || mr.consumed;
-        for (var ci = 0; ci < allMatched.length; ci++) {
-          var canon = allMatched[ci];
-          var mp = canon.split(' ')[0];
-          var isPref = false, isLimited = false;
-           for (var bi = 0; bi < mr.bucketInfo.length; bi++) {
-             var b = mr.bucketInfo[bi];
-             if (b.code_list) {
-               var inList = false;
-               for (var sci2 in studentCanonSet._exact) {
-                 if (!studentCanonSet._exact.hasOwnProperty(sci2) || sci2 === '__proto__') continue;
-                 if (canonFn(sci2) !== canon) continue;
-                 var np2 = sci2.split(' ').length > 1 ? sci2.split(' ')[1] : '';
-                 if (b.code_list.indexOf(np2) !== -1) { inList = true; break; }
-               }
-               if ((b.min_units || b.min_courses) && inList) isPref = true;
-               if (b.max_units && inList) isLimited = true;
-             } else {
-               if (!b.isNeg && (b.min_units || b.min_courses) && mp === b.prefix) isPref = true;
-               if (b.isNeg && (b.min_units || b.min_courses) && mp !== b.prefix) isPref = true;
-               if (b.isNeg && b.max_units && mp !== b.prefix) isLimited = true;
-               if (!b.isNeg && b.max_units && mp === b.prefix) isLimited = true;
-             }
-          }
-          if (isLimited && !isPref) {
-            postConsumed.push(canon); postUnits += (studentUnits[canon] || 3);
-          } else if (isPref) {
-            mustPreferred.push(canon); mustUnits += (studentUnits[canon] || 3);
+        var orderedBucketCourses = [], bucketSelected = {};
+        var bucketMatches = function(canon, b) {
+          var baseMatch = false;
+          if (b.code_list) {
+            for (var sci2 in studentCanonSet._exact) {
+              if (!studentCanonSet._exact.hasOwnProperty(sci2) || sci2 === '__proto__') continue;
+              if (canonFn(sci2) !== canon) continue;
+              var np2 = sci2.split(' ').length > 1 ? sci2.split(' ')[1] : '';
+              if (b.code_list.indexOf(np2) !== -1) { baseMatch = true; break; }
+            }
           } else {
-            neutral.push(canon); neutralUnits += (studentUnits[canon] || 3);
+            var mp = canon.split(' ')[0];
+            baseMatch = b.isNeg ? mp !== b.prefix : mp === b.prefix;
+          }
+          if (!baseMatch) return false;
+          if (b.min_level) {
+            var effectiveLevel = (studentCanonSet._maxLevel && studentCanonSet._maxLevel[canon]) || courseLevel(canon);
+            if (effectiveLevel < b.min_level) return false;
+          }
+          return true;
+        };
+
+        // Reserve only as many courses as each minimum actually requires. This
+        // guarantees representation from every required subject bucket without
+        // letting the first subject fill the entire row.
+        for (var bi = 0; bi < mr.bucketInfo.length; bi++) {
+          var b = mr.bucketInfo[bi];
+          if (!b.min_courses && !b.min_units) continue;
+          var selectedCourses = 0, selectedUnits = 0;
+          for (var ci = 0; ci < orderedBucketCourses.length; ci++) {
+            if (bucketMatches(orderedBucketCourses[ci], b)) {
+              selectedCourses++;
+              selectedUnits += (studentUnits[orderedBucketCourses[ci]] || 3);
+            }
+          }
+          for (var ci = 0; ci < allMatched.length; ci++) {
+            var canon = allMatched[ci];
+            if ((selectedCourses >= (b.min_courses || 0)) && (selectedUnits >= (b.min_units || 0))) break;
+            if (bucketSelected[canon] || !bucketMatches(canon, b)) continue;
+            orderedBucketCourses.push(canon);
+            bucketSelected[canon] = true;
+            selectedCourses++;
+            selectedUnits += (studentUnits[canon] || 3);
           }
         }
-        // Combine: must-preferred first, then neutral, then limited up to earned
-        var newConsumed2 = mustPreferred.slice().concat(neutral);
-        var cumTotal = mustUnits + neutralUnits;
-        for (var ci = 0; ci < postConsumed.length; ci++) {
+
+        // Fill remaining capacity in the row's level-prioritized order, leaving
+        // max-limited bucket courses until last.
+        var unrestricted = [], maxLimited = [], maxUsage = {};
+        for (var bi = 0; bi < mr.bucketInfo.length; bi++) {
+          var maxBucket = mr.bucketInfo[bi];
+          if (!maxBucket.max_units) continue;
+          maxUsage[bi] = 0;
+          for (var osi = 0; osi < orderedBucketCourses.length; osi++) {
+            if (bucketMatches(orderedBucketCourses[osi], maxBucket)) {
+              maxUsage[bi] += (studentUnits[orderedBucketCourses[osi]] || 3);
+            }
+          }
+        }
+        for (var ci = 0; ci < allMatched.length; ci++) {
+          var canon = allMatched[ci];
+          if (bucketSelected[canon]) continue;
+          var exceedsMaximum = false;
+          var canonUnits = studentUnits[canon] || 3;
+          for (var bi = 0; bi < mr.bucketInfo.length; bi++) {
+            var maxBucket = mr.bucketInfo[bi];
+            if (maxBucket.max_units && bucketMatches(canon, maxBucket) &&
+                (maxUsage[bi] || 0) + canonUnits > maxBucket.max_units) {
+              exceedsMaximum = true;
+              break;
+            }
+          }
+          if (exceedsMaximum) {
+            maxLimited.push(canon);
+          } else {
+            unrestricted.push(canon);
+            for (var bi = 0; bi < mr.bucketInfo.length; bi++) {
+              var acceptedBucket = mr.bucketInfo[bi];
+              if (acceptedBucket.max_units && bucketMatches(canon, acceptedBucket)) {
+                maxUsage[bi] = (maxUsage[bi] || 0) + canonUnits;
+              }
+            }
+          }
+        }
+        orderedBucketCourses = orderedBucketCourses.concat(unrestricted, maxLimited);
+        var newConsumed2 = [], cumTotal = 0;
+        for (var ci = 0; ci < orderedBucketCourses.length; ci++) {
           if (cumTotal >= mr.rowEarned) break;
-          newConsumed2.push(postConsumed[ci]);
-          cumTotal += (studentUnits[postConsumed[ci]] || 3);
+          newConsumed2.push(orderedBucketCourses[ci]);
+          cumTotal += (studentUnits[orderedBucketCourses[ci]] || 3);
         }
         mr.consumed = newConsumed2;
         // Rebuild consumedCodes to match the new consumedCanon
@@ -1141,6 +1412,12 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
         var consumedNow = Math.min(remaining, studentUnits[canon] || 3);
         usedCanonSet[canon] = (usedCanonSet[canon] || 0) + consumedNow;
         mr.consumedUnits[canon] = (mr.consumedUnits[canon] || 0) + consumedNow;
+        if (globalRemainingUnits > 0 && globalMinLevel > 0) {
+          var consumedLevel = (studentCanonSet._maxLevel && studentCanonSet._maxLevel[canon]) || courseLevel(canon);
+          if (consumedLevel >= globalMinLevel) {
+            globalRemainingUnits = Math.max(0, globalRemainingUnits - consumedNow);
+          }
+        }
       }
     }
 
@@ -1266,21 +1543,43 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
         }
       }
     }
-    // Count student courses at required levels (dedup by canonical)
-    var allStudentCanon = [];
-    var allCanonSeen = {};
+    // Keep distinct courses even when they share a canonical equivalence key.
+    // The row allocator permits their raw units to spill into later rows, so the
+    // global level check must not collapse (for example) two EDUC electives into
+    // a single three-unit course.
+    var eligibleStudentCourses = [];
+    var eligibleStudentSeen = {};
     for (var i = 0; i < studentCourses.length; i++) {
-      var sc = canonFn(studentCourses[i].code);
-      if (eligibleCanon[sc] && !allCanonSeen[sc]) {
-        allStudentCanon.push(sc);
-        allCanonSeen[sc] = true;
+      var studentCode = studentCourses[i].code;
+      var sc = canonFn(studentCode);
+      if (eligibleCanon[sc] && !eligibleStudentSeen[studentCode]) {
+        eligibleStudentCourses.push(studentCourses[i]);
+        eligibleStudentSeen[studentCode] = true;
       }
     }
     // Use the strictest global constraint
     var strictGLC = null;
     var strictLv = null;
     for (var i = 0; i < glcList.length; i++) {
-      var lv = countLevelMatches(allStudentCanon, glcList[i], studentUnits, studentCanonSet._maxLevel);
+      var glConstraint = glcList[i];
+      var lv = {units: 0, count: 0};
+      for (var esi = 0; esi < eligibleStudentCourses.length; esi++) {
+        var eligibleCourse = eligibleStudentCourses[esi];
+        var eligibleLevel = courseLevel(eligibleCourse.code);
+        var withinLevel = eligibleLevel >= (glConstraint.min_level || 0);
+        if (glConstraint.max_level !== null && glConstraint.max_level !== undefined) {
+          withinLevel = withinLevel && eligibleLevel <= maxLevelUpperBound(glConstraint.max_level);
+        }
+        if (withinLevel) {
+          var levelCourseUnits = eligibleCourse.unit || (courseIndex[eligibleCourse.code] && courseIndex[eligibleCourse.code].unit) || 3;
+          var levelCap = minorData.level_unit_caps && minorData.level_unit_caps[eligibleCourse.code];
+          if (levelCap && (glConstraint.min_level || 0) >= (levelCap.min_level || 0)) {
+            levelCourseUnits = Math.min(levelCourseUnits, levelCap.units);
+          }
+          lv.units += levelCourseUnits;
+          lv.count++;
+        }
+      }
       if (!strictGLC || (glcList[i].min_level || 0) > (strictGLC.min_level || 0)) {
         strictGLC = glcList[i];
         strictLv = lv;
@@ -1291,17 +1590,10 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
       var glFree = Math.max(0, totalTarget - glNeed);
       var glGot = Math.min(strictLv.units, glNeed);
       var glOvf = Math.max(0, strictLv.units - glNeed);
-      // total eligible student units at any level (dedup by canonical)
-      var allStudentUnits = 0;
-      var allUnitsSeen = {};
-      for (var i = 0; i < studentCourses.length; i++) {
-        var sc = canonFn(studentCourses[i].code);
-        if (eligibleCanon[sc] && !allUnitsSeen[sc]) {
-          allStudentUnits += (studentUnits[sc] || 3);
-          allUnitsSeen[sc] = true;
-        }
-      }
-      var glFreePool = Math.max(0, allStudentUnits - strictLv.units) + glOvf;
+      // Use row/section-earned units as the overall pool. An equivalent course
+      // may satisfy a six-unit requirement while contributing fewer units to a
+      // particular level bucket (for example HKSL3050 under explanatory note b).
+      var glFreePool = Math.max(0, totalEarned - strictLv.units) + glOvf;
       var glFreeGot = Math.min(glFreePool, glFree);
       var cappedEarned = glGot + glFreeGot;
       // Global constraint only produces loss when the level bucket is unfilled.
@@ -1480,6 +1772,14 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
         }
       }
     }
+    // Keep the headline total synchronized with the per-section subtraction,
+    // while preserving any stricter global-level or faculty cap already applied.
+    var sectionEarnedAfterWaiver = 0;
+    for (var si = 0; si < sections.length; si++) {
+      sectionEarnedAfterWaiver += sections[si].earned_units;
+    }
+    totalEarned = Math.min(totalEarned, sectionEarnedAfterWaiver, totalTarget);
+    overall = totalTarget > 0 ? totalEarned / totalTarget : 0;
   }
 
   // Add extra credit from summer course etc. rules (outside waiver block)
@@ -1982,6 +2282,27 @@ def generate(year):
     # Merge using proper JSON parsing
     courses_obj = json.loads(courses_data)
     minors_obj = json.loads(minors_data)
+    for minor in minors_obj["minors"].values():
+        _enrich_checker_rules(minor)
+        direct_eq = _extract_direct_notes_equivalences(minor.get("explanatory_notes", ""))
+        eq_norm = minor.get("eq_norm", {})
+
+        def canonical(code):
+            seen = set()
+            while code in eq_norm and code not in seen:
+                seen.add(code)
+                code = eq_norm[code]
+            return code
+
+        # Ignore layout-only table pairings: a recovered pair is actionable only
+        # when the existing checker data already puts both courses in one class.
+        direct_eq = {
+            source: target
+            for source, target in direct_eq.items()
+            if source != target and canonical(source) == canonical(target)
+        }
+        if direct_eq:
+            minor["notes_eq_targets"] = direct_eq
     merged = {"courses": courses_obj["courses"], "minors": minors_obj["minors"]}
     checker_data = json.dumps(merged, ensure_ascii=False)
 
