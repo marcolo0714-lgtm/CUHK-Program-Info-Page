@@ -44,21 +44,24 @@ Department course listings.
 Files with `_auto_generated: false` are skipped by `generate_minor_json.py` on
 regeneration to preserve manual structural fixes.
 
-### 2024_25 (10 files)
+### 2024_25 (11 files)
 
 | File | Edits |
 |---|---|
 | **Artificial_Intelligence_Systems_and_Technologies.json** | OK — notes index 2 already has dot |
 | **Biochemistry.json** | Removed false eq_pair `["BCHE 3030", "BCHE 3730"]` |
 | **Biology.json** | Removed false eq_pair `["BIOL 3560", "BIOL 3610"]` |
+| **HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language.json** | Removed all false `eq_pairs`; the listed elective courses are alternatives, not equivalent courses |
+| **HB_Minor_Programme_in_Chinese_Language_(Putonghua)_as_a_Second_Language.json** | Removed all false `eq_pairs`; the listed elective courses are alternatives, not equivalent courses |
 | **HB_Minor_Programme_in_Business.json** | `elective.label`: dropped "12 units"; `elective.rows[0].units` set to "12" |
 | **HB_Minor_Programme_in_Data_Analytics_and_Informatics.json** | Flattened 1(a) i/OR/ii into single row: `"(a) ENGG2760... AND ENGG2780..., OR IERG2470..."` |
 | **Japanese_Studies.json** | `elective.rows[0].units` set to "6"; `rows[2].units` set to "12"; `elective.label` dropped " : 6 units" |
+| **Hong_Kong_Sign_Language.json** | Added `checker_disable_or_groups: true` to the Section 2 row so its combined BMBL/HKSL pool is calculated as 6 units rather than as competing OR groups |
 | **Molecular_Biotechnology.json** | Set `required.units="6"`; `elective.units` to "14"; `required.label` set to "1. Required Courses: 5 or 6 units" |
 | **Music.json** | `elective.rows[0].units` set to "4"; `rows[1].units` set to "7"; row 2b text updated to match override key (355 chars, full excluded-course list) |
 | **Sociology.json** | Set `elective.rows[0].units="15"`; Prepended "15 units" to row text |
 
-### 2025_26 (11 files)
+### 2025_26 (13 files)
 
 | File | Edits |
 |---|---|
@@ -66,6 +69,8 @@ regeneration to preserve manual structural fixes.
 | **Biochemistry.json** | Removed false eq_pair `["BCHE 3030", "BCHE 3730"]` |
 | **Biology.json** | Removed false eq_pair `["BIOL 3560", "BIOL 3610"]` |
 | **Chinese_Language_and_Literature.json** | Manual course code corrections |
+| **HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language.json** | Removed all false `eq_pairs`; the listed elective courses are alternatives, not equivalent courses |
+| **HB_Minor_Programme_in_Chinese_Language_(Putonghua)_as_a_Second_Language.json** | Removed all false `eq_pairs`; the listed elective courses are alternatives, not equivalent courses |
 | **HB_Minor_Programme_in_Business.json** | `elective.label`: dropped "12 units"; `elective.rows[0].units` set to "12" |
 | **HB_Minor_Programme_in_Data_Analytics_and_Informatics.json** | Flattened nested-or rows, removed "OR" row |
 | **Japanese_Studies.json** | Moved "6" from section to `rows[0].units`; set `rows[2].units="12"` |
@@ -74,13 +79,15 @@ regeneration to preserve manual structural fixes.
 | **Philosophy.json** | Merged split `<tr>` for note 2 |
 | **Sociology.json** | Set `elective.rows[0].units="15"`; prepended "15 units from the following…" |
 
-### 2026_27 (10 files)
+### 2026_27 (12 files)
 
 | File | Edits |
 |---|---|
 | **Artificial_Intelligence_Systems_and_Technologies.json** | Added period to notes index "2" → "2." |
 | **Biochemistry.json** | Same as 2025_26 (false eq_pair removed, _auto_generated: false) |
 | **Biology.json** | Same as 2025_26 (false eq_pair removed, _auto_generated: false) |
+| **HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language.json** | Removed all false `eq_pairs`; the listed elective courses are alternatives, not equivalent courses |
+| **HB_Minor_Programme_in_Chinese_Language_(Putonghua)_as_a_Second_Language.json** | Removed all false `eq_pairs`; the listed elective courses are alternatives, not equivalent courses |
 | **HB_Minor_Programme_in_Business.json** | `elective.label`: dropped "12 units"; `elective.rows[0].units` set to "12" |
 | **HB_Minor_Programme_in_Data_Analytics_and_Informatics.json** | Flattened 1(a) i/OR/ii into single row |
 | **Japanese_Studies.json** | Same as 2025_26; `elective.label` dropped " : 6 units" (_auto_generated: false) |

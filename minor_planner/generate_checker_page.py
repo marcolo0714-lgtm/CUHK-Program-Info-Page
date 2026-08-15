@@ -1032,6 +1032,7 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
   // Waiver rules: add synthetic courses for waiver, track credit_units
   var waiverSet = {}; // waived course codes that are active
   var waiverActive = false;
+  var waiverReplacementCandidates = {}; // waived code -> entered subject substitutes
   var extraCreditTotal = 0;
   var sectionCredit = {};
   var sectionTriggers = {}; // section_idx -> [trigger_codes] for credit rules
@@ -1053,6 +1054,17 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
         continue;
       }
       // Standard waiver rules
+      if (wr.substitute_prefix) {
+        if (!waiverReplacementCandidates[wr.waive]) waiverReplacementCandidates[wr.waive] = [];
+        for (var rsi = 0; rsi < studentCourses.length; rsi++) {
+          var replacement = studentCourses[rsi];
+          if (replacement._waived || replacement._and_group || replacement.code === wr.waive) continue;
+          if (replacement.code.split(' ')[0] === wr.substitute_prefix &&
+              waiverReplacementCandidates[wr.waive].indexOf(replacement.code) === -1) {
+            waiverReplacementCandidates[wr.waive].push(replacement.code);
+          }
+        }
+      }
       var wUnit = (courseIndex[wr.waive] && courseIndex[wr.waive].unit) || 3;
       studentCourses.push({code: wr.waive, unit: wUnit, _waived: true});
       waiverSet[wr.waive] = true;
@@ -1687,6 +1699,27 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
   var waiverSatisfied = false; // true if ALL waived courses are satisfied
   var waiverSatisfiedSet = {}; // per-course satisfied flags
   if (waiverActive) {
+    // Subject-based substitutes may be courses outside every listed row.  Such
+    // an otherwise-unconsumed course supplies the waived course's units.
+    var waiverConsumedCanon = {};
+    for (var wsi = 0; wsi < sections.length; wsi++) {
+      for (var wri = 0; wri < sections[wsi].rows.length; wri++) {
+        var waiverConsumed = sections[wsi].rows[wri].consumedCodes || [];
+        for (var wcci = 0; wcci < waiverConsumed.length; wcci++) {
+          waiverConsumedCanon[canonFn(waiverConsumed[wcci])] = true;
+        }
+      }
+    }
+    var explicitWaiverReplacementSet = {};
+    for (var waivedCode in waiverReplacementCandidates) {
+      var replacementCodes = waiverReplacementCandidates[waivedCode];
+      for (var wrci = 0; wrci < replacementCodes.length; wrci++) {
+        if (!waiverConsumedCanon[canonFn(replacementCodes[wrci])]) {
+          explicitWaiverReplacementSet[waivedCode] = true;
+          break;
+        }
+      }
+    }
     var waivedUnitSum = 0;
     var sectWaived = {};
     for (var si = 0; si < sections.length; si++) {
@@ -1737,7 +1770,9 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
           var wCanon = canonFn(wcCode);
           if (studentCanonSet._waived && studentCanonSet._waived[wCanon]) {
             var wu = (courseIndex[wcCode] && courseIndex[wcCode].unit) || 3;
-            if (remainingSurplus >= wu) {
+            if (explicitWaiverReplacementSet[wcCode]) {
+              waiverSatisfiedSet[wcCode] = true;
+            } else if (remainingSurplus >= wu) {
               remainingSurplus -= wu;
               waiverSatisfiedSet[wcCode] = true;
             } else {

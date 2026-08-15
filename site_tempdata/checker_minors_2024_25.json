@@ -10882,10 +10882,7 @@
       "faculty": "Other",
       "description": "Students are required to complete a minimum of 21 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 21.0,
-      "eq_norm": {
-        "CLCC 4423": "CLCC 4513",
-        "LING 3206": "LING 3207"
-      },
+      "eq_norm": {},
       "sections": [
         {
           "label": "1. Required Courses",
@@ -10950,7 +10947,7 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 4,
+              "dedup_count": 5,
               "units_needed": 3.0
             },
             {
@@ -10978,7 +10975,7 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 4,
+              "dedup_count": 5,
               "units_needed": 3.0
             }
           ]
@@ -11001,10 +10998,7 @@
       "faculty": "Other",
       "description": "Students are required to complete a minimum of 21 units of courses, with at least 6 units at 3000 or above level, as follows:",
       "total_units": 21.0,
-      "eq_norm": {
-        "CLCP 4533": "CLCP 4633",
-        "LING 3206": "LING 3207"
-      },
+      "eq_norm": {},
       "sections": [
         {
           "label": "1. Required Courses",
@@ -11069,7 +11063,7 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 4,
+              "dedup_count": 5,
               "units_needed": 3.0
             },
             {
@@ -11125,7 +11119,7 @@
                 }
               ],
               "strategy": "units",
-              "dedup_count": 11,
+              "dedup_count": 12,
               "units_needed": 3.0
             }
           ]
@@ -13888,34 +13882,8 @@
                   "unit": 3.0
                 }
               ],
-              "strategy": "or_group",
+              "strategy": "units",
               "dedup_count": 14,
-              "or_groups": [
-                {
-                  "codes": [
-                    "BMBL 1001",
-                    "BMBL 1002",
-                    "HKSL 3001",
-                    "BMBL 2001",
-                    "BMBL 2002",
-                    "BMBL 2003",
-                    "BMBL 2004",
-                    "BMBL 2005",
-                    "BMBL 3002",
-                    "HKSL 3002",
-                    "BMBL 3003",
-                    "HKSL 3003"
-                  ],
-                  "dedup_count": 12
-                },
-                {
-                  "codes": [
-                    "HKSL 1100",
-                    "HKSL 3100"
-                  ],
-                  "dedup_count": 2
-                }
-              ],
               "units_needed": 6.0
             }
           ]
@@ -20563,7 +20531,8 @@
         {
           "trigger": "UGED 2581",
           "waive": "PSYC 1000",
-          "replace_section": 1
+          "replace_section": 1,
+          "substitute_prefix": "PSYC"
         }
       ],
       "faculty_caps": {}

@@ -151,16 +151,22 @@ def detect_notes_eq_rules(raw_html):
     # 3. Substitution: "taken X should take another Y course as a substitute of Z"
     for m in re.finditer(
         r'(?:have\s+taken|who\s+have\s+taken)\s+' + code_pat + r'\s+'
-        r'should\s+take\s+another\s+\w+\s+courses?\s+as\s+a\s+substitute\s+of\s+'
+        r'should\s+take\s+another\s+([A-Z]{2,5})\s+courses?\s+as\s+a\s+substitute\s+of\s+'
         + code_pat + r'\b',
         text, re.IGNORECASE,
     ):
         trigger = _norm_code(m.group(1))
-        waived = _norm_code(m.group(2))
+        substitute_prefix = m.group(2).upper()
+        waived = _norm_code(m.group(3))
         key = f"{trigger}|{waived}"
         if key not in seen_waivers:
             seen_waivers.add(key)
-            waiver_rules.append({"trigger": trigger, "waive": waived, "replace_section": 1})
+            waiver_rules.append({
+                "trigger": trigger,
+                "waive": waived,
+                "replace_section": 1,
+                "substitute_prefix": substitute_prefix,
+            })
     if waiver_rules:
         result["waiver_rules"] = waiver_rules
 
@@ -772,6 +778,7 @@ def merge_header_code_rows(rows):
                 "codes": all_codes,
                 "units_meta": units_meta,
                 "units_max_meta": units_max_meta,
+                "checker_disable_or_groups": bool(row.get("checker_disable_or_groups")),
             })
         else:
             merged.append({
@@ -779,6 +786,7 @@ def merge_header_code_rows(rows):
                 "codes": list(codes),
                 "units_meta": units_meta,
                 "units_max_meta": units_max_meta,
+                "checker_disable_or_groups": bool(row.get("checker_disable_or_groups")),
             })
 
         i += 1
@@ -1569,8 +1577,11 @@ def generate(year):
                     "dedup_count": len(dedup_codes),
                 }
 
-                # Detect OR groups in the text (overrides strategy if found)
-                or_groups = build_or_groups(r["text"], codes, eq_norm)
+                # Detect OR groups in the text (overrides strategy if found),
+                # unless a manually reviewed row is one combined unit pool.
+                or_groups = [] if r.get("checker_disable_or_groups") else build_or_groups(
+                    r["text"], codes, eq_norm
+                )
                 if or_groups:
                     row_out["strategy"] = "or_group"
                     row_out.pop("n", None)
