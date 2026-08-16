@@ -26,6 +26,11 @@ Scrapes and validates course catalog data from the Chinese University of Hong Ko
 
 9. **Checker page** — `generate_checker_page.py` and `generate_checker_data.py` build a self-contained interactive checker (`site/{year}/checker.html`) that lets students paste their CUSIS transcript and see their progress toward every minor, including equivalence rules, cross-row exclusions, waiver rules, faculty caps, and level constraints — all auto-detected from explanatory notes.
 
+10. **Combined major/minor site** — `sync_major_site.py` copies the generated
+major pages from the sibling `CUHK_major_info/public/2026_27/` directory into
+`site/major/2026_27/`. The root `site/index.html` lets visitors choose Major or
+Minor information before entering either site.
+
 ## Quick start
 
 ### Install
@@ -72,6 +77,7 @@ python resolve_course_descriptions.py --apply --year 2025_26   # generate course
 python ..\minor_planner\generate_checker_data.py --year 2025_26
 python ..\minor_planner\generate_checker_page.py --year 2025_26
 python generate_minor_site.py --year 2025_26                    # static site → site/{year}/
+python sync_major_site.py                                       # major site → site/major/
 ```
 
 > **Note:** The site auto-reads `course_overrides/{year}.json` if present and injects course tables for resolved text-only rows. If the file is missing, the site still works — just without those tables.

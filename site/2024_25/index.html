@@ -82,10 +82,6 @@ tr:hover { background:#f9f9f9; }
     border-radius:8px; overflow:hidden; }
 .notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
 .notes-table-section tr:hover { background:#f9f9f9; }
-.checker-btn { display:inline-block; padding:10px 24px; background:var(--accent);
-    color:#fff; border-radius:8px; font-weight:600; font-size:.95em;
-    text-decoration:none; margin-bottom:18px; }
-.checker-btn:hover { opacity:.9; text-decoration:none; }
 .checker-link { display:inline-block; font-size:.85em; color:var(--accent);
     margin-left:12px; }
 
@@ -187,14 +183,27 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
 /* ── Remove nav-bar top border when directly after top-bar ── */
 .top-bar + .nav-bar { border-top:none; padding-top:4px; margin-top:0; }
+
+.index-actions { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 24px; }
+.index-action { display:inline-flex; align-items:center; padding:9px 14px;
+    background:#e8f0fe; color:var(--accent); border:1px solid #c7d8f7;
+    border-radius:6px; font-weight:600; font-size:.9em; text-decoration:none;
+    box-shadow:0 1px 2px rgba(37,99,235,.08);
+    transition:background .15s,border-color .15s,box-shadow .15s; }
+.index-action:hover { background:#dbe8fd; border-color:var(--accent);
+    box-shadow:0 2px 5px rgba(37,99,235,.15); text-decoration:none; }
+.index-action-primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+.index-action-primary:hover { background:#1d4ed8; color:#fff; }
 </style>
 </head>
 <body class="page-index">
 <div class="container">
 <select onchange="window.location=this.value" class="year-select"><option value="../2024_25/index.html" selected>2024-25</option><option value="../2025_26/index.html" >2025-26</option><option value="../2026_27/index.html" >2026-27</option></select>
 <h1>CUHK Minor Programmes</h1><p class="meta">71 minor programmes &middot; For students admitted in 2024-25</p>
-<br>
-<a href="checker.html" class="checker-btn">Check Your Minor Progress &rarr;</a>
+<div class="index-actions">
+<a href="checker.html" class="index-action index-action-primary">Check Your Minor Progress &rarr;</a>
+<a href="../major/index.html" class="index-action">View Major Programmes &rarr;</a>
+</div>
 <h2>Arts</h2>
 <div class="card-grid">
 <a href="minors/Anthropology.html"><div class="card"><span class="card-code">Anthropology</span></div></a>

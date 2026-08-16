@@ -148,10 +148,6 @@ tr:hover { background:#f9f9f9; }
     border-radius:8px; overflow:hidden; }
 .notes-table-section td { padding:9px 13px; border-bottom:1px solid var(--tbl-border); }
 .notes-table-section tr:hover { background:#f9f9f9; }
-.checker-btn { display:inline-block; padding:10px 24px; background:var(--accent);
-    color:#fff; border-radius:8px; font-weight:600; font-size:.95em;
-    text-decoration:none; margin-bottom:18px; }
-.checker-btn:hover { opacity:.9; text-decoration:none; }
 .checker-link { display:inline-block; font-size:.85em; color:var(--accent);
     margin-left:12px; }
 
@@ -378,6 +374,20 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;}})();
 </html>"""
 
 
+INDEX_ACTION_CSS = """
+.index-actions { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 24px; }
+.index-action { display:inline-flex; align-items:center; padding:9px 14px;
+    background:#e8f0fe; color:var(--accent); border:1px solid #c7d8f7;
+    border-radius:6px; font-weight:600; font-size:.9em; text-decoration:none;
+    box-shadow:0 1px 2px rgba(37,99,235,.08);
+    transition:background .15s,border-color .15s,box-shadow .15s; }
+.index-action:hover { background:#dbe8fd; border-color:var(--accent);
+    box-shadow:0 2px 5px rgba(37,99,235,.15); text-decoration:none; }
+.index-action-primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+.index-action-primary:hover { background:#1d4ed8; color:#fff; }
+"""
+
+
 def index_page(page_title, body):
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -391,7 +401,7 @@ def index_page(page_title, body):
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="icon" href="favicon.ico" sizes="any">
 <title>{page_title}</title>
-<style>{CSS}</style>
+<style>{CSS}{INDEX_ACTION_CSS}</style>
 </head>
 <body class="page-index">
 <div class="container">
@@ -1297,12 +1307,29 @@ def generate(year):
         f"<h1>CUHK Minor Programmes</h1>"
         f'<p class="meta">{len(index_order)} minor programmes &middot; '
         f'For students admitted in {year_display}</p>\n'
-        f'<br>\n'
-        f'<a href="checker.html" class="checker-btn">Check Your Minor Progress &rarr;</a>\n'
+        f'<div class="index-actions">\n'
+        f'<a href="checker.html" class="index-action index-action-primary">Check Your Minor Progress &rarr;</a>\n'
+        f'<a href="../major/index.html" class="index-action">View Major Programmes &rarr;</a>\n'
+        f'</div>\n'
         f"{cards_html}"
     )
     (SITE_DIR / "index.html").write_text(
         index_page("CUHK Minor Programmes", index_body), encoding="utf-8"
+    )
+
+    # Keep the site root pointed at the latest generated minor-programme year.
+    latest_year = checker_years[-1] if checker_years else year
+    latest_label = latest_year.replace("_", "-")
+    (site_base / "index.html").write_text(
+        '<!DOCTYPE html>\n'
+        '<html lang="en">\n'
+        '<head><meta charset="UTF-8">'
+        f'<meta http-equiv="refresh" content="0;url={latest_year}/index.html">'
+        '<title>CUHK Minor Programmes</title></head>\n'
+        f'<body><p>Redirecting to <a href="{latest_year}/index.html">'
+        f'{latest_label} Minor Programmes</a>...</p></body>\n'
+        '</html>\n',
+        encoding="utf-8",
     )
 
     # ── Report ──
