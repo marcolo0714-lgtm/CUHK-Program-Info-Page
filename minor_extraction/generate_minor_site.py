@@ -4,6 +4,11 @@ import argparse
 import sys
 from pathlib import Path
 
+try:
+    from .seo_config import SITE_NAME, absolute_url, breadcrumb_data, seo_head, write_discovery_files
+except ImportError:
+    from seo_config import SITE_NAME, absolute_url, breadcrumb_data, seo_head, write_discovery_files
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--year", default=None, help="Admission year (e.g. 2025_26). If omitted, processes all years.")
 args = parser.parse_args()
@@ -335,7 +340,7 @@ FOOTER_HTML = """\
 </div>"""
 
 
-def minor_page(page_title, body, sidebar_html):
+def minor_page(page_title, body, sidebar_html, description, canonical_path, structured_data):
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -347,7 +352,7 @@ def minor_page(page_title, body, sidebar_html):
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="icon" href="../favicon.ico" sizes="any">
-<title>{page_title}</title>
+{seo_head(page_title, description, canonical_path, structured_data)}
 <style>{CSS}</style>
 </head>
 <body>
@@ -388,7 +393,7 @@ INDEX_ACTION_CSS = """
 """
 
 
-def index_page(page_title, body):
+def index_page(page_title, body, description, canonical_path, structured_data):
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -400,7 +405,7 @@ def index_page(page_title, body):
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="icon" href="favicon.ico" sizes="any">
-<title>{page_title}</title>
+{seo_head(page_title, description, canonical_path, structured_data)}
 <style>{CSS}{INDEX_ACTION_CSS}</style>
 </head>
 <body class="page-index">
@@ -885,7 +890,7 @@ def build_detail_page(data, course_index, overrides, year, available_years,
         build_nav(prev_stem, prev_title, next_stem, next_title),
     ]
     faculty = data.get("faculty", "")
-    title_html = f"<h1>{title}</h1>"
+    title_html = f"<h1>{title} &mdash; CUHK Minor Requirements ({year_display})</h1>"
     if faculty and faculty != "Unknown":
         title_html += f'<span class="meta">{faculty}</span>'
     body.append(f'<div class="title-row">{title_html}</div>')
@@ -1206,6 +1211,13 @@ def generate(year):
         print("No JSON files found. Run generate_minor_json.py first.")
         return
 
+    # Detail pages are generated artifacts. Remove obsolete filenames so renamed
+    # programmes cannot remain publicly accessible as duplicate, metadata-less pages.
+    expected_stems = {path.stem for path in json_files}
+    for old_page in site_minors_dir.glob("*.html"):
+        if old_page.stem not in expected_stems:
+            old_page.unlink()
+
     index_cards = []
     not_found_acc = set()
 
@@ -1268,7 +1280,25 @@ def generate(year):
                                  next_stem=next_info[0] if next_info else None,
                                  next_title=next_info[1] if next_info else None)
         sidebar_html = build_sidebar_html(index_order, stem)
-        page = minor_page(f"Minor: {data['title']}", body, sidebar_html)
+        year_display = year.replace("_", "-")
+        page_title = f"{data['title']} Minor Requirements {year_display} | CUHK"
+        description = (
+            f"View the {data['title']} minor programme requirements for CUHK students "
+            f"admitted in {year_display}, including courses, units, prerequisites and notes."
+        )
+        canonical_path = f"/{year}/minors/{stem}"
+        structured_data = breadcrumb_data([
+            ("CUHK Minor Programme List", f"/{year}/"),
+            (data["title"], canonical_path),
+        ])
+        page = minor_page(
+            page_title,
+            body,
+            sidebar_html,
+            description,
+            canonical_path,
+            structured_data,
+        )
         (site_minors_dir / f"{stem}.html").write_text(page, encoding="utf-8")
 
     # ── Index page ──
@@ -1301,10 +1331,41 @@ def generate(year):
         for y in checker_years
     )
 
+    latest_year = checker_years[-1] if checker_years else year
+    index_title = f"CUHK Minor Programme List {year_display} | Requirements and Progress Checker"
+    index_description = (
+        f"Browse all {len(index_order)} CUHK minor programmes for {year_display}. "
+        "View course requirements, units, prerequisites and explanatory notes, or check your progress."
+    )
+    item_list = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": f"CUHK Minor Programme List {year_display}",
+        "numberOfItems": len(index_order),
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": position,
+                "name": card["title"],
+                "url": absolute_url(f"/{year}/minors/{card['stem']}"),
+            }
+            for position, card in enumerate(index_order, start=1)
+        ],
+    }
+    structured_data = [item_list]
+    if year == latest_year:
+        structured_data.insert(0, {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": SITE_NAME,
+            "alternateName": "CUHK Minor Programme List",
+            "url": absolute_url("/"),
+        })
+
     index_body = (
         f'<select onchange="window.location=this.value" class="year-select">'
         f'{year_options}</select>\n'
-        f"<h1>CUHK Minor Programmes</h1>"
+        f"<h1>CUHK Minor Programme List ({year_display})</h1>"
         f'<p class="meta">{len(index_order)} minor programmes &middot; '
         f'For students admitted in {year_display}</p>\n'
         f'<div class="index-actions">\n'
@@ -1314,11 +1375,17 @@ def generate(year):
         f"{cards_html}"
     )
     (SITE_DIR / "index.html").write_text(
-        index_page("CUHK Minor Programmes", index_body), encoding="utf-8"
+        index_page(
+            index_title,
+            index_body,
+            index_description,
+            f"/{year}/",
+            structured_data,
+        ),
+        encoding="utf-8",
     )
 
     # Keep the site root pointed at the latest generated minor-programme year.
-    latest_year = checker_years[-1] if checker_years else year
     latest_label = latest_year.replace("_", "-")
     (site_base / "index.html").write_text(
         '<!DOCTYPE html>\n'
@@ -1331,6 +1398,7 @@ def generate(year):
         '</html>\n',
         encoding="utf-8",
     )
+    write_discovery_files(site_base)
 
     # ── Report ──
     total_req = sum(c["req_count"] for c in index_order)

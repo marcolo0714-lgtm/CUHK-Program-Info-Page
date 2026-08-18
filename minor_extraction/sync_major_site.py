@@ -6,6 +6,11 @@ import shutil
 import stat
 from pathlib import Path
 
+try:
+    from .seo_config import write_discovery_files
+except ImportError:
+    from seo_config import write_discovery_files
+
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_MAJOR_ROOT = ROOT.parent / "CUHK_major_info"
@@ -48,6 +53,8 @@ def sync_major_site(major_root: Path) -> None:
         cloudflare_html = html.replace(VERCEL_ANALYTICS, "")
         if cloudflare_html != html:
             html_path.write_text(cloudflare_html, encoding="utf-8")
+
+    write_discovery_files(ROOT / "site")
 
     print("Synced generated major pages to site/major/")
 

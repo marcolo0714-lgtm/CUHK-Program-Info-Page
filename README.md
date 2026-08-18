@@ -28,8 +28,14 @@ Scrapes and validates course catalog data from the Chinese University of Hong Ko
 
 10. **Combined major/minor site** — `sync_major_site.py` copies the generated
 major pages from the sibling `CUHK_major_info/public/2026_27/` directory into
-`site/major/2026_27/`. The root `site/index.html` lets visitors choose Major or
-Minor information before entering either site.
+`site/major/2026_27/`. The site root redirects to the latest minor index, and
+the minor and Engineering-major indexes link to each other.
+
+11. **Search metadata and discovery** — `seo_config.py` defines the production
+origin (`https://cuhk-minor.coffeebreak.work`) and supplies canonical URLs,
+descriptions, Open Graph tags, and structured data to the generated pages. Site
+generation also refreshes `site/sitemap.xml`, `site/robots.txt`, and the
+Cloudflare Pages `site/_redirects` rules.
 
 ## Quick start
 

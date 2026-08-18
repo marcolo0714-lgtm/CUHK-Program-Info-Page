@@ -14,6 +14,12 @@ from html.parser import HTMLParser
 from html import unescape
 from pathlib import Path
 
+try:
+    from minor_extraction.seo_config import absolute_url, seo_head, write_discovery_files
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "minor_extraction"))
+    from seo_config import absolute_url, seo_head, write_discovery_files
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--year", default=None, help="Admission year (e.g. 2025_26). If omitted, processes all years.")
 args = parser.parse_args()
@@ -2252,14 +2258,14 @@ CHECKER_HTML_TEMPLATE = """\
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Minor Progress Checker - CUHK</title>
+{seo_metadata}
 <style>{css}</style>
 </head>
 <body>
 <div class="container">
   <a href="index.html" class="back-link">&larr; Back to Minor Programmes</a>
   {year_select}
-  <h1>Minor Progress Checker</h1>
+  <h1>CUHK Minor Progress Checker ({year_display})</h1>
   <p class="summary">Paste your CUSIS academic records to find which CUHK minor programmes you are closest to completing.</p>
 
   <div class="section">
@@ -2350,16 +2356,42 @@ def generate(year):
         for y in available_years
     ) + '</select>'
 
+    year_display = year.replace("_", "-")
+    checker_title = f"CUHK Minor Progress Checker {year_display}"
+    checker_description = (
+        f"Check progress toward CUHK minor programme requirements for {year_display} "
+        "using courses copied from CUSIS academic records."
+    )
+    checker_path = f"/{year}/checker"
+    structured_data = {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": checker_title,
+        "url": absolute_url(checker_path),
+        "description": checker_description,
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": True,
+    }
+
     html = CHECKER_HTML_TEMPLATE.format(
         css=CHECKER_CSS,
         checker_data_json=checker_data,
         js=CHECKER_JS,
         year=year,
+        year_display=year_display,
         year_select=year_select,
+        seo_metadata=seo_head(
+            checker_title,
+            checker_description,
+            checker_path,
+            structured_data,
+        ),
     )
 
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_FILE.write_text(html, encoding="utf-8")
+    write_discovery_files(site_dir)
     print(f"Generated: site/{year}/checker.html")
     print(f"  Size: {len(html) / 1024:.0f} KB")
 
