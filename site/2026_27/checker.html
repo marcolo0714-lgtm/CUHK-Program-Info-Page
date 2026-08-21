@@ -1740,16 +1740,19 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
           }
         }
       }
-      // Count waived courses in this row for progress display
-      // Only count UNSATISFIED waived codes that are also matched
+      // Count waived courses in this row for progress and status display.
+      // Keep satisfied waivers separate so they are not mistaken for unused
+      // equivalence matches after their replacement requirement is covered.
       row.waivedCount = 0;
+      row.waiverSatisfiedCount = 0;
       if (waiverActive) {
         var mSet = {};
         if (row.matched) for (var mi = 0; mi < row.matched.length; mi++) mSet[row.matched[mi]] = true;
         for (var wci = 0; wci < row.codes.length; wci++) {
           var wcCode = row.codes[wci].code;
-          if (waiverSet[wcCode] && mSet[canonFn(wcCode)] && !waiverSatisfiedSet[wcCode]) {
-            row.waivedCount++;
+          if (waiverSet[wcCode] && mSet[canonFn(wcCode)]) {
+            if (waiverSatisfiedSet[wcCode]) row.waiverSatisfiedCount++;
+            else row.waivedCount++;
           }
         }
       }
@@ -1761,6 +1764,10 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
         if (seenExt[canon]) continue;
         if (!studentCanonSet[canon]) continue;
         seenExt[canon] = true;
+        // A satisfied waiver is intentionally covered by replacement/surplus
+        // units.  Its synthetic course must not generate an "equivalent
+        // courses not counted" warning.
+        if (studentCanonSet._waived && studentCanonSet._waived[canon] && waiverSatisfiedSet[row.codes[ci].code]) continue;
         var totalRaw = studentRawUnits[canon] || studentUnits[canon] || 3;
         var consumedByThis = (row.consumedUnits && row.consumedUnits[canon]) || 0;
         var consumedTotal = usedCanonSet[canon] || 0;
@@ -1914,14 +1921,12 @@ function buildResultCard(result, index) {
       if (row.externalLost && row.externalLost > 0 && !result.has_extra_credit) {
         html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.externalLost.toFixed(1) + ' units not used for this section</div>';
       }
-      if (row.isNotesEquiv) {
-        html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Explanatory Notes equivalent course used</div>';
+      if (row.waiverSatisfiedCount > 0) {
+        html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Course waived and satisfied — replacement courses cover exemption</div>';
       } else if (row.waivedCount > 0) {
-        if (result.waiver_satisfied) {
-          html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Waiver satisfied — replacement courses cover exemption</div>';
-        } else {
-          html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Course waived — replacement needed</div>';
-        }
+        html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Course waived — replacement needed</div>';
+      } else if (row.isNotesEquiv) {
+        html += '<div class="detail-row-stat" style="color:var(--warn);">&#9432; Explanatory Notes equivalent course used</div>';
       } else {
         if (row.wastedLost && row.wastedLost > 0) {
           html += '<div class="detail-row-stat" style="color:#dc2626;">&#9888; ' + row.wastedLost.toFixed(1) + ' units from equivalent courses not counted</div>';
