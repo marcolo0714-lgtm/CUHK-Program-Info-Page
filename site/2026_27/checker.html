@@ -380,7 +380,12 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
       }
       if (sortMaxPriority === Infinity) sortMaxPriority = 0;
     }
-    if (globalMinLevel && globalMinUnits > 0 && (!sortMinLevel || globalMinLevel < sortMinLevel)) {
+    // An explicit row constraint is the immediate allocation requirement and
+    // must not be weakened by a broader global constraint. For example, a row
+    // requiring 4000-level units must consume its only 4000-level match before
+    // interchangeable 3000-level courses, even when the minor also has a
+    // global 3000-level requirement.
+    if (globalMinLevel && globalMinUnits > 0 && !sortMinLevel) {
       sortMinLevel = globalMinLevel;
       sortMaxPriority = 0;
       sortUnitPriority = globalMinUnits || 0;
