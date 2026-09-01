@@ -113,6 +113,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -235,10 +236,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -248,7 +249,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -289,6 +290,22 @@ JS = """\
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();
@@ -525,7 +542,12 @@ def build_course_table(courses, eq_pairs=None):
             code_unit = _format_code_unit(c["code"], c.get("unit", ""))
             t1_cell = _format_term_cell(c.get("term_1", False))
             t2_cell = _format_term_cell(c.get("term_2", False))
-            tr_open = f'<tr class="{eq_cls}">' if eq_cls else '<tr>'
+            row_classes = []
+            if eq_cls:
+                row_classes.append(eq_cls)
+            if not c.get("term_1", False) and not c.get("term_2", False):
+                row_classes.append("course-unavailable")
+            tr_open = f'<tr class="{" ".join(row_classes)}">' if row_classes else '<tr>'
             rows += (
                 f"{tr_open}"
                 f"<td>{code_unit}</td>"
@@ -879,6 +901,7 @@ def build_detail_page(data, course_index, overrides, year, available_years,
         f'<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; {title}</div>'
         f'<div class="bar-controls">'
         f'{yr_select}'
+        f'<button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button>'
         f'<button id="prereq-toggle">Hide Prerequisites</button>'
         f'</div>'
         f'</div>'

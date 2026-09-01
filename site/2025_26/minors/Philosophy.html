@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Philosophy</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Philosophy.html">2024-25</option><option value="../../2025_26/minors/Philosophy.html" selected>2025-26</option><option value="../../2026_27/minors/Philosophy.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Philosophy</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Philosophy.html">2024-25</option><option value="../../2025_26/minors/Philosophy.html" selected>2025-26</option><option value="../../2026_27/minors/Philosophy.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Music.html">← Music</a><a href="Public_History.html">Public History →</a></div>
 <div class="title-row"><h1>Philosophy &mdash; CUHK Minor Requirements (2025-26)</h1><span class="meta">Arts</span></div>
 <div class="admit-year">Applicable to students admitted in 2025-26.</div>
@@ -326,81 +327,81 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>PHIL 2040</td><td>History of Western Philosophy I</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>PHIL 2050</td><td>History of Western Philosophy II</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>PHIL 2060</td><td>Philosophy and Human Conditions</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>PHIL 2202</td><td>Symbolic Logic</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 2202</td><td>Symbolic Logic</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 2301</td><td>Guided Studies in Chinese/Eastern Philosophical Classics</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>PHIL 2302</td><td>Guided Studies in Western Philosophical Classics</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>PHIL 2400</td><td>Introductory Latin</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 2400</td><td>Introductory Latin</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 3000</td><td>Ethics</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3111</td><td>Pre-Qin Confucian Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3131</td><td>Pre-Qin Daoist Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For Year 2 or above Philosophy majors.</span><span class="prereq-sentence">No restrictions for AD/HD Philosophy major students and electives.</span></td></tr>
-<tr><td>PHIL 3141</td><td>Neo-Daoist Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3152</td><td>Topics in Ancient Western Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3172</td><td>Topics in Medieval Western Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3191</td><td>Indian Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3111</td><td>Pre-Qin Confucian Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3131</td><td>Pre-Qin Daoist Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For Year 2 or above Philosophy majors.</span><span class="prereq-sentence">No restrictions for AD/HD Philosophy major students and electives.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 3141</td><td>Neo-Daoist Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3152</td><td>Topics in Ancient Western Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3172</td><td>Topics in Medieval Western Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3191</td><td>Indian Philosophy</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 3211</td><td>Indian Buddhist Philosophy</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>PHIL 3233</td><td>Social and Political Philosophy</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>PHIL 3253</td><td>Practical Ethics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2841.</span></td></tr>
-<tr><td>PHIL 3263</td><td>Philosophical Problems and Computational Tools</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3253</td><td>Practical Ethics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2841.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 3263</td><td>Philosophical Problems and Computational Tools</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 3302</td><td>Analytic Philosophy</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>PHIL 3312</td><td>Topics in Philosophical and Historical Perspectives</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>PHIL 3313</td><td>Aesthetics</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>PHIL 3333</td><td>Comparative Philosophy of Religion</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3363</td><td>Legal Philosophy</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2861.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 3333</td><td>Comparative Philosophy of Religion</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3363</td><td>Legal Philosophy</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2861.</span></td></tr>
 <tr><td>PHIL 3373</td><td>Philosophy of Love</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken GDRS2003 or UGED2891.</span></td></tr>
 <tr><td>PHIL 3383</td><td>Philosophy of Death</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGED2901.</span></td></tr>
-<tr><td>PHIL 3531</td><td>Topics in Chinese Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3531</td><td>Topics in Chinese Philosophy</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 3541</td><td>Topics in Ancient Chinese Philosophy</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3551</td><td>Topics in Modern Chinese Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3561</td><td>Topics in Eastern Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3551</td><td>Topics in Modern Chinese Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3561</td><td>Topics in Eastern Philosophy</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 3592</td><td>Topics in Modern Western Philosophy</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>PHIL 3652</td><td>Topics in Contemporary Western Philosophy</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3662</td><td>Topics in Anglo-American Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3672</td><td>Topics in Continental Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3662</td><td>Topics in Anglo-American Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3672</td><td>Topics in Continental Philosophy</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 3683</td><td>Topics in Applied Philosophy</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3693</td><td>Topics in Political Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3743</td><td>Topics in Inter-Disciplinary Problems</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3693</td><td>Topics in Political Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3743</td><td>Topics in Inter-Disciplinary Problems</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 3800</td><td>Metaphysics</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>PHIL 3803</td><td>Topics in Metaphysics</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3803</td><td>Topics in Metaphysics</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 3820</td><td>Epistemology</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3823</td><td>Topics in Epistemology</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3823</td><td>Topics in Epistemology</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 3833</td><td>Topics in Ethics</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>PHIL 3843</td><td>Bioethics</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4111</td><td>Chinese Buddhist Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4121</td><td>Chan Buddhism</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4131</td><td>Song Neo-Confucian Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4141</td><td>Ming Neo-Confucian Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 3843</td><td>Bioethics</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4111</td><td>Chinese Buddhist Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4121</td><td>Chan Buddhism</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4131</td><td>Song Neo-Confucian Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4141</td><td>Ming Neo-Confucian Philosophy</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 4153</td><td>Philosophy of Culture</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4183</td><td>Philosophy of Science</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4232</td><td>Kant</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4242</td><td>German Idealism</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4183</td><td>Philosophy of Science</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4232</td><td>Kant</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4242</td><td>German Idealism</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 4262</td><td>Existentialism</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4272</td><td>Phenomenology</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4282</td><td>Hermeneutics</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4292</td><td>Contemporary Anglo-American Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4302</td><td>Critical Theory</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4313</td><td>Philosophy of Language</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4323</td><td>Philosophy of History</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4333</td><td>Philosophy of Mind</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4343</td><td>Philosophy of Education</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4351</td><td>Mohist Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4361</td><td>Legalist Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4272</td><td>Phenomenology</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4282</td><td>Hermeneutics</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4292</td><td>Contemporary Anglo-American Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4302</td><td>Critical Theory</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4313</td><td>Philosophy of Language</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4323</td><td>Philosophy of History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4333</td><td>Philosophy of Mind</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4343</td><td>Philosophy of Education</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4351</td><td>Mohist Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4361</td><td>Legalist Philosophy</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 4371</td><td>Seminar on Chinese Philosophy</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4381</td><td>Seminar on Eastern Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4413</td><td>Topics in Comparative Philosophy</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4423</td><td>Topics in Textual Analysis</td><td></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4433</td><td>Moral Psychology</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4381</td><td>Seminar on Eastern Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4413</td><td>Topics in Comparative Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4423</td><td>Topics in Textual Analysis</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4433</td><td>Moral Psychology</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 4443</td><td>Seminar on Philosophical Issues</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>PHIL 4522</td><td>Contemporary French Philosophy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>PHIL 4522</td><td>Contemporary French Philosophy</td><td></td><td></td><td>—</td></tr>
 <tr><td>PHIL 4532</td><td>Seminar on Western Philosophy</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>PHIL 4800</td><td>Thesis</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>PHIL 5070</td><td>Seminar on Chinese Philosophy</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Philosophy.</span></td></tr>
 <tr><td>PHIL 5090</td><td>Seminar on Western Philosophy</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Philosophy.</span></td></tr>
-<tr><td>PHIL 5110</td><td>Seminar on Eastern Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5110</td><td>Seminar on Eastern Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil Philosophy.</span></td></tr>
 <tr><td>PHIL 5130</td><td>Topics in Chinese Philosophy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil Philosophy.</span></td></tr>
 <tr><td>PHIL 5150</td><td>Topics in Western Philosophy</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Philosophy.</span></td></tr>
-<tr><td>PHIL 5170</td><td>Topics in Eastern Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5170</td><td>Topics in Eastern Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil Philosophy.</span></td></tr>
 <tr><td>PHIL 5180 [1]</td><td>Seminar on Selected Philosophical Issues</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Philosophy.</span></td></tr>
-<tr><td>PHIL 5190</td><td>Seminar on Comparative Philosophy: East and West</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5190</td><td>Seminar on Comparative Philosophy: East and West</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil Philosophy.</span></td></tr>
 <tr><td>PHIL 5310</td><td>Seminar on Pre-modern Chinese Philosophy</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Philosophy or MA Philosophy.</span></td></tr>
 <tr><td>PHIL 5320</td><td>Seminar on Modern and Contemporary Chinese Philosophy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil Philosophy or MA Philosophy.</span></td></tr>
 <tr><td>PHIL 5330</td><td>Seminar: Issues in the History of Chinese Philosophy</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Philosophy or MA Philosophy.</span></td></tr>
@@ -409,44 +410,44 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>PHIL 5360</td><td>Seminar on Continental European Philosophy</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Philosophy or MA Philosophy.</span></td></tr>
 <tr><td>PHIL 5370</td><td>Seminar: Issues in the History of Western Philosophy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil Philosophy or MA Philosophy.</span></td></tr>
 <tr><td>PHIL 5500</td><td>Research Paper: Guided Study in Philosophical Problems</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5511</td><td>Topics in Confucianism</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5512</td><td>Moral and Political Philosophy: The Good and the Right</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5513</td><td>Applied Ethics and Moral Dilemmas</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5521</td><td>Topics in Taoist Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5522</td><td>Language, Meaning and Communication</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5523</td><td>Philosophy and Cultural Criticism</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5511</td><td>Topics in Confucianism</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5512</td><td>Moral and Political Philosophy: The Good and the Right</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5513</td><td>Applied Ethics and Moral Dilemmas</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5521</td><td>Topics in Taoist Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5522</td><td>Language, Meaning and Communication</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5523</td><td>Philosophy and Cultural Criticism</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
 <tr><td>PHIL 5531</td><td>Topics in Buddhist Philosophy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5532</td><td>Metaphysics and the Quest for Reality</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5532</td><td>Metaphysics and the Quest for Reality</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
 <tr><td>PHIL 5533</td><td>Philosophical Analysis of Literature and Art</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5541</td><td>Topics in Eastern Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5542</td><td>Philosophy and Conceptual Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5543</td><td>Philosophy of the Human Condition: Life, Death, Love and Desire</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5551</td><td>Topics in Comparative Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5552</td><td>Mind and Cognition</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5553</td><td>Chinese Philosophy and Modern Life</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5562</td><td>Interpretation, Understanding and Dialogue: Theory and Practice</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5541</td><td>Topics in Eastern Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5542</td><td>Philosophy and Conceptual Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5543</td><td>Philosophy of the Human Condition: Life, Death, Love and Desire</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5551</td><td>Topics in Comparative Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5552</td><td>Mind and Cognition</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5553</td><td>Chinese Philosophy and Modern Life</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5562</td><td>Interpretation, Understanding and Dialogue: Theory and Practice</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
 <tr><td>PHIL 5563</td><td>Methodology and Argumentation</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5573</td><td>Topics in Applied Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
-<tr><td>PHIL 5583</td><td>Issues in Practical Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For Student of MA in Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5573</td><td>Topics in Applied Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 5583</td><td>Issues in Practical Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For Student of MA in Philosophy.</span></td></tr>
 <tr><td>PHIL 5593</td><td>Topics in Philosophy and Interdisciplinary Studies</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For Student of MA in Philosophy.</span></td></tr>
 <tr><td>PHIL 7070</td><td>Seminar on Chinese Philosophy</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
 <tr><td>PHIL 7090</td><td>Seminar on Western Philosophy</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
-<tr><td>PHIL 7110</td><td>Seminar on Eastern Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 7110</td><td>Seminar on Eastern Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
 <tr><td>PHIL 7130</td><td>Topics in Chinese Philosophy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
 <tr><td>PHIL 7150</td><td>Topics in Western Philosophy</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
-<tr><td>PHIL 7170</td><td>Topics in Eastern Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 7170</td><td>Topics in Eastern Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
 <tr><td>PHIL 7180 [1]</td><td>Seminar on Selected Philosophical Issues</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
-<tr><td>PHIL 7190</td><td>Seminar on Comparative Philosophy: East and West</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
-<tr><td>PHIL 7310</td><td>Seminar on Pre-modern Chinese Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
-<tr><td>PHIL 7320</td><td>Seminar on Modern and Contemporary Chinese Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
-<tr><td>PHIL 7330</td><td>Seminar: Issues in the History of Chinese Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 7190</td><td>Seminar on Comparative Philosophy: East and West</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 7310</td><td>Seminar on Pre-modern Chinese Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 7320</td><td>Seminar on Modern and Contemporary Chinese Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 7330</td><td>Seminar: Issues in the History of Chinese Philosophy</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
 <tr><td>PHIL 7340</td><td>Seminar on Modern Western Philosophy</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
 <tr><td>PHIL 7350</td><td>Seminar on Contemporary Anglo-American Philosophy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
 <tr><td>PHIL 7360</td><td>Seminar on Continental European Philosophy</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
 <tr><td>PHIL 7370</td><td>Seminar: Issues in the History of Western Philosophy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD Philosophy.</span></td></tr>
 <tr><td>PHIL 8100 [1]</td><td>Guided Study</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Philosophy or PhD Philosophy.</span></td></tr>
 <tr><td>PHIL 8101 [1]</td><td>Thesis Guidance I</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For Student of PhD in Philosophy.</span></td></tr>
-<tr><td>PHIL 8102 [1]</td><td>Thesis Guidance II</td><td></td><td></td><td><span class="prereq-sentence">For Student of PhD in Philosophy.</span></td></tr>
+<tr class="course-unavailable"><td>PHIL 8102 [1]</td><td>Thesis Guidance II</td><td></td><td></td><td><span class="prereq-sentence">For Student of PhD in Philosophy.</span></td></tr>
 <tr><td>PHIL 8110 [1]</td><td>Research Methodology Seminar I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil Philosophy or PhD Philosophy.</span></td></tr>
 <tr><td>PHIL 8120 [1]</td><td>Research Methodology Seminar II</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil Philosophy or PhD Philosophy.</span></td></tr>
 <tr><td>PHIL 8200</td><td>Thesis I: Thesis Writing</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Philosophy or PhD Philosophy.</span></td></tr>
@@ -498,6 +499,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; French</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/HB_Minor_Programme_in_French.html">2024-25</option><option value="../../2025_26/minors/HB_Minor_Programme_in_French.html" selected>2025-26</option><option value="../../2026_27/minors/HB_Minor_Programme_in_French.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; French</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/HB_Minor_Programme_in_French.html">2024-25</option><option value="../../2025_26/minors/HB_Minor_Programme_in_French.html" selected>2025-26</option><option value="../../2026_27/minors/HB_Minor_Programme_in_French.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="HB_Minor_Programme_in_Entrepreneurship_and_Innovation.html">← Entrepreneurship and Innovation</a><a href="HB_Minor_Programme_in_German.html">German →</a></div>
 <div class="title-row"><h1>French &mdash; CUHK Minor Requirements (2025-26)</h1><span class="meta">Other</span></div>
 <div class="admit-year">Applicable to students admitted in 2025-26.</div>
@@ -319,7 +320,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr><td>FREN 2001</td><td>French III</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken FREN3000,3001,3002,3050 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN2000 or FREN2050.</span></td></tr>
 <tr><td>FREN 3000</td><td>French IV</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Not for students who have taken FREN3001,3002,3050 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN2001.</span></td></tr>
-<tr><td>FREN 3050 [6]</td><td>French III & IV</td><td></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken FREN2001,3000,3001,3002 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN2000 or 2050.</span></td></tr>
+<tr class="course-unavailable"><td>FREN 3050 [6]</td><td>French III & IV</td><td></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken FREN2001,3000,3001,3002 or 3051.</span><span class="prereq-sentence">2. Prerequisite: FREN2000 or 2050.</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(c) FREN3001<span id="ref_c"><a href="#note_c">[c]</a></span></span><span class="meta">(3 units)</span></div></div>
 <details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
@@ -332,13 +333,13 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>FREN 2020</td><td>Sounds of French</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FREN2000,2050,3000,3001,3002,3050 or 3051.</span></td></tr>
 <tr><td>FREN 2100</td><td>Exploring French Literature</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>FREN 3002</td><td>French VI</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Not for students who have taken FREN3051.</span><span class="prereq-sentence">2. Prerequisite: FREN3001.</span></td></tr>
-<tr><td>FREN 3021</td><td>French Conversation</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FREN3000,3001,3002,3050 or 3051.</span></td></tr>
-<tr><td>FREN 3031</td><td>French Reading and Creative Writing</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: FREN2001,2050,3000,3001,3002,3050 or 3051.</span></td></tr>
-<tr><td>FREN 3041</td><td>Business French I</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FREN3000,3001,3002,3050 or 3051.</span></td></tr>
-<tr><td>FREN 3051 [6]</td><td>French V & VI</td><td></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken FREN3001 or FREN3002.</span><span class="prereq-sentence">2. Prerequisite: FREN3000 or FREN3050.</span></td></tr>
-<tr><td>FREN 3060</td><td>French through Short Films</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FREN3000,3001,3002,3050 or 3051.</span><span class="prereq-sentence">Not for students who have taken FREN3100 in 2nd term 2019-20.</span></td></tr>
-<tr><td>FREN 3100</td><td>Special Topics in French</td><td></td><td></td><td>—</td></tr>
-<tr><td>FREN 3110</td><td>French Through Literature</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): FREN3000,3050,3001,3002,3051 or equivalent competence.</span><span class="prereq-sentence">Not for students who have taken FREN3100 in 2016-17.</span></td></tr>
+<tr class="course-unavailable"><td>FREN 3021</td><td>French Conversation</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FREN3000,3001,3002,3050 or 3051.</span></td></tr>
+<tr class="course-unavailable"><td>FREN 3031</td><td>French Reading and Creative Writing</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: FREN2001,2050,3000,3001,3002,3050 or 3051.</span></td></tr>
+<tr class="course-unavailable"><td>FREN 3041</td><td>Business French I</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FREN3000,3001,3002,3050 or 3051.</span></td></tr>
+<tr class="course-unavailable"><td>FREN 3051 [6]</td><td>French V & VI</td><td></td><td></td><td><span class="prereq-sentence">1. Not for students who have taken FREN3001 or FREN3002.</span><span class="prereq-sentence">2. Prerequisite: FREN3000 or FREN3050.</span></td></tr>
+<tr class="course-unavailable"><td>FREN 3060</td><td>French through Short Films</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FREN3000,3001,3002,3050 or 3051.</span><span class="prereq-sentence">Not for students who have taken FREN3100 in 2nd term 2019-20.</span></td></tr>
+<tr class="course-unavailable"><td>FREN 3100</td><td>Special Topics in French</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>FREN 3110</td><td>French Through Literature</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): FREN3000,3050,3001,3002,3051 or equivalent competence.</span><span class="prereq-sentence">Not for students who have taken FREN3100 in 2016-17.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>
@@ -387,6 +388,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

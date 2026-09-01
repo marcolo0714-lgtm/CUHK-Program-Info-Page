@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -306,7 +307,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Archaeology</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Archaeology.html">2024-25</option><option value="../../2025_26/minors/Archaeology.html">2025-26</option><option value="../../2026_27/minors/Archaeology.html" selected>2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Archaeology</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Archaeology.html">2024-25</option><option value="../../2025_26/minors/Archaeology.html">2025-26</option><option value="../../2026_27/minors/Archaeology.html" selected>2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Arab_Studies.html">← Arab Studies</a><a href="China_Studies.html">China Studies →</a></div>
 <div class="title-row"><h1>Archaeology &mdash; CUHK Minor Requirements (2026-27)</h1><span class="meta">Arts</span></div>
 <div class="admit-year">Applicable to students admitted in 2026-27.</div>
@@ -322,13 +323,13 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <details class="course-details"><summary>Show 9 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr><td>ANTH 2710</td><td>Archaeology of China</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>ANTH 2720</td><td>Archaeology of Hong Kong</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>ANTH 2740</td><td>Deciphering the Past: Culture, Archaeology and Science</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ANTH 2740</td><td>Deciphering the Past: Culture, Archaeology and Science</td><td></td><td></td><td>—</td></tr>
 <tr><td>ANTH 2810</td><td>Human Evolution</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>ANTH 3770</td><td>Making Places: Landscapes, Culture and Society</td><td></td><td></td><td>—</td></tr>
-<tr><td>ANTH 3780</td><td>Archaeological Field Methods</td><td></td><td></td><td>—</td></tr>
-<tr><td>ANTH 3790</td><td>Archaeological Field Study</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ANTH 3770</td><td>Making Places: Landscapes, Culture and Society</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ANTH 3780</td><td>Archaeological Field Methods</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ANTH 3790</td><td>Archaeological Field Study</td><td></td><td></td><td>—</td></tr>
 <tr><td>ANTH 3820</td><td>Forensic Anthropology</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>ANTH 4750</td><td>Archaeology of Food</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ANTH1710 / UGEC1633 Understanding Archaeology.</span></td></tr>
+<tr class="course-unavailable"><td>ANTH 4750</td><td>Archaeology of Food</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ANTH1710 / UGEC1633 Understanding Archaeology.</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) At least two courses from the following, with at least one course at 3000 or above level:</span></div><div class="req-row"><span class="row-text">BIOL4510, CHEM1072, CURE2404, 3409, ESSC4120, FAAS1600, 2102, 2103, 2104, 2113, 3104, 3110, GRMD2104, 2105, 2209, HIST2140, 3106, 4141, 4142, 4390, STAT1012</span></div></div>
 <details class="course-details"><summary>Show 21 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
@@ -336,21 +337,21 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>CHEM 1072</td><td>General Chemistry</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken CHEM1070.</span><span class="prereq-sentence">This course is suitable for students with no DSE Chemistry or with HKDSE Combined Science with Chemistry Component.</span></td></tr>
 <tr><td>CURE 2404</td><td>Introduction to Heritage Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken CUMT2004, UGED2285.</span></td></tr>
 <tr><td>CURE 3409</td><td>Interpretation of Heritage</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CUMT3009 or CUMT4101 or CURE4411.</span></td></tr>
-<tr><td>ESSC 4120</td><td>Petrology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken EESC4120.</span><span class="prereq-sentence">Pre-requisite: EESC2010 or ESSC2010.</span></td></tr>
+<tr class="course-unavailable"><td>ESSC 4120</td><td>Petrology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken EESC4120.</span><span class="prereq-sentence">Pre-requisite: EESC2010 or ESSC2010.</span></td></tr>
 <tr><td>FAAS 1600</td><td>Artistic Traditions in China</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken UGEA1310 or UGED2291.</span></td></tr>
-<tr><td>FAAS 2102</td><td>Arts of Ancient China:Neolithic Through Bronze Age</td><td></td><td></td><td>—</td></tr>
-<tr><td>FAAS 2103</td><td>Art Along the Silk Road</td><td></td><td></td><td>—</td></tr>
-<tr><td>FAAS 2104</td><td>History of Early Chinese Ceramics</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>FAAS 2102</td><td>Arts of Ancient China:Neolithic Through Bronze Age</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>FAAS 2103</td><td>Art Along the Silk Road</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>FAAS 2104</td><td>History of Early Chinese Ceramics</td><td></td><td></td><td>—</td></tr>
 <tr><td>FAAS 2113</td><td>Introduction to Asian Art: The Art and Archaeology of West, South, Southeast, and Inner Asia</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>FAAS 3104</td><td>Jingdezhen and Beyond: History of Later Chinese Ceramics</td><td></td><td></td><td>—</td></tr>
-<tr><td>FAAS 3110</td><td>Buddhist Art and Architecture</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>FAAS 3104</td><td>Jingdezhen and Beyond: History of Later Chinese Ceramics</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>FAAS 3110</td><td>Buddhist Art and Architecture</td><td></td><td></td><td>—</td></tr>
 <tr><td>GRMD 2104</td><td>Remote Sensing of Environment</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>GRMD 2105</td><td>Introduction to GIS</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>GRMD 2209</td><td>Physical Geology</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>HIST 2140</td><td>State and Society in Ancient China</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>HIST 3106</td><td>Regional Cultures in Han China</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HIST 4141</td><td>Iconographies, Unearthed Documents and Qin-Han History</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 4142</td><td>History of Material Culture in Ancient China</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST4140.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 4141</td><td>Iconographies, Unearthed Documents and Qin-Han History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4142</td><td>History of Material Culture in Ancient China</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST4140.</span></td></tr>
 <tr class="nf"><td>HIST 4390</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>STAT 1012</td><td>Statistics for Life Sciences</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken STAT1011 or consent of the instructor.</span></td></tr>
 </tbody></table></details>
@@ -399,6 +400,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

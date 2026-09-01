@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; History</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/History.html">2024-25</option><option value="../../2025_26/minors/History.html" selected>2025-26</option><option value="../../2026_27/minors/History.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; History</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/History.html">2024-25</option><option value="../../2025_26/minors/History.html" selected>2025-26</option><option value="../../2026_27/minors/History.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Fine_Arts.html">← Fine Arts</a><a href="Hong_Kong_Sign_Language.html">Hong Kong Sign Language →</a></div>
 <div class="title-row"><h1>History &mdash; CUHK Minor Requirements (2025-26)</h1><span class="meta">Arts</span></div>
 <div class="admit-year">Applicable to students admitted in 2025-26.</div>
@@ -328,177 +329,177 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>HIST 1701</td><td>History for Tomorrow: Technology and the Humanities</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>HIST 2002</td><td>Historiography (Advanced)</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>HIST 2005</td><td>Introduction to World History: Antiquity</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HIST 2006</td><td>Introduction to World History: Middle Ages</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 2006</td><td>Introduction to World History: Middle Ages</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 2007</td><td>Introduction to World History: Modern Era</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>HIST 2010</td><td>Oral History: Methods and Practices</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>HIST 2100</td><td>China Today</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HIST 2101</td><td>History of Qin-Han China</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 2101</td><td>History of Qin-Han China</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 2102</td><td>Transformations in Tang-Song China</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>HIST 2103</td><td>History of Ming China</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 2104</td><td>Qing History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 2103</td><td>History of Ming China</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 2104</td><td>Qing History</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 2105</td><td>History of Taiwan</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HIST 2106</td><td>History of Song, Liao, Jin, and Yuan</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 2106</td><td>History of Song, Liao, Jin, and Yuan</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 2110</td><td>Walking through Chinese History</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for HIstory Majors.</span><span class="prereq-sentence">Not for student who have taken HIST1001.</span></td></tr>
 <tr><td>HIST 2140</td><td>State and Society in Ancient China</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>HIST 2141</td><td>History of Ancient China</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST5567.</span></td></tr>
-<tr><td>HIST 2142</td><td>History of Early Medieval China (200s - 590s CE)</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 2141</td><td>History of Ancient China</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST5567.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 2142</td><td>History of Early Medieval China (200s - 590s CE)</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 2220</td><td>Revolution and Modernization in Twentieth-Century China</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>HIST 2310</td><td>Warfare in the Medieval West</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 2310</td><td>Warfare in the Medieval West</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 2320</td><td>History of the Byzantine Empire</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>HIST 2330</td><td>History of England</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2031.</span></td></tr>
-<tr><td>HIST 2360</td><td>History of the United States</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 2380</td><td>History of Japan</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 2390</td><td>History of Korea</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 2330</td><td>History of England</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2031.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 2360</td><td>History of the United States</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 2380</td><td>History of Japan</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 2390</td><td>History of Korea</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 2500</td><td>History of Hong Kong</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2945 or HIST2501.</span></td></tr>
 <tr><td>HIST 2501</td><td>Hong Kong History in the Field</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for HIstory Majors.</span><span class="prereq-sentence">Not for student who have taken HIST2500/ HIST2701.</span></td></tr>
-<tr><td>HIST 2700</td><td>Leadership Lessons from History</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 2701</td><td>Local History and Public History</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST2501.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 2700</td><td>Leadership Lessons from History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 2701</td><td>Local History and Public History</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST2501.</span></td></tr>
 <tr><td>HIST 3103</td><td>Daily Life in Han China</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>HIST 3106</td><td>Regional Cultures in Han China</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HIST 3107</td><td>Studies on Wei-Jin History</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 3108</td><td>Social and Cultural History of Song China</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3107</td><td>Studies on Wei-Jin History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3108</td><td>Social and Cultural History of Song China</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 3118</td><td>Society in Late Imperial China</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>HIST 3119</td><td>Chinese Maritime Connections in Asia, 1500-1800</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HIST 3140</td><td>Intellectual Landscape of the Middle Periods of China</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 3141</td><td>Economy and Markets in Ancient China (Pre-Qin to Eastern Han)</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3140</td><td>Intellectual Landscape of the Middle Periods of China</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3141</td><td>Economy and Markets in Ancient China (Pre-Qin to Eastern Han)</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 3180</td><td>Social and Cultural History of Modern China Cities</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>HIST 3326</td><td>History of Modern Europe</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken HIST4306.</span></td></tr>
 <tr><td>HIST 3327</td><td>Europe's Descent: World War II and the Holocaust</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>HIST 3331</td><td>History of Modern Britain</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HIST 3332</td><td>Social and Economic History of Medieval England</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 3340</td><td>The French Revolution</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST4306.</span></td></tr>
-<tr><td>HIST 3360</td><td>Colonial and Revolutionary America</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 3361</td><td>The Emergence of the Atlantic World, 1500-1830</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3332</td><td>Social and Economic History of Medieval England</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3340</td><td>The French Revolution</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST4306.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 3360</td><td>Colonial and Revolutionary America</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3361</td><td>The Emergence of the Atlantic World, 1500-1830</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 3375</td><td>The Philippines and Trans Pacific Connections</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>HIST 3376</td><td>Modern East Asian Political and Cultural History</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>HIST 3380</td><td>History of Traditional Japan</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST3213 and HIST5507F.</span></td></tr>
-<tr><td>HIST 3381</td><td>History of Modern Japan</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 3400</td><td>Modern European Intellectual History:Ideas and Society</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 3401</td><td>Sino-Foreign Relations in the Last Two Centuries</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 3402</td><td>War and Society (1000-1900)</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3380</td><td>History of Traditional Japan</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST3213 and HIST5507F.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 3381</td><td>History of Modern Japan</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3400</td><td>Modern European Intellectual History:Ideas and Society</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3401</td><td>Sino-Foreign Relations in the Last Two Centuries</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3402</td><td>War and Society (1000-1900)</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 3404</td><td>Historical Literature and Documents</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>HIST 3408</td><td>War and Society in Ancient China (from Early Period to the Sixth Century CE)</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>HIST 3409</td><td>Hannah Arendt between History and Philosophy</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who are taking or have taken PHIL3312.</span></td></tr>
-<tr><td>HIST 3420</td><td>Gender and History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3420</td><td>Gender and History</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 3441</td><td>Museum and Heritage</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>HIST 3505</td><td>Land Law and Custom in the New Territories</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>HIST 3602</td><td>Revolutions: East and West</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 3701</td><td>History, Memory, and Monuments</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3602</td><td>Revolutions: East and West</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3701</td><td>History, Memory, and Monuments</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 4100</td><td>Topic Studies in Chinese History</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HIST 4141</td><td>Iconographies, Unearthed Documents and Qin-Han History</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 4142</td><td>History of Material Culture in Ancient China</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST4140.</span></td></tr>
-<tr><td>HIST 4180</td><td>Topic Studies in Modern Chinese History</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST5502.</span></td></tr>
-<tr><td>HIST 4260</td><td>Imperial Capitals: Chang'an, Luoyang and Kaifeng (BCE 202 - 1130 CE)</td><td></td><td></td><td><span class="prereq-sentence">Not for students who had taken HIST4309.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 4141</td><td>Iconographies, Unearthed Documents and Qin-Han History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4142</td><td>History of Material Culture in Ancient China</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST4140.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 4180</td><td>Topic Studies in Modern Chinese History</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST5502.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 4260</td><td>Imperial Capitals: Chang'an, Luoyang and Kaifeng (BCE 202 - 1130 CE)</td><td></td><td></td><td><span class="prereq-sentence">Not for students who had taken HIST4309.</span></td></tr>
 <tr><td>HIST 4261</td><td>A Thousand Years of Huizhou (800-1800 CE)</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST4309.</span></td></tr>
-<tr><td>HIST 4304</td><td>Topic Studies in Pre-Modern World History</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 4305</td><td>Topic Studies in Modern World History</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 4306</td><td>Topic Studies in World History</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 4380</td><td>The Industrial Revolution and Its Impacts</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4304</td><td>Topic Studies in Pre-Modern World History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4305</td><td>Topic Studies in Modern World History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4306</td><td>Topic Studies in World History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4380</td><td>The Industrial Revolution and Its Impacts</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 4392</td><td>The Making of the Middle East</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST4306.</span></td></tr>
-<tr><td>HIST 4393</td><td>West and the World III: Early Modernity</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST4306.</span></td></tr>
-<tr><td>HIST 4400</td><td>Topic Studies in Asian History</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 4500</td><td>Topic Studies in Hong Kong History</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 4600</td><td>Topic Studies in Comparative History</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 4603</td><td>A Tale of Three Cities: Hong Kong, Shanghai and Singapore</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 4700</td><td>Topic Studies in Public History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4393</td><td>West and the World III: Early Modernity</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST4306.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 4400</td><td>Topic Studies in Asian History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4500</td><td>Topic Studies in Hong Kong History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4600</td><td>Topic Studies in Comparative History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4603</td><td>A Tale of Three Cities: Hong Kong, Shanghai and Singapore</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4700</td><td>Topic Studies in Public History</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 4702</td><td>Digital History</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>HIST 4703</td><td>Christianity in World History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4703</td><td>Christianity in World History</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 4704</td><td>Women, Society, and Politics in Modern China</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>HIST 4705</td><td>The Victorian City: The 19th Century Metropole and Colonial Entanglements</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HIST 4801 [0]</td><td>Graduation Thesis Guidance</td><td></td><td></td><td><span class="prereq-sentence">For History Majors in their final year of attendance only.</span></td></tr>
-<tr><td>HIST 4802 [6]</td><td>Graduation Thesis</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HIST4601.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 4801 [0]</td><td>Graduation Thesis Guidance</td><td></td><td></td><td><span class="prereq-sentence">For History Majors in their final year of attendance only.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 4802 [6]</td><td>Graduation Thesis</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HIST4601.</span></td></tr>
 <tr><td>HIST 4811 [1]</td><td>Graduation Thesis Guidance</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For History Majors in their final year of attendance only.</span></td></tr>
 <tr><td>HIST 4812 [5]</td><td>Graduation Thesis</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite(s): HIST4811.</span></td></tr>
 <tr><td>HIST 4920</td><td>A Social History of the Civil Examination in Late Imperial China</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>HIST 5011</td><td>Perspectives in Comparative and Public History</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MA Comparative & Public History.</span></td></tr>
 <tr><td>HIST 5501</td><td>Special Topics in Traditional Chinese History</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5502</td><td>Special Topics in Modern Chinese History</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5503</td><td>Special Topics in Pre-modern World History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5504</td><td>Special Topics in Modern World History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5505</td><td>Special Topics in Hong Kong History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5506</td><td>Special Topics in Comparative History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5503</td><td>Special Topics in Pre-modern World History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5504</td><td>Special Topics in Modern World History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5505</td><td>Special Topics in Hong Kong History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5506</td><td>Special Topics in Comparative History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5507</td><td>Special Topics in Public History</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5508</td><td>Special Topics in Chinese History</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5509</td><td>Special Topics in World History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5509</td><td>Special Topics in World History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5510</td><td>Special Topics in Cultural History</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5511</td><td>Special Topics in Asian History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5512</td><td>Special Topics in Public History (Hong Kong Heritage)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5513</td><td>Special Topics in Public History (Archival Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5514</td><td>Special Topics in Public History (Museum Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5511</td><td>Special Topics in Asian History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5512</td><td>Special Topics in Public History (Hong Kong Heritage)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5513</td><td>Special Topics in Public History (Archival Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5514</td><td>Special Topics in Public History (Museum Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5515</td><td>Special Topics in Public History (Archaeology)</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5516</td><td>Special Topics in Public History (Chinese Heritage)</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5517</td><td>Special Topics in Public History (Traditional China)</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5518</td><td>Special Topics in Public History (Contemporary China)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5519</td><td>Special Topics in Public History (Business and Economy)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5520</td><td>Special Topics in Public History (Gender Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5521</td><td>Special Topics in Public History (Women Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5522</td><td>Special Topics in Public History (Religious Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5523</td><td>Special Topics in Public History (Legal Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5524</td><td>Special Topics in Public History (Political Orders)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5518</td><td>Special Topics in Public History (Contemporary China)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5519</td><td>Special Topics in Public History (Business and Economy)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5520</td><td>Special Topics in Public History (Gender Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5521</td><td>Special Topics in Public History (Women Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5522</td><td>Special Topics in Public History (Religious Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5523</td><td>Special Topics in Public History (Legal Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5524</td><td>Special Topics in Public History (Political Orders)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5525</td><td>Special Topics in Public History (Environmental Studies)</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5526</td><td>Special Topics in Public History (Public Policies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5527</td><td>Special Topics in Public History (Educational Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5528</td><td>Special Topics in Public History (East Asia)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5529</td><td>Special Topics in Public History (USA)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5530</td><td>Special Topics in Public History (South and Southeast Asia)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5531</td><td>Special Topics in Public History (Middle East)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5532</td><td>Special Topics in Public History (Europe)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5533</td><td>Special Topics in Public History (Asia Pacific)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5534</td><td>Special Topics in Comparative History (China and the West)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5526</td><td>Special Topics in Public History (Public Policies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5527</td><td>Special Topics in Public History (Educational Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5528</td><td>Special Topics in Public History (East Asia)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5529</td><td>Special Topics in Public History (USA)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5530</td><td>Special Topics in Public History (South and Southeast Asia)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5531</td><td>Special Topics in Public History (Middle East)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5532</td><td>Special Topics in Public History (Europe)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5533</td><td>Special Topics in Public History (Asia Pacific)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5534</td><td>Special Topics in Comparative History (China and the West)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5535</td><td>Special Topics in Comparative History (East and West)</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5536</td><td>Special Topics in Comparative History (Hong Kong Society)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5537</td><td>Special Topics in Comparative History (China)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5538</td><td>Special Topics in Comparative History (Asia)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5536</td><td>Special Topics in Comparative History (Hong Kong Society)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5537</td><td>Special Topics in Comparative History (China)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5538</td><td>Special Topics in Comparative History (Asia)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5539</td><td>Special Topics in Comparative History (Urban Studies)</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5540</td><td>Special Topics in Comparative History (Asian Cities)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5541</td><td>Special Topics in Comparative History (Chinese Cities)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5540</td><td>Special Topics in Comparative History (Asian Cities)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5541</td><td>Special Topics in Comparative History (Chinese Cities)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5542</td><td>Special Topics in Comparative History (Global Studies)</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5543</td><td>Special Topics in Comparative History (Global Organizations)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5544</td><td>Special Topics in Comparative History (International Relations)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5545</td><td>Special Topics in Comparative History (Political Economy)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5546</td><td>Special Topics in Comparative History (Social Systems)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5547</td><td>Special Topics in Comparative History (Political Orders)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5548</td><td>Special Topics in Comparative History (Gender Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5549</td><td>Special Topics in Comparative History (Women Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5550</td><td>Special Topics in Comparative History (Cultural Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5551</td><td>Special Topics in Comparative History (Environmental Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5552</td><td>Special Topics in Comparative History (Education Systems and Policies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5553</td><td>Individual Reading Project</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Comparative & Public History.</span></td></tr>
-<tr><td>HIST 5554</td><td>Qing History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5555</td><td>Pearl River Delta 1368-1911</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5543</td><td>Special Topics in Comparative History (Global Organizations)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5544</td><td>Special Topics in Comparative History (International Relations)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5545</td><td>Special Topics in Comparative History (Political Economy)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5546</td><td>Special Topics in Comparative History (Social Systems)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5547</td><td>Special Topics in Comparative History (Political Orders)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5548</td><td>Special Topics in Comparative History (Gender Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5549</td><td>Special Topics in Comparative History (Women Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5550</td><td>Special Topics in Comparative History (Cultural Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5551</td><td>Special Topics in Comparative History (Environmental Studies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5552</td><td>Special Topics in Comparative History (Education Systems and Policies)</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5553</td><td>Individual Reading Project</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Comparative & Public History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5554</td><td>Qing History</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5555</td><td>Pearl River Delta 1368-1911</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5556</td><td>Commerce and Society in China 1368-2000</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5559</td><td>Antiquities and Monuments in Hong Kong</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5560</td><td>Science and Civilization in Early China: Lithic and Jade Technology</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5561</td><td>Museum and Historical Interpretation</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5564</td><td>Cross-Strait Relations in International and Historical Perspectives</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5566</td><td>Festival and Popular Religion in Modern China</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5560</td><td>Science and Civilization in Early China: Lithic and Jade Technology</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5561</td><td>Museum and Historical Interpretation</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5564</td><td>Cross-Strait Relations in International and Historical Perspectives</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5566</td><td>Festival and Popular Religion in Modern China</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5568</td><td>A History of Republic of China</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5570</td><td>Institutions and Society in the Qing Dynasty</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5573</td><td>Archives and Hong Kong Historical Studies</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5575</td><td>Land Administration and Practice in Hong Kong</td><td></td><td></td><td><span class="prereq-sentence">For M.A. Programme in Comparative and Public History students only.</span></td></tr>
-<tr><td>HIST 5590</td><td>The Common People of Modern China</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5570</td><td>Institutions and Society in the Qing Dynasty</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5573</td><td>Archives and Hong Kong Historical Studies</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5575</td><td>Land Administration and Practice in Hong Kong</td><td></td><td></td><td><span class="prereq-sentence">For M.A. Programme in Comparative and Public History students only.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5590</td><td>The Common People of Modern China</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5591</td><td>The Historical Anthropology of Chinese Society</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5592</td><td>Patterns in Urban History and Development</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 5610</td><td>China and The West</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
-<tr><td>HIST 5680</td><td>Study of Emigrant Communities</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 5680</td><td>Study of Emigrant Communities</td><td></td><td></td><td><span class="prereq-sentence">For all PG prog in Division of History.</span></td></tr>
 <tr><td>HIST 6010</td><td>Graduate Seminar on Historiography</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil History.</span></td></tr>
-<tr><td>HIST 6011</td><td>Selected Themes in Traditional Chinese History</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 6011</td><td>Selected Themes in Traditional Chinese History</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil History.</span></td></tr>
 <tr><td>HIST 6012</td><td>Selected Themes in Modern Chinese History</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil History.</span></td></tr>
-<tr><td>HIST 6013</td><td>Selected Themes in Pre-Modern World History</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil History.</span></td></tr>
-<tr><td>HIST 6014</td><td>Selected Themes in Modern World History</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil History.</span></td></tr>
-<tr><td>HIST 6015</td><td>Selected Themes in Hong Kong History</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil History or MA Comparative & Public History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 6013</td><td>Selected Themes in Pre-Modern World History</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 6014</td><td>Selected Themes in Modern World History</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 6015</td><td>Selected Themes in Hong Kong History</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil History or MA Comparative & Public History.</span></td></tr>
 <tr><td>HIST 6016</td><td>Selected Themes in Comparative History</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil History or MA Comparative & Public History.</span></td></tr>
-<tr><td>HIST 6017</td><td>Selected Themes in Public History</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil History or MA Comparative & Public History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 6017</td><td>Selected Themes in Public History</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil History or MA Comparative & Public History.</span></td></tr>
 <tr><td>HIST 6100</td><td>Reading Seminar</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For MPhil History.</span></td></tr>
 <tr><td>HIST 6101</td><td>Independent Studies</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil History.</span></td></tr>
 <tr><td>HIST 7010</td><td>Graduate Seminar on Historiography</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
-<tr><td>HIST 7011</td><td>Selected Themes in Traditional Chinese History</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 7011</td><td>Selected Themes in Traditional Chinese History</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
 <tr><td>HIST 7012</td><td>Selected Themes in Modern Chinese History</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
-<tr><td>HIST 7013</td><td>Selected Themes in Pre-Modern World History</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
-<tr><td>HIST 7014</td><td>Selected Themes in Modern World History</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
-<tr><td>HIST 7015</td><td>Selected Themes in Hong Kong History</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 7013</td><td>Selected Themes in Pre-Modern World History</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 7014</td><td>Selected Themes in Modern World History</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 7015</td><td>Selected Themes in Hong Kong History</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
 <tr><td>HIST 7016</td><td>Selected Themes in Comparative History</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
-<tr><td>HIST 7017</td><td>Selected Themes in Public History</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 7017</td><td>Selected Themes in Public History</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
 <tr><td>HIST 7100</td><td>Reading Seminar</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
 <tr><td>HIST 7101</td><td>Independent Studies</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD History.</span></td></tr>
 <tr><td>HIST 8001</td><td>Thesis Guidance</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil History or PhD History.</span></td></tr>
@@ -548,6 +549,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

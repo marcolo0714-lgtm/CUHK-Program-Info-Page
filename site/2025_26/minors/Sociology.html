@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Sociology</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Sociology.html">2024-25</option><option value="../../2025_26/minors/Sociology.html" selected>2025-26</option><option value="../../2026_27/minors/Sociology.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Sociology</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Sociology.html">2024-25</option><option value="../../2025_26/minors/Sociology.html" selected>2025-26</option><option value="../../2026_27/minors/Sociology.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Social_Welfare.html">← Social Welfare</a><a href="Urban_Studies.html">Urban Studies →</a></div>
 <div class="title-row"><h1>Sociology &mdash; CUHK Minor Requirements (2025-26)</h1><span class="meta">Social Science</span></div>
 <div class="admit-year">Applicable to students admitted in 2025-26.</div>
@@ -314,44 +315,44 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">SOCI1001 or 1102</span></div></div>
 <details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr class="eq-row"><td>SOCI 1001</td><td>Introduction to Sociology</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken SOCI1102 or UGEC1823.</span></td></tr>
-<tr><td>SOCI 1102</td><td>Sociology and Modern Society</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SOCI1001 or UGEC1823.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 1102</td><td>Sociology and Modern Society</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SOCI1001 or UGEC1823.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 15 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">15 units from the following, including a minimum of 6 units of elective courses at 3000 or above level:</span></div><div class="req-row"><span class="row-text">SOCI2003, 2004, 2101, 2103, 2104, 2106, 2116, 2203, 2208, 2216, 2218, 2219, 2220, 3001, 3002, 3003, 3102, 3204, 3207, 3208, 3221, 3223, 3224, 3226, 3227, 3229, 3230, 3231, 3233, 3234, 3235, 3236, 3237, 3238, 3239, 3240, 3241, 3242, 3243, 3244, 3245, 3451, 3452, 3453, 4201, 4204, 4205, 4208, 4209, 4210, 4211, 4351, 4352, 4353</span></div></div>
 <details class="course-details"><summary>Show 54 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr><td>SOCI 2003</td><td>Social Research Methods</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 2004</td><td>Social Statistics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken DSME2010, DSME2020, DSME2011, DSME2021, ECON2121, GRMD2102, SEEM2430, SPED2600, PSYC2010, STAT1011, STAT1012, STAT2001, STAT2006, STAT2101, STAT2102.</span></td></tr>
-<tr><td>SOCI 2101</td><td>Development of Chinese Social Thought</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 2103</td><td>Japan in a Global Perspective</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2260 or GESC2160 or UGEC1232/JASP1100.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 2101</td><td>Development of Chinese Social Thought</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 2103</td><td>Japan in a Global Perspective</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2260 or GESC2160 or UGEC1232/JASP1100.</span></td></tr>
 <tr><td>SOCI 2104</td><td>Sociology and Hong Kong</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken SOCI1201, UGEC2865 or GEJC1020.</span></td></tr>
 <tr><td>SOCI 2106</td><td>Economic Reform and Social Impacts in China</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">SOCI2106 is double-coded with UGEC2883.</span><span class="prereq-sentence">Not for students who have taken GESC2118, UGEA2190 or UGEC2883.</span></td></tr>
-<tr><td>SOCI 2116</td><td>Criminals and the Law</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 2203</td><td>Social Problems and Social Policy</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 2116</td><td>Criminals and the Law</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 2203</td><td>Social Problems and Social Policy</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 2208</td><td>Urban Sociology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 2216</td><td>Social Problems in China</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2963.</span></td></tr>
-<tr><td>SOCI 2218</td><td>Marriage and Family</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SOCI3222 (old code) or GESC2320.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 2216</td><td>Social Problems in China</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2963.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 2218</td><td>Marriage and Family</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SOCI3222 (old code) or GESC2320.</span></td></tr>
 <tr><td>SOCI 2219</td><td>Youth and Society: Issues in the Contemporary World</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken UGEC2703.</span></td></tr>
 <tr><td>SOCI 2220</td><td>Introduction to Chinese Law and Society</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 3001</td><td>Organizations and Society</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3001</td><td>Organizations and Society</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 3002</td><td>Social Stratification</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 3003</td><td>Classical Sociological Theory</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 3102</td><td>Social Networks and Social Capital</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2013.</span></td></tr>
-<tr><td>SOCI 3204</td><td>Sociology of Crime and Deviance</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 3207</td><td>Economic Sociology</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3204</td><td>Sociology of Crime and Deviance</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3207</td><td>Economic Sociology</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 3208</td><td>Gender and Society</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 3221</td><td>Introduction to Social Psychology</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3221</td><td>Introduction to Social Psychology</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 3223</td><td>Contemporary Sociological Theory</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: SOCI1001 or 1102 or UGEC1823.</span></td></tr>
-<tr><td>SOCI 3224</td><td>Democracy and Society</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2873.</span></td></tr>
-<tr><td>SOCI 3226</td><td>Sociology and Films</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3224</td><td>Democracy and Society</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2873.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3226</td><td>Sociology and Films</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 3227</td><td>Social Demography</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken UGEC2033.</span></td></tr>
 <tr><td>SOCI 3229</td><td>Quantitative Data Analysis</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 3230</td><td>Globalization and China</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2514.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3230</td><td>Globalization and China</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2514.</span></td></tr>
 <tr><td>SOCI 3231</td><td>Qualitative Research</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite(s): SOCI2003.</span></td></tr>
-<tr><td>SOCI 3233</td><td>Sexualities and Society</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 3234</td><td>Policing and Society: Critical Debates and Practices</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): SOCI1001.</span></td></tr>
-<tr><td>SOCI 3235</td><td>Social Interaction and Video Analysis</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 3236</td><td>Migration and Policy Reflection on Global Citizenship</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SOCI3453.</span></td></tr>
-<tr><td>SOCI 3237</td><td>Medical Sociology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2003 or SOCI4207 (old code).</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3233</td><td>Sexualities and Society</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3234</td><td>Policing and Society: Critical Debates and Practices</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): SOCI1001.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3235</td><td>Social Interaction and Video Analysis</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3236</td><td>Migration and Policy Reflection on Global Citizenship</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SOCI3453.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3237</td><td>Medical Sociology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2003 or SOCI4207 (old code).</span></td></tr>
 <tr><td>SOCI 3238</td><td>Digital Sociology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 3239</td><td>Environment and Society</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 3240</td><td>Social Studies of Science</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
@@ -359,20 +360,20 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>SOCI 3242</td><td>Crime and Social Control in Globalized Societies</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 3243</td><td>Generalized Experimental Methods for Social Research</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 3244</td><td>Sociology of Housing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 3245</td><td>Sociology Field Studies</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 3451</td><td>Selected Topics in Sociology I</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 3452</td><td>Selected Topics in Sociology II</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SOCI3241.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3245</td><td>Sociology Field Studies</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3451</td><td>Selected Topics in Sociology I</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3452</td><td>Selected Topics in Sociology II</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SOCI3241.</span></td></tr>
 <tr><td>SOCI 3453</td><td>Selected Topics in Sociology III</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 4201</td><td>Quantitative Method: Survey and Unconventional Data Types</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): SOCI2003 and SOCI2004.</span></td></tr>
-<tr><td>SOCI 4204</td><td>Sociology of Education</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 4205</td><td>Social Movement</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 4208</td><td>Cultural Sociology</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 4201</td><td>Quantitative Method: Survey and Unconventional Data Types</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): SOCI2003 and SOCI2004.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 4204</td><td>Sociology of Education</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 4205</td><td>Social Movement</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 4208</td><td>Cultural Sociology</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 4209</td><td>Religion in Modern Society</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken SOCI4352 or CURE3112.</span></td></tr>
-<tr><td>SOCI 4210</td><td>Science and Technology Studies</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 4210</td><td>Science and Technology Studies</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 4211</td><td>Sociology Internship: Nurturing Competency for Meeting Future Challenges</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): SOCI1002 and SOCI2003.</span></td></tr>
-<tr><td>SOCI 4351</td><td>Selected Topics in Sociology IV</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 4352</td><td>Selected Topics in Sociology V</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 4353</td><td>Selected Topics in Sociology VI</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 4351</td><td>Selected Topics in Sociology IV</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 4352</td><td>Selected Topics in Sociology V</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 4353</td><td>Selected Topics in Sociology VI</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>
@@ -418,6 +419,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

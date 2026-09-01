@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Logistics and Supply Chain Management</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Logistics_and_Supply_Chain_Management.html">2024-25</option><option value="../../2025_26/minors/Logistics_and_Supply_Chain_Management.html" selected>2025-26</option><option value="../../2026_27/minors/Logistics_and_Supply_Chain_Management.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Logistics and Supply Chain Management</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Logistics_and_Supply_Chain_Management.html">2024-25</option><option value="../../2025_26/minors/Logistics_and_Supply_Chain_Management.html" selected>2025-26</option><option value="../../2026_27/minors/Logistics_and_Supply_Chain_Management.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Information_Engineering.html">← Information Engineering</a><a href="Mechanical_and_Automation_Engineering.html">Mechanical and Automation Engineering →</a></div>
 <div class="title-row"><h1>Logistics and Supply Chain Management &mdash; CUHK Minor Requirements (2025-26)</h1><span class="meta">Engineering</span></div>
 <div class="admit-year">Applicable to students admitted in 2025-26.</div>
@@ -315,25 +316,25 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr><td>SEEM 2420</td><td>Operations Research I</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR2520 or FTEC2101.</span></td></tr>
 <tr class="eq-row"><td>SEEM 3620</td><td>Introduction to Logistics and Supply Chain Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR3514 or ESTR4500 or ESTR4502 or SEEM4600 or SEEM4610.</span></td></tr>
-<tr><td>ESTR 3514</td><td>Introduction to Logistics and Supply Chain Management</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4500 or ESTR4502 or SEEM3620 or SEEM4600 or SEEM4610.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 3514</td><td>Introduction to Logistics and Supply Chain Management</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4500 or ESTR4502 or SEEM3620 or SEEM4600 or SEEM4610.</span></td></tr>
 <tr class="eq-row"><td>SEEM 4750</td><td>Advances in Logistics and Supply Chain Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4500 or ESTR4502 or ESTR4510 or SEEM4600 or SEEM4610.</span></td></tr>
-<tr><td>ESTR 4510</td><td>Advances in Logistics and Supply Chain Management</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4500 or ESTR4502 or SEEM4600 or SEEM4610 or SEEM4750.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 4510</td><td>Advances in Logistics and Supply Chain Management</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4500 or ESTR4502 or SEEM4600 or SEEM4610 or SEEM4750.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 9 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Any 3 courses from the following:</span><span class="meta">(9 units)</span></div><div class="req-row"><span class="row-text">SEEM3440/ESTR3500, SEEM3450/ESTR3502, SEEM3500, SEEM3630/ESTR3510, SEEM3650/ESTR3516, SEEM4670, SEEM4760/ESTR4512</span></div></div>
 <details class="course-details"><summary>Show 12 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr class="eq-row"><td>SEEM 3440</td><td>Operations Research II</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR2520 or ESTR3500 or FTEC2101.</span></td></tr>
-<tr><td>ESTR 3500</td><td>Operations Research II</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR2520 or FTEC2101 or SEEM3440.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 3500</td><td>Operations Research II</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR2520 or FTEC2101 or SEEM3440.</span></td></tr>
 <tr class="eq-row"><td>SEEM 3450</td><td>Engineering Innovation and Entrepreneurship</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR3502.</span></td></tr>
-<tr><td>ESTR 3502</td><td>Engineering Innovation and Entrepreneurship</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SEEM3450.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 3502</td><td>Engineering Innovation and Entrepreneurship</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SEEM3450.</span></td></tr>
 <tr><td>SEEM 3500</td><td>Quality Control and Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisites: SEEM2430 or ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or (ENGG2760/ESTR2018 and ENGG2780/ESTR2020) with the approval of the course instructor.</span></td></tr>
 <tr class="eq-row"><td>SEEM 3630</td><td>Service Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3510.</span></td></tr>
-<tr><td>ESTR 3510</td><td>Service Management</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SEEM3630.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 3510</td><td>Service Management</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SEEM3630.</span></td></tr>
 <tr class="eq-row"><td>SEEM 3650</td><td>Fundamentals in Decision and Data Analytics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020 & MATH1510; or (b) with course instructor's approval.</span><span class="prereq-sentence">2. Not for students who have taken ESTR3516 or SEEM4480.</span></td></tr>
-<tr><td>ESTR 3516</td><td>Fundamentals in Decision and Data Analytics</td><td></td><td></td><td><span class="prereq-sentence">1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020 & MATH1510; or (b) with course instructor's approval.</span><span class="prereq-sentence">2. Not for students who have taken SEEM3650 or SEEM4480.</span></td></tr>
-<tr><td>SEEM 4670</td><td>Service Systems</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ESTR 3516</td><td>Fundamentals in Decision and Data Analytics</td><td></td><td></td><td><span class="prereq-sentence">1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020 & MATH1510; or (b) with course instructor's approval.</span><span class="prereq-sentence">2. Not for students who have taken SEEM3650 or SEEM4480.</span></td></tr>
+<tr class="course-unavailable"><td>SEEM 4670</td><td>Service Systems</td><td></td><td></td><td>—</td></tr>
 <tr class="eq-row"><td>SEEM 4760</td><td>Stochastic Models for Decision Analytics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020, MATH1510 and SEEM2420; or (b) with course instructor's approval.</span><span class="prereq-sentence">2. Not for students who have taken ESTR4512.</span></td></tr>
-<tr><td>ESTR 4512</td><td>Stochastic Models for Decision Analytics</td><td></td><td></td><td><span class="prereq-sentence">1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020, MATH1510 and SEEM2420; or (b) with course instructor's approval.</span><span class="prereq-sentence">2. Not for students who have taken SEEM4760.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 4512</td><td>Stochastic Models for Decision Analytics</td><td></td><td></td><td><span class="prereq-sentence">1. Pre-requisites: (a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020, MATH1510 and SEEM2420; or (b) with course instructor's approval.</span><span class="prereq-sentence">2. Not for students who have taken SEEM4760.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Systems Engineering and Engineering Management and the Bachelor of Engineering (Systems Engineering and Engineering Management) and Bachelor of Business Administration (Integrated BBA Programme) Double Degree Option; and students in the Mathematics-Multidisciplinary Stream of Mathematics Major Programme.</span></div>
@@ -380,6 +381,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

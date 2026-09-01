@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -306,7 +307,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Religious Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Religious_Studies.html">2024-25</option><option value="../../2025_26/minors/Religious_Studies.html">2025-26</option><option value="../../2026_27/minors/Religious_Studies.html" selected>2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Religious Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Religious_Studies.html">2024-25</option><option value="../../2025_26/minors/Religious_Studies.html">2025-26</option><option value="../../2026_27/minors/Religious_Studies.html" selected>2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Religion_and_Health.html">← Religion and Health</a><a href="Theology.html">Theology →</a></div>
 <div class="title-row"><h1>Religious Studies &mdash; CUHK Minor Requirements (2026-27)</h1><span class="meta">Arts</span></div>
 <div class="admit-year">Applicable to students admitted in 2026-27.</div>
@@ -322,55 +323,55 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">Four CURE courses at 2000 or above level from the Religious Studies Areas, of which at least two courses are at 3000 or above level</span></div></div>
 <details class="course-details"><summary>Show 52 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr><td>CURE 2112</td><td>Myth, Symbol and Ritual</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>CURE 2113</td><td>Philosophy of Religion</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2114</td><td>Sociology of Religion</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>CURE 2115</td><td>Psychology of Religion</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2113</td><td>Philosophy of Religion</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2114</td><td>Sociology of Religion</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>CURE 2115</td><td>Psychology of Religion</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 2125</td><td>Hong Kong Taoism</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>CURE 2130</td><td>Chinese Buddhist Classics</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2131</td><td>Christianity and Western Literature</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2139</td><td>Introduct'n to Taoist Literature</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2130</td><td>Chinese Buddhist Classics</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2131</td><td>Christianity and Western Literature</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2139</td><td>Introduct'n to Taoist Literature</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 2142</td><td>Religion and Ethics</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>CURE 2144</td><td>Life and Death in Religions</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2145</td><td>New Religious Movements</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2154</td><td>Foundational Medieval Latin</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2155</td><td>Beginning Sanskrit</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2156</td><td>Religion, Health and Healing</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2144</td><td>Life and Death in Religions</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2145</td><td>New Religious Movements</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2154</td><td>Foundational Medieval Latin</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2155</td><td>Beginning Sanskrit</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2156</td><td>Religion, Health and Healing</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 2160</td><td>Special Topics in Religion and Culture</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>CURE 2161</td><td>Introduction to Buddhism</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2161</td><td>Introduction to Buddhism</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 2163</td><td>Religion and Food</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>CURE 2164</td><td>Gender and Sexuality in Religions</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2165</td><td>Intermediate Latin</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisites: CURE2154 or 2166 or 2167 or its equivalent.</span></td></tr>
-<tr><td>CURE 2166</td><td>Latin for Law, Social Sciences and Humanities</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2167</td><td>Latin for Science and Medicine</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2164</td><td>Gender and Sexuality in Religions</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2165</td><td>Intermediate Latin</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisites: CURE2154 or 2166 or 2167 or its equivalent.</span></td></tr>
+<tr class="course-unavailable"><td>CURE 2166</td><td>Latin for Law, Social Sciences and Humanities</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2167</td><td>Latin for Science and Medicine</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 2170</td><td>Reading Religious Classics</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>CURE 2180</td><td>Classical Arabic for Beginners I</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken CURE2151 (Arabic Beginners I).</span></td></tr>
+<tr class="course-unavailable"><td>CURE 2180</td><td>Classical Arabic for Beginners I</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken CURE2151 (Arabic Beginners I).</span></td></tr>
 <tr><td>CURE 2181</td><td>Classical Arabic for Beginners II</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: CURE2180 or ARAB1000.</span><span class="prereq-sentence">Not for students who have taken CURE2150 (Arabic Beginners II).</span></td></tr>
-<tr><td>CURE 2225</td><td>Introduction to Indian Religions</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2225</td><td>Introduction to Indian Religions</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 2226</td><td>Introduction to Islam</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>CURE 2227</td><td>Introduction to Taoism</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2228</td><td>Religious Traditions and Politics of the Arab World</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2375</td><td>Chinese Temples and Festivals</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2377</td><td>Religions, Violence and Peace</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3114</td><td>Islamic Scriptures: The Qur’an and Traditions of Muhammad</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3115</td><td>Religious Education and Developmental Psychology</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3116</td><td>Religion and Globalization</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3122</td><td>Chinese Buddhism</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3126</td><td>Popular Religions in China</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3130</td><td>Religious Imagination and Visual Art</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3132</td><td>Religious Texts in Translation</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2227</td><td>Introduction to Taoism</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2228</td><td>Religious Traditions and Politics of the Arab World</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2375</td><td>Chinese Temples and Festivals</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2377</td><td>Religions, Violence and Peace</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3114</td><td>Islamic Scriptures: The Qur’an and Traditions of Muhammad</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3115</td><td>Religious Education and Developmental Psychology</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3116</td><td>Religion and Globalization</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3122</td><td>Chinese Buddhism</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3126</td><td>Popular Religions in China</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3130</td><td>Religious Imagination and Visual Art</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3132</td><td>Religious Texts in Translation</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 3134</td><td>Chinese Literature and the Bible</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>CURE 3136</td><td>Chinese Novels and Religion</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3142</td><td>The Religious Policy and Practices in China Today</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3144</td><td>Spirituality, Psychology and Well-Being</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3136</td><td>Chinese Novels and Religion</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3142</td><td>The Religious Policy and Practices in China Today</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3144</td><td>Spirituality, Psychology and Well-Being</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 3145</td><td>Buddhism and Contemporary Life</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGED3322 or UGED2331.</span></td></tr>
-<tr><td>CURE 3147</td><td>Religion and Mental Health Care</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3375</td><td>Science and Religion</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3377</td><td>Fieldwork in Indian Religions and Culture</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): CURE1123 or CURE2225.</span></td></tr>
-<tr><td>CURE 3378</td><td>Fieldwork in Islamic Culture and Religion</td><td></td><td></td><td><span class="prereq-sentence">Co-requisite(s): CURE1126 or CURE2151 or CURE1123/UGED1400.</span></td></tr>
-<tr><td>CURE 4121</td><td>Chan School of Buddhism</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 4134</td><td>Selected Taoist Classics</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3147</td><td>Religion and Mental Health Care</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3375</td><td>Science and Religion</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3377</td><td>Fieldwork in Indian Religions and Culture</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): CURE1123 or CURE2225.</span></td></tr>
+<tr class="course-unavailable"><td>CURE 3378</td><td>Fieldwork in Islamic Culture and Religion</td><td></td><td></td><td><span class="prereq-sentence">Co-requisite(s): CURE1126 or CURE2151 or CURE1123/UGED1400.</span></td></tr>
+<tr class="course-unavailable"><td>CURE 4121</td><td>Chan School of Buddhism</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 4134</td><td>Selected Taoist Classics</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 4153</td><td>Senior Seminar</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>CURE 4157</td><td>Special Topics in Religion, Culture and Heritage</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 4157</td><td>Special Topics in Religion, Culture and Heritage</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 4158</td><td>Special Topics in Religion, Society and Contemporary Issues</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>CURE 4159</td><td>Internship</td><td class="term-yes"></td><td></td><td>—</td></tr>
 </tbody></table></details>
@@ -419,6 +420,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -306,7 +307,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Cultural Heritage Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Cultural_Heritage_Studies.html">2024-25</option><option value="../../2025_26/minors/Cultural_Heritage_Studies.html">2025-26</option><option value="../../2026_27/minors/Cultural_Heritage_Studies.html" selected>2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Cultural Heritage Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Cultural_Heritage_Studies.html">2024-25</option><option value="../../2025_26/minors/Cultural_Heritage_Studies.html">2025-26</option><option value="../../2026_27/minors/Cultural_Heritage_Studies.html" selected>2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Creative_Writing_in_English.html">← Creative Writing in English</a><a href="Cultural_Management.html">Cultural Management →</a></div>
 <div class="title-row"><h1>Cultural Heritage Studies &mdash; CUHK Minor Requirements (2026-27)</h1><span class="meta">Arts</span></div>
 <div class="admit-year">Applicable to students admitted in 2026-27.</div>
@@ -331,23 +332,23 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ANTH 2720</td><td>Archaeology of Hong Kong</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>ANTH 3350</td><td>Food and Culture</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>ANTH 3370</td><td>Tourism and Culture</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>ANTH 3790</td><td>Archaeological Field Study</td><td></td><td></td><td>—</td></tr>
-<tr><td>ANTH 4210</td><td>Ethnic Groups, Ethnic Relations and Identities</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ANTH3340.</span></td></tr>
+<tr class="course-unavailable"><td>ANTH 3790</td><td>Archaeological Field Study</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ANTH 4210</td><td>Ethnic Groups, Ethnic Relations and Identities</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ANTH3340.</span></td></tr>
 <tr><td>ANTH 4720</td><td>Museums and Anthropology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">---.</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">History courses:</span></div><div class="req-row"><span class="row-text">HIST2500 or 2501, 2701, 3441, 3505, 3701, 4500, 4600, 4700, 4702, 4703</span></div></div>
 <details class="course-details"><summary>Show 11 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr class="eq-row"><td>HIST 2500</td><td>History of Hong Kong</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2945 or HIST2501.</span></td></tr>
 <tr><td>HIST 2501</td><td>Hong Kong History in the Field</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for HIstory Majors.</span><span class="prereq-sentence">Not for student who have taken HIST2500/ HIST2701.</span></td></tr>
-<tr><td>HIST 2701</td><td>Local History and Public History</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST2501.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 2701</td><td>Local History and Public History</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST2501.</span></td></tr>
 <tr><td>HIST 3441</td><td>Museum and Heritage</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>HIST 3505</td><td>Land Law and Custom in the New Territories</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>HIST 3701</td><td>History, Memory, and Monuments</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 4500</td><td>Topic Studies in Hong Kong History</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 4600</td><td>Topic Studies in Comparative History</td><td></td><td></td><td>—</td></tr>
-<tr><td>HIST 4700</td><td>Topic Studies in Public History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3701</td><td>History, Memory, and Monuments</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4500</td><td>Topic Studies in Hong Kong History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4600</td><td>Topic Studies in Comparative History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4700</td><td>Topic Studies in Public History</td><td></td><td></td><td>—</td></tr>
 <tr><td>HIST 4702</td><td>Digital History</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>HIST 4703</td><td>Christianity in World History</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 4703</td><td>Christianity in World History</td><td></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>
@@ -394,6 +395,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

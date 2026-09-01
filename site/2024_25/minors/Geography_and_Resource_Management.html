@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Geography and Resource Management</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Geography_and_Resource_Management.html" selected>2024-25</option><option value="../../2025_26/minors/Geography_and_Resource_Management.html">2025-26</option><option value="../../2026_27/minors/Geography_and_Resource_Management.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Geography and Resource Management</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Geography_and_Resource_Management.html" selected>2024-25</option><option value="../../2025_26/minors/Geography_and_Resource_Management.html">2025-26</option><option value="../../2026_27/minors/Geography_and_Resource_Management.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Gender_Studies.html">← Gender Studies</a><a href="Global_Communication.html">Global Communication →</a></div>
 <div class="title-row"><h1>Geography and Resource Management &mdash; CUHK Minor Requirements (2024-25)</h1><span class="meta">Social Science</span></div>
 <div class="admit-year">Applicable to students admitted in 2024-25.</div>
@@ -330,12 +331,12 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>GRMD 2303</td><td>Urban Geography</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>GRMD 2321</td><td>Economic Geography</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>GRMD 2401</td><td>Sustainable Development</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">GRMD2401 is double-coded with UGEC2171.</span><span class="prereq-sentence">Not for students who have taken UGEC2171, 2354 or 2775.</span></td></tr>
-<tr><td>GRMD 2402</td><td>Natural Resource Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GRMD 2402</td><td>Natural Resource Management</td><td></td><td></td><td>—</td></tr>
 <tr><td>GRMD 2403</td><td>Nature Conservation in Hong Kong</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>GRMD 2501</td><td>Theory and Practice of Smart Cities</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>GRMD 3102</td><td>Research Design and Methodology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">GRMD2102 or another statistics course which is approved by the instructor as a pre-requisite.</span></td></tr>
-<tr><td>GRMD 3104</td><td>Satellite Image Analysis</td><td></td><td></td><td>—</td></tr>
-<tr><td>GRMD 3106</td><td>Advanced GIS</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GRMD2105.</span></td></tr>
+<tr class="course-unavailable"><td>GRMD 3104</td><td>Satellite Image Analysis</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GRMD 3106</td><td>Advanced GIS</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GRMD2105.</span></td></tr>
 <tr><td>GRMD 3108</td><td>Cartography and Geovisualization</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>GRMD 3202</td><td>Environmental Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>GRMD 3203</td><td>Urban Environmental Problems</td><td class="term-yes"></td><td></td><td>—</td></tr>
@@ -345,20 +346,20 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>GRMD 3301</td><td>Geography of China</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>GRMD 3302</td><td>Population and Migration</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>GRMD 3304</td><td>Cultural Geography</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 3305</td><td>Transport Geography</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GRMD 3305</td><td>Transport Geography</td><td></td><td></td><td>—</td></tr>
 <tr><td>GRMD 3323</td><td>Urban and Regional Planning</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>GRMD 3401</td><td>Energy Resources for Carbon Neutrality</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>GRMD 3402</td><td>World Development</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>GRMD 3404</td><td>Natural Hazards and Human Responses</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>GRMD 4003</td><td>Special Topics in Geography and Resource Management I</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>GRMD 4004</td><td>Special Topics in Geography and Resource Management II</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GRMD 4004</td><td>Special Topics in Geography and Resource Management II</td><td></td><td></td><td>—</td></tr>
 <tr><td>GRMD 4101</td><td>GIS Workshop</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: GRMD2105.</span></td></tr>
 <tr><td>GRMD 4202</td><td>Hydrology and Water Resources</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>GRMD 4203</td><td>Ecosystem Restoration and Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 4204</td><td>Environmental Planning and Assessment</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GRMD 4204</td><td>Environmental Planning and Assessment</td><td></td><td></td><td>—</td></tr>
 <tr><td>GRMD 4302</td><td>Urban Planning Workshop</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Only for students who have taken URSP1001 or URSP2300 or GRMD3323 or are taking GRMD3323 at the same time.</span></td></tr>
-<tr><td>GRMD 4403</td><td>Environmental and Resource Economics and Policy</td><td></td><td></td><td>—</td></tr>
-<tr><td>GRMD 4502</td><td>Urban Big Data Analysis and Application</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GRMD 4403</td><td>Environmental and Resource Economics and Policy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GRMD 4502</td><td>Urban Big Data Analysis and Application</td><td></td><td></td><td>—</td></tr>
 <tr><td>GRMD 4503</td><td>Smart City Policies and Governance</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>GRMD 5110</td><td>Statistical Applications in Geography</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Geography and Resource Management.</span></td></tr>
 </tbody></table></details>
@@ -406,6 +407,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

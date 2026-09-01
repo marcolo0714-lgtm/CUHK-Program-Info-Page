@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -306,7 +307,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Economics</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Economics.html">2024-25</option><option value="../../2025_26/minors/Economics.html">2025-26</option><option value="../../2026_27/minors/Economics.html" selected>2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Economics</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Economics.html">2024-25</option><option value="../../2025_26/minors/Economics.html">2025-26</option><option value="../../2026_27/minors/Economics.html" selected>2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Data_Science_and_Policy_Studies.html">← Data Science and Policy Studies</a><a href="Gender_Studies.html">Gender Studies →</a></div>
 <div class="title-row"><h1>Economics &mdash; CUHK Minor Requirements (2026-27)</h1><span class="meta">Social Science</span></div>
 <div class="admit-year">Applicable to students admitted in 2026-27.</div>
@@ -325,31 +326,31 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ECON 3021</td><td>Intermediate Macroeconomic Theory</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>ECON 3121</td><td>Introductory Econometrics</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>ECON 3140</td><td>Financial Data Analysis</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>ECON 3150</td><td>Mathematical Methods in Economics III</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 3150</td><td>Mathematical Methods in Economics III</td><td></td><td></td><td>—</td></tr>
 <tr><td>ECON 3160</td><td>Game Theory</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>ECON 3230</td><td>New Political Economy</td><td></td><td></td><td>—</td></tr>
-<tr><td>ECON 3240</td><td>Economics of Transition</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 3230</td><td>New Political Economy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 3240</td><td>Economics of Transition</td><td></td><td></td><td>—</td></tr>
 <tr><td>ECON 3250</td><td>Chinese Economy: Heritage and Change</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken UGEC2461.</span></td></tr>
 <tr><td>ECON 3260</td><td>History of Economic Thought</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>ECON 3310</td><td>Economy of China</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 3310</td><td>Economy of China</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>ECON 3320</td><td>Asia-Pacific Economies</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>ECON 3350</td><td>China and the World Economy</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>ECON 3360</td><td>Chinese Economy in Transition</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 3360</td><td>Chinese Economy in Transition</td><td></td><td></td><td>—</td></tr>
 <tr><td>ECON 3370</td><td>Business Environment of China</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>ECON 3380</td><td>Economy of Hong Kong</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>ECON 3410</td><td>Money and Banking</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>ECON 3420</td><td>Financial Economics</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>ECON 3430</td><td>Public Finance</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>ECON 3440</td><td>Urban Economics</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 3440</td><td>Urban Economics</td><td></td><td></td><td>—</td></tr>
 <tr><td>ECON 3460</td><td>Development Economics</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>ECON 3470</td><td>Labour Economics</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>ECON 3480</td><td>Industrial Organization</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>ECON 3500</td><td>Economies of Social and Environmental Issues</td><td></td><td></td><td>—</td></tr>
-<tr><td>ECON 3510</td><td>Family Economics</td><td></td><td></td><td>—</td></tr>
-<tr><td>ECON 3520</td><td>Economics of Capital Markets</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>ECON 3530</td><td>International Economic Relations</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 3500</td><td>Economies of Social and Environmental Issues</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 3510</td><td>Family Economics</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 3520</td><td>Economics of Capital Markets</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 3530</td><td>International Economic Relations</td><td></td><td></td><td>—</td></tr>
 <tr><td>ECON 3540</td><td>Foundations of Corporate Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken FINA3088.</span></td></tr>
-<tr><td>ECON 3570</td><td>Information Technology and Economy</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEB2580.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 3570</td><td>Information Technology and Economy</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEB2580.</span></td></tr>
 <tr><td>ECON 3580</td><td>Emerging Financial Markets of China</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>ECON 3590</td><td>Business Economics</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>ECON 3610</td><td>International Trade</td><td></td><td class="term-yes"></td><td>—</td></tr>
@@ -357,22 +358,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ECON 3630</td><td>Law and Economics</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>ECON 4010</td><td>Advanced Topics in Microeconomics</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>ECON 4020</td><td>Advanced Macroeconomics</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>ECON 4110</td><td>Introductory Mathematical Economics</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 4110</td><td>Introductory Mathematical Economics</td><td></td><td></td><td>—</td></tr>
 <tr><td>ECON 4120</td><td>Applied Forecasting Methods</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>ECON 4130</td><td>Machine Learning Methods in Economics</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>ECON 4140</td><td>Capstone Project in Data Analytics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students who have taken or are taking ECON4130 at the same term.</span></td></tr>
 <tr><td>ECON 4430</td><td>Welfare Economics</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>ECON 4450</td><td>Economics of Derivatives</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>ECON 4460</td><td>Economic Growth and Technological Change</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 4460</td><td>Economic Growth and Technological Change</td><td></td><td></td><td>—</td></tr>
 <tr><td>ECON 4470</td><td>Economics of Behavioural Finance</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>ECON 4810</td><td>Selected Topics in Economics I</td><td></td><td></td><td>—</td></tr>
-<tr><td>ECON 4820</td><td>Selected Topics in Economics II</td><td></td><td></td><td>—</td></tr>
-<tr><td>ECON 4830</td><td>Selected Topics in Economics III</td><td></td><td></td><td>—</td></tr>
-<tr><td>ECON 4840</td><td>Selected Topics in Economics IV</td><td></td><td></td><td>—</td></tr>
-<tr><td>ECON 4850</td><td>Selected Topics in Economics V</td><td></td><td></td><td>—</td></tr>
-<tr><td>ECON 4860</td><td>Selected Topics in Economics VI</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 4810</td><td>Selected Topics in Economics I</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 4820</td><td>Selected Topics in Economics II</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 4830</td><td>Selected Topics in Economics III</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 4840</td><td>Selected Topics in Economics IV</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 4850</td><td>Selected Topics in Economics V</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 4860</td><td>Selected Topics in Economics VI</td><td></td><td></td><td>—</td></tr>
 <tr><td>ECON 4901 [2]</td><td>Guided Study in Current Economic Problems II</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>ECON 4902 [1]</td><td>Economics - Theory and Reality</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ECON 4902 [1]</td><td>Economics - Theory and Reality</td><td></td><td></td><td>—</td></tr>
 <tr><td>ECON 4903 [2]</td><td>Economics in Practice</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>ECON 4910</td><td>Senior Thesis Research I</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>ECON 4920</td><td>Senior Thesis Research II</td><td></td><td class="term-yes"></td><td>—</td></tr>
@@ -387,55 +388,55 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ECON 5100</td><td>Review of Quantitative Methods</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD Economics or MPhil Economics.</span></td></tr>
 <tr><td>ECON 5101</td><td>Review of Quantitative Methods</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Economics.</span></td></tr>
 <tr><td>ECON 5102</td><td>Mathematics for Economic Analysis</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5110</td><td>Mathematical Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5110</td><td>Mathematical Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
 <tr><td>ECON 5120</td><td>Econometric Theory and Applications</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD Economics or MPhil Economics.</span></td></tr>
 <tr><td>ECON 5121</td><td>Econometric Theory and Applications</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Economics.</span></td></tr>
 <tr><td>ECON 5122</td><td>Econometric Analysis and Applications</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5130</td><td>Applied Time Series Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics or Local/ Offshore MSc Economics.</span></td></tr>
-<tr><td>ECON 5140</td><td>Advanced Forecasting Methods</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5130</td><td>Applied Time Series Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics or Local/ Offshore MSc Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5140</td><td>Advanced Forecasting Methods</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5150</td><td>Applied Econometrics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5160</td><td>Game Theory</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5170</td><td>Computational Methods in Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics;</span><span class="prereq-sentence">Prerequisite: ECON5020/ ECON5021/ ECON5022 and ECON5120/ ECON5121/ ECON5122.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5170</td><td>Computational Methods in Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics;</span><span class="prereq-sentence">Prerequisite: ECON5020/ ECON5021/ ECON5022 and ECON5120/ ECON5121/ ECON5122.</span></td></tr>
 <tr><td>ECON 5180</td><td>Economics and Data Science</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5181</td><td>Machine Learning Methods for Economists</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5310</td><td>Analysis of China’s Economy</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5310</td><td>Analysis of China’s Economy</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
 <tr><td>ECON 5311</td><td>Analysis of China’s Economy</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5410</td><td>Monetary Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5420</td><td>Financial Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5410</td><td>Monetary Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5420</td><td>Financial Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
 <tr><td>ECON 5421</td><td>Financial Economics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5430</td><td>Public Economics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
 <tr><td>ECON 5440</td><td>International Trade</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5450</td><td>International Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5450</td><td>International Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
 <tr><td>ECON 5451</td><td>International Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5460</td><td>Development Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5460</td><td>Development Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
 <tr><td>ECON 5461</td><td>Development Economics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5470</td><td>Labour Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5470</td><td>Labour Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
 <tr><td>ECON 5471</td><td>Labour Economics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5480</td><td>Industrial Organization</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics or MPhil Economics.</span></td></tr>
 <tr><td>ECON 5481</td><td>Industrial Organization</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5490</td><td>Corporate Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics or Local/ Offshore MSc Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5490</td><td>Corporate Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics or Local/ Offshore MSc Economics.</span></td></tr>
 <tr><td>ECON 5491</td><td>Corporate Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5510</td><td>Behavioral Economics and Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5510</td><td>Behavioral Economics and Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
 <tr><td>ECON 5511</td><td>Behavioral Economics and Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5520</td><td>Econometric Methods for Policy Evaluation</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5520</td><td>Econometric Methods for Policy Evaluation</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
 <tr><td>ECON 5522</td><td>Econometric Methods for Policy Evaluation</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5530</td><td>Health Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5530</td><td>Health Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
 <tr><td>ECON 5532</td><td>Health Economics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5542</td><td>Analysis of Fiscal and Monetary Policy in China</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5552</td><td>Economic Analysis of Public Policy in China</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5811</td><td>Global Economics and Finance Forum</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5811</td><td>Global Economics and Finance Forum</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5821</td><td>Special Topics in Economics I</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5822</td><td>Special Topics in Economics I</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5831</td><td>Special Topics in Economics II</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5832</td><td>Special Topics in Economics II</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5841</td><td>Special Topics in Economics III</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 5842</td><td>Special Topics in Economics III</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 5851 [1]</td><td>Research Development Project</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Economics.</span></td></tr>
-<tr><td>ECON 5861 [1]</td><td>Internship Experience in Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Economics.</span></td></tr>
-<tr><td>ECON 6010</td><td>Seminar in Economic Theory</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5851 [1]</td><td>Research Development Project</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 5861 [1]</td><td>Internship Experience in Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 6010</td><td>Seminar in Economic Theory</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics or MSc in Economics.</span></td></tr>
 <tr><td>ECON 6810</td><td>Special Topics in Economics I</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 6820</td><td>Special Topics in Economics II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
-<tr><td>ECON 6830</td><td>Special Topics in Economics III</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
+<tr class="course-unavailable"><td>ECON 6830</td><td>Special Topics in Economics III</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD Economics, MPhil Economics, MSc Economics or MSc Applied Economics.</span></td></tr>
 <tr><td>ECON 8003</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics.</span></td></tr>
 <tr><td>ECON 8006 [6]</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics.</span></td></tr>
 <tr><td>ECON 8012 [12]</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Economics.</span></td></tr>
@@ -486,6 +487,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Psychology</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Psychology.html">2024-25</option><option value="../../2025_26/minors/Psychology.html" selected>2025-26</option><option value="../../2026_27/minors/Psychology.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Psychology</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Psychology.html">2024-25</option><option value="../../2025_26/minors/Psychology.html" selected>2025-26</option><option value="../../2026_27/minors/Psychology.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Journalism_and_Communication.html">← Journalism and Communication</a><a href="Social_Policy.html">Social Policy →</a></div>
 <div class="title-row"><h1>Psychology &mdash; CUHK Minor Requirements (2025-26)</h1><span class="meta">Social Science</span></div>
 <div class="admit-year">Applicable to students admitted in 2025-26.</div>
@@ -328,31 +329,31 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>PSYC 2540</td><td>Developmental Psychology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite:PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken PSYC2530 or PSYC3540 or SOWK2110 or EDUC2310.</span></td></tr>
 <tr><td>PSYC 2620</td><td>Social Psychology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerepuisite: PSYC1000 or PSYC1620 or PSYC1630 or UGED2581.</span></td></tr>
 <tr><td>PSYC 2650</td><td>Personality Psychology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
-<tr><td>PSYC 2780</td><td>Neuropsychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3001</td><td>Special Topics in Cognitive Science</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 2780</td><td>Neuropsychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 3001</td><td>Special Topics in Cognitive Science</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
 <tr><td>PSYC 3002</td><td>Special Topics in Education and Human Development</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
 <tr><td>PSYC 3003</td><td>Special Topics in Social and Industrial-Organizational Psychology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3004</td><td>Special Topics in Clinical and Health Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3005</td><td>Special Topics in Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3360</td><td>Human Intelligence</td><td></td><td></td><td><span class="prereq-sentence">1. Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">2. Not for students who have taken UGEB2721.</span></td></tr>
-<tr><td>PSYC 3370</td><td>Psychology and Law</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3430</td><td>Psychology of Language</td><td></td><td></td><td><span class="prereq-sentence">1. Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">2. Not for students who have taken ENGE3610 or LING3202.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 3004</td><td>Special Topics in Clinical and Health Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 3005</td><td>Special Topics in Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 3360</td><td>Human Intelligence</td><td></td><td></td><td><span class="prereq-sentence">1. Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">2. Not for students who have taken UGEB2721.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 3370</td><td>Psychology and Law</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 3430</td><td>Psychology of Language</td><td></td><td></td><td><span class="prereq-sentence">1. Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">2. Not for students who have taken ENGE3610 or LING3202.</span></td></tr>
 <tr><td>PSYC 3440</td><td>Psychology of Music</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3450</td><td>Problem Solving and Creativity</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 3450</td><td>Problem Solving and Creativity</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
 <tr><td>PSYC 3460</td><td>Machine Learning in Psychology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3470</td><td>Computational Modeling in Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 3470</td><td>Computational Modeling in Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
 <tr><td>PSYC 3550</td><td>Educational Psychology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken EDUC3311.</span></td></tr>
-<tr><td>PSYC 3610</td><td>Culture and Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken PSYC1620.</span></td></tr>
-<tr><td>PSYC 3630</td><td>Culture, Groups and Social Behaviour</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC2620.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 3610</td><td>Culture and Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken PSYC1620.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 3630</td><td>Culture, Groups and Social Behaviour</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC2620.</span></td></tr>
 <tr><td>PSYC 3640</td><td>Psychology of Gender</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3660</td><td>Emotion and Motivation</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 3660</td><td>Emotion and Motivation</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
 <tr><td>PSYC 3700</td><td>Abnormal Psychology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken SOWK2140.</span></td></tr>
 <tr><td>PSYC 3720</td><td>Health Psychology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
 <tr><td>PSYC 3730</td><td>Professional Issues and Development in Mental Health Practice</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000.</span></td></tr>
 <tr><td>PSYC 3740</td><td>Evidence-based Mental Health Practice</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
 <tr><td>PSYC 3750</td><td>Counseling Theories and their Applications to Clinical, Career and Organizational Settings</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span></td></tr>
 <tr><td>PSYC 3810</td><td>Applied Psychology in Business</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
-<tr><td>PSYC 3820</td><td>Industrial-Organizational Psychology</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
+<tr class="course-unavailable"><td>PSYC 3820</td><td>Industrial-Organizational Psychology</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Entry requirement: Students are required to take PSYC1000 before being admitted to the Minor Programme.</span></div>
@@ -401,6 +402,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

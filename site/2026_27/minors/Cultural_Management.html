@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -306,7 +307,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Cultural Management</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Cultural_Management.html">2024-25</option><option value="../../2025_26/minors/Cultural_Management.html">2025-26</option><option value="../../2026_27/minors/Cultural_Management.html" selected>2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Cultural Management</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Cultural_Management.html">2024-25</option><option value="../../2025_26/minors/Cultural_Management.html">2025-26</option><option value="../../2026_27/minors/Cultural_Management.html" selected>2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Cultural_Heritage_Studies.html">← Cultural Heritage Studies</a><a href="Cultural_Studies.html">Cultural Studies →</a></div>
 <div class="title-row"><h1>Cultural Management &mdash; CUHK Minor Requirements (2026-27)</h1><span class="meta">Arts</span></div>
 <div class="admit-year">Applicable to students admitted in 2026-27.</div>
@@ -322,51 +323,51 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>2. Elective Courses: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) Any 3 units from CURE2405, 2411, 2412, 3403, 3404</span></div></div>
 <details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
-<tr><td>CURE 2405</td><td>Management of Public and Non-profit Cultural Organization</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2405</td><td>Management of Public and Non-profit Cultural Organization</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 2411</td><td>Visual Arts Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>CURE 2412</td><td>Performing Arts Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2412</td><td>Performing Arts Management</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 3403</td><td>Media Arts Management</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>CURE 3404</td><td>Public and Community Art</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3404</td><td>Public and Community Art</td><td></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) Any 9 units Cultural Management Area(a), with at least 3 units at 3000 or above level <span id="ref_a"><a href="#note_a">[a]</a></span></span></div></div>
 <details class="course-details"><summary>Show 37 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr><td>ANTH 2370</td><td>Intangible Heritage in Hong Kong</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>ANTH 2730</td><td>Preserving Cultural Heritage</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>ANTH 4720</td><td>Museums and Anthropology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">---.</span></td></tr>
-<tr><td>CURE 2403</td><td>Art Institutions in Twentieth-Century China</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2403</td><td>Art Institutions in Twentieth-Century China</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 2404</td><td>Introduction to Heritage Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken CUMT2004, UGED2285.</span></td></tr>
-<tr><td>CURE 2405</td><td>Management of Public and Non-profit Cultural Organization</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2406</td><td>Understanding Chinese Art through Exhibitions</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2407</td><td>Curation in Arts and Culture</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2405</td><td>Management of Public and Non-profit Cultural Organization</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2406</td><td>Understanding Chinese Art through Exhibitions</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2407</td><td>Curation in Arts and Culture</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 2408</td><td>AI in Creative Industries: Applied Creative Technologies</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>CURE 2409</td><td>Introduction to the Art Market</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>CURE 2410</td><td>Music, Culture and Outreach</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2410</td><td>Music, Culture and Outreach</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 2411</td><td>Visual Arts Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>CURE 2412</td><td>Performing Arts Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2412</td><td>Performing Arts Management</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 3036</td><td>Contemporary Art and Representation</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>CURE 3401</td><td>Hong Kong Culture and Heritage</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3402</td><td>Film and Independent Cinema</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3401</td><td>Hong Kong Culture and Heritage</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3402</td><td>Film and Independent Cinema</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 3403</td><td>Media Arts Management</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>CURE 3404</td><td>Public and Community Art</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3404</td><td>Public and Community Art</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 3405</td><td>Design Your Exhibition – Curatorial Planning and Practice</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Pre-requisite: CUMT2007 Curation in Arts and Culture or CURE2407 Curation in Arts and Culture.</span><span class="prereq-sentence">2. Not for students who have taken CUMT3005.</span></td></tr>
-<tr><td>CURE 3406</td><td>Popular Music and Industry</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3407</td><td>Entrepreneurship in the Creative Industries</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 3408</td><td>Curating and Managing Arts Festival</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3406</td><td>Popular Music and Industry</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3407</td><td>Entrepreneurship in the Creative Industries</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 3408</td><td>Curating and Managing Arts Festival</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 3409</td><td>Interpretation of Heritage</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CUMT3009 or CUMT4101 or CURE4411.</span></td></tr>
 <tr><td>CURE 3411</td><td>Inclusive Theatre and Development of Sustainability in Arts</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: CURE2412 Performing Arts Management or CUMT3002 Performing Arts Management or CURE3408 Curating and Managing Arts Festival or CUMT3008 Curating and Managing Arts Festival.</span></td></tr>
 <tr><td>CURE 3508</td><td>Museum Studies</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken CUMT3108 or ANTH4720 or HIST5514.</span></td></tr>
-<tr><td>CURE 4021</td><td>World Cinema in East Asia: Theory and Practice</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 4031</td><td>Arts, Propaganda and Social Action</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 4021</td><td>World Cinema in East Asia: Theory and Practice</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 4031</td><td>Arts, Propaganda and Social Action</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 4401</td><td>Integrated Studies in Cultural Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>CURE 4403</td><td>Culture-led City Development</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>CURE 4404</td><td>Heritage and Modern Applications</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 4405</td><td>Digital Humanities and Data Visualization in Heritage Management</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 4408</td><td>Advanced Museum Studies</td><td></td><td></td><td><span class="prereq-sentence">1. Pre-requisite(s): CUMT3108 Museum Studies or CURE3508 Museum Studies.</span><span class="prereq-sentence">2. Not for students who have taken CUMT4008.</span></td></tr>
-<tr><td>CURE 4411</td><td>Special Topics in Heritage Management</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 4421</td><td>Special Topics in Curation</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 4431</td><td>Special Topics in Cultural Institutions</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 4404</td><td>Heritage and Modern Applications</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 4405</td><td>Digital Humanities and Data Visualization in Heritage Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 4408</td><td>Advanced Museum Studies</td><td></td><td></td><td><span class="prereq-sentence">1. Pre-requisite(s): CUMT3108 Museum Studies or CURE3508 Museum Studies.</span><span class="prereq-sentence">2. Not for students who have taken CUMT4008.</span></td></tr>
+<tr class="course-unavailable"><td>CURE 4411</td><td>Special Topics in Heritage Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 4421</td><td>Special Topics in Curation</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 4431</td><td>Special Topics in Cultural Institutions</td><td></td><td></td><td>—</td></tr>
 <tr><td>CURE 4441</td><td>Special Topic in Creative Industries</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>FAAS 3108</td><td>Contemporary Art: Artistic Strategies in a Postmodern Era</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>FAAS 3108</td><td>Contemporary Art: Artistic Strategies in a Postmodern Era</td><td></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Public Humanities.</span></div>
@@ -414,6 +415,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

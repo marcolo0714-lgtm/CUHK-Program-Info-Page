@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Biomedical Engineering</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Biomedical_Engineering.html" selected>2024-25</option><option value="../../2025_26/minors/Biomedical_Engineering.html">2025-26</option><option value="../../2026_27/minors/Biomedical_Engineering.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Biomedical Engineering</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Biomedical_Engineering.html" selected>2024-25</option><option value="../../2025_26/minors/Biomedical_Engineering.html">2025-26</option><option value="../../2026_27/minors/Biomedical_Engineering.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Artificial_Intelligence_Systems_and_Technologies.html">← Artificial Intelligence: Systems and Technologies</a><a href="Computer_Science.html">Computer Science →</a></div>
 <div class="title-row"><h1>Biomedical Engineering &mdash; CUHK Minor Requirements (2024-25)</h1><span class="meta">Engineering</span></div>
 <div class="admit-year">Applicable to students admitted in 2024-25.</div>
@@ -314,51 +315,51 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">BMEG2001/ESTR2201, BMEG2012/ESTR2602</span></div></div>
 <details class="course-details"><summary>Show 4 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr class="eq-row"><td>BMEG 2001 [1]</td><td>Introduction to Biomedical Engineering</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG1130 or BMEG2000 or BMEG2130 or ESTR2200 or ESTR2201.</span></td></tr>
-<tr><td>ESTR 2201 [1]</td><td>Introduction to Biomedical Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG1130, BMEG2000, BMEG2001, BMEG2130 or ESTR2200.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 2201 [1]</td><td>Introduction to Biomedical Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG1130, BMEG2000, BMEG2001, BMEG2130 or ESTR2200.</span></td></tr>
 <tr class="eq-row"><td>BMEG 2012 [2]</td><td>Biomedical Engineering Laboratory</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken BMEG1130 or BMEG2010 or BMEG2011 or BMEG2130 or ESTR2202 or ESTR2203 or ESTR2602.</span></td></tr>
-<tr><td>ESTR 2602 [2]</td><td>Biomedical Engineering Laboratory</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG1130 or BMEG2010 or BMEG2011 or BMEG2012 or BMEG2130 or ESTR2202 or ESTR2203.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 2602 [2]</td><td>Biomedical Engineering Laboratory</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG1130 or BMEG2010 or BMEG2011 or BMEG2012 or BMEG2130 or ESTR2202 or ESTR2203.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 15 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">BMEG2218, BMEG2210/ESTR2204, BMEG2300/ESTR2601, BMEG3102, 3103, BMEG3105/ESTR3605, BMEG3111/ESTR3603, BMEG3130, BMEG3140/ESTR3604, BMEG3210/ESTR3212, BMEG3320, BMEG3330/ESTR3602, BMEG3420, BMEG3430/ESTR3208, BMEG3440, 3910, BMEG4010/ESTR4601, BMEG4220, BMEG4320/ESTR4200, BMEG4410/ESTR4203, BMEG4450/ESTR4202, BMEG4510/ESTR4204, BMEG4520, BMEG4530/ESTR4214, BMEG5530, 5610</span></div></div>
 <details class="course-details"><summary>Show 40 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr><td>BMEG 2218 [2]</td><td>Ethical Practice in Bionic Human</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken BMEG1217 or UGEB1217.</span></td></tr>
 <tr class="eq-row"><td>BMEG 2210</td><td>Orthopaedic Biomechanics and Musculoskeletal Injury</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR2204 or MAEG2020.</span></td></tr>
-<tr><td>ESTR 2204</td><td>Orthopaedic Biomechanics and Musculoskeletal Injury</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG2210 or MAEG2020.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 2204</td><td>Orthopaedic Biomechanics and Musculoskeletal Injury</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG2210 or MAEG2020.</span></td></tr>
 <tr class="eq-row"><td>BMEG 2300</td><td>Circuits and Signals for Biomedical Engineering</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ELEG2202 or ENGG2030 or ESTR2206 or ESTR2601.</span></td></tr>
-<tr><td>ESTR 2601</td><td>Circuits and Signals for Biomedical Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ELEG2202 or ENGG2030 or ESTR2206 or BMEG2300.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 2601</td><td>Circuits and Signals for Biomedical Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ELEG2202 or ENGG2030 or ESTR2206 or BMEG2300.</span></td></tr>
 <tr><td>BMEG 3102</td><td>Bioinformatics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ELEG4120 or CSCI3220 or ESTR3110.</span></td></tr>
 <tr><td>BMEG 3103</td><td>Big Data in HealthCare</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr class="eq-row"><td>BMEG 3105</td><td>Data Analytics for Personalized Genomics and Precision Medicine</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3605.</span></td></tr>
-<tr><td>ESTR 3605</td><td>Data Analytics for Personalized Genomics and Precision Medicine</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3105.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 3605</td><td>Data Analytics for Personalized Genomics and Precision Medicine</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3105.</span></td></tr>
 <tr class="eq-row"><td>BMEG 3111 [2]</td><td>Medical Instrumentation and Design</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3101 or ELEG3101 or ESTR3210 or ESTR3601 or ESTR3603.</span></td></tr>
-<tr><td>ESTR 3603 [2]</td><td>Medical Instrumentation and Design</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3101 or BMEG3111 or ELEG3101 or ESTR3210 or ESTR3601.</span></td></tr>
-<tr><td>BMEG 3130</td><td>Tele-medicine and Mobile Healthcare</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ESTR 3603 [2]</td><td>Medical Instrumentation and Design</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3101 or BMEG3111 or ELEG3101 or ESTR3210 or ESTR3601.</span></td></tr>
+<tr class="course-unavailable"><td>BMEG 3130</td><td>Tele-medicine and Mobile Healthcare</td><td></td><td></td><td>—</td></tr>
 <tr class="eq-row"><td>BMEG 3140</td><td>Molecular and Cellular Engineering Laboratory</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3604.</span></td></tr>
-<tr><td>ESTR 3604</td><td>Molecular and Cellular Engineering Laboratory</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3140.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 3604</td><td>Molecular and Cellular Engineering Laboratory</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3140.</span></td></tr>
 <tr class="eq-row"><td>BMEG 3210</td><td>Biofluids</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken MAEG3030 or ESTR3212.</span></td></tr>
-<tr><td>ESTR 3212</td><td>Biofluids</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG3030 or BMEG3210.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 3212</td><td>Biofluids</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken MAEG3030 or BMEG3210.</span></td></tr>
 <tr><td>BMEG 3320</td><td>Biomedical Imaging</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: BMEG2300 or ENGG2030 or with the consent of the instructor.</span></td></tr>
 <tr class="eq-row"><td>BMEG 3330</td><td>Neuroengineering</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3602.</span></td></tr>
-<tr><td>ESTR 3602</td><td>Neuroengineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3330.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 3602</td><td>Neuroengineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3330.</span></td></tr>
 <tr><td>BMEG 3420</td><td>Medical Robotics</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr class="eq-row"><td>BMEG 3430</td><td>Biomaterials and Tissue Engineering</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3208.</span></td></tr>
-<tr><td>ESTR 3208</td><td>Biomaterials and Tissue Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3430.</span></td></tr>
-<tr><td>BMEG 3440</td><td>Global Engineering Medical Innovation</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ESTR 3208</td><td>Biomaterials and Tissue Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3430.</span></td></tr>
+<tr class="course-unavailable"><td>BMEG 3440</td><td>Global Engineering Medical Innovation</td><td></td><td></td><td>—</td></tr>
 <tr><td>BMEG 3910</td><td>Undergraduate Research in Biomedical Engineering</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ENGG3920.</span></td></tr>
 <tr class="eq-row"><td>BMEG 4010</td><td>Global Medical Device Regulatory Affairs</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken BMEG5850 or ESTR4601.</span></td></tr>
-<tr><td>ESTR 4601</td><td>Global Medical Device Regulatory Affairs</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG5850 or BMEG4010.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 4601</td><td>Global Medical Device Regulatory Affairs</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG5850 or BMEG4010.</span></td></tr>
 <tr><td>BMEG 4220</td><td>Wearable Biomedical Devices and Personalized Healthcare</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr class="eq-row"><td>BMEG 4320</td><td>AI & Imaging for Biomedical Engineering</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR4200.</span><span class="prereq-sentence">Prerequisite: BMEG3320 or with the consent of the instructor.</span></td></tr>
-<tr><td>ESTR 4200</td><td>AI & Imaging for Biomedical Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG4320.</span><span class="prereq-sentence">Pre-requisite: BMEG3320 or with the consent of the course instructor.</span></td></tr>
-<tr class="eq-row"><td>BMEG 4410</td><td>BioMEMS</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4203.</span></td></tr>
-<tr><td>ESTR 4203</td><td>BioMEMS</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG4410.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 4200</td><td>AI & Imaging for Biomedical Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG4320.</span><span class="prereq-sentence">Pre-requisite: BMEG3320 or with the consent of the course instructor.</span></td></tr>
+<tr class="eq-row course-unavailable"><td>BMEG 4410</td><td>BioMEMS</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4203.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 4203</td><td>BioMEMS</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG4410.</span></td></tr>
 <tr class="eq-row"><td>BMEG 4450</td><td>Bionanotechnology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken BMEG5760 or ESTR4202.</span></td></tr>
-<tr><td>ESTR 4202</td><td>Bionanotechnology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG4450.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 4202</td><td>Bionanotechnology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG4450.</span></td></tr>
 <tr class="eq-row"><td>BMEG 4510</td><td>Biomolecular Engineering</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR4204.</span><span class="prereq-sentence">Pre-requisite: SBMS1440 or with the consent of the course instructor.</span></td></tr>
-<tr><td>ESTR 4204</td><td>Biomolecular Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG4510.</span><span class="prereq-sentence">Pre-requisite: SBMS1440 or with the consent of the course instructor.</span></td></tr>
-<tr><td>BMEG 4520</td><td>Cardiovascular Engineering</td><td></td><td></td><td>—</td></tr>
-<tr class="eq-row"><td>BMEG 4530</td><td>Musculoskeletal Tissue Engineering</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: BMEG3430 or with the consent of the instructor.</span><span class="prereq-sentence">Not for students who have taken BMEG5880 or ESTR4214.</span></td></tr>
-<tr><td>ESTR 4214</td><td>Musculoskeletal Tissue Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG4530 or BMEG5880.</span><span class="prereq-sentence">Pre-requisite: BMEG3430 or with the consent of the instructor.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 4204</td><td>Biomolecular Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG4510.</span><span class="prereq-sentence">Pre-requisite: SBMS1440 or with the consent of the course instructor.</span></td></tr>
+<tr class="course-unavailable"><td>BMEG 4520</td><td>Cardiovascular Engineering</td><td></td><td></td><td>—</td></tr>
+<tr class="eq-row course-unavailable"><td>BMEG 4530</td><td>Musculoskeletal Tissue Engineering</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: BMEG3430 or with the consent of the instructor.</span><span class="prereq-sentence">Not for students who have taken BMEG5880 or ESTR4214.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 4214</td><td>Musculoskeletal Tissue Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG4530 or BMEG5880.</span><span class="prereq-sentence">Pre-requisite: BMEG3430 or with the consent of the instructor.</span></td></tr>
 <tr><td>BMEG 5530</td><td>Tissue Engineering</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Biomedical Engineering; or For students in MSc Biochemistry & Biomedical Science; or For students in MPhil-PhD Biomedical Engineering.</span></td></tr>
 <tr><td>BMEG 5610</td><td>Research Methods in Biomedical Engineering</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Biomedical Engineering; or For students in MSc Biomedical Engineering; or For students in BEng Biomedical Engineering.</span></td></tr>
 </tbody></table></details>
@@ -406,6 +407,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

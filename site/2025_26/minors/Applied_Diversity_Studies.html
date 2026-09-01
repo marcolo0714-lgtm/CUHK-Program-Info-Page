@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Applied Diversity Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Applied_Diversity_Studies.html">2024-25</option><option value="../../2025_26/minors/Applied_Diversity_Studies.html" selected>2025-26</option><option value="../../2026_27/minors/Applied_Diversity_Studies.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Applied Diversity Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Applied_Diversity_Studies.html">2024-25</option><option value="../../2025_26/minors/Applied_Diversity_Studies.html" selected>2025-26</option><option value="../../2026_27/minors/Applied_Diversity_Studies.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Statistics.html">← Statistics</a><a href="Data_Science_and_Policy_Studies.html">Data Science and Policy Studies →</a></div>
 <div class="title-row"><h1>Applied Diversity Studies &mdash; CUHK Minor Requirements (2025-26)</h1><span class="meta">Social Science</span></div>
 <div class="admit-year">Applicable to students admitted in 2025-26.</div>
@@ -313,39 +314,39 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>1. Required Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">GDRS3008, 3018</span><span class="meta">(6 units)</span></div></div>
 <details class="course-details"><summary>Show 2 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
-<tr><td>GDRS 3008</td><td>Public Policy and Social Minorities in Hong Kong</td><td></td><td></td><td>—</td></tr>
-<tr><td>GDRS 3018</td><td>Introduction to Diversity, Equity and Inclusion</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GDRS 3008</td><td>Public Policy and Social Minorities in Hong Kong</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GDRS 3018</td><td>Introduction to Diversity, Equity and Inclusion</td><td></td><td></td><td>—</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">Any 12 units of courses from the following, with 6 units of GDRS courses and 6 units of non-GDRS courses:</span></div><div class="req-row"><span class="row-text">ANTH1410, 2404, 3390, 4210, COMM2814, 3700, CURE2018, 2036, EPIN1020, GDRS3006, 3010, 3015, 3016, 3017, 3021, 3025, 3214, 3999, 4008, GLSD4102, MGNT4070, SOCI3208, 3233, SOSC1001, 1002, SOWK1114, 2202, 2203, 2204</span></div></div>
 <details class="course-details"><summary>Show 29 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr><td>ANTH 1410</td><td>Culture of Hong Kong</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>ANTH 2404</td><td>Understanding Islam</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ANTH 2404</td><td>Understanding Islam</td><td></td><td></td><td>—</td></tr>
 <tr><td>ANTH 3390</td><td>Disability and Difference</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>ANTH 4210</td><td>Ethnic Groups, Ethnic Relations and Identities</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ANTH3340.</span></td></tr>
+<tr class="course-unavailable"><td>ANTH 4210</td><td>Ethnic Groups, Ethnic Relations and Identities</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ANTH3340.</span></td></tr>
 <tr><td>COMM 2814</td><td>Integrated Public Relations Campaign and Event Management</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>COMM 3700</td><td>Diversity Issues in Communication</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>CURE 2018</td><td>Living in the Anthropocene: Nature, Culture and Power</td><td></td><td></td><td>—</td></tr>
-<tr><td>CURE 2036</td><td>Queer Theory and Culture</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2018</td><td>Living in the Anthropocene: Nature, Culture and Power</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CURE 2036</td><td>Queer Theory and Culture</td><td></td><td></td><td>—</td></tr>
 <tr><td>EPIN 1020</td><td>Design Thinking and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>GDRS 3006</td><td>Living Feminisms: Creating a Nonviolent and Collaborative Future</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GDRS 3010</td><td>Being Trans: Understanding Transgender Lives in the Here and Now</td><td></td><td></td><td>—</td></tr>
-<tr><td>GDRS 3015</td><td>Minority Experiences in Hong Kong: Local Field Study</td><td></td><td></td><td>—</td></tr>
-<tr><td>GDRS 3016</td><td>Interdisciplinary Seminars on Diversity, Equity and Inclusion: From Research to Practice</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GDRS 3010</td><td>Being Trans: Understanding Transgender Lives in the Here and Now</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GDRS 3015</td><td>Minority Experiences in Hong Kong: Local Field Study</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GDRS 3016</td><td>Interdisciplinary Seminars on Diversity, Equity and Inclusion: From Research to Practice</td><td></td><td></td><td>—</td></tr>
 <tr><td>GDRS 3017</td><td>Advancing Diversity, Equity, and Inclusion in Organizations</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken GDRS2012.</span></td></tr>
 <tr><td>GDRS 3021</td><td>LGBTQI+ Studies: Identities and social change</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GDRS 3025</td><td>Innovating the Future: Gender, Science and Technology</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GDRS 3025</td><td>Innovating the Future: Gender, Science and Technology</td><td></td><td></td><td>—</td></tr>
 <tr><td>GDRS 3214</td><td>Media Representations of Minorities in Hong Kong</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken GDRS3026, UGEC3214 or UGEC3215.</span></td></tr>
 <tr><td>GDRS 3999</td><td>Talking Across Differences: Compassionate Communication in Action</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken GEWS2161.</span></td></tr>
 <tr><td>GDRS 4008</td><td>Social Inequalities and Health: Towards Diversity and Equity</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GLSD 4102</td><td>Developmental Study: Poverty, Inequality and Welfare of the World</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>GLSD 4102</td><td>Developmental Study: Poverty, Inequality and Welfare of the World</td><td></td><td></td><td>—</td></tr>
 <tr><td>MGNT 4070</td><td>Social Innovation and Entrepreneurship</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>SOCI 3208</td><td>Gender and Society</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 3233</td><td>Sexualities and Society</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3233</td><td>Sexualities and Society</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOSC 1001</td><td>Design Thinking in Social Innovation</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>SOSC 1002</td><td>Managing Creativity and Group Dynamics in Innovation Teams</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>SOWK 1114</td><td>From Understanding to Empowering the Socially Disadvantaged</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken SOWK2190 or UGEC2014.</span></td></tr>
-<tr><td>SOWK 2202</td><td>Social Work and Cultural Diversity</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>SOWK 2202</td><td>Social Work and Cultural Diversity</td><td></td><td></td><td>—</td></tr>
 <tr><td>SOWK 2203</td><td>Mission-driven Social Enterprise</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>SOWK 2204</td><td>Social Innovation and Social Change for Good</td><td></td><td class="term-yes"></td><td>—</td></tr>
 </tbody></table></details>
@@ -394,6 +395,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

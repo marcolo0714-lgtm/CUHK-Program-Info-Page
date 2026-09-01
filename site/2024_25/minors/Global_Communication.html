@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Global Communication</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Global_Communication.html" selected>2024-25</option><option value="../../2025_26/minors/Global_Communication.html">2025-26</option><option value="../../2026_27/minors/Global_Communication.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Global Communication</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Global_Communication.html" selected>2024-25</option><option value="../../2025_26/minors/Global_Communication.html">2025-26</option><option value="../../2026_27/minors/Global_Communication.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Geography_and_Resource_Management.html">← Geography and Resource Management</a><a href="Global_Studies.html">Global Studies →</a></div>
 <div class="title-row"><h1>Global Communication &mdash; CUHK Minor Requirements (2024-25)</h1><span class="meta">Social Science</span></div>
 <div class="admit-year">Applicable to students admitted in 2024-25.</div>
@@ -321,7 +322,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">At least 9 units of courses from (a) and (b), with at least 6 units of courses at 3000 or above level (courses that appear in both (a) and (b) can only be counted towards fulfillment of either (a) or (b)):</span></div><div class="req-row"><span class="row-text">(a) At least 3 units of the following courses:</span><span class="meta">(3 units)</span></div><div class="req-row"><span class="row-text">COMM2180, 2540, 2590, 3550, 3700, 4250</span></div></div>
 <details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr><td>COMM 2180</td><td>English News Production II</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2120.</span></td></tr>
-<tr><td>COMM 2540</td><td>Public Sphere and Global Media</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 2540</td><td>Public Sphere and Global Media</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 2590</td><td>Global Cinema</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 3550</td><td>Global Finance for Communication Professionals</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>COMM 3700</td><td>Diversity Issues in Communication</td><td class="term-yes"></td><td></td><td>—</td></tr>
@@ -330,96 +331,96 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><div class="req-row"><span class="row-text">(b) At least 6 units of the following courses: COMM1150, 2140, 2180, 2210, 2440, 2540, 2570, 2590, 2600, 2610, 2620, 2710, 2733, 2740, 2741, 2811, 2812, 2813, 2814, 2830, 2840, 2850, 2910, 2920, 2922, 2925, 2926, 2928, 2930, 2932, 2940, 2962, 3130, 3131, 3132, 3191, 3193, 3550, 3610, 3620, 3630, 3640, 3650, 3660, 3670, 3680, 3681, 3682, 3690, 3700, 3711, 3721, 3722, 3733, 3740, 3750, 3760, 3800, 3810, 3811, 3812, 3820, 3830, 3831, 3832, 3840, 3841, 3850, 3855, 3860, 3870, 3881, 3888, 3910, 3920, 3921, 3922, 3930, 3933, 3939, 3940, 3941, 3963, 4040, 4191, 4250, 4730, 4733, 4848, 4935, 4956, 4962</span><span class="meta">(6 units)</span></div></div>
 <details class="course-details"><summary>Show 92 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr><td>COMM 1150</td><td>Introduction to Media Industries and Practices</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 2140</td><td>Media and Social Development in Mainland China</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 2140</td><td>Media and Social Development in Mainland China</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 2180</td><td>English News Production II</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2120.</span></td></tr>
 <tr><td>COMM 2210</td><td>News and Society</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken COMM2910/UGEC2621 or UGEC2623.</span></td></tr>
 <tr><td>COMM 2440</td><td>Photojournalism</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken COMM2962.</span></td></tr>
-<tr><td>COMM 2540</td><td>Public Sphere and Global Media</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 2540</td><td>Public Sphere and Global Media</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 2570</td><td>Hong Kong Cinema</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>COMM 2590</td><td>Global Cinema</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 2600</td><td>Introduction to Chinese Journalism</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 2610</td><td>Foreign News Desk Practice</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 2610</td><td>Foreign News Desk Practice</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 2620</td><td>Feature Writing</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr class="nf"><td>COMM 2710</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>COMM 2733</td><td>Radio and Podcast Production</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken COMM2739.</span></td></tr>
 <tr><td>COMM 2740</td><td>Chinese Broadcast News</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 2741</td><td>English Broadcast News</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 2811</td><td>English Writing for Public Relations</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 2812</td><td>Chinese Writing for Public Relations</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 2741</td><td>English Broadcast News</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 2811</td><td>English Writing for Public Relations</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 2812</td><td>Chinese Writing for Public Relations</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 2813</td><td>Social Media and Crisis Communication</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 2814</td><td>Integrated Public Relations Campaign and Event Management</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>COMM 2830</td><td>Accounting Planning and Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 2830</td><td>Accounting Planning and Management</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 2840</td><td>Advertising and Society</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 2850</td><td>Introduction to Integrated Marketing Communications</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken COMM2810 or COMM2820.</span><span class="prereq-sentence">Not for old curriculum students.</span></td></tr>
-<tr><td>COMM 2910</td><td>News Analysis</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken COMM2210/UGEC2623 or UGEC2621.</span></td></tr>
+<tr class="course-unavailable"><td>COMM 2910</td><td>News Analysis</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken COMM2210/UGEC2623 or UGEC2621.</span></td></tr>
 <tr><td>COMM 2920</td><td>Media, Sex and Violence</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 2922</td><td>Introduction to Creative and New Media</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 2925</td><td>Principles of Editing in Creative Media</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 2926</td><td>Creative Design and Layout</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 2926</td><td>Creative Design and Layout</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 2928</td><td>Art Direction</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 2930</td><td>Understanding Movies</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken UGEC2643.</span></td></tr>
 <tr><td>COMM 2932</td><td>Film Genres: Love, Death and Laughs</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>COMM 2940</td><td>Internet, Digital Media and Information Society</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 2962</td><td>Photography</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken COMM2440.</span></td></tr>
-<tr><td>COMM 3130</td><td>Media and Cultural Criticism</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 3131</td><td>Special Topic in Communication Studies I</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 3132</td><td>Special Topic in Communication Studies II</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3130</td><td>Media and Cultural Criticism</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3131</td><td>Special Topic in Communication Studies I</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3132</td><td>Special Topic in Communication Studies II</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3191</td><td>Film, Television and Hong Kong Culture</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 3193</td><td>Media and Gender</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 3550</td><td>Global Finance for Communication Professionals</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>COMM 3610</td><td>English News Content Management</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: COMM2180.</span></td></tr>
-<tr><td>COMM 3620</td><td>Investigative Reporting</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 3630</td><td>Digital Journalism</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 3640</td><td>China News Reporting</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3620</td><td>Investigative Reporting</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3630</td><td>Digital Journalism</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3640</td><td>China News Reporting</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3650</td><td>Social Media Analytics for Communication Professionals</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): ENGG1003.</span></td></tr>
 <tr><td>COMM 3660</td><td>Infographics and Data Visualization</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr class="nf"><td>COMM 3670</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>COMM 3680</td><td>Business and Financial Reporting</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>COMM 3681</td><td>Special Topic in Journalism I</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 3682</td><td>Special Topic in Journalism II</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3681</td><td>Special Topic in Journalism I</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3682</td><td>Special Topic in Journalism II</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3690</td><td>User Interface Design: Socio-cultural Perspectives and Practices</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 3700</td><td>Diversity Issues in Communication</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>COMM 3711</td><td>Script Writing and Screenplay</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 3721</td><td>Special Topic in Global Communication I</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 3722</td><td>Special Topic in Global Communication II</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3721</td><td>Special Topic in Global Communication I</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3722</td><td>Special Topic in Global Communication II</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3733</td><td>Television Studio Production</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>COMM 3740</td><td>Advanced Broadcast News</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2740.</span></td></tr>
+<tr class="course-unavailable"><td>COMM 3740</td><td>Advanced Broadcast News</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2740.</span></td></tr>
 <tr><td>COMM 3750</td><td>Visual Storytelling in Journalism</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>COMM 3760</td><td>Health and Environmental Journalism</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3760</td><td>Health and Environmental Journalism</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3800</td><td>Digital Media Design and Application</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 3810</td><td>Public Relations and Social Theory</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 3811</td><td>Special Topic in Public Relations I</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3811</td><td>Special Topic in Public Relations I</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3812</td><td>Special Topic in Public Relations II</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 3820</td><td>Media Management for Public Relations</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>COMM 3830</td><td>Legal Issues in Public Relations and Advertising</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 3831</td><td>Special Topic in Advertising I</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 3832</td><td>Special Topic in Advertising II</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3832</td><td>Special Topic in Advertising II</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3840</td><td>Chinese Copywriting for Advertising</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>COMM 3841</td><td>English Copywriting for Advertising</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3841</td><td>English Copywriting for Advertising</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3850</td><td>Advertising Art Direction</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 3855</td><td>Media Investment and Performance Marketing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: COMM2820 or 2850.</span></td></tr>
-<tr><td>COMM 3860</td><td>Strategic Communication for Entrepreneurs</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 3870</td><td>Social Responsibility and Sustainability Communication</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3860</td><td>Strategic Communication for Entrepreneurs</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3870</td><td>Social Responsibility and Sustainability Communication</td><td></td><td></td><td>—</td></tr>
 <tr class="nf"><td>COMM 3881</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
-<tr><td>COMM 3888</td><td>Financial Public Relations</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2810 or 2850.</span></td></tr>
+<tr class="course-unavailable"><td>COMM 3888</td><td>Financial Public Relations</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2810 or 2850.</span></td></tr>
 <tr><td>COMM 3910</td><td>Sound Production</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>COMM 3920</td><td>Creative Writing in Media</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 3921</td><td>Special Topic in Creative and New Media I</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>COMM 3922</td><td>Special Topic in Creative and New Media II</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 3930</td><td>Digital Video Production</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 3933</td><td>Music Industry, Production and Marketing</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3933</td><td>Music Industry, Production and Marketing</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3939</td><td>Film Directors</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 3940</td><td>Immersive Storytelling</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 3941</td><td>New Media and Entertainment Business</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3941</td><td>New Media and Entertainment Business</td><td></td><td></td><td>—</td></tr>
 <tr class="nf"><td>COMM 3963</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>COMM 4040</td><td>Directed Studies in Communication</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 4191</td><td>Cultural Studies and Popular Culture</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 4191</td><td>Cultural Studies and Popular Culture</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 4250</td><td>Global Digital Platforms: Culture, Power and Politics</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 4730</td><td>Documentary</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 4733</td><td>Advanced Television Studio Production</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: COMM3733.</span></td></tr>
-<tr><td>COMM 4848</td><td>New Media Advertising</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 4935</td><td>Cinematography</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2922.</span></td></tr>
-<tr><td>COMM 4956</td><td>Fundamentals of Computer Animation</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 4733</td><td>Advanced Television Studio Production</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: COMM3733.</span></td></tr>
+<tr class="course-unavailable"><td>COMM 4848</td><td>New Media Advertising</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 4935</td><td>Cinematography</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2922.</span></td></tr>
+<tr class="course-unavailable"><td>COMM 4956</td><td>Fundamentals of Computer Animation</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 4962</td><td>Advanced Photography</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2440 or 2962.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
@@ -466,6 +467,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

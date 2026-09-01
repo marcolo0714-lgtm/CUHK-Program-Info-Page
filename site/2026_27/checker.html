@@ -506,8 +506,9 @@ function matchRow(row, studentCanonSet, studentUnits, studentRawUnits, canonFn, 
       // Units-based earned for pick_n (capped by freeNeedPick capacity)
       var lcUnitsGot = Math.min(strictPick.lv.units, strictPick.lc.min_units_needed);
       var freeCap = Math.max(0, (freeNeedPick || 0) * avgU);
-      var freeUnitsEarned = Math.max(0, Math.min(matchedUnits - strictPick.lv.units, freeCap));
-      rowEarned = (row.allow_surplus && lcOkPick) ? Math.max(lcUnitsGot + freeUnitsEarned, matchedUnits) : lcUnitsGot + freeUnitsEarned;
+      var freeUnitsEarned = Math.max(0, Math.min(matchedUnits - lcUnitsGot, freeCap));
+      var bucketEarned = lcUnitsGot + freeUnitsEarned;
+      rowEarned = (row.allow_surplus && lcOkPick) ? Math.max(bucketEarned, matchedUnits) : bucketEarned;
     } else {
       rowEarned = row.allow_surplus ? matchedUnits : Math.min(matchedCanon.length, n) * avgU;
     }
@@ -1526,6 +1527,74 @@ function scoreMinor(minorData, studentCourses, courseIndex) {
           if (!fcFaculty) continue;
           var fcCanon = canonFn(fcCode);
           facUnitMap[fcFaculty] = (facUnitMap[fcFaculty] || 0) + (studentUnits[fcCanon] || 3);
+        }
+      }
+    }
+    // If a faculty bucket is over capacity, reconsider exact alternatives in
+    // the same equivalence class. Switching the displayed/consumed course is
+    // valid only when the student entered that alternative and it belongs to
+    // this row; choose switches that reduce total faculty-cap overflow.
+    var facCodeUse = {};
+    for (var fusi = 0; fusi < sections.length; fusi++) {
+      for (var furi = 0; furi < sections[fusi].rows.length; furi++) {
+        var usedFacCodes = sections[fusi].rows[furi].consumedCodes || [];
+        for (var fuci = 0; fuci < usedFacCodes.length; fuci++) {
+          facCodeUse[usedFacCodes[fuci]] = (facCodeUse[usedFacCodes[fuci]] || 0) + 1;
+        }
+      }
+    }
+    var facultyOverflow = function(unitMap) {
+      var overflow = 0;
+      for (var family in unitMap) {
+        if (unitMap.hasOwnProperty(family)) overflow += Math.max(0, unitMap[family] - facCapMax);
+      }
+      return overflow;
+    };
+    var switchedFacultyAlternative = true;
+    while (switchedFacultyAlternative && facultyOverflow(facUnitMap) > 0) {
+      switchedFacultyAlternative = false;
+      var currentOverflow = facultyOverflow(facUnitMap);
+      for (var frsi = 0; frsi < sections.length && !switchedFacultyAlternative; frsi++) {
+        for (var frri = 0; frri < sections[frsi].rows.length && !switchedFacultyAlternative; frri++) {
+          var rebalanceRow = sections[frsi].rows[frri];
+          var rebalanceCodes = rebalanceRow.consumedCodes || [];
+          for (var frci = 0; frci < rebalanceCodes.length && !switchedFacultyAlternative; frci++) {
+            var currentCode = rebalanceCodes[frci];
+            var currentFamily = prefixToFac[currentCode.split(' ')[0]];
+            if (!currentFamily || (facUnitMap[currentFamily] || 0) <= facCapMax) continue;
+            var currentCanon = canonFn(currentCode);
+            var switchUnits = studentUnits[currentCanon] || 3;
+            var bestAlternative = null;
+            var bestAlternativeFamily = null;
+            var bestOverflow = currentOverflow;
+            for (var faci = 0; faci < rebalanceRow.codes.length; faci++) {
+              var alternativeCode = rebalanceRow.codes[faci].code;
+              if (alternativeCode === currentCode || canonFn(alternativeCode) !== currentCanon) continue;
+              if (!studentCanonSet._exact[alternativeCode] || (facCodeUse[alternativeCode] || 0) > 0) continue;
+              var alternativePrefix = alternativeCode.split(' ')[0];
+              var alternativeFamily = alternativePrefix === facExclude ? null : prefixToFac[alternativePrefix];
+              var trialMap = {};
+              for (var trialFamily in facUnitMap) trialMap[trialFamily] = facUnitMap[trialFamily];
+              trialMap[currentFamily] = Math.max(0, (trialMap[currentFamily] || 0) - switchUnits);
+              if (alternativeFamily) trialMap[alternativeFamily] = (trialMap[alternativeFamily] || 0) + switchUnits;
+              var trialOverflow = facultyOverflow(trialMap);
+              if (trialOverflow < bestOverflow) {
+                bestOverflow = trialOverflow;
+                bestAlternative = alternativeCode;
+                bestAlternativeFamily = alternativeFamily;
+              }
+            }
+            if (bestAlternative) {
+              facUnitMap[currentFamily] = Math.max(0, (facUnitMap[currentFamily] || 0) - switchUnits);
+              if (bestAlternativeFamily) {
+                facUnitMap[bestAlternativeFamily] = (facUnitMap[bestAlternativeFamily] || 0) + switchUnits;
+              }
+              facCodeUse[currentCode] = Math.max(0, (facCodeUse[currentCode] || 0) - 1);
+              facCodeUse[bestAlternative] = (facCodeUse[bestAlternative] || 0) + 1;
+              rebalanceCodes[frci] = bestAlternative;
+              switchedFacultyAlternative = true;
+            }
+          }
         }
       }
     }

@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -306,7 +307,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Molecular Biotechnology</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Molecular_Biotechnology.html">2024-25</option><option value="../../2025_26/minors/Molecular_Biotechnology.html">2025-26</option><option value="../../2026_27/minors/Molecular_Biotechnology.html" selected>2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Molecular Biotechnology</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Molecular_Biotechnology.html">2024-25</option><option value="../../2025_26/minors/Molecular_Biotechnology.html">2025-26</option><option value="../../2026_27/minors/Molecular_Biotechnology.html" selected>2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Mathematics.html">← Mathematics</a><a href="Physics.html">Physics →</a></div>
 <div class="title-row"><h1>Molecular Biotechnology &mdash; CUHK Minor Requirements (2026-27)</h1><span class="meta">Science</span></div>
 <div class="admit-year">Applicable to students admitted in 2026-27.</div>
@@ -322,7 +323,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="eq-row"><td>BCHE 2030</td><td>Fundamentals of Biochemistry</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr class="eq-row"><td>BIOL 2120</td><td>Cell Biology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: LSCI1002.</span></td></tr>
 <tr class="eq-row"><td>BIOL 2410 [2]</td><td>General Genetics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken BIOL2310.</span><span class="prereq-sentence">Pre-requisite: LSCI1002 and BIOL2120.</span></td></tr>
-<tr><td>LSCI 1003</td><td>Life Sciences for Engineers</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken LSCI1001.</span></td></tr>
+<tr class="course-unavailable"><td>LSCI 1003</td><td>Life Sciences for Engineers</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken LSCI1001.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 13 or 14 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">MBTE2000, 2010, 3000, 3510, 3511, 3518, 3521, 3528, 3531, 3550, 3558, 3560, 3568, 4033, 4034, 4510, 4520, 4530</span></div></div>
@@ -390,6 +391,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

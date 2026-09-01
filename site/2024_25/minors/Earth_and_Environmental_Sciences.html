@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Earth and Environmental Sciences</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Earth_and_Environmental_Sciences.html" selected>2024-25</option><option value="../../2025_26/minors/Earth_and_Environmental_Sciences.html">2025-26</option><option value="../../2026_27/minors/Earth_and_Environmental_Sciences.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Earth and Environmental Sciences</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Earth_and_Environmental_Sciences.html" selected>2024-25</option><option value="../../2025_26/minors/Earth_and_Environmental_Sciences.html">2025-26</option><option value="../../2026_27/minors/Earth_and_Environmental_Sciences.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Chemistry.html">← Chemistry</a><a href="Mathematics.html">Mathematics →</a></div>
 <div class="title-row"><h1>Earth and Environmental Sciences &mdash; CUHK Minor Requirements (2024-25)</h1><span class="meta">Science</span></div>
 <div class="admit-year">Applicable to students admitted in 2024-25.</div>
@@ -325,7 +326,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>BIOL 4012 [2]</td><td>Field and Environmental Biology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Co-requisite: BIOL2210 and 3710.</span></td></tr>
 <tr><td>BIOL 4230</td><td>Global Change Biology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: BIOL2210.</span></td></tr>
 <tr><td>BIOL 4260</td><td>Conservation Biology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ENSC4260.</span><span class="prereq-sentence">Pre-requisite: BIOL2210.</span></td></tr>
-<tr><td>BIOL 4420 [2]</td><td>Marine Microbial Ecology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: BIOL3410.</span></td></tr>
+<tr class="course-unavailable"><td>BIOL 4420 [2]</td><td>Marine Microbial Ecology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: BIOL3410.</span></td></tr>
 <tr><td>EESC 2160</td><td>Minerals and Natural Resources</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>EESC 2515</td><td>Environmental Chemistry</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENSC2515.</span><span class="prereq-sentence">Pre-requisite: EESC2270 or ENSC2270 or permission of the instructor.</span></td></tr>
 <tr><td>EESC 2800</td><td>Introduction to Environmental Engineering</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC2800.</span><span class="prereq-sentence">Pre-requisite: MATH1010 or 1510 or 1520.</span></td></tr>
@@ -337,7 +338,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>EESC 3220</td><td>Atmospheric Chemistry</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESSC3220.</span><span class="prereq-sentence">Pre-requisite: CHEM1070 or CHEM1072 or CHEM1280 or permission of instructor.</span></td></tr>
 <tr><td>EESC 3300</td><td>Oceanography</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESSC3300.</span><span class="prereq-sentence">Pre-requisite: (EESC2010 or ESSC2010) and (EESC2020 or ESSC2020), or permission of instructor.</span></td></tr>
 <tr><td>EESC 3320</td><td>Hydrogeology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC3320.</span><span class="prereq-sentence">Pre-requisite: EESC 2010 or ESSC2010 or permission of instructor.</span></td></tr>
-<tr><td>EESC 3330</td><td>Biogeochemistry</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENSC3330.</span><span class="prereq-sentence">Pre-requisite: (EESC2270 or ENSC2270) or (EESC2020 or ESSC2020) or GRMD2209, or permission of the instructors.</span></td></tr>
+<tr class="course-unavailable"><td>EESC 3330</td><td>Biogeochemistry</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENSC3330.</span><span class="prereq-sentence">Pre-requisite: (EESC2270 or ENSC2270) or (EESC2020 or ESSC2020) or GRMD2209, or permission of the instructors.</span></td></tr>
 <tr><td>EESC 3415</td><td>Environmental Instrumentation Techniques</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CHEM2400 or CHEM3410 or ENSC3415.</span><span class="prereq-sentence">Pre-requisite: EESC2515 or ENSC2515.</span></td></tr>
 <tr><td>EESC 3510</td><td>Environmental Microbiology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: LSCI1002 or LSCI1012 or EESC2270, or permission of the instructor.</span></td></tr>
 <tr><td>EESC 3520</td><td>Quantitative Methods in Environmental Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ENSC3520.</span><span class="prereq-sentence">Pre-requisite: EESC2270 or permission of the instructor.</span></td></tr>
@@ -345,30 +346,30 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>EESC 3600</td><td>Ecological Climatology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESSC3600 or EESC3601 or ESSC3601.</span><span class="prereq-sentence">Pre-requisite: EESC2020 or ESSC2020 or permission of instructor.</span></td></tr>
 <tr><td>EESC 3601 [2]</td><td>Principles of Ecological Climatology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESSC3601 or EESC3600 or ESSC3600.</span><span class="prereq-sentence">Pre-requisite: EESC2020 or ESSC2020 or permission of instructor.</span></td></tr>
 <tr><td>EESC 3800</td><td>Global Environmental Change</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESSC3800.</span></td></tr>
-<tr><td>EESC 4010</td><td>Solid and Fluid Mechanics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC3010 or 4010.</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4010</td><td>Solid and Fluid Mechanics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC3010 or 4010.</span></td></tr>
 <tr><td>EESC 4020</td><td>Soil Mechanics and Its Applications</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESSC4020.</span><span class="prereq-sentence">Pre-requisite: [(MATH1010 or 1030 or 1510 or 1520) or (PHYS1001 or 1002 or 1111 or 1113)] and (EESC2010 or ESSC2010), or permission of instructor.</span></td></tr>
 <tr><td>EESC 4030</td><td>Engineering Geology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESSC4030.</span><span class="prereq-sentence">Pre-requisite: [(EESC2130 or ESSC2130) or (EESC3100 or ESSC3100) or (EESC3110 or ESSC3110)] and EESC4040, or permission of instructor.</span></td></tr>
-<tr><td>EESC 4040</td><td>Rock Mechanics and Its Applications</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: [(MATH1010 or 1030 or 1510 or 1520) or (EESC2130 or ESSC2130)] and (EESC3100 or ESSC3100), or permission of instructor.</span></td></tr>
-<tr><td>EESC 4110</td><td>Applied Geophysics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4110.</span><span class="prereq-sentence">Pre-requisite: (EESC2010 or ESSC2010) and (EESC3120 or ESSC3120).</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4040</td><td>Rock Mechanics and Its Applications</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: [(MATH1010 or 1030 or 1510 or 1520) or (EESC2130 or ESSC2130)] and (EESC3100 or ESSC3100), or permission of instructor.</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4110</td><td>Applied Geophysics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4110.</span><span class="prereq-sentence">Pre-requisite: (EESC2010 or ESSC2010) and (EESC3120 or ESSC3120).</span></td></tr>
 <tr><td>EESC 4120</td><td>Petrology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4120.</span><span class="prereq-sentence">Pre-requisite: EESC2010 or ESSC2010.</span></td></tr>
-<tr><td>EESC 4130</td><td>Geomorphology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4130.</span><span class="prereq-sentence">Pre-requisite: EESC3100 or ESSC3100.</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4130</td><td>Geomorphology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4130.</span><span class="prereq-sentence">Pre-requisite: EESC3100 or ESSC3100.</span></td></tr>
 <tr><td>EESC 4140</td><td>Seismology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESSC4140.</span><span class="prereq-sentence">Pre-requisite: (EESC3120 or ESSC3120) or ESSC3010.</span></td></tr>
-<tr><td>EESC 4150</td><td>Volcanoes</td><td></td><td></td><td>—</td></tr>
-<tr><td>EESC 4160</td><td>Marine Geology and Geophysics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4160.</span><span class="prereq-sentence">Pre-requisite: (EESC3120 or ESSC3120) or ESSC3010 or (EESC4010 or ESSC4010).</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4150</td><td>Volcanoes</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>EESC 4160</td><td>Marine Geology and Geophysics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4160.</span><span class="prereq-sentence">Pre-requisite: (EESC3120 or ESSC3120) or ESSC3010 or (EESC4010 or ESSC4010).</span></td></tr>
 <tr><td>EESC 4170</td><td>Geodynamics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: EESC2010 or ESSC2010.</span></td></tr>
-<tr><td>EESC 4180</td><td>Earthquake Source Physics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4180.</span><span class="prereq-sentence">Pre-requisite: (EESC3120 or ESSC3120) or (EESC4010 or ESSC4010) or (EESC4140 or ESSC4140).</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4180</td><td>Earthquake Source Physics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4180.</span><span class="prereq-sentence">Pre-requisite: (EESC3120 or ESSC3120) or (EESC4010 or ESSC4010) or (EESC4140 or ESSC4140).</span></td></tr>
 <tr><td>EESC 4210</td><td>Land-Atmosphere Interactions and Boundary-Layer Meteorology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESSC4210.</span><span class="prereq-sentence">Pre-requisite: (EESC2020 or ESSC2020) or (EESC3200 or ESSC3200) or permission of instructor.</span></td></tr>
-<tr><td>EESC 4220</td><td>Tropical Meteorology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4220.</span><span class="prereq-sentence">Pre-requisite: EESC3200 or ESSC3200.</span></td></tr>
-<tr><td>EESC 4230</td><td>Introduction to the Physics and Chemistry of Aerosol</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4230.</span><span class="prereq-sentence">Pre-requisite: EESC2020 or ESSC2020 or permission of instructor.</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4220</td><td>Tropical Meteorology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4220.</span><span class="prereq-sentence">Pre-requisite: EESC3200 or ESSC3200.</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4230</td><td>Introduction to the Physics and Chemistry of Aerosol</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4230.</span><span class="prereq-sentence">Pre-requisite: EESC2020 or ESSC2020 or permission of instructor.</span></td></tr>
 <tr><td>EESC 4240</td><td>Air Pollution Science and Engineering</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4240.</span></td></tr>
 <tr><td>EESC 4250</td><td>General Circulation and Climate Models</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESSC4250.</span><span class="prereq-sentence">Pre-requisite: EESC3200 or ESSC3200 or permission of instructor.</span></td></tr>
-<tr><td>EESC 4260</td><td>Urban Climatology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4260.</span><span class="prereq-sentence">Pre-requisite: EESC2020 or ESSC2020.</span></td></tr>
-<tr><td>EESC 4270</td><td>Cloud Dynamics</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: EESC2020 or ESSC2020.</span></td></tr>
-<tr><td>EESC 4280</td><td>Practical Meteorology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: EESC2020 or ESSC2020.</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4260</td><td>Urban Climatology</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4260.</span><span class="prereq-sentence">Pre-requisite: EESC2020 or ESSC2020.</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4270</td><td>Cloud Dynamics</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: EESC2020 or ESSC2020.</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4280</td><td>Practical Meteorology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: EESC2020 or ESSC2020.</span></td></tr>
 <tr><td>EESC 4310</td><td>Chemistry of Aquatic and Terrestrial Organic Matter</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>EESC 4325</td><td>Advanced Environmental Chemistry</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENSC4525.</span><span class="prereq-sentence">Pre-requisite: EESC2515 or ENSC2515 or permission of the instructor.</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4325</td><td>Advanced Environmental Chemistry</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENSC4525.</span><span class="prereq-sentence">Pre-requisite: EESC2515 or ENSC2515 or permission of the instructor.</span></td></tr>
 <tr><td>EESC 4330</td><td>Biogeochemistry</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">1) Pre-requisite: EESC/ESSC3020 or EESC/ESSC3220 or EESC3230 or EESC/ESSC3300 or EESC3510 or EESC3520 or EESC/ESSC3600 or EESC/ESSC3800.</span><span class="prereq-sentence">2) Not for those taken ENSC/EESC3330.</span><span class="prereq-sentence">3) Need basic knowledge in environmental science and chemistry.</span></td></tr>
-<tr><td>EESC 4335</td><td>Chemical Treatment Processes</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENSC4535.</span><span class="prereq-sentence">Pre-requisite: EESC2515 or ENSC2515 or permission of the instructor.</span></td></tr>
+<tr class="course-unavailable"><td>EESC 4335</td><td>Chemical Treatment Processes</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENSC4535.</span><span class="prereq-sentence">Pre-requisite: EESC2515 or ENSC2515 or permission of the instructor.</span></td></tr>
 <tr><td>EESC 4350</td><td>Environmental Health: A Systems Thinking Approach</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENSC4250.</span><span class="prereq-sentence">Pre-requisite: EESC3520 or permission of instructor.</span></td></tr>
 <tr><td>EESC 4510</td><td>Statistical Methods and Data Analysis for Earth and Environmental Sciences</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC4510.</span><span class="prereq-sentence">Pre-requisite: (STAT1011 or 1012), and ((EESC2030 or ESSC2030) or PHYS2061).</span></td></tr>
 <tr><td>EESC 4520</td><td>Numerical Methods and Modeling for Earth and Environmental Sciences</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESSC4520.</span><span class="prereq-sentence">Pre-requisite: (MATH1010 or 1030 or 1520), and ((EESC2030 or ESSC2030) or PHYS2061).</span></td></tr>
@@ -419,6 +420,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

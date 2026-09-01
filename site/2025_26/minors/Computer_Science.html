@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Computer Science</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Computer_Science.html">2024-25</option><option value="../../2025_26/minors/Computer_Science.html" selected>2025-26</option><option value="../../2026_27/minors/Computer_Science.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Computer Science</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Computer_Science.html">2024-25</option><option value="../../2025_26/minors/Computer_Science.html" selected>2025-26</option><option value="../../2026_27/minors/Computer_Science.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Biomedical_Engineering.html">← Biomedical Engineering</a><a href="Electronic_Engineering.html">Electronic Engineering →</a></div>
 <div class="title-row"><h1>Computer Science &mdash; CUHK Minor Requirements (2025-26)</h1><span class="meta">Engineering</span></div>
 <div class="admit-year">Applicable to students admitted in 2025-26.</div>
@@ -330,8 +331,8 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>CSCI 2510</td><td>Computer Organization</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken CENG2400 or ELEG3230 or ENGG2020 or ESTR2100 or ESTR2104.</span><span class="prereq-sentence">Prerequisite: CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ENGG1110 or ESTR1002 or 1100 or 1102 or MATH2221 or PHYS2061.</span></td></tr>
 <tr><td>CSCI 2720</td><td>Building Web Applications</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR2106 or IERG3840.</span><span class="prereq-sentence">Pre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ENGG1110 or ESTR1002 or 1100 or 1102 or MATH2221 or PHYS2061.</span></td></tr>
 <tr><td>CSCI 2730</td><td>Introduction to Blockchain Technologies and Applications</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken IERG4360 or ESTR4326.</span><span class="prereq-sentence">Prerequisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ENGG1110 or ESTR1002 or 1100 or 1102.</span></td></tr>
-<tr><td>CSCI 2740</td><td>Competitive Programming</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: CSCI2100 or CSCI2520 or ESTR2102.</span></td></tr>
-<tr><td>CSCI 2750</td><td>Data Mining and Information Processing</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: (ENGG1110 or ESTR1002) and (ENGG1120 or ESTR1005) Not for students who have taken CSCI3230 or ESTR3108 or CSCI3320.</span></td></tr>
+<tr class="course-unavailable"><td>CSCI 2740</td><td>Competitive Programming</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: CSCI2100 or CSCI2520 or ESTR2102.</span></td></tr>
+<tr class="course-unavailable"><td>CSCI 2750</td><td>Data Mining and Information Processing</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: (ENGG1110 or ESTR1002) and (ENGG1120 or ESTR1005) Not for students who have taken CSCI3230 or ESTR3108 or CSCI3320.</span></td></tr>
 <tr><td>CSCI 3340</td><td>Scientific Computing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: (ENGG1120 or ESTR1005 or MATH1030 or MATH1038 or MATH1550) AND (ENGG1130 or ESTR1006 or MATH1010 or MATH1020 or MATH1018 or MATH1510 or MATH1520).</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(c) CENG3430/ESTR3100, CSCI1020, 1030, 1040, 3130, CSCI3150/ESTR3102, CSCI3160/ESTR3104, CSCI3170, CSCI3180/ESTR3106, CSCI3190, 3220, CSCI3230/ESTR3108, CSCI3250, 3260, 3280, 3310, 3320, 3350, 3360, 4120, 4130, 4140, CSCI4180/ESTR4106, CSCI4190</span><span class="meta">(3 units)</span></div></div>
@@ -339,33 +340,33 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="eq-row"><td>CENG 3430</td><td>Rapid Prototyping of Digital Systems</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent For senior-year entrants, the prerequisite will be waived.</span><span class="prereq-sentence">Not for students who have taken ESTR3100.</span></td></tr>
 <tr><td>ESTR 3100</td><td>Rapid Prototyping of Digital Systems</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CENG3430.</span><span class="prereq-sentence">Pre-requisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent.</span><span class="prereq-sentence">For senior-year entrants, the pre-requisite will be waived.</span></td></tr>
 <tr><td>CSCI 1020 [1]</td><td>Hands-on Introduction to C++</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CSCI1120 or 1520 or 1540 or ESTR1100.</span></td></tr>
-<tr><td>CSCI 1030 [1]</td><td>Hands-on Introduction to Java</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken CSCI1130 or 1530 or ESTR1102.</span></td></tr>
+<tr class="course-unavailable"><td>CSCI 1030 [1]</td><td>Hands-on Introduction to Java</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken CSCI1130 or 1530 or ESTR1102.</span></td></tr>
 <tr class="nf"><td>CSCI 1040</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>CSCI 3130</td><td>Formal Languages and Automata Theory</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: CSCI2110 or ENGG2440 or ESTR2004 or MIEG2440.</span></td></tr>
 <tr class="eq-row"><td>CSCI 3150</td><td>Introduction to Operating Systems</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: ESTR2102 or CSCI2100 or 2520.</span><span class="prereq-sentence">For senior-year entrants, the prerequisite will be waived.</span><span class="prereq-sentence">Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent.</span><span class="prereq-sentence">Not for students who have taken ESTR3102.</span></td></tr>
-<tr><td>ESTR 3102</td><td>Introduction to Operating Systems</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken CSCI3150.</span><span class="prereq-sentence">Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102.</span><span class="prereq-sentence">For senior-year entrants, the pre-requisite will be waived.</span><span class="prereq-sentence">Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 3102</td><td>Introduction to Operating Systems</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken CSCI3150.</span><span class="prereq-sentence">Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102.</span><span class="prereq-sentence">For senior-year entrants, the pre-requisite will be waived.</span><span class="prereq-sentence">Co-requisite: AIST3020 or CSCI2510 or CENG3420 or IERG3060 or equivalent.</span></td></tr>
 <tr class="eq-row"><td>CSCI 3160</td><td>Design and Analysis of Algorithms</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3104 or CSCI3190;</span><span class="prereq-sentence">Pre-requisites: (CSCI2100 or CSCI2520 or ESTR2102) AND (CSCI2110 or ENGG2440 or ESTR2004 or ESTR2362 or MIEG2440).</span></td></tr>
-<tr><td>ESTR 3104</td><td>Design and Analysis of Algorithms</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken CSCI3160 or CSCI3190.</span><span class="prereq-sentence">Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 3104</td><td>Design and Analysis of Algorithms</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken CSCI3160 or CSCI3190.</span><span class="prereq-sentence">Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004.</span></td></tr>
 <tr><td>CSCI 3170</td><td>Introduction to Database Systems</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: CSCI2100 or 2520 or ESTR2102.</span><span class="prereq-sentence">For 2nd-year entrants, the prerequisite will be waived.</span></td></tr>
 <tr class="eq-row"><td>CSCI 3180</td><td>Principles of Programming Languages</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR3106.</span><span class="prereq-sentence">Prerequisite: CSCI2100 or 2520 or ESTR2102.</span><span class="prereq-sentence">For senior-year entrants, the prerequisite will be waived.</span></td></tr>
 <tr><td>ESTR 3106</td><td>Principles of Programming Languages</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CSCI3180.</span><span class="prereq-sentence">Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102.</span><span class="prereq-sentence">For senior-year entrants, the pre-requisite will be waived.</span></td></tr>
 <tr><td>CSCI 3190</td><td>Introduction to Discrete Mathematics and Algorithms</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken CSCI3160 or ENGG2440 or ESTR2004 or 3104.</span><span class="prereq-sentence">Prerequisite: CSCI2100 or CSCI2520 or ESTR2102.</span><span class="prereq-sentence">For 2nd-year entrants, the prerequisite will be waived.</span></td></tr>
-<tr><td>CSCI 3220</td><td>Algorithms for Bioinformatics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3102 or ESTR3110.</span></td></tr>
+<tr class="course-unavailable"><td>CSCI 3220</td><td>Algorithms for Bioinformatics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken BMEG3102 or ESTR3110.</span></td></tr>
 <tr class="eq-row"><td>CSCI 3230</td><td>Fundamentals of Artificial Intelligence</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3108.</span><span class="prereq-sentence">Prerequisite: CSCI2100 or 2520 or ESTR2102 or equivalent.</span></td></tr>
 <tr><td>ESTR 3108</td><td>Fundamentals of Artificial Intelligence</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken CSCI3230.</span><span class="prereq-sentence">Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent.</span></td></tr>
 <tr><td>CSCI 3250 [2]</td><td>Computers and Society</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ENGG2601.</span></td></tr>
 <tr><td>CSCI 3260</td><td>Principles of Computer Graphics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: CSCI2100 or 2520 or ESTR2102.</span></td></tr>
-<tr><td>CSCI 3280</td><td>Introduction to Multimedia Systems</td><td></td><td></td><td>—</td></tr>
-<tr><td>CSCI 3310</td><td>Mobile Computing and Applications Development</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: CSCI2100 or 2520 or ESTR2102.</span><span class="prereq-sentence">Not for students who have taken IERG3842.</span></td></tr>
+<tr class="course-unavailable"><td>CSCI 3280</td><td>Introduction to Multimedia Systems</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>CSCI 3310</td><td>Mobile Computing and Applications Development</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: CSCI2100 or 2520 or ESTR2102.</span><span class="prereq-sentence">Not for students who have taken IERG3842.</span></td></tr>
 <tr><td>CSCI 3320</td><td>Fundamentals of Machine Learning</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: ENGG2430 or 2450 or 2760 or 2780 or ESTR2002 or 2005 or 2018 or 2020 or 2308 or 2362 or IERG2470 or MIEG2440 or STAT2001.</span></td></tr>
 <tr><td>CSCI 3350</td><td>Introduction to Quantum Computing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: (ENGG1120 or ESTR1005) AND (ENGG2760 or ESTR2018).</span></td></tr>
 <tr><td>CSCI 3360</td><td>Introduction to Computational Complexity</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: ENGG2760 or ESTR2018 or ESTR2308 or IERG2470.</span></td></tr>
 <tr><td>CSCI 4120</td><td>Principles of Computer Game Software</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Prerequisite: CSCI2100 or 2520 or ESTR2102;</span><span class="prereq-sentence">2. Prerequisite/Corequisite: CSCI3260 or 3550.</span></td></tr>
 <tr><td>CSCI 4130</td><td>Introduction to Cyber Security</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR4306 or IEMS5710 or IERG4130.</span></td></tr>
-<tr><td>CSCI 4140</td><td>Open-source Software Project Development</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: CSCI2100 or 2520 or ESTR2102.</span></td></tr>
+<tr class="course-unavailable"><td>CSCI 4140</td><td>Open-source Software Project Development</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: CSCI2100 or 2520 or ESTR2102.</span></td></tr>
 <tr class="eq-row"><td>CSCI 4180</td><td>Introduction to Cloud Computing and Storage</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Co-requisite: CSCI3150 or ESTR3102.</span><span class="prereq-sentence">Not for students who have taken ESTR4106.</span></td></tr>
-<tr><td>ESTR 4106</td><td>Introduction to Cloud Computing and Storage</td><td></td><td></td><td><span class="prereq-sentence">Co-requisite: CSCI3150 or ESTR3102.</span><span class="prereq-sentence">Not for students who have taken CSCI4180.</span></td></tr>
-<tr><td>CSCI 4190</td><td>Introduction to Social Networks</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: CSCI2100 or 2520 or ESTR2102.</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 4106</td><td>Introduction to Cloud Computing and Storage</td><td></td><td></td><td><span class="prereq-sentence">Co-requisite: CSCI3150 or ESTR3102.</span><span class="prereq-sentence">Not for students who have taken CSCI4180.</span></td></tr>
+<tr class="course-unavailable"><td>CSCI 4190</td><td>Introduction to Social Networks</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: CSCI2100 or 2520 or ESTR2102.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Course(s) in Column A are equivalent to course(s) in Column B and can be used to fulfill the requirements of this Minor Programme.</span></div>
@@ -436,6 +437,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Business</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/HB_Minor_Programme_in_Business.html">2024-25</option><option value="../../2025_26/minors/HB_Minor_Programme_in_Business.html" selected>2025-26</option><option value="../../2026_27/minors/HB_Minor_Programme_in_Business.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Business</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/HB_Minor_Programme_in_Business.html">2024-25</option><option value="../../2025_26/minors/HB_Minor_Programme_in_Business.html" selected>2025-26</option><option value="../../2026_27/minors/HB_Minor_Programme_in_Business.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Urban_Studies.html">← Urban Studies</a><a href="HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language.html">Chinese Language (Cantonese) as a Second Language →</a></div>
 <div class="title-row"><h1>Business &mdash; CUHK Minor Requirements (2025-26)</h1><span class="meta">Other</span></div>
 <div class="admit-year">Applicable to students admitted in 2025-26.</div>
@@ -315,7 +316,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <details class="course-details"><summary>Show 10 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr><td>ACCT 2111</td><td>Introductory Financial Accounting</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ACCT1111.</span></td></tr>
 <tr class="eq-row"><td>DOTE 1030</td><td>Economics for Business Studies I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ECON2011 or ECON3011.</span></td></tr>
-<tr><td>DOTE 1035</td><td>Fundamentals of Business Economics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken DSME1030/DOTE1030, DSME1040/DOTE1040 and equivalent courses offered by other departments.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 1035</td><td>Fundamentals of Business Economics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken DSME1030/DOTE1030, DSME1040/DOTE1040 and equivalent courses offered by other departments.</span></td></tr>
 <tr><td>DOTE 2011 [4]</td><td>Statistical Analysis for Business Decisions</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ECON2121 or FINA2220 or PSYC2010 or SEEM2430 or STAT2103 or UGEB2471.</span></td></tr>
 <tr><td>DOTE 2030</td><td>Operations Management</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: HTMG1010 or MGNT1010 or 1020.</span></td></tr>
 <tr class="eq-row"><td>FINA 2010</td><td>Financial Management</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Pre-requisites: ACCT1111 or ACCT2111 and DOTE1030 or 1031, or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken ECON3540, FINA2110 or FINA2310.</span></td></tr>
@@ -326,11 +327,11 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) Two ACCT/DOTE/FINA/HTMG/MGNT/MKTG courses at 3000 or above level</span><span class="meta">(6 units)</span></div></div>
 <details class="course-details"><summary>Show 649 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
-<tr><td>ACCT 3001 [2]</td><td>Business Ethics and Entrepreneurship</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ACCT2111.</span></td></tr>
-<tr><td>ACCT 3002</td><td>Accounting Practicum and Fieldwork</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ACCT3001.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 3001 [2]</td><td>Business Ethics and Entrepreneurship</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ACCT2111.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 3002</td><td>Accounting Practicum and Fieldwork</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ACCT3001.</span></td></tr>
 <tr><td>ACCT 3003 [1]</td><td>Professional Seminar Series</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>ACCT 3004 [2]</td><td>Accounting Practicum and Experiential Learning</td><td></td><td></td><td>—</td></tr>
-<tr><td>ACCT 3005 [2]</td><td>Accounting Field Study and Experiential Learning</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ACCT 3004 [2]</td><td>Accounting Practicum and Experiential Learning</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ACCT 3005 [2]</td><td>Accounting Field Study and Experiential Learning</td><td></td><td></td><td>—</td></tr>
 <tr><td>ACCT 3111</td><td>Financial Reporting I</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: ACCT2111.</span></td></tr>
 <tr><td>ACCT 3112</td><td>Financial Reporting II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: ACCT3111.</span></td></tr>
 <tr><td>ACCT 3121</td><td>Cost and Management Accounting</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: ACCT2121.</span></td></tr>
@@ -340,28 +341,28 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ACCT 3161</td><td>Taxation</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: ACCT3111.</span></td></tr>
 <tr><td>ACCT 3241</td><td>Introduction to Python for Business and Accounting Analytics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): ENGG1003.</span></td></tr>
 <tr><td>ACCT 4001 [2]</td><td>Capstone Project: Business Ethics and Entrepreneurship</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: ACCT3121.</span></td></tr>
-<tr><td>ACCT 4011</td><td>Advanced Financial Accounting Studies</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ACCT3112.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 4011</td><td>Advanced Financial Accounting Studies</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ACCT3112.</span></td></tr>
 <tr><td>ACCT 4111</td><td>Advanced Financial Accounting</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: ACCT3112.</span></td></tr>
 <tr><td>ACCT 4131</td><td>Auditing</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: ACCT3111.</span></td></tr>
-<tr><td>ACCT 4211</td><td>Accounting Information in Capital Market</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: ACCT3111.</span></td></tr>
-<tr><td>ACCT 4212</td><td>China Business Valuation and Analysis</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: ACCT3111.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 4211</td><td>Accounting Information in Capital Market</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: ACCT3111.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 4212</td><td>China Business Valuation and Analysis</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: ACCT3111.</span></td></tr>
 <tr><td>ACCT 4213</td><td>Financial Statement Analysis and Valuation</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Prerequisite: ACCT3112 or permission from instructor.</span></td></tr>
-<tr><td>ACCT 4214</td><td>Applied Financial Statement Analysis</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>ACCT 4214</td><td>Applied Financial Statement Analysis</td><td></td><td></td><td>—</td></tr>
 <tr><td>ACCT 4215</td><td>Contemporary Accounting Issues in Global Market</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite:ACCT3111.</span></td></tr>
-<tr><td>ACCT 4221</td><td>Strategic Management Accounting</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: ACCT3121.</span></td></tr>
-<tr><td>ACCT 4231</td><td>Internal Auditing and Risk Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: ACCT4131.</span></td></tr>
-<tr><td>ACCT 4232</td><td>Forensic Accounting and Audit Analytics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: ACCT4131.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 4221</td><td>Strategic Management Accounting</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: ACCT3121.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 4231</td><td>Internal Auditing and Risk Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: ACCT4131.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 4232</td><td>Forensic Accounting and Audit Analytics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: ACCT4131.</span></td></tr>
 <tr><td>ACCT 4242</td><td>Accounting Data Analytics for Business</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite(s):</span><span class="prereq-sentence">1. ACCT3241 2.,DSME2011 or DOTE2011.</span></td></tr>
-<tr><td>ACCT 4243</td><td>Data Visualization in Accounting</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ACCT3142.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 4243</td><td>Data Visualization in Accounting</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ACCT3142.</span></td></tr>
 <tr><td>ACCT 4244</td><td>Blockchain Fundamentals for Accountants</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>ACCT 4251</td><td>Regulation and Compliance in the Financial Markets</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: ACCT3151.</span></td></tr>
-<tr><td>ACCT 4252</td><td>Corporate Insolvency and Restructuring</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: ACCT3152.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 4251</td><td>Regulation and Compliance in the Financial Markets</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: ACCT3151.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 4252</td><td>Corporate Insolvency and Restructuring</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: ACCT3152.</span></td></tr>
 <tr><td>ACCT 4253</td><td>Chinese Legal Environment for Business</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: ACCT3151.</span><span class="prereq-sentence">Not for students who have taken LAWS3320.</span></td></tr>
 <tr><td>ACCT 4261</td><td>Taxes and Business Strategy</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisites: ACCT3161.</span></td></tr>
 <tr><td>ACCT 4262</td><td>China Taxation</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: ACCT3161.</span></td></tr>
 <tr><td>ACCT 4263</td><td>International Taxation</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: ACCT3161.</span></td></tr>
-<tr><td>ACCT 4271</td><td>Corporate Governance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: ACCT2121.</span></td></tr>
-<tr><td>ACCT 4272</td><td>ESG and Sustainability Accounting</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ACCT3121.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 4271</td><td>Corporate Governance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: ACCT2121.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 4272</td><td>ESG and Sustainability Accounting</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ACCT3121.</span></td></tr>
 <tr><td>ACCT 4281</td><td>Applied Accounting and Financial Strategies</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisites: ACCT2121 and FINA2010.</span></td></tr>
 <tr><td>ACCT 4282</td><td>Reporting Issues in Financial Services Industry</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: ACCT3112.</span></td></tr>
 <tr><td>ACCT 4290</td><td>Professional Accounting Internship</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
@@ -375,82 +376,82 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ACCT 5160</td><td>Taxation and Tax Planning</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
 <tr><td>ACCT 5510</td><td>Accounting</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
 <tr><td>ACCT 5511</td><td>Accounting for Business Decisions</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
-<tr><td>ACCT 5550</td><td>Corporate and Financial Law</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
-<tr><td>ACCT 5551</td><td>Business Law</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 5550</td><td>Corporate and Financial Law</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 5551</td><td>Business Law</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
 <tr><td>ACCT 5610</td><td>Fundamental Accounting – Financial Statement Analysis</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324); or MBA in Technology and Innovation.</span></td></tr>
 <tr><td>ACCT 5620</td><td>Contemporary Management Accounting</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy;</span><span class="prereq-sentence">Pre-requisite: ACCT5111.</span></td></tr>
-<tr><td>ACCT 5650 [1.5]</td><td>Company Law and Security Law of China</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
-<tr><td>ACCT 6001</td><td>Accounting Field Study</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
-<tr><td>ACCT 6002 [1.5]</td><td>Field Study for Accounting Managers</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
-<tr><td>ACCT 6003</td><td>Topics in Accounting and Business</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 5650 [1.5]</td><td>Company Law and Security Law of China</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6001</td><td>Accounting Field Study</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6002 [1.5]</td><td>Field Study for Accounting Managers</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6003</td><td>Topics in Accounting and Business</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
 <tr><td>ACCT 6040</td><td>Python Essentials for Accounting Analytics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
-<tr><td>ACCT 6110</td><td>Financial Accounting Theory</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6110</td><td>Financial Accounting Theory</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
 <tr><td>ACCT 6111</td><td>Business Valuation and Analysis</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Accountancy; or Executive Master of Professional Accountancy; or MBA; or JD/MBA Double Degree Programme; or MBA in Finance; or MBA in Technology and Innovation.</span></td></tr>
 <tr><td>ACCT 6112</td><td>Comparative Financial Reporting</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Accountancy; or Executive Master of Professional Accountancy; or MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>ACCT 6113 [1.5]</td><td>Comprehensive Budget Management</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
-<tr><td>ACCT 6120</td><td>Management Control Systems</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy; or Executive Master of Professional Accountancy.</span></td></tr>
-<tr><td>ACCT 6121</td><td>Advances in Strategic Management Accounting</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy; or Executive Master of Professional Accountancy.</span></td></tr>
-<tr><td>ACCT 6130</td><td>Assurance Services and Information Technology</td><td></td><td></td><td><span class="prereq-sentence">For student in Master of Accountancy;</span><span class="prereq-sentence">Prerequisite: ACCT5130.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6113 [1.5]</td><td>Comprehensive Budget Management</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6120</td><td>Management Control Systems</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy; or Executive Master of Professional Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6121</td><td>Advances in Strategic Management Accounting</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy; or Executive Master of Professional Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6130</td><td>Assurance Services and Information Technology</td><td></td><td></td><td><span class="prereq-sentence">For student in Master of Accountancy;</span><span class="prereq-sentence">Prerequisite: ACCT5130.</span></td></tr>
 <tr><td>ACCT 6131</td><td>Fraud Examination and Forensic Investigation</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy;</span><span class="prereq-sentence">Pre-requisite: ACCT5130.</span></td></tr>
 <tr><td>ACCT 6140</td><td>Accounting Information Systems and Internal Control</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy; or Master of Accountancy.</span></td></tr>
 <tr><td>ACCT 6141</td><td>Accounting Data Analytics and Business Intelligence</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Accountancy and Executive Master of Professional Accountancy.</span></td></tr>
 <tr><td>ACCT 6142</td><td>Predictive Analytics in Accounting and Quantamental Investing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
 <tr><td>ACCT 6143</td><td>Blockchain Technology for Accounting</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
-<tr><td>ACCT 6145</td><td>Big Data and Quantamental Investing</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
-<tr><td>ACCT 6150</td><td>Legal and Regulatory Environment of Business</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6145</td><td>Big Data and Quantamental Investing</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6150</td><td>Legal and Regulatory Environment of Business</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
 <tr><td>ACCT 6160</td><td>Taxation in China</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy; or MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>ACCT 6161</td><td>International Taxation Planning and Management</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span><span class="prereq-sentence">Prerequisite: ACCT5160 Taxation and Tax Planning.</span></td></tr>
-<tr><td>ACCT 6162 [1.5]</td><td>Corporate Tax Planning and Risk Management</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6161</td><td>International Taxation Planning and Management</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span><span class="prereq-sentence">Prerequisite: ACCT5160 Taxation and Tax Planning.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6162 [1.5]</td><td>Corporate Tax Planning and Risk Management</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
 <tr><td>ACCT 6170</td><td>Corporate Governance: A Global Perspective</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Accountancy; or Executive Master of Professional Accountancy; or MBA; or JD/MBA Double Degree Programme; or MBA in Finance.</span></td></tr>
-<tr><td>ACCT 6171</td><td>Applied Corporate Governance for Capital Markets</td><td></td><td></td><td><span class="prereq-sentence">For Master of Accountancy students.</span></td></tr>
-<tr><td>ACCT 6172 [1.5]</td><td>Corporate Governance: An East Asia Perspective</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6171</td><td>Applied Corporate Governance for Capital Markets</td><td></td><td></td><td><span class="prereq-sentence">For Master of Accountancy students.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6172 [1.5]</td><td>Corporate Governance: An East Asia Perspective</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
 <tr><td>ACCT 6173</td><td>Sustainability Accounting</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy, Executive Master of Professional Accountancy or MSc in Sustainable Global Business; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>ACCT 6180</td><td>Accounting and Management Planning for Enterprises</td><td></td><td></td><td><span class="prereq-sentence">For students in Master in Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6180</td><td>Accounting and Management Planning for Enterprises</td><td></td><td></td><td><span class="prereq-sentence">For students in Master in Accountancy.</span></td></tr>
 <tr><td>ACCT 6181</td><td>Financial Instruments and Hedge Accounting</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
 <tr><td>ACCT 6182</td><td>International Financial Management and Investment</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
 <tr><td>ACCT 6190</td><td>Accounting and Corporate Strategies</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
 <tr><td>ACCT 6191</td><td>Managerial Economics and Business Strategy for Accounting Managers</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
-<tr><td>ACCT 6199</td><td>Independent Study in Accounting</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 6199</td><td>Independent Study in Accounting</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
 <tr><td>ACCT 7110</td><td>Issues in Financial Accounting</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy.</span></td></tr>
-<tr><td>ACCT 7111</td><td>Independent Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 7111</td><td>Independent Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy.</span></td></tr>
 <tr><td>ACCT 7120</td><td>Issues in Managerial Accounting</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy.</span></td></tr>
-<tr><td>ACCT 7190</td><td>Research Methodology in Accounting</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy.</span></td></tr>
-<tr><td>ACCT 7199</td><td>Current Topics in Accounting Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 7190</td><td>Research Methodology in Accounting</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>ACCT 7199</td><td>Current Topics in Accounting Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy.</span></td></tr>
 <tr><td>ACCT 8003</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy.</span></td></tr>
 <tr><td>ACCT 8006 [6]</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy.</span></td></tr>
 <tr><td>ACCT 8012 [12]</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy.</span></td></tr>
-<tr><td>DOTE 3000</td><td>Current Topics in Business Economics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: DSME1030/DOTE1030 or DSME1040/DOTE1040.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 3000</td><td>Current Topics in Business Economics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: DSME1030/DOTE1030 or DSME1040/DOTE1040.</span></td></tr>
 <tr><td>DOTE 3010</td><td>Artificial Intelligence Empowered Business</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: DOTE1021 or DOTE2011 or ECON2121 or FINA2230 or STAT2001 or permission from instructor.</span></td></tr>
-<tr><td>DOTE 3011</td><td>Behavioral Economics and Business Decisions</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: DSME1030/DOTE1030 or equivalent course.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 3011</td><td>Behavioral Economics and Business Decisions</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: DSME1030/DOTE1030 or equivalent course.</span></td></tr>
 <tr><td>DOTE 3030</td><td>Business Forecasting</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisites: DSME2011/DOTE2011 and DSME2021/DOTE2021.</span></td></tr>
-<tr><td>DOTE 3040</td><td>Corporate Economics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: (a) DSME1030/DOTE1030 and DSME1040/DOTE1040 and (b) HTMG1010 or MGNT1020.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 3040</td><td>Corporate Economics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: (a) DSME1030/DOTE1030 and DSME1040/DOTE1040 and (b) HTMG1010 or MGNT1020.</span></td></tr>
 <tr><td>DOTE 3050</td><td>Global Economics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: DSME1030/DOTE1030 and DSME1040/DOTE1040.</span></td></tr>
-<tr><td>DOTE 3070</td><td>Economic Aspects of Business Environment</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: DSME1030/DOTE1030 and DSME1040/DOTE1040, or equivalent courses.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 3070</td><td>Economic Aspects of Business Environment</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: DSME1030/DOTE1030 and DSME1040/DOTE1040, or equivalent courses.</span></td></tr>
 <tr><td>DOTE 3080</td><td>Macroeconomics for Managers</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisites: DSME1030/DOTE1030 and DSME1040/DOTE1040, or equivalent courses.</span></td></tr>
 <tr><td>DOTE 3090</td><td>Game Theory for Business Strategy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: DSME1030/DOTE1030.</span></td></tr>
 <tr><td>DOTE 4020</td><td>Decision Modeling and Analytics</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>DOTE 4030</td><td>Web Analytics</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: DSME2011/DOTE2011 and DSME2021/DOTE2021 or permission of instructor.</span></td></tr>
-<tr><td>DOTE 4040</td><td>Managerial Economics in the Information Age</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: DSME1030/DOTE1030 and DSME1040/DOTE1040.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 4030</td><td>Web Analytics</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: DSME2011/DOTE2011 and DSME2021/DOTE2021 or permission of instructor.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 4040</td><td>Managerial Economics in the Information Age</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: DSME1030/DOTE1030 and DSME1040/DOTE1040.</span></td></tr>
 <tr><td>DOTE 4070</td><td>Data Management and Big Data Analytics</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>DOTE 4080</td><td>Guided Research in Business Economics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: DSME1030/DOTE1030 and DSME1040/DOTE1040.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 4080</td><td>Guided Research in Business Economics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: DSME1030/DOTE1030 and DSME1040/DOTE1040.</span></td></tr>
 <tr><td>DOTE 4110</td><td>Economic Analytics</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: DSME1030/DOTE1030.</span></td></tr>
-<tr><td>DOTE 4111 [1]</td><td>Selected Topics of Decisions, Operations and Technology</td><td></td><td></td><td>—</td></tr>
-<tr><td>DOTE 4120</td><td>Information Systems Analysis and Design</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: DSME2051/DOTE2051 or permission of instructor.</span></td></tr>
-<tr><td>DOTE 4140</td><td>Data Communications and Networking</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: DSME2051/DOTE2051 or permission of instructor.</span></td></tr>
-<tr><td>DOTE 4160</td><td>Financial Information Technology</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: DSME2051/DOTE2051 or permission of instructor.</span></td></tr>
-<tr><td>DOTE 4170</td><td>Global Logistics Management</td><td></td><td></td><td>—</td></tr>
-<tr><td>DOTE 4180</td><td>Global Supply Chain Management</td><td></td><td></td><td>—</td></tr>
-<tr><td>DOTE 4200</td><td>Business Web Design and Authoring</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>DOTE 4111 [1]</td><td>Selected Topics of Decisions, Operations and Technology</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>DOTE 4120</td><td>Information Systems Analysis and Design</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: DSME2051/DOTE2051 or permission of instructor.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 4140</td><td>Data Communications and Networking</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: DSME2051/DOTE2051 or permission of instructor.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 4160</td><td>Financial Information Technology</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: DSME2051/DOTE2051 or permission of instructor.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 4170</td><td>Global Logistics Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>DOTE 4180</td><td>Global Supply Chain Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>DOTE 4200</td><td>Business Web Design and Authoring</td><td></td><td></td><td>—</td></tr>
 <tr><td>DOTE 4220</td><td>Data Mining for Business Intelligence</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: DSME2011/DOTE2011 and DSME2021/DOTE2021 or DSME2011/DOTE2011 and DSME2040/DOTE2040 or permission of instructor.</span></td></tr>
-<tr><td>DOTE 4230</td><td>Information Systems Practicum</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>DOTE 4230</td><td>Information Systems Practicum</td><td></td><td></td><td>—</td></tr>
 <tr><td>DOTE 4240</td><td>Supply Chain and Logistics Analytics</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>DOTE 4260</td><td>Business Process Analytics</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>DOTE 4270</td><td>Current and Regional Issues in Supply Chain and Logistics Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>DOTE 4270</td><td>Current and Regional Issues in Supply Chain and Logistics Management</td><td></td><td></td><td>—</td></tr>
 <tr><td>DOTE 4280</td><td>Network and Security</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>DOTE 5001</td><td>Microeconomic Theory</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy; or MPhil-PhD Business Administration; or MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology; or MPhil-PhD Finance; or MPhil-PhD Marketing.</span></td></tr>
 <tr><td>DOTE 5011</td><td>Macroeconomics in a Globalized Era</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
-<tr><td>DOTE 5012</td><td>Macroeconomics for Business Executives</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>DOTE 5021</td><td>Business Analytics</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA; or EMBA (Chinese).</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 5012</td><td>Macroeconomics for Business Executives</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 5021</td><td>Business Analytics</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA; or EMBA (Chinese).</span></td></tr>
 <tr><td>DOTE 5031</td><td>Strategic Value of Innovation and Technology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
 <tr><td>DOTE 5110</td><td>Statistical Analysis</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MSc Business Analytics; or MSc in Management of Real Estate and Hospitality Assets; or MSc Information & Technology Management; or MSc in Real Estate; or MSc in Info Sci and Tech Mgt.</span></td></tr>
 <tr><td>DOTE 5121</td><td>Econometric Theory and Applications</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy; or MPhil-PhD Business Administration; or MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology; or MPhil-PhD Finance; or MPhil-PhD Marketing.</span></td></tr>
@@ -459,65 +460,65 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>DOTE 5410</td><td>Operations Management</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or EMBA.</span></td></tr>
 <tr><td>DOTE 5411</td><td>Operations and Supply Chains Strategies</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in EMBA; or EMBA (Chinese).</span></td></tr>
 <tr><td>DOTE 5510 [1.5]</td><td>Quantitative Analysis for Decision Making</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
-<tr><td>DOTE 5600 [1.5]</td><td>AI and Big Data Strategies</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 5600 [1.5]</td><td>AI and Big Data Strategies</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
 <tr><td>DOTE 5810</td><td>Aviation Economics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
-<tr><td>DOTE 5820</td><td>Aviation Capstone Project</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 5820</td><td>Aviation Capstone Project</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
 <tr><td>DOTE 5830</td><td>Airline Operations Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
 <tr><td>DOTE 5840</td><td>Airport Operations Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
 <tr><td>DOTE 5850</td><td>Aviation Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
 <tr><td>DOTE 5860</td><td>Aviation Law and Regulation</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
-<tr><td>DOTE 5870</td><td>Aviation Revenue Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
-<tr><td>DOTE 5880</td><td>Selected Topics of Aviation Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 5870</td><td>Aviation Revenue Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 5880</td><td>Selected Topics of Aviation Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
 <tr><td>DOTE 5890</td><td>Low Altitude Operations Analytics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
 <tr><td>DOTE 5891</td><td>Low Altitude Economics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Aviation Management.</span></td></tr>
-<tr><td>DOTE 6010</td><td>Managerial Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or EMBA (Chinese); or MBA in Technology and Innovation.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6010</td><td>Managerial Economics</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or EMBA (Chinese); or MBA in Technology and Innovation.</span></td></tr>
 <tr><td>DOTE 6040</td><td>Business Analytics and Digital Innovation</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
 <tr><td>DOTE 6100</td><td>Managing Service Operations</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics.</span></td></tr>
 <tr><td>DOTE 6200</td><td>Supply Chain Sustainability Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
-<tr><td>DOTE 6350 [1.5]</td><td>Financial Data Modeling and Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6350 [1.5]</td><td>Financial Data Modeling and Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
 <tr><td>DOTE 6360</td><td>Macro and Micro Economics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
 <tr><td>DOTE 6503</td><td>Statistics and Decisions</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy; or MBA in Finance; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>DOTE 6512</td><td>Modelling Methodology in Management Science</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6512</td><td>Modelling Methodology in Management Science</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
 <tr><td>DOTE 6520 [1.5]</td><td>Platform and Business Strategies</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>DOTE 6522</td><td>Research Methods in Microeconomics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil/PhD Decision Sciences and Managerial Economics or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
-<tr><td>DOTE 6530 [1.5]</td><td>Data Visualization and Business Intelligence</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>DOTE 6532</td><td>Multivariate Statistics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
-<tr><td>DOTE 6542</td><td>Economics of Information Systems</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
-<tr><td>DOTE 6612</td><td>Advanced BE Research Seminar</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6522</td><td>Research Methods in Microeconomics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil/PhD Decision Sciences and Managerial Economics or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6530 [1.5]</td><td>Data Visualization and Business Intelligence</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6532</td><td>Multivariate Statistics</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6542</td><td>Economics of Information Systems</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6612</td><td>Advanced BE Research Seminar</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
 <tr><td>DOTE 6620</td><td>Decision Models and Applications</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics.</span></td></tr>
-<tr><td>DOTE 6622</td><td>Advanced MIS Research Seminar</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6622</td><td>Advanced MIS Research Seminar</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
 <tr><td>DOTE 6632</td><td>Research Sem in Operations & SCM</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
 <tr><td>DOTE 6635</td><td>Artificial Intelligence for Business Research</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy; or MPhil-PhD Business Administration; or MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology; or MPhil-PhD Finance; or MPhil-PhD Marketing.</span></td></tr>
 <tr><td>DOTE 6650</td><td>Data Mining for Managers</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For student in MSc Business Analytics.</span></td></tr>
 <tr><td>DOTE 6651</td><td>Economic Analytics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Business Analytics.</span></td></tr>
 <tr><td>DOTE 6652</td><td>Risk and Operations Analytics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Aviation Management; or MSc Business Analytics.</span></td></tr>
 <tr><td>DOTE 6653</td><td>Web Analytics and Intelligence</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics.</span></td></tr>
-<tr><td>DOTE 6654</td><td>Business Process Analysis and Simulation</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6654</td><td>Business Process Analysis and Simulation</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics.</span></td></tr>
 <tr><td>DOTE 6671</td><td>China in Global Economy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
 <tr><td>DOTE 6680</td><td>Selected Topics of Information and Technology Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics; or MBA; or JD/MBA Double Degree Programme; or MSc Information Science & Technology Management; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>DOTE 6681</td><td>Fintech and Transformation of Financial Services</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6681</td><td>Fintech and Transformation of Financial Services</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
 <tr><td>DOTE 6682</td><td>Fintech and Its Applications</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics; or MSc Information Science & Technology Management; or MBA in Finance.</span></td></tr>
 <tr><td>DOTE 6683</td><td>Blockchain and Its Application</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Information Science & Technology Management; or MBA in Finance; or MBA in Technology and Innovation.</span></td></tr>
 <tr><td>DOTE 6685</td><td>Generative Artificial Intelligence for Business</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Information & Technology Management; or MSc in Business Analytics; or MSc Information Science & Technology Management; or MSc in Aviation Management; or MSc in Leadership for Experience Economy; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>DOTE 6686</td><td>Advanced Information Systems Practicum</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc in Info Sci and Tech Mgt.</span></td></tr>
-<tr><td>DOTE 6687</td><td>Data Communication and Networking</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Information & Technology Management.</span></td></tr>
-<tr><td>DOTE 6688</td><td>Technology Startup-From Idea to Reality</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6686</td><td>Advanced Information Systems Practicum</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc in Info Sci and Tech Mgt.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6687</td><td>Data Communication and Networking</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Information & Technology Management.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6688</td><td>Technology Startup-From Idea to Reality</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics.</span></td></tr>
 <tr><td>DOTE 6689</td><td>IT Law for Executives</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management.</span></td></tr>
-<tr><td>DOTE 6690</td><td>Selected Topics of Business Analytics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Business Analytics; or MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>DOTE 6696</td><td>Advanced Business Analytics Practicum</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Business Analytics.</span></td></tr>
-<tr><td>DOTE 6697</td><td>Data Visualization and Business Communication</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Business Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6690</td><td>Selected Topics of Business Analytics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Business Analytics; or MBA; or JD/MBA Double Degree Programme.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6696</td><td>Advanced Business Analytics Practicum</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Business Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6697</td><td>Data Visualization and Business Communication</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Business Analytics.</span></td></tr>
 <tr><td>DOTE 6698</td><td>Machine Learning for Business II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Business Analytics.</span><span class="prereq-sentence">MSc Information & Technology Management; or MSc Information Science & Technology Management; or MSc Aviation Management, or MBA in Technology and Innovation;</span><span class="prereq-sentence">Pre-requisite: DOTE6756.</span></td></tr>
-<tr><td>DOTE 6720</td><td>Business Forecasting</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Business Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6720</td><td>Business Forecasting</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Business Analytics.</span></td></tr>
 <tr><td>DOTE 6730</td><td>Project Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics; or MSc in Info Sci and Tech Mgt.</span></td></tr>
 <tr><td>DOTE 6751</td><td>Database and Big Data Management</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics; or MBA; or JD/MBA Double Degree Programme; or MSc in Info Sci and Tech Mgt.</span></td></tr>
-<tr><td>DOTE 6752</td><td>Information Systems Analysis and Auditing</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6752</td><td>Information Systems Analysis and Auditing</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management.</span></td></tr>
 <tr><td>DOTE 6756</td><td>Machine Learning for Business I</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics; or MSc Information Science & Technology Management; or MSc Aviation Management, or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>DOTE 6780</td><td>Mobile and Web Applications Development</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Information & Technology Management.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6780</td><td>Mobile and Web Applications Development</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Information & Technology Management.</span></td></tr>
 <tr><td>DOTE 6788</td><td>Cyber Security</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Information & Technology Management.</span></td></tr>
-<tr><td>DOTE 6790</td><td>Technology Field Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics.</span></td></tr>
-<tr><td>DOTE 6930</td><td>Supply Chain and Logistics Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics; or MBA in Finance.</span></td></tr>
-<tr><td>DOTE 6931 [1.5]</td><td>Strategy and Innovation Management</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
-<tr><td>DOTE 6940</td><td>Enterprise Resource Planning</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc in Info Sci and Tech Mgt.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6790</td><td>Technology Field Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6930</td><td>Supply Chain and Logistics Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc Business Analytics; or MBA in Finance.</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6931 [1.5]</td><td>Strategy and Innovation Management</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
+<tr class="course-unavailable"><td>DOTE 6940</td><td>Enterprise Resource Planning</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Information & Technology Management; or MSc in Info Sci and Tech Mgt.</span></td></tr>
 <tr><td>DOTE 7111</td><td>Independent Study</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
 <tr><td>DOTE 8003</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
 <tr><td>DOTE 8006 [6]</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology.</span></td></tr>
@@ -525,63 +526,63 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>FINA 3010</td><td>Financial Markets</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken ECON3520.</span></td></tr>
 <tr><td>FINA 3020</td><td>International Finance</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
 <tr><td>FINA 3030</td><td>Management of Financial Institutions</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3040</td><td>Central Banking and Regulation of Financial Institutions</td><td></td><td></td><td><span class="prereq-sentence">1. Prerequisites: FINA2010 or FINA2310 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken GLEF4020.</span></td></tr>
-<tr><td>FINA 3060</td><td>Real Estate Finance and Investment</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 3040</td><td>Central Banking and Regulation of Financial Institutions</td><td></td><td></td><td><span class="prereq-sentence">1. Prerequisites: FINA2010 or FINA2310 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken GLEF4020.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 3060</td><td>Real Estate Finance and Investment</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
 <tr><td>FINA 3070</td><td>Corporate Finance: Theory and Practice</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken ECON3540.</span></td></tr>
 <tr><td>FINA 3080</td><td>Investment Analysis and Portfolio Management</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Prerequisite: FINA2010 or 2310 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken ECON3520.</span></td></tr>
-<tr><td>FINA 3090</td><td>Understanding China's Financial System</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3010 or FINA3080 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3110</td><td>Issues in Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 3090</td><td>Understanding China's Financial System</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3010 or FINA3080 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 3110</td><td>Issues in Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
 <tr><td>FINA 3210</td><td>Risk Management and Insurance</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3220</td><td>Life Contingencies I</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): FINA2210 or FINA2200.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 3220</td><td>Life Contingencies I</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): FINA2210 or FINA2200.</span></td></tr>
 <tr><td>FINA 3221</td><td>Basic Long-term Actuarial Mathematics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2200 or FINA2210.</span></td></tr>
 <tr><td>FINA 3222</td><td>Basic Short-term Actuarial Mathematics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2230 or STAT2006 or permission from instructor.</span></td></tr>
 <tr><td>FINA 3230</td><td>Life and Health Insurance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA3210.</span></td></tr>
 <tr><td>FINA 3240</td><td>Corporate Property and Liability Insurance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3210.</span></td></tr>
-<tr><td>FINA 3250</td><td>Derivatives for Actuaries I</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken FINA4110.</span></td></tr>
-<tr><td>FINA 3260 [1]</td><td>Internship Experience</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>FINA 3250</td><td>Derivatives for Actuaries I</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken FINA4110.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 3260 [1]</td><td>Internship Experience</td><td></td><td></td><td>—</td></tr>
 <tr><td>FINA 3290</td><td>Linear Models for Actuaries</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisites: FINA2230 or STAT2006 or permission from instructor.</span></td></tr>
 <tr><td>FINA 3295</td><td>Advanced Statistical Modeling for Insurance and Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisites: DOTE2021 or FINA2230 or STAT2006 or permission from instructor.</span></td></tr>
 <tr><td>FINA 3310 [1]</td><td>Introduction to Investment Banking</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3320 [1]</td><td>Introduction to Credit Rating</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 3320 [1]</td><td>Introduction to Credit Rating</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
 <tr><td>FINA 3330 [1]</td><td>Introduction to Alternative Investment</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3340 [1]</td><td>Trading Strategies: Behavioral and Technical Analysis</td><td></td><td></td><td><span class="prereq-sentence">1. Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken FINA3012.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 3340 [1]</td><td>Trading Strategies: Behavioral and Technical Analysis</td><td></td><td></td><td><span class="prereq-sentence">1. Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken FINA3012.</span></td></tr>
 <tr><td>FINA 3350 [1]</td><td>Foreign Exchange Market Practices</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken FINA3021.</span></td></tr>
 <tr><td>FINA 3360 [1]</td><td>Derivative Warrants, Proprietary and Arbitrage Trading Concepts</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
 <tr><td>FINA 3370 [1]</td><td>Introduction to Bloomberg and Reuters</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3398 [1]</td><td>Special Issues in Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 3398 [1]</td><td>Special Issues in Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
 <tr><td>FINA 3399 [1]</td><td>Current Issues in Finance</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3420</td><td>Credit Rating in Global Economy</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken FINA3320.</span><span class="prereq-sentence">Pre-requisite: FINA2010, or FINA2011, or FINA2110 or FINA2310, or permission from instructor.</span></td></tr>
-<tr><td>FINA 4010</td><td>Security Analysis</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4020</td><td>Fund Management and Asset Allocation</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 3420</td><td>Credit Rating in Global Economy</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken FINA3320.</span><span class="prereq-sentence">Pre-requisite: FINA2010, or FINA2011, or FINA2110 or FINA2310, or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4010</td><td>Security Analysis</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4020</td><td>Fund Management and Asset Allocation</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
 <tr><td>FINA 4030</td><td>Selected Topics in Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4040</td><td>Cases in Corporate Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3070 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4040</td><td>Cases in Corporate Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3070 or permission from instructor.</span></td></tr>
 <tr><td>FINA 4050</td><td>Mergers and Acquisitions</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3070 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4060</td><td>China Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4060</td><td>China Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
 <tr><td>FINA 4110</td><td>Options and Futures</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Prerequisite: FINA3080 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken ECON4450.</span></td></tr>
 <tr><td>FINA 4120</td><td>Fixed Income Securities Analysis</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4130</td><td>Empirical Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4140</td><td>Computational Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4130</td><td>Empirical Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4140</td><td>Computational Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
 <tr><td>FINA 4150</td><td>Quantitative Methods for Financial Derivatives</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4160</td><td>Intermediate Financial Theory</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4190</td><td>Research Project in Quantitative Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: At least two FINA41XX courses and permission from instructor.</span></td></tr>
-<tr><td>FINA 4210</td><td>Life Contingencies II</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3220 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4211</td><td>Advanced Long-term Actuarial Mathematics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3221 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4160</td><td>Intermediate Financial Theory</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4190</td><td>Research Project in Quantitative Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: At least two FINA41XX courses and permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4210</td><td>Life Contingencies II</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3220 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4211</td><td>Advanced Long-term Actuarial Mathematics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3221 or permission from instructor.</span></td></tr>
 <tr><td>FINA 4215 [1]</td><td>Introduction to Actuarial Computing Using Prophet</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: FINA3221 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4220</td><td>Non-life Actuarial Models</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2220 or STAT2001 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4220</td><td>Non-life Actuarial Models</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2220 or STAT2001 or permission from instructor.</span></td></tr>
 <tr><td>FINA 4221</td><td>Advanced Short-term Actuarial Mathematics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA3222 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4250</td><td>Applications of Risk Models</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3220.</span></td></tr>
-<tr><td>FINA 4270</td><td>Research Project in Insurance, Financial and Actuarial Analysis</td><td></td><td></td><td>—</td></tr>
-<tr><td>FINA 4280</td><td>Derivatives for Actuaries II</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2210, 2220 and 3250.</span></td></tr>
-<tr><td>FINA 4290</td><td>Actuarial Internship</td><td></td><td></td><td>—</td></tr>
-<tr><td>FINA 4291</td><td>Internship in Insurance and Financial Institutions</td><td></td><td></td><td>—</td></tr>
-<tr><td>FINA 4310 [1]</td><td>China Banking and Financial System</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4250</td><td>Applications of Risk Models</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3220.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4270</td><td>Research Project in Insurance, Financial and Actuarial Analysis</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>FINA 4280</td><td>Derivatives for Actuaries II</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2210, 2220 and 3250.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4290</td><td>Actuarial Internship</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>FINA 4291</td><td>Internship in Insurance and Financial Institutions</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>FINA 4310 [1]</td><td>China Banking and Financial System</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
 <tr><td>FINA 4320 [1]</td><td>China Equity Securities Market</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4330 [1]</td><td>China Derivative Securities Market</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4330 [1]</td><td>China Derivative Securities Market</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
 <tr><td>FINA 4340 [1]</td><td>Structured Products: Fundamentals and Analysis</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4350 [1]</td><td>Bond Markets: Analysis and Strategies</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4350 [1]</td><td>Bond Markets: Analysis and Strategies</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
 <tr><td>FINA 4370</td><td>Derivatives Trading: Analysis and Strategies</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
 <tr><td>FINA 4380</td><td>Algorithmic Trading Strategies, Arbitrage and HFT</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4390</td><td>Banking and Finance Practicum</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: At least three FINA courses at 3000-level or above, and permission from instructor.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 4390</td><td>Banking and Finance Practicum</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: At least three FINA courses at 3000-level or above, and permission from instructor.</span></td></tr>
 <tr><td>FINA 4400</td><td>Behavioral Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Pre-requisite: FINA2010 or FINA2310 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken ECON4470.</span></td></tr>
 <tr><td>FINA 4410</td><td>Current developments in FinTec</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
 <tr><td>FINA 4420</td><td>Financial Markets from a Macro Perspective</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3020 or FINA3080 or permission from instructor.</span></td></tr>
@@ -589,9 +590,9 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>FINA 5010</td><td>Financial Management</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in EMBA (Chinese); or MBA; or JD/MBA Double Degree Programme; or Master of Accountancy; or MBA in Technology and Innovation.</span></td></tr>
 <tr><td>FINA 5011 [1.5]</td><td>Corporate Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
 <tr><td>FINA 5012 [1.5]</td><td>Fundamentals of Sustainable Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
-<tr><td>FINA 5015</td><td>Corporate Financial Analysis & Decision-Making</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 5015</td><td>Corporate Financial Analysis & Decision-Making</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
 <tr><td>FINA 6010</td><td>Money and Capital Markets</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>FINA 6011 [1.5]</td><td>Capital Markets and Corporate Financing in Greater China</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6011 [1.5]</td><td>Capital Markets and Corporate Financing in Greater China</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
 <tr><td>FINA 6020 [1.5]</td><td>FinTech Analytics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Management; or MBA; or JD/MBA Double Degree Programme; or MBA in Finance.</span></td></tr>
 <tr><td>FINA 6022 [1.5]</td><td>Current Topics in Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in EMBA; or MBA; or JD/MBA Double Degree Programme.</span></td></tr>
 <tr><td>FINA 6023 [1.5]</td><td>Application of Artificial Intelligence in Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MBA in Finance; or MBA in Technology and Innovation.</span></td></tr>
@@ -602,60 +603,60 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>FINA 6112</td><td>Investment and Portfolio Analysis</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance; or MBA in Finance (40324).</span></td></tr>
 <tr><td>FINA 6121</td><td>Seminar in Global Financial Systems and Corporate Governance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in EMBA; or EMBA (Chinese).</span></td></tr>
 <tr><td>FINA 6122</td><td>Financial Markets and Instruments</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or Full-time MBA; or MBA (Evening Mode); or MBA (Weekend Mode); or JD/MBA Double Degree Programme; or Master of Accountancy; or Executive Master of Professional Accountancy; or MSc Financial Technology; or PgD FinTech.</span></td></tr>
-<tr><td>FINA 6130 [1.5]</td><td>M&A: Incentives, Valuation & Impact</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
-<tr><td>FINA 6132</td><td>Derivatives Markets</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance; or MBA in Finance (40324).</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6130 [1.5]</td><td>M&A: Incentives, Valuation & Impact</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6132</td><td>Derivatives Markets</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance; or MBA in Finance (40324).</span></td></tr>
 <tr><td>FINA 6142</td><td>Global Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MBA in Finance.</span></td></tr>
 <tr><td>FINA 6152</td><td>Fixed-income Securities Analysis</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance; or MBA in Finance.</span></td></tr>
 <tr><td>FINA 6172</td><td>Mergers & Acquisitions</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or MSc Finance; or JD/MBA Double Degree Programme.</span></td></tr>
 <tr><td>FINA 6192</td><td>Cases in Corporate Finance & Investment Practices</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or MSc Finance; or JD/MBA Double Degree Programme.</span></td></tr>
 <tr><td>FINA 6203</td><td>Python in Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
 <tr><td>FINA 6204</td><td>Frontier Topics in Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6205 [1.5]</td><td>Frontier Issues in Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6206</td><td>International Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6205 [1.5]</td><td>Frontier Issues in Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6206</td><td>International Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
 <tr><td>FINA 6207 [1.5]</td><td>Wealth Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
 <tr><td>FINA 6208 [1.5]</td><td>Impact Investment</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
 <tr><td>FINA 6209</td><td>Contemporary Topics in Finance</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6210 [1.5]</td><td>Contemporary Issues in Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6212</td><td>Monetary Policy</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6210 [1.5]</td><td>Contemporary Issues in Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6212</td><td>Monetary Policy</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
 <tr><td>FINA 6220 [1.5]</td><td>Current Issues in Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
 <tr><td>FINA 6221 [1.5]</td><td>Selected Issues in Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
 <tr><td>FINA 6222</td><td>Selected Topics in Finance</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or MPhil-PhD Finance; or JD/MBA Double Degree Programme; or MSc Finance.</span></td></tr>
 <tr><td>FINA 6225</td><td>China Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA; or MSc Finance; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>FINA 6228</td><td>Current Fintech Trends</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span><span class="prereq-sentence">Pre-requistie: FINA5010.</span></td></tr>
-<tr><td>FINA 6229</td><td>Machine Learning in Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6230</td><td>Venture Capital & Private Equity</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6228</td><td>Current Fintech Trends</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span><span class="prereq-sentence">Pre-requistie: FINA5010.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6229</td><td>Machine Learning in Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6230</td><td>Venture Capital & Private Equity</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MSc Finance.</span></td></tr>
 <tr><td>FINA 6232</td><td>Seminar in Asset Pricing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
 <tr><td>FINA 6236</td><td>Sustainable Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA in Finance; or MSc in Finance; or MSc in Sustainable Global Business.</span></td></tr>
 <tr><td>FINA 6242</td><td>Seminar in Corporate Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
 <tr><td>FINA 6250</td><td>Fundamentals of Derivatives Trading Strategies</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance, MSc Financial Technology or PgD FinTech.</span></td></tr>
 <tr><td>FINA 6252</td><td>Empirical Methods in Asset Pricing</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
-<tr><td>FINA 6263</td><td>Directed Research - Contemporary Issues in China Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6263</td><td>Directed Research - Contemporary Issues in China Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
 <tr><td>FINA 6272</td><td>Empirical Methods in Corporate Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
 <tr><td>FINA 6282</td><td>Economics for Finance Practice</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
 <tr><td>FINA 6292</td><td>Capital Markets</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6342</td><td>Advanced Management of Financial Institutions: Financial Information System Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6352</td><td>Credit & Financing: Flow, Structured and Risk Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6362</td><td>Foreign Exchange in Theory and Practice</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6372</td><td>Behavioral Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6504</td><td>Corporate Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6342</td><td>Advanced Management of Financial Institutions: Financial Information System Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6352</td><td>Credit & Financing: Flow, Structured and Risk Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6362</td><td>Foreign Exchange in Theory and Practice</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6372</td><td>Behavioral Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6504</td><td>Corporate Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
 <tr><td>FINA 6508</td><td>Commercial Banking</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA in Finance; or MSc Finance.</span></td></tr>
-<tr><td>FINA 6511 [1.5]</td><td>Insurance and Risk Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6511 [1.5]</td><td>Insurance and Risk Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
 <tr><td>FINA 6512 [1.5]</td><td>Merger, Acquisition and Reconstruction of Corporate Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
 <tr><td>FINA 6513</td><td>China Economics and Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance.</span></td></tr>
 <tr><td>FINA 6514 [1.5]</td><td>Special Topics in Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA Finance (40087); or EMBA (Chinese); or MBA in Finance (40324); or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>FINA 6515</td><td>Entrepreneurship in Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324); or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>FINA 6522</td><td>Law and the Securities Markets</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6524 [1.5]</td><td>Securitization and Structured Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese); or MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6515</td><td>Entrepreneurship in Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324); or MBA in Technology and Innovation.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6522</td><td>Law and the Securities Markets</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6524 [1.5]</td><td>Securitization and Structured Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese); or MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
 <tr><td>FINA 6525 [1.5]</td><td>Introduction to Behavioral Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
-<tr><td>FINA 6526 [1.5]</td><td>International Political Economy</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance.</span></td></tr>
-<tr><td>FINA 6527</td><td>Seminars on International Capital Markets</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40324).</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6526 [1.5]</td><td>International Political Economy</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6527</td><td>Seminars on International Capital Markets</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40324).</span></td></tr>
 <tr><td>FINA 6532</td><td>Quantitative Methods in Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6533</td><td>Finance Field Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6534 [1.5]</td><td>Special Topics in Finance - Global Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6533</td><td>Finance Field Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6534 [1.5]</td><td>Special Topics in Finance - Global Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
 <tr><td>FINA 6542</td><td>Quantitative Risk Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6552</td><td>Bank and Insurance Capital</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6572</td><td>Mathematical Financial Modeling and Structured Solutions</td><td></td><td></td><td><span class="prereq-sentence">For Students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6582</td><td>Computational Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6552</td><td>Bank and Insurance Capital</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6572</td><td>Mathematical Financial Modeling and Structured Solutions</td><td></td><td></td><td><span class="prereq-sentence">For Students in MSc Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6582</td><td>Computational Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
 <tr><td>FINA 6592</td><td>Financial Econometrics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
 <tr><td>FINA 6601</td><td>Economics for Actuaries</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
 <tr><td>FINA 6602</td><td>Accounting and Corporate Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
@@ -664,22 +665,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>FINA 6605</td><td>Statistics for Risk Modelling</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
 <tr><td>FINA 6606</td><td>Actuarial Mathematics for Long-Term Insurance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
 <tr><td>FINA 6607</td><td>Actuarial Mathematics for Short-Term Insurance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6608</td><td>Derivatives for Actuaries</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6609</td><td>Data Science for Insurance Analytics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6610</td><td>Statistical Modelling for Insurance Analytics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6608</td><td>Derivatives for Actuaries</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6609</td><td>Data Science for Insurance Analytics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6610</td><td>Statistical Modelling for Insurance Analytics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
 <tr><td>FINA 6611</td><td>Insurance and Risk Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
 <tr><td>FINA 6612</td><td>Life Insurance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
 <tr><td>FINA 6613</td><td>Commercial Property and Liability Insurance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6614</td><td>Selected Topics in Actuarial Science</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6615</td><td>Current Topics in Insurance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6616</td><td>Advanced Life Contingencies</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6617</td><td>Loss and Survival Models</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6618 [1.5]</td><td>Selected Issues in Actuarial Science</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6619 [1.5]</td><td>Current Issues in Insurance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 7111</td><td>Independent Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
-<tr><td>FINA 8003</td><td>Thesis Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
-<tr><td>FINA 8006 [6]</td><td>Thesis Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
-<tr><td>FINA 8012 [12]</td><td>Thesis Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6614</td><td>Selected Topics in Actuarial Science</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6615</td><td>Current Topics in Insurance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6616</td><td>Advanced Life Contingencies</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6617</td><td>Loss and Survival Models</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6618 [1.5]</td><td>Selected Issues in Actuarial Science</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 6619 [1.5]</td><td>Current Issues in Insurance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 7111</td><td>Independent Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 8003</td><td>Thesis Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 8006 [6]</td><td>Thesis Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
+<tr class="course-unavailable"><td>FINA 8012 [12]</td><td>Thesis Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
 <tr><td>HTMG 3010</td><td>Management of Lodging Facilities</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
 <tr><td>HTMG 3020</td><td>Hospitality Organization Behaviour</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">PR-MGNT2040/ HTMG1010/ HTMG3010.</span></td></tr>
 <tr><td>HTMG 3030</td><td>Hospitality Real Estate Economics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
@@ -688,222 +689,222 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>HTMG 3060</td><td>Hospitality Service Management and Innovation</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: HTMG1010.</span></td></tr>
 <tr><td>HTMG 3091 [0]</td><td>Distinguished Speaker Series V</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>HTMG 3092 [1]</td><td>Distinguished Speaker Series VI</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HTMG 3501</td><td>Human Resources Planning and Staffing for Hospitality Business</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MGNT2040/HTMG1010/HTMG3010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 3501</td><td>Human Resources Planning and Staffing for Hospitality Business</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MGNT2040/HTMG1010/HTMG3010.</span></td></tr>
 <tr><td>HTMG 3502</td><td>Real Estate Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or HTMG3030.</span></td></tr>
-<tr><td>HTMG 3504</td><td>Financial Management and Cost Control for Hospitality Organizations</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010.</span></td></tr>
-<tr><td>HTMG 3508</td><td>Talent Development</td><td></td><td></td><td><span class="prereq-sentence">PR-MGNT2040/ HTMG1010/ HTMG3010.</span></td></tr>
-<tr><td>HTMG 3515</td><td>Cruise Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 3504</td><td>Financial Management and Cost Control for Hospitality Organizations</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 3508</td><td>Talent Development</td><td></td><td></td><td><span class="prereq-sentence">PR-MGNT2040/ HTMG1010/ HTMG3010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 3515</td><td>Cruise Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
 <tr><td>HTMG 3518</td><td>Wine Culture and Appreciation</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HTMG 3519</td><td>Air Transportation</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 3519</td><td>Air Transportation</td><td></td><td></td><td>—</td></tr>
 <tr><td>HTMG 3520</td><td>Shopping Mall Investment and Management</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>HTMG 3521</td><td>Hospitality Revenue Management and Analytics</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>HTMG 3522</td><td>Land Conversion Process and Development Control</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite of HTMG students: HTMG3030/4060/4100.</span><span class="prereq-sentence">Prerequisite of non-HTMG students: FINA2010/3080.</span></td></tr>
 <tr><td>HTMG 3523</td><td>Introduction to Real Estate Investments</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite for HTMG students: HTMG3030.</span><span class="prereq-sentence">Prerequisite for non-HTMG students: FINA2010, 3080.</span></td></tr>
-<tr><td>HTMG 3524</td><td>Hospitality and Real Estate Design Thinking</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 3525</td><td>Quantitative Methods for Real Estate</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: DOTE1021.</span></td></tr>
-<tr><td>HTMG 3526</td><td>Fundamental Research Methodology for Hospitality and Real Estate</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 3524</td><td>Hospitality and Real Estate Design Thinking</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 3525</td><td>Quantitative Methods for Real Estate</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: DOTE1021.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 3526</td><td>Fundamental Research Methodology for Hospitality and Real Estate</td><td></td><td></td><td>—</td></tr>
 <tr><td>HTMG 3527</td><td>Designing and Managing Customer Experience</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
-<tr><td>HTMG 3590 [1]</td><td>Overseas Study Trip: Understand Impact of Hospitality and Tourism from A Local Perspective</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 3590 [1]</td><td>Overseas Study Trip: Understand Impact of Hospitality and Tourism from A Local Perspective</td><td></td><td></td><td>—</td></tr>
 <tr><td>HTMG 3900 [1]</td><td>Summer Internship II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisites: HTMG1010 and HTMG2900.</span></td></tr>
-<tr><td>HTMG 4060</td><td>Advanced Real Estate Investments</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG3523.</span></td></tr>
-<tr><td>HTMG 4070</td><td>Services Marketing</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4060</td><td>Advanced Real Estate Investments</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG3523.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4070</td><td>Services Marketing</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
 <tr><td>HTMG 4091 [0]</td><td>Distinguished Speaker Series VII</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>HTMG 4092 [1]</td><td>Distinguished Speaker Series VIII</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>HTMG 4100</td><td>Real Estate Valuation</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or HTMG3030.</span></td></tr>
-<tr><td>HTMG 4120</td><td>Smart MICE Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
-<tr><td>HTMG 4130</td><td>Entrepreneurship in the Hospitality and Real Estate Industry</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
-<tr><td>HTMG 4170</td><td>Talent Analytics</td><td></td><td></td><td><span class="prereq-sentence">PR-MGNT2040/ HTMG1010/ HTMG3010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4120</td><td>Smart MICE Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4130</td><td>Entrepreneurship in the Hospitality and Real Estate Industry</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4170</td><td>Talent Analytics</td><td></td><td></td><td><span class="prereq-sentence">PR-MGNT2040/ HTMG1010/ HTMG3010.</span></td></tr>
 <tr><td>HTMG 4190</td><td>Global Real Estate Asset Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: HTMG3523 & 4100.</span></td></tr>
-<tr><td>HTMG 4200</td><td>Strategic Brand Management for Hospitality Business</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4230</td><td>Consultation Practicum in Hospitality and Real Estate</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: Year 3 or above students having completed HTMG2900 or HTMG3900.</span></td></tr>
-<tr><td>HTMG 4240</td><td>Innovation in Hospitality and Real Estate</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG3010 or HTMG3030.</span></td></tr>
-<tr><td>HTMG 4250</td><td>Digital Marketing for Hospitality Industry</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
-<tr><td>HTMG 4260</td><td>Revitalization of Heritage Buildings</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4200</td><td>Strategic Brand Management for Hospitality Business</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4230</td><td>Consultation Practicum in Hospitality and Real Estate</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: Year 3 or above students having completed HTMG2900 or HTMG3900.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4240</td><td>Innovation in Hospitality and Real Estate</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG3010 or HTMG3030.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4250</td><td>Digital Marketing for Hospitality Industry</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4260</td><td>Revitalization of Heritage Buildings</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
 <tr><td>HTMG 4270</td><td>Hospitality and Real Estate Financial Reporting and Analysis</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: ACCT1111.</span></td></tr>
-<tr><td>HTMG 4280</td><td>Project Management for Hospitality and Real Estate</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4501 [1]</td><td>Global Hotel Chain Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4280</td><td>Project Management for Hospitality and Real Estate</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4501 [1]</td><td>Global Hotel Chain Management</td><td></td><td></td><td>—</td></tr>
 <tr><td>HTMG 4502 [1]</td><td>Leadership Excellence</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HTMG 4503 [1]</td><td>Airline Management</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4504 [1]</td><td>Theme Park Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4503 [1]</td><td>Airline Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4504 [1]</td><td>Theme Park Management</td><td></td><td></td><td>—</td></tr>
 <tr><td>HTMG 4505 [1]</td><td>Convention, Exhibition and Event Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>HTMG 4506 [1]</td><td>Pre-Opening of a Hotel Property</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4508 [1]</td><td>Beverage Management</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4509 [1]</td><td>Franchising & Multi-Unit Management in the Hospitality Industry</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4510 [1]</td><td>Hotel Development</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4511 [1]</td><td>Cruise Line Management</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4512 [1]</td><td>Club Management</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4513 [1]</td><td>Hospitality Properties Mergers and Acquisitions</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4516 [1]</td><td>Hotel Design</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4517 [1]</td><td>Development and Management of Hotels and Serviced Apartments</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4519 [1]</td><td>Hotel Business Operation in China</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4520 [1]</td><td>Spa Management and Facilities</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4521 [1]</td><td>Development and Management of Casino Gaming</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4522 [1]</td><td>Sustainable Tourism</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4523 [1]</td><td>Entrepreneurship in Hospitality and Real Estate</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4524 [1]</td><td>Destination Marketing</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4526 [1]</td><td>Market and Financial Feasibility Studies for Hospitality and Real Estate</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4527 [1]</td><td>Event Planning and Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
-<tr><td>HTMG 4528 [1]</td><td>Developing a Competitive and Sustainable Exhibition Industry in Hong Kong</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4506 [1]</td><td>Pre-Opening of a Hotel Property</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4508 [1]</td><td>Beverage Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4509 [1]</td><td>Franchising & Multi-Unit Management in the Hospitality Industry</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4510 [1]</td><td>Hotel Development</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4511 [1]</td><td>Cruise Line Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4512 [1]</td><td>Club Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4513 [1]</td><td>Hospitality Properties Mergers and Acquisitions</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4516 [1]</td><td>Hotel Design</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4517 [1]</td><td>Development and Management of Hotels and Serviced Apartments</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4519 [1]</td><td>Hotel Business Operation in China</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4520 [1]</td><td>Spa Management and Facilities</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4521 [1]</td><td>Development and Management of Casino Gaming</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4522 [1]</td><td>Sustainable Tourism</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4523 [1]</td><td>Entrepreneurship in Hospitality and Real Estate</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4524 [1]</td><td>Destination Marketing</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4526 [1]</td><td>Market and Financial Feasibility Studies for Hospitality and Real Estate</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4527 [1]</td><td>Event Planning and Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4528 [1]</td><td>Developing a Competitive and Sustainable Exhibition Industry in Hong Kong</td><td></td><td></td><td>—</td></tr>
 <tr><td>HTMG 4529 [1]</td><td>Talent Management in the Hospitality Industry</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: HTMG1010.</span></td></tr>
-<tr><td>HTMG 4530 [1]</td><td>Attraction Marketing</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: HTMG1010.</span></td></tr>
-<tr><td>HTMG 4531 [1]</td><td>High-speed Rail and Tourism</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4532 [1]</td><td>Brand Management in Hospitality</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4533 [1]</td><td>Introduction to Retail Management</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4534 [2]</td><td>Selected Topics on Global Business Challenges</td><td></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4535 [1]</td><td>Commercial Real Estate Investment Analysis</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s):</span><span class="prereq-sentence">1. HTMG students: HTMG3030 or HTMG4060 or HTMG4100.</span><span class="prereq-sentence">2. Non-HTMG students: FINA2010 or FINA3080.</span></td></tr>
-<tr><td>HTMG 4536 [1]</td><td>Specialty Tourism</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4530 [1]</td><td>Attraction Marketing</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: HTMG1010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4531 [1]</td><td>High-speed Rail and Tourism</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4532 [1]</td><td>Brand Management in Hospitality</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4533 [1]</td><td>Introduction to Retail Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4534 [2]</td><td>Selected Topics on Global Business Challenges</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4535 [1]</td><td>Commercial Real Estate Investment Analysis</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s):</span><span class="prereq-sentence">1. HTMG students: HTMG3030 or HTMG4060 or HTMG4100.</span><span class="prereq-sentence">2. Non-HTMG students: FINA2010 or FINA3080.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4536 [1]</td><td>Specialty Tourism</td><td></td><td></td><td>—</td></tr>
 <tr><td>HTMG 4537 [1]</td><td>Innovation for Hospitality and Real Estate</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>HTMG 4538 [1]</td><td>Essentials for Hospitality and Real Estate Projects</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>HTMG 4539 [1]</td><td>Selected Topics in Hospitality and Real Estate</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HTMG 4539 [1]</td><td>Selected Topics in Hospitality and Real Estate</td><td></td><td></td><td>—</td></tr>
 <tr><td>HTMG 4600</td><td>Facilities Development and Management for Hospitality and Real Estate</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: HTMG1010, HTMG3010 and HTMG3030.</span></td></tr>
-<tr><td>HTMG 4700</td><td>Strategic Negotiation for Hospitality and Real Estate Industry</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 4700</td><td>Strategic Negotiation for Hospitality and Real Estate Industry</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
 <tr><td>HTMG 4800</td><td>Hospitality Strategic Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisites: HTMG1010, HTMG3010 and HTMG3030.</span></td></tr>
 <tr><td>HTMG 4900</td><td>Hospitality & Real Estate Capstone Project</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: HTMG1010 and successful completion of the Summer Internship I and II.</span></td></tr>
 <tr><td>HTMG 5001</td><td>Real Estate Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
 <tr><td>HTMG 5002</td><td>Property Development and Investment</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 5003</td><td>Services Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
-<tr><td>HTMG 5005</td><td>Chain Development and Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 5007</td><td>Strategy and Competitive Advantage</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 5014</td><td>Revenue Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
-<tr><td>HTMG 5015</td><td>Global Real Estate Asset Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate;</span><span class="prereq-sentence">Pre-requisite: HTMG5001 and HTMG5002.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5003</td><td>Services Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5005</td><td>Chain Development and Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5007</td><td>Strategy and Competitive Advantage</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5014</td><td>Revenue Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5015</td><td>Global Real Estate Asset Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate;</span><span class="prereq-sentence">Pre-requisite: HTMG5001 and HTMG5002.</span></td></tr>
 <tr><td>HTMG 5017</td><td>Real Estate Valuation</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 5018</td><td>Corporate Real Estate and Facilities Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
-<tr><td>HTMG 5019</td><td>Executive Speaker Series and Industry Consulting Studies</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 5020</td><td>Retail Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
-<tr><td>HTMG 5021</td><td>Shopping Mall Development and Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
-<tr><td>HTMG 5022</td><td>Revitalisation of Historic Buildings</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
-<tr><td>HTMG 5023</td><td>Land Conversion Process and Development Control</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5018</td><td>Corporate Real Estate and Facilities Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5019</td><td>Executive Speaker Series and Industry Consulting Studies</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5020</td><td>Retail Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5021</td><td>Shopping Mall Development and Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5022</td><td>Revitalisation of Historic Buildings</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5023</td><td>Land Conversion Process and Development Control</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
 <tr><td>HTMG 5024</td><td>Real Estate Economics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 5025</td><td>Planning and Executing Real Estate and Hospitality Projects</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5025</td><td>Planning and Executing Real Estate and Hospitality Projects</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
 <tr><td>HTMG 5026</td><td>Capstone Research Project</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Leadership for Experience Economy; or MSc in Real Estate.</span></td></tr>
 <tr><td>HTMG 5027</td><td>Real Estate Financial Reporting and Analysis</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 5028</td><td>Managing Risk in Real Estate: Banking Practices</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 5029</td><td>Selected Topics in Real Estate</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 5030</td><td>Real Estate Field Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5028</td><td>Managing Risk in Real Estate: Banking Practices</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5029</td><td>Selected Topics in Real Estate</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5030</td><td>Real Estate Field Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
 <tr><td>HTMG 5031</td><td>PropTech: Emerging Trends and Opportunities</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 5032</td><td>Real Estate Securitization</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5032</td><td>Real Estate Securitization</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Real Estate.</span></td></tr>
 <tr><td>HTMG 5101</td><td>Leadership and Change Management in Experience Economy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy.</span></td></tr>
 <tr><td>HTMG 5102</td><td>Finance and Investment in Experience Industries</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy.</span></td></tr>
 <tr><td>HTMG 5103</td><td>Hospitality Asset Valuation and Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy.</span></td></tr>
 <tr><td>HTMG 5104</td><td>Digital Transformation in Experience Economy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy.</span></td></tr>
 <tr><td>HTMG 5105</td><td>Experience Innovation</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy; or MBA Technology and Innovation.</span></td></tr>
-<tr><td>HTMG 5106</td><td>Ethical Leadership and Decision Making</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy; or MSc Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5106</td><td>Ethical Leadership and Decision Making</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy; or MSc Real Estate.</span></td></tr>
 <tr><td>HTMG 5107</td><td>HR Analytics Mastery in Hospitality</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy.</span></td></tr>
-<tr><td>HTMG 5108</td><td>Hospitality Business Reporting and Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy.</span></td></tr>
-<tr><td>HTMG 5109</td><td>Design Thinking and Business Model Innovation in Experience Economy</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy; or MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 5110</td><td>Current Issues in Global Tourism, Hospitality, and Events</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5108</td><td>Hospitality Business Reporting and Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5109</td><td>Design Thinking and Business Model Innovation in Experience Economy</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy; or MSc Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5110</td><td>Current Issues in Global Tourism, Hospitality, and Events</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy.</span></td></tr>
 <tr><td>HTMG 5111 [1.5]</td><td>ESG in Action: Learn from Experience Industry Practices</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy; or MSc Real Estate.</span></td></tr>
 <tr><td>HTMG 5112 [1.5]</td><td>Experience Design and Management in Action: Learn from Industry Practices</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy; or MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 5115</td><td>Field Study on the Experience Economy</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy.</span></td></tr>
-<tr><td>HTMG 5201</td><td>Aviation Experience Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management; or MSc Leadership for Experience Economy.</span></td></tr>
-<tr><td>HTMG 5202</td><td>Airport Facilities Planning and Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management; or MSc Leadership for Experience Economy; or MSc Real Estate.</span></td></tr>
-<tr><td>HTMG 6210</td><td>Research in Hospitality, Tourism and Real Estate</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Business Administration.</span></td></tr>
-<tr><td>HTMG 7111</td><td>Independent Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Business Administration.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5115</td><td>Field Study on the Experience Economy</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Leadership for Experience Economy.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5201</td><td>Aviation Experience Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management; or MSc Leadership for Experience Economy.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 5202</td><td>Airport Facilities Planning and Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Aviation Management; or MSc Leadership for Experience Economy; or MSc Real Estate.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 6210</td><td>Research in Hospitality, Tourism and Real Estate</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Business Administration.</span></td></tr>
+<tr class="course-unavailable"><td>HTMG 7111</td><td>Independent Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Business Administration.</span></td></tr>
 <tr><td>HTMG 8003</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Business Administration.</span></td></tr>
 <tr><td>HTMG 8006 [6]</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Business Administration.</span></td></tr>
 <tr><td>HTMG 8012 [12]</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Business Administration.</span></td></tr>
 <tr><td>MGNT 3010</td><td>Organizational Behaviour</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: HTMG1010 or MGNT1020.</span></td></tr>
-<tr><td>MGNT 3030</td><td>Organizational Communication</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 3030</td><td>Organizational Communication</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
 <tr><td>MGNT 3040</td><td>Human Resource Planning and Staffing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: MGNT1020.</span></td></tr>
 <tr><td>MGNT 3060</td><td>Human Capital Training and Development</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: MGNT1020.</span></td></tr>
 <tr><td>MGNT 3070</td><td>Opportunities' Catching: Strategic Insights and Analysis</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>MGNT 3080</td><td>Analytics for Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisites: DOTE2011.</span></td></tr>
 <tr><td>MGNT 3090</td><td>Human Capital Analytics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisites: DSME2011.</span></td></tr>
 <tr><td>MGNT 3100</td><td>Business Negotiations</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>MGNT 3110</td><td>Managing Social Enterprises</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>MGNT 3110</td><td>Managing Social Enterprises</td><td></td><td></td><td>—</td></tr>
 <tr><td>MGNT 3580</td><td>Global Enterprise Management</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>MGNT 4010</td><td>Strategic Management</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisites: HTMG1010 or MGNT1020 and at least two 3000/4000 level coursees offered by the Faculty of Business Administration.</span></td></tr>
 <tr><td>MGNT 4050</td><td>Talent Performance Management Systems and Strategies</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: MGNT1020.</span></td></tr>
-<tr><td>MGNT 4060</td><td>Managing Employment Relations</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: MGNT1020.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 4060</td><td>Managing Employment Relations</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: MGNT1020.</span></td></tr>
 <tr><td>MGNT 4070</td><td>Social Innovation and Entrepreneurship</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>MGNT 4080</td><td>Leadership Development</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010 or MGNT1020.</span></td></tr>
 <tr><td>MGNT 4090</td><td>Technology and Innovation Management</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>MGNT 4110</td><td>Selected Topics in Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: MGNT1020.</span></td></tr>
 <tr><td>MGNT 4130</td><td>Management Consulting and Change Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: HTMG1010 or MGNT1020.</span></td></tr>
-<tr><td>MGNT 4140</td><td>Global Strategic Human Resource Management</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: MGNT1020.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 4140</td><td>Global Strategic Human Resource Management</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: MGNT1020.</span></td></tr>
 <tr><td>MGNT 4150</td><td>Global Strategy</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
-<tr><td>MGNT 4160</td><td>Advanced Social Entrepreneurship and Impact Investment</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>MGNT 4160</td><td>Advanced Social Entrepreneurship and Impact Investment</td><td></td><td></td><td>—</td></tr>
 <tr><td>MGNT 4170</td><td>Entrepreneurship Launchpad</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>MGNT 4270</td><td>Special Topics in Entrepreneurship</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>MGNT 4510</td><td>China Business</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
-<tr><td>MGNT 4530</td><td>Japanese Business</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 4530</td><td>Japanese Business</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
 <tr><td>MGNT 4540</td><td>Asian Business</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
-<tr><td>MGNT 4550</td><td>European Business</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 4550</td><td>European Business</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
 <tr><td>MGNT 4570</td><td>Global Entrepreneurship</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisites: At least 2 2000-level or above courses in Faculty of Business Administration or Department of Economics.</span></td></tr>
-<tr><td>MGNT 4640</td><td>Doing Business in Emerging Economies</td><td></td><td></td><td>—</td></tr>
-<tr><td>MGNT 4711</td><td>Entrepreneurship Practicum Workshop</td><td></td><td></td><td>—</td></tr>
-<tr><td>MGNT 4712</td><td>Family Business and Wealth Management</td><td></td><td></td><td>—</td></tr>
-<tr><td>MGNT 4713</td><td>Entrepreneurial Financing and Startup Fund-Raising</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>MGNT 4640</td><td>Doing Business in Emerging Economies</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>MGNT 4711</td><td>Entrepreneurship Practicum Workshop</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>MGNT 4712</td><td>Family Business and Wealth Management</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>MGNT 4713</td><td>Entrepreneurial Financing and Startup Fund-Raising</td><td></td><td></td><td>—</td></tr>
 <tr><td>MGNT 5021</td><td>Managing Human Resources</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
-<tr><td>MGNT 5031 [1.5]</td><td>Leadership in Organizational Design</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5031 [1.5]</td><td>Leadership in Organizational Design</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
 <tr><td>MGNT 5501 [1.5]</td><td>Corporate Governance and Corporate Social Responsibility</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
 <tr><td>MGNT 5503 [1.5]</td><td>Creating Global Advantages</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
 <tr><td>MGNT 5504 [1.5]</td><td>Managerial Communication Skills</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
 <tr><td>MGNT 5505</td><td>Managing People and Organization</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
-<tr><td>MGNT 5506</td><td>Strategic Management for Competitive Advantage</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
-<tr><td>MGNT 5507</td><td>MiM Capstone</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
-<tr><td>MGNT 5531 [1.5]</td><td>Business Model Canvas for Digital Economy</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5506</td><td>Strategic Management for Competitive Advantage</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5507</td><td>MiM Capstone</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5531 [1.5]</td><td>Business Model Canvas for Digital Economy</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
 <tr><td>MGNT 5532 [1.5]</td><td>Emerging Technology and Business Innovation</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Management; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>MGNT 5533 [1.5]</td><td>Entrepreneusrship and Strategic Renewal</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>MGNT 5534</td><td>Executive Challenge for Innovation</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5533 [1.5]</td><td>Entrepreneusrship and Strategic Renewal</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management; or MBA in Technology and Innovation.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5534</td><td>Executive Challenge for Innovation</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
 <tr><td>MGNT 5535</td><td>New Venture Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Management; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>MGNT 5536</td><td>Independent Study Project</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management; or MBA; or JD/MBA Double Degree Programme.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5536</td><td>Independent Study Project</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management; or MBA; or JD/MBA Double Degree Programme.</span></td></tr>
 <tr><td>MGNT 5537 [1.5]</td><td>Management Consulting</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
-<tr><td>MGNT 5561</td><td>MiM Selected Topics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
-<tr><td>MGNT 5581 [1.5]</td><td>MiM Contemporary Topics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5561</td><td>MiM Selected Topics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5581 [1.5]</td><td>MiM Contemporary Topics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
 <tr><td>MGNT 5601</td><td>Strategic Management in Sustainability</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
 <tr><td>MGNT 5602</td><td>ESG Research and Global Strategic Analysis</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
 <tr><td>MGNT 5603</td><td>Climate Change and Corporate Environmental Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
 <tr><td>MGNT 5604</td><td>Sustainable Business Transformation: Human-Environment Systems, Frameworks and Practices</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
-<tr><td>MGNT 5605</td><td>Psychology of Sustainable Development in Organisations</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5605</td><td>Psychology of Sustainable Development in Organisations</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
 <tr><td>MGNT 5606</td><td>Strategic Corporate Social Responsibility and Corporate Governance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
 <tr><td>MGNT 5607</td><td>Sustainability Entrepreneurship and Impact Venture Capital</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>MGNT 5608</td><td>Contemporary Topics in Business Sustainability</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
-<tr><td>MGNT 5609</td><td>Sustainability Field Trip</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
-<tr><td>MGNT 5610</td><td>Independent Study in Sustainability</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
-<tr><td>MGNT 5611</td><td>Project in Sustainability</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5608</td><td>Contemporary Topics in Business Sustainability</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5609</td><td>Sustainability Field Trip</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5610</td><td>Independent Study in Sustainability</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5611</td><td>Project in Sustainability</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
 <tr><td>MGNT 5612</td><td>Selected Topics in Business Sustainability</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
-<tr><td>MGNT 5613</td><td>Sustainability Professional Practicum</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 5613</td><td>Sustainability Professional Practicum</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
 <tr><td>MGNT 6020</td><td>Selected Topics in Management</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
 <tr><td>MGNT 6022</td><td>Advanced Seminar in Organizational Behavior and Human Resource Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
 <tr><td>MGNT 6024</td><td>Managing Family Business</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MBA in Finance; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>MGNT 6027</td><td>Management Consulting</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>MGNT 6028</td><td>Management Decision Making</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6027</td><td>Management Consulting</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6028</td><td>Management Decision Making</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
 <tr><td>MGNT 6030 [1.5]</td><td>Current Topics in Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in EMBA; or MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>MGNT 6100</td><td>International Business</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6100</td><td>International Business</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
 <tr><td>MGNT 6101</td><td>Managing Innovation & Technology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>MGNT 6122</td><td>Structural Equation Modeling</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
-<tr><td>MGNT 6140</td><td>Strategic Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MBA in Finance (40087); or MBA in Finance (40324); or MBA in Technology and Innovation.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6122</td><td>Structural Equation Modeling</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6140</td><td>Strategic Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MBA in Finance (40087); or MBA in Finance (40324); or MBA in Technology and Innovation.</span></td></tr>
 <tr><td>MGNT 6141</td><td>Business Strategy</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
 <tr><td>MGNT 6151</td><td>Strategic Management of Innovation</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in EMBA; or EMBA (Chinese).</span></td></tr>
-<tr><td>MGNT 6161</td><td>Seminar on China Business</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6161</td><td>Seminar on China Business</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
 <tr><td>MGNT 6171</td><td>Crafting and Executing Winning Strategies</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
-<tr><td>MGNT 6182</td><td>Advanced Social Psychology for Business Research</td><td></td><td></td><td><span class="prereq-sentence">For MPhil/PhD students of Faculty of Business Administration.</span></td></tr>
-<tr><td>MGNT 6192</td><td>Advanced Cultural Psychology for Business Research</td><td></td><td></td><td><span class="prereq-sentence">For MPhil/PhD students of Faculty of Business Administration.</span></td></tr>
-<tr><td>MGNT 6232</td><td>Advanced Seminar in Management Theory</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
-<tr><td>MGNT 6242</td><td>Advanced Seminar in Strategic Management and International Business</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6182</td><td>Advanced Social Psychology for Business Research</td><td></td><td></td><td><span class="prereq-sentence">For MPhil/PhD students of Faculty of Business Administration.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6192</td><td>Advanced Cultural Psychology for Business Research</td><td></td><td></td><td><span class="prereq-sentence">For MPhil/PhD students of Faculty of Business Administration.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6232</td><td>Advanced Seminar in Management Theory</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6242</td><td>Advanced Seminar in Strategic Management and International Business</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
 <tr><td>MGNT 6252</td><td>Research Methods in Strategic Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil/ PhD Programmes in Management.</span></td></tr>
-<tr><td>MGNT 6262</td><td>Selected Topics in Organizational Behaviour and Management Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
-<tr><td>MGNT 6272</td><td>Selected Topics in Strategic and Organizational Management Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
-<tr><td>MGNT 6282</td><td>Special Topics in Management Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6262</td><td>Selected Topics in Organizational Behaviour and Management Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6272</td><td>Selected Topics in Strategic and Organizational Management Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6282</td><td>Special Topics in Management Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
 <tr><td>MGNT 6330</td><td>Leadership Development</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA; or Full-time MBA; or MBA (Evening Mode); or MBA (Weekend Mode); or JD/MBA Double Degree Programme.</span></td></tr>
 <tr><td>MGNT 6340</td><td>Leading Organizations</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in JD/MBA Double Degree Programme; or MBA in Finance (40087); or MBA in Finance (40324); or MBA in Technology and Innovation.</span></td></tr>
 <tr><td>MGNT 6521</td><td>I Ching and Leadership</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
 <tr><td>MGNT 6620</td><td>Creating Self-efficacy and Impact on Communication</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>MGNT 6822</td><td>Design Thinking for Business Innovation</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>MGNT 6823 [1.5]</td><td>Digital Transformation and Innovation</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MBA in Finance.</span></td></tr>
-<tr><td>MGNT 7111</td><td>Independent Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6822</td><td>Design Thinking for Business Innovation</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 6823 [1.5]</td><td>Digital Transformation and Innovation</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MBA in Finance.</span></td></tr>
+<tr class="course-unavailable"><td>MGNT 7111</td><td>Independent Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
 <tr><td>MGNT 8003</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
 <tr><td>MGNT 8006 [6]</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
 <tr><td>MGNT 8012 [12]</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Management.</span></td></tr>
 <tr><td>MKTG 3010</td><td>Marketing Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MKTG2010 and DOTE2010 or DOTE2011 or STAT2006.</span></td></tr>
 <tr><td>MKTG 3020</td><td>Consumer Behaviour</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: MKTG2010.</span></td></tr>
 <tr><td>MKTG 3030</td><td>Integrated Marketing Communication</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: MKTG2010.</span></td></tr>
-<tr><td>MKTG 3040</td><td>Salesmanship and Sales Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 3040</td><td>Salesmanship and Sales Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
 <tr><td>MKTG 3050</td><td>Global Marketing Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisites:</span><span class="prereq-sentence">1. MGNT2510 or MGNT2511; and.</span><span class="prereq-sentence">2. MKTG2010.</span></td></tr>
 <tr><td>MKTG 3060</td><td>Big Data Strategy in Marketing</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
-<tr><td>MKTG 4010</td><td>Organizational Marketing</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
-<tr><td>MKTG 4020</td><td>Retail and Channel Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 4010</td><td>Organizational Marketing</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 4020</td><td>Retail and Channel Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
 <tr><td>MKTG 4030</td><td>Service Marketing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: MKTG2010.</span></td></tr>
 <tr><td>MKTG 4040</td><td>Strategic Marketing</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: MKTG2010.</span></td></tr>
 <tr><td>MKTG 4050</td><td>Seminar in Marketing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
@@ -911,66 +912,66 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>MKTG 4080</td><td>Digital Marketing</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: MKTG2010.</span></td></tr>
 <tr><td>MKTG 4090</td><td>Marketing Analytics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MKTG2010 and MKTG3010.</span></td></tr>
 <tr><td>MKTG 4110</td><td>Strategic Brand Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
-<tr><td>MKTG 4120</td><td>Marketing Engineering</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisities: MKTG2010 and MKTG3010.</span></td></tr>
-<tr><td>MKTG 4140</td><td>Global Business Services</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisites: ACCT2111, DOTE1030, DOTE2010/DOTE2011, FINA2010, MGNT1020 and MKTG2010, or permission of instructor.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 4120</td><td>Marketing Engineering</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisities: MKTG2010 and MKTG3010.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 4140</td><td>Global Business Services</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisites: ACCT2111, DOTE1030, DOTE2010/DOTE2011, FINA2010, MGNT1020 and MKTG2010, or permission of instructor.</span></td></tr>
 <tr><td>MKTG 4150</td><td>New Product Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisities: MKTG2010.</span></td></tr>
 <tr><td>MKTG 4160</td><td>Pricing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
-<tr><td>MKTG 4170</td><td>Customer Relationship Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
-<tr><td>MKTG 4180</td><td>Social Media Analytics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: MKTG2010 and MKTG3010.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 4170</td><td>Customer Relationship Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 4180</td><td>Social Media Analytics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisites: MKTG2010 and MKTG3010.</span></td></tr>
 <tr><td>MKTG 4190</td><td>Machine Learning and AI Practices in Marketing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisites: MKTG2010 and MKTG3010.</span></td></tr>
-<tr><td>MKTG 4200</td><td>Behavioral Decision Making and Consumer Choice</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 4200</td><td>Behavioral Decision Making and Consumer Choice</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MKTG2010.</span></td></tr>
 <tr><td>MKTG 5011</td><td>Marketing Management</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MSc Marketing; or EMBA; or EMBA (Chinese); or MPhil-PhD Marketing.</span></td></tr>
 <tr><td>MKTG 5012</td><td>Marketing Research</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
 <tr><td>MKTG 5013</td><td>Buyer Behaviour</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MSc Marketing; or MPhil-PhD Marketing.</span></td></tr>
-<tr><td>MKTG 5014</td><td>Managing Service Excellence</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
-<tr><td>MKTG 5015</td><td>Organizational Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or Full-time MBA; or MBA (Evening Mode); or MBA (Weekend Mode); or JD/MBA Double Degree Programme; or MSc Marketing.</span></td></tr>
-<tr><td>MKTG 5016</td><td>Marketing in China</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 5014</td><td>Managing Service Excellence</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 5015</td><td>Organizational Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or Full-time MBA; or MBA (Evening Mode); or MBA (Weekend Mode); or JD/MBA Double Degree Programme; or MSc Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 5016</td><td>Marketing in China</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
 <tr><td>MKTG 5017</td><td>Marketing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324); or MBA in Technology and Innovation.</span></td></tr>
 <tr><td>MKTG 5018</td><td>AI and Big Data Strategy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Marketing; or MBA; or JD/MBA Double Degree Programme.</span></td></tr>
 <tr><td>MKTG 5019 [1.5]</td><td>Strategic Consumer Insights</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
 <tr><td>MKTG 6011</td><td>Strategic Marketing</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MSc Marketing.</span></td></tr>
 <tr><td>MKTG 6012</td><td>Integrated Marketing Communication</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
-<tr><td>MKTG 6013</td><td>Customer Analytics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
-<tr><td>MKTG 6014</td><td>Global Marketing Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MSc Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6013</td><td>Customer Analytics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6014</td><td>Global Marketing Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MSc Marketing.</span></td></tr>
 <tr><td>MKTG 6015</td><td>Art of Sales and Sales Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
-<tr><td>MKTG 6016</td><td>Chinese Wisdom and Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or Full-time MBA; or MBA (Evening Mode); or MBA (Weekend Mode); or JD/MBA Double Degree Programme; or MSc Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6016</td><td>Chinese Wisdom and Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or Full-time MBA; or MBA (Evening Mode); or MBA (Weekend Mode); or JD/MBA Double Degree Programme; or MSc Marketing.</span></td></tr>
 <tr><td>MKTG 6017</td><td>Strategic Brand Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Marketing and MSc Management.</span></td></tr>
-<tr><td>MKTG 6018</td><td>Retailing and Distribution Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
-<tr><td>MKTG 6019</td><td>E-Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MSc Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6018</td><td>Retailing and Distribution Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6019</td><td>E-Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MSc Marketing.</span></td></tr>
 <tr><td>MKTG 6020</td><td>Special Topics in Marketing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Marketing; or MBA; or JD/MBA Double Degree Programme.</span></td></tr>
 <tr><td>MKTG 6021</td><td>Business Negotiation</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA, or JD/MBA Double Degree Programme; or EMBA; or EMBA (Chinese); or MSc Marketing; or MBA in Finance; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>MKTG 6022 [1.5]</td><td>Marketing Intelligence Management</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
-<tr><td>MKTG 6023</td><td>Seminar on Strategic Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
-<tr><td>MKTG 6024</td><td>Selected Topics in Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>MKTG 6025 [1.5]</td><td>Seminar in Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
-<tr><td>MKTG 6026</td><td>Behavioral Decision Making</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or EMBA (Chinese); or MSc in Marketing.</span></td></tr>
-<tr><td>MKTG 6027</td><td>Marketing Engineering</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing; or MSc Business Analytics.</span></td></tr>
-<tr><td>MKTG 6029</td><td>AI and Social Media</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Marketing.</span></td></tr>
-<tr><td>MKTG 6030</td><td>Practicum in Managerial Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Marketing.</span></td></tr>
-<tr><td>MKTG 6031</td><td>Practicum in AI and Quantitative Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Marketing.</span></td></tr>
-<tr><td>MKTG 6032 [1.5]</td><td>Current Topics in Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA; or MBA; or JD/MBA Double Degree Programme; or MSc Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6022 [1.5]</td><td>Marketing Intelligence Management</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6023</td><td>Seminar on Strategic Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6024</td><td>Selected Topics in Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6025 [1.5]</td><td>Seminar in Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6026</td><td>Behavioral Decision Making</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or EMBA (Chinese); or MSc in Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6027</td><td>Marketing Engineering</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing; or MSc Business Analytics.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6029</td><td>AI and Social Media</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6030</td><td>Practicum in Managerial Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6031</td><td>Practicum in AI and Quantitative Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6032 [1.5]</td><td>Current Topics in Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA; or MBA; or JD/MBA Double Degree Programme; or MSc Marketing.</span></td></tr>
 <tr><td>MKTG 6033</td><td>Digital Marketing</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Management; or MSc in Marketing; or MBA.</span><span class="prereq-sentence">JD/MBA Double Degree Programme.</span></td></tr>
 <tr><td>MKTG 6034 [1.5]</td><td>Special Topics in Digital Marketing</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
 <tr><td>MKTG 6035</td><td>Analytics for Strategic Marketing Decisions</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Marketing.</span></td></tr>
 <tr><td>MKTG 6036</td><td>Pricing Analytics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Marketing.</span></td></tr>
-<tr><td>MKTG 6037</td><td>AI and Machine Learning in Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
-<tr><td>MKTG 6038 [1.5]</td><td>Special Topics in Business Negotiation</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6037</td><td>AI and Machine Learning in Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6038 [1.5]</td><td>Special Topics in Business Negotiation</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
 <tr><td>MKTG 6039</td><td>Corporate Sustainability and Brand Communications</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Sustainable Global Business.</span></td></tr>
 <tr><td>MKTG 6040</td><td>Practicum in Strategic Marketing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
 <tr><td>MKTG 6041</td><td>e-Platform Entrepreneurship</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Marketing.</span></td></tr>
 <tr><td>MKTG 6152</td><td>Advanced Seminar in Marketing - Behavioral Studies I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing; or MPhil-PhD Decisions, Operations and Technology; or MPhil-PhD Decision Sciences and Managerial Economics.</span></td></tr>
-<tr><td>MKTG 6153</td><td>Advanced Seminar in Marketing - Behavioral Studies II</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
-<tr><td>MKTG 6162</td><td>Consumer Information Processing I</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
-<tr><td>MKTG 6172</td><td>Consumer Information Processing II</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
-<tr><td>MKTG 6182</td><td>Advanced Social Psychology for Business Research</td><td></td><td></td><td><span class="prereq-sentence">For MPhil/PhD students of Faculty of Business Administration.</span></td></tr>
-<tr><td>MKTG 6192</td><td>Advanced Cultural Psychology for Business Research</td><td></td><td></td><td><span class="prereq-sentence">For MPhil/PhD students of Faculty of Business Administration.</span></td></tr>
-<tr><td>MKTG 6202</td><td>Special Topics in Quantitative Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6153</td><td>Advanced Seminar in Marketing - Behavioral Studies II</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6162</td><td>Consumer Information Processing I</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6172</td><td>Consumer Information Processing II</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6182</td><td>Advanced Social Psychology for Business Research</td><td></td><td></td><td><span class="prereq-sentence">For MPhil/PhD students of Faculty of Business Administration.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6192</td><td>Advanced Cultural Psychology for Business Research</td><td></td><td></td><td><span class="prereq-sentence">For MPhil/PhD students of Faculty of Business Administration.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 6202</td><td>Special Topics in Quantitative Marketing</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
 <tr><td>MKTG 6203</td><td>Special Topics in Behavioural Marketing</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
 <tr><td>MKTG 6204 [1.5]</td><td>Contemporary topics in Quantitative Marketing</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
 <tr><td>MKTG 6205 [1.5]</td><td>Contemporary topics in Behavioural Marketing</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
 <tr><td>MKTG 6206</td><td>Academic Communication</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Accountancy; or MPhil-PhD Business Administration; or MPhil-PhD Decisions, Operations and Technology; or MPhil-PhD Finance; or MPhil-PhD Marketing; or MPhil-PhD Management.</span></td></tr>
-<tr><td>MKTG 7111</td><td>Independent Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
-<tr><td>MKTG 7162</td><td>Advanced Seminar in Marketing - Analytical Models</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing; or MPhil-PhD Decisions, Operations and Technology; or MPhil-PhD Decision Sciences and Managerial Economics.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 7111</td><td>Independent Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
+<tr class="course-unavailable"><td>MKTG 7162</td><td>Advanced Seminar in Marketing - Analytical Models</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing; or MPhil-PhD Decisions, Operations and Technology; or MPhil-PhD Decision Sciences and Managerial Economics.</span></td></tr>
 <tr><td>MKTG 7163</td><td>Advanced Seminar in Marketing- Empirical Models</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
 <tr><td>MKTG 8003</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
 <tr><td>MKTG 8006 [6]</td><td>Thesis Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Marketing.</span></td></tr>
@@ -1024,6 +1025,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();

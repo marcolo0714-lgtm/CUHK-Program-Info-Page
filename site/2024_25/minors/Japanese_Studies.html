@@ -52,6 +52,7 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
+body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -174,10 +175,10 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
+#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
     font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 body.prereq-hidden table th:nth-child(5),
 body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
@@ -187,7 +188,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
-    .bar-year-select, #prereq-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -304,7 +305,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Japanese Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Japanese_Studies.html" selected>2024-25</option><option value="../../2025_26/minors/Japanese_Studies.html">2025-26</option><option value="../../2026_27/minors/Japanese_Studies.html">2026-27</option></select><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Japanese Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Japanese_Studies.html" selected>2024-25</option><option value="../../2025_26/minors/Japanese_Studies.html">2025-26</option><option value="../../2026_27/minors/Japanese_Studies.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
 <div class="nav-bar"><a href="Japanese_Language.html">← Japanese Language</a><a href="Linguistics.html">Linguistics →</a></div>
 <div class="title-row"><h1>Japanese Studies &mdash; CUHK Minor Requirements (2024-25)</h1><span class="meta">Arts</span></div>
 <div class="admit-year">Applicable to students admitted in 2024-25.</div>
@@ -324,16 +325,16 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>JASP 1180</td><td>Modern Sino-Japanese Relations</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>JASP 1190</td><td>Tourism and Sustainable Development</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>JASP 1200</td><td>Japanese History: From Samurai to Salaryman</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>JASP 2020</td><td>Modern Japanese Literature</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>JASP 2020</td><td>Modern Japanese Literature</td><td></td><td></td><td>—</td></tr>
 <tr><td>JASP 2100</td><td>Japan and Asian Creative Industries</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>JASP 2200</td><td>Introduction to Japanese Animation, Comic and Game</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>JASP 2400</td><td>Culture of Japanese Mass Media</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>JASP 2520</td><td>Intimacy in Contemporary Japan</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>JASP 2600</td><td>Japanese Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>JASP 2720</td><td>History of Japanese Literature</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>JASP 2820</td><td>Introduction to Japanese Economy</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>JASP 2820</td><td>Introduction to Japanese Economy</td><td></td><td></td><td>—</td></tr>
 <tr><td>JASP 2910</td><td>The History of 20th Century Japan</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>JASP 2920</td><td>Asia at War</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>JASP 2920</td><td>Asia at War</td><td></td><td></td><td>—</td></tr>
 <tr><td>JASP 3110</td><td>The Construction of Japanese Ethnic and Cultural Identity</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>JASP 3120</td><td>Everyday Life and Cultural Representation in Modern Japan</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>JASP 3430</td><td>Japan and Hong Kong</td><td class="term-yes"></td><td></td><td>—</td></tr>
@@ -343,24 +344,24 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>JASP 3700</td><td>Japanese Language and Society</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Students taking this course should possess Japanese Language Proficiency Test (JLPT) N2 certificate or having Japanese language proficiency equivalent to JLPT N2 level; or should have completed JASP2480/3340.</span></td></tr>
 <tr><td>JASP 3800</td><td>Japanese Philosophy</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr class="nf"><td>JASP 3900</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
-<tr><td>JASP 4000</td><td>Special Topics in Japanese Studies</td><td></td><td></td><td>—</td></tr>
-<tr><td>JASP 4100</td><td>Japanese Dialectology</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: students should have one year studying experience in Japan or equivalent competence in Japanese.</span></td></tr>
-<tr><td>JASP 4110</td><td>Anthropology of Japan</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken JASP5615.</span></td></tr>
-<tr><td>ANTH 2327</td><td>Ethnographies of Japan</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>JASP 4000</td><td>Special Topics in Japanese Studies</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>JASP 4100</td><td>Japanese Dialectology</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: students should have one year studying experience in Japan or equivalent competence in Japanese.</span></td></tr>
+<tr class="course-unavailable"><td>JASP 4110</td><td>Anthropology of Japan</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken JASP5615.</span></td></tr>
+<tr class="course-unavailable"><td>ANTH 2327</td><td>Ethnographies of Japan</td><td></td><td></td><td>—</td></tr>
 <tr><td>ANTH 2350</td><td>Meanings of Life</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>HIST 3380</td><td>History of Traditional Japan</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST3213 and HIST5507F.</span></td></tr>
-<tr><td>HIST 3381</td><td>History of Modern Japan</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>HIST 3380</td><td>History of Traditional Japan</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken HIST3213 and HIST5507F.</span></td></tr>
+<tr class="course-unavailable"><td>HIST 3381</td><td>History of Modern Japan</td><td></td><td></td><td>—</td></tr>
 <tr class="nf"><td>HIST 4420</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>LING 1000</td><td>Invitation to Linguistics</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">LING1000 is double-coded with UGED1924.</span><span class="prereq-sentence">Not for students who have taken UGED1924.</span></td></tr>
 <tr><td>LING 2003</td><td>Phonetics I</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>LING 2004</td><td>Phonology I</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: LING2003.</span></td></tr>
 <tr><td>LING 2005</td><td>Syntax I</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>LING 2006</td><td>Semantics</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>LING 3101</td><td>Morphology</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>LING 3101</td><td>Morphology</td><td></td><td></td><td>—</td></tr>
 <tr><td>LING 3201</td><td>First Language Acquisition</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>LING 3204</td><td>Second Language Acquisition</td><td></td><td></td><td>—</td></tr>
-<tr><td>MGNT 4530</td><td>Japanese Business</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
-<tr><td>SOCI 2103</td><td>Japan in a Global Perspective</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2260 or GESC2160 or UGEC1232/JASP1100.</span></td></tr>
+<tr class="course-unavailable"><td>LING 3204</td><td>Second Language Acquisition</td><td></td><td></td><td>—</td></tr>
+<tr class="course-unavailable"><td>MGNT 4530</td><td>Japanese Business</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: MGNT1020.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 2103</td><td>Japan in a Global Perspective</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2260 or GESC2160 or UGEC1232/JASP1100.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-text">No explanatory notes are provided.</span></div>
@@ -406,6 +407,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       var hidden = document.body.classList.toggle('prereq-hidden');
       localStorage.setItem('hidePrereq', hidden);
       prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
+    });
+  }
+  // Course availability toggle. A course is unavailable only when neither
+  // 2026/27 teaching term is marked as offered in the course catalogue.
+  var availabilityBtn = document.getElementById('availability-toggle');
+  if (availabilityBtn) {
+    if (localStorage.getItem('hideUnavailable') === 'true') {
+      document.body.classList.add('unavailable-hidden');
+      availabilityBtn.textContent = 'Show Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', 'false');
+    }
+    availabilityBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('unavailable-hidden');
+      localStorage.setItem('hideUnavailable', hidden);
+      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
+      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
     });
   }
 })();
