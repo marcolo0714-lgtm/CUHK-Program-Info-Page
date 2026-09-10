@@ -70,11 +70,6 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
-.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
-           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
-.nav-bar a { font-size:.9em; }
-.nav-bar-bottom { border-top:none; margin-top:0; padding-top:4px;
-                  border-bottom:none; margin-bottom:0; padding-bottom:12px; }
 .course-details { margin-bottom:16px; }
 .course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
     font-size:.9em; font-weight:500; }
@@ -172,6 +167,16 @@ body.sidebar-open { overflow:hidden; }
     overflow:visible; overflow-wrap:anywhere; }
 .top-bar .bar-controls { display:flex; align-items:center; gap:8px;
     font-size:.85em; white-space:nowrap; }
+.page-nav { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+    align-items:center; gap:8px; width:100%; margin-top:7px; font-size:.85em; }
+.page-nav a { display:inline-flex; align-items:center; max-width:100%; min-height:30px; padding:4px 10px;
+    border:1px solid var(--border); border-radius:6px; background:var(--card);
+    color:var(--accent); font-weight:600; line-height:1.3; overflow-wrap:anywhere; text-decoration:none;
+    transition:background .15s,color .15s,border-color .15s; }
+.page-nav-prev { justify-self:start; }
+.page-nav-next { justify-self:end; text-align:right; }
+.page-nav a:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+.top-bar + .title-row { margin-top:18px; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
@@ -188,12 +193,11 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
+    .page-nav { margin-top:6px; }
     .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
-/* ── Remove nav-bar top border when directly after top-bar ── */
-.top-bar + .nav-bar { border-top:none; padding-top:4px; margin-top:0; }
 </style>
 </head>
 <body>
@@ -307,8 +311,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Applied Diversity Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Applied_Diversity_Studies.html">2024-25</option><option value="../../2025_26/minors/Applied_Diversity_Studies.html">2025-26</option><option value="../../2026_27/minors/Applied_Diversity_Studies.html" selected>2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div></div>
-<div class="nav-bar"><a href="Statistics.html">← Statistics</a><a href="Data_Science_and_Policy_Studies.html">Data Science and Policy Studies →</a></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Applied Diversity Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Applied_Diversity_Studies.html">2024-25</option><option value="../../2025_26/minors/Applied_Diversity_Studies.html">2025-26</option><option value="../../2026_27/minors/Applied_Diversity_Studies.html" selected>2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div><nav class="page-nav" aria-label="Minor programme pagination"><a class="page-nav-prev" href="Statistics.html" aria-label="Previous minor: Statistics">← Statistics</a><a class="page-nav-next" href="Data_Science_and_Policy_Studies.html" aria-label="Next minor: Data Science and Policy Studies">Data Science and Policy Studies →</a></nav></div>
 <div class="title-row"><h1>Applied Diversity Studies &mdash; CUHK Minor Requirements (2026-27)</h1><span class="meta">Social Science</span></div>
 <div class="admit-year">Applicable to students admitted in 2026-27.</div>
 <h2>Description</h2>
@@ -355,7 +358,6 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Gender Studies.</span></div>
 <div class="section notes-point"><span class="point-idx">2.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>
-<div class="nav-bar nav-bar-bottom"><a href="Statistics.html">← Statistics</a><a href="Data_Science_and_Policy_Studies.html">Data Science and Policy Studies →</a></div>
 <div class="site-footer">
   <span>Sources: </span>
   <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>

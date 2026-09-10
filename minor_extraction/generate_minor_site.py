@@ -1,3 +1,4 @@
+import html
 import json
 import re
 import argparse
@@ -131,11 +132,6 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
 .section-stream + .course-details { margin-left: 28px; }
-.nav-bar { display:flex; justify-content:space-between; padding:12px 0;
-           border-top:1px solid var(--border); margin-top:12px; margin-bottom:12px; }
-.nav-bar a { font-size:.9em; }
-.nav-bar-bottom { border-top:none; margin-top:0; padding-top:4px;
-                  border-bottom:none; margin-bottom:0; padding-bottom:12px; }
 .course-details { margin-bottom:16px; }
 .course-details summary { cursor:pointer; padding:6px 0; color:var(--accent);
     font-size:.9em; font-weight:500; }
@@ -233,6 +229,16 @@ body.sidebar-open { overflow:hidden; }
     overflow:visible; overflow-wrap:anywhere; }
 .top-bar .bar-controls { display:flex; align-items:center; gap:8px;
     font-size:.85em; white-space:nowrap; }
+.page-nav { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+    align-items:center; gap:8px; width:100%; margin-top:7px; font-size:.85em; }
+.page-nav a { display:inline-flex; align-items:center; max-width:100%; min-height:30px; padding:4px 10px;
+    border:1px solid var(--border); border-radius:6px; background:var(--card);
+    color:var(--accent); font-weight:600; line-height:1.3; overflow-wrap:anywhere; text-decoration:none;
+    transition:background .15s,color .15s,border-color .15s; }
+.page-nav-prev { justify-self:start; }
+.page-nav-next { justify-self:end; text-align:right; }
+.page-nav a:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+.top-bar + .title-row { margin-top:18px; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
@@ -249,12 +255,11 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
         justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
+    .page-nav { margin-top:6px; }
     .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
-/* ── Remove nav-bar top border when directly after top-bar ── */
-.top-bar + .nav-bar { border-top:none; padding-top:4px; margin-top:0; }
 """
 
 
@@ -806,11 +811,21 @@ def _render_note_group(rows, is_point):
         return f'<div class="notes-table-section"><table>{tbl}</table></div>'
 
 
-def build_nav(prev_stem, prev_title, next_stem, next_title, bottom=False):
-    cls = 'nav-bar nav-bar-bottom' if bottom else 'nav-bar'
-    left = f'<a href="{prev_stem}.html">← {prev_title}</a>' if prev_stem else "<span></span>"
-    right = f'<a href="{next_stem}.html">{next_title} →</a>' if next_stem else "<span></span>"
-    return f'<div class="{cls}">{left}{right}</div>'
+def build_nav(prev_stem, prev_title, next_stem, next_title):
+    """Return named previous/next links for the second row of the persistent top bar."""
+    safe_prev = html.escape(prev_title, quote=True) if prev_title else ""
+    safe_next = html.escape(next_title, quote=True) if next_title else ""
+    previous = (
+        f'<a class="page-nav-prev" href="{prev_stem}.html" aria-label="Previous minor: {safe_prev}">'
+        f'← {safe_prev}</a>'
+        if prev_stem else '<span aria-hidden="true"></span>'
+    )
+    following = (
+        f'<a class="page-nav-next" href="{next_stem}.html" aria-label="Next minor: {safe_next}">'
+        f'{safe_next} →</a>'
+        if next_stem else '<span aria-hidden="true"></span>'
+    )
+    return f'<nav class="page-nav" aria-label="Minor programme pagination">{previous}{following}</nav>'
 
 
 def _normalize_override_entry(raw_code):
@@ -905,13 +920,11 @@ def build_detail_page(data, course_index, overrides, year, available_years,
         f'<button id="prereq-toggle">Hide Prerequisites</button>'
         f'</div>'
         f'</div>'
+        f'{build_nav(prev_stem, prev_title, next_stem, next_title)}'
         f'</div>'
     )
 
-    body = [
-        top_bar,
-        build_nav(prev_stem, prev_title, next_stem, next_title),
-    ]
+    body = [top_bar]
     faculty = data.get("faculty", "")
     title_html = f"<h1>{title} &mdash; CUHK Minor Requirements ({year_display})</h1>"
     if faculty and faculty != "Unknown":
@@ -1132,9 +1145,6 @@ def build_detail_page(data, course_index, overrides, year, available_years,
     else:
         body.append("<h2>Explanatory Notes</h2>")
         body.append('<div class="section notes-point"><span class="point-text">No explanatory notes are provided.</span></div>')
-
-    # Bottom nav
-    body.append(build_nav(prev_stem, prev_title, next_stem, next_title, bottom=True))
 
     result = "\n".join(body)
 
