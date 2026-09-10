@@ -4,6 +4,9 @@ import argparse
 import os
 import shutil
 import stat
+import subprocess
+import sys
+import tempfile
 from pathlib import Path
 
 try:
@@ -24,20 +27,38 @@ def _remove_readonly(function, path, _excinfo) -> None:
 
 
 def sync_major_site(major_root: Path) -> None:
-    source_year = major_root.resolve() / "public" / "2026_27"
+    major_root = major_root.resolve()
+    generator = major_root / "major_extraction" / "generate_major_site.py"
     expected_target = (ROOT / "site" / "major").resolve()
     target = TARGET.resolve()
 
     if target != expected_target or target.parent != (ROOT / "site").resolve():
         raise RuntimeError(f"Refusing to replace unexpected target: {target}")
-    if not (source_year / "index.html").is_file():
-        raise FileNotFoundError(f"Generated major site not found: {source_year}")
+    if not generator.is_file():
+        raise FileNotFoundError(f"Major site generator not found: {generator}")
 
-    if target.exists():
-        shutil.rmtree(target, onexc=_remove_readonly)
-    shutil.copytree(source_year, target / "2026_27", copy_function=shutil.copyfile)
+    with tempfile.TemporaryDirectory(prefix="cuhk_engineering_major_") as temp_dir:
+        build_root = Path(temp_dir)
+        subprocess.run(
+            [
+                sys.executable,
+                str(generator),
+                "--year",
+                "2026_27",
+                "--faculty",
+                "Engineering",
+                "--output-root",
+                str(build_root),
+            ],
+            cwd=major_root,
+            check=True,
+        )
+        source_year = build_root / "2026_27"
+        if target.exists():
+            shutil.rmtree(target, onexc=_remove_readonly)
+        shutil.copytree(source_year, target / "2026_27", copy_function=shutil.copyfile)
 
-    source_favicon = major_root.resolve() / "public" / "favicon.ico"
+    source_favicon = major_root / "public" / "favicon.ico"
     if source_favicon.is_file():
         shutil.copy2(source_favicon, target / "favicon.ico")
 
