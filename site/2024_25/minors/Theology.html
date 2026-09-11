@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -364,7 +366,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>THEO 3251</td><td>Ecumenics</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>THEO 3252</td><td>Approaches to Mission Studies</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>THEO 3253</td><td>Issues Facing Churches Today</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>THEO 3254</td><td>Christian Ethics</td><td></td><td></td><td>—</td></tr>
+<tr><td>THEO 3254</td><td>Christian Ethics</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>THEO 3255</td><td>Christianity and Society: Special Topics I</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>THEO 3256</td><td>Christianity and Society: Special Topics II</td><td></td><td></td><td>—</td></tr>
 <tr><td>THEO 4241 [2]</td><td>Field Education I</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
@@ -512,8 +514,8 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>THEO 6942</td><td>Pastoral Studies: Seminar II</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Divinity.</span></td></tr>
 <tr><td>THEO 6943 [2]</td><td>Field Education III</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Divinity.</span></td></tr>
 <tr><td>THEO 6944 [2]</td><td>Field Education IV</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Divinity.</span></td></tr>
-<tr><td>THEO 6945 [2]</td><td>Field Education V</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in Master of Divinity.</span></td></tr>
-<tr><td>THEO 6946 [2]</td><td>Field Education VI</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Divinity.</span></td></tr>
+<tr><td>THEO 6945 [2]</td><td>Field Education V</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Divinity.</span></td></tr>
+<tr><td>THEO 6946 [2]</td><td>Field Education VI</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Divinity.</span></td></tr>
 <tr class="course-unavailable"><td>THEO 6947</td><td>Clinical Pastoral Education</td><td></td><td></td><td><span class="prereq-sentence">For students in Master of Divinity.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>

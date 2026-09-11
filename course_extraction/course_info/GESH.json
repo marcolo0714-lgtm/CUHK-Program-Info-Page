@@ -5,7 +5,55 @@
         "unit": "0.00",
         "info": "S.H. Ho College Symposium",
         "term_1": true,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-A01-ASB",
+                "component_type": "ASB",
+                "class_number": "6188",
+                "status": "Open",
+                "class_capacity": "700",
+                "wait_list_capacity": "0",
+                "enrollment_total": "506",
+                "wait_list_total": "0",
+                "available_seats": "194",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Staff",
+                "dates": "07/09/2026 - 30/11/2026"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-A01-ASB",
+                "component_type": "ASB",
+                "class_number": "6742",
+                "status": "Open",
+                "class_capacity": "700",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "700",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Staff",
+                "dates": "11/01/2027 - 19/04/2027"
+            }
+        ]
     },
     {
         "code": "GESH 1010",
@@ -13,7 +61,118 @@
         "unit": "3.00",
         "info": "For Year 1 S.H. Ho College Students only",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-W01-WKS",
+                "component_type": "WKS",
+                "class_number": "5009",
+                "status": "Open",
+                "class_capacity": "180",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "180",
+                "day_time": "Fr 2:30PM - 5:15PM",
+                "room": "TBA",
+                "instructor": "Staff",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AW01-WKS",
+                "component_type": "WKS",
+                "class_number": "7483",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "32",
+                "wait_list_total": "0",
+                "available_seats": "8",
+                "day_time": "Fr 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 403",
+                "instructor": "Dr. Lipika Alok CHATTERJEE, Professor WONG Kam Bo",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BW01-WKS",
+                "component_type": "WKS",
+                "class_number": "7319",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "31",
+                "wait_list_total": "0",
+                "available_seats": "9",
+                "day_time": "Fr 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 408",
+                "instructor": "Miss NG Ho In, Professor CHENG Hong, Professor LAU Kit Ling",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CW01-WKS",
+                "component_type": "WKS",
+                "class_number": "5007",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "27",
+                "wait_list_total": "0",
+                "available_seats": "13",
+                "day_time": "Fr 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 402",
+                "instructor": "Dr. YUEN Chi Lok, Miss NGAI Yuet Ling, Mr. WU Tat Cheung Clement",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DW01-WKS",
+                "component_type": "WKS",
+                "class_number": "5008",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "25",
+                "wait_list_total": "0",
+                "available_seats": "15",
+                "day_time": "Fr 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 505",
+                "instructor": "Dr. CHEUNG Sin Ting Juanita, Dr. LAM Yiu Man, Professor LUK Sau Ha",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EW01-WKS",
+                "component_type": "WKS",
+                "class_number": "7490",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "28",
+                "wait_list_total": "0",
+                "available_seats": "12",
+                "day_time": "Fr 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 508",
+                "instructor": "Miss CHU Fung Ling, Professor LAU Kwok Chi",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            }
+        ]
     },
     {
         "code": "GESH 2011",
@@ -21,7 +180,106 @@
         "unit": "1.00",
         "info": "1. For S.H. Ho College Year 2 or above students only. 2. Not for students who have taken GESH4010.",
         "term_1": true,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7491",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "999",
+                "enrollment_total": "127",
+                "wait_list_total": "18",
+                "available_seats": "23",
+                "day_time": "Fr 2:30PM - 4:15PM",
+                "room": "Esther Lee Bldg LT1",
+                "instructor": "Dr SHIK Wai Yan Angela",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7713",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "day_time": "Fr 5:30PM - 7:15PM",
+                "room": "Wu Ho Man Yuen Bldg 401",
+                "instructor": "Dr SHIK Wai Yan Angela",
+                "dates": "15/1, 22/1, 29/1"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7713",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "day_time": "Fr 5:30PM - 7:15PM",
+                "room": "Wu Ho Man Yuen Bldg 401",
+                "instructor": "Dr SHIK Wai Yan Angela",
+                "dates": "12/2, 19/2, 26/2, 5/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7713",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "day_time": "Fr 5:30PM - 7:15PM",
+                "room": "Wu Ho Man Yuen Bldg 401",
+                "instructor": "Dr SHIK Wai Yan Angela",
+                "dates": "19/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7713",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "day_time": "Fr 5:30PM - 7:15PM",
+                "room": "Wu Ho Man Yuen Bldg 401",
+                "instructor": "Dr SHIK Wai Yan Angela",
+                "dates": "2/4, 9/4, 16/4, 23/4"
+            }
+        ]
     },
     {
         "code": "GESH 2012",
@@ -29,7 +287,106 @@
         "unit": "2.00",
         "info": "For students who have already taken GESH2011 only. Not for students who have taken GESH4010.",
         "term_1": true,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-J01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "7007",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "27",
+                "wait_list_total": "0",
+                "available_seats": "23",
+                "day_time": "Fr 4:30PM - 6:15PM",
+                "room": "Yasumoto Int'l Acad Park 505",
+                "instructor": "Dr SHIK Wai Yan Angela",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-J01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "5929",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "day_time": "Fr 2:30PM - 5:15PM",
+                "room": "Ho Tim Building B6",
+                "instructor": "Dr SHIK Wai Yan Angela",
+                "dates": "15/1, 22/1, 29/1"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-J01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "5929",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "day_time": "Fr 2:30PM - 5:15PM",
+                "room": "Ho Tim Building B6",
+                "instructor": "Dr SHIK Wai Yan Angela",
+                "dates": "12/2, 19/2, 26/2, 5/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-J01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "5929",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "day_time": "Fr 2:30PM - 5:15PM",
+                "room": "Ho Tim Building B6",
+                "instructor": "Dr SHIK Wai Yan Angela",
+                "dates": "19/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-J01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "5929",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "day_time": "Fr 2:30PM - 5:15PM",
+                "room": "Ho Tim Building B6",
+                "instructor": "Dr SHIK Wai Yan Angela",
+                "dates": "2/4, 9/4, 16/4, 23/4"
+            }
+        ]
     },
     {
         "code": "GESH 4010",
@@ -37,6 +394,8 @@
         "unit": "3.00",
         "info": "For S.H. Ho College Year 3 or above students only. Not for students who have taken GESH2011 or 2012.",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     }
 ]

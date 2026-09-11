@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -375,7 +377,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>PHIL 3373</td><td>Philosophy of Love</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken GDRS2003 or UGED2891.</span></td></tr>
 <tr><td>PSYC 3640</td><td>Psychology of Gender</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: PSYC1000 or UGEC2581 or UGED2581.</span></td></tr>
 <tr class="course-unavailable"><td>SOCI 2218</td><td>Marriage and Family</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SOCI3222 (old code) or GESC2320.</span></td></tr>
-<tr><td>SOCI 3208</td><td>Gender and Society</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="nf"><td>SOCI 3208</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>

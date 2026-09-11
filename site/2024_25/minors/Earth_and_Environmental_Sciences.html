@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -334,7 +336,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>EESC 2515</td><td>Environmental Chemistry</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENSC2515.</span><span class="prereq-sentence">Pre-requisite: EESC2270 or ENSC2270 or permission of the instructor.</span></td></tr>
 <tr><td>EESC 2800</td><td>Introduction to Environmental Engineering</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC2800.</span><span class="prereq-sentence">Pre-requisite: MATH1010 or 1510 or 1520.</span></td></tr>
 <tr><td>EESC 3100</td><td>Structural Geology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESSC3100.</span><span class="prereq-sentence">Pre-requisite: EESC2010 or ESSC2010 or permission of instructor.</span></td></tr>
-<tr><td>EESC 3120</td><td>Physics of the Earth</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESSC3120.</span><span class="prereq-sentence">Pre-requisite: EESC 2010 or ESSC2010 or permission of instructor.</span></td></tr>
+<tr class="nf"><td>EESC 3120</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>EESC 3130</td><td>Introduction to Seismic Data Processing</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>EESC 3140</td><td>Geochemistry</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: (EESC2010 or ESSC2010) or (EESC2130 or ESSC2130 or EESC2119 or EESC2129) or (EESC3100 or ESSC3100) or permission of instructor.</span></td></tr>
 <tr><td>EESC 3200</td><td>Atmospheric Dynamics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1) Pre-requisite: (EESC2020 or ESSC2020) or (MATH2550 or EESC2520 or PHYS2051) or permission of instructor.</span><span class="prereq-sentence">2) Not for students who have taken ESSC3200.</span></td></tr>

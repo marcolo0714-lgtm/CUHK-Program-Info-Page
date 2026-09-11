@@ -5,7 +5,33 @@
         "unit": "3.00",
         "info": "Pre-requisite(s): DSME1040 or ECON2021",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7750",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "999",
+                "enrollment_total": "48",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "day_time": "Tu 10:30AM - 1:15PM",
+                "room": "Cheng Yu Tung Building 202",
+                "instructor": "Dr. MOK Kai Chung",
+                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+            }
+        ]
     },
     {
         "code": "GLEF 3020",
@@ -13,7 +39,67 @@
         "unit": "3.00",
         "info": "Pre-requisite(s): DSME1030 or ECON2011",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8427",
+                "status": "Open",
+                "class_capacity": "55",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "55",
+                "day_time": "Th 9:30AM - 12:15PM",
+                "room": "Lee Shau Kee Archi Bldg G04",
+                "instructor": "Professor Kevin Joseph Meredith DEVEREUX",
+                "dates": "14/1, 21/1, 28/1, 4/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8427",
+                "status": "Open",
+                "class_capacity": "55",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "55",
+                "day_time": "Th 9:30AM - 12:15PM",
+                "room": "Lee Shau Kee Archi Bldg G04",
+                "instructor": "Professor Kevin Joseph Meredith DEVEREUX",
+                "dates": "18/2, 25/2, 4/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8427",
+                "status": "Open",
+                "class_capacity": "55",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "55",
+                "day_time": "Th 9:30AM - 12:15PM",
+                "room": "Lee Shau Kee Archi Bldg G04",
+                "instructor": "Professor Kevin Joseph Meredith DEVEREUX",
+                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+            }
+        ]
     },
     {
         "code": "GLEF 3030",
@@ -21,7 +107,50 @@
         "unit": "3.00",
         "info": "1. Pre-requisite(s): FINA2010 or FINA2310 or permission from the instructor 2. Not for students who have taken FINA3010",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "9422",
+                "status": "Open",
+                "class_capacity": "53",
+                "wait_list_capacity": "999",
+                "enrollment_total": "33",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Wong Foo Yuan Bldg UG02",
+                "instructor": "Dr. KOT Hung Wan",
+                "dates": "10/9, 17/9, 24/9"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "9422",
+                "status": "Open",
+                "class_capacity": "53",
+                "wait_list_capacity": "999",
+                "enrollment_total": "33",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Wong Foo Yuan Bldg UG02",
+                "instructor": "Dr. KOT Hung Wan",
+                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+            }
+        ]
     },
     {
         "code": "GLEF 3040",
@@ -29,7 +158,9 @@
         "unit": "3.00",
         "info": "Pre-requisites: FINA2010, FINA2110, FINA2310",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "GLEF 3050",
@@ -37,29 +168,245 @@
         "unit": "3.00",
         "info": "Pre-requisites: FINA2010, FINA2110, FINA2310",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "GLEF 4010",
         "title": "China and Global Economy",
         "unit": "3.00",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "9697",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Tu 1:30PM - 4:15PM",
+                "room": "Chen Kou Bun Bldg 706B",
+                "instructor": "Professor LYU Dan",
+                "dates": "12/1, 19/1, 26/1, 2/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "9697",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Tu 1:30PM - 4:15PM",
+                "room": "Chen Kou Bun Bldg 706B",
+                "instructor": "Professor LYU Dan",
+                "dates": "16/2, 23/2, 2/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "9697",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Tu 1:30PM - 4:15PM",
+                "room": "Chen Kou Bun Bldg 706B",
+                "instructor": "Professor LYU Dan",
+                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+            }
+        ]
     },
     {
         "code": "GLEF 4020",
         "title": "International Banking and Financial Regulation",
         "unit": "3.00",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "9877",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "999",
+                "enrollment_total": "8",
+                "wait_list_total": "0",
+                "available_seats": "32",
+                "day_time": "Tu 1:30PM - 4:15PM",
+                "room": "Hui Yeung Shing Bldg 501",
+                "instructor": "Dr. HO Cheuk Yin",
+                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+            }
+        ]
     },
     {
         "code": "GLEF 4070",
         "title": "Internship Experience in Global Economics and Finance",
         "unit": "3.00",
         "info": "Pre-requisite(s): at least 3 GLEF courses at 3000 or above level",
-        "term_1": false,
-        "term_2": false
+        "term_1": true,
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AP01-PRA",
+                "component_type": "PRA",
+                "class_number": "10181",
+                "status": "Closed",
+                "class_capacity": "1",
+                "wait_list_capacity": "0",
+                "enrollment_total": "1",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. KOT Hung Wan",
+                "dates": "07/09/2026 - 30/11/2026"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BP01-PRA",
+                "component_type": "PRA",
+                "class_number": "10182",
+                "status": "Closed",
+                "class_capacity": "1",
+                "wait_list_capacity": "0",
+                "enrollment_total": "1",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. KOT Hung Wan",
+                "dates": "07/09/2026 - 30/11/2026"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CP01-PRA",
+                "component_type": "PRA",
+                "class_number": "10183",
+                "status": "Closed",
+                "class_capacity": "1",
+                "wait_list_capacity": "0",
+                "enrollment_total": "1",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. KOT Hung Wan",
+                "dates": "07/09/2026 - 30/11/2026"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DP01-PRA",
+                "component_type": "PRA",
+                "class_number": "10184",
+                "status": "Closed",
+                "class_capacity": "1",
+                "wait_list_capacity": "0",
+                "enrollment_total": "1",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. KOT Hung Wan",
+                "dates": "07/09/2026 - 30/11/2026"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EP01-PRA",
+                "component_type": "PRA",
+                "class_number": "10185",
+                "status": "Closed",
+                "class_capacity": "1",
+                "wait_list_capacity": "0",
+                "enrollment_total": "1",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. KOT Hung Wan",
+                "dates": "07/09/2026 - 30/11/2026"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "FP01-PRA",
+                "component_type": "PRA",
+                "class_number": "10186",
+                "status": "Closed",
+                "class_capacity": "1",
+                "wait_list_capacity": "0",
+                "enrollment_total": "1",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. KOT Hung Wan",
+                "dates": "07/09/2026 - 30/11/2026"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "GP01-PRA",
+                "component_type": "PRA",
+                "class_number": "10187",
+                "status": "Closed",
+                "class_capacity": "1",
+                "wait_list_capacity": "0",
+                "enrollment_total": "1",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. KOT Hung Wan",
+                "dates": "07/09/2026 - 30/11/2026"
+            }
+        ]
     },
     {
         "code": "GLEF 4080",
@@ -67,7 +414,9 @@
         "unit": "3.00",
         "info": "Pre-requisite(s): at least 3 GLEF courses at 3000 or above level",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "GLEF 4090",
@@ -75,6 +424,32 @@
         "unit": "3.00",
         "info": "Pre-requisite(s): at least 3 GLEF courses at 3000 or above level",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-J01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "6363",
+                "status": "Open",
+                "class_capacity": "15",
+                "wait_list_capacity": "0",
+                "enrollment_total": "13",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Professor Mark HUP",
+                "dates": "07/09/2026 - 30/11/2026"
+            }
+        ]
     }
 ]

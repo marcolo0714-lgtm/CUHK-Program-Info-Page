@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -339,7 +341,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>GRMD 2402</td><td>Natural Resource Management</td><td></td><td></td><td>—</td></tr>
 <tr><td>GRMD 2403</td><td>Nature Conservation in Hong Kong</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>GRMD 2501</td><td>Theory and Practice of Smart Cities</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 3102</td><td>Research Design and Methodology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">GRMD2102 or another statistics course which is approved by the instructor as a pre-requisite.</span></td></tr>
+<tr class="nf"><td>GRMD 3102</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>GRMD 3202</td><td>Environmental Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>GRMD 3203</td><td>Urban Environmental Problems</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>GRMD 3205</td><td>Geomorphology</td><td></td><td class="term-yes"></td><td>—</td></tr>

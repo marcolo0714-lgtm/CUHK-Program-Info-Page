@@ -4,48 +4,110 @@
         "title": "Cultural Theories",
         "unit": "3.00",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CUMT 2001",
         "title": "Chinese Archaeology and Food Culture",
         "unit": "3.00",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CUMT 2002",
         "title": "Language and Practice of Cultural Management",
         "unit": "3.00",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CUMT 2013",
         "title": "Art Institutions in Twentieth-Century China",
         "unit": "2.00",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CUMT 4005",
         "title": "Art and Propaganda",
         "unit": "3.00",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CUMT 4102",
         "title": "Research Project",
         "unit": "3.00",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-M01-TMC",
+                "component_type": "TMC",
+                "class_number": "6313",
+                "status": "Open",
+                "class_capacity": "30",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "30",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. PANG Ka Wei",
+                "dates": "11/01/2027 - 19/04/2027"
+            }
+        ]
     },
     {
         "code": "CUMT 4103",
         "title": "Internship",
         "unit": "3.00",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-F01-FLD",
+                "component_type": "FLD",
+                "class_number": "6546",
+                "status": "Open",
+                "class_capacity": "25",
+                "wait_list_capacity": "0",
+                "enrollment_total": "19",
+                "wait_list_total": "0",
+                "available_seats": "6",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. CHIENG Wei Shieng",
+                "dates": "07/09/2026 - 30/11/2026"
+            }
+        ]
     }
 ]

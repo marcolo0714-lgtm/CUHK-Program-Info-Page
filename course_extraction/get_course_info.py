@@ -1,18 +1,19 @@
 from playwright.sync_api import sync_playwright
 import sys
-import io
 import os
+import re
 from pathlib import Path
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).parent
 
 import ddddocr
 ocr = ddddocr.DdddOcr(show_ad=False)
 
-# Major to be scrapped, option refers to the dropdown order of https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx
-start_option, end_option = 238,238
+# Subject options refer to the dropdown order at
+# https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx
 MAX_CAPTCHA_ATTEMPTS = 20
 
 
@@ -63,56 +64,250 @@ def solve_captcha_with_reload(page, option):
     return False, page
 
 
+def _normalize_schedule_text(value):
+    """Collapse whitespace used for visual table alignment into JSON-friendly text."""
+    return re.sub(r"\s+", " ", value or "").strip()
+
+
+def _section_status(section_row):
+    """Read a section status from its icon metadata or image filename."""
+    image = section_row.locator("img[id$='img_status']")
+    if image.count():
+        for attribute in ("alt", "title"):
+            value = _normalize_schedule_text(image.get_attribute(attribute))
+            if value:
+                return value
+        source = image.get_attribute("src") or ""
+        match = re.search(r"class_(open|closed|wait)(?:\.[a-z]+)?(?:\?.*)?$", source, re.IGNORECASE)
+        if match:
+            return "Wait List" if match.group(1).lower() == "wait" else match.group(1).title()
+    return ""
+
+
+def _component_identity(label):
+    """Return (component label, component type, class number) from a grid label."""
+    normalized = _normalize_schedule_text(label)
+    class_match = re.search(r"\(([^()]*)\)\s*$", normalized)
+    class_number = class_match.group(1).strip() if class_match else ""
+    component = normalized[:class_match.start()].strip() if class_match else normalized
+    type_match = re.search(r"-([A-Za-z]+)$", component)
+    component_type = type_match.group(1).upper() if type_match else ""
+    return component, component_type, class_number
+
+
+def _text_or_empty(page, selector):
+    """Return normalized text for an optional element."""
+    locator = page.locator(selector)
+    if not locator.count():
+        return ""
+    return _normalize_schedule_text(locator.first.inner_text())
+
+
+def _class_availability(page):
+    """Extract the flat Class Availability fields from a class-detail page."""
+    return {
+        "class_capacity": _text_or_empty(page, "#uc_class_lbl_enrl_cap"),
+        "wait_list_capacity": _text_or_empty(page, "#uc_class_lbl_wait_cap"),
+        "enrollment_total": _text_or_empty(page, "#uc_class_lbl_enrl_tot"),
+        "wait_list_total": _text_or_empty(page, "#uc_class_lbl_wait_tot"),
+        "available_seats": _text_or_empty(page, "#uc_class_lbl_available_seat"),
+    }
+
+
+def _meeting_records(meeting_grid, base_record):
+    """Create one flat record per data row in a meeting grid."""
+    records = []
+    if meeting_grid.count():
+        meeting_rows = meeting_grid.locator(":scope > tbody > tr")
+        for meeting_index in range(meeting_rows.count()):
+            cells = meeting_rows.nth(meeting_index).locator(":scope > td").all_inner_texts()
+            if not cells:
+                continue
+            cells = [_normalize_schedule_text(cell) for cell in cells]
+            cells += [""] * (4 - len(cells))
+            records.append({
+                **base_record,
+                "day_time": cells[0],
+                "room": cells[1],
+                "instructor": cells[2],
+                "dates": cells[3],
+            })
+
+    if not records:
+        records.append({
+            **base_record,
+            "day_time": "",
+            "room": "",
+            "instructor": "",
+            "dates": "",
+        })
+    return records
+
+
+def _scrape_class_detail(page, component, component_type, class_number, status=""):
+    """Extract meetings and availability from the currently open class page."""
+    detail_component = _text_or_empty(page, "#uc_class_lbl_ssr_component")
+    base_record = {
+        "section": component,
+        "component_type": component_type or detail_component.upper(),
+        "class_number": _text_or_empty(page, "#uc_class_lbl_class_nbr") or class_number,
+        "status": _text_or_empty(page, "#uc_class_lbl_class_status") or status,
+        **_class_availability(page),
+    }
+    return _meeting_records(page.locator("#uc_class_gv_meet"), base_record)
+
+
+def _scrape_grid_row(row, component, component_type, class_number):
+    """Fallback to the summary grid if a class-detail page cannot be opened."""
+    base_record = {
+        "section": component,
+        "component_type": component_type,
+        "class_number": class_number,
+        "status": _section_status(row),
+        "class_capacity": "",
+        "wait_list_capacity": "",
+        "enrollment_total": "",
+        "wait_list_total": "",
+        "available_seats": "",
+    }
+    return _meeting_records(row.locator("table[id$='gv_meet']"), base_record)
+
+
+def _scrape_current_schedule(page):
+    """Open every class option and extract one flat record per meeting row.
+
+    Component metadata is repeated for each meeting row.  This mirrors the
+    source table and avoids a deeply nested section/component/meeting schema.
+    """
+    schedule_grid = page.locator("#uc_course_gv_sched")
+    if not schedule_grid.count():
+        return []
+
+    schedule_rows = []
+    link_selector = "#uc_course_gv_sched a[id$='lkbtn_class_section']"
+    class_count = page.locator(link_selector).count()
+    for class_index in range(class_count):
+        # Re-locate after each class-detail postback because the DOM is replaced.
+        section_link = page.locator(link_selector).nth(class_index)
+        row = section_link.locator("xpath=ancestor::tr[1]")
+        component, component_type, class_number = _component_identity(section_link.inner_text())
+        fallback_rows = _scrape_grid_row(row, component, component_type, class_number)
+
+        try:
+            section_link.click()
+            page.wait_for_selector("#btn_class_return", timeout=10000)
+            schedule_rows.extend(
+                _scrape_class_detail(
+                    page,
+                    component,
+                    component_type,
+                    class_number,
+                    fallback_rows[0]["status"],
+                )
+            )
+        except Exception as exc:
+            print(f"Could not read class detail for {component} ({class_number}): {exc}")
+            if page.locator("#uc_class_lbl_course").count():
+                schedule_rows.extend(
+                    _scrape_class_detail(
+                        page,
+                        component,
+                        component_type,
+                        class_number,
+                        fallback_rows[0]["status"],
+                    )
+                )
+            else:
+                schedule_rows.extend(fallback_rows)
+        finally:
+            return_button = page.locator("#btn_class_return")
+            if return_button.count():
+                return_button.click()
+                page.wait_for_selector("#uc_course_gv_sched", timeout=10000)
+    return schedule_rows
+
+
+def _scrape_term_schedules(page):
+    """Select and submit every entry under ``Term Offered``.
+
+    Each returned term records whether the catalogue reports sections and, when
+    present, the section status plus every day/time, room, instructor and date
+    row.  Terms with no sections are retained with an empty ``rows`` list.
+    """
+    term_select = page.locator("#uc_course_ddl_class_term")
+    if not term_select.count():
+        return []
+
+    term_options = term_select.locator("option").evaluate_all(
+        "options => options.map(option => ({value: option.value, "
+        "term: (option.textContent || '').trim()})).filter(option => option.value)"
+    )
+    schedules = []
+    for option in term_options:
+        term_code = option["value"]
+        term_label = option["term"]
+        try:
+            # Re-locate controls after each ASP.NET postback because the DOM is replaced.
+            page.locator("#uc_course_ddl_class_term").select_option(value=term_code)
+            show_button = page.locator("#uc_course_btn_class_section")
+            if show_button.count() and not show_button.is_disabled():
+                show_button.click()
+                page.wait_for_load_state("load")
+
+            rows = _scrape_current_schedule(page)
+            shown_field = page.locator("#uc_course_hf_show_course_section")
+            reported_offered = shown_field.count() and shown_field.input_value() == "1"
+            schedules.append({
+                "term_code": term_code,
+                "term": term_label,
+                "offered": bool(reported_offered or rows),
+                "rows": rows,
+            })
+        except Exception as exc:
+            print(f"Could not read schedule for {term_label} ({term_code}): {exc}")
+            schedules.append({
+                "term_code": term_code,
+                "term": term_label,
+                "offered": False,
+                "rows": [],
+            })
+    return schedules
+
+
+def _availability_from_schedules(schedules):
+    """Return the existing 2026-27 Term 1/2 booleans from schedule records."""
+    offered_terms = {item["term_code"] for item in schedules if item.get("offered")}
+    return "2420" in offered_terms, "2430" in offered_terms
+
+
+def _flatten_teaching_schedule(schedules):
+    """Add term metadata to each flat meeting row."""
+    flattened = []
+    for schedule in schedules:
+        for row in schedule.get("rows", []):
+            flattened.append({
+                "term_code": schedule["term_code"],
+                "term": schedule["term"],
+                **row,
+            })
+    return flattened
+
+
+def _term_offerings(schedules):
+    """Retain every checked term, including terms with no schedule rows."""
+    return [
+        {
+            "term_code": schedule["term_code"],
+            "term": schedule["term"],
+            "offered": schedule["offered"],
+        }
+        for schedule in schedules
+    ]
+
+
 def _scrape_term_availability(page):
-    """Check which 2026-27 terms a course is actually offered in.
-    Returns (term_1: bool, term_2: bool)."""
-    term_1, term_2 = False, False
-    try:
-        # Check if term dropdown exists
-        term_select = page.locator("#uc_course_ddl_class_term")
-        if not term_select.count():
-            return term_1, term_2
-
-        # Get all term options
-        options = term_select.locator("option")
-        option_values = [opt.get_attribute("value") for opt in options.all() if opt.get_attribute("value")]
-        if not option_values:
-            return term_1, term_2
-
-        # Check current term first (no postback needed)
-        current_term = page.locator("#uc_course_hf_current_course_term").input_value()
-        show_sections = page.locator("#uc_course_hf_show_course_section").input_value() == "1"
-        
-        if current_term == "2420" and show_sections:
-            term_1 = True
-        elif current_term == "2430" and show_sections:
-            term_2 = True
-
-        # Check other terms via postback
-        for opt_val in option_values:
-            if opt_val == current_term:
-                continue
-            if opt_val not in ("2420", "2430"):
-                continue
-            try:
-                term_select.select_option(value=opt_val)
-                page.wait_for_timeout(300)
-                # Click "Show sections" if button exists and is enabled
-                show_btn = page.locator("#uc_course_btn_class_section")
-                if show_btn.count() and not show_btn.is_disabled():
-                    with page.expect_navigation(timeout=5000):
-                        show_btn.click()
-                    show_sections_other = page.locator("#uc_course_hf_show_course_section").input_value() == "1"
-                    if opt_val == "2420" and show_sections_other:
-                        term_1 = True
-                    elif opt_val == "2430" and show_sections_other:
-                        term_2 = True
-            except Exception:
-                pass
-
-    except Exception:
-        pass
-    return term_1, term_2
+    """Backward-compatible availability helper used by external callers."""
+    return _availability_from_schedules(_scrape_term_schedules(page))
 
 
 def course_info_to_json(page, major_text):
@@ -149,9 +344,12 @@ def course_info_to_json(page, major_text):
                         "title": course_code_and_title.split(" - ", 1)[1].strip(),
                         "unit": page.locator("#uc_course_lbl_units").inner_text(timeout=2000),
                     }
-                term_1, term_2 = _scrape_term_availability(page)
+                term_schedules = _scrape_term_schedules(page)
+                term_1, term_2 = _availability_from_schedules(term_schedules)
                 course_info["term_1"] = term_1
                 course_info["term_2"] = term_2
+                course_info["term_offerings"] = _term_offerings(term_schedules)
+                course_info["teaching_schedule"] = _flatten_teaching_schedule(term_schedules)
                 scraped_data.append(course_info)
                 # print("Successfully scraped course details: ", course_info)
                 element_id += 1  # Move to the next course
@@ -209,7 +407,45 @@ def recover_with_new_tab(page, option, max_retries=3):
     return False, page
 
 
-def crawl_course_catalog():
+def _parse_option_list(value):
+    """Parse comma-, semicolon-, or whitespace-separated dropdown indexes."""
+    tokens = [token for token in re.split(r"[,;\s]+", value.strip()) if token]
+    if not tokens:
+        raise ValueError("Enter at least one option index.")
+
+    options = []
+    seen = set()
+    for token in tokens:
+        try:
+            option = int(token)
+        except ValueError as exc:
+            raise ValueError(f"Invalid option index: {token!r}.") from exc
+        if option < 1:
+            raise ValueError("Option indexes must be at least 1.")
+        if option not in seen:
+            options.append(option)
+            seen.add(option)
+    return options
+
+
+def _prompt_option_list():
+    """Prompt for the exact subject-dropdown indexes to scrape."""
+    while True:
+        try:
+            return _parse_option_list(
+                input("Subject option indexes (comma or space separated): ")
+            )
+        except ValueError as exc:
+            print(exc)
+            continue
+
+
+def crawl_course_catalog(options=None):
+    if options is None:
+        options = _prompt_option_list()
+    else:
+        options = _parse_option_list(" ".join(str(option) for option in options))
+
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
         context = browser.new_context()
@@ -217,9 +453,7 @@ def crawl_course_catalog():
         
         # 1. Navigate to the page and perform the initial search
         page.goto("https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx")
-        option = start_option
-        
-        while option <= end_option:   # Try a small number of options first, you can increase this later
+        for option in options:
             try:
                 dropdown = page.locator("#ddl_subject")
                 dropdown.select_option(index=option)
@@ -228,13 +462,11 @@ def crawl_course_catalog():
                 recovered, page = recover_with_new_tab(page, option)
                 if not recovered:
                     print(f"Skipping option {option}...")
-                    option += 1
                     continue
                 page.wait_for_load_state("load")
                 major_text = page.locator("#ddl_subject option:checked").inner_text()
                 print(f"Recovered. Selected major: {major_text}")
                 course_info_to_json(page, major_text)
-                option += 1
                 continue
             major_text = page.locator("#ddl_subject option:checked").inner_text()
             print(f"Selected major: {major_text}")
@@ -244,14 +476,11 @@ def crawl_course_catalog():
             if not captcha_success:
                 print(f"Skipping major {major_text} and exiting: persistent captcha failure even in a new tab.")
                 print(f"Current option: {option}")
-                option += 1
                 break
 
             page.wait_for_load_state("load")
             
             course_info_to_json(page, major_text)
-
-            option += 1  # Move to the next major
 
         browser.close()
 

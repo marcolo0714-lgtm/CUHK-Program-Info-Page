@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -326,7 +328,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <h2>2. Elective Courses: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">CHEM4280, EEEN2030, EEEN3020/ESTR3400, EEEN4010/ESTR4400, EEEN4020/ESTR4402, EEEN4050/ESTR4422, EEEN4060/ESTR4424, ELEG3207, MAEG4030/ESTR4412, MAEG4080/ESTR4420</span></div></div>
 <details class="course-details"><summary>Show 17 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
-<tr class="course-unavailable"><td>CHEM 4280 [2]</td><td>Chemistry in Biofuel</td><td></td><td></td><td>—</td></tr>
+<tr class="nf"><td>CHEM 4280</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>EEEN 2030</td><td>Energy and Environmental Economics and Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr class="eq-row"><td>EEEN 3020</td><td>Energy Utilization and Human Behaviour</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3400.</span></td></tr>
 <tr class="course-unavailable"><td>ESTR 3400</td><td>Energy Utilization and Human Behaviour</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken EEEN3020.</span></td></tr>

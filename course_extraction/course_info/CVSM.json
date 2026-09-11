@@ -5,7 +5,33 @@
         "unit": "5.00",
         "info": "For students in MSc Cardiology",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "1551",
+                "status": "Open",
+                "class_capacity": "300",
+                "wait_list_capacity": "0",
+                "enrollment_total": "287",
+                "wait_list_total": "0",
+                "available_seats": "13",
+                "day_time": "Tu 4:00PM - 8:45PM",
+                "room": "Prince of Wales Hospital",
+                "instructor": "Professor YAN Ping Yen Bryan",
+                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+            }
+        ]
     },
     {
         "code": "CVSM 5002",
@@ -13,7 +39,50 @@
         "unit": "4.00",
         "info": "For students in MSc Cardiology",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "1680",
+                "status": "Open",
+                "class_capacity": "300",
+                "wait_list_capacity": "0",
+                "enrollment_total": "287",
+                "wait_list_total": "0",
+                "available_seats": "13",
+                "day_time": "Tu 4:00PM - 8:45PM",
+                "room": "Prince of Wales Hospital",
+                "instructor": "Professor YAN Ping Yen Bryan",
+                "dates": "12/1, 19/1, 26/1, 2/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "1680",
+                "status": "Open",
+                "class_capacity": "300",
+                "wait_list_capacity": "0",
+                "enrollment_total": "287",
+                "wait_list_total": "0",
+                "available_seats": "13",
+                "day_time": "Tu 4:00PM - 8:45PM",
+                "room": "Prince of Wales Hospital",
+                "instructor": "Professor YAN Ping Yen Bryan",
+                "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+            }
+        ]
     },
     {
         "code": "CVSM 5003",
@@ -21,7 +90,9 @@
         "unit": "5.00",
         "info": "For students in MSc Cardiology",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CVSM 5004",
@@ -29,7 +100,33 @@
         "unit": "1.00",
         "info": "For students in MSc Cardiology",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2450",
+                "term": "2026-27 Summer Session",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2450",
+                "term": "2026-27 Summer Session",
+                "section": "-S01-SEM",
+                "component_type": "SEM",
+                "class_number": "1055",
+                "status": "Open",
+                "class_capacity": "300",
+                "wait_list_capacity": "0",
+                "enrollment_total": "287",
+                "wait_list_total": "0",
+                "available_seats": "13",
+                "day_time": "Tu 4:00PM - 8:45PM",
+                "room": "Prince of Wales Hospital",
+                "instructor": "Professor YAN Ping Yen Bryan",
+                "dates": "18/5, 25/5, 1/6, 8/6, 15/6, 22/6, 29/6"
+            }
+        ]
     },
     {
         "code": "CVSM 5005",
@@ -37,7 +134,9 @@
         "unit": "3.00",
         "info": "For students in MSc Cardiology",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CVSM 5006",
@@ -45,7 +144,9 @@
         "unit": "1.00",
         "info": "For students in MSc Cardiology",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CVSM 5007",
@@ -53,7 +154,9 @@
         "unit": "1.00",
         "info": "For students in MSc Cardiology",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CVSM 5008",
@@ -61,7 +164,33 @@
         "unit": "6.00",
         "info": "For students in MSc Cardiology",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2450",
+                "term": "2026-27 Summer Session",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2450",
+                "term": "2026-27 Summer Session",
+                "section": "-T01-TUT",
+                "component_type": "TUT",
+                "class_number": "1182",
+                "status": "Open",
+                "class_capacity": "200",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "200",
+                "day_time": "Tu 4:00PM - 9:15PM",
+                "room": "Prince of Wales Hospital",
+                "instructor": "Professor YAN Ping Yen Bryan",
+                "dates": "18/5, 25/5, 1/6, 8/6, 15/6, 22/6, 29/6"
+            }
+        ]
     },
     {
         "code": "CVSM 5009",
@@ -69,7 +198,9 @@
         "unit": "5.00",
         "info": "Only for students of Master of Science in Cardiology",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CVSM 5010",
@@ -77,6 +208,8 @@
         "unit": "5.00",
         "info": "Only for students of Master of Science in Cardiology",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     }
 ]

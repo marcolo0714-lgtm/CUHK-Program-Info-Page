@@ -4,14 +4,42 @@
         "title": "Mathematics Curriculum and Teaching: Basic Theory and Practice",
         "unit": "3.00",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "BMED 3011",
         "title": "Mathematics Curriculum and Teaching: Basic Theory and Practice",
         "unit": "3.00",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4776",
+                "status": "Wait List",
+                "class_capacity": "24",
+                "wait_list_capacity": "999",
+                "enrollment_total": "24",
+                "wait_list_total": "5",
+                "available_seats": "0",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Ho Tim Building 107",
+                "instructor": "Dr. CHIA Hui Min",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            }
+        ]
     },
     {
         "code": "BMED 3020",
@@ -19,7 +47,9 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "BMED 3021",
@@ -27,7 +57,33 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010 or BMED3011.",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4777",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "999",
+                "enrollment_total": "21",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "day_time": "Tu 10:30AM - 1:15PM",
+                "room": "Ho Tim Building G2",
+                "instructor": "Professor LEUNG Allen Yuk Lun, Professor NG Oi Lam",
+                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+            }
+        ]
     },
     {
         "code": "BMED 3030",
@@ -35,7 +91,9 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "BMED 3031",
@@ -43,7 +101,67 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010 or BMED3011.",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4778",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "999",
+                "enrollment_total": "14",
+                "wait_list_total": "0",
+                "available_seats": "10",
+                "day_time": "Tu 2:30PM - 5:15PM",
+                "room": "Ho Tim Building 107",
+                "instructor": "Dr. CHAN To, Professor NG Oi Lam",
+                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4778",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "999",
+                "enrollment_total": "14",
+                "wait_list_total": "0",
+                "available_seats": "10",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Ho Tim Building 107",
+                "instructor": "Dr. CHAN To, Professor NG Oi Lam",
+                "dates": "10/9, 17/9, 24/9"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4778",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "999",
+                "enrollment_total": "14",
+                "wait_list_total": "0",
+                "available_seats": "10",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Ho Tim Building 107",
+                "instructor": "Dr. CHAN To, Professor NG Oi Lam",
+                "dates": "8/10, 15/10, 22/10, 29/10"
+            }
+        ]
     },
     {
         "code": "BMED 3050",
@@ -51,7 +169,9 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "BMED 3051",
@@ -59,7 +179,50 @@
         "unit": "3.00",
         "info": "Pre-requisite: BMED3011.",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4795",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "999",
+                "enrollment_total": "19",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "day_time": "Mo 8:30AM - 11:15AM",
+                "room": "Ho Tim Building G2",
+                "instructor": "Dr. CHIA Hui Min",
+                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4795",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "999",
+                "enrollment_total": "19",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "day_time": "Mo 8:30AM - 11:15AM",
+                "room": "Ho Tim Building G2",
+                "instructor": "Dr. CHIA Hui Min",
+                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+            }
+        ]
     },
     {
         "code": "BMED 3060",
@@ -67,7 +230,9 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "BMED 3061",
@@ -75,7 +240,9 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3011.",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "BMED 3070",
@@ -83,7 +250,9 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "BMED 3071",
@@ -91,7 +260,84 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010 or BMED3011.",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4853",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "24",
+                "day_time": "Tu 2:30PM - 5:15PM",
+                "room": "Ho Tim Building G2",
+                "instructor": "Mr. LEE Kin Sum",
+                "dates": "12/1, 19/1, 26/1, 2/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4853",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "24",
+                "day_time": "Tu 2:30PM - 5:15PM",
+                "room": "Ho Tim Building G2",
+                "instructor": "Mr. LEE Kin Sum",
+                "dates": "16/2, 23/2, 2/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4853",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "24",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Ho Tim Building G2",
+                "instructor": "Mr. LEE Kin Sum",
+                "dates": "14/1, 21/1, 28/1, 4/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4853",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "24",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Ho Tim Building G2",
+                "instructor": "Mr. LEE Kin Sum",
+                "dates": "18/2, 25/2, 4/3"
+            }
+        ]
     },
     {
         "code": "BMED 3080",
@@ -99,7 +345,9 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "BMED 3081",
@@ -107,7 +355,67 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010 or BMED3011.",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4854",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "24",
+                "day_time": "Tu 10:30AM - 1:15PM",
+                "room": "Ho Tim Building G2",
+                "instructor": "Professor LEUNG Allen Yuk Lun",
+                "dates": "12/1, 19/1, 26/1, 2/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4854",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "24",
+                "day_time": "Tu 10:30AM - 1:15PM",
+                "room": "Ho Tim Building G2",
+                "instructor": "Professor LEUNG Allen Yuk Lun",
+                "dates": "16/2, 23/2, 2/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4854",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "24",
+                "day_time": "Tu 10:30AM - 1:15PM",
+                "room": "Ho Tim Building G2",
+                "instructor": "Professor LEUNG Allen Yuk Lun",
+                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+            }
+        ]
     },
     {
         "code": "BMED 3091",
@@ -115,7 +423,67 @@
         "unit": "3.00",
         "info": "Prerequisite:BMED3011",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4796",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "999",
+                "enrollment_total": "13",
+                "wait_list_total": "0",
+                "available_seats": "11",
+                "day_time": "We 11:30AM - 2:15PM",
+                "room": "Ho Tim Building 107",
+                "instructor": "Professor NG Oi Lam",
+                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4796",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "999",
+                "enrollment_total": "13",
+                "wait_list_total": "0",
+                "available_seats": "11",
+                "day_time": "Mo 11:30AM - 2:15PM",
+                "room": "Ho Tim Building 107",
+                "instructor": "Professor NG Oi Lam",
+                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4796",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "999",
+                "enrollment_total": "13",
+                "wait_list_total": "0",
+                "available_seats": "11",
+                "day_time": "Mo 11:30AM - 2:15PM",
+                "room": "Ho Tim Building 107",
+                "instructor": "Professor NG Oi Lam",
+                "dates": "26/10"
+            }
+        ]
     },
     {
         "code": "BMED 4510",
@@ -123,7 +491,84 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010 or BMED3011.",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4855",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "24",
+                "day_time": "Mo 11:30AM - 2:15PM",
+                "room": "Ho Tim Building 107",
+                "instructor": "Dr. CHIA Hui Min",
+                "dates": "11/1, 18/1, 25/1, 1/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4855",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "24",
+                "day_time": "Mo 11:30AM - 2:15PM",
+                "room": "Ho Tim Building 107",
+                "instructor": "Dr. CHIA Hui Min",
+                "dates": "15/2, 22/2, 1/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4855",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "24",
+                "day_time": "We 11:30AM - 2:15PM",
+                "room": "Ho Tim Building 107",
+                "instructor": "Dr. CHIA Hui Min",
+                "dates": "13/1, 20/1, 27/1, 3/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4855",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "24",
+                "day_time": "We 11:30AM - 2:15PM",
+                "room": "Ho Tim Building 107",
+                "instructor": "Dr. CHIA Hui Min",
+                "dates": "17/2, 24/2, 3/3"
+            }
+        ]
     },
     {
         "code": "BMED 4520",
@@ -131,7 +576,33 @@
         "unit": "3.00",
         "info": "Prerequisite:(a) Either BMED3010 or BMED3011 AND (b) BMED4510",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-F01-FLD",
+                "component_type": "FLD",
+                "class_number": "6781",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "24",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Professor NG Oi Lam",
+                "dates": "11/01/2027 - 19/04/2027"
+            }
+        ]
     },
     {
         "code": "BMED 4910",
@@ -139,7 +610,9 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010 or BMED3011, and BMED4510.",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "BMED 4920",
@@ -147,6 +620,8 @@
         "unit": "3.00",
         "info": "Prerequisite: BMED3010 or BMED3011, and BMED4510",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     }
 ]

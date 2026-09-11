@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -331,7 +333,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>COMM 2590</td><td>Global Cinema</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>COMM 3550</td><td>Global Finance for Communication Professionals</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>COMM 3700</td><td>Diversity Issues in Communication</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>COMM 4250</td><td>Global Digital Platforms: Culture, Power and Politics</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr class="nf"><td>COMM 4250</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) At least 6 units of the following courses:</span><span class="meta">(6 units)</span></div><div class="req-row"><span class="row-text">COMM1150, 2140, 2180, 2210, 2440, 2540, 2570, 2590, 2600, 2610, 2620, 2733, 2740, 2741, 2811, 2812, 2813, 2814, 2830, 2840, 2850, 2910, 2920, 2922, 2925, 2926, 2928, 2930, 2932, 2940, 2962, 3130, 3131, 3132, 3191, 3193, 3550, 3610, 3620, 3630, 3640, 3650, 3660, 3680, 3681, 3682, 3690, 3700, 3711, 3721, 3722, 3733, 3740, 3750, 3760, 3800, 3810, 3811, 3812, 3820, 3830, 3831, 3832, 3840, 3841, 3850, 3855, 3860, 3870, 3888, 3910, 3920, 3921, 3922, 3930, 3933, 3939, 3940, 3941, 4040, 4191, 4250, 4730, 4733, 4848, 4935, 4956, 4962</span></div></div>
 <details class="course-details"><summary>Show 88 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
@@ -377,7 +379,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>COMM 3630</td><td>Digital Journalism</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>COMM 3640</td><td>China News Reporting</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3650</td><td>Social Media Analytics for Communication Professionals</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): ENGG1003.</span></td></tr>
-<tr><td>COMM 3660</td><td>Infographics and Data Visualization</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3660</td><td>Infographics and Data Visualization</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3680</td><td>Business and Financial Reporting</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>COMM 3681</td><td>Special Topic in Journalism I</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>COMM 3682</td><td>Special Topic in Journalism II</td><td></td><td></td><td>—</td></tr>
@@ -407,22 +409,22 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>COMM 3888</td><td>Financial Public Relations</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2810 or 2850.</span></td></tr>
 <tr><td>COMM 3910</td><td>Sound Production</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>COMM 3920</td><td>Creative Writing in Media</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 3921</td><td>Special Topic in Creative and New Media I</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>COMM 3922</td><td>Special Topic in Creative and New Media II</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 3930</td><td>Digital Video Production</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>COMM 3933</td><td>Music Industry, Production and Marketing</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 3939</td><td>Film Directors</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 3940</td><td>Immersive Storytelling</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>COMM 3941</td><td>New Media and Entertainment Business</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 4040</td><td>Directed Studies in Communication</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>COMM 4191</td><td>Cultural Studies and Popular Culture</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 4250</td><td>Global Digital Platforms: Culture, Power and Politics</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 4730</td><td>Documentary</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>COMM 4733</td><td>Advanced Television Studio Production</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: COMM3733.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 4848</td><td>New Media Advertising</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>COMM 4935</td><td>Cinematography</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2922.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 4956</td><td>Fundamentals of Computer Animation</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 4962</td><td>Advanced Photography</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2440 or 2962.</span></td></tr>
+<tr class="nf"><td>COMM 3921</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 3922</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 3930</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 3933</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 3939</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 3940</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 3941</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4040</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4191</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4250</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4730</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4733</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4848</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4935</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4956</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4962</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>

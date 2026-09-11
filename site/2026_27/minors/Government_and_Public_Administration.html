@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -391,7 +393,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>GPAD 3260</td><td>Public Policy and Administration in China</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>GPAD 3360</td><td>Global Environmental Politics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken GLSD2401 or GLSD3401.</span></td></tr>
 <tr class="course-unavailable"><td>GPAD 3365</td><td>Ethics and International Affairs</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GPAD1095.</span></td></tr>
-<tr><td>GPAD 3451</td><td>International Political Economy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken GPAD2451 or GLSD2501.</span></td></tr>
+<tr class="course-unavailable"><td>GPAD 3451</td><td>International Political Economy</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken GPAD2451 or GLSD2501.</span></td></tr>
 <tr class="course-unavailable"><td>GPAD 4020</td><td>Seminar in Public Administration</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>GPAD 4027</td><td>Seminar in Chinese Politics</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>GPAD 4030</td><td>Seminar in Hong Kong Studies</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GPAD1050, 2015 or 3016.</span><span class="prereq-sentence">Students taking this course should first obtain teacher's consent.</span></td></tr>

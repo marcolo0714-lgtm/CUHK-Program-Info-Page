@@ -5,7 +5,480 @@
         "unit": "3.00",
         "info": "Not for students who have taken GERM2000,2001,2050,3000,3001,3002,3050,3051 or 4001",
         "term_1": true,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5931",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "22",
+                "wait_list_total": "0",
+                "available_seats": "6",
+                "day_time": "Tu 2:30PM - 5:15PM",
+                "room": "Yasumoto Int'l Acad Park 404",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7304",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "26",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "day_time": "We 10:30AM - 1:15PM",
+                "room": "Wu Ho Man Yuen Bldg 403",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7231",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "21",
+                "wait_list_total": "0",
+                "available_seats": "7",
+                "day_time": "We 2:30PM - 5:15PM",
+                "room": "Hui Yeung Shing Bldg G06",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DC01-CLW",
+                "component_type": "CLW",
+                "class_number": "9716",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "day_time": "Th 9:30AM - 12:15PM",
+                "room": "Lee Shau Kee Building 515",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "10/9, 17/9, 24/9"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DC01-CLW",
+                "component_type": "CLW",
+                "class_number": "9716",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "day_time": "Th 9:30AM - 12:15PM",
+                "room": "Lee Shau Kee Building 515",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5855",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "12",
+                "wait_list_total": "0",
+                "available_seats": "16",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Lee Shau Kee Building 306",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "10/9, 17/9, 24/9"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5855",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "12",
+                "wait_list_total": "0",
+                "available_seats": "16",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Lee Shau Kee Building 306",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "FC01-CLW",
+                "component_type": "CLW",
+                "class_number": "9728",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "21",
+                "wait_list_total": "0",
+                "available_seats": "7",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Wu Ho Man Yuen Bldg 404",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "GC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5983",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Tu 10:30AM - 1:15PM",
+                "room": "Wu Ho Man Yuen Bldg 404",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "12/1, 19/1, 26/1, 2/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "GC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5983",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Tu 10:30AM - 1:15PM",
+                "room": "Wu Ho Man Yuen Bldg 404",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "16/2, 23/2, 2/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "GC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5983",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Tu 10:30AM - 1:15PM",
+                "room": "Wu Ho Man Yuen Bldg 404",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "HC01-CLW",
+                "component_type": "CLW",
+                "class_number": "6065",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Tu 2:30PM - 5:15PM",
+                "room": "Yasumoto Int'l Acad Park 201",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "12/1, 19/1, 26/1, 2/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "HC01-CLW",
+                "component_type": "CLW",
+                "class_number": "6065",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Tu 2:30PM - 5:15PM",
+                "room": "Yasumoto Int'l Acad Park 201",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "16/2, 23/2, 2/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "HC01-CLW",
+                "component_type": "CLW",
+                "class_number": "6065",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Tu 2:30PM - 5:15PM",
+                "room": "Yasumoto Int'l Acad Park 201",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "IC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7075",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "We 10:30AM - 1:15PM",
+                "room": "Cheng Yu Tung Building 201",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "13/1, 20/1, 27/1, 3/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "IC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7075",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "We 10:30AM - 1:15PM",
+                "room": "Cheng Yu Tung Building 201",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "17/2, 24/2, 3/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "IC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7075",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "We 10:30AM - 1:15PM",
+                "room": "Cheng Yu Tung Building 201",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "JC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5766",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Th 10:30AM - 1:15PM",
+                "room": "Y.C. Liang Hall 106",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "14/1, 21/1, 28/1, 4/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "JC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5766",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Th 10:30AM - 1:15PM",
+                "room": "Y.C. Liang Hall 106",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "18/2, 25/2, 4/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "JC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5766",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Th 10:30AM - 1:15PM",
+                "room": "Y.C. Liang Hall 106",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "KC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7049",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 506",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "14/1, 21/1, 28/1, 4/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "KC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7049",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 506",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "18/2, 25/2, 4/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "KC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7049",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 506",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "LC01-CLW",
+                "component_type": "CLW",
+                "class_number": "8447",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Y.C. Liang Hall G01",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "15/1, 22/1, 29/1"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "LC01-CLW",
+                "component_type": "CLW",
+                "class_number": "8447",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Y.C. Liang Hall G01",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "12/2, 19/2, 26/2, 5/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "LC01-CLW",
+                "component_type": "CLW",
+                "class_number": "8447",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Y.C. Liang Hall G01",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "19/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "LC01-CLW",
+                "component_type": "CLW",
+                "class_number": "8447",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Y.C. Liang Hall G01",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "2/4, 9/4, 16/4, 23/4"
+            }
+        ]
     },
     {
         "code": "GERM 1001",
@@ -13,14 +486,64 @@
         "unit": "1.00",
         "info": "Not for students who have taken GERM1000,2000,2001,2050,3000,3001,3002,3050,3051or4001 From 2023-24, students can only earn up to 2 units of these courses: CLCP1001,CLCP1101,CLCC1001,CLCC1101,JASP1350,HKSL1001,SPAN1001,GERM1001,KORE1001,FREN1001",
         "term_1": true,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "6073",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Staff",
+                "dates": "07/09/2026 - 30/11/2026"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "6318",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Staff",
+                "dates": "11/01/2027 - 19/04/2027"
+            }
+        ]
     },
     {
         "code": "GERM 1100",
         "title": "Germany Today",
         "unit": "3.00",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "GERM 2000",
@@ -28,7 +551,191 @@
         "unit": "3.00",
         "info": "1. Not for students who have taken GERM2001,2050,3000,3001,3002,3050,3051 or 4001 2. Prerequisite: GERM1000",
         "term_1": true,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5700",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "12",
+                "wait_list_total": "0",
+                "available_seats": "16",
+                "day_time": "Tu 2:30PM - 5:15PM",
+                "room": "Y.C. Liang Hall 101",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "BC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5923",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Tu 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 404",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "12/1, 19/1, 26/1, 2/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "BC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5923",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Tu 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 404",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "16/2, 23/2, 2/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "BC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5923",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Tu 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 404",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "CC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7084",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "We 10:30AM - 1:15PM",
+                "room": "William M W Mong Eng Bldg 404",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "13/1, 20/1, 27/1, 3/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "CC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7084",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "We 10:30AM - 1:15PM",
+                "room": "William M W Mong Eng Bldg 404",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "17/2, 24/2, 3/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "CC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7084",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "We 10:30AM - 1:15PM",
+                "room": "William M W Mong Eng Bldg 404",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "DC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7048",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Basic Med Sci Bldg Rm1",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "14/1, 21/1, 28/1, 4/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "DC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7048",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Basic Med Sci Bldg Rm1",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "18/2, 25/2, 4/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "DC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7048",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Basic Med Sci Bldg Rm1",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+            }
+        ]
     },
     {
         "code": "GERM 2001",
@@ -36,7 +743,33 @@
         "unit": "3.00",
         "info": "1. Not for students who have taken GERM3000,3001,3002,3050, 3051 or 4001 2. Prerequisite: GERM2000 or 2050",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5654",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Esther Lee Bldg 306",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            }
+        ]
     },
     {
         "code": "GERM 2020",
@@ -44,7 +777,33 @@
         "unit": "3.00",
         "info": "Prerequisite: GERM2000,2001,2050,3000,3001,3002,3050,3051 or 4001",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-C01-CLW",
+                "component_type": "CLW",
+                "class_number": "7436",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "11",
+                "day_time": "Tu 9:30AM - 12:15PM",
+                "room": "Yasumoto Int'l Acad Park 410",
+                "instructor": "Mr. Bernd ESCH",
+                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+            }
+        ]
     },
     {
         "code": "GERM 2050",
@@ -52,21 +811,126 @@
         "unit": "6.00",
         "info": "Not for students who have taken GERM1000,2000,2001,3000,3001,3002,3050,3051 or 4001",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "GERM 2100",
         "title": "Exploring German Literature",
         "unit": "3.00",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-C01-CLW",
+                "component_type": "CLW",
+                "class_number": "5363",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "We 2:30PM - 5:15PM",
+                "room": "Hui Yeung Shing Bldg G03",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "13/1, 20/1, 27/1, 3/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-C01-CLW",
+                "component_type": "CLW",
+                "class_number": "5363",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "We 2:30PM - 5:15PM",
+                "room": "Hui Yeung Shing Bldg G03",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "17/2, 24/2, 3/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-C01-CLW",
+                "component_type": "CLW",
+                "class_number": "5363",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "We 2:30PM - 5:15PM",
+                "room": "Hui Yeung Shing Bldg G03",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+            }
+        ]
     },
     {
         "code": "GERM 2200",
         "title": "German Cinema",
         "unit": "3.00",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-C01-CLW",
+                "component_type": "CLW",
+                "class_number": "4831",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "8",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 304",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "10/9, 17/9, 24/9"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-C01-CLW",
+                "component_type": "CLW",
+                "class_number": "4831",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "8",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Wu Ho Man Yuen Bldg 304",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+            }
+        ]
     },
     {
         "code": "GERM 3000",
@@ -74,7 +938,84 @@
         "unit": "3.00",
         "info": "1. Not for students who have taken GERM3001,3002,3050,3051 or 4001 2. Prerequisite: GERM2001",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AC01-CLW",
+                "component_type": "CLW",
+                "class_number": "4963",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Wu Ho Man Yuen Bldg 404",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "15/1, 22/1, 29/1"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AC01-CLW",
+                "component_type": "CLW",
+                "class_number": "4963",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Wu Ho Man Yuen Bldg 404",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "12/2, 19/2, 26/2, 5/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AC01-CLW",
+                "component_type": "CLW",
+                "class_number": "4963",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Wu Ho Man Yuen Bldg 404",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "19/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AC01-CLW",
+                "component_type": "CLW",
+                "class_number": "4963",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Wu Ho Man Yuen Bldg 404",
+                "instructor": "Ms. Annette Josefa Maria FROMEL",
+                "dates": "2/4, 9/4, 16/4, 23/4"
+            }
+        ]
     },
     {
         "code": "GERM 3001",
@@ -82,7 +1023,33 @@
         "unit": "3.00",
         "info": "1. Not for students who have taken GERM3002,3051 or 4001 2. Prerequisite: GERM3000 or GERM3050",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AC01-CLW",
+                "component_type": "CLW",
+                "class_number": "7477",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "999",
+                "enrollment_total": "14",
+                "wait_list_total": "0",
+                "available_seats": "14",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Yasumoto Int'l Acad Park 408",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            }
+        ]
     },
     {
         "code": "GERM 3002",
@@ -90,7 +1057,84 @@
         "unit": "3.00",
         "info": "1. Not for students who have taken GERM3051 or 4001 2. Prerequisite: GERM3001",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5642",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Wu Ho Man Yuen Bldg 504",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "15/1, 22/1, 29/1"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5642",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Wu Ho Man Yuen Bldg 504",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "12/2, 19/2, 26/2, 5/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5642",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Wu Ho Man Yuen Bldg 504",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "19/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AC01-CLW",
+                "component_type": "CLW",
+                "class_number": "5642",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "day_time": "Fr 8:30AM - 11:15AM",
+                "room": "Wu Ho Man Yuen Bldg 504",
+                "instructor": "Mr. Alexander Markus KLING",
+                "dates": "2/4, 9/4, 16/4, 23/4"
+            }
+        ]
     },
     {
         "code": "GERM 3020",
@@ -98,7 +1142,9 @@
         "unit": "3.00",
         "info": "Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "GERM 3041",
@@ -106,7 +1152,9 @@
         "unit": "3.00",
         "info": "Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "GERM 3050",
@@ -114,7 +1162,9 @@
         "unit": "6.00",
         "info": "1.Not for students who have taken GERM2001,3000,3001,3002,3051 or 4001 2.Prerequisite: GERM2000 or GERM2050",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "GERM 3051",
@@ -122,7 +1172,9 @@
         "unit": "6.00",
         "info": "Not for students who have taken GERM3001,3002 or 4001 Prerequisite: GERM3000 or GERM3050",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "GERM 3060",
@@ -130,14 +1182,18 @@
         "unit": "3.00",
         "info": "Prerequisite: GERM3000,3001,3002,3050, 3051 or 4001",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "GERM 3100",
         "title": "Special Topics in German",
         "unit": "3.00",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "GERM 4001",
@@ -145,6 +1201,8 @@
         "unit": "3.00",
         "info": "Prerequisites: GERM3002 or 3051",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     }
 ]

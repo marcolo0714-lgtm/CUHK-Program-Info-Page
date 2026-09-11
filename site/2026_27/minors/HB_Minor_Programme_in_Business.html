@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -373,8 +375,8 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ACCT 4290</td><td>Professional Accounting Internship</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>ACCT 5110</td><td>Advanced Financial Accounting and Reporting</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
 <tr><td>ACCT 5111</td><td>Corporate Financial Reporting</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy; or MBA; or JD/MBA Double Degree Programme; or MSc Finance.</span></td></tr>
-<tr><td>ACCT 5112 [1.5]</td><td>Financial and Managerial Accounting</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Management.</span></td></tr>
-<tr><td>ACCT 5120</td><td>Cost and Management Accounting</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
+<tr><td>ACCT 5112</td><td>Financial and Managerial Accounting</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr class="nf"><td>ACCT 5120</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>ACCT 5130</td><td>Auditing and Professional Practice</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
 <tr><td>ACCT 5140</td><td>Introductory Accounting Data Analytics</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
 <tr><td>ACCT 5150</td><td>Business and Company Law</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Accountancy.</span></td></tr>
@@ -541,151 +543,151 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>FINA 3220</td><td>Life Contingencies I</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): FINA2210 or FINA2200.</span></td></tr>
 <tr><td>FINA 3221</td><td>Basic Long-term Actuarial Mathematics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2200 or FINA2210.</span></td></tr>
 <tr><td>FINA 3222</td><td>Basic Short-term Actuarial Mathematics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2230 or STAT2006 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3230</td><td>Life and Health Insurance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA3210.</span></td></tr>
-<tr><td>FINA 3240</td><td>Corporate Property and Liability Insurance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3210.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 3250</td><td>Derivatives for Actuaries I</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken FINA4110.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 3260 [1]</td><td>Internship Experience</td><td></td><td></td><td>—</td></tr>
-<tr><td>FINA 3290</td><td>Linear Models for Actuaries</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisites: FINA2230 or STAT2006 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3295</td><td>Advanced Statistical Modeling for Insurance and Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisites: DOTE2021 or FINA2230 or STAT2006 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3310 [1]</td><td>Introduction to Investment Banking</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 3320 [1]</td><td>Introduction to Credit Rating</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3330 [1]</td><td>Introduction to Alternative Investment</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 3340 [1]</td><td>Trading Strategies: Behavioral and Technical Analysis</td><td></td><td></td><td><span class="prereq-sentence">1. Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken FINA3012.</span></td></tr>
-<tr><td>FINA 3350 [1]</td><td>Foreign Exchange Market Practices</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">1. Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken FINA3021.</span></td></tr>
-<tr><td>FINA 3360 [1]</td><td>Derivative Warrants, Proprietary and Arbitrage Trading Concepts</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3370 [1]</td><td>Introduction to Bloomberg and Reuters</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 3398 [1]</td><td>Special Issues in Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 3399 [1]</td><td>Current Issues in Finance</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 3420</td><td>Credit Rating in Global Economy</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken FINA3320.</span><span class="prereq-sentence">Pre-requisite: FINA2010, or FINA2011, or FINA2110 or FINA2310, or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4010</td><td>Security Analysis</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4020</td><td>Fund Management and Asset Allocation</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4030</td><td>Selected Topics in Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4040</td><td>Cases in Corporate Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3070 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4050</td><td>Mergers and Acquisitions</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3070 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4060</td><td>China Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4110</td><td>Options and Futures</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Prerequisite: FINA3080 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken ECON4450.</span></td></tr>
-<tr><td>FINA 4120</td><td>Fixed Income Securities Analysis</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4130</td><td>Empirical Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4140</td><td>Computational Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4150</td><td>Quantitative Methods for Financial Derivatives</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4160</td><td>Intermediate Financial Theory</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4190</td><td>Research Project in Quantitative Finance</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: At least two FINA41XX courses and permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4210</td><td>Life Contingencies II</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3220 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4211</td><td>Advanced Long-term Actuarial Mathematics</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3221 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4215 [1]</td><td>Introduction to Actuarial Computing Using Prophet</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: FINA3221 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4220</td><td>Non-life Actuarial Models</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2220 or STAT2001 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4221</td><td>Advanced Short-term Actuarial Mathematics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA3222 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4250</td><td>Applications of Risk Models</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3220.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4270</td><td>Research Project in Insurance, Financial and Actuarial Analysis</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>FINA 4280</td><td>Derivatives for Actuaries II</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2210, 2220 and 3250.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4290</td><td>Actuarial Internship</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>FINA 4291</td><td>Internship in Insurance and Financial Institutions</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>FINA 4310 [1]</td><td>China Banking and Financial System</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4320 [1]</td><td>China Equity Securities Market</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4330 [1]</td><td>China Derivative Securities Market</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4340 [1]</td><td>Structured Products: Fundamentals and Analysis</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4350 [1]</td><td>Bond Markets: Analysis and Strategies</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4370</td><td>Derivatives Trading: Analysis and Strategies</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4380</td><td>Algorithmic Trading Strategies, Arbitrage and HFT</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 4390</td><td>Banking and Finance Practicum</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: At least three FINA courses at 3000-level or above, and permission from instructor.</span></td></tr>
-<tr><td>FINA 4400</td><td>Behavioral Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">1. Pre-requisite: FINA2010 or FINA2310 or permission from instructor.</span><span class="prereq-sentence">2. Not for students who have taken ECON4470.</span></td></tr>
-<tr><td>FINA 4410</td><td>Current developments in FinTec</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: FINA2010 or FINA2310 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4420</td><td>Financial Markets from a Macro Perspective</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3020 or FINA3080 or permission from instructor.</span></td></tr>
-<tr><td>FINA 4430</td><td>Computerized Trading and Big Data</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: FINA3080 or permission from instructor.</span></td></tr>
-<tr><td>FINA 5010</td><td>Financial Management</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in EMBA (Chinese); or MBA; or JD/MBA Double Degree Programme; or Master of Accountancy; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>FINA 5011 [1.5]</td><td>Corporate Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
-<tr><td>FINA 5012 [1.5]</td><td>Fundamentals of Sustainable Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc in Management.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 5015</td><td>Corporate Financial Analysis & Decision-Making</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA.</span></td></tr>
-<tr><td>FINA 6010</td><td>Money and Capital Markets</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6011 [1.5]</td><td>Capital Markets and Corporate Financing in Greater China</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
-<tr><td>FINA 6020 [1.5]</td><td>FinTech Analytics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc in Management; or MBA; or JD/MBA Double Degree Programme; or MBA in Finance.</span></td></tr>
-<tr><td>FINA 6022 [1.5]</td><td>Current Topics in Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in EMBA; or MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>FINA 6023 [1.5]</td><td>Application of Artificial Intelligence in Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MBA in Finance; or MBA in Technology and Innovation.</span></td></tr>
-<tr><td>FINA 6040</td><td>Investment Analysis and Portfolio Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>FINA 6067</td><td>Corporate Fund-Raising Initiatives in the Chinese Equity Markets</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MSc Finance.</span></td></tr>
-<tr><td>FINA 6081</td><td>Investments</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in EMBA; or EMBA (Chinese).</span></td></tr>
-<tr><td>FINA 6092</td><td>Advanced Financial Management</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance; or MBA in Finance (40324).</span></td></tr>
-<tr><td>FINA 6112</td><td>Investment and Portfolio Analysis</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance; or MBA in Finance (40324).</span></td></tr>
-<tr><td>FINA 6121</td><td>Seminar in Global Financial Systems and Corporate Governance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in EMBA; or EMBA (Chinese).</span></td></tr>
-<tr><td>FINA 6122</td><td>Financial Markets and Instruments</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or Full-time MBA; or MBA (Evening Mode); or MBA (Weekend Mode); or JD/MBA Double Degree Programme; or Master of Accountancy; or Executive Master of Professional Accountancy; or MSc Financial Technology; or PgD FinTech.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6130 [1.5]</td><td>M&A: Incentives, Valuation & Impact</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese).</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6132</td><td>Derivatives Markets</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance; or MBA in Finance (40324).</span></td></tr>
-<tr><td>FINA 6142</td><td>Global Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MBA in Finance.</span></td></tr>
-<tr><td>FINA 6152</td><td>Fixed-income Securities Analysis</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance; or MBA in Finance.</span></td></tr>
-<tr><td>FINA 6172</td><td>Mergers & Acquisitions</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or MSc Finance; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>FINA 6192</td><td>Cases in Corporate Finance & Investment Practices</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or MSc Finance; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr><td>FINA 6203</td><td>Python in Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6204</td><td>Frontier Topics in Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6205 [1.5]</td><td>Frontier Issues in Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6206</td><td>International Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6207 [1.5]</td><td>Wealth Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6208 [1.5]</td><td>Impact Investment</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6209</td><td>Contemporary Topics in Finance</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6210 [1.5]</td><td>Contemporary Issues in Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6212</td><td>Monetary Policy</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6220 [1.5]</td><td>Current Issues in Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6221 [1.5]</td><td>Selected Issues in Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6222</td><td>Selected Topics in Finance</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA; or MPhil-PhD Finance; or JD/MBA Double Degree Programme; or MSc Finance.</span></td></tr>
-<tr><td>FINA 6225</td><td>China Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA; or MSc Finance; or JD/MBA Double Degree Programme.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6228</td><td>Current Fintech Trends</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme.</span><span class="prereq-sentence">Pre-requistie: FINA5010.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6229</td><td>Machine Learning in Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6230</td><td>Venture Capital & Private Equity</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA; or JD/MBA Double Degree Programme; or MSc Finance.</span></td></tr>
-<tr><td>FINA 6232</td><td>Seminar in Asset Pricing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
-<tr><td>FINA 6236</td><td>Sustainable Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA in Finance; or MSc in Finance; or MSc in Sustainable Global Business.</span></td></tr>
-<tr><td>FINA 6242</td><td>Seminar in Corporate Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
-<tr><td>FINA 6250</td><td>Fundamentals of Derivatives Trading Strategies</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance, MSc Financial Technology or PgD FinTech.</span></td></tr>
-<tr><td>FINA 6252</td><td>Empirical Methods in Asset Pricing</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6263</td><td>Directed Research - Contemporary Issues in China Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
-<tr><td>FINA 6272</td><td>Empirical Methods in Corporate Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
-<tr><td>FINA 6282</td><td>Economics for Finance Practice</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6292</td><td>Capital Markets</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6342</td><td>Advanced Management of Financial Institutions: Financial Information System Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6352</td><td>Credit & Financing: Flow, Structured and Risk Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6362</td><td>Foreign Exchange in Theory and Practice</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6372</td><td>Behavioral Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6504</td><td>Corporate Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in Executive Master of Professional Accountancy.</span></td></tr>
-<tr><td>FINA 6508</td><td>Commercial Banking</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA in Finance; or MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6511 [1.5]</td><td>Insurance and Risk Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
-<tr><td>FINA 6512 [1.5]</td><td>Merger, Acquisition and Reconstruction of Corporate Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
-<tr><td>FINA 6513</td><td>China Economics and Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance.</span></td></tr>
-<tr><td>FINA 6514 [1.5]</td><td>Special Topics in Finance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MBA Finance (40087); or EMBA (Chinese); or MBA in Finance (40324); or MBA in Technology and Innovation.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6515</td><td>Entrepreneurship in Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324); or MBA in Technology and Innovation.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6522</td><td>Law and the Securities Markets</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6524 [1.5]</td><td>Securitization and Structured Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in EMBA (Chinese); or MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
-<tr><td>FINA 6525 [1.5]</td><td>Introduction to Behavioral Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6526 [1.5]</td><td>International Political Economy</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6527</td><td>Seminars on International Capital Markets</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40324).</span></td></tr>
-<tr><td>FINA 6532</td><td>Quantitative Methods in Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6533</td><td>Finance Field Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6534 [1.5]</td><td>Special Topics in Finance - Global Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MBA in Finance (40087); or MBA in Finance (40324).</span></td></tr>
-<tr><td>FINA 6542</td><td>Quantitative Risk Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6552</td><td>Bank and Insurance Capital</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6572</td><td>Mathematical Financial Modeling and Structured Solutions</td><td></td><td></td><td><span class="prereq-sentence">For Students in MSc Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6582</td><td>Computational Finance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6592</td><td>Financial Econometrics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Finance.</span></td></tr>
-<tr><td>FINA 6601</td><td>Economics for Actuaries</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6602</td><td>Accounting and Corporate Finance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6603</td><td>Probability with Applications in Finance and Insurance</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6604</td><td>Financial Mathematics for Actuaries</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6605</td><td>Statistics for Risk Modelling</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6606</td><td>Actuarial Mathematics for Long-Term Insurance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6607</td><td>Actuarial Mathematics for Short-Term Insurance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6608</td><td>Derivatives for Actuaries</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6609</td><td>Data Science for Insurance Analytics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6610</td><td>Statistical Modelling for Insurance Analytics</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6611</td><td>Insurance and Risk Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6612</td><td>Life Insurance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr><td>FINA 6613</td><td>Commercial Property and Liability Insurance</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6614</td><td>Selected Topics in Actuarial Science</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6615</td><td>Current Topics in Insurance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6616</td><td>Advanced Life Contingencies</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6617</td><td>Loss and Survival Models</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6618 [1.5]</td><td>Selected Issues in Actuarial Science</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 6619 [1.5]</td><td>Current Issues in Insurance</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc Actuarial Science & Insurance Analytics.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 7111</td><td>Independent Study</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 8003</td><td>Thesis Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 8006 [6]</td><td>Thesis Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
-<tr class="course-unavailable"><td>FINA 8012 [12]</td><td>Thesis Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil-PhD Finance.</span></td></tr>
+<tr class="nf"><td>FINA 3230</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3240</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3250</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3260</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3290</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3295</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3310</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3320</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3330</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3340</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3350</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3360</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3370</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3398</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3399</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 3420</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4010</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4020</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4030</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4040</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4050</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4060</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4110</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4120</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4130</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4140</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4150</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4160</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4190</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4210</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4211</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4215</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4220</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4221</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4250</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4270</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4280</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4290</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4291</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4310</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4320</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4330</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4340</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4350</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4370</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4380</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4390</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4400</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4410</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4420</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 4430</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 5010</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 5011</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 5012</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 5015</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6010</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6011</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6020</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6022</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6023</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6040</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6067</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6081</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6092</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6112</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6121</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6122</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6130</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6132</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6142</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6152</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6172</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6192</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6203</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6204</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6205</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6206</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6207</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6208</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6209</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6210</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6212</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6220</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6221</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6222</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6225</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6228</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6229</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6230</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6232</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6236</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6242</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6250</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6252</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6263</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6272</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6282</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6292</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6342</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6352</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6362</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6372</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6504</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6508</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6511</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6512</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6513</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6514</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6515</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6522</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6524</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6525</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6526</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6527</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6532</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6533</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6534</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6542</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6552</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6572</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6582</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6592</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6601</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6602</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6603</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6604</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6605</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6606</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6607</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6608</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6609</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6610</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6611</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6612</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6613</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6614</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6615</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6616</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6617</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6618</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 6619</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 7111</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 8003</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 8006</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>FINA 8012</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>HTMG 3010</td><td>Management of Lodging Facilities</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>
 <tr><td>HTMG 3020</td><td>Hospitality Organization Behaviour</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">PR-MGNT2040/ HTMG1010/ HTMG3010.</span></td></tr>
 <tr><td>HTMG 3030</td><td>Hospitality Real Estate Economics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: HTMG1010.</span></td></tr>

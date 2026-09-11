@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -345,19 +347,19 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>ELEG 3601</td><td>Introduction to Electric Power Systems</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: (ELEG2202 or BMEG2300) and (ENGG1310 or ENGG2520 or ESTR1003), or with consent of the instructor.</span></td></tr>
 <tr><td>ELEG 3701</td><td>Embedded Systems Design</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ELEG2401 or IERG3060 or IERG3810;</span><span class="prereq-sentence">Pre-requisite: (ELEG2201 and ELEG2202)or with the consent of the instructor.</span></td></tr>
 <tr><td>ELEG 3710</td><td>Electronic Product Design and Development</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ELEG3700.</span></td></tr>
-<tr class="course-unavailable"><td>ELEG 4211</td><td>CMOS Digital Integrated Circuits Design</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ELEG4201 or ELEG4260.</span></td></tr>
-<tr class="eq-row"><td>ELEG 4214</td><td>RF Circuits for Wireless Systems</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ELEG4203 or ELEG4204 or ELEG4213 or ESTR4206 or ESTR4208 or ESTR4220 or ESTR4222.</span><span class="prereq-sentence">Pre-requisite: ELEG3203 or ELEG3213 or ESTR3214 or consent of the instructor.</span></td></tr>
+<tr class="nf"><td>ELEG 4211</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf eq-row"><td>ELEG 4214</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr class="course-unavailable"><td>ESTR 4222</td><td>RF Circuits for Wireless Systems</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ELEG3203 or ELEG3213 or ESTR3214 or consent of the instructor.</span><span class="prereq-sentence">Not for students who have taken ELEG4203 or ELEG4204 or ELEG4213 or ELEG4214 or ESTR4206 or ESTR4208 or ESTR4220.</span></td></tr>
-<tr><td>ELEG 4215</td><td>Power Converter Circuits</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ELEG4205.</span><span class="prereq-sentence">Prerequisite: ELEG3202 or consent of the instructor.</span></td></tr>
-<tr class="course-unavailable"><td>ELEG 4216</td><td>Design Methodology of Modern Digital Circuits</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ELEG3205.</span></td></tr>
-<tr class="eq-row course-unavailable"><td>ELEG 4311</td><td>Physics and Technology of Semiconductor Devices</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ELEG4301 or ELEG4510 or ESTR4210 or ESTR4216.</span><span class="prereq-sentence">Prerequisites: ELEG3301 or ESTR3204 or consent of the instructor.</span></td></tr>
+<tr class="nf"><td>ELEG 4215</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>ELEG 4216</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf eq-row"><td>ELEG 4311</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr class="course-unavailable"><td>ESTR 4216</td><td>Physics and Technology of Semiconductor Devices</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ELEG4301 or ELEG4311 or ELEG4510 or ESTR4210.</span><span class="prereq-sentence">Pre-requisite: ELEG3301 or ESTR3204 or consent of the instructor.</span></td></tr>
-<tr><td>ELEG 4312</td><td>Micro-optic Devices and Systems</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ELEG4302.</span></td></tr>
-<tr><td>ELEG 4313</td><td>Integrated Photonics: Theory, Design and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="eq-row"><td>ELEG 4511</td><td>Digital Signal Processing and Applications</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ELEG4501 or ESTR4212 or ESTR4218.</span><span class="prereq-sentence">Pre-requisite: ELEG3503 or consent of the instructor.</span></td></tr>
+<tr class="nf"><td>ELEG 4312</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>ELEG 4313</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf eq-row"><td>ELEG 4511</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr class="course-unavailable"><td>ESTR 4218</td><td>Digital Signal Processing and Applications</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ELEG4501 or ELEG4511 or ESTR4212.</span><span class="prereq-sentence">Pre-requisite: ELEG3503 or consent of the instructor.</span></td></tr>
-<tr><td>ELEG 4512</td><td>Digital Image Processing</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ELEG4502 or IERG4160.</span></td></tr>
-<tr><td>ELEG 4701</td><td>Intelligent Interactive Robot Practice</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: CSCI1120 or ESTR1100 Introduction to Computing Using C++.</span></td></tr>
+<tr class="nf"><td>ELEG 4512</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>ELEG 4701</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr class="course-unavailable"><td>ENGG 3802 [1]</td><td>Introduction to Engineering Entrepreneurship</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>ENGG 3803 [2]</td><td>Engineering Entrepreneurship Development Project</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ENGG3802 with Grade B+ or above or with consent of instructor.</span></td></tr>
 </tbody></table></details>

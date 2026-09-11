@@ -5,7 +5,33 @@
         "unit": "3.00",
         "info": "For students in MPhil-PhD Management; or MPhil-PhD Marketing",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-S01-SEM",
+                "component_type": "SEM",
+                "class_number": "1228",
+                "status": "Open",
+                "class_capacity": "30",
+                "wait_list_capacity": "0",
+                "enrollment_total": "9",
+                "wait_list_total": "0",
+                "available_seats": "21",
+                "day_time": "Fr 9:30AM - 12:15PM",
+                "room": "Yasumoto Int'l Acad Park 504",
+                "instructor": "Professor LI Wendong",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            }
+        ]
     },
     {
         "code": "BASA 6002",
@@ -13,6 +39,66 @@
         "unit": "3.00",
         "info": "For students in MPhil-PhD Management; or MPhil-PhD Marketing; Prerequisite: BASA6001",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "2535",
+                "status": "Open",
+                "class_capacity": "15",
+                "wait_list_capacity": "0",
+                "enrollment_total": "8",
+                "wait_list_total": "0",
+                "available_seats": "7",
+                "day_time": "We 1:30PM - 6:15PM",
+                "room": "Cheng Yu Tung Building 611",
+                "instructor": "Professor KWONG Yuk Yee Jessica",
+                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "2535",
+                "status": "Open",
+                "class_capacity": "15",
+                "wait_list_capacity": "0",
+                "enrollment_total": "8",
+                "wait_list_total": "0",
+                "available_seats": "7",
+                "day_time": "Mo 1:30PM - 6:15PM",
+                "room": "Cheng Yu Tung Building 611",
+                "instructor": "Professor KWONG Yuk Yee Jessica",
+                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "2535",
+                "status": "Open",
+                "class_capacity": "15",
+                "wait_list_capacity": "0",
+                "enrollment_total": "8",
+                "wait_list_total": "0",
+                "available_seats": "7",
+                "day_time": "Mo 1:30PM - 6:15PM",
+                "room": "Cheng Yu Tung Building 611",
+                "instructor": "Professor KWONG Yuk Yee Jessica",
+                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+            }
+        ]
     }
 ]

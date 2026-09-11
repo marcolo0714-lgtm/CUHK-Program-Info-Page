@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -344,7 +346,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>MUSC 1015 [1]</td><td>Chinese Music Ensemble I</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>MUSC 1016 [1]</td><td>Early Music Ensemble I</td><td></td><td></td><td>—</td></tr>
 <tr><td>MUSC 1017 [1]</td><td>Javanese Gamelan Ensemble I</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>MUSC 1018 [1]</td><td>Jazz Ensemble I</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 1018 [1]</td><td>Jazz Ensemble I</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>MUSC 1019 [1]</td><td>New Music Ensemble I</td><td></td><td></td><td>—</td></tr>
 <tr><td>MUSC 1021 [1]</td><td>Applied Music (Minor II)</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>MUSC 1023 [1]</td><td>African Drumming II</td><td></td><td class="term-yes"></td><td>—</td></tr>
@@ -368,7 +370,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>MUSC 2015 [1]</td><td>Chinese Music Ensemble III</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>MUSC 2016 [1]</td><td>Early Music Ensemble III</td><td></td><td></td><td>—</td></tr>
 <tr><td>MUSC 2017 [1]</td><td>Javanese Gamelan Ensemble III</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>MUSC 2018 [1]</td><td>Jazz Ensemble III</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 2018 [1]</td><td>Jazz Ensemble III</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>MUSC 2019 [1]</td><td>New Music Ensemble III</td><td></td><td></td><td>—</td></tr>
 <tr><td>MUSC 2021 [1]</td><td>Applied Music (Minor IV)</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>MUSC 2023 [1]</td><td>African Drumming IV</td><td></td><td class="term-yes"></td><td>—</td></tr>
@@ -407,7 +409,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>MUSC 3015 [1]</td><td>Chinese Music Ensemble V</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>MUSC 3016 [1]</td><td>Early Music Ensemble V</td><td></td><td></td><td>—</td></tr>
 <tr><td>MUSC 3017 [1]</td><td>Javanese Gamelan Ensemble V</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>MUSC 3018 [1]</td><td>Jazz Ensemble V</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 3018 [1]</td><td>Jazz Ensemble V</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>MUSC 3019 [1]</td><td>New Music Ensemble V</td><td></td><td></td><td>—</td></tr>
 <tr><td>MUSC 3021 [1]</td><td>Applied Music (Minor VI)</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>MUSC 3023 [1]</td><td>African Drumming VI</td><td></td><td class="term-yes"></td><td>—</td></tr>
@@ -472,7 +474,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>MUSC 4015 [1]</td><td>Chinese Music Ensemble VII</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>MUSC 4016 [1]</td><td>Early Music Ensemble VII</td><td></td><td></td><td>—</td></tr>
 <tr><td>MUSC 4017 [1]</td><td>Javanese Gamelan Ensemble VII</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>MUSC 4018 [1]</td><td>Jazz Ensemble VII</td><td></td><td></td><td>—</td></tr>
+<tr><td>MUSC 4018 [1]</td><td>Jazz Ensemble VII</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>MUSC 4019 [1]</td><td>New Music Ensemble VII</td><td></td><td></td><td>—</td></tr>
 <tr><td>MUSC 4021 [1]</td><td>Applied Music (Minor VIII)</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr class="course-unavailable"><td>MUSC 4022 [2]</td><td>Applied Music (Major XVI)</td><td></td><td></td><td>—</td></tr>
@@ -506,49 +508,49 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>MUSC 5111</td><td>Special Topic I in “Music and Society”</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
 <tr><td>MUSC 5112</td><td>Special Topic II in 'Music and Society'</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
 <tr class="course-unavailable"><td>MUSC 5201</td><td>Music Management and Promotion</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr><td>MUSC 5202</td><td>Advanced Tonal Skills</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr><td>MUSC 5203</td><td>Practical Composing and Arranging</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 5204</td><td>Advanced Music Information Technology</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 5205</td><td>Writing Music for the Church</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 5206</td><td>Entrepreneurship and New Vision in Music</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 5211</td><td>Special Topic III in ‘Music, Industry, and Creativity’</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 5212</td><td>Special Topic IV in ‘Music, Industry, and Creativity’</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr><td>MUSC 5301</td><td>Frontiers in Music Theory</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr><td>MUSC 5302</td><td>Style, Interpretation and Performance Practice</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 5303</td><td>Western Opera & Vocal Literature</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr><td>MUSC 5304</td><td>Western Instrumental Literature</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr><td>MUSC 5305</td><td>Practical Studies in Musicianship and Conducting (Choral)</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 5306</td><td>Practical Studies in Musicianship and Conducting (Orchestral)</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr><td>MUSC 5311</td><td>Special Topic V in 'Style and Interpretation'</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 5312</td><td>Special Topic VI in 'Style and Interpretation'</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6000</td><td>Research Methods and Bibliography</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6050</td><td>Independent Study I</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6051</td><td>Independent Study II</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6100</td><td>Advanced Composition I</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6101</td><td>Advanced Composition II</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6150</td><td>Computer-Aided Composition</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6200</td><td>Ethnomusicology I: History and Theory</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6201</td><td>Ethnomusicology II: Current issues</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music;</span><span class="prereq-sentence">Prerequisite: MUSC6200.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6250</td><td>Special Topic in Chinese Music I</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6251</td><td>Special Topic in Chinese Music II</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6252</td><td>Special Topic in Ethnomusicology I</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6253</td><td>Special Topic in Ethnomusicology II</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6350</td><td>Seminar in Musicology: Renaissance and Early Baroque Music</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6351</td><td>Seminar in Musicology: Late Baroque to 1870</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6352</td><td>Seminar in Musicology: From 1870 to the Present</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6353</td><td>Topics in Sacred Music</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6354</td><td>Topics in Western Opera</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6355</td><td>Topics in the Orchestra and Its Music</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6356</td><td>Musical Notation</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6357</td><td>Topics in Musicology I</td><td></td><td></td><td><span class="prereq-sentence">For students in PhD/MPhil/DMus/MMus in Music.</span></td></tr>
-<tr><td>MUSC 6358</td><td>Topics in Musicology II</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in PhD/MPhil/DMus/MMus in Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6400</td><td>Seminar in the Theory and Analysis of Music I</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6401</td><td>Advanced Tonal Music Theory and Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6402</td><td>Advanced Post-tonal Music Theory and Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6450</td><td>Seminar in the Theory and Analysis of Music II</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr class="course-unavailable"><td>MUSC 6451</td><td>Special Topics: Theory and Analysis</td><td></td><td></td><td><span class="prereq-sentence">For students in Doctor of Music, Master of Music, MPhil Music or PhD Music.</span></td></tr>
-<tr><td>MUSC 8025</td><td>M.Phil./M.Mus. Thesis/Portfolio Preparation</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Master of Music or MPhil Music.</span></td></tr>
-<tr><td>MUSC 8026</td><td>Ph.D./D.Mus. Dissertation/Portfolio Preparation</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in Doctor of Music or PhD Music.</span></td></tr>
+<tr class="course-unavailable"><td>MUSC 5202</td><td>Advanced Tonal Skills</td><td></td><td></td><td><span class="prereq-sentence">For MA Music.</span></td></tr>
+<tr class="nf"><td>MUSC 5203</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5204</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5205</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5206</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5211</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5212</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5301</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5302</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5303</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5304</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5305</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5306</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5311</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 5312</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6000</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6050</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6051</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6100</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6101</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6150</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6200</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6201</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6250</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6251</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6252</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6253</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6350</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6351</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6352</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6353</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6354</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6355</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6356</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6357</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6358</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6400</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6401</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6402</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6450</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 6451</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 8025</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>MUSC 8026</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Students planning to Minor in Music must have attained at least Grade 5 in theory and instrument/voice in the examination of the Associated Board of the Royal Schools of Music, or equivalent, and may be asked to attend an interview.</span></div>

@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -329,8 +331,8 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <details class="course-details"><summary>Show 53 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
 <tr><td>ARCH 3424</td><td>Building Technology III: Environmental Technology</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr class="course-unavailable"><td>ARCH 4721</td><td>Land and City</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ARCH3721.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 3941</td><td>New Media and Entertainment Business</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>COMM 4191</td><td>Cultural Studies and Popular Culture</td><td></td><td></td><td>—</td></tr>
+<tr class="nf"><td>COMM 3941</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4191</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>ECON 3320</td><td>Asia-Pacific Economies</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>ECON 3350</td><td>China and the World Economy</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr><td>ECON 3370</td><td>Business Environment of China</td><td class="term-yes"></td><td></td><td>—</td></tr>

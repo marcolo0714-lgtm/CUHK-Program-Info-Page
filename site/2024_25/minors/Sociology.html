@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -341,8 +343,8 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr><td>SOCI 3003</td><td>Classical Sociological Theory</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 3102</td><td>Social Networks and Social Capital</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2013.</span></td></tr>
 <tr class="course-unavailable"><td>SOCI 3204</td><td>Sociology of Crime and Deviance</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr class="course-unavailable"><td>SOCI 3207</td><td>Economic Sociology</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 3208</td><td>Gender and Society</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>SOCI 3207</td><td>Economic Sociology</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<tr class="nf"><td>SOCI 3208</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr class="course-unavailable"><td>SOCI 3221</td><td>Introduction to Social Psychology</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 3223</td><td>Contemporary Sociological Theory</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: SOCI1001 or 1102 or UGEC1823.</span></td></tr>
 <tr class="course-unavailable"><td>SOCI 3224</td><td>Democracy and Society</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2873.</span></td></tr>
@@ -368,7 +370,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>SOCI 3452</td><td>Selected Topics in Sociology II</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken SOCI3241.</span></td></tr>
 <tr><td>SOCI 3453</td><td>Selected Topics in Sociology III</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr class="course-unavailable"><td>SOCI 4201</td><td>Quantitative Method: Survey and Unconventional Data Types</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): SOCI2003 and SOCI2004.</span></td></tr>
-<tr class="course-unavailable"><td>SOCI 4204</td><td>Sociology of Education</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<tr class="nf"><td>SOCI 4204</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr class="course-unavailable"><td>SOCI 4205</td><td>Social Movement</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr class="course-unavailable"><td>SOCI 4208</td><td>Cultural Sociology</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
 <tr><td>SOCI 4209</td><td>Religion in Modern Society</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken SOCI4352 or CURE3112.</span></td></tr>

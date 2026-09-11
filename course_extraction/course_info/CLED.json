@@ -4,7 +4,55 @@
         "title": "Immersion Experience - Putonghua",
         "unit": "2.00",
         "term_1": true,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AF01-FLD",
+                "component_type": "FLD",
+                "class_number": "8180",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "999",
+                "enrollment_total": "9",
+                "wait_list_total": "0",
+                "available_seats": "31",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. KOU Zhihui",
+                "dates": "07/09/2026 - 30/11/2026"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "BF01-FLD",
+                "component_type": "FLD",
+                "class_number": "8127",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. KOU Zhihui",
+                "dates": "11/01/2027 - 19/04/2027"
+            }
+        ]
     },
     {
         "code": "CLED 2530",
@@ -12,14 +60,42 @@
         "unit": "2.00",
         "info": "Not for students who have taken LEDC2520",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8437",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "999",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "23",
+                "day_time": "Fr 9:30AM - 11:15AM",
+                "room": "Hui Yeung Shing Bldg 501",
+                "instructor": "Dr. KOU Zhihui",
+                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+            }
+        ]
     },
     {
         "code": "CLED 2540",
         "title": "Theoretical Foundation of Teaching Chinese",
         "unit": "2.00",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CLED 2630",
@@ -27,21 +103,126 @@
         "unit": "3.00",
         "info": "Not for students who have taken LEDC2610",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CLED 2640",
         "title": "Language, Thought and Writing",
         "unit": "2.00",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8372",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "We 11:30AM - 1:15PM",
+                "room": "Chen Kou Bun Bldg 706C",
+                "instructor": "Dr. CHEUNG Yin Chu",
+                "dates": "13/1, 20/1, 27/1, 3/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8372",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "We 11:30AM - 1:15PM",
+                "room": "Chen Kou Bun Bldg 706C",
+                "instructor": "Dr. CHEUNG Yin Chu",
+                "dates": "17/2, 24/2, 3/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8372",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "We 11:30AM - 1:15PM",
+                "room": "Chen Kou Bun Bldg 706C",
+                "instructor": "Dr. CHEUNG Yin Chu",
+                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+            }
+        ]
     },
     {
         "code": "CLED 3510",
         "title": "Methods of Chinese Language Teaching I",
         "unit": "3.00",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8435",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "999",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "23",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Chen Kou Bun Bldg 123",
+                "instructor": "Dr. NG Mau Yuen Eric",
+                "dates": "10/9, 17/9, 24/9"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8435",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "999",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "23",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Chen Kou Bun Bldg 123",
+                "instructor": "Dr. NG Mau Yuen Eric",
+                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+            }
+        ]
     },
     {
         "code": "CLED 3530",
@@ -49,14 +230,93 @@
         "unit": "2.00",
         "info": "Prerequisite: CLED2530.",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7074",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Mo 2:30PM - 4:15PM",
+                "room": "Hui Yeung Shing Bldg G05",
+                "instructor": "Dr. KOU Zhihui",
+                "dates": "11/1, 18/1, 25/1, 1/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7074",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Mo 2:30PM - 4:15PM",
+                "room": "Hui Yeung Shing Bldg G05",
+                "instructor": "Dr. KOU Zhihui",
+                "dates": "15/2, 22/2, 1/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7074",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Mo 2:30PM - 4:15PM",
+                "room": "Hui Yeung Shing Bldg G05",
+                "instructor": "Dr. KOU Zhihui",
+                "dates": "15/3, 22/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7074",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Mo 2:30PM - 4:15PM",
+                "room": "Hui Yeung Shing Bldg G05",
+                "instructor": "Dr. KOU Zhihui",
+                "dates": "12/4, 19/4"
+            }
+        ]
     },
     {
         "code": "CLED 3540",
         "title": "Psychology in Chinese Language Teaching",
         "unit": "2.00",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CLED 3610",
@@ -64,7 +324,9 @@
         "unit": "3.00",
         "info": "Not for students who have taken CLED3510",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CLED 4510",
@@ -72,14 +334,168 @@
         "unit": "3.00",
         "info": "Prerequisite:CLED3510",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8389",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Chen Kou Bun Bldg 123",
+                "instructor": "Dr. NG Mau Yuen Eric",
+                "dates": "14/1, 21/1, 28/1, 4/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8389",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Th 2:30PM - 5:15PM",
+                "room": "Chen Kou Bun Bldg 123",
+                "instructor": "Dr. NG Mau Yuen Eric",
+                "dates": "18/2, 25/2, 4/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8389",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Tu 10:30AM - 1:15PM",
+                "room": "Wu Ho Man Yuen Bldg 304",
+                "instructor": "Dr. NG Mau Yuen Eric",
+                "dates": "12/1, 19/1, 26/1, 2/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8389",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Tu 10:30AM - 1:15PM",
+                "room": "Wu Ho Man Yuen Bldg 304",
+                "instructor": "Dr. NG Mau Yuen Eric",
+                "dates": "16/2, 23/2, 2/3"
+            }
+        ]
     },
     {
         "code": "CLED 4520",
         "title": "Materials and Curriculum Design in Chinese Teaching",
         "unit": "2.00",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8219",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Mo 4:30PM - 6:15PM",
+                "room": "Chen Kou Bun Bldg 108",
+                "instructor": "Dr. CHEUNG Yin Chu",
+                "dates": "11/1, 18/1, 25/1, 1/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8219",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Mo 4:30PM - 6:15PM",
+                "room": "Chen Kou Bun Bldg 108",
+                "instructor": "Dr. CHEUNG Yin Chu",
+                "dates": "15/2, 22/2, 1/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8219",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Mo 4:30PM - 6:15PM",
+                "room": "Chen Kou Bun Bldg 108",
+                "instructor": "Dr. CHEUNG Yin Chu",
+                "dates": "15/3, 22/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8219",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Mo 4:30PM - 6:15PM",
+                "room": "Chen Kou Bun Bldg 108",
+                "instructor": "Dr. CHEUNG Yin Chu",
+                "dates": "12/4, 19/4"
+            }
+        ]
     },
     {
         "code": "CLED 4610",
@@ -87,7 +503,9 @@
         "unit": "3.00",
         "info": "Prerequisites:LEDC2520 and 3520 or CLED2530 and 3530",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CLED 4620",
@@ -95,7 +513,9 @@
         "unit": "2.00",
         "info": "Not for students who have taken LEDC4620",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CLED 4630",
@@ -103,7 +523,67 @@
         "unit": "3.00",
         "info": "Pre-requisite: CLED2530 and CLED3530.",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8436",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "999",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "17",
+                "day_time": "Mo 3:30PM - 6:15PM",
+                "room": "Hui Yeung Shing Bldg 501",
+                "instructor": "Dr. KOU Zhihui",
+                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8436",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "999",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "17",
+                "day_time": "Mo 3:30PM - 6:15PM",
+                "room": "Hui Yeung Shing Bldg 501",
+                "instructor": "Dr. KOU Zhihui",
+                "dates": "26/10"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8436",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "999",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "17",
+                "day_time": "We 9:30AM - 12:15PM",
+                "room": "Chen Kou Bun Bldg 706C",
+                "instructor": "Dr. KOU Zhihui",
+                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10"
+            }
+        ]
     },
     {
         "code": "CLED 4640",
@@ -111,7 +591,9 @@
         "unit": "2.00",
         "info": "Pre-requisite: CLED2530 and CLED3530.",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CLED 4650",
@@ -119,21 +601,51 @@
         "unit": "3.00",
         "info": "1.Not for students who have taken CLED4510. 2.Prerequisite:CLED3610",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CLED 4660",
         "title": "Oral Skills of Chinese Language Teachers",
         "unit": "2.00",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     },
     {
         "code": "CLED 4720",
         "title": "Classroom Research in Chinese Language Teaching",
         "unit": "3.00",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-F01-FLD",
+                "component_type": "FLD",
+                "class_number": "6258",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. CHEUNG Yin Chu, Dr. KOU Zhihui, Dr. NG Mau Yuen Eric, Professor LAU Kit Ling, Professor PENG Yue",
+                "dates": "11/01/2027 - 19/04/2027"
+            }
+        ]
     },
     {
         "code": "CLED 4730",
@@ -141,27 +653,192 @@
         "unit": "3.00",
         "info": "Prerequisite:CLED4720",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-F01-FLD",
+                "component_type": "FLD",
+                "class_number": "8005",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Dr. NG Mau Yuen Eric, Professor LAU Kit Ling, Professor PENG Yue",
+                "dates": "11/01/2027 - 19/04/2027"
+            }
+        ]
     },
     {
         "code": "CLED 4740",
         "title": "Chinese Language Teaching Assessment",
         "unit": "2.00",
         "term_1": false,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8392",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Mo 11:30AM - 1:15PM",
+                "room": "Chen Kou Bun Bldg 706C",
+                "instructor": "Professor PENG Yue",
+                "dates": "11/1, 18/1, 25/1, 1/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8392",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "Mo 11:30AM - 1:15PM",
+                "room": "Chen Kou Bun Bldg 706C",
+                "instructor": "Professor PENG Yue",
+                "dates": "15/2, 22/2, 1/3"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8392",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "We 11:30AM - 1:15PM",
+                "room": "Esther Lee Bldg 202",
+                "instructor": "Professor PENG Yue",
+                "dates": "13/1, 20/1, 27/1, 3/2"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8392",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "day_time": "We 11:30AM - 1:15PM",
+                "room": "Esther Lee Bldg 202",
+                "instructor": "Professor PENG Yue",
+                "dates": "17/2, 24/2, 3/3"
+            }
+        ]
     },
     {
         "code": "CLED 4750",
         "title": "Current Issues in Chinese Language Education",
         "unit": "2.00",
         "term_1": true,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8438",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "999",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "25",
+                "day_time": "Mo 12:30PM - 2:15PM",
+                "room": "Wong Foo Yuan Bldg 405",
+                "instructor": "Dr. CHEUNG Yin Chu",
+                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8438",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "999",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "25",
+                "day_time": "Mo 12:30PM - 2:15PM",
+                "room": "Wong Foo Yuan Bldg 405",
+                "instructor": "Dr. CHEUNG Yin Chu",
+                "dates": "26/10"
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8438",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "999",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "25",
+                "day_time": "We 4:30PM - 6:15PM",
+                "room": "Wong Foo Yuan Bldg 401",
+                "instructor": "Dr. CHEUNG Yin Chu",
+                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10"
+            }
+        ]
     },
     {
         "code": "CLED 4760",
         "title": "Special Topics in Chinese Language Education",
         "unit": "2.00",
         "term_1": false,
-        "term_2": false
+        "term_2": false,
+        "term_offerings": [],
+        "teaching_schedule": []
     }
 ]

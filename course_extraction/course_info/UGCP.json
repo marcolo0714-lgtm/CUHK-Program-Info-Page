@@ -4,13 +4,109 @@
         "title": "Understanding China",
         "unit": "1.00",
         "term_1": true,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-X01-WBL",
+                "component_type": "WBL",
+                "class_number": "6555",
+                "status": "Wait List",
+                "class_capacity": "2500",
+                "wait_list_capacity": "999",
+                "enrollment_total": "2500",
+                "wait_list_total": "899",
+                "available_seats": "0",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Staff",
+                "dates": "07/09/2026 - 30/11/2026"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-X01-WBL",
+                "component_type": "WBL",
+                "class_number": "6635",
+                "status": "Open",
+                "class_capacity": "2400",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "2400",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Staff",
+                "dates": "11/01/2027 - 19/04/2027"
+            }
+        ]
     },
     {
         "code": "UGCP 1002",
         "title": "Hong Kong in the Wider Constitutional Order",
         "unit": "1.00",
         "term_1": true,
-        "term_2": true
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "teaching_schedule": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-X01-WBL",
+                "component_type": "WBL",
+                "class_number": "6486",
+                "status": "Wait List",
+                "class_capacity": "2500",
+                "wait_list_capacity": "999",
+                "enrollment_total": "2502",
+                "wait_list_total": "566",
+                "available_seats": "0",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Staff",
+                "dates": "07/09/2026 - 30/11/2026"
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-X01-WBL",
+                "component_type": "WBL",
+                "class_number": "6702",
+                "status": "Open",
+                "class_capacity": "2400",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "2400",
+                "day_time": "TBA",
+                "room": "No Room Required",
+                "instructor": "Staff",
+                "dates": "11/01/2027 - 19/04/2027"
+            }
+        ]
     }
 ]

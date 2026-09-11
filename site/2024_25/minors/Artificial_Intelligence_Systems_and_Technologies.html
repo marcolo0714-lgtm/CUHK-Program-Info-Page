@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -330,9 +332,9 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="eq-row"><td>AIST 3030</td><td>Numerical Optimization</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510.</span><span class="prereq-sentence">Not for students who have taken AIST3010 or ESTR3112 or ESTR3114.</span></td></tr>
 <tr><td>ESTR 3114</td><td>Numerical Optimization</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510.</span><span class="prereq-sentence">Not for students who have taken AIST3010 or AIST3030 or ESTR3112.</span></td></tr>
 <tr><td>AIST 3120</td><td>Introduction to Natural Language Processing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: (AIST1110 or CSCI1040 or CSCI1550 or CSCI2040) AND (ENGG1120 or ESTR1005) AND (ENGG2760 or ESTR2018).</span></td></tr>
-<tr class="eq-row"><td>AIST 3510</td><td>Human-computer Interaction</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken SEEM3510.</span></td></tr>
+<tr class="eq-row"><td>AIST 3510</td><td>Human-computer Interaction</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>SEEM 3510</td><td>Human-computer Interaction</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken AIST3510.</span></td></tr>
-<tr class="eq-row"><td>AIST 4010</td><td>Foundation of Applied Deep Learning</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4140.</span><span class="prereq-sentence">Prerequisite: CSCI3230 or CSCI3320 or ESTR3108.</span></td></tr>
+<tr class="nf eq-row"><td>AIST 4010</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>ESTR 4140</td><td>Foundation of Applied Deep Learning</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: CSCI3230 or CSCI3320 or ESTR3108.</span><span class="prereq-sentence">Not for students who have taken AIST4010.</span></td></tr>
 <tr><td>BMEG 3103</td><td>Big Data in HealthCare</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>BMEG 3105</td><td>Data Analytics for Personalized Genomics and Precision Medicine</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3605.</span></td></tr>
@@ -355,7 +357,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="eq-row"><td>ESTR 2020 [2]</td><td>Statistics for Engineers</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ENGG2430 or ENGG2450 or ENGG2780 or ESTR2002 or ESTR2005.</span><span class="prereq-sentence">Co-requisite(s): ENGG2760 or ESTR2018 or ESTR2308 or IERG2470.</span></td></tr>
 <tr class="eq-row"><td>STAT 2006</td><td>Basic Concepts in Statistics and Probability II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: STAT2001 or ENGG2760 or ESTR2018 or consent of instructor.</span></td></tr>
 <tr><td>STAT 2102</td><td>Basic Statistical Concepts and Methods II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken or register concurrently for STAT2006.</span></td></tr>
-<tr class="eq-row"><td>IERG 4300</td><td>Web-scale Information Analytics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300.</span></td></tr>
+<tr class="nf eq-row"><td>IERG 4300</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>ESTR 4300</td><td>Web-scale Information Analytics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CSCI5510 or ENGG4030 or IERG4300.</span></td></tr>
 <tr><td>MAEG 3080</td><td>Fundamentals of Machine Intelligence</td><td></td><td class="term-yes"></td><td>—</td></tr>
 </tbody></table></details>

@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -398,7 +400,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>COMM 3630</td><td>Digital Journalism</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>COMM 3640</td><td>China News Reporting</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3650</td><td>Social Media Analytics for Communication Professionals</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): ENGG1003.</span></td></tr>
-<tr><td>COMM 3660</td><td>Infographics and Data Visualization</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<tr class="course-unavailable"><td>COMM 3660</td><td>Infographics and Data Visualization</td><td></td><td></td><td>—</td></tr>
 <tr><td>COMM 3680</td><td>Business and Financial Reporting</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>COMM 3681</td><td>Special Topic in Journalism I</td><td></td><td></td><td>—</td></tr>
 <tr class="course-unavailable"><td>COMM 3682</td><td>Special Topic in Journalism II</td><td></td><td></td><td>—</td></tr>
@@ -429,111 +431,111 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="course-unavailable"><td>COMM 3888</td><td>Financial Public Relations</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2810 or 2850.</span></td></tr>
 <tr><td>COMM 3910</td><td>Sound Production</td><td class="term-yes"></td><td></td><td>—</td></tr>
 <tr><td>COMM 3920</td><td>Creative Writing in Media</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 3921</td><td>Special Topic in Creative and New Media I</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>COMM 3922</td><td>Special Topic in Creative and New Media II</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 3930</td><td>Digital Video Production</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>COMM 3933</td><td>Music Industry, Production and Marketing</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 3939</td><td>Film Directors</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 3940</td><td>Immersive Storytelling</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>COMM 3941</td><td>New Media and Entertainment Business</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 4040</td><td>Directed Studies in Communication</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 4150</td><td>Senior Research Project</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>COMM 4191</td><td>Cultural Studies and Popular Culture</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 4250</td><td>Global Digital Platforms: Culture, Power and Politics</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>COMM 4730</td><td>Documentary</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>COMM 4733</td><td>Advanced Television Studio Production</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: COMM3733.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 4848</td><td>New Media Advertising</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>COMM 4935</td><td>Cinematography</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2922.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 4956</td><td>Fundamentals of Computer Animation</td><td></td><td></td><td>—</td></tr>
-<tr><td>COMM 4962</td><td>Advanced Photography</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: COMM2440 or 2962.</span></td></tr>
-<tr><td>COMM 5110</td><td>Topical Studies in Communication I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication or MA Journalism or MA Global Communication.</span></td></tr>
-<tr><td>COMM 5111</td><td>Topical Studies in Communication II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication or MA Journalism or MA Global Communication.</span></td></tr>
-<tr><td>COMM 5120</td><td>Emerging Global Media and Cultures</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For M.A. in Global Communication and M.Sc. in New Media students.</span></td></tr>
-<tr><td>COMM 5220</td><td>Communication Theories I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication.</span></td></tr>
-<tr><td>COMM 5250</td><td>Writing for Research and Publication</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication.</span></td></tr>
-<tr><td>COMM 5310</td><td>Statistical Analysis in Communication</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication or MA Global Communication.</span></td></tr>
-<tr><td>COMM 5320</td><td>Quantitative Communication Research</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication.</span></td></tr>
-<tr><td>COMM 5330</td><td>Qualitative Communication Research</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 5460</td><td>Public Relations Writing</td><td></td><td></td><td><span class="prereq-sentence">For students in MSSc Advertising or MSSc Corporate Communication.</span></td></tr>
-<tr><td>COMM 5470</td><td>Public Relations Campaigns and Cases</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSSc Corporate Communication.</span></td></tr>
-<tr><td>COMM 5480</td><td>Investor Relations</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSSc Corporate Communication.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 5510</td><td>Media Management</td><td></td><td></td><td><span class="prereq-sentence">For M.A. in Global Communication, M.A. in Journalism, M.S.Sc. in Advertising, M.S.Sc. in Corporate Communication and M.Sc. in New Media students.</span></td></tr>
-<tr><td>COMM 5520</td><td>Applied Communication Research</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For M.A. in Global Communication, M.A. in Journalism, M.S.Sc. in Advertising, M.S.Sc. in Corporate Communication, M.Sc. in New Media students.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 5530</td><td>Crisis Management</td><td></td><td></td><td><span class="prereq-sentence">For students in MSSc Corporate Communication or MA Global Communication.</span></td></tr>
-<tr><td>COMM 5550</td><td>Corporate Communication</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSSc Corporate Communication.</span></td></tr>
-<tr><td>COMM 5561</td><td>Topical Studies in Corporate Communication I</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For M.S.Sc. in Corporate Communication and M.A. in Global Communication students.</span></td></tr>
-<tr><td>COMM 5562</td><td>Topical Studies in Corporate Communication II</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For M.S.Sc. in Corporate Communication and M.A. in Global Communication students.</span></td></tr>
-<tr><td>COMM 5563</td><td>Topical Studies in Corporate Communication III</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For M.S.Sc. in Corporate Communication and M.A. in Global Communication students.</span></td></tr>
-<tr><td>COMM 5564</td><td>Topical Studies in Corporate Communication IV</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For M.S.Sc. in Corporate Communication and M.A. in Global Communication students.</span></td></tr>
-<tr><td>COMM 5565</td><td>Topical Studies in Corporate Communication V</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For M.S.Sc. in Corporate Communication and M.A. in Global Communication students.</span></td></tr>
-<tr><td>COMM 5570</td><td>Contextual Mood Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For M.S.Sc. in Corporate Communication students.</span></td></tr>
-<tr><td>COMM 5580</td><td>Strategic Public Relations in Greater China</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSSc Corporate Communication or MSSc Advertising or MA Global Communication.</span></td></tr>
-<tr><td>COMM 5590</td><td>Culture and Communication</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSSc Corporate Communication or MA Global Communication.</span></td></tr>
-<tr><td>COMM 5599</td><td>Conflict and Issue Management</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSSc Corporate Communication.</span></td></tr>
-<tr><td>COMM 5611</td><td>Chinese News Writing and Reporting</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MA Journalism.</span></td></tr>
-<tr><td>COMM 5612</td><td>English News Writing and Reporting</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For M.A. in Journalism and M.A. in Global Communication students.</span></td></tr>
-<tr><td>COMM 5620</td><td>Media Ethics and Law</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MA Journalism or MSc New Media.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 5631</td><td>Topical Studies in Journalism I</td><td></td><td></td><td><span class="prereq-sentence">For M.A. in Journalism and M.A. in Global Communication students.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 5632</td><td>Topical Studies in Journalism II</td><td></td><td></td><td><span class="prereq-sentence">For M.A. in Journalism and M.A. in Global Communication students.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 5633</td><td>Topical Studies in Journalism lll</td><td></td><td></td><td><span class="prereq-sentence">For Students of M.A. in Journalism.</span></td></tr>
-<tr><td>COMM 5635</td><td>Financial Reporting and Writing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in M.A. Journalism.</span></td></tr>
-<tr><td>COMM 5636</td><td>Beat Reporting in Technology, Health and Environment</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students of M.A. in Journalism and M.A. in Global Communication.</span></td></tr>
-<tr><td>COMM 5641</td><td>Infographics and Data Visualization</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For Students of M.A. in Journalism.</span></td></tr>
-<tr><td>COMM 5649</td><td>Analyzing Public Affairs</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For M.A. in Journalism and M.A. in Global Communication students.</span></td></tr>
-<tr><td>COMM 5650</td><td>Journalism Theory and Analysis</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication or MSSc Corporate Communication or MA Journalism or MA Global Communication.</span></td></tr>
-<tr><td>COMM 5660</td><td>Photography for Journalists</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MA Journalism.</span></td></tr>
-<tr><td>COMM 5670</td><td>Broadcast Journalism</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MA Journalism.</span></td></tr>
-<tr><td>COMM 5680</td><td>Radio Studio Production</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MA Journalism.</span></td></tr>
-<tr><td>COMM 5690</td><td>Feature Writing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For M.A. in Journalism and M.A. in Global Communication students.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 5699</td><td>Future of Journalism</td><td></td><td></td><td><span class="prereq-sentence">For Students of M.A. in Journalism.</span></td></tr>
-<tr><td>COMM 5710</td><td>Seminar in Communication Theories</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For M.A. in Global Communication and M.A. in Journalism students.</span></td></tr>
-<tr><td>COMM 5711</td><td>Reframing Narratives of the Global</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MA Global Communication.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 5723</td><td>Public Relations and Globalization</td><td></td><td></td><td><span class="prereq-sentence">For MA in Global Communication, MSSc in Advertising and MSSc in Corporate Communication students.</span></td></tr>
-<tr><td>COMM 5725</td><td>Multistakeholder Decision Making and Media Practice</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For MA in Global Communication students and MA in Journalism students.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 5735</td><td>New Media and Society</td><td></td><td></td><td><span class="prereq-sentence">For students in MSc New Media or MA Global Communication.</span></td></tr>
-<tr><td>COMM 5771</td><td>Topical Studies in Global Communication I</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MA Global Communication.</span></td></tr>
-<tr><td>COMM 5772</td><td>Topical Studies in Global Communication II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MA Global Communication.</span></td></tr>
-<tr><td>COMM 5773</td><td>Topical Studies in Global Communication III</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For Students of M.A. in Global Communication.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 5775</td><td>Cultures in Media</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication or MSc New Media or MA Global Communication.</span></td></tr>
-<tr><td>COMM 5831</td><td>Theories in Advertising and Communication</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication or MSSc Advertising.</span></td></tr>
-<tr><td>COMM 5833</td><td>Creative Works: Appreciation and Strategy</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSSc Advertising.</span></td></tr>
-<tr><td>COMM 5835</td><td>Legal and Ethical Aspects in Advertising</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSSc Advertising.</span></td></tr>
-<tr><td>COMM 5838</td><td>Mastering Digital Media Content</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For Students of M.A. in Global Communication, M.S.Sc. in Advertising and M.S.Sc. in Corporate Communication.</span></td></tr>
-<tr><td>COMM 5840</td><td>Applied Advertising Copywriting</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSSc Advertising.</span></td></tr>
-<tr><td>COMM 5841</td><td>Topical Studies in Advertising I</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSSc Advertising or MSSc Corporate Communication.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 5842</td><td>Topical Studies in Advertising II</td><td></td><td></td><td><span class="prereq-sentence">For students in MSSc Advertising or MSSc Corporate Communication.</span></td></tr>
-<tr><td>COMM 5846</td><td>Branding in China</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For Students of M.S.Sc. in Advertising and M.S.Sc. in Corporate Communication.</span></td></tr>
-<tr><td>COMM 5850</td><td>Advanced Advertising Art Direction</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSSc Advertising.</span></td></tr>
-<tr><td>COMM 5940</td><td>New Media Business Model and Innovation</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSc New Media.</span></td></tr>
-<tr><td>COMM 5942</td><td>New Communication Technologies: Trends and Impacts</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication or MSc New Media or MSSc Corporate Communication.</span></td></tr>
-<tr><td>COMM 5946</td><td>Multimedia Design in the Age of AI</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For M.Sc. in New Media and M.A. in Journalism students.</span></td></tr>
-<tr><td>COMM 5947</td><td>Data Science and AI in New Media</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For Students of M.Sc. in New Media & M.A. in Global Communication.</span></td></tr>
-<tr><td>COMM 5950</td><td>New Media Content Development</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc New Media.</span></td></tr>
-<tr><td>COMM 5961</td><td>Topical Studies in New Media I</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc New Media.</span></td></tr>
-<tr><td>COMM 5962</td><td>Topical Studies in New Media II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc New Media.</span></td></tr>
-<tr><td>COMM 5963</td><td>Topical Studies in New Media IIl</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For Students of M.Sc. in New Media.</span></td></tr>
-<tr><td>COMM 5964</td><td>New Media Analytics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For M.Sc. in New Media students.</span></td></tr>
-<tr><td>COMM 5980</td><td>New Media Ecology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MA Journalism or MSc New Media.</span></td></tr>
-<tr><td>COMM 5992</td><td>Critical Data Studies</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For Students of M.Sc. in New Media & M.A. in Global Communication.</span></td></tr>
-<tr><td>COMM 6110</td><td>Independent Studies in Communication</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 6111</td><td>Advanced Statistical Analysis in Communication</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 6120</td><td>Topical Studies in Communication III</td><td></td><td></td><td><span class="prereq-sentence">For MPhil Communication or PhD Communication or MA Global Communication students.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 6121</td><td>Topical Studies in Communication IV</td><td></td><td></td><td><span class="prereq-sentence">For MPhil Communication or PhD Communication or MA Global Communication students.</span></td></tr>
-<tr><td>COMM 6220</td><td>Communication Theories II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For PhD Communication or MPhil Communication students.</span></td></tr>
-<tr><td>COMM 6320</td><td>Digital Research</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Communication; or MPhil Communication.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 6330</td><td>Advanced Qualitative Communication Research</td><td></td><td></td><td><span class="prereq-sentence">For students in MPhil Communication or PhD Communication or MA Global Communication.</span></td></tr>
-<tr><td>COMM 6420</td><td>Strategies for Integrated Communication Campaigns</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students of M.S.Sc. in Advertising, M.S.Sc. in Corporate Communication, M.A. in Global Communication and M.Sc. in New Media.</span></td></tr>
-<tr><td>COMM 6613</td><td>Practicum in Journalism</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For Students of M.A. in Journalism.</span></td></tr>
-<tr><td>COMM 6680</td><td>Independent Study</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MA Journalism.</span></td></tr>
-<tr><td>COMM 6836</td><td>Channel Planning and Performance Media</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">For students in MSSc Advertising.</span></td></tr>
-<tr><td>COMM 6839</td><td>Consumer Behaviour and Audience Analysis</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSSc Advertising or MSSc Corporate Communication.</span></td></tr>
-<tr><td>COMM 6848</td><td>Account Planning and Advertising Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSSc Advertising.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 6858</td><td>Brand Strategy and Integrated Marketing Communication</td><td></td><td></td><td><span class="prereq-sentence">For Students of M.S.Sc. in Advertising and M.S.Sc. in Corporate Communication.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 6900</td><td>Graduation Project</td><td></td><td></td><td><span class="prereq-sentence">For students in MA Global Communication.</span></td></tr>
-<tr><td>COMM 6940</td><td>Creative Technologies: Design and Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc New Media.</span></td></tr>
-<tr><td>COMM 6950</td><td>Directed Study in New Media Project</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MSc New Media.</span></td></tr>
-<tr><td>COMM 8100</td><td>Thesis in Progress</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in MPhil Communication.</span></td></tr>
-<tr><td>COMM 8200</td><td>Thesis in Progress</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">For students in PhD Communication.</span></td></tr>
+<tr class="nf"><td>COMM 3921</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 3922</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 3930</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 3933</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 3939</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 3940</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 3941</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4040</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4150</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4191</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4250</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4730</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4733</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4848</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4935</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4956</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 4962</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5110</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5111</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5120</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5220</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5250</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5310</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5320</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5330</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5460</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5470</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5480</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5510</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5520</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5530</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5550</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5561</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5562</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5563</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5564</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5565</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5570</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5580</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5590</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5599</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5611</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5612</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5620</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5631</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5632</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5633</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5635</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5636</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5641</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5649</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5650</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5660</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5670</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5680</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5690</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5699</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5710</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5711</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5723</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5725</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5735</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5771</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5772</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5773</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5775</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5831</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5833</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5835</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5838</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5840</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5841</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5842</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5846</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5850</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5940</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5942</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5946</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5947</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5950</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5961</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5962</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5963</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5964</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5980</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 5992</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6110</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6111</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6120</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6121</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6220</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6320</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6330</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6420</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6613</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6680</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6836</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6839</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6848</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6858</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6900</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6940</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 6950</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 8100</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>COMM 8200</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Requirement for declaration in Minors: Students should have obtained a pass or above in COMM1110 for declaration of a Minor in Journalism and Communication.</span></div>

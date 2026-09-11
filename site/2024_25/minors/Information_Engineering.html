@@ -65,7 +65,9 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .meta { color:var(--muted); font-size:.85em; white-space:nowrap; }
 .tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
        padding:2px 8px; font-size:.8em; margin-right:6px; }
-.req-row { display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; }
+.req-row { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; padding:4px 0; }
+.row-text { flex:1; min-width:0; overflow-wrap:anywhere; }
+.req-row .meta { flex:none; }
 .req-row:first-child { padding-top:0; }
 .req-row:last-child { padding-bottom:0; }
 .section-stream { margin-left: 28px; }
@@ -351,7 +353,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="eq-row"><td>IERG 4180</td><td>Network Software Design and Programming</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR4308.</span></td></tr>
 <tr class="course-unavailable"><td>ESTR 4308</td><td>Network Software Design and Programming</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken IERG4180.</span></td></tr>
 <tr><td>IERG 4220</td><td>Secure Software Engineering</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>IERG 4240</td><td>Positioning Principles and Technologies</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: IERG2051 or ENGG2030 or MIEG2051 or ESTR2302 or ESTR2206 or ESTR2360.</span></td></tr>
+<tr><td>IERG 4240</td><td>Positioning Principles and Technologies</td><td></td><td class="term-yes"></td><td>—</td></tr>
 <tr class="eq-row"><td>IERG 4320</td><td>Data Science in Practice</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4324.</span></td></tr>
 <tr class="course-unavailable"><td>ESTR 4324</td><td>Data Science in Practice</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken IERG4320.</span></td></tr>
 <tr class="course-unavailable"><td>IERG 4340</td><td>Emerging Technologies in Information Engineering</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken IEMS5717.</span></td></tr>
@@ -402,11 +404,11 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <tr class="eq-row"><td>CSCI 4130</td><td>Introduction to Cyber Security</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR4306 or IEMS5710 or IERG4130.</span></td></tr>
 <tr class="course-unavailable"><td>ESTR 4306</td><td>Introduction to Cyber Security</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken IERG4130 or IEMS5710 or CSCI4130.</span></td></tr>
 <tr class="eq-row"><td>IERG 4160</td><td>Image Processing and Visual Understanding</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ELEG4502 or ELEG4512.</span></td></tr>
-<tr><td>ELEG 4512</td><td>Digital Image Processing</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ELEG4502 or IERG4160.</span></td></tr>
+<tr class="nf"><td>ELEG 4512</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>IERG 4190</td><td>Multimedia Coding and Processing</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: ENGG2030 or ESTR2206 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051.</span><span class="prereq-sentence">Not for students who have taken IEMS5707.</span></td></tr>
 <tr><td>IERG 4210</td><td>Web Programming and Security</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken IEMS5718.</span></td></tr>
 <tr><td>IERG 4230</td><td>Introduction to Internet of Things</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="eq-row"><td>IERG 4300</td><td>Web-scale Information Analytics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300.</span></td></tr>
+<tr class="nf eq-row"><td>IERG 4300</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
 <tr><td>ESTR 4300</td><td>Web-scale Information Analytics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CSCI5510 or ENGG4030 or IERG4300.</span></td></tr>
 <tr class="eq-row course-unavailable"><td>IERG 4330</td><td>Programming Big Data Systems</td><td></td><td></td><td><span class="prereq-sentence">Pre/Co-requisite: ENGG4030 or ESTR4300 or IERG4300.</span><span class="prereq-sentence">Not for students who have taken ESTR4316 or IEMS5730.</span></td></tr>
 <tr class="course-unavailable"><td>ESTR 4316</td><td>Programming Big Data Systems</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken IERG4330 or IEMS5730.</span><span class="prereq-sentence">Co-/Pre-requisite(s): ENGG4030 or ESTR4300 or IERG4300.</span></td></tr>
