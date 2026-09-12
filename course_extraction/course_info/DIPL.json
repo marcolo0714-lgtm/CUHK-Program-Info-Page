@@ -12,7 +12,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -25,10 +25,14 @@
                 "enrollment_total": "23",
                 "wait_list_total": "0",
                 "available_seats": "7",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Wong Foo Yuan Bldg 405",
-                "instructor": "Dr. HUNG Wing Lok",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Wong Foo Yuan Bldg 405",
+                        "instructor": "Dr. HUNG Wing Lok",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             }
         ]
     },
@@ -45,7 +49,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -58,44 +62,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Chen Kou Bun Bldg 108",
-                "instructor": "Staff",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5091",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Chen Kou Bun Bldg 108",
-                "instructor": "Staff",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5091",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Chen Kou Bun Bldg 108",
-                "instructor": "Staff",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Chen Kou Bun Bldg 108",
+                        "instructor": "Staff",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Chen Kou Bun Bldg 108",
+                        "instructor": "Staff",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Chen Kou Bun Bldg 108",
+                        "instructor": "Staff",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -106,7 +92,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DIPL 2001",
@@ -115,7 +101,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DIPL 2002",
@@ -124,7 +110,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DIPL 2003",
@@ -133,7 +119,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DIPL 3001",
@@ -142,7 +128,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DIPL 3002",
@@ -151,7 +137,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DIPL 4001",
@@ -160,6 +146,6 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     }
 ]

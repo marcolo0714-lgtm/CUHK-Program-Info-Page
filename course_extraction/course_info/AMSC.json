@@ -13,7 +13,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -26,27 +26,20 @@
                 "enrollment_total": "67",
                 "wait_list_total": "0",
                 "available_seats": "13",
-                "day_time": "Mo 12:30PM - 3:15PM",
-                "room": "Wen Lan Tang LG204",
-                "instructor": "Professor LI Quan",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "3952",
-                "status": "Open",
-                "class_capacity": "80",
-                "wait_list_capacity": "0",
-                "enrollment_total": "67",
-                "wait_list_total": "0",
-                "available_seats": "13",
-                "day_time": "Mo 12:30PM - 3:15PM",
-                "room": "Wen Lan Tang LG204",
-                "instructor": "Professor LI Quan",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 12:30PM - 3:15PM",
+                        "room": "Wen Lan Tang LG204",
+                        "instructor": "Professor LI Quan",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 12:30PM - 3:15PM",
+                        "room": "Wen Lan Tang LG204",
+                        "instructor": "Professor LI Quan",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -60,10 +53,14 @@
                 "enrollment_total": "67",
                 "wait_list_total": "0",
                 "available_seats": "13",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor LI Quan",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor LI Quan",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -81,7 +78,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -94,10 +91,14 @@
                 "enrollment_total": "67",
                 "wait_list_total": "0",
                 "available_seats": "13",
-                "day_time": "Tu 6:30PM - 9:15PM",
-                "room": "Wu Ho Man Yuen Bldg 507",
-                "instructor": "Professor CHEN Ye",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 6:30PM - 9:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 507",
+                        "instructor": "Professor CHEN Ye",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             }
         ]
     },
@@ -115,7 +116,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -128,27 +129,20 @@
                 "enrollment_total": "66",
                 "wait_list_total": "0",
                 "available_seats": "14",
-                "day_time": "Th 6:30PM - 9:15PM",
-                "room": "Cheng Yu Tung Building 209A",
-                "instructor": "Professor CHEN Ye, Professor HUANG Zhifeng, Professor LI Quan, Professor LU Xinhui, Professor MIAO Qian, Professor NGAI To, Professor Oleksandr SAVATIEIEV, Professor WAN Qingyun, Professor WANG Jianfang, Professor XIA Jiang, Professor XU Lei, Professor ZHU Junyi",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "3893",
-                "status": "Open",
-                "class_capacity": "80",
-                "wait_list_capacity": "5",
-                "enrollment_total": "66",
-                "wait_list_total": "0",
-                "available_seats": "14",
-                "day_time": "Th 6:30PM - 9:15PM",
-                "room": "Cheng Yu Tung Building 209A",
-                "instructor": "Professor CHEN Ye, Professor HUANG Zhifeng, Professor LI Quan, Professor LU Xinhui, Professor MIAO Qian, Professor NGAI To, Professor Oleksandr SAVATIEIEV, Professor WAN Qingyun, Professor WANG Jianfang, Professor XIA Jiang, Professor XU Lei, Professor ZHU Junyi",
-                "dates": "10/9, 17/9, 24/9"
+                "timetable": [
+                    {
+                        "day_time": "Th 6:30PM - 9:15PM",
+                        "room": "Cheng Yu Tung Building 209A",
+                        "instructor": "Professor CHEN Ye, Professor HUANG Zhifeng, Professor LI Quan, Professor LU Xinhui, Professor MIAO Qian, Professor NGAI To, Professor Oleksandr SAVATIEIEV, Professor WAN Qingyun, Professor WANG Jianfang, Professor XIA Jiang, Professor XU Lei, Professor ZHU Junyi",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    },
+                    {
+                        "day_time": "Th 6:30PM - 9:15PM",
+                        "room": "Cheng Yu Tung Building 209A",
+                        "instructor": "Professor CHEN Ye, Professor HUANG Zhifeng, Professor LI Quan, Professor LU Xinhui, Professor MIAO Qian, Professor NGAI To, Professor Oleksandr SAVATIEIEV, Professor WAN Qingyun, Professor WANG Jianfang, Professor XIA Jiang, Professor XU Lei, Professor ZHU Junyi",
+                        "dates": "10/9, 17/9, 24/9"
+                    }
+                ]
             }
         ]
     },
@@ -166,7 +160,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -179,44 +173,26 @@
                 "enrollment_total": "50",
                 "wait_list_total": "0",
                 "available_seats": "20",
-                "day_time": "Mo 9:30AM - 12:15PM",
-                "room": "Humanities Building 213",
-                "instructor": "Professor HU Chen",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "3999",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "5",
-                "enrollment_total": "50",
-                "wait_list_total": "0",
-                "available_seats": "20",
-                "day_time": "Mo 9:30AM - 12:15PM",
-                "room": "Humanities Building 213",
-                "instructor": "Professor HU Chen",
-                "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "3999",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "5",
-                "enrollment_total": "50",
-                "wait_list_total": "0",
-                "available_seats": "20",
-                "day_time": "Mo 9:30AM - 12:15PM",
-                "room": "Humanities Building 213",
-                "instructor": "Professor HU Chen",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 9:30AM - 12:15PM",
+                        "room": "Humanities Building 213",
+                        "instructor": "Professor HU Chen",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 12:15PM",
+                        "room": "Humanities Building 213",
+                        "instructor": "Professor HU Chen",
+                        "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 12:15PM",
+                        "room": "Humanities Building 213",
+                        "instructor": "Professor HU Chen",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             }
         ]
     },
@@ -234,7 +210,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -247,10 +223,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "50",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor HUANG Zhifeng, Professor LU Xinhui",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor HUANG Zhifeng, Professor LU Xinhui",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -268,7 +248,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -281,44 +261,26 @@
                 "enrollment_total": "56",
                 "wait_list_total": "0",
                 "available_seats": "14",
-                "day_time": "Mo 6:30PM - 9:15PM",
-                "room": "Yasumoto Int'l Acad Park 201",
-                "instructor": "Professor GOH Swee Kuan, Professor HUI Pak Ming, Professor LI Yufan, Professor ONG Hock Chun Daniel",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4062",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "5",
-                "enrollment_total": "56",
-                "wait_list_total": "0",
-                "available_seats": "14",
-                "day_time": "Mo 6:30PM - 9:15PM",
-                "room": "Yasumoto Int'l Acad Park 201",
-                "instructor": "Professor GOH Swee Kuan, Professor HUI Pak Ming, Professor LI Yufan, Professor ONG Hock Chun Daniel",
-                "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4062",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "5",
-                "enrollment_total": "56",
-                "wait_list_total": "0",
-                "available_seats": "14",
-                "day_time": "Mo 6:30PM - 9:15PM",
-                "room": "Yasumoto Int'l Acad Park 201",
-                "instructor": "Professor GOH Swee Kuan, Professor HUI Pak Ming, Professor LI Yufan, Professor ONG Hock Chun Daniel",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 6:30PM - 9:15PM",
+                        "room": "Yasumoto Int'l Acad Park 201",
+                        "instructor": "Professor GOH Swee Kuan, Professor HUI Pak Ming, Professor LI Yufan, Professor ONG Hock Chun Daniel",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:15PM",
+                        "room": "Yasumoto Int'l Acad Park 201",
+                        "instructor": "Professor GOH Swee Kuan, Professor HUI Pak Ming, Professor LI Yufan, Professor ONG Hock Chun Daniel",
+                        "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:15PM",
+                        "room": "Yasumoto Int'l Acad Park 201",
+                        "instructor": "Professor GOH Swee Kuan, Professor HUI Pak Ming, Professor LI Yufan, Professor ONG Hock Chun Daniel",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             }
         ]
     },
@@ -336,7 +298,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -349,27 +311,20 @@
                 "enrollment_total": "44",
                 "wait_list_total": "0",
                 "available_seats": "26",
-                "day_time": "Th 6:30PM - 9:15PM",
-                "room": "Wu Ho Man Yuen Bldg 301",
-                "instructor": "Professor MIAO Qian, Professor WAN Qingyun",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4063",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "5",
-                "enrollment_total": "44",
-                "wait_list_total": "0",
-                "available_seats": "26",
-                "day_time": "Th 6:30PM - 9:15PM",
-                "room": "Wu Ho Man Yuen Bldg 301",
-                "instructor": "Professor MIAO Qian, Professor WAN Qingyun",
-                "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 6:30PM - 9:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 301",
+                        "instructor": "Professor MIAO Qian, Professor WAN Qingyun",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 6:30PM - 9:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 301",
+                        "instructor": "Professor MIAO Qian, Professor WAN Qingyun",
+                        "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -387,7 +342,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -400,27 +355,20 @@
                 "enrollment_total": "35",
                 "wait_list_total": "0",
                 "available_seats": "35",
-                "day_time": "We 6:30PM - 9:15PM",
-                "room": "Wu Ho Man Yuen Bldg 506",
-                "instructor": "Professor XIA Jiang",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4076",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "5",
-                "enrollment_total": "35",
-                "wait_list_total": "0",
-                "available_seats": "35",
-                "day_time": "We 6:30PM - 9:15PM",
-                "room": "Wu Ho Man Yuen Bldg 506",
-                "instructor": "Professor XIA Jiang",
-                "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 6:30PM - 9:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 506",
+                        "instructor": "Professor XIA Jiang",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 6:30PM - 9:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 506",
+                        "instructor": "Professor XIA Jiang",
+                        "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -438,7 +386,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -451,27 +399,20 @@
                 "enrollment_total": "67",
                 "wait_list_total": "0",
                 "available_seats": "13",
-                "day_time": "Mo 6:30PM - 9:15PM",
-                "room": "Lee Shau Kee Building LT2",
-                "instructor": "Professor WANG Jianfang",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "3951",
-                "status": "Open",
-                "class_capacity": "80",
-                "wait_list_capacity": "5",
-                "enrollment_total": "67",
-                "wait_list_total": "0",
-                "available_seats": "13",
-                "day_time": "Mo 6:30PM - 9:15PM",
-                "room": "Lee Shau Kee Building LT2",
-                "instructor": "Professor WANG Jianfang",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 6:30PM - 9:15PM",
+                        "room": "Lee Shau Kee Building LT2",
+                        "instructor": "Professor WANG Jianfang",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:15PM",
+                        "room": "Lee Shau Kee Building LT2",
+                        "instructor": "Professor WANG Jianfang",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
             }
         ]
     },
@@ -489,7 +430,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -502,27 +443,20 @@
                 "enrollment_total": "60",
                 "wait_list_total": "0",
                 "available_seats": "10",
-                "day_time": "Tu 6:30PM - 9:15PM",
-                "room": "Wu Ho Man Yuen Bldg 301",
-                "instructor": "Professor HUANG Zhifeng",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4077",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "5",
-                "enrollment_total": "60",
-                "wait_list_total": "0",
-                "available_seats": "10",
-                "day_time": "Tu 6:30PM - 9:15PM",
-                "room": "Wu Ho Man Yuen Bldg 301",
-                "instructor": "Professor HUANG Zhifeng",
-                "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 6:30PM - 9:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 301",
+                        "instructor": "Professor HUANG Zhifeng",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 6:30PM - 9:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 301",
+                        "instructor": "Professor HUANG Zhifeng",
+                        "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             }
         ]
     },
@@ -540,7 +474,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -553,44 +487,26 @@
                 "enrollment_total": "27",
                 "wait_list_total": "0",
                 "available_seats": "43",
-                "day_time": "Fr 12:30PM - 3:15PM",
-                "room": "Science Centre L5",
-                "instructor": "Professor XUE Haoran",
-                "dates": "15/1, 22/1, 29/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "3987",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "5",
-                "enrollment_total": "27",
-                "wait_list_total": "0",
-                "available_seats": "43",
-                "day_time": "Fr 12:30PM - 3:15PM",
-                "room": "Science Centre L5",
-                "instructor": "Professor XUE Haoran",
-                "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "3987",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "5",
-                "enrollment_total": "27",
-                "wait_list_total": "0",
-                "available_seats": "43",
-                "day_time": "Fr 12:30PM - 3:15PM",
-                "room": "Science Centre L5",
-                "instructor": "Professor XUE Haoran",
-                "dates": "2/4, 9/4, 16/4, 23/4"
+                "timetable": [
+                    {
+                        "day_time": "Fr 12:30PM - 3:15PM",
+                        "room": "Science Centre L5",
+                        "instructor": "Professor XUE Haoran",
+                        "dates": "15/1, 22/1, 29/1"
+                    },
+                    {
+                        "day_time": "Fr 12:30PM - 3:15PM",
+                        "room": "Science Centre L5",
+                        "instructor": "Professor XUE Haoran",
+                        "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
+                    },
+                    {
+                        "day_time": "Fr 12:30PM - 3:15PM",
+                        "room": "Science Centre L5",
+                        "instructor": "Professor XUE Haoran",
+                        "dates": "2/4, 9/4, 16/4, 23/4"
+                    }
+                ]
             }
         ]
     }

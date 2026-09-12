@@ -12,7 +12,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -25,10 +25,14 @@
                 "enrollment_total": "59",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Fr 9:30AM - 11:15AM",
-                "room": "Wu Ho Man Yuen Bldg 304",
-                "instructor": "Professor CHENG Sze Lok",
-                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                "timetable": [
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Wu Ho Man Yuen Bldg 304",
+                        "instructor": "Professor CHENG Sze Lok",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -42,10 +46,14 @@
                 "enrollment_total": "59",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHENG Sze Lok",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHENG Sze Lok",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -59,10 +67,14 @@
                 "enrollment_total": "59",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHENG Sze Lok",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHENG Sze Lok",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -79,7 +91,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -92,112 +104,50 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "50",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "Lee Shau Kee Archi Bldg 211",
-                "instructor": "Dr. POON Hong Kit",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5607",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "Lee Shau Kee Archi Bldg 211",
-                "instructor": "Dr. POON Hong Kit",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5607",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "Lee Shau Kee Archi Bldg 211",
-                "instructor": "Dr. POON Hong Kit",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5607",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "Lee Shau Kee Archi Bldg 211",
-                "instructor": "Dr. POON Hong Kit",
-                "dates": "12/4, 19/4"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5607",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "Lee Shau Kee Archi Bldg 211",
-                "instructor": "Dr. POON Hong Kit",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5607",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "Lee Shau Kee Archi Bldg 211",
-                "instructor": "Dr. POON Hong Kit",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5607",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "Lee Shau Kee Archi Bldg 211",
-                "instructor": "Dr. POON Hong Kit",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "Lee Shau Kee Archi Bldg 211",
+                        "instructor": "Dr. POON Hong Kit",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "Lee Shau Kee Archi Bldg 211",
+                        "instructor": "Dr. POON Hong Kit",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "Lee Shau Kee Archi Bldg 211",
+                        "instructor": "Dr. POON Hong Kit",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "Lee Shau Kee Archi Bldg 211",
+                        "instructor": "Dr. POON Hong Kit",
+                        "dates": "12/4, 19/4"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Lee Shau Kee Archi Bldg 211",
+                        "instructor": "Dr. POON Hong Kit",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Lee Shau Kee Archi Bldg 211",
+                        "instructor": "Dr. POON Hong Kit",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Lee Shau Kee Archi Bldg 211",
+                        "instructor": "Dr. POON Hong Kit",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -211,27 +161,20 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "50",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. POON Hong Kit",
-                "dates": "11/01/2027 - 19/04/2027"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-L01-LAB",
-                "component_type": "LAB",
-                "class_number": "6243",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. POON Hong Kit",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. POON Hong Kit",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. POON Hong Kit",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -245,27 +188,20 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "50",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. POON Hong Kit",
-                "dates": "11/01/2027 - 19/04/2027"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "6244",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. POON Hong Kit",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. POON Hong Kit",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. POON Hong Kit",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -282,7 +218,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -295,146 +231,62 @@
                 "enrollment_total": "59",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Mo 9:30AM - 11:15AM",
-                "room": "Humanities Building 115",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "14/9, 21/9, 28/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9129",
-                "status": "Closed",
-                "class_capacity": "51",
-                "wait_list_capacity": "0",
-                "enrollment_total": "59",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Mo 9:30AM - 11:15AM",
-                "room": "Humanities Building 115",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "23/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9129",
-                "status": "Closed",
-                "class_capacity": "51",
-                "wait_list_capacity": "0",
-                "enrollment_total": "59",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Tu 11:30AM - 1:15PM",
-                "room": "Basic Med Sci Bldg",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9129",
-                "status": "Closed",
-                "class_capacity": "51",
-                "wait_list_capacity": "0",
-                "enrollment_total": "59",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Mo 9:30AM - 11:15AM",
-                "room": "Humanities Building 115",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9129",
-                "status": "Closed",
-                "class_capacity": "51",
-                "wait_list_capacity": "0",
-                "enrollment_total": "59",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Mo 9:30AM - 11:15AM",
-                "room": "Humanities Building 115",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "2/11, 9/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9129",
-                "status": "Closed",
-                "class_capacity": "51",
-                "wait_list_capacity": "0",
-                "enrollment_total": "59",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Mo 9:30AM - 11:15AM",
-                "room": "Basic Med Sci Bldg",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "5/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9129",
-                "status": "Closed",
-                "class_capacity": "51",
-                "wait_list_capacity": "0",
-                "enrollment_total": "59",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Mo 9:30AM - 11:15AM",
-                "room": "Basic Med Sci Bldg",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "26/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9129",
-                "status": "Closed",
-                "class_capacity": "51",
-                "wait_list_capacity": "0",
-                "enrollment_total": "59",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Mo 9:30AM - 11:15AM",
-                "room": "Basic Med Sci Bldg",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "16/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9129",
-                "status": "Closed",
-                "class_capacity": "51",
-                "wait_list_capacity": "0",
-                "enrollment_total": "59",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Mo 9:30AM - 11:15AM",
-                "room": "Basic Med Sci Bldg",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 9:30AM - 11:15AM",
+                        "room": "Humanities Building 115",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "14/9, 21/9, 28/9"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 11:15AM",
+                        "room": "Humanities Building 115",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "23/11"
+                    },
+                    {
+                        "day_time": "Tu 11:30AM - 1:15PM",
+                        "room": "Basic Med Sci Bldg",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 11:15AM",
+                        "room": "Humanities Building 115",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "12/10"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 11:15AM",
+                        "room": "Humanities Building 115",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "2/11, 9/11"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 11:15AM",
+                        "room": "Basic Med Sci Bldg",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "5/10"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 11:15AM",
+                        "room": "Basic Med Sci Bldg",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "26/10"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 11:15AM",
+                        "room": "Basic Med Sci Bldg",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "16/11"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 11:15AM",
+                        "room": "Basic Med Sci Bldg",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "30/11"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -448,10 +300,14 @@
                 "enrollment_total": "59",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -465,27 +321,20 @@
                 "enrollment_total": "20",
                 "wait_list_total": "0",
                 "available_seats": "31",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "07/09/2026 - 30/11/2026"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "6039",
-                "status": "Open",
-                "class_capacity": "51",
-                "wait_list_capacity": "0",
-                "enrollment_total": "20",
-                "wait_list_total": "0",
-                "available_seats": "31",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -499,27 +348,20 @@
                 "enrollment_total": "19",
                 "wait_list_total": "0",
                 "available_seats": "31",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "07/09/2026 - 30/11/2026"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-T02-TUT",
-                "component_type": "TUT",
-                "class_number": "7896",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "19",
-                "wait_list_total": "0",
-                "available_seats": "31",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -533,27 +375,20 @@
                 "enrollment_total": "20",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "07/09/2026 - 30/11/2026"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-T03-TUT",
-                "component_type": "TUT",
-                "class_number": "7865",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "20",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHEUNG Hoi Hung",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHEUNG Hoi Hung",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -570,7 +405,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -583,10 +418,14 @@
                 "enrollment_total": "102",
                 "wait_list_total": "0",
                 "available_seats": "15",
-                "day_time": "We 3:30PM - 6:15PM",
-                "room": "Science Centre L2",
-                "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 3:30PM - 6:15PM",
+                        "room": "Science Centre L2",
+                        "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -600,10 +439,14 @@
                 "enrollment_total": "102",
                 "wait_list_total": "0",
                 "available_seats": "15",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -620,7 +463,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -633,112 +476,50 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "90",
-                "day_time": "Tu 1:30PM - 2:15PM",
-                "room": "Y.C. Liang Hall 104",
-                "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8477",
-                "status": "Open",
-                "class_capacity": "90",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "90",
-                "day_time": "Tu 1:30PM - 2:15PM",
-                "room": "Y.C. Liang Hall 104",
-                "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8477",
-                "status": "Open",
-                "class_capacity": "90",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "90",
-                "day_time": "Tu 1:30PM - 2:15PM",
-                "room": "Y.C. Liang Hall 104",
-                "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8477",
-                "status": "Open",
-                "class_capacity": "90",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "90",
-                "day_time": "Mo 11:30AM - 1:15PM",
-                "room": "Y.C. Liang Hall 103",
-                "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8477",
-                "status": "Open",
-                "class_capacity": "90",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "90",
-                "day_time": "Mo 11:30AM - 1:15PM",
-                "room": "Y.C. Liang Hall 103",
-                "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8477",
-                "status": "Open",
-                "class_capacity": "90",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "90",
-                "day_time": "Mo 11:30AM - 1:15PM",
-                "room": "Y.C. Liang Hall 103",
-                "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8477",
-                "status": "Open",
-                "class_capacity": "90",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "90",
-                "day_time": "Mo 11:30AM - 1:15PM",
-                "room": "Y.C. Liang Hall 103",
-                "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 1:30PM - 2:15PM",
+                        "room": "Y.C. Liang Hall 104",
+                        "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 1:30PM - 2:15PM",
+                        "room": "Y.C. Liang Hall 104",
+                        "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 1:30PM - 2:15PM",
+                        "room": "Y.C. Liang Hall 104",
+                        "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    },
+                    {
+                        "day_time": "Mo 11:30AM - 1:15PM",
+                        "room": "Y.C. Liang Hall 103",
+                        "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 11:30AM - 1:15PM",
+                        "room": "Y.C. Liang Hall 103",
+                        "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 11:30AM - 1:15PM",
+                        "room": "Y.C. Liang Hall 103",
+                        "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 11:30AM - 1:15PM",
+                        "room": "Y.C. Liang Hall 103",
+                        "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -752,10 +533,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "90",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. Robert George JESKY, Dr. WONG Pui Man Molly",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -772,7 +557,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -785,44 +570,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "85",
-                "day_time": "Th 2:30PM - 4:15PM",
-                "room": "Science Centre L5",
-                "instructor": "Dr. ZHOU Yuhuan",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9506",
-                "status": "Open",
-                "class_capacity": "85",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "85",
-                "day_time": "Th 2:30PM - 4:15PM",
-                "room": "Science Centre L5",
-                "instructor": "Dr. ZHOU Yuhuan",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9506",
-                "status": "Open",
-                "class_capacity": "85",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "85",
-                "day_time": "Th 2:30PM - 4:15PM",
-                "room": "Science Centre L5",
-                "instructor": "Dr. ZHOU Yuhuan",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 4:15PM",
+                        "room": "Science Centre L5",
+                        "instructor": "Dr. ZHOU Yuhuan",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 4:15PM",
+                        "room": "Science Centre L5",
+                        "instructor": "Dr. ZHOU Yuhuan",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 4:15PM",
+                        "room": "Science Centre L5",
+                        "instructor": "Dr. ZHOU Yuhuan",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -839,7 +606,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -852,27 +619,20 @@
                 "enrollment_total": "37",
                 "wait_list_total": "0",
                 "available_seats": "8",
-                "day_time": "Th 10:30AM - 12:15PM",
-                "room": "Science Centre LG23",
-                "instructor": "Professor SO Hon Cheong",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9402",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "37",
-                "wait_list_total": "0",
-                "available_seats": "8",
-                "day_time": "Th 10:30AM - 12:15PM",
-                "room": "Science Centre LG23",
-                "instructor": "Professor SO Hon Cheong",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "Science Centre LG23",
+                        "instructor": "Professor SO Hon Cheong",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "Science Centre LG23",
+                        "instructor": "Professor SO Hon Cheong",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -886,10 +646,14 @@
                 "enrollment_total": "37",
                 "wait_list_total": "0",
                 "available_seats": "8",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor SO Hon Cheong",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor SO Hon Cheong",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -906,7 +670,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -919,61 +683,32 @@
                 "enrollment_total": "29",
                 "wait_list_total": "0",
                 "available_seats": "16",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "William M W Mong Eng Bldg 401",
-                "instructor": "Dr. CHEUNG Wing Shing David",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8447",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "29",
-                "wait_list_total": "0",
-                "available_seats": "16",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "William M W Mong Eng Bldg 401",
-                "instructor": "Dr. CHEUNG Wing Shing David",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8447",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "29",
-                "wait_list_total": "0",
-                "available_seats": "16",
-                "day_time": "Th 1:30PM - 3:15PM",
-                "room": "William M W Mong Eng Bldg 401",
-                "instructor": "Dr. CHEUNG Wing Shing David",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8447",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "29",
-                "wait_list_total": "0",
-                "available_seats": "16",
-                "day_time": "Th 1:30PM - 3:15PM",
-                "room": "William M W Mong Eng Bldg 401",
-                "instructor": "Dr. CHEUNG Wing Shing David",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. CHEUNG Wing Shing David",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. CHEUNG Wing Shing David",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    },
+                    {
+                        "day_time": "Th 1:30PM - 3:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. CHEUNG Wing Shing David",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 1:30PM - 3:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. CHEUNG Wing Shing David",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -987,10 +722,14 @@
                 "enrollment_total": "29",
                 "wait_list_total": "0",
                 "available_seats": "16",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. CHEUNG Wing Shing David",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. CHEUNG Wing Shing David",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -1007,7 +746,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1020,61 +759,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "70",
-                "day_time": "Fr 9:30AM - 11:15AM",
-                "room": "Yasumoto Int'l Acad Park 505",
-                "instructor": "Dr. KEE Francis, Dr. WAI Sen Mun",
-                "dates": "15/1, 22/1, 29/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4896",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "70",
-                "day_time": "Fr 9:30AM - 11:15AM",
-                "room": "Yasumoto Int'l Acad Park 505",
-                "instructor": "Dr. KEE Francis, Dr. WAI Sen Mun",
-                "dates": "12/2, 19/2, 26/2, 5/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4896",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "70",
-                "day_time": "Fr 9:30AM - 11:15AM",
-                "room": "Yasumoto Int'l Acad Park 505",
-                "instructor": "Dr. KEE Francis, Dr. WAI Sen Mun",
-                "dates": "19/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4896",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "70",
-                "day_time": "Fr 9:30AM - 11:15AM",
-                "room": "Yasumoto Int'l Acad Park 505",
-                "instructor": "Dr. KEE Francis, Dr. WAI Sen Mun",
-                "dates": "2/4, 9/4, 16/4, 23/4"
+                "timetable": [
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Yasumoto Int'l Acad Park 505",
+                        "instructor": "Dr. KEE Francis, Dr. WAI Sen Mun",
+                        "dates": "15/1, 22/1, 29/1"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Yasumoto Int'l Acad Park 505",
+                        "instructor": "Dr. KEE Francis, Dr. WAI Sen Mun",
+                        "dates": "12/2, 19/2, 26/2, 5/3"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Yasumoto Int'l Acad Park 505",
+                        "instructor": "Dr. KEE Francis, Dr. WAI Sen Mun",
+                        "dates": "19/3"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Yasumoto Int'l Acad Park 505",
+                        "instructor": "Dr. KEE Francis, Dr. WAI Sen Mun",
+                        "dates": "2/4, 9/4, 16/4, 23/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1088,10 +798,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "70",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. KEE Francis, Dr. WAI Sen Mun",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. KEE Francis, Dr. WAI Sen Mun",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1109,7 +823,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1122,95 +836,44 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "45",
-                "day_time": "Tu 8:30AM - 11:15AM",
-                "room": "TBA",
-                "instructor": "Dr. TANG Mei Kuen",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8547",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "45",
-                "day_time": "Tu 8:30AM - 11:15AM",
-                "room": "TBA",
-                "instructor": "Dr. TANG Mei Kuen",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8547",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "45",
-                "day_time": "Tu 8:30AM - 11:15AM",
-                "room": "TBA",
-                "instructor": "Dr. TANG Mei Kuen",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8547",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "45",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "TBA",
-                "instructor": "Dr. TANG Mei Kuen",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8547",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "45",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "TBA",
-                "instructor": "Dr. TANG Mei Kuen",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8547",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "45",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "TBA",
-                "instructor": "Dr. TANG Mei Kuen",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 8:30AM - 11:15AM",
+                        "room": "TBA",
+                        "instructor": "Dr. TANG Mei Kuen",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 8:30AM - 11:15AM",
+                        "room": "TBA",
+                        "instructor": "Dr. TANG Mei Kuen",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 8:30AM - 11:15AM",
+                        "room": "TBA",
+                        "instructor": "Dr. TANG Mei Kuen",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "TBA",
+                        "instructor": "Dr. TANG Mei Kuen",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "TBA",
+                        "instructor": "Dr. TANG Mei Kuen",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "TBA",
+                        "instructor": "Dr. TANG Mei Kuen",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1224,27 +887,20 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "45",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. TANG Mei Kuen",
-                "dates": "11/01/2027 - 19/04/2027"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-L01-LAB",
-                "component_type": "LAB",
-                "class_number": "6311",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "45",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. TANG Mei Kuen",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. TANG Mei Kuen",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. TANG Mei Kuen",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1262,7 +918,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1275,112 +931,50 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "47",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "William M W Mong Eng Bldg 401",
-                "instructor": "Dr. Julia MACEDO ROSA",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9272",
-                "status": "Open",
-                "class_capacity": "47",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "47",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "William M W Mong Eng Bldg 401",
-                "instructor": "Dr. Julia MACEDO ROSA",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9272",
-                "status": "Open",
-                "class_capacity": "47",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "47",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "William M W Mong Eng Bldg 401",
-                "instructor": "Dr. Julia MACEDO ROSA",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9272",
-                "status": "Open",
-                "class_capacity": "47",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "47",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "William M W Mong Eng Bldg 401",
-                "instructor": "Dr. Julia MACEDO ROSA",
-                "dates": "12/4, 19/4"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9272",
-                "status": "Open",
-                "class_capacity": "47",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "47",
-                "day_time": "Th 9:30AM - 10:15AM",
-                "room": "William M W Mong Eng Bldg 804",
-                "instructor": "Dr. Julia MACEDO ROSA",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9272",
-                "status": "Open",
-                "class_capacity": "47",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "47",
-                "day_time": "Th 9:30AM - 10:15AM",
-                "room": "William M W Mong Eng Bldg 804",
-                "instructor": "Dr. Julia MACEDO ROSA",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9272",
-                "status": "Open",
-                "class_capacity": "47",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "47",
-                "day_time": "Th 9:30AM - 10:15AM",
-                "room": "William M W Mong Eng Bldg 804",
-                "instructor": "Dr. Julia MACEDO ROSA",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. Julia MACEDO ROSA",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. Julia MACEDO ROSA",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. Julia MACEDO ROSA",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. Julia MACEDO ROSA",
+                        "dates": "12/4, 19/4"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 10:15AM",
+                        "room": "William M W Mong Eng Bldg 804",
+                        "instructor": "Dr. Julia MACEDO ROSA",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 10:15AM",
+                        "room": "William M W Mong Eng Bldg 804",
+                        "instructor": "Dr. Julia MACEDO ROSA",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 10:15AM",
+                        "room": "William M W Mong Eng Bldg 804",
+                        "instructor": "Dr. Julia MACEDO ROSA",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1394,10 +988,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "47",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. Julia MACEDO ROSA",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. Julia MACEDO ROSA",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1414,7 +1012,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1427,27 +1025,20 @@
                 "enrollment_total": "29",
                 "wait_list_total": "0",
                 "available_seats": "16",
-                "day_time": "Tu 9:30AM - 11:15AM",
-                "room": "Mong Man Wai Bldg 705",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9403",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "29",
-                "wait_list_total": "0",
-                "available_seats": "16",
-                "day_time": "Fr 9:30AM - 11:15AM",
-                "room": "William M W Mong Eng Bldg 703",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 9:30AM - 11:15AM",
+                        "room": "Mong Man Wai Bldg 705",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -1461,27 +1052,20 @@
                 "enrollment_total": "9",
                 "wait_list_total": "0",
                 "available_seats": "36",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "07/09/2026 - 30/11/2026"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-L01-LAB",
-                "component_type": "LAB",
-                "class_number": "6069",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "9",
-                "wait_list_total": "0",
-                "available_seats": "36",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -1495,27 +1079,20 @@
                 "enrollment_total": "20",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "07/09/2026 - 30/11/2026"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-L02-LAB",
-                "component_type": "LAB",
-                "class_number": "8000",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "20",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -1529,27 +1106,20 @@
                 "enrollment_total": "14",
                 "wait_list_total": "0",
                 "available_seats": "31",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "07/09/2026 - 30/11/2026"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "6068",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "14",
-                "wait_list_total": "0",
-                "available_seats": "31",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -1563,27 +1133,20 @@
                 "enrollment_total": "15",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "07/09/2026 - 30/11/2026"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-T02-TUT",
-                "component_type": "TUT",
-                "class_number": "7868",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "0",
-                "enrollment_total": "15",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -1600,7 +1163,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1613,95 +1176,44 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "42",
-                "day_time": "Tu 9:30AM - 11:15AM",
-                "room": "William M W Mong Eng Bldg 703",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9370",
-                "status": "Open",
-                "class_capacity": "42",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "42",
-                "day_time": "Tu 9:30AM - 11:15AM",
-                "room": "William M W Mong Eng Bldg 703",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9370",
-                "status": "Open",
-                "class_capacity": "42",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "42",
-                "day_time": "Tu 9:30AM - 11:15AM",
-                "room": "William M W Mong Eng Bldg 703",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9370",
-                "status": "Open",
-                "class_capacity": "42",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "42",
-                "day_time": "Th 2:30PM - 4:15PM",
-                "room": "Mong Man Wai Bldg 705",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9370",
-                "status": "Open",
-                "class_capacity": "42",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "42",
-                "day_time": "Th 2:30PM - 4:15PM",
-                "room": "Mong Man Wai Bldg 705",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9370",
-                "status": "Open",
-                "class_capacity": "42",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "42",
-                "day_time": "Th 2:30PM - 4:15PM",
-                "room": "Mong Man Wai Bldg 705",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 9:30AM - 11:15AM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 9:30AM - 11:15AM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 9:30AM - 11:15AM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 4:15PM",
+                        "room": "Mong Man Wai Bldg 705",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 4:15PM",
+                        "room": "Mong Man Wai Bldg 705",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 4:15PM",
+                        "room": "Mong Man Wai Bldg 705",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1715,27 +1227,20 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "42",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "11/01/2027 - 19/04/2027"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-L01-LAB",
-                "component_type": "LAB",
-                "class_number": "6259",
-                "status": "Open",
-                "class_capacity": "42",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "42",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1749,27 +1254,20 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "42",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "11/01/2027 - 19/04/2027"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "6260",
-                "status": "Open",
-                "class_capacity": "42",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "42",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1783,27 +1281,20 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "42",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "11/01/2027 - 19/04/2027"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-T02-TUT",
-                "component_type": "TUT",
-                "class_number": "7798",
-                "status": "Open",
-                "class_capacity": "42",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "42",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HWANG Shui Shan Isabel, Professor CHAN Hon Fai",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1820,7 +1311,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1833,27 +1324,20 @@
                 "enrollment_total": "21",
                 "wait_list_total": "0",
                 "available_seats": "8",
-                "day_time": "Mo 1:30PM - 3:15PM",
-                "room": "Mong Man Wai Bldg 704",
-                "instructor": "Professor TIAN Xiaoyu",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9579",
-                "status": "Open",
-                "class_capacity": "29",
-                "wait_list_capacity": "0",
-                "enrollment_total": "21",
-                "wait_list_total": "0",
-                "available_seats": "8",
-                "day_time": "Mo 1:30PM - 3:15PM",
-                "room": "Mong Man Wai Bldg 704",
-                "instructor": "Professor TIAN Xiaoyu",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 1:30PM - 3:15PM",
+                        "room": "Mong Man Wai Bldg 704",
+                        "instructor": "Professor TIAN Xiaoyu",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 1:30PM - 3:15PM",
+                        "room": "Mong Man Wai Bldg 704",
+                        "instructor": "Professor TIAN Xiaoyu",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -1867,10 +1351,14 @@
                 "enrollment_total": "21",
                 "wait_list_total": "0",
                 "available_seats": "8",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor TIAN Xiaoyu",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor TIAN Xiaoyu",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -1884,10 +1372,14 @@
                 "enrollment_total": "21",
                 "wait_list_total": "0",
                 "available_seats": "8",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor TIAN Xiaoyu",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor TIAN Xiaoyu",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -1904,7 +1396,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1917,10 +1409,14 @@
                 "enrollment_total": "38",
                 "wait_list_total": "0",
                 "available_seats": "9",
-                "day_time": "Tu 11:30AM - 1:15PM",
-                "room": "William M W Mong Eng Bldg 804",
-                "instructor": "Professor ZHOU Jingying",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 11:30AM - 1:15PM",
+                        "room": "William M W Mong Eng Bldg 804",
+                        "instructor": "Professor ZHOU Jingying",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -1934,10 +1430,14 @@
                 "enrollment_total": "38",
                 "wait_list_total": "0",
                 "available_seats": "9",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor ZHOU Jingying",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor ZHOU Jingying",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -1954,7 +1454,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1967,61 +1467,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Mo 10:30AM - 12:15PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Dr. Shivani Salil SHINDE, Professor FENG Bo",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8862",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 10:30AM - 12:15PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Dr. Shivani Salil SHINDE, Professor FENG Bo",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8862",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 10:30AM - 12:15PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Dr. Shivani Salil SHINDE, Professor FENG Bo",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8862",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 10:30AM - 12:15PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Dr. Shivani Salil SHINDE, Professor FENG Bo",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Dr. Shivani Salil SHINDE, Professor FENG Bo",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Dr. Shivani Salil SHINDE, Professor FENG Bo",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Dr. Shivani Salil SHINDE, Professor FENG Bo",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Dr. Shivani Salil SHINDE, Professor FENG Bo",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             }
         ]
     },
@@ -2039,7 +1510,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -2052,27 +1523,20 @@
                 "enrollment_total": "27",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Mo 10:30AM - 12:15PM",
-                "room": "Yasumoto Int'l Acad Park 501",
-                "instructor": "Professor Anna Maria BLOCKI",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5498",
-                "status": "Closed",
-                "class_capacity": "26",
-                "wait_list_capacity": "0",
-                "enrollment_total": "27",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Mo 10:30AM - 12:15PM",
-                "room": "Yasumoto Int'l Acad Park 501",
-                "instructor": "Professor Anna Maria BLOCKI",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "Yasumoto Int'l Acad Park 501",
+                        "instructor": "Professor Anna Maria BLOCKI",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "Yasumoto Int'l Acad Park 501",
+                        "instructor": "Professor Anna Maria BLOCKI",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -2086,10 +1550,14 @@
                 "enrollment_total": "27",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor Anna Maria BLOCKI",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor Anna Maria BLOCKI",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -2103,10 +1571,14 @@
                 "enrollment_total": "27",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor Anna Maria BLOCKI",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor Anna Maria BLOCKI",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -2123,7 +1595,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -2136,44 +1608,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall G06",
-                "instructor": "Professor CHAN Leung Franky",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7484",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall G06",
-                "instructor": "Professor CHAN Leung Franky",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7484",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall G06",
-                "instructor": "Professor CHAN Leung Franky",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall G06",
+                        "instructor": "Professor CHAN Leung Franky",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall G06",
+                        "instructor": "Professor CHAN Leung Franky",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall G06",
+                        "instructor": "Professor CHAN Leung Franky",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -2187,10 +1641,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHAN Leung Franky",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHAN Leung Franky",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -2204,10 +1662,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHAN Leung Franky",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHAN Leung Franky",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -2218,7 +1680,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SBMS 3204",
@@ -2233,7 +1695,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -2246,129 +1708,56 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "Mo 9:30AM - 10:15AM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8686",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Mo 9:30AM - 10:15AM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8686",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Mo 9:30AM - 10:15AM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8686",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Mo 9:30AM - 10:15AM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
-                "dates": "12/4, 19/4"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8686",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Fr 9:30AM - 11:15AM",
-                "room": "LKS Intg Biomed Sci Bldg G01",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
-                "dates": "15/1, 22/1, 29/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8686",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Fr 9:30AM - 11:15AM",
-                "room": "LKS Intg Biomed Sci Bldg G01",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
-                "dates": "12/2, 19/2, 26/2, 5/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8686",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Fr 9:30AM - 11:15AM",
-                "room": "LKS Intg Biomed Sci Bldg G01",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
-                "dates": "19/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8686",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Fr 9:30AM - 11:15AM",
-                "room": "LKS Intg Biomed Sci Bldg G01",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
-                "dates": "2/4, 9/4, 16/4, 23/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 9:30AM - 10:15AM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 10:15AM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 10:15AM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 10:15AM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
+                        "dates": "12/4, 19/4"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "LKS Intg Biomed Sci Bldg G01",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
+                        "dates": "15/1, 22/1, 29/1"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "LKS Intg Biomed Sci Bldg G01",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
+                        "dates": "12/2, 19/2, 26/2, 5/3"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "LKS Intg Biomed Sci Bldg G01",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
+                        "dates": "19/3"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "LKS Intg Biomed Sci Bldg G01",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
+                        "dates": "2/4, 9/4, 16/4, 23/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -2382,27 +1771,20 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
-                "dates": "11/01/2027 - 19/04/2027"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-J01-PRJ",
-                "component_type": "PRJ",
-                "class_number": "7816",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -2416,10 +1798,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor IP Pak Kan",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -2436,7 +1822,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -2449,95 +1835,44 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Tu 10:30AM - 12:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Professor JIANG Xiaohua",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9311",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Tu 10:30AM - 12:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Professor JIANG Xiaohua",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9311",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Tu 10:30AM - 12:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Professor JIANG Xiaohua",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9311",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "We 9:30AM - 12:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Professor JIANG Xiaohua",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9311",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "We 9:30AM - 12:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Professor JIANG Xiaohua",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9311",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "We 9:30AM - 12:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Professor JIANG Xiaohua",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Professor JIANG Xiaohua",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Professor JIANG Xiaohua",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Professor JIANG Xiaohua",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    },
+                    {
+                        "day_time": "We 9:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Professor JIANG Xiaohua",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 9:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Professor JIANG Xiaohua",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 9:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Professor JIANG Xiaohua",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -2551,10 +1886,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor JIANG Xiaohua",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor JIANG Xiaohua",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -2568,10 +1907,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor JIANG Xiaohua",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor JIANG Xiaohua",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -2588,7 +1931,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -2601,61 +1944,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Dr. KEE Francis",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5382",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Dr. KEE Francis",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5382",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Dr. KEE Francis",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5382",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Dr. KEE Francis",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Dr. KEE Francis",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Dr. KEE Francis",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Dr. KEE Francis",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Dr. KEE Francis",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -2669,10 +1983,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. KEE Francis",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. KEE Francis",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -2686,10 +2004,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. KEE Francis",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. KEE Francis",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -2703,10 +2025,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. KEE Francis",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. KEE Francis",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -2723,7 +2049,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -2736,10 +2062,14 @@
                 "enrollment_total": "27",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "We 10:30AM - 12:15PM",
-                "room": "No Room Required",
-                "instructor": "Dr. LAU Sin Nga",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 10:30AM - 12:15PM",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LAU Sin Nga",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -2753,10 +2083,14 @@
                 "enrollment_total": "27",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. LAU Sin Nga",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LAU Sin Nga",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -2773,7 +2107,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -2786,27 +2120,20 @@
                 "enrollment_total": "30",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Dr. LAU Sin Nga, Professor JIANG Yangzi",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5485",
-                "status": "Closed",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "30",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Dr. LAU Sin Nga, Professor JIANG Yangzi",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Dr. LAU Sin Nga, Professor JIANG Yangzi",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Dr. LAU Sin Nga, Professor JIANG Yangzi",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -2820,10 +2147,14 @@
                 "enrollment_total": "30",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. LAU Sin Nga, Professor JIANG Yangzi",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. LAU Sin Nga, Professor JIANG Yangzi",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -2841,7 +2172,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -2854,44 +2185,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "We 1:30PM - 6:15PM",
-                "room": "TBA",
-                "instructor": "Professor TSANG Chi Man",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8628",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "We 1:30PM - 6:15PM",
-                "room": "TBA",
-                "instructor": "Professor TSANG Chi Man",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8628",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "We 1:30PM - 6:15PM",
-                "room": "TBA",
-                "instructor": "Professor TSANG Chi Man",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 1:30PM - 6:15PM",
+                        "room": "TBA",
+                        "instructor": "Professor TSANG Chi Man",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 1:30PM - 6:15PM",
+                        "room": "TBA",
+                        "instructor": "Professor TSANG Chi Man",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 1:30PM - 6:15PM",
+                        "room": "TBA",
+                        "instructor": "Professor TSANG Chi Man",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -2905,10 +2218,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor TSANG Chi Man",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor TSANG Chi Man",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -2925,7 +2242,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -2938,61 +2255,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor WAN Chao",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8687",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor WAN Chao",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8687",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor WAN Chao",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8687",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor WAN Chao",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor WAN Chao",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor WAN Chao",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor WAN Chao",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor WAN Chao",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -3006,10 +2294,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor WAN Chao",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor WAN Chao",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -3027,7 +2319,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -3040,44 +2332,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Mong Man Wai Bldg 704",
-                "instructor": "Professor GU Shen",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9051",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Mong Man Wai Bldg 704",
-                "instructor": "Professor GU Shen",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9051",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Mong Man Wai Bldg 704",
-                "instructor": "Professor GU Shen",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Mong Man Wai Bldg 704",
+                        "instructor": "Professor GU Shen",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Mong Man Wai Bldg 704",
+                        "instructor": "Professor GU Shen",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Mong Man Wai Bldg 704",
+                        "instructor": "Professor GU Shen",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -3091,10 +2365,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor GU Shen",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor GU Shen",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -3108,10 +2386,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor GU Shen",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor GU Shen",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -3128,7 +2410,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -3141,27 +2423,20 @@
                 "enrollment_total": "26",
                 "wait_list_total": "0",
                 "available_seats": "15",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "William M W Mong Eng Bldg 713",
-                "instructor": "Professor POON Ngar Yun Ellen",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5499",
-                "status": "Open",
-                "class_capacity": "41",
-                "wait_list_capacity": "0",
-                "enrollment_total": "26",
-                "wait_list_total": "0",
-                "available_seats": "15",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "William M W Mong Eng Bldg 713",
-                "instructor": "Professor POON Ngar Yun Ellen",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 713",
+                        "instructor": "Professor POON Ngar Yun Ellen",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 713",
+                        "instructor": "Professor POON Ngar Yun Ellen",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -3175,10 +2450,14 @@
                 "enrollment_total": "26",
                 "wait_list_total": "0",
                 "available_seats": "15",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor POON Ngar Yun Ellen",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor POON Ngar Yun Ellen",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -3196,7 +2475,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -3209,44 +2488,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Mong Man Wai Bldg 706",
-                "instructor": "Dr. Julia MACEDO ROSA",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9499",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Mong Man Wai Bldg 706",
-                "instructor": "Dr. Julia MACEDO ROSA",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9499",
-                "status": "Open",
-                "class_capacity": "25",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "25",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Mong Man Wai Bldg 706",
-                "instructor": "Dr. Julia MACEDO ROSA",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Mong Man Wai Bldg 706",
+                        "instructor": "Dr. Julia MACEDO ROSA",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Mong Man Wai Bldg 706",
+                        "instructor": "Dr. Julia MACEDO ROSA",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Mong Man Wai Bldg 706",
+                        "instructor": "Dr. Julia MACEDO ROSA",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -3260,10 +2521,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "25",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. Julia MACEDO ROSA",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. Julia MACEDO ROSA",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -3280,7 +2545,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -3293,27 +2558,20 @@
                 "enrollment_total": "25",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Mo 3:30PM - 6:15PM",
-                "room": "Y.C. Liang Hall G01",
-                "instructor": "Professor GU Shen",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9580",
-                "status": "Open",
-                "class_capacity": "27",
-                "wait_list_capacity": "0",
-                "enrollment_total": "25",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Mo 3:30PM - 6:15PM",
-                "room": "Y.C. Liang Hall G01",
-                "instructor": "Professor GU Shen",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 3:30PM - 6:15PM",
+                        "room": "Y.C. Liang Hall G01",
+                        "instructor": "Professor GU Shen",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 3:30PM - 6:15PM",
+                        "room": "Y.C. Liang Hall G01",
+                        "instructor": "Professor GU Shen",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -3327,10 +2585,14 @@
                 "enrollment_total": "25",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor GU Shen",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor GU Shen",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -3347,7 +2609,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -3360,10 +2622,14 @@
                 "enrollment_total": "18",
                 "wait_list_total": "0",
                 "available_seats": "23",
-                "day_time": "Tu 9:30AM - 11:15AM",
-                "room": "William M W Mong Eng Bldg 703",
-                "instructor": "Dr. Julia MACEDO ROSA, Professor WANG Dan",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 9:30AM - 11:15AM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Dr. Julia MACEDO ROSA, Professor WANG Dan",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -3377,10 +2643,14 @@
                 "enrollment_total": "18",
                 "wait_list_total": "0",
                 "available_seats": "23",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. Julia MACEDO ROSA, Professor WANG Dan",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. Julia MACEDO ROSA, Professor WANG Dan",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -3397,7 +2667,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -3410,10 +2680,14 @@
                 "enrollment_total": "20",
                 "wait_list_total": "0",
                 "available_seats": "21",
-                "day_time": "We 2:30PM - 4:15PM",
-                "room": "Mong Man Wai Bldg 715",
-                "instructor": "Dr. KEE Francis",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 4:15PM",
+                        "room": "Mong Man Wai Bldg 715",
+                        "instructor": "Dr. KEE Francis",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             }
         ]
     },
@@ -3431,7 +2705,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -3444,10 +2718,14 @@
                 "enrollment_total": "15",
                 "wait_list_total": "0",
                 "available_seats": "15",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor IP Pak Kan, Professor ZHAO Hui",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor IP Pak Kan, Professor ZHAO Hui",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -3465,7 +2743,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -3478,10 +2756,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor IP Pak Kan, Professor ZHAO Hui",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor IP Pak Kan, Professor ZHAO Hui",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -3498,7 +2780,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -3511,10 +2793,14 @@
                 "enrollment_total": "13",
                 "wait_list_total": "0",
                 "available_seats": "17",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. YEUNG Hang Mee",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. YEUNG Hang Mee",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -3531,7 +2817,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -3544,10 +2830,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. YEUNG Hang Mee",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. YEUNG Hang Mee",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -3565,7 +2855,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -3578,10 +2868,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. YEUNG Hang Mee",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. YEUNG Hang Mee",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -3599,7 +2893,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -3612,10 +2906,14 @@
                 "enrollment_total": "40",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Fr 9:30AM - 1:30PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Dr. LAU Sin Nga, Professor Anna Maria BLOCKI, Professor CAO Qin, Professor CHAN Man Lok Andrew, Professor CHAN Wood Yee, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor DONG Yujuan, Professor FENG Bo, Professor John Anthony RUDD, Professor Stephen DALTON, Professor YAO Xiaoqiang, Professor ZHAO Hui, Professor ZHOU Jingying",
-                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12, 11/12, 18/12"
+                "timetable": [
+                    {
+                        "day_time": "Fr 9:30AM - 1:30PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Dr. LAU Sin Nga, Professor Anna Maria BLOCKI, Professor CAO Qin, Professor CHAN Man Lok Andrew, Professor CHAN Wood Yee, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor DONG Yujuan, Professor FENG Bo, Professor John Anthony RUDD, Professor Stephen DALTON, Professor YAO Xiaoqiang, Professor ZHAO Hui, Professor ZHOU Jingying",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12, 11/12, 18/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -3629,10 +2927,14 @@
                 "enrollment_total": "40",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. LAU Sin Nga, Professor Anna Maria BLOCKI, Professor CAO Qin, Professor CHAN Man Lok Andrew, Professor CHAN Wood Yee, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor DONG Yujuan, Professor FENG Bo, Professor John Anthony RUDD, Professor Stephen DALTON, Professor YAO Xiaoqiang, Professor ZHAO Hui, Professor ZHOU Jingying",
-                "dates": "11/09/2026 - 18/12/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LAU Sin Nga, Professor Anna Maria BLOCKI, Professor CAO Qin, Professor CHAN Man Lok Andrew, Professor CHAN Wood Yee, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor DONG Yujuan, Professor FENG Bo, Professor John Anthony RUDD, Professor Stephen DALTON, Professor YAO Xiaoqiang, Professor ZHAO Hui, Professor ZHOU Jingying",
+                        "dates": "11/09/2026 - 18/12/2026"
+                    }
+                ]
             }
         ]
     },
@@ -3650,7 +2952,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -3663,27 +2965,20 @@
                 "enrollment_total": "24",
                 "wait_list_total": "0",
                 "available_seats": "56",
-                "day_time": "Th 10:30AM - 12:30PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHAN Hon Fai, Professor CHAN Wood Yee, Professor CHAU Hoi Kin Matthew, Professor CHEUNG Hoi Hung, Professor FENG Bo, Professor FOK Kin Lam Ellis, Professor GAO Bo, Professor JIANG Xiaohua, Professor JIANG Yangzi, Professor Stephen DALTON, Professor WAN Chao, Professor XIA Yin",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1454",
-                "status": "Open",
-                "class_capacity": "80",
-                "wait_list_capacity": "0",
-                "enrollment_total": "24",
-                "wait_list_total": "0",
-                "available_seats": "56",
-                "day_time": "Th 10:30AM - 12:30PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHAN Hon Fai, Professor CHAN Wood Yee, Professor CHAU Hoi Kin Matthew, Professor CHEUNG Hoi Hung, Professor FENG Bo, Professor FOK Kin Lam Ellis, Professor GAO Bo, Professor JIANG Xiaohua, Professor JIANG Yangzi, Professor Stephen DALTON, Professor WAN Chao, Professor XIA Yin",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12, 10/12, 17/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 12:30PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHAN Hon Fai, Professor CHAN Wood Yee, Professor CHAU Hoi Kin Matthew, Professor CHEUNG Hoi Hung, Professor FENG Bo, Professor FOK Kin Lam Ellis, Professor GAO Bo, Professor JIANG Xiaohua, Professor JIANG Yangzi, Professor Stephen DALTON, Professor WAN Chao, Professor XIA Yin",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 12:30PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHAN Hon Fai, Professor CHAN Wood Yee, Professor CHAU Hoi Kin Matthew, Professor CHEUNG Hoi Hung, Professor FENG Bo, Professor FOK Kin Lam Ellis, Professor GAO Bo, Professor JIANG Xiaohua, Professor JIANG Yangzi, Professor Stephen DALTON, Professor WAN Chao, Professor XIA Yin",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12, 10/12, 17/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -3697,10 +2992,14 @@
                 "enrollment_total": "24",
                 "wait_list_total": "0",
                 "available_seats": "56",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHAN Hon Fai, Professor CHAN Wood Yee, Professor CHAU Hoi Kin Matthew, Professor CHEUNG Hoi Hung, Professor FENG Bo, Professor FOK Kin Lam Ellis, Professor GAO Bo, Professor JIANG Xiaohua, Professor JIANG Yangzi, Professor Stephen DALTON, Professor WAN Chao, Professor XIA Yin",
-                "dates": "10/09/2026 - 17/12/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHAN Hon Fai, Professor CHAN Wood Yee, Professor CHAU Hoi Kin Matthew, Professor CHEUNG Hoi Hung, Professor FENG Bo, Professor FOK Kin Lam Ellis, Professor GAO Bo, Professor JIANG Xiaohua, Professor JIANG Yangzi, Professor Stephen DALTON, Professor WAN Chao, Professor XIA Yin",
+                        "dates": "10/09/2026 - 17/12/2026"
+                    }
+                ]
             }
         ]
     },
@@ -3718,7 +3017,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -3731,27 +3030,20 @@
                 "enrollment_total": "29",
                 "wait_list_total": "0",
                 "available_seats": "51",
-                "day_time": "Th 10:00AM - 12:00PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor HUI Xiaoyan Hannah, Professor IP Pak Kan, Professor KE Ya, Professor POON Ngar Yun Ellen, Professor SHUM Sau Wun, Professor TIAN Xiaoyu, Professor WANG Chi Chiu, Professor WONG Ho Wai, Professor YAO Xiaoqiang",
-                "dates": "14/1, 21/1, 28/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4746",
-                "status": "Open",
-                "class_capacity": "80",
-                "wait_list_capacity": "0",
-                "enrollment_total": "29",
-                "wait_list_total": "0",
-                "available_seats": "51",
-                "day_time": "Th 10:00AM - 12:00PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor HUI Xiaoyan Hannah, Professor IP Pak Kan, Professor KE Ya, Professor POON Ngar Yun Ellen, Professor SHUM Sau Wun, Professor TIAN Xiaoyu, Professor WANG Chi Chiu, Professor WONG Ho Wai, Professor YAO Xiaoqiang",
-                "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 10:00AM - 12:00PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor HUI Xiaoyan Hannah, Professor IP Pak Kan, Professor KE Ya, Professor POON Ngar Yun Ellen, Professor SHUM Sau Wun, Professor TIAN Xiaoyu, Professor WANG Chi Chiu, Professor WONG Ho Wai, Professor YAO Xiaoqiang",
+                        "dates": "14/1, 21/1, 28/1"
+                    },
+                    {
+                        "day_time": "Th 10:00AM - 12:00PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor HUI Xiaoyan Hannah, Professor IP Pak Kan, Professor KE Ya, Professor POON Ngar Yun Ellen, Professor SHUM Sau Wun, Professor TIAN Xiaoyu, Professor WANG Chi Chiu, Professor WONG Ho Wai, Professor YAO Xiaoqiang",
+                        "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -3765,27 +3057,20 @@
                 "enrollment_total": "29",
                 "wait_list_total": "0",
                 "available_seats": "51",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor HUI Xiaoyan Hannah, Professor IP Pak Kan, Professor KE Ya, Professor POON Ngar Yun Ellen, Professor SHUM Sau Wun, Professor TIAN Xiaoyu, Professor WANG Chi Chiu, Professor WONG Ho Wai, Professor YAO Xiaoqiang",
-                "dates": "14/01/2027 - 28/01/2027"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-D01-DIS",
-                "component_type": "DIS",
-                "class_number": "1403",
-                "status": "Open",
-                "class_capacity": "80",
-                "wait_list_capacity": "0",
-                "enrollment_total": "29",
-                "wait_list_total": "0",
-                "available_seats": "51",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor HUI Xiaoyan Hannah, Professor IP Pak Kan, Professor KE Ya, Professor POON Ngar Yun Ellen, Professor SHUM Sau Wun, Professor TIAN Xiaoyu, Professor WANG Chi Chiu, Professor WONG Ho Wai, Professor YAO Xiaoqiang",
-                "dates": "25/02/2027 - 22/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor HUI Xiaoyan Hannah, Professor IP Pak Kan, Professor KE Ya, Professor POON Ngar Yun Ellen, Professor SHUM Sau Wun, Professor TIAN Xiaoyu, Professor WANG Chi Chiu, Professor WONG Ho Wai, Professor YAO Xiaoqiang",
+                        "dates": "14/01/2027 - 28/01/2027"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHEUNG Chi Kwan Vincent, Professor HUI Xiaoyan Hannah, Professor IP Pak Kan, Professor KE Ya, Professor POON Ngar Yun Ellen, Professor SHUM Sau Wun, Professor TIAN Xiaoyu, Professor WANG Chi Chiu, Professor WONG Ho Wai, Professor YAO Xiaoqiang",
+                        "dates": "25/02/2027 - 22/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -3803,7 +3088,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -3816,44 +3101,26 @@
                 "enrollment_total": "18",
                 "wait_list_total": "0",
                 "available_seats": "62",
-                "day_time": "Fr 2:30PM - 4:30PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHAN Lam, Professor CHAN Leung Franky, Professor CHAN Man Lok Andrew, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor John Anthony RUDD, Professor SO Hon Cheong, Professor TO Kin Wah, Professor WU Dinglan, Professor WU Ka Kei, Professor XU Mingjing, Professor YU Jun, Professor ZHOU Jingying",
-                "dates": "15/1, 22/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1679",
-                "status": "Open",
-                "class_capacity": "80",
-                "wait_list_capacity": "0",
-                "enrollment_total": "18",
-                "wait_list_total": "0",
-                "available_seats": "62",
-                "day_time": "Fr 2:30PM - 4:30PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHAN Lam, Professor CHAN Leung Franky, Professor CHAN Man Lok Andrew, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor John Anthony RUDD, Professor SO Hon Cheong, Professor TO Kin Wah, Professor WU Dinglan, Professor WU Ka Kei, Professor XU Mingjing, Professor YU Jun, Professor ZHOU Jingying",
-                "dates": "19/2, 26/2, 5/3, 12/3, 19/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1679",
-                "status": "Open",
-                "class_capacity": "80",
-                "wait_list_capacity": "0",
-                "enrollment_total": "18",
-                "wait_list_total": "0",
-                "available_seats": "62",
-                "day_time": "Fr 2:30PM - 4:30PM",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHAN Lam, Professor CHAN Leung Franky, Professor CHAN Man Lok Andrew, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor John Anthony RUDD, Professor SO Hon Cheong, Professor TO Kin Wah, Professor WU Dinglan, Professor WU Ka Kei, Professor XU Mingjing, Professor YU Jun, Professor ZHOU Jingying",
-                "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5"
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:30PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHAN Lam, Professor CHAN Leung Franky, Professor CHAN Man Lok Andrew, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor John Anthony RUDD, Professor SO Hon Cheong, Professor TO Kin Wah, Professor WU Dinglan, Professor WU Ka Kei, Professor XU Mingjing, Professor YU Jun, Professor ZHOU Jingying",
+                        "dates": "15/1, 22/1"
+                    },
+                    {
+                        "day_time": "Fr 2:30PM - 4:30PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHAN Lam, Professor CHAN Leung Franky, Professor CHAN Man Lok Andrew, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor John Anthony RUDD, Professor SO Hon Cheong, Professor TO Kin Wah, Professor WU Dinglan, Professor WU Ka Kei, Professor XU Mingjing, Professor YU Jun, Professor ZHOU Jingying",
+                        "dates": "19/2, 26/2, 5/3, 12/3, 19/3"
+                    },
+                    {
+                        "day_time": "Fr 2:30PM - 4:30PM",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHAN Lam, Professor CHAN Leung Franky, Professor CHAN Man Lok Andrew, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor John Anthony RUDD, Professor SO Hon Cheong, Professor TO Kin Wah, Professor WU Dinglan, Professor WU Ka Kei, Professor XU Mingjing, Professor YU Jun, Professor ZHOU Jingying",
+                        "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -3867,27 +3134,20 @@
                 "enrollment_total": "18",
                 "wait_list_total": "0",
                 "available_seats": "62",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHAN Lam, Professor CHAN Leung Franky, Professor CHAN Man Lok Andrew, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor John Anthony RUDD, Professor SO Hon Cheong, Professor TO Kin Wah, Professor WU Dinglan, Professor WU Ka Kei, Professor XU Mingjing, Professor YU Jun, Professor ZHOU Jingying",
-                "dates": "15/01/2027 - 22/01/2027"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-D01-DIS",
-                "component_type": "DIS",
-                "class_number": "4743",
-                "status": "Open",
-                "class_capacity": "80",
-                "wait_list_capacity": "0",
-                "enrollment_total": "18",
-                "wait_list_total": "0",
-                "available_seats": "62",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHAN Lam, Professor CHAN Leung Franky, Professor CHAN Man Lok Andrew, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor John Anthony RUDD, Professor SO Hon Cheong, Professor TO Kin Wah, Professor WU Dinglan, Professor WU Ka Kei, Professor XU Mingjing, Professor YU Jun, Professor ZHOU Jingying",
-                "dates": "19/02/2027 - 14/05/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHAN Lam, Professor CHAN Leung Franky, Professor CHAN Man Lok Andrew, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor John Anthony RUDD, Professor SO Hon Cheong, Professor TO Kin Wah, Professor WU Dinglan, Professor WU Ka Kei, Professor XU Mingjing, Professor YU Jun, Professor ZHOU Jingying",
+                        "dates": "15/01/2027 - 22/01/2027"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHAN Lam, Professor CHAN Leung Franky, Professor CHAN Man Lok Andrew, Professor CHEN Yangchao, Professor CHENG Sze Lok, Professor John Anthony RUDD, Professor SO Hon Cheong, Professor TO Kin Wah, Professor WU Dinglan, Professor WU Ka Kei, Professor XU Mingjing, Professor YU Jun, Professor ZHOU Jingying",
+                        "dates": "19/02/2027 - 14/05/2027"
+                    }
+                ]
             }
         ]
     },
@@ -3905,7 +3165,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -3918,10 +3178,14 @@
                 "enrollment_total": "40",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "TBA",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHEUNG Hoi Hung, Professor John Anthony RUDD",
-                "dates": "10/09/2026 - 17/12/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHEUNG Hoi Hung, Professor John Anthony RUDD",
+                        "dates": "10/09/2026 - 17/12/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -3935,10 +3199,14 @@
                 "enrollment_total": "40",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHEUNG Hoi Hung, Professor John Anthony RUDD",
-                "dates": "10/09/2026 - 17/12/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHEUNG Hoi Hung, Professor John Anthony RUDD",
+                        "dates": "10/09/2026 - 17/12/2026"
+                    }
+                ]
             }
         ]
     },
@@ -3956,7 +3224,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -3969,10 +3237,14 @@
                 "enrollment_total": "43",
                 "wait_list_total": "0",
                 "available_seats": "37",
-                "day_time": "TBA",
-                "room": "LKS Intg Biomed Sci Bldg G02",
-                "instructor": "Professor CHEUNG Hoi Hung, Professor LI Zhong, Professor WANG Huating",
-                "dates": "15/01/2027 - 23/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "LKS Intg Biomed Sci Bldg G02",
+                        "instructor": "Professor CHEUNG Hoi Hung, Professor LI Zhong, Professor WANG Huating",
+                        "dates": "15/01/2027 - 23/04/2027"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -3986,10 +3258,14 @@
                 "enrollment_total": "43",
                 "wait_list_total": "0",
                 "available_seats": "37",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHEUNG Hoi Hung, Professor LI Zhong, Professor WANG Huating",
-                "dates": "15/01/2027 - 23/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHEUNG Hoi Hung, Professor LI Zhong, Professor WANG Huating",
+                        "dates": "15/01/2027 - 23/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -4007,7 +3283,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -4020,10 +3296,14 @@
                 "enrollment_total": "151",
                 "wait_list_total": "0",
                 "available_seats": "9",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHAN Wood Yee",
-                "dates": "19/04/2027 - 17/05/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHAN Wood Yee",
+                        "dates": "19/04/2027 - 17/05/2027"
+                    }
+                ]
             }
         ]
     },
@@ -4046,7 +3326,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -4059,10 +3339,14 @@
                 "enrollment_total": "19",
                 "wait_list_total": "0",
                 "available_seats": "141",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHAN Wood Yee",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHAN Wood Yee",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -4076,10 +3360,14 @@
                 "enrollment_total": "10",
                 "wait_list_total": "0",
                 "available_seats": "150",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHAN Wood Yee",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHAN Wood Yee",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -4102,7 +3390,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -4115,10 +3403,14 @@
                 "enrollment_total": "90",
                 "wait_list_total": "0",
                 "available_seats": "70",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHAN Wood Yee",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHAN Wood Yee",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -4132,10 +3424,14 @@
                 "enrollment_total": "93",
                 "wait_list_total": "0",
                 "available_seats": "67",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHAN Wood Yee",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHAN Wood Yee",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -4158,7 +3454,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -4171,10 +3467,14 @@
                 "enrollment_total": "65",
                 "wait_list_total": "0",
                 "available_seats": "95",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHAN Wood Yee",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHAN Wood Yee",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -4188,10 +3488,14 @@
                 "enrollment_total": "54",
                 "wait_list_total": "0",
                 "available_seats": "106",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor CHAN Wood Yee",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHAN Wood Yee",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     }

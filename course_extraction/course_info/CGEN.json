@@ -7,7 +7,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CGEN 5003",
@@ -17,7 +17,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CGEN 5004",
@@ -27,7 +27,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CGEN 5006",
@@ -37,7 +37,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CGEN 5007",
@@ -47,7 +47,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CGEN 5010",
@@ -57,7 +57,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CGEN 5011",
@@ -73,7 +73,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -86,10 +86,14 @@
                 "enrollment_total": "16",
                 "wait_list_total": "0",
                 "available_seats": "14",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
-                "dates": "03/04/2027 - 24/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
+                        "dates": "03/04/2027 - 24/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -101,7 +105,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CGEN 5013",
@@ -117,7 +121,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -130,10 +134,14 @@
                 "enrollment_total": "22",
                 "wait_list_total": "0",
                 "available_seats": "18",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
-                "dates": "08/05/2027 - 05/06/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
+                        "dates": "08/05/2027 - 05/06/2027"
+                    }
+                ]
             }
         ]
     },
@@ -151,7 +159,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -164,10 +172,14 @@
                 "enrollment_total": "38",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Professor KWOK Chi Yui Timothy",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor KWOK Chi Yui Timothy",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -185,7 +197,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -198,10 +210,14 @@
                 "enrollment_total": "38",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -219,7 +235,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -232,10 +248,14 @@
                 "enrollment_total": "38",
                 "wait_list_total": "0",
                 "available_seats": "12",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -253,7 +273,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -266,10 +286,14 @@
                 "enrollment_total": "38",
                 "wait_list_total": "0",
                 "available_seats": "12",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -281,7 +305,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CGEN 6901",
@@ -297,7 +321,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -310,10 +334,14 @@
                 "enrollment_total": "33",
                 "wait_list_total": "0",
                 "available_seats": "7",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -331,7 +359,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -344,10 +372,14 @@
                 "enrollment_total": "34",
                 "wait_list_total": "0",
                 "available_seats": "6",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
-                "dates": "03/05/2027 - 14/06/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
+                        "dates": "03/05/2027 - 14/06/2027"
+                    }
+                ]
             }
         ]
     },
@@ -359,7 +391,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CGEN 6904",
@@ -375,7 +407,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -388,10 +420,14 @@
                 "enrollment_total": "5",
                 "wait_list_total": "0",
                 "available_seats": "35",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -409,7 +445,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -422,10 +458,14 @@
                 "enrollment_total": "5",
                 "wait_list_total": "0",
                 "available_seats": "35",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
-                "dates": "03/05/2027 - 14/06/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Miss MOW Yuk Ling, Miss POON Wai Wah, Professor KWOK Chi Yui Timothy",
+                        "dates": "03/05/2027 - 14/06/2027"
+                    }
+                ]
             }
         ]
     }

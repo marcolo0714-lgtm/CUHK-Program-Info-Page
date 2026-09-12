@@ -6,7 +6,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "IBBA 3020",
@@ -15,7 +15,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "IBBA 3031",
@@ -24,7 +24,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "IBBA 3032",
@@ -39,7 +39,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -52,10 +52,14 @@
                 "enrollment_total": "11",
                 "wait_list_total": "0",
                 "available_seats": "1",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. NG Wing Fung",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. NG Wing Fung",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -69,10 +73,14 @@
                 "enrollment_total": "8",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor ZHOU Xiang",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor ZHOU Xiang",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -86,10 +94,14 @@
                 "enrollment_total": "3",
                 "wait_list_total": "0",
                 "available_seats": "5",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. LEUNG Hang Yee",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LEUNG Hang Yee",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -103,10 +115,14 @@
                 "enrollment_total": "4",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. KU Kei Tat",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. KU Kei Tat",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -128,7 +144,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -141,27 +157,20 @@
                 "enrollment_total": "276",
                 "wait_list_total": "23",
                 "available_seats": "0",
-                "day_time": "Th 6:30PM - 8:15PM",
-                "room": "Cheng Yu Tung Building LT1A",
-                "instructor": "Dr. KU Kei Tat",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "AS01-SEM",
-                "component_type": "SEM",
-                "class_number": "7194",
-                "status": "Wait List",
-                "class_capacity": "270",
-                "wait_list_capacity": "999",
-                "enrollment_total": "276",
-                "wait_list_total": "23",
-                "available_seats": "0",
-                "day_time": "Th 6:30PM - 8:15PM",
-                "room": "Cheng Yu Tung Building LT1A",
-                "instructor": "Dr. KU Kei Tat",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 6:30PM - 8:15PM",
+                        "room": "Cheng Yu Tung Building LT1A",
+                        "instructor": "Dr. KU Kei Tat",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 6:30PM - 8:15PM",
+                        "room": "Cheng Yu Tung Building LT1A",
+                        "instructor": "Dr. KU Kei Tat",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -175,44 +184,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "270",
-                "day_time": "Th 6:30PM - 8:15PM",
-                "room": "Cheng Yu Tung Building LT1A",
-                "instructor": "Dr. KU Kei Tat",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "BS01-SEM",
-                "component_type": "SEM",
-                "class_number": "7263",
-                "status": "Open",
-                "class_capacity": "270",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "270",
-                "day_time": "Th 6:30PM - 8:15PM",
-                "room": "Cheng Yu Tung Building LT1A",
-                "instructor": "Dr. KU Kei Tat",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "BS01-SEM",
-                "component_type": "SEM",
-                "class_number": "7263",
-                "status": "Open",
-                "class_capacity": "270",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "270",
-                "day_time": "Th 6:30PM - 8:15PM",
-                "room": "Cheng Yu Tung Building LT1A",
-                "instructor": "Dr. KU Kei Tat",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 6:30PM - 8:15PM",
+                        "room": "Cheng Yu Tung Building LT1A",
+                        "instructor": "Dr. KU Kei Tat",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 6:30PM - 8:15PM",
+                        "room": "Cheng Yu Tung Building LT1A",
+                        "instructor": "Dr. KU Kei Tat",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 6:30PM - 8:15PM",
+                        "room": "Cheng Yu Tung Building LT1A",
+                        "instructor": "Dr. KU Kei Tat",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -223,7 +214,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "IBBA 4089",
@@ -232,6 +223,6 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     }
 ]

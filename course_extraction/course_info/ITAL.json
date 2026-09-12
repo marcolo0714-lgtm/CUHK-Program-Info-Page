@@ -18,7 +18,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -31,27 +31,20 @@
                 "enrollment_total": "11",
                 "wait_list_total": "0",
                 "available_seats": "17",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "Wu Ho Man Yuen Bldg 508",
-                "instructor": "Dr. Beatrice DE MAGISTRIS",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "AC01-CLW",
-                "component_type": "CLW",
-                "class_number": "9615",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "999",
-                "enrollment_total": "11",
-                "wait_list_total": "0",
-                "available_seats": "17",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "Wu Ho Man Yuen Bldg 508",
-                "instructor": "Dr. Beatrice DE MAGISTRIS",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 508",
+                        "instructor": "Dr. Beatrice DE MAGISTRIS",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 508",
+                        "instructor": "Dr. Beatrice DE MAGISTRIS",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -65,27 +58,20 @@
                 "enrollment_total": "11",
                 "wait_list_total": "0",
                 "available_seats": "17",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Esther Lee Bldg 203",
-                "instructor": "Dr. Beatrice DE MAGISTRIS",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "BC01-CLW",
-                "component_type": "CLW",
-                "class_number": "9756",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "999",
-                "enrollment_total": "11",
-                "wait_list_total": "0",
-                "available_seats": "17",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Esther Lee Bldg 203",
-                "instructor": "Dr. Beatrice DE MAGISTRIS",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Esther Lee Bldg 203",
+                        "instructor": "Dr. Beatrice DE MAGISTRIS",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Esther Lee Bldg 203",
+                        "instructor": "Dr. Beatrice DE MAGISTRIS",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -99,44 +85,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "William M W Mong Eng Bldg 408",
-                "instructor": "Dr. Beatrice DE MAGISTRIS",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "4960",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "William M W Mong Eng Bldg 408",
-                "instructor": "Dr. Beatrice DE MAGISTRIS",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "4960",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "William M W Mong Eng Bldg 408",
-                "instructor": "Dr. Beatrice DE MAGISTRIS",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "William M W Mong Eng Bldg 408",
+                        "instructor": "Dr. Beatrice DE MAGISTRIS",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "William M W Mong Eng Bldg 408",
+                        "instructor": "Dr. Beatrice DE MAGISTRIS",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "William M W Mong Eng Bldg 408",
+                        "instructor": "Dr. Beatrice DE MAGISTRIS",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -147,7 +115,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "ITAL 2000",
@@ -163,7 +131,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -176,44 +144,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Wong Foo Yuan Bldg 401",
-                "instructor": "Dr. Beatrice DE MAGISTRIS",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "7183",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Wong Foo Yuan Bldg 401",
-                "instructor": "Dr. Beatrice DE MAGISTRIS",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "7183",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Wong Foo Yuan Bldg 401",
-                "instructor": "Dr. Beatrice DE MAGISTRIS",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Wong Foo Yuan Bldg 401",
+                        "instructor": "Dr. Beatrice DE MAGISTRIS",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Wong Foo Yuan Bldg 401",
+                        "instructor": "Dr. Beatrice DE MAGISTRIS",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Wong Foo Yuan Bldg 401",
+                        "instructor": "Dr. Beatrice DE MAGISTRIS",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -225,7 +175,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "ITAL 2050",
@@ -235,7 +185,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "ITAL 3000",
@@ -245,7 +195,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "ITAL 3001",
@@ -255,7 +205,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "ITAL 3002",
@@ -265,7 +215,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "ITAL 3050",
@@ -275,7 +225,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "ITAL 3051",
@@ -285,6 +235,6 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     }
 ]

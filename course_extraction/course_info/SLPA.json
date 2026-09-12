@@ -13,7 +13,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -26,44 +26,26 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Mo 1:30PM - 3:15PM",
-                "room": "Wu Ho Man Yuen Bldg 406",
-                "instructor": "Professor LAW Thomas Ka Tung",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2464",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Mo 1:30PM - 3:15PM",
-                "room": "Wu Ho Man Yuen Bldg 406",
-                "instructor": "Professor LAW Thomas Ka Tung",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11, 7/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2464",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Mo 1:30PM - 3:15PM",
-                "room": "Wu Ho Man Yuen Bldg 505",
-                "instructor": "Professor LAW Thomas Ka Tung",
-                "dates": "31/8"
+                "timetable": [
+                    {
+                        "day_time": "Mo 1:30PM - 3:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 406",
+                        "instructor": "Professor LAW Thomas Ka Tung",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 1:30PM - 3:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 406",
+                        "instructor": "Professor LAW Thomas Ka Tung",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11, 7/12"
+                    },
+                    {
+                        "day_time": "Mo 1:30PM - 3:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 505",
+                        "instructor": "Professor LAW Thomas Ka Tung",
+                        "dates": "31/8"
+                    }
+                ]
             }
         ]
     },
@@ -75,7 +57,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5103",
@@ -91,7 +73,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -104,10 +86,14 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Th 8:30AM - 11:15AM",
-                "room": "Wu Ho Man Yuen Bldg 403",
-                "instructor": "Dr. NG Hoi Yee Iris",
-                "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 8:30AM - 11:15AM",
+                        "room": "Wu Ho Man Yuen Bldg 403",
+                        "instructor": "Dr. NG Hoi Yee Iris",
+                        "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                    }
+                ]
             }
         ]
     },
@@ -119,7 +105,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5105",
@@ -135,7 +121,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2450",
                 "term": "2026-27 Summer Session",
@@ -148,10 +134,14 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Mo 9:30AM - 12:15PM",
-                "room": "Wu Ho Man Yuen Bldg 304",
-                "instructor": "Dr. NG Hoi Yee Iris, Dr. YU Shing",
-                "dates": "3/5, 10/5, 17/5, 24/5, 31/5, 7/6, 14/6, 21/6, 28/6"
+                "timetable": [
+                    {
+                        "day_time": "Mo 9:30AM - 12:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 304",
+                        "instructor": "Dr. NG Hoi Yee Iris, Dr. YU Shing",
+                        "dates": "3/5, 10/5, 17/5, 24/5, 31/5, 7/6, 14/6, 21/6, 28/6"
+                    }
+                ]
             },
             {
                 "term_code": "2450",
@@ -165,10 +155,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "63",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 304",
-                "instructor": "Staff",
-                "dates": "17/5, 24/5, 31/5, 7/6, 14/6, 21/6, 28/6"
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 304",
+                        "instructor": "Staff",
+                        "dates": "17/5, 24/5, 31/5, 7/6, 14/6, 21/6, 28/6"
+                    }
+                ]
             }
         ]
     },
@@ -186,7 +180,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -199,27 +193,20 @@
                 "enrollment_total": "35",
                 "wait_list_total": "0",
                 "available_seats": "35",
-                "day_time": "We 9:30AM - 12:15PM",
-                "room": "Wu Ho Man Yuen Bldg 508",
-                "instructor": "Professor FONG Raymond",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "1211",
-                "status": "Open",
-                "class_capacity": "70",
-                "wait_list_capacity": "0",
-                "enrollment_total": "35",
-                "wait_list_total": "0",
-                "available_seats": "35",
-                "day_time": "We 9:30AM - 12:15PM",
-                "room": "Wu Ho Man Yuen Bldg 505",
-                "instructor": "Professor FONG Raymond",
-                "dates": "2/9"
+                "timetable": [
+                    {
+                        "day_time": "We 9:30AM - 12:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 508",
+                        "instructor": "Professor FONG Raymond",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    },
+                    {
+                        "day_time": "We 9:30AM - 12:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 505",
+                        "instructor": "Professor FONG Raymond",
+                        "dates": "2/9"
+                    }
+                ]
             }
         ]
     },
@@ -237,7 +224,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -250,44 +237,26 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Mo 8:30AM - 11:15AM",
-                "room": "Esther Lee Bldg 307",
-                "instructor": "Professor LAW Thomas Ka Tung",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2463",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Mo 8:30AM - 11:15AM",
-                "room": "Esther Lee Bldg 307",
-                "instructor": "Professor LAW Thomas Ka Tung",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11, 7/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2463",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Mo 8:30AM - 11:15AM",
-                "room": "Wu Ho Man Yuen Bldg 505",
-                "instructor": "Professor LAW Thomas Ka Tung",
-                "dates": "31/8"
+                "timetable": [
+                    {
+                        "day_time": "Mo 8:30AM - 11:15AM",
+                        "room": "Esther Lee Bldg 307",
+                        "instructor": "Professor LAW Thomas Ka Tung",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 8:30AM - 11:15AM",
+                        "room": "Esther Lee Bldg 307",
+                        "instructor": "Professor LAW Thomas Ka Tung",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11, 7/12"
+                    },
+                    {
+                        "day_time": "Mo 8:30AM - 11:15AM",
+                        "room": "Wu Ho Man Yuen Bldg 505",
+                        "instructor": "Professor LAW Thomas Ka Tung",
+                        "dates": "31/8"
+                    }
+                ]
             }
         ]
     },
@@ -299,7 +268,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5203",
@@ -315,7 +284,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -328,27 +297,20 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "We 8:30AM - 12:15PM",
-                "room": "Wu Ho Man Yuen Bldg 305",
-                "instructor": "Ms. KWAN Ching Yin, Professor FONG Raymond",
-                "dates": "6/1, 13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2291",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "We 8:30AM - 12:15PM",
-                "room": "Wu Ho Man Yuen Bldg 305",
-                "instructor": "Ms. KWAN Ching Yin, Professor FONG Raymond",
-                "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4"
+                "timetable": [
+                    {
+                        "day_time": "We 8:30AM - 12:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 305",
+                        "instructor": "Ms. KWAN Ching Yin, Professor FONG Raymond",
+                        "dates": "6/1, 13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 8:30AM - 12:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 305",
+                        "instructor": "Ms. KWAN Ching Yin, Professor FONG Raymond",
+                        "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4"
+                    }
+                ]
             }
         ]
     },
@@ -366,7 +328,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -379,44 +341,26 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Fr 9:30AM - 12:15PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Ms LAM Yuk Chau",
-                "dates": "8/1, 15/1, 22/1, 29/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2433",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Fr 9:30AM - 12:15PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Ms LAM Yuk Chau",
-                "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2433",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Fr 9:30AM - 12:15PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Ms LAM Yuk Chau",
-                "dates": "2/4, 9/4, 16/4, 23/4, 30/4"
+                "timetable": [
+                    {
+                        "day_time": "Fr 9:30AM - 12:15PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Ms LAM Yuk Chau",
+                        "dates": "8/1, 15/1, 22/1, 29/1"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 12:15PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Ms LAM Yuk Chau",
+                        "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 12:15PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Ms LAM Yuk Chau",
+                        "dates": "2/4, 9/4, 16/4, 23/4, 30/4"
+                    }
+                ]
             }
         ]
     },
@@ -434,7 +378,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -447,95 +391,44 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Th 3:30PM - 6:15PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Professor Valerie Jane PEREIRA",
-                "dates": "10/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "2320",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Tu 12:00AM - 12:00AM",
-                "room": "TBA",
-                "instructor": "Professor Valerie Jane PEREIRA",
-                "dates": "24/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "2320",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 3:30PM - 6:15PM",
-                "room": "Yasumoto Int'l Acad Park 403",
-                "instructor": "Professor Valerie Jane PEREIRA",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "2320",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 3:30PM - 6:15PM",
-                "room": "Yasumoto Int'l Acad Park 403",
-                "instructor": "Professor Valerie Jane PEREIRA",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "2320",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 3:30PM - 6:15PM",
-                "room": "Yasumoto Int'l Acad Park 403",
-                "instructor": "Professor Valerie Jane PEREIRA",
-                "dates": "3/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "2320",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 3:30PM - 6:15PM",
-                "room": "Wu Ho Man Yuen Bldg 505",
-                "instructor": "Professor Valerie Jane PEREIRA",
-                "dates": "3/9"
+                "timetable": [
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Professor Valerie Jane PEREIRA",
+                        "dates": "10/12"
+                    },
+                    {
+                        "day_time": "Tu 12:00AM - 12:00AM",
+                        "room": "TBA",
+                        "instructor": "Professor Valerie Jane PEREIRA",
+                        "dates": "24/11"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 403",
+                        "instructor": "Professor Valerie Jane PEREIRA",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 403",
+                        "instructor": "Professor Valerie Jane PEREIRA",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 403",
+                        "instructor": "Professor Valerie Jane PEREIRA",
+                        "dates": "3/12"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 505",
+                        "instructor": "Professor Valerie Jane PEREIRA",
+                        "dates": "3/9"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -549,10 +442,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "63",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Staff",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Staff",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -570,7 +467,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -583,10 +480,14 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Th 8:30AM - 11:15AM",
-                "room": "Wu Ho Man Yuen Bldg 403",
-                "instructor": "Professor Valerie Jane PEREIRA",
-                "dates": "7/1, 14/1, 21/1, 28/1, 4/2"
+                "timetable": [
+                    {
+                        "day_time": "Th 8:30AM - 11:15AM",
+                        "room": "Wu Ho Man Yuen Bldg 403",
+                        "instructor": "Professor Valerie Jane PEREIRA",
+                        "dates": "7/1, 14/1, 21/1, 28/1, 4/2"
+                    }
+                ]
             }
         ]
     },
@@ -604,7 +505,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -617,44 +518,26 @@
                 "enrollment_total": "62",
                 "wait_list_total": "0",
                 "available_seats": "1",
-                "day_time": "Fr 1:30PM - 4:15PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Professor Valerie Jane PEREIRA",
-                "dates": "6/11, 13/11, 20/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1210",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "62",
-                "wait_list_total": "0",
-                "available_seats": "1",
-                "day_time": "Fr 1:30PM - 4:15PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Professor Valerie Jane PEREIRA",
-                "dates": "4/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1210",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "62",
-                "wait_list_total": "0",
-                "available_seats": "1",
-                "day_time": "We 4:30PM - 7:15PM",
-                "room": "Fung King Hey Bldg Swire Hall1",
-                "instructor": "Professor Valerie Jane PEREIRA",
-                "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12, 9/12"
+                "timetable": [
+                    {
+                        "day_time": "Fr 1:30PM - 4:15PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Professor Valerie Jane PEREIRA",
+                        "dates": "6/11, 13/11, 20/11"
+                    },
+                    {
+                        "day_time": "Fr 1:30PM - 4:15PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Professor Valerie Jane PEREIRA",
+                        "dates": "4/12"
+                    },
+                    {
+                        "day_time": "We 4:30PM - 7:15PM",
+                        "room": "Fung King Hey Bldg Swire Hall1",
+                        "instructor": "Professor Valerie Jane PEREIRA",
+                        "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12, 9/12"
+                    }
+                ]
             }
         ]
     },
@@ -666,7 +549,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5209",
@@ -676,7 +559,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5210",
@@ -692,7 +575,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -705,44 +588,26 @@
                 "enrollment_total": "62",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Fr 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 407",
-                "instructor": "Professor FONG Raymond",
-                "dates": "8/1, 15/1, 22/1, 29/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2434",
-                "status": "Open",
-                "class_capacity": "64",
-                "wait_list_capacity": "0",
-                "enrollment_total": "62",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Fr 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 407",
-                "instructor": "Professor FONG Raymond",
-                "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2434",
-                "status": "Open",
-                "class_capacity": "64",
-                "wait_list_capacity": "0",
-                "enrollment_total": "62",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Fr 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 407",
-                "instructor": "Professor FONG Raymond",
-                "dates": "2/4, 9/4, 16/4, 23/4, 30/4"
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 407",
+                        "instructor": "Professor FONG Raymond",
+                        "dates": "8/1, 15/1, 22/1, 29/1"
+                    },
+                    {
+                        "day_time": "Fr 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 407",
+                        "instructor": "Professor FONG Raymond",
+                        "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
+                    },
+                    {
+                        "day_time": "Fr 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 407",
+                        "instructor": "Professor FONG Raymond",
+                        "dates": "2/4, 9/4, 16/4, 23/4, 30/4"
+                    }
+                ]
             }
         ]
     },
@@ -754,7 +619,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5212",
@@ -764,7 +629,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5220",
@@ -774,7 +639,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5300",
@@ -790,7 +655,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -803,129 +668,56 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Th 8:30AM - 11:15AM",
-                "room": "Humanities Building 12",
-                "instructor": "Ms KAN Pui Kei Peggy",
-                "dates": "10/9, 17/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2323",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 8:30AM - 11:15AM",
-                "room": "Humanities Building 12",
-                "instructor": "Ms KAN Pui Kei Peggy",
-                "dates": "5/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2323",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 8:30AM - 11:15AM",
-                "room": "Humanities Building 12",
-                "instructor": "Ms KAN Pui Kei Peggy",
-                "dates": "19/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2323",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 8:30AM - 11:15AM",
-                "room": "No Room Required",
-                "instructor": "Ms KAN Pui Kei Peggy",
-                "dates": "8/10, 15/10, 22/10, 29/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2323",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 8:30AM - 11:15AM",
-                "room": "No Room Required",
-                "instructor": "Ms KAN Pui Kei Peggy, Professor LAW Thomas Ka Tung",
-                "dates": "12/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2323",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 8:30AM - 11:15AM",
-                "room": "Wu Ho Man Yuen Bldg 505",
-                "instructor": "Ms KAN Pui Kei Peggy, Professor LAW Thomas Ka Tung",
-                "dates": "3/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2323",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 8:30AM - 11:15AM",
-                "room": "No Room Required",
-                "instructor": "Ms KAN Pui Kei Peggy, Professor LAW Thomas Ka Tung",
-                "dates": "26/11, 3/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2323",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 8:30AM - 11:15AM",
-                "room": "No Room Required",
-                "instructor": "Ms KAN Pui Kei Peggy, Professor LAW Thomas Ka Tung",
-                "dates": "24/9"
+                "timetable": [
+                    {
+                        "day_time": "Th 8:30AM - 11:15AM",
+                        "room": "Humanities Building 12",
+                        "instructor": "Ms KAN Pui Kei Peggy",
+                        "dates": "10/9, 17/9"
+                    },
+                    {
+                        "day_time": "Th 8:30AM - 11:15AM",
+                        "room": "Humanities Building 12",
+                        "instructor": "Ms KAN Pui Kei Peggy",
+                        "dates": "5/11"
+                    },
+                    {
+                        "day_time": "Th 8:30AM - 11:15AM",
+                        "room": "Humanities Building 12",
+                        "instructor": "Ms KAN Pui Kei Peggy",
+                        "dates": "19/11"
+                    },
+                    {
+                        "day_time": "Th 8:30AM - 11:15AM",
+                        "room": "No Room Required",
+                        "instructor": "Ms KAN Pui Kei Peggy",
+                        "dates": "8/10, 15/10, 22/10, 29/10"
+                    },
+                    {
+                        "day_time": "Th 8:30AM - 11:15AM",
+                        "room": "No Room Required",
+                        "instructor": "Ms KAN Pui Kei Peggy, Professor LAW Thomas Ka Tung",
+                        "dates": "12/11"
+                    },
+                    {
+                        "day_time": "Th 8:30AM - 11:15AM",
+                        "room": "Wu Ho Man Yuen Bldg 505",
+                        "instructor": "Ms KAN Pui Kei Peggy, Professor LAW Thomas Ka Tung",
+                        "dates": "3/9"
+                    },
+                    {
+                        "day_time": "Th 8:30AM - 11:15AM",
+                        "room": "No Room Required",
+                        "instructor": "Ms KAN Pui Kei Peggy, Professor LAW Thomas Ka Tung",
+                        "dates": "26/11, 3/12"
+                    },
+                    {
+                        "day_time": "Th 8:30AM - 11:15AM",
+                        "room": "No Room Required",
+                        "instructor": "Ms KAN Pui Kei Peggy, Professor LAW Thomas Ka Tung",
+                        "dates": "24/9"
+                    }
+                ]
             }
         ]
     },
@@ -943,7 +735,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -956,10 +748,14 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor Valerie Jane PEREIRA",
-                "dates": "04/01/2027 - 05/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor Valerie Jane PEREIRA",
+                        "dates": "04/01/2027 - 05/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -977,7 +773,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2450",
                 "term": "2026-27 Summer Session",
@@ -990,10 +786,14 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor Valerie Jane PEREIRA",
-                "dates": "26/04/2027 - 26/07/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor Valerie Jane PEREIRA",
+                        "dates": "26/04/2027 - 26/07/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1005,7 +805,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5304",
@@ -1021,7 +821,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1034,10 +834,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor LAW Thomas Ka Tung",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor LAW Thomas Ka Tung",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1049,7 +853,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5306",
@@ -1059,7 +863,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5401",
@@ -1075,7 +879,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1088,61 +892,32 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Fr 1:30PM - 4:15PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Dr. YU Shing",
-                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2322",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "We 4:30PM - 7:15PM",
-                "room": "Fung King Hey Bldg Swire Hall1",
-                "instructor": "Dr. YU Shing",
-                "dates": "9/9, 16/9, 23/9, 30/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2322",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "We 4:30PM - 7:15PM",
-                "room": "Wu Ho Man Yuen Bldg 505",
-                "instructor": "Dr. YU Shing",
-                "dates": "2/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2322",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Fr 1:30PM - 4:15PM",
-                "room": "Wu Ho Man Yuen Bldg 505",
-                "instructor": "Dr. YU Shing",
-                "dates": "4/9"
+                "timetable": [
+                    {
+                        "day_time": "Fr 1:30PM - 4:15PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Dr. YU Shing",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10"
+                    },
+                    {
+                        "day_time": "We 4:30PM - 7:15PM",
+                        "room": "Fung King Hey Bldg Swire Hall1",
+                        "instructor": "Dr. YU Shing",
+                        "dates": "9/9, 16/9, 23/9, 30/9"
+                    },
+                    {
+                        "day_time": "We 4:30PM - 7:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 505",
+                        "instructor": "Dr. YU Shing",
+                        "dates": "2/9"
+                    },
+                    {
+                        "day_time": "Fr 1:30PM - 4:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 505",
+                        "instructor": "Dr. YU Shing",
+                        "dates": "4/9"
+                    }
+                ]
             }
         ]
     },
@@ -1160,7 +935,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1173,27 +948,20 @@
                 "enrollment_total": "61",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "We 4:30PM - 7:15PM",
-                "room": "Lady Shaw Bldg LT4",
-                "instructor": "Miss FUNG Hiu Man Cat",
-                "dates": "6/1, 13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2292",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "61",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "We 4:30PM - 7:15PM",
-                "room": "Lady Shaw Bldg LT4",
-                "instructor": "Miss FUNG Hiu Man Cat, Professor LAW Thomas Ka Tung",
-                "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4"
+                "timetable": [
+                    {
+                        "day_time": "We 4:30PM - 7:15PM",
+                        "room": "Lady Shaw Bldg LT4",
+                        "instructor": "Miss FUNG Hiu Man Cat",
+                        "dates": "6/1, 13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 4:30PM - 7:15PM",
+                        "room": "Lady Shaw Bldg LT4",
+                        "instructor": "Miss FUNG Hiu Man Cat, Professor LAW Thomas Ka Tung",
+                        "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4"
+                    }
+                ]
             }
         ]
     },
@@ -1211,7 +979,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1224,27 +992,20 @@
                 "enrollment_total": "30",
                 "wait_list_total": "0",
                 "available_seats": "33",
-                "day_time": "Fr 9:30AM - 12:15PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Miss HU Yunyi",
-                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1206",
-                "status": "Open",
-                "class_capacity": "63",
-                "wait_list_capacity": "0",
-                "enrollment_total": "30",
-                "wait_list_total": "0",
-                "available_seats": "33",
-                "day_time": "Fr 9:30AM - 12:15PM",
-                "room": "Wu Ho Man Yuen Bldg 505",
-                "instructor": "Miss HU Yunyi",
-                "dates": "4/9"
+                "timetable": [
+                    {
+                        "day_time": "Fr 9:30AM - 12:15PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Miss HU Yunyi",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 12:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 505",
+                        "instructor": "Miss HU Yunyi",
+                        "dates": "4/9"
+                    }
+                ]
             }
         ]
     },
@@ -1256,7 +1017,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5501",
@@ -1266,7 +1027,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5502",
@@ -1276,7 +1037,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5601",
@@ -1286,7 +1047,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5602",
@@ -1302,7 +1063,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1315,44 +1076,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "65",
-                "day_time": "Sa 9:00AM - 12:00PM",
-                "room": "Esther Lee Bldg 302",
-                "instructor": "Professor LUK Sau Ha",
-                "dates": "9/1, 16/1, 23/1, 30/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "2432",
-                "status": "Open",
-                "class_capacity": "65",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "65",
-                "day_time": "Sa 9:00AM - 12:00PM",
-                "room": "Esther Lee Bldg 302",
-                "instructor": "Professor LUK Sau Ha",
-                "dates": "13/2, 20/2, 27/2, 6/3, 13/3, 20/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "2432",
-                "status": "Open",
-                "class_capacity": "65",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "65",
-                "day_time": "Sa 9:00AM - 12:00PM",
-                "room": "Esther Lee Bldg 302",
-                "instructor": "Professor LUK Sau Ha",
-                "dates": "3/4, 10/4, 17/4"
+                "timetable": [
+                    {
+                        "day_time": "Sa 9:00AM - 12:00PM",
+                        "room": "Esther Lee Bldg 302",
+                        "instructor": "Professor LUK Sau Ha",
+                        "dates": "9/1, 16/1, 23/1, 30/1"
+                    },
+                    {
+                        "day_time": "Sa 9:00AM - 12:00PM",
+                        "room": "Esther Lee Bldg 302",
+                        "instructor": "Professor LUK Sau Ha",
+                        "dates": "13/2, 20/2, 27/2, 6/3, 13/3, 20/3"
+                    },
+                    {
+                        "day_time": "Sa 9:00AM - 12:00PM",
+                        "room": "Esther Lee Bldg 302",
+                        "instructor": "Professor LUK Sau Ha",
+                        "dates": "3/4, 10/4, 17/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1366,44 +1109,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "50",
-                "day_time": "Mo 6:30PM - 9:15PM",
-                "room": "Esther Lee Bldg 403",
-                "instructor": "Staff",
-                "dates": "4/1, 11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "B-LEC",
-                "component_type": "LEC",
-                "class_number": "2430",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Mo 6:30PM - 9:15PM",
-                "room": "Esther Lee Bldg 403",
-                "instructor": "Staff",
-                "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "B-LEC",
-                "component_type": "LEC",
-                "class_number": "2430",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Mo 6:30PM - 9:15PM",
-                "room": "TBA",
-                "instructor": "Staff",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 6:30PM - 9:15PM",
+                        "room": "Esther Lee Bldg 403",
+                        "instructor": "Staff",
+                        "dates": "4/1, 11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:15PM",
+                        "room": "Esther Lee Bldg 403",
+                        "instructor": "Staff",
+                        "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:15PM",
+                        "room": "TBA",
+                        "instructor": "Staff",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1417,27 +1142,20 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "50",
-                "day_time": "We 6:30PM - 9:15PM",
-                "room": "Lee Shau Kee Archi Bldg G04",
-                "instructor": "Staff",
-                "dates": "6/1, 13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "C-LEC",
-                "component_type": "LEC",
-                "class_number": "2431",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "We 6:30PM - 9:15PM",
-                "room": "Lee Shau Kee Archi Bldg G04",
-                "instructor": "Staff",
-                "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4"
+                "timetable": [
+                    {
+                        "day_time": "We 6:30PM - 9:15PM",
+                        "room": "Lee Shau Kee Archi Bldg G04",
+                        "instructor": "Staff",
+                        "dates": "6/1, 13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 6:30PM - 9:15PM",
+                        "room": "Lee Shau Kee Archi Bldg G04",
+                        "instructor": "Staff",
+                        "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4"
+                    }
+                ]
             }
         ]
     },
@@ -1449,7 +1167,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5604",
@@ -1459,7 +1177,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5605",
@@ -1469,7 +1187,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5606",
@@ -1479,7 +1197,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5607",
@@ -1489,7 +1207,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "SLPA 5608",
@@ -1499,6 +1217,6 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     }
 ]

@@ -6,7 +6,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "ASEI 2010",
@@ -21,7 +21,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -34,95 +34,44 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "50",
-                "day_time": "Th 2:30PM - 3:15PM",
-                "room": "Lee Shau Kee Building LT1",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7736",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Th 2:30PM - 3:15PM",
-                "room": "Lee Shau Kee Building LT1",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7736",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Th 2:30PM - 3:15PM",
-                "room": "Lee Shau Kee Building LT1",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7736",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Tu 4:30PM - 6:15PM",
-                "room": "Basic Med Sci Bldg LT",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7736",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Tu 4:30PM - 6:15PM",
-                "room": "Basic Med Sci Bldg LT",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7736",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Tu 4:30PM - 6:15PM",
-                "room": "Basic Med Sci Bldg LT",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 3:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 3:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 3:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    },
+                    {
+                        "day_time": "Tu 4:30PM - 6:15PM",
+                        "room": "Basic Med Sci Bldg LT",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 4:30PM - 6:15PM",
+                        "room": "Basic Med Sci Bldg LT",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 4:30PM - 6:15PM",
+                        "room": "Basic Med Sci Bldg LT",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -136,44 +85,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "50",
-                "day_time": "Th 3:30PM - 4:15PM",
-                "room": "Lee Shau Kee Building LT1",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "7737",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Th 3:30PM - 4:15PM",
-                "room": "Lee Shau Kee Building LT1",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "7737",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "day_time": "Th 3:30PM - 4:15PM",
-                "room": "Lee Shau Kee Building LT1",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 3:30PM - 4:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 4:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 4:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -184,7 +115,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "ASEI 3010",
@@ -200,7 +131,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -213,44 +144,26 @@
                 "enrollment_total": "18",
                 "wait_list_total": "0",
                 "available_seats": "32",
-                "day_time": "Mo 12:30PM - 2:15PM",
-                "room": "Lai Chan Pui Ngong LT",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7715",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "999",
-                "enrollment_total": "18",
-                "wait_list_total": "0",
-                "available_seats": "32",
-                "day_time": "Mo 12:30PM - 2:15PM",
-                "room": "Lai Chan Pui Ngong LT",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7715",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "999",
-                "enrollment_total": "18",
-                "wait_list_total": "0",
-                "available_seats": "32",
-                "day_time": "Fr 10:30AM - 11:15AM",
-                "room": "Lady Shaw Bldg LT3",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                "timetable": [
+                    {
+                        "day_time": "Mo 12:30PM - 2:15PM",
+                        "room": "Lai Chan Pui Ngong LT",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 12:30PM - 2:15PM",
+                        "room": "Lai Chan Pui Ngong LT",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    },
+                    {
+                        "day_time": "Fr 10:30AM - 11:15AM",
+                        "room": "Lady Shaw Bldg LT3",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -264,10 +177,14 @@
                 "enrollment_total": "18",
                 "wait_list_total": "0",
                 "available_seats": "32",
-                "day_time": "Fr 9:30AM - 10:15AM",
-                "room": "Lady Shaw Bldg LT3",
-                "instructor": "Dr. YIM Shing Yik",
-                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                "timetable": [
+                    {
+                        "day_time": "Fr 9:30AM - 10:15AM",
+                        "room": "Lady Shaw Bldg LT3",
+                        "instructor": "Dr. YIM Shing Yik",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
             }
         ]
     },
@@ -284,7 +201,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -297,44 +214,26 @@
                 "enrollment_total": "12",
                 "wait_list_total": "0",
                 "available_seats": "38",
-                "day_time": "We 2:30PM - 4:15PM",
-                "room": "Humanities Building 213",
-                "instructor": "Professor WU Zherong",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5070",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "999",
-                "enrollment_total": "12",
-                "wait_list_total": "0",
-                "available_seats": "38",
-                "day_time": "Th 4:30PM - 5:15PM",
-                "room": "Mong Man Wai Bldg 707",
-                "instructor": "Professor WU Zherong",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5070",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "999",
-                "enrollment_total": "12",
-                "wait_list_total": "0",
-                "available_seats": "38",
-                "day_time": "Th 4:30PM - 5:15PM",
-                "room": "Mong Man Wai Bldg 707",
-                "instructor": "Professor WU Zherong",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 4:15PM",
+                        "room": "Humanities Building 213",
+                        "instructor": "Professor WU Zherong",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    },
+                    {
+                        "day_time": "Th 4:30PM - 5:15PM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Professor WU Zherong",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 4:30PM - 5:15PM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Professor WU Zherong",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -348,27 +247,20 @@
                 "enrollment_total": "12",
                 "wait_list_total": "0",
                 "available_seats": "38",
-                "day_time": "Th 5:30PM - 6:15PM",
-                "room": "Mong Man Wai Bldg 707",
-                "instructor": "Professor WU Zherong",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "5071",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "999",
-                "enrollment_total": "12",
-                "wait_list_total": "0",
-                "available_seats": "38",
-                "day_time": "Th 5:30PM - 6:15PM",
-                "room": "Mong Man Wai Bldg 707",
-                "instructor": "Professor WU Zherong",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 5:30PM - 6:15PM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Professor WU Zherong",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 5:30PM - 6:15PM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Professor WU Zherong",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             }
         ]
     },
@@ -380,6 +272,6 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     }
 ]

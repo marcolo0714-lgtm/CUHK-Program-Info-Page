@@ -18,7 +18,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -31,10 +31,14 @@
                 "enrollment_total": "98",
                 "wait_list_total": "0",
                 "available_seats": "1",
-                "day_time": "Tu 2:00PM - 5:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor HO Kin Fai, Professor TSE Lap Ah",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:00PM - 5:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor HO Kin Fai, Professor TSE Lap Ah",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11"
+                    }
+                ]
             },
             {
                 "term_code": "2440",
@@ -48,10 +52,14 @@
                 "enrollment_total": "70",
                 "wait_list_total": "0",
                 "available_seats": "29",
-                "day_time": "Fr 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor HO Kin Fai, Professor TSE Lap Ah",
-                "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5"
+                "timetable": [
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor HO Kin Fai, Professor TSE Lap Ah",
+                        "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5"
+                    }
+                ]
             }
         ]
     },
@@ -69,7 +77,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -82,27 +90,20 @@
                 "enrollment_total": "27",
                 "wait_list_total": "0",
                 "available_seats": "72",
-                "day_time": "TBA",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Mr. YIP Sung Tat, Professor FOK Pui Chu Joan, Professor TSE Lap Ah, Professor TSIN Tai Wa",
-                "dates": "08/01/2027 - 29/01/2027"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1409",
-                "status": "Open",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "27",
-                "wait_list_total": "0",
-                "available_seats": "72",
-                "day_time": "TBA",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Mr. YIP Sung Tat, Ms. CHAN Tan Hung, Professor FOK Pui Chu Joan, Professor TSE Lap Ah, Professor TSIN Tai Wa",
-                "dates": "12/02/2027 - 19/03/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Mr. YIP Sung Tat, Professor FOK Pui Chu Joan, Professor TSE Lap Ah, Professor TSIN Tai Wa",
+                        "dates": "08/01/2027 - 29/01/2027"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Mr. YIP Sung Tat, Ms. CHAN Tan Hung, Professor FOK Pui Chu Joan, Professor TSE Lap Ah, Professor TSIN Tai Wa",
+                        "dates": "12/02/2027 - 19/03/2027"
+                    }
+                ]
             }
         ]
     },
@@ -114,7 +115,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "OENV 5004",
@@ -124,7 +125,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "OENV 5005",
@@ -134,7 +135,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "OENV 5006",
@@ -144,7 +145,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "OENV 5007",
@@ -154,7 +155,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "OENV 5008",
@@ -164,7 +165,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "OENV 5009",
@@ -174,7 +175,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "OENV 5010",
@@ -184,7 +185,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "OENV 5011",
@@ -194,7 +195,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "OENV 5012",
@@ -210,7 +211,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -223,27 +224,20 @@
                 "enrollment_total": "8",
                 "wait_list_total": "0",
                 "available_seats": "91",
-                "day_time": "Tu 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor HO Kin Fai",
-                "dates": "5/1, 12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "3981",
-                "status": "Open",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "8",
-                "wait_list_total": "0",
-                "available_seats": "91",
-                "day_time": "Tu 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor HO Kin Fai",
-                "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor HO Kin Fai",
+                        "dates": "5/1, 12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor HO Kin Fai",
+                        "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4"
+                    }
+                ]
             }
         ]
     },
@@ -255,6 +249,6 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     }
 ]

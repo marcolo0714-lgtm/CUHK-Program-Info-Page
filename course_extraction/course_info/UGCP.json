@@ -17,7 +17,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -30,10 +30,14 @@
                 "enrollment_total": "2500",
                 "wait_list_total": "899",
                 "available_seats": "0",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -47,10 +51,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "2400",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -72,7 +80,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -85,10 +93,14 @@
                 "enrollment_total": "2502",
                 "wait_list_total": "566",
                 "available_seats": "0",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -102,10 +114,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "2400",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     }

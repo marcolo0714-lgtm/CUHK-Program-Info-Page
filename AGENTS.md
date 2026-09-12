@@ -61,9 +61,14 @@ python minor_extraction/generate_minor_site.py --year 2025_26
 ## Course info JSON format
 - Each `course_extraction/course_info/<DEPT>.json` is an array of:
   ```json
-  {"code": "DEPT 1234", "title": "...", "unit": "3.00", "info": "...", "term_1": true, "term_2": true}
+  {
+    "code": "DEPT 1234", "title": "...", "unit": "3.00", "info": "...",
+    "term_1": true, "term_2": true, "term_offerings": [],
+    "sections": [{"term_code": "2420", "term": "2026-27 Term 1", "section": "A-LEC", "component_type": "LEC", "class_number": "9700", "status": "Open", "class_capacity": "100", "wait_list_capacity": "0", "enrollment_total": "90", "wait_list_total": "0", "available_seats": "10", "timetable": [{"day_time": "Mo 12:30PM - 2:15PM", "room": "...", "instructor": "...", "dates": "..."}]}]
+  }
   ```
-- `term_1`/`term_2` are booleans indicating 2026-27 Term 1/2 availability.
+- `term_1`/`term_2` indicate whether any section `term` label contains an academic year followed by `Term 1`/`Term 2` (for example, `2026-27 Term 1`).
+- Each term/section appears once; its individual meeting rows are stored in `timetable`.
 
 ## Chip coloring rules (checker page)
 - **Green** — course consumed by THIS row (in `row.consumedCodes`)

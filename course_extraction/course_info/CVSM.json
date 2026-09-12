@@ -13,7 +13,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -26,10 +26,14 @@
                 "enrollment_total": "287",
                 "wait_list_total": "0",
                 "available_seats": "13",
-                "day_time": "Tu 4:00PM - 8:45PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor YAN Ping Yen Bryan",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 4:00PM - 8:45PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor YAN Ping Yen Bryan",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             }
         ]
     },
@@ -47,7 +51,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -60,27 +64,20 @@
                 "enrollment_total": "287",
                 "wait_list_total": "0",
                 "available_seats": "13",
-                "day_time": "Tu 4:00PM - 8:45PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor YAN Ping Yen Bryan",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1680",
-                "status": "Open",
-                "class_capacity": "300",
-                "wait_list_capacity": "0",
-                "enrollment_total": "287",
-                "wait_list_total": "0",
-                "available_seats": "13",
-                "day_time": "Tu 4:00PM - 8:45PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor YAN Ping Yen Bryan",
-                "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 4:00PM - 8:45PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor YAN Ping Yen Bryan",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 4:00PM - 8:45PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor YAN Ping Yen Bryan",
+                        "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             }
         ]
     },
@@ -92,7 +89,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CVSM 5004",
@@ -108,7 +105,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2450",
                 "term": "2026-27 Summer Session",
@@ -121,10 +118,14 @@
                 "enrollment_total": "287",
                 "wait_list_total": "0",
                 "available_seats": "13",
-                "day_time": "Tu 4:00PM - 8:45PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor YAN Ping Yen Bryan",
-                "dates": "18/5, 25/5, 1/6, 8/6, 15/6, 22/6, 29/6"
+                "timetable": [
+                    {
+                        "day_time": "Tu 4:00PM - 8:45PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor YAN Ping Yen Bryan",
+                        "dates": "18/5, 25/5, 1/6, 8/6, 15/6, 22/6, 29/6"
+                    }
+                ]
             }
         ]
     },
@@ -136,7 +137,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CVSM 5006",
@@ -146,7 +147,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CVSM 5007",
@@ -156,7 +157,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CVSM 5008",
@@ -172,7 +173,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2450",
                 "term": "2026-27 Summer Session",
@@ -185,10 +186,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "200",
-                "day_time": "Tu 4:00PM - 9:15PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor YAN Ping Yen Bryan",
-                "dates": "18/5, 25/5, 1/6, 8/6, 15/6, 22/6, 29/6"
+                "timetable": [
+                    {
+                        "day_time": "Tu 4:00PM - 9:15PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor YAN Ping Yen Bryan",
+                        "dates": "18/5, 25/5, 1/6, 8/6, 15/6, 22/6, 29/6"
+                    }
+                ]
             }
         ]
     },
@@ -200,7 +205,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CVSM 5010",
@@ -210,6 +215,6 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     }
 ]

@@ -13,7 +13,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -26,27 +26,20 @@
                 "enrollment_total": "33",
                 "wait_list_total": "0",
                 "available_seats": "22",
-                "day_time": "We 7:00PM - 9:30PM",
-                "room": "Esther Lee Bldg 307",
-                "instructor": "Professor CHEN Chien Huang",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1369",
-                "status": "Open",
-                "class_capacity": "55",
-                "wait_list_capacity": "0",
-                "enrollment_total": "33",
-                "wait_list_total": "0",
-                "available_seats": "22",
-                "day_time": "We 7:00PM - 9:30PM",
-                "room": "Esther Lee Bldg 307",
-                "instructor": "Professor CHEN Chien Huang",
-                "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 7:00PM - 9:30PM",
+                        "room": "Esther Lee Bldg 307",
+                        "instructor": "Professor CHEN Chien Huang",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 7:00PM - 9:30PM",
+                        "room": "Esther Lee Bldg 307",
+                        "instructor": "Professor CHEN Chien Huang",
+                        "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -64,7 +57,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -77,27 +70,20 @@
                 "enrollment_total": "40",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Th 7:00PM - 9:30PM",
-                "room": "Esther Lee Bldg 405",
-                "instructor": "Dr. XUE Yu",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1361",
-                "status": "Closed",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "40",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Th 7:00PM - 9:30PM",
-                "room": "Esther Lee Bldg 405",
-                "instructor": "Dr. XUE Yu",
-                "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 7:00PM - 9:30PM",
+                        "room": "Esther Lee Bldg 405",
+                        "instructor": "Dr. XUE Yu",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 7:00PM - 9:30PM",
+                        "room": "Esther Lee Bldg 405",
+                        "instructor": "Dr. XUE Yu",
+                        "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -109,7 +95,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "BUDS 5004",
@@ -119,7 +105,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "BUDS 5005",
@@ -135,7 +121,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -148,10 +134,14 @@
                 "enrollment_total": "41",
                 "wait_list_total": "0",
                 "available_seats": "14",
-                "day_time": "We 7:00PM - 9:30PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Professor CHEN Chien Huang",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 7:00PM - 9:30PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Professor CHEN Chien Huang",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             }
         ]
     },
@@ -169,7 +159,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -182,10 +172,14 @@
                 "enrollment_total": "41",
                 "wait_list_total": "0",
                 "available_seats": "4",
-                "day_time": "Sa 10:00AM - 5:00PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Dr. DUAN Peng",
-                "dates": "24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                "timetable": [
+                    {
+                        "day_time": "Sa 10:00AM - 5:00PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Dr. DUAN Peng",
+                        "dates": "24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                    }
+                ]
             }
         ]
     },
@@ -197,7 +191,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "BUDS 5008",
@@ -207,7 +201,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "BUDS 5009",
@@ -223,7 +217,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -236,95 +230,44 @@
                 "enrollment_total": "31",
                 "wait_list_total": "0",
                 "available_seats": "9",
-                "day_time": "Sa 10:00AM - 5:00PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Professor SER Shaw Hong",
-                "dates": "16/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1402",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "31",
-                "wait_list_total": "0",
-                "available_seats": "9",
-                "day_time": "Sa 10:00AM - 5:00PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Professor SER Shaw Hong",
-                "dates": "30/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1402",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "31",
-                "wait_list_total": "0",
-                "available_seats": "9",
-                "day_time": "Sa 10:00AM - 5:00PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Professor SER Shaw Hong",
-                "dates": "20/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1402",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "31",
-                "wait_list_total": "0",
-                "available_seats": "9",
-                "day_time": "Sa 10:00AM - 5:00PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Professor SER Shaw Hong",
-                "dates": "20/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1402",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "31",
-                "wait_list_total": "0",
-                "available_seats": "9",
-                "day_time": "Sa 10:00AM - 5:00PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Professor SER Shaw Hong",
-                "dates": "3/4"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1402",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "31",
-                "wait_list_total": "0",
-                "available_seats": "9",
-                "day_time": "Sa 10:00AM - 5:00PM",
-                "room": "Hui Yeung Shing Bldg G04",
-                "instructor": "Professor SER Shaw Hong",
-                "dates": "17/4"
+                "timetable": [
+                    {
+                        "day_time": "Sa 10:00AM - 5:00PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Professor SER Shaw Hong",
+                        "dates": "16/1"
+                    },
+                    {
+                        "day_time": "Sa 10:00AM - 5:00PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Professor SER Shaw Hong",
+                        "dates": "30/1"
+                    },
+                    {
+                        "day_time": "Sa 10:00AM - 5:00PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Professor SER Shaw Hong",
+                        "dates": "20/2"
+                    },
+                    {
+                        "day_time": "Sa 10:00AM - 5:00PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Professor SER Shaw Hong",
+                        "dates": "20/3"
+                    },
+                    {
+                        "day_time": "Sa 10:00AM - 5:00PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Professor SER Shaw Hong",
+                        "dates": "3/4"
+                    },
+                    {
+                        "day_time": "Sa 10:00AM - 5:00PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Professor SER Shaw Hong",
+                        "dates": "17/4"
+                    }
+                ]
             }
         ]
     },
@@ -336,7 +279,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "BUDS 5011",
@@ -346,7 +289,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "BUDS 5012",
@@ -362,7 +305,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -375,27 +318,20 @@
                 "enrollment_total": "47",
                 "wait_list_total": "0",
                 "available_seats": "8",
-                "day_time": "Tu 7:00PM - 9:30PM",
-                "room": "Esther Lee Bldg 308",
-                "instructor": "Professor TAM Wai Lun",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-I01-IND",
-                "component_type": "IND",
-                "class_number": "1370",
-                "status": "Open",
-                "class_capacity": "55",
-                "wait_list_capacity": "0",
-                "enrollment_total": "47",
-                "wait_list_total": "0",
-                "available_seats": "8",
-                "day_time": "Tu 7:00PM - 9:30PM",
-                "room": "Esther Lee Bldg 308",
-                "instructor": "Professor TAM Wai Lun",
-                "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 7:00PM - 9:30PM",
+                        "room": "Esther Lee Bldg 308",
+                        "instructor": "Professor TAM Wai Lun",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 7:00PM - 9:30PM",
+                        "room": "Esther Lee Bldg 308",
+                        "instructor": "Professor TAM Wai Lun",
+                        "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             }
         ]
     },
@@ -413,7 +349,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -426,10 +362,14 @@
                 "enrollment_total": "38",
                 "wait_list_total": "0",
                 "available_seats": "17",
-                "day_time": "Tu 7:00PM - 9:30PM",
-                "room": "Esther Lee Bldg 403",
-                "instructor": "Professor TAM Wai Lun, Professor WONG Sonia Kwok",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 7:00PM - 9:30PM",
+                        "room": "Esther Lee Bldg 403",
+                        "instructor": "Professor TAM Wai Lun, Professor WONG Sonia Kwok",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             }
         ]
     },
@@ -447,7 +387,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -460,44 +400,26 @@
                 "enrollment_total": "27",
                 "wait_list_total": "0",
                 "available_seats": "23",
-                "day_time": "Mo 7:00PM - 9:30PM",
-                "room": "Hui Yeung Shing Bldg G01",
-                "instructor": "Professor WU Jiang",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9870",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "27",
-                "wait_list_total": "0",
-                "available_seats": "23",
-                "day_time": "Mo 7:00PM - 9:30PM",
-                "room": "Hui Yeung Shing Bldg G01",
-                "instructor": "Professor WU Jiang",
-                "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "9870",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "27",
-                "wait_list_total": "0",
-                "available_seats": "23",
-                "day_time": "Mo 7:00PM - 9:30PM",
-                "room": "Hui Yeung Shing Bldg G01",
-                "instructor": "Professor WU Jiang",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 7:00PM - 9:30PM",
+                        "room": "Hui Yeung Shing Bldg G01",
+                        "instructor": "Professor WU Jiang",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 7:00PM - 9:30PM",
+                        "room": "Hui Yeung Shing Bldg G01",
+                        "instructor": "Professor WU Jiang",
+                        "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 7:00PM - 9:30PM",
+                        "room": "Hui Yeung Shing Bldg G01",
+                        "instructor": "Professor WU Jiang",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             }
         ]
     },
@@ -509,7 +431,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "BUDS 5016",
@@ -525,7 +447,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -538,27 +460,20 @@
                 "enrollment_total": "40",
                 "wait_list_total": "0",
                 "available_seats": "15",
-                "day_time": "Mo 7:00PM - 9:30PM",
-                "room": "Esther Lee Bldg 206",
-                "instructor": "Professor WANG Xingyi",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1392",
-                "status": "Open",
-                "class_capacity": "55",
-                "wait_list_capacity": "0",
-                "enrollment_total": "40",
-                "wait_list_total": "0",
-                "available_seats": "15",
-                "day_time": "Mo 7:00PM - 9:30PM",
-                "room": "Esther Lee Bldg 206",
-                "instructor": "Professor WANG Xingyi",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 7:00PM - 9:30PM",
+                        "room": "Esther Lee Bldg 206",
+                        "instructor": "Professor WANG Xingyi",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 7:00PM - 9:30PM",
+                        "room": "Esther Lee Bldg 206",
+                        "instructor": "Professor WANG Xingyi",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
             }
         ]
     }

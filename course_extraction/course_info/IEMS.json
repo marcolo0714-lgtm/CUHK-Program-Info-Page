@@ -13,7 +13,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -26,44 +26,26 @@
                 "enrollment_total": "43",
                 "wait_list_total": "1",
                 "available_seats": "57",
-                "day_time": "Mo 2:30PM - 4:15PM",
-                "room": "T.C. Cheng Bldg C1",
-                "instructor": "Professor CHEN He",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2481",
-                "status": "Open",
-                "class_capacity": "100",
-                "wait_list_capacity": "10",
-                "enrollment_total": "43",
-                "wait_list_total": "1",
-                "available_seats": "57",
-                "day_time": "Mo 2:30PM - 4:15PM",
-                "room": "T.C. Cheng Bldg C1",
-                "instructor": "Professor CHEN He",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2481",
-                "status": "Open",
-                "class_capacity": "100",
-                "wait_list_capacity": "10",
-                "enrollment_total": "43",
-                "wait_list_total": "1",
-                "available_seats": "57",
-                "day_time": "We 1:30PM - 2:15PM",
-                "room": "Science Centre L2",
-                "instructor": "Professor CHEN He",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 4:15PM",
+                        "room": "T.C. Cheng Bldg C1",
+                        "instructor": "Professor CHEN He",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 4:15PM",
+                        "room": "T.C. Cheng Bldg C1",
+                        "instructor": "Professor CHEN He",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    },
+                    {
+                        "day_time": "We 1:30PM - 2:15PM",
+                        "room": "Science Centre L2",
+                        "instructor": "Professor CHEN He",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             }
         ]
     },
@@ -72,15 +54,1258 @@
         "title": "Optical Communication and Lightwave Networks",
         "unit": "3.00",
         "info": "For all students in Engineering Faculty;Exclusion: ELEG3303 or ESTR3206 or IERG4030",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": false
+                "offered": true
             }
         ],
-        "teaching_schedule": []
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "2293",
+                "status": "Open",
+                "class_capacity": "100",
+                "wait_list_capacity": "10",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "77",
+                "timetable": [
+                    {
+                        "day_time": "Th 12:30PM - 2:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Professor CHEN Lian Kuan",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 12:30PM - 2:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Professor CHEN Lian Kuan",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    },
+                    {
+                        "day_time": "Tu 9:30AM - 10:15AM",
+                        "room": "Science Centre L2",
+                        "instructor": "Professor CHEN Lian Kuan",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5707",
+        "title": "Multimedia Coding and Applications",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty;Exclusion: IERG4190",
+        "term_1": true,
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "2475",
+                "status": "Open",
+                "class_capacity": "120",
+                "wait_list_capacity": "10",
+                "enrollment_total": "59",
+                "wait_list_total": "2",
+                "available_seats": "61",
+                "timetable": [
+                    {
+                        "day_time": "Mo 1:30PM - 2:15PM",
+                        "room": "Lady Shaw Bldg LT1",
+                        "instructor": "Professor LIN Dahua",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 1:30PM - 2:15PM",
+                        "room": "Lady Shaw Bldg LT1",
+                        "instructor": "Professor LIN Dahua",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 4:15PM",
+                        "room": "Science Centre L1",
+                        "instructor": "Professor LIN Dahua",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5709",
+        "title": "Emerging Topics in Information Engineering",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management",
+        "term_1": false,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            },
+            {
+                "term_code": "2440",
+                "term": "2026-27 Term 3",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "A-LEC",
+                "component_type": "LEC",
+                "class_number": "1528",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "10",
+                "enrollment_total": "148",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Tu 7:00PM - 9:30PM",
+                        "room": "Cheng Yu Tung Building LT1A",
+                        "instructor": "Professor XUE Tianfan",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 7:00PM - 9:30PM",
+                        "room": "Cheng Yu Tung Building LT1A",
+                        "instructor": "Professor XUE Tianfan",
+                        "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
+            },
+            {
+                "term_code": "2440",
+                "term": "2026-27 Term 3",
+                "section": "B-LEC",
+                "component_type": "LEC",
+                "class_number": "1130",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Sa 10:00AM - 12:45PM",
+                        "room": "Ho Sin-Hang Engg Bldg 833",
+                        "instructor": "Professor ZAO John Kar Kin",
+                        "dates": "13/3, 20/3"
+                    },
+                    {
+                        "day_time": "Sa 10:00AM - 12:45PM",
+                        "room": "Ho Sin-Hang Engg Bldg 833",
+                        "instructor": "Professor ZAO John Kar Kin",
+                        "dates": "3/4, 10/4, 17/4, 24/4"
+                    },
+                    {
+                        "day_time": "Sa 10:00AM - 12:45PM",
+                        "room": "Ho Sin-Hang Engg Bldg 833",
+                        "instructor": "Professor ZAO John Kar Kin",
+                        "dates": "8/5, 15/5, 22/5, 29/5, 5/6, 12/6, 19/6"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5710",
+        "title": "Cryptography, Information Security and Privacy",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management",
+        "term_1": true,
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2440",
+                "term": "2026-27 Term 3",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "A-LEC",
+                "component_type": "LEC",
+                "class_number": "1590",
+                "status": "Wait List",
+                "class_capacity": "150",
+                "wait_list_capacity": "20",
+                "enrollment_total": "150",
+                "wait_list_total": "11",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Tu 7:00PM - 10:00PM",
+                        "room": "Cheng Yu Tung Building LT1A",
+                        "instructor": "Dr. YIN Ho Fai Hoover",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2440",
+                "term": "2026-27 Term 3",
+                "section": "B-LEC",
+                "component_type": "LEC",
+                "class_number": "1134",
+                "status": "Open",
+                "class_capacity": "65",
+                "wait_list_capacity": "0",
+                "enrollment_total": "30",
+                "wait_list_total": "0",
+                "available_seats": "35",
+                "timetable": [
+                    {
+                        "day_time": "Mo 4:30PM - 7:15PM",
+                        "room": "Lee Shau Kee Building 308",
+                        "instructor": "Professor CHOW Sze Ming",
+                        "dates": "8/3, 15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 4:30PM - 7:15PM",
+                        "room": "Lee Shau Kee Building 308",
+                        "instructor": "Professor CHOW Sze Ming",
+                        "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5, 7/6, 14/6"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5712",
+        "title": "Innovation and Entrepreneurship",
+        "unit": "3.00",
+        "info": "For all students Exclusion: CMSC5730 or ENGG3802 or ENGG3803 or ENGG5700 or ESTR3502 or FTEC5570 or IERG5340 or SEEM3450",
+        "term_1": false,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "2821",
+                "status": "Open",
+                "class_capacity": "30",
+                "wait_list_capacity": "10",
+                "enrollment_total": "29",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Sa 9:30AM - 12:15PM",
+                        "room": "Ho Sin-Hang Engg Bldg 801",
+                        "instructor": "Professor CHOI Wai Shan",
+                        "dates": "16/1, 23/1, 30/1"
+                    },
+                    {
+                        "day_time": "Sa 9:30AM - 12:15PM",
+                        "room": "Ho Sin-Hang Engg Bldg 801",
+                        "instructor": "Professor CHOI Wai Shan",
+                        "dates": "13/2, 20/2, 27/2, 6/3, 13/3, 20/3"
+                    },
+                    {
+                        "day_time": "Sa 9:30AM - 12:15PM",
+                        "room": "Ho Sin-Hang Engg Bldg 801",
+                        "instructor": "Professor CHOI Wai Shan",
+                        "dates": "3/4, 10/4, 17/4, 24/4"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5717",
+        "title": "Emerging Communication Technologies",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management Exclusion: IERG4340",
+        "term_1": false,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "A-LEC",
+                "component_type": "LEC",
+                "class_number": "1682",
+                "status": "Open",
+                "class_capacity": "80",
+                "wait_list_capacity": "10",
+                "enrollment_total": "75",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "timetable": [
+                    {
+                        "day_time": "Sa 2:00PM - 5:00PM",
+                        "room": "William M W Mong Eng Bldg 1004",
+                        "instructor": "Professor ZAO John Kar Kin",
+                        "dates": "16/1, 23/1, 30/1"
+                    },
+                    {
+                        "day_time": "Sa 2:00PM - 5:00PM",
+                        "room": "William M W Mong Eng Bldg 1004",
+                        "instructor": "Professor ZAO John Kar Kin",
+                        "dates": "13/2, 20/2, 27/2, 6/3, 13/3, 20/3"
+                    },
+                    {
+                        "day_time": "Sa 2:00PM - 5:00PM",
+                        "room": "William M W Mong Eng Bldg 1004",
+                        "instructor": "Professor ZAO John Kar Kin",
+                        "dates": "3/4, 10/4, 17/4, 24/4"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "B-LEC",
+                "component_type": "LEC",
+                "class_number": "2510",
+                "status": "Open",
+                "class_capacity": "72",
+                "wait_list_capacity": "0",
+                "enrollment_total": "65",
+                "wait_list_total": "0",
+                "available_seats": "7",
+                "timetable": [
+                    {
+                        "day_time": "Tu 9:30AM - 12:15PM",
+                        "room": "Ho Sin-Hang Engg Bldg 801",
+                        "instructor": "Professor CHAN Chun Kit",
+                        "dates": "8/12, 15/12, 22/12, 29/12, 5/1, 12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 9:30AM - 12:15PM",
+                        "room": "Ho Sin-Hang Engg Bldg 801",
+                        "instructor": "Professor CHAN Chun Kit",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 1:30PM - 4:15PM",
+                        "room": "TBA",
+                        "instructor": "Professor CHAN Chun Kit",
+                        "dates": "23/2, 2/3"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5718",
+        "title": "Web Programming and Internet Security",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty;Exclusion: IERG4210",
+        "term_1": false,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "A-LEC",
+                "component_type": "LEC",
+                "class_number": "1500",
+                "status": "Open",
+                "class_capacity": "140",
+                "wait_list_capacity": "10",
+                "enrollment_total": "54",
+                "wait_list_total": "0",
+                "available_seats": "86",
+                "timetable": [
+                    {
+                        "day_time": "We 7:00PM - 9:30PM",
+                        "room": "Esther Lee Bldg LT2",
+                        "instructor": "Dr. MA Pui Kit",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 7:00PM - 9:30PM",
+                        "room": "Esther Lee Bldg LT2",
+                        "instructor": "Dr. MA Pui Kit",
+                        "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5719",
+        "title": "Technology Strategy",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management",
+        "term_1": true,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "A-LEC",
+                "component_type": "LEC",
+                "class_number": "10069",
+                "status": "Open",
+                "class_capacity": "140",
+                "wait_list_capacity": "10",
+                "enrollment_total": "81",
+                "wait_list_total": "2",
+                "available_seats": "59",
+                "timetable": [
+                    {
+                        "day_time": "Fr 7:00PM - 10:00PM",
+                        "room": "Science Centre L1",
+                        "instructor": "Mr. CHENG Benedict Kin Fan",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "B-LEC",
+                "component_type": "LEC",
+                "class_number": "1212",
+                "status": "Open",
+                "class_capacity": "60",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "44",
+                "timetable": [
+                    {
+                        "day_time": "Mo 4:30PM - 7:15PM",
+                        "room": "Lee Shau Kee Building 308",
+                        "instructor": "Professor LO Wai Shun",
+                        "dates": "7/12, 14/12, 21/12, 28/12, 4/1, 11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 4:30PM - 7:15PM",
+                        "room": "Lee Shau Kee Building 308",
+                        "instructor": "Professor LO Wai Shun",
+                        "dates": "15/2, 22/2, 1/3"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5720",
+        "title": "Social Networking",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty",
+        "term_1": false,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "1529",
+                "status": "Open",
+                "class_capacity": "140",
+                "wait_list_capacity": "10",
+                "enrollment_total": "139",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Mo 7:00PM - 10:00PM",
+                        "room": "Lady Shaw Bldg LT6",
+                        "instructor": "Professor CHAN Yuen Yan",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 7:00PM - 10:00PM",
+                        "room": "Lady Shaw Bldg LT6",
+                        "instructor": "Professor CHAN Yuen Yan",
+                        "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 7:00PM - 10:00PM",
+                        "room": "Lady Shaw Bldg LT6",
+                        "instructor": "Professor CHAN Yuen Yan",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5722",
+        "title": "Mobile Network Programming and Distributed Server Architecture",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty",
+        "term_1": true,
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "1616",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "10",
+                "enrollment_total": "149",
+                "wait_list_total": "7",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Mo 7:00PM - 10:00PM",
+                        "room": "Lee Shau Kee Building LT5",
+                        "instructor": "Mr. NG Sau Koon",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 7:00PM - 10:00PM",
+                        "room": "Lee Shau Kee Building LT5",
+                        "instructor": "Mr. NG Sau Koon",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5723",
+        "title": "Social Media Analytics",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management",
+        "term_1": true,
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "B-LEC",
+                "component_type": "LEC",
+                "class_number": "2546",
+                "status": "Closed",
+                "class_capacity": "60",
+                "wait_list_capacity": "0",
+                "enrollment_total": "60",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "We 4:30PM - 7:15PM",
+                        "room": "Ho Sin-Hang Engg Bldg 801",
+                        "instructor": "Professor CHAN Yuen Yan",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5725",
+        "title": "Blockchain and Applications",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty Exclusion: CSCI5590 or ESTR4326 or IERG4360 or IERG5590",
+        "term_1": true,
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "2476",
+                "status": "Wait List",
+                "class_capacity": "120",
+                "wait_list_capacity": "20",
+                "enrollment_total": "135",
+                "wait_list_total": "6",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "We 7:00PM - 10:00PM",
+                        "room": "Cheng Yu Tung Building LT1B",
+                        "instructor": "Dr. MA Pui Kit",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5726",
+        "title": "Data Science in Practice",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management Exclusion: ESTR4324 or IERG4320",
+        "term_1": true,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "A-LEC",
+                "component_type": "LEC",
+                "class_number": "2480",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "10",
+                "enrollment_total": "132",
+                "wait_list_total": "7",
+                "available_seats": "18",
+                "timetable": [
+                    {
+                        "day_time": "We 11:30AM - 12:15PM",
+                        "room": "Esther Lee Bldg LT1",
+                        "instructor": "Professor YAN Wenjing",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 12:15PM",
+                        "room": "Esther Lee Bldg LT1",
+                        "instructor": "Professor YAN Wenjing",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "B-LEC",
+                "component_type": "LEC",
+                "class_number": "2532",
+                "status": "Closed",
+                "class_capacity": "80",
+                "wait_list_capacity": "0",
+                "enrollment_total": "81",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "We 4:30PM - 7:15PM",
+                        "room": "Science Centre L5",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "6/1, 13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 4:30PM - 7:15PM",
+                        "room": "Science Centre L5",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 3:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg LT2",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "9/12, 16/12, 23/12, 30/12"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg LT2",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "10/12, 17/12"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5727",
+        "title": "Internet of Things and Smart Applications",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management",
+        "term_1": true,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "A-LEC",
+                "component_type": "LEC",
+                "class_number": "1513",
+                "status": "Open",
+                "class_capacity": "120",
+                "wait_list_capacity": "10",
+                "enrollment_total": "55",
+                "wait_list_total": "6",
+                "available_seats": "65",
+                "timetable": [
+                    {
+                        "day_time": "Th 4:30PM - 6:15PM",
+                        "room": "William MW Mong Eng Bldg 1007",
+                        "instructor": "Professor CHAN Chun Kit",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 4:30PM - 6:15PM",
+                        "room": "William MW Mong Eng Bldg 1007",
+                        "instructor": "Professor CHAN Chun Kit",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 11:15AM",
+                        "room": "Mong Man Wai Bldg LT1",
+                        "instructor": "Professor CHAN Chun Kit",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 11:15AM",
+                        "room": "Mong Man Wai Bldg LT1",
+                        "instructor": "Professor CHAN Chun Kit",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "B-LEC",
+                "component_type": "LEC",
+                "class_number": "2531",
+                "status": "Closed",
+                "class_capacity": "80",
+                "wait_list_capacity": "0",
+                "enrollment_total": "80",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "We 11:30AM - 12:15PM",
+                        "room": "Lady Shaw Bldg LT6",
+                        "instructor": "Professor YAN Zhenyu",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 11:30AM - 12:15PM",
+                        "room": "Lady Shaw Bldg LT6",
+                        "instructor": "Professor YAN Zhenyu",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 12:30PM - 2:15PM",
+                        "room": "Lady Shaw Bldg LT5",
+                        "instructor": "Professor YAN Zhenyu",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 12:30PM - 2:15PM",
+                        "room": "Lady Shaw Bldg LT5",
+                        "instructor": "Professor YAN Zhenyu",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 11:30AM - 2:15PM",
+                        "room": "Lady Shaw Bldg LT6",
+                        "instructor": "Professor YAN Zhenyu",
+                        "dates": "9/12, 16/12, 23/12, 30/12, 6/1"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5728",
+        "title": "Data-center and Cloud-based Networking Technologies",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty",
+        "term_1": false,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "1598",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "10",
+                "enrollment_total": "42",
+                "wait_list_total": "0",
+                "available_seats": "108",
+                "timetable": [
+                    {
+                        "day_time": "Th 7:00PM - 9:30PM",
+                        "room": "Yasumoto Int'l Acad Park LT5",
+                        "instructor": "Professor LAU Wing Cheong",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 7:00PM - 9:30PM",
+                        "room": "Yasumoto Int'l Acad Park LT5",
+                        "instructor": "Professor LAU Wing Cheong",
+                        "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5729",
+        "title": "Wireless Optical Communication and its applications",
+        "unit": "3.00",
+        "info": "For students in MSc Information Engineering;Pre-requisite: IERG2310",
+        "term_1": false,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4000",
+                "status": "Open",
+                "class_capacity": "80",
+                "wait_list_capacity": "10",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "80",
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Ho Sin-Hang Engg Bldg 833",
+                        "instructor": "Professor CHEN Lian Kuan",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Ho Sin-Hang Engg Bldg 833",
+                        "instructor": "Professor CHEN Lian Kuan",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 1004",
+                        "instructor": "Professor CHEN Lian Kuan",
+                        "dates": "8/3, 15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 1004",
+                        "instructor": "Professor CHEN Lian Kuan",
+                        "dates": "12/4, 19/4, 26/4"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5730",
+        "title": "Big Data Systems and Information Processing",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty; Exclusion: ESTR4316 or IERG4330",
+        "term_1": false,
+        "term_2": false,
+        "term_offerings": [],
+        "sections": []
+    },
+    {
+        "code": "IEMS 5731",
+        "title": "Software Design and Development",
+        "unit": "3.00",
+        "info": "For all students of MSc in Information Science and Technology Management only Exclusion: Not for students who have taken CSCI3100 or ENGG3820 or ESTR3308 or IERG3080.",
+        "term_1": true,
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "A-LEC",
+                "component_type": "LEC",
+                "class_number": "3939",
+                "status": "Open",
+                "class_capacity": "80",
+                "wait_list_capacity": "0",
+                "enrollment_total": "79",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Tu 1:30PM - 4:15PM",
+                        "room": "Wen Lan Tang LG204",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "B-LEC",
+                "component_type": "LEC",
+                "class_number": "1354",
+                "status": "Open",
+                "class_capacity": "80",
+                "wait_list_capacity": "0",
+                "enrollment_total": "61",
+                "wait_list_total": "0",
+                "available_seats": "19",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 5:15PM",
+                        "room": "T.Y.Wong Hall LT",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5732",
+        "title": "Data Communications and Networking",
+        "unit": "3.00",
+        "info": "For all students of MSc in Information Science and Technology Management Exclusion: CSCI4430/ESTR4120 and IERG3310/ESTR3310",
+        "term_1": false,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "A-LEC",
+                "component_type": "LEC",
+                "class_number": "1074",
+                "status": "Open",
+                "class_capacity": "80",
+                "wait_list_capacity": "0",
+                "enrollment_total": "78",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Tu 6:30PM - 9:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT6",
+                        "instructor": "Professor ZHANG Yingjun",
+                        "dates": "15/12, 22/12, 29/12"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Lee Shau Kee Building LT3",
+                        "instructor": "Professor ZHANG Yingjun",
+                        "dates": "17/12"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Lee Shau Kee Building LT3",
+                        "instructor": "Professor ZHANG Yingjun",
+                        "dates": "7/1, 14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Lee Shau Kee Building LT3",
+                        "instructor": "Professor ZHANG Yingjun",
+                        "dates": "18/2, 25/2, 4/3"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "B-LEC",
+                "component_type": "LEC",
+                "class_number": "1075",
+                "status": "Open",
+                "class_capacity": "80",
+                "wait_list_capacity": "0",
+                "enrollment_total": "63",
+                "wait_list_total": "0",
+                "available_seats": "17",
+                "timetable": [
+                    {
+                        "day_time": "Tu 6:30PM - 9:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT6",
+                        "instructor": "Professor ZHANG Yingjun",
+                        "dates": "15/12, 22/12, 29/12"
+                    },
+                    {
+                        "day_time": "Fr 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg LT",
+                        "instructor": "Professor ZHANG Yingjun",
+                        "dates": "18/12"
+                    },
+                    {
+                        "day_time": "Fr 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg LT",
+                        "instructor": "Professor ZHANG Yingjun",
+                        "dates": "8/1, 15/1, 22/1, 29/1"
+                    },
+                    {
+                        "day_time": "Fr 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg LT",
+                        "instructor": "Professor ZHANG Yingjun",
+                        "dates": "12/2, 19/2, 26/2, 5/3"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5780",
+        "title": "Building and Deploying Scalable Machine Learning Services",
+        "unit": "3.00",
+        "info": "For all students in Engineering Faculty;Exclusion: IERG4080 or ESTR4312",
+        "term_1": false,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "2459",
+                "status": "Open",
+                "class_capacity": "140",
+                "wait_list_capacity": "10",
+                "enrollment_total": "91",
+                "wait_list_total": "0",
+                "available_seats": "49",
+                "timetable": [
+                    {
+                        "day_time": "Tu 12:30PM - 2:15PM",
+                        "room": "Lady Shaw Bldg LT1",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 12:30PM - 2:15PM",
+                        "room": "Lady Shaw Bldg LT1",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 12:30PM - 2:15PM",
+                        "room": "Lady Shaw Bldg LT1",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    },
+                    {
+                        "day_time": "Mo 11:30AM - 12:15PM",
+                        "room": "Lee Shau Kee Building LT5",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 11:30AM - 12:15PM",
+                        "room": "Lee Shau Kee Building LT5",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 11:30AM - 12:15PM",
+                        "room": "Lee Shau Kee Building LT5",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 11:30AM - 12:15PM",
+                        "room": "Lee Shau Kee Building LT5",
+                        "instructor": "Dr. YIP Kit Sang Danny",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "IEMS 5910",
+        "title": "Advanced Research and Development Project I",
+        "unit": "3.00",
+        "info": "For students in MSc Information Engineering",
+        "term_1": false,
+        "term_2": false,
+        "term_offerings": [],
+        "sections": []
+    },
+    {
+        "code": "IEMS 5920",
+        "title": "Advanced Research and Development Project II",
+        "unit": "3.00",
+        "info": "For students in MSc Information Engineering;Pre-requisite: IEMS5910;Not for students who have taken IEMS5930",
+        "term_1": false,
+        "term_2": false,
+        "term_offerings": [],
+        "sections": []
+    },
+    {
+        "code": "IEMS 5930",
+        "title": "Information Engineering Internship",
+        "unit": "3.00",
+        "info": "For students in MSc Information Engineering; Not for students who have taken IEMS5920",
+        "term_1": false,
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2450",
+                "term": "2026-27 Summer Session",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2450",
+                "term": "2026-27 Summer Session",
+                "section": "-P01-PRA",
+                "component_type": "PRA",
+                "class_number": "1093",
+                "status": "Open",
+                "class_capacity": "99",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "99",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor ZHAO Changhong",
+                        "dates": "17/05/2027 - 28/06/2027"
+                    }
+                ]
+            }
+        ]
     }
 ]

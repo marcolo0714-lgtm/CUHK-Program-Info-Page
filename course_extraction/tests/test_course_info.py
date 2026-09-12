@@ -1,4 +1,6 @@
 import json
+import re
+import warnings
 from pathlib import Path
 
 import pytest
@@ -17,19 +19,27 @@ MAX_CAPTCHA_RETRIES = 20
 
 COURSE_REQUIRED_FIELDS = {
     "code", "title", "unit", "term_1", "term_2",
-    "term_offerings", "teaching_schedule",
+    "term_offerings", "sections",
 }
 TERM_OFFERING_REQUIRED_FIELDS = {"term_code", "term", "offered"}
-SCHEDULE_REQUIRED_FIELDS = {
+SECTION_REQUIRED_FIELDS = {
     "term_code", "term", "section", "component_type", "class_number",
     "status", "class_capacity", "wait_list_capacity", "enrollment_total",
-    "wait_list_total", "available_seats", "day_time", "room",
-    "instructor", "dates",
+    "wait_list_total", "available_seats", "timetable",
 }
+TIMETABLE_REQUIRED_FIELDS = {"day_time", "room", "instructor", "dates"}
 AVAILABILITY_FIELDS = {
     "class_capacity", "wait_list_capacity", "enrollment_total",
     "wait_list_total", "available_seats",
 }
+ACADEMIC_TERM_PATTERN = re.compile(
+    r"\b\d{4}\s*-\s*\d{2}\s+Term\s*([12])\b",
+    re.IGNORECASE,
+)
+
+
+class DuplicateTimetableWarning(UserWarning):
+    """A timetable row is duplicated in the source CUHK catalogue."""
 
 ocr = ddddocr.DdddOcr(show_ad=False)
 
@@ -108,6 +118,25 @@ def extract_live_course_info(page, major_code):
     last_number = number_links.last.inner_text().strip("()* ")
 
     return count, f"{major_code} {first_number}", f"{major_code} {last_number}"
+
+
+def selected_live_option_indexes(option_count, raw_course_options=None):
+    """Return requested dropdown indexes, defaulting to every non-placeholder option."""
+    from course_extraction.get_course_info import _parse_option_list
+
+    if option_count <= 1:
+        raise ValueError("course subject dropdown contains no selectable options")
+    selected = (
+        list(range(1, option_count))
+        if raw_course_options is None
+        else _parse_option_list(raw_course_options)
+    )
+    invalid = [option for option in selected if option >= option_count]
+    if invalid:
+        raise ValueError(
+            f"indexes outside the dropdown range 1-{option_count - 1}: {invalid}"
+        )
+    return selected
 
 
 # ---------------------------------------------------------------------------
@@ -203,10 +232,12 @@ class TestStoredIntegrity:
 
     @pytest.mark.parametrize("major_code,filepath", get_stored_file_paths())
     def test_schedule_schema_and_consistency(self, major_code, filepath):
-        """Validate the new flat schedule schema and term relationships.
+        """Validate nested sections, timetables, and term relationships.
 
         Failures are aggregated per subject file so the report identifies every
-        affected course that should be scraped again in one run.
+        affected course that should be scraped again in one run. Exact duplicate
+        timetable entries are reported as warnings because the source catalogue
+        can genuinely contain them.
         """
         with open(filepath, "r", encoding="utf-8") as f:
             try:
@@ -218,6 +249,7 @@ class TestStoredIntegrity:
             pytest.fail(f"[{major_code}] JSON root is not a list")
 
         errors = []
+        duplicate_warnings = []
         for course_index, entry in enumerate(data):
             if not isinstance(entry, dict):
                 errors.append(f"entry #{course_index + 1}: course is not an object")
@@ -238,8 +270,8 @@ class TestStoredIntegrity:
             if not isinstance(entry["term_offerings"], list):
                 errors.append(f"{code}: term_offerings is not a list")
                 continue
-            if not isinstance(entry["teaching_schedule"], list):
-                errors.append(f"{code}: teaching_schedule is not a list")
+            if not isinstance(entry["sections"], list):
+                errors.append(f"{code}: sections is not a list")
                 continue
 
             offerings = {}
@@ -263,80 +295,128 @@ class TestStoredIntegrity:
                     errors.append(f"{label}.term is empty or not text")
                 offerings[term_code] = offering
 
-            expected_term_1 = bool(offerings.get("2420", {}).get("offered", False))
-            expected_term_2 = bool(offerings.get("2430", {}).get("offered", False))
-            if entry["term_1"] != expected_term_1:
-                errors.append(
-                    f"{code}: term_1={entry['term_1']} but term_offerings says {expected_term_1}"
-                )
-            if entry["term_2"] != expected_term_2:
-                errors.append(
-                    f"{code}: term_2={entry['term_2']} but term_offerings says {expected_term_2}"
-                )
-
-            seen_rows = {}
-            class_values = {}
+            seen_sections = {}
+            seen_section_keys = {}
             scheduled_term_codes = set()
-            for row_index, row in enumerate(entry["teaching_schedule"]):
-                label = f"{code}: teaching_schedule[{row_index}]"
-                if not isinstance(row, dict):
+            for section_index, section in enumerate(entry["sections"]):
+                label = f"{code}: sections[{section_index}]"
+                if not isinstance(section, dict):
                     errors.append(f"{label} is not an object")
                     continue
-                missing = sorted(SCHEDULE_REQUIRED_FIELDS - row.keys())
+                missing = sorted(SECTION_REQUIRED_FIELDS - section.keys())
                 if missing:
                     errors.append(f"{label} missing fields {missing}")
                     continue
 
-                fingerprint = json.dumps(row, ensure_ascii=False, sort_keys=True)
-                if fingerprint in seen_rows:
+                fingerprint = json.dumps(section, ensure_ascii=False, sort_keys=True)
+                if fingerprint in seen_sections:
                     errors.append(
-                        f"{code}: duplicate teaching_schedule rows "
-                        f"{seen_rows[fingerprint]} and {row_index}"
+                        f"{code}: duplicate sections "
+                        f"{seen_sections[fingerprint]} and {section_index}"
                     )
                 else:
-                    seen_rows[fingerprint] = row_index
+                    seen_sections[fingerprint] = section_index
 
-                term_code = row["term_code"]
+                term_code = section["term_code"]
                 scheduled_term_codes.add(term_code)
                 offering = offerings.get(term_code)
                 if not offering or not offering.get("offered"):
                     errors.append(f"{label} belongs to term {term_code}, which is not offered")
-                elif row["term"] != offering["term"]:
+                elif section["term"] != offering["term"]:
                     errors.append(
-                        f"{label}.term {row['term']!r} does not match "
+                        f"{label}.term {section['term']!r} does not match "
                         f"term_offerings value {offering['term']!r}"
                     )
 
                 for field in ("section", "component_type", "class_number", "status"):
-                    if not isinstance(row[field], str) or not row[field].strip():
+                    if not isinstance(section[field], str) or not section[field].strip():
                         errors.append(f"{label}.{field} is empty or not text")
                 invalid_availability = sorted(
                     field for field in AVAILABILITY_FIELDS
-                    if not isinstance(row[field], str) or not row[field].isdigit()
+                    if not isinstance(section[field], str) or not section[field].isdigit()
                 )
                 if invalid_availability:
                     errors.append(
                         f"{label} has invalid availability fields {invalid_availability}"
                     )
-                for field in ("term_code", "term", "day_time", "room", "instructor", "dates"):
-                    if not isinstance(row[field], str):
+                for field in ("term_code", "term"):
+                    if not isinstance(section[field], str):
                         errors.append(f"{label}.{field} is not text")
 
-                class_key = (term_code, row["class_number"])
-                current_values = tuple(row[field] for field in sorted(AVAILABILITY_FIELDS))
-                if class_key in class_values and class_values[class_key] != current_values:
+                section_key = (term_code, section["section"])
+                if section_key in seen_section_keys:
                     errors.append(
-                        f"{code}: inconsistent availability across rows for "
-                        f"term {term_code}, class {row['class_number']}"
+                        f"{code}: term {term_code}, section {section['section']!r} "
+                        f"appears at indexes {seen_section_keys[section_key]} and {section_index}"
                     )
                 else:
-                    class_values[class_key] = current_values
+                    seen_section_keys[section_key] = section_index
+
+                if not isinstance(section["timetable"], list):
+                    errors.append(f"{label}.timetable is not a list")
+                    continue
+                if not section["timetable"]:
+                    errors.append(f"{label}.timetable is empty")
+                    continue
+
+                seen_timetable = {}
+                for timetable_index, timetable in enumerate(section["timetable"]):
+                    timetable_label = f"{label}.timetable[{timetable_index}]"
+                    if not isinstance(timetable, dict):
+                        errors.append(f"{timetable_label} is not an object")
+                        continue
+                    missing = sorted(TIMETABLE_REQUIRED_FIELDS - timetable.keys())
+                    if missing:
+                        errors.append(f"{timetable_label} missing fields {missing}")
+                        continue
+                    for field in TIMETABLE_REQUIRED_FIELDS:
+                        if not isinstance(timetable[field], str):
+                            errors.append(f"{timetable_label}.{field} is not text")
+                    timetable_fingerprint = json.dumps(
+                        timetable, ensure_ascii=False, sort_keys=True
+                    )
+                    if timetable_fingerprint in seen_timetable:
+                        duplicate_warnings.append(
+                            f"{code}: duplicate timetable entries in term {term_code}, "
+                            f"section {section['section']!r}, indexes "
+                            f"{seen_timetable[timetable_fingerprint]} and {timetable_index}"
+                        )
+                    else:
+                        seen_timetable[timetable_fingerprint] = timetable_index
 
             for term_code, offering in offerings.items():
                 if offering.get("offered") and term_code not in scheduled_term_codes:
                     errors.append(
-                        f"{code}: term {term_code} is marked offered but has no teaching_schedule rows"
+                        f"{code}: term {term_code} is marked offered but has no sections"
                     )
+
+            section_term_numbers = {
+                match.group(1)
+                for section in entry["sections"]
+                if isinstance(section, dict)
+                for match in [ACADEMIC_TERM_PATTERN.search(str(section.get("term", "")))]
+                if match
+            }
+            expected_term_1 = "1" in section_term_numbers
+            expected_term_2 = "2" in section_term_numbers
+            if entry["term_1"] != expected_term_1:
+                errors.append(
+                    f"{code}: term_1={entry['term_1']} but section term labels say "
+                    f"{expected_term_1}"
+                )
+            if entry["term_2"] != expected_term_2:
+                errors.append(
+                    f"{code}: term_2={entry['term_2']} but section term labels say "
+                    f"{expected_term_2}"
+                )
+
+        if duplicate_warnings:
+            warnings.warn(
+                f"[{major_code}] duplicate timetable rows from the source catalogue:\n"
+                + "\n".join(duplicate_warnings),
+                DuplicateTimetableWarning,
+                stacklevel=2,
+            )
 
         if errors:
             pytest.fail(f"[{major_code}] schedule integrity errors:\n" + "\n".join(errors))
@@ -349,17 +429,167 @@ class TestStoredIntegrity:
 class TestTeachingScheduleExtraction:
     """Exercise every Term Offered option without contacting the CUHK site."""
 
-    def test_option_list_is_entered_at_runtime(self, monkeypatch):
-        from course_extraction.get_course_info import _prompt_option_list
+    def test_course_end_uses_explicit_link_count(self):
+        from course_extraction.get_course_info import _course_link_count
 
-        answers = iter(["", "1, not-a-number", "0 3", "13, 14 97;13"])
+        class Links:
+            @staticmethod
+            def count():
+                return 3
+
+        class Page:
+            @staticmethod
+            def locator(selector):
+                assert selector == "#gv_detail a[id$='lbtn_course_title']"
+                return Links()
+
+        assert _course_link_count(Page()) == 3
+
+    def test_course_recovery_keeps_completed_sections(self, monkeypatch):
+        import course_extraction.get_course_info as scraper
+
+        class Button:
+            @staticmethod
+            def click():
+                return None
+
+        class Page:
+            def __init__(self, name):
+                self.name = name
+
+            @staticmethod
+            def locator(_selector):
+                return Button()
+
+            @staticmethod
+            def wait_for_selector(_selector):
+                return None
+
+        first_page = Page("first")
+        recovered_page = Page("recovered")
+        resume_calls = []
+        recovery_calls = []
+
+        monkeypatch.setattr(scraper, "_open_course_by_index", lambda _page, _index: None)
+        monkeypatch.setattr(
+            scraper,
+            "_course_base_info",
+            lambda _page: {"code": "TEST 1000", "title": "Test", "unit": "3.00"},
+        )
+
+        def resume(_page, state):
+            resume_calls.append(len(state["current_sections"]))
+            if len(resume_calls) == 1:
+                state["current_sections"].append({"section": "A-LEC"})
+                raise RuntimeError("simulated stalled page")
+            assert state["current_sections"] == [{"section": "A-LEC"}]
+            state["schedules"] = [{"sections": list(state["current_sections"])}]
+
+        def recover(*_args, **_kwargs):
+            recovery_calls.append(True)
+            return True, recovered_page
+
+        monkeypatch.setattr(scraper, "_resume_course_schedules", resume)
+        monkeypatch.setattr(scraper, "recover_with_new_tab", recover)
+        monkeypatch.setattr(scraper, "_try_return_to_course_list", lambda _page: True)
+        monkeypatch.setattr(
+            scraper,
+            "_finish_course_info",
+            lambda base, schedules: {**base, "sections": schedules[0]["sections"]},
+        )
+
+        errors = []
+        course, page, ready = scraper._scrape_course_with_recovery(
+            first_page, 1, "TEST - Test", 0, errors
+        )
+
+        assert ready is True
+        assert page is recovered_page
+        assert course["sections"] == [{"section": "A-LEC"}]
+        assert resume_calls == [0, 1]
+        assert len(recovery_calls) == 1
+        assert len(errors) == 1
+
+    def test_course_recovery_stops_after_three_new_tabs(self, monkeypatch):
+        import course_extraction.get_course_info as scraper
+
+        class Page:
+            pass
+
+        page = Page()
+        recovery_calls = []
+        monkeypatch.setattr(scraper, "_open_course_by_index", lambda _page, _index: None)
+        monkeypatch.setattr(
+            scraper,
+            "_course_base_info",
+            lambda _page: {"code": "TEST 1000", "title": "Test", "unit": "3.00"},
+        )
+        monkeypatch.setattr(
+            scraper,
+            "_resume_course_schedules",
+            lambda _page, _state: (_ for _ in ()).throw(RuntimeError("still stuck")),
+        )
+
+        def recover(*_args, **_kwargs):
+            recovery_calls.append(True)
+            return True, page
+
+        monkeypatch.setattr(scraper, "recover_with_new_tab", recover)
+        monkeypatch.setattr(scraper, "_try_return_to_course_list", lambda _page: True)
+
+        errors = []
+        course, returned_page, ready = scraper._scrape_course_with_recovery(
+            page, 1, "TEST - Test", 0, errors
+        )
+
+        assert course is None
+        assert returned_page is page
+        assert ready is True
+        assert len(recovery_calls) == 3
+        assert len(errors) == 4
+
+    def test_option_list_is_entered_at_runtime(self, monkeypatch):
+        from course_extraction.get_course_info import _parse_option_list, _prompt_option_list
+
+        answers = iter([
+            "",
+            "1, not-a-number",
+            "0-3",
+            "5-2",
+            "1-3, 5, 3-6; 10",
+        ])
         monkeypatch.setattr("builtins.input", lambda _prompt: next(answers))
 
-        assert _prompt_option_list() == [13, 14, 97]
+        assert _prompt_option_list() == [1, 2, 3, 5, 4, 6, 10]
+        assert _parse_option_list("1-270") == list(range(1, 271))
+        assert _parse_option_list("1-50, 101-150") == [
+            *range(1, 51),
+            *range(101, 151),
+        ]
+
+    def test_availability_uses_section_term_labels_not_term_codes(self):
+        from course_extraction.get_course_info import _availability_from_sections
+
+        sections = [
+            {"term_code": "not-2420", "term": "2027-28 Term 1"},
+            {"term_code": "not-2430", "term": "2027-28 Term 2 - special"},
+        ]
+        assert _availability_from_sections(sections) == (True, True)
+        assert _availability_from_sections([
+            {"term_code": "2420", "term": "Summer Session"}
+        ]) == (False, False)
+
+    def test_live_option_filter_defaults_to_all_and_accepts_ranges(self):
+        assert selected_live_option_indexes(6) == [1, 2, 3, 4, 5]
+        assert selected_live_option_indexes(271, "7, 42 44-45, 42") == [
+            7, 42, 44, 45,
+        ]
+        with pytest.raises(ValueError, match="outside the dropdown range"):
+            selected_live_option_indexes(10, "9-10")
 
     def test_all_terms_and_meeting_fields_are_scraped(self):
         from course_extraction.get_course_info import (
-            _flatten_teaching_schedule,
+            _flatten_sections,
             _scrape_term_schedules,
             _term_offerings,
         )
@@ -456,12 +686,12 @@ class TestTeachingScheduleExtraction:
 
         assert [term["term_code"] for term in schedules] == ["2420", "2430", "2440"]
         assert [term["offered"] for term in schedules] == [True, True, False]
-        assert len(schedules[0]["rows"]) == 18
-        assert len(schedules[1]["rows"]) == 3
-        assert [row["section"] for row in schedules[0]["rows"][:3]] == [
-            "A-LEC", "A-LEC", "AL01-LAB",
+        assert len(schedules[0]["sections"]) == 12
+        assert len(schedules[1]["sections"]) == 2
+        assert [section["section"] for section in schedules[0]["sections"][:3]] == [
+            "A-LEC", "AL01-LAB", "B-LEC",
         ]
-        assert schedules[0]["rows"][0] == {
+        assert schedules[0]["sections"][0] == {
             "section": "A-LEC",
             "component_type": "LEC",
             "class_number": "0001",
@@ -471,25 +701,37 @@ class TestTeachingScheduleExtraction:
             "enrollment_total": "110",
             "wait_list_total": "2",
             "available_seats": "10",
-            "day_time": "Mo 10:30AM - 12:15PM",
-            "room": "Room T1",
-            "instructor": "Prof. Term One",
-            "dates": "1/9 - 30/11",
+            "timetable": [
+                {
+                    "day_time": "Mo 10:30AM - 12:15PM",
+                    "room": "Room T1",
+                    "instructor": "Prof. Term One",
+                    "dates": "1/9 - 30/11",
+                },
+                {
+                    "day_time": "Th 3:30PM - 4:15PM",
+                    "room": "Room Thursday",
+                    "instructor": "Prof. Thursday",
+                    "dates": "10/9 - 3/12",
+                },
+            ],
         }
-        assert schedules[0]["rows"][1]["day_time"] == "Th 3:30PM - 4:15PM"
-        assert [row["section"] for row in schedules[1]["rows"]] == [
-            "G-LEC", "G-LEC", "GL01-LAB",
+        assert [section["section"] for section in schedules[1]["sections"]] == [
+            "G-LEC", "GL01-LAB",
         ]
-        assert schedules[1]["rows"][0]["status"] == "Closed"
-        assert schedules[1]["rows"][0]["instructor"] == "Prof. Term Two"
-        assert schedules[2]["rows"] == []
+        assert schedules[1]["sections"][0]["status"] == "Closed"
+        assert (
+            schedules[1]["sections"][0]["timetable"][0]["instructor"]
+            == "Prof. Term Two"
+        )
+        assert schedules[2]["sections"] == []
 
-        flattened = _flatten_teaching_schedule(schedules)
-        assert len(flattened) == 21
+        flattened = _flatten_sections(schedules)
+        assert len(flattened) == 14
         assert flattened[0]["term_code"] == "2420"
         assert flattened[0]["term"] == "2026-27 Term 1"
-        assert "rows" not in flattened[0]
-        assert "meetings" not in flattened[0]
+        assert len(flattened[0]["timetable"]) == 2
+        assert "sections" not in flattened[0]
         assert _term_offerings(schedules) == [
             {"term_code": "2420", "term": "2026-27 Term 1", "offered": True},
             {"term_code": "2430", "term": "2026-27 Term 2", "offered": True},
@@ -502,22 +744,37 @@ class TestTeachingScheduleExtraction:
 # =================================================================
 
 class TestLiveVsStored:
-    """Re-scrape the CUHK website to obtain course count + first/last course
-    code per major, then compare with the stored JSON."""
+    """Compare selected (or all) live catalogue options with stored JSON."""
 
     @pytest.mark.live
-    def test_live_scraped_vs_stored(self, browser_page):
+    def test_live_scraped_vs_stored(self, browser_page, request):
         page = browser_page
         errors = []
-        stored_files = get_stored_file_paths()
+        raw_course_options = request.config.getoption("--course-options")
+        dropdown_options = page.locator("#ddl_subject option")
+        option_count = dropdown_options.count()
+        try:
+            selected_options = selected_live_option_indexes(
+                option_count, raw_course_options
+            )
+        except ValueError as exc:
+            pytest.fail(f"Invalid --course-options value: {exc}")
 
-        if not stored_files:
-            pytest.skip("No JSON files found in course_info/")
-
-        for major_code, filepath in stored_files:
+        print(f"\nChecking {len(selected_options)} course option(s): {selected_options}")
+        for option_index in selected_options:
+            option_text = (
+                page.locator("#ddl_subject option").nth(option_index).inner_text().strip()
+            )
+            major_code = option_text.split(" - ", 1)[0].strip()
+            filepath = COURSE_INFO_DIR / f"{major_code}.json"
             print(f"\n--- Major: {major_code} ---")
 
             # Load stored data
+            if not filepath.exists():
+                errors.append(
+                    f"[{major_code}] Option {option_index} has no stored file: {filepath.name}"
+                )
+                continue
             with open(filepath, "r", encoding="utf-8") as f:
                 stored_data = json.load(f)
 
@@ -531,22 +788,8 @@ class TestLiveVsStored:
 
             # Select the major from the dropdown ----------------------------
             try:
-                options = page.locator("#ddl_subject option")
-                opt_count = options.count()
-                found = False
-                for i in range(opt_count):
-                    text = options.nth(i).inner_text()
-                    if text.startswith(major_code):
-                        page.locator("#ddl_subject").select_option(index=i)
-                        print(f"  Selected option [{i}]: '{text}'")
-                        found = True
-                        break
-                if not found:
-                    errors.append(
-                        f"[{major_code}] No dropdown option starts with "
-                        f"'{major_code}'"
-                    )
-                    continue
+                page.locator("#ddl_subject").select_option(index=option_index)
+                print(f"  Selected option [{option_index}]: '{option_text}'")
             except Exception as e:
                 errors.append(
                     f"[{major_code}] Dropdown selection failed: {e}"

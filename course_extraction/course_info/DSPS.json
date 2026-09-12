@@ -12,7 +12,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -25,10 +25,14 @@
                 "enrollment_total": "57",
                 "wait_list_total": "20",
                 "available_seats": "0",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Yasumoto Int'l Acad Park 503",
-                "instructor": "Professor CHAN Chee Hon",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Yasumoto Int'l Acad Park 503",
+                        "instructor": "Professor CHAN Chee Hon",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             }
         ]
     },
@@ -39,7 +43,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 1003",
@@ -54,7 +58,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -67,10 +71,14 @@
                 "enrollment_total": "54",
                 "wait_list_total": "37",
                 "available_seats": "0",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Esther Lee Bldg 403",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Esther Lee Bldg 403",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             }
         ]
     },
@@ -87,7 +95,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -100,61 +108,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Archi Bldg G02",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6096",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Archi Bldg G02",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6096",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Archi Bldg G02",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6096",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Archi Bldg G02",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Archi Bldg G02",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Archi Bldg G02",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Archi Bldg G02",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Archi Bldg G02",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             }
         ]
     },
@@ -165,7 +144,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 2102",
@@ -180,7 +159,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -193,44 +172,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Humanities Building 12",
-                "instructor": "Professor CHAN Chee Hon",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7124",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Humanities Building 12",
-                "instructor": "Professor CHAN Chee Hon",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7124",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Humanities Building 12",
-                "instructor": "Professor CHAN Chee Hon",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Humanities Building 12",
+                        "instructor": "Professor CHAN Chee Hon",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Humanities Building 12",
+                        "instructor": "Professor CHAN Chee Hon",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Humanities Building 12",
+                        "instructor": "Professor CHAN Chee Hon",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -241,7 +202,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 2104",
@@ -251,7 +212,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 2201",
@@ -267,7 +228,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -280,44 +241,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 208",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6918",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 208",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6918",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 208",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 208",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 208",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 208",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             }
         ]
     },
@@ -335,7 +278,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -348,27 +291,20 @@
                 "enrollment_total": "28",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg 110",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5750",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "999",
-                "enrollment_total": "28",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg 110",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 110",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 110",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             }
         ]
     },
@@ -385,7 +321,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -398,27 +334,20 @@
                 "enrollment_total": "37",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg C5",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5803",
-                "status": "Wait List",
-                "class_capacity": "32",
-                "wait_list_capacity": "999",
-                "enrollment_total": "37",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg C5",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg C5",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg C5",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             }
         ]
     },
@@ -435,7 +364,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -448,44 +377,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "32",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 114",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6919",
-                "status": "Open",
-                "class_capacity": "32",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "32",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 114",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6919",
-                "status": "Open",
-                "class_capacity": "32",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "32",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 114",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 114",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 114",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 114",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -502,7 +413,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -515,44 +426,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg 207",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6095",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg 207",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6095",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg 207",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 207",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 207",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 207",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             }
         ]
     },
@@ -569,7 +462,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -582,10 +475,14 @@
                 "enrollment_total": "26",
                 "wait_list_total": "0",
                 "available_seats": "6",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg 110",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 110",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             }
         ]
     },
@@ -597,7 +494,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 2830",
@@ -607,7 +504,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 3190",
@@ -623,7 +520,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -636,44 +533,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 102",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5393",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 102",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5393",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 102",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 102",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 102",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 102",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -691,7 +570,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -704,27 +583,20 @@
                 "enrollment_total": "25",
                 "wait_list_total": "0",
                 "available_seats": "5",
-                "day_time": "Mo 2:30PM - 4:15PM",
-                "room": "T.C. Cheng Bldg 114",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8281",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "0",
-                "available_seats": "5",
-                "day_time": "Mo 2:30PM - 4:15PM",
-                "room": "T.C. Cheng Bldg 114",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 4:15PM",
+                        "room": "T.C. Cheng Bldg 114",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 4:15PM",
+                        "room": "T.C. Cheng Bldg 114",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -738,27 +610,20 @@
                 "enrollment_total": "25",
                 "wait_list_total": "0",
                 "available_seats": "5",
-                "day_time": "Mo 4:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 114",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "8282",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "0",
-                "available_seats": "5",
-                "day_time": "Mo 4:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 114",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 4:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 114",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 4:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 114",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
             }
         ]
     },
@@ -769,7 +634,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 3320",
@@ -778,7 +643,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 3330",
@@ -788,7 +653,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 3340",
@@ -798,7 +663,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 3350",
@@ -808,7 +673,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 3501",
@@ -823,7 +688,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -836,61 +701,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "32",
-                "day_time": "Mo 12:30PM - 1:15PM",
-                "room": "T.C. Cheng Bldg 110",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "8226",
-                "status": "Open",
-                "class_capacity": "32",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "32",
-                "day_time": "Mo 12:30PM - 1:15PM",
-                "room": "T.C. Cheng Bldg 110",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "8226",
-                "status": "Open",
-                "class_capacity": "32",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "32",
-                "day_time": "Mo 12:30PM - 1:15PM",
-                "room": "T.C. Cheng Bldg 110",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "8226",
-                "status": "Open",
-                "class_capacity": "32",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "32",
-                "day_time": "Mo 12:30PM - 1:15PM",
-                "room": "T.C. Cheng Bldg 110",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 12:30PM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 110",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 12:30PM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 110",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 12:30PM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 110",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 12:30PM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 110",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -904,61 +740,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "32",
-                "day_time": "Mo 10:30AM - 12:15PM",
-                "room": "T.C. Cheng Bldg 110",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-W01-WKS",
-                "component_type": "WKS",
-                "class_number": "8225",
-                "status": "Open",
-                "class_capacity": "32",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "32",
-                "day_time": "Mo 10:30AM - 12:15PM",
-                "room": "T.C. Cheng Bldg 110",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-W01-WKS",
-                "component_type": "WKS",
-                "class_number": "8225",
-                "status": "Open",
-                "class_capacity": "32",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "32",
-                "day_time": "Mo 10:30AM - 12:15PM",
-                "room": "T.C. Cheng Bldg 110",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-W01-WKS",
-                "component_type": "WKS",
-                "class_number": "8225",
-                "status": "Open",
-                "class_capacity": "32",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "32",
-                "day_time": "Mo 10:30AM - 12:15PM",
-                "room": "T.C. Cheng Bldg 110",
-                "instructor": "Professor WONG Wai Ho",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "T.C. Cheng Bldg 110",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "T.C. Cheng Bldg 110",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "T.C. Cheng Bldg 110",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "T.C. Cheng Bldg 110",
+                        "instructor": "Professor WONG Wai Ho",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             }
         ]
     },
@@ -970,7 +777,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 3791",
@@ -986,7 +793,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -999,44 +806,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg 206",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5955",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg 206",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5955",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg 206",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 206",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 206",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 206",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -1058,7 +847,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1071,10 +860,14 @@
                 "enrollment_total": "18",
                 "wait_list_total": "0",
                 "available_seats": "12",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1088,10 +881,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1109,7 +906,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1122,27 +919,20 @@
                 "enrollment_total": "19",
                 "wait_list_total": "0",
                 "available_seats": "11",
-                "day_time": "Mo 10:30AM - 12:15PM",
-                "room": "T.C. Cheng Bldg 201",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8283",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "999",
-                "enrollment_total": "19",
-                "wait_list_total": "0",
-                "available_seats": "11",
-                "day_time": "Mo 10:30AM - 12:15PM",
-                "room": "T.C. Cheng Bldg 201",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "T.C. Cheng Bldg 201",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "T.C. Cheng Bldg 201",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -1156,27 +946,20 @@
                 "enrollment_total": "19",
                 "wait_list_total": "0",
                 "available_seats": "11",
-                "day_time": "Mo 12:30PM - 1:15PM",
-                "room": "T.C. Cheng Bldg 201",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "8284",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "999",
-                "enrollment_total": "19",
-                "wait_list_total": "0",
-                "available_seats": "11",
-                "day_time": "Mo 12:30PM - 1:15PM",
-                "room": "T.C. Cheng Bldg 201",
-                "instructor": "Dr. KWOK Pak Ki",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 12:30PM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 201",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 12:30PM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 201",
+                        "instructor": "Dr. KWOK Pak Ki",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
             }
         ]
     },
@@ -1193,7 +976,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1206,10 +989,14 @@
                 "enrollment_total": "16",
                 "wait_list_total": "0",
                 "available_seats": "14",
-                "day_time": "We 2:30PM - 4:15PM",
-                "room": "T.C. Cheng Bldg 206",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 4:15PM",
+                        "room": "T.C. Cheng Bldg 206",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -1223,10 +1010,14 @@
                 "enrollment_total": "16",
                 "wait_list_total": "0",
                 "available_seats": "14",
-                "day_time": "We 4:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 206",
-                "instructor": "Dr. WONG Kwong Cheong",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 4:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 206",
+                        "instructor": "Dr. WONG Kwong Cheong",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             }
         ]
     },
@@ -1238,7 +1029,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 4310",
@@ -1247,7 +1038,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 4801",
@@ -1267,7 +1058,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1280,10 +1071,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. KWOK Pak Ki, Dr. WONG Kwong Cheong, Professor CHAN Chee Hon, Professor QIU Lin, Professor WONG Wai Ho",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. KWOK Pak Ki, Dr. WONG Kwong Cheong, Professor CHAN Chee Hon, Professor QIU Lin, Professor WONG Wai Ho",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1297,10 +1092,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "10",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. KWOK Pak Ki, Dr. WONG Kwong Cheong, Professor CHAN Chee Hon, Professor QIU Lin, Professor WONG Wai Ho",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. KWOK Pak Ki, Dr. WONG Kwong Cheong, Professor CHAN Chee Hon, Professor QIU Lin, Professor WONG Wai Ho",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1322,7 +1121,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1335,10 +1134,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. KWOK Pak Ki, Dr. WONG Kwong Cheong, Professor CHAN Chee Hon, Professor QIU Lin, Professor WONG Wai Ho",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. KWOK Pak Ki, Dr. WONG Kwong Cheong, Professor CHAN Chee Hon, Professor QIU Lin, Professor WONG Wai Ho",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1352,10 +1155,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. KWOK Pak Ki, Dr. WONG Kwong Cheong, Professor CHAN Chee Hon, Professor QIU Lin, Professor WONG Wai Ho",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. KWOK Pak Ki, Dr. WONG Kwong Cheong, Professor CHAN Chee Hon, Professor QIU Lin, Professor WONG Wai Ho",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1366,7 +1173,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "DSPS 4804",
@@ -1375,6 +1182,6 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     }
 ]

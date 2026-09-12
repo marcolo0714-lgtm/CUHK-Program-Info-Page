@@ -53,7 +53,10 @@ cd course_extraction
 python get_course_info.py
 pytest tests/ -m "not live"       # offline: code ordering, duplicates, required fields
 pytest tests/ -m live              # online: compare stored vs live website
+pytest tests/ -m live --course-options "1-50, 101-150"  # online: selected dropdown options
 ```
+
+Without `--course-options`, the live test checks every selectable course-subject option. The flag accepts individual option numbers, commas, spaces, and inclusive ranges using the same syntax as the scraper.
 
 ### 2. Scrape minor programmes
 
@@ -151,11 +154,32 @@ Each file is an array of objects:
     "unit":  "3.00",
     "info":  "Not for students who have taken ACCT1111",
     "term_1": true,
-    "term_2": false
+    "term_2": false,
+    "term_offerings": [
+        {"term_code": "2420", "term": "2026-27 Term 1", "offered": true}
+    ],
+    "sections": [
+        {
+            "term_code": "2420",
+            "term": "2026-27 Term 1",
+            "section": "A-LEC",
+            "component_type": "LEC",
+            "class_number": "9700",
+            "status": "Open",
+            "class_capacity": "100",
+            "wait_list_capacity": "0",
+            "enrollment_total": "90",
+            "wait_list_total": "0",
+            "available_seats": "10",
+            "timetable": [
+                {"day_time": "Mo 12:30PM - 2:15PM", "room": "Room A", "instructor": "Prof. One", "dates": "7/9 - 12/10"}
+            ]
+        }
+    ]
 }
 ```
 
-The `info` field is only present when the course has enrollment requirements or restrictions. `term_1`/`term_2` indicate 2026-27 Term 1/2 availability.
+The `info` field is only present when the course has enrollment requirements or restrictions. `term_1`/`term_2` are derived from section `term` labels containing an academic year followed by `Term 1`/`Term 2` (for example, `2026-27 Term 1`). Each term/section has one section object, and its meeting rows are stored in `timetable`.
 
 ### Minor programme (`minor_json/<Programme>.json`)
 

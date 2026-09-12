@@ -18,7 +18,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -31,95 +31,44 @@
                 "enrollment_total": "89",
                 "wait_list_total": "0",
                 "available_seats": "10",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "16/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "F-LEC",
-                "component_type": "LEC",
-                "class_number": "1120",
-                "status": "Open",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "89",
-                "wait_list_total": "0",
-                "available_seats": "10",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "30/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "F-LEC",
-                "component_type": "LEC",
-                "class_number": "1120",
-                "status": "Open",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "89",
-                "wait_list_total": "0",
-                "available_seats": "10",
-                "day_time": "Fr 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "20/11, 27/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "F-LEC",
-                "component_type": "LEC",
-                "class_number": "1120",
-                "status": "Open",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "89",
-                "wait_list_total": "0",
-                "available_seats": "10",
-                "day_time": "Mo 2:00PM - 5:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "F-LEC",
-                "component_type": "LEC",
-                "class_number": "1120",
-                "status": "Open",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "89",
-                "wait_list_total": "0",
-                "available_seats": "10",
-                "day_time": "Mo 2:00PM - 5:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "26/10, 2/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "F-LEC",
-                "component_type": "LEC",
-                "class_number": "1120",
-                "status": "Open",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "89",
-                "wait_list_total": "0",
-                "available_seats": "10",
-                "day_time": "Mo 2:00PM - 5:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "7/12, 14/12"
+                "timetable": [
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "16/11"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "30/11"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "20/11, 27/11"
+                    },
+                    {
+                        "day_time": "Mo 2:00PM - 5:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 2:00PM - 5:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "26/10, 2/11"
+                    },
+                    {
+                        "day_time": "Mo 2:00PM - 5:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "7/12, 14/12"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -133,78 +82,38 @@
                 "enrollment_total": "45",
                 "wait_list_total": "0",
                 "available_seats": "155",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "16/11"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "HS-LEC",
-                "component_type": "LEC",
-                "class_number": "1092",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "45",
-                "wait_list_total": "0",
-                "available_seats": "155",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "30/11, 7/12, 14/12"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "HS-LEC",
-                "component_type": "LEC",
-                "class_number": "1092",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "45",
-                "wait_list_total": "0",
-                "available_seats": "155",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "4/1, 11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "HS-LEC",
-                "component_type": "LEC",
-                "class_number": "1092",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "45",
-                "wait_list_total": "0",
-                "available_seats": "155",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "15/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "HS-LEC",
-                "component_type": "LEC",
-                "class_number": "1092",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "45",
-                "wait_list_total": "0",
-                "available_seats": "155",
-                "day_time": "Fr 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "20/11, 27/11, 4/12, 11/12"
+                "timetable": [
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "16/11"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "30/11, 7/12, 14/12"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "4/1, 11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "15/2"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "20/11, 27/11, 4/12, 11/12"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -218,78 +127,38 @@
                 "enrollment_total": "77",
                 "wait_list_total": "0",
                 "available_seats": "123",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "16/11"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "P-LEC",
-                "component_type": "LEC",
-                "class_number": "1093",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "77",
-                "wait_list_total": "0",
-                "available_seats": "123",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "30/11, 7/12, 14/12"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "P-LEC",
-                "component_type": "LEC",
-                "class_number": "1093",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "77",
-                "wait_list_total": "0",
-                "available_seats": "123",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "4/1, 11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "P-LEC",
-                "component_type": "LEC",
-                "class_number": "1093",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "77",
-                "wait_list_total": "0",
-                "available_seats": "123",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "15/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "P-LEC",
-                "component_type": "LEC",
-                "class_number": "1093",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "77",
-                "wait_list_total": "0",
-                "available_seats": "123",
-                "day_time": "Fr 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "20/11, 27/11, 4/12, 11/12"
+                "timetable": [
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "16/11"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "30/11, 7/12, 14/12"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "4/1, 11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "15/2"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "20/11, 27/11, 4/12, 11/12"
+                    }
+                ]
             }
         ]
     },
@@ -307,7 +176,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -320,27 +189,20 @@
                 "enrollment_total": "102",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Th 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
-                "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1207",
-                "status": "Closed",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "102",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Th 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
-                "dates": "20/5"
+                "timetable": [
+                    {
+                        "day_time": "Th 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
+                        "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                    },
+                    {
+                        "day_time": "Th 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
+                        "dates": "20/5"
+                    }
+                ]
             }
         ]
     },
@@ -358,7 +220,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -371,27 +233,20 @@
                 "enrollment_total": "107",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "We 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor YIP Hon Kei",
-                "dates": "23/9, 30/9, 7/10, 14/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4644",
-                "status": "Closed",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "107",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "We 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor YIP Hon Kei",
-                "dates": "28/10"
+                "timetable": [
+                    {
+                        "day_time": "We 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor YIP Hon Kei",
+                        "dates": "23/9, 30/9, 7/10, 14/10"
+                    },
+                    {
+                        "day_time": "We 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor YIP Hon Kei",
+                        "dates": "28/10"
+                    }
+                ]
             }
         ]
     },
@@ -409,7 +264,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -422,44 +277,26 @@
                 "enrollment_total": "107",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Fr 12:00AM - 12:00AM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAM Ho Kwan, Dr. YAU Zi May Susan, Professor FUNG Hong, Professor WANG Kailu, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "7/5"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1014",
-                "status": "Closed",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "107",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "TBA",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAM Ho Kwan, Dr. YAU Zi May Susan, Professor FUNG Hong, Professor WANG Kailu, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "23/02/2027 - 04/05/2027"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1014",
-                "status": "Closed",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "107",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Tu 12:00AM - 12:00AM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAM Ho Kwan, Dr. YAU Zi May Susan, Professor FUNG Hong, Professor WANG Kailu, Professor WU Yushan, Professor YEOH Eng Kiong",
-                "dates": "18/5"
+                "timetable": [
+                    {
+                        "day_time": "Fr 12:00AM - 12:00AM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAM Ho Kwan, Dr. YAU Zi May Susan, Professor FUNG Hong, Professor WANG Kailu, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "7/5"
+                    },
+                    {
+                        "day_time": "TBA",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAM Ho Kwan, Dr. YAU Zi May Susan, Professor FUNG Hong, Professor WANG Kailu, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "23/02/2027 - 04/05/2027"
+                    },
+                    {
+                        "day_time": "Tu 12:00AM - 12:00AM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAM Ho Kwan, Dr. YAU Zi May Susan, Professor FUNG Hong, Professor WANG Kailu, Professor WU Yushan, Professor YEOH Eng Kiong",
+                        "dates": "18/5"
+                    }
+                ]
             }
         ]
     },
@@ -477,7 +314,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -490,10 +327,14 @@
                 "enrollment_total": "94",
                 "wait_list_total": "0",
                 "available_seats": "5",
-                "day_time": "Th 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor FUNG Hong, Professor WU Yushan",
-                "dates": "7/1, 14/1, 21/1, 28/1"
+                "timetable": [
+                    {
+                        "day_time": "Th 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor FUNG Hong, Professor WU Yushan",
+                        "dates": "7/1, 14/1, 21/1, 28/1"
+                    }
+                ]
             }
         ]
     },
@@ -511,7 +352,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -524,27 +365,20 @@
                 "enrollment_total": "69",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor FUNG Shu Yan Anthony",
-                "dates": "22/3"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1208",
-                "status": "Open",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "69",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor FUNG Shu Yan Anthony",
-                "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5"
+                "timetable": [
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor FUNG Shu Yan Anthony",
+                        "dates": "22/3"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor FUNG Shu Yan Anthony",
+                        "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5"
+                    }
+                ]
             }
         ]
     },
@@ -556,7 +390,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "HSYS 5011",
@@ -572,7 +406,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -585,10 +419,14 @@
                 "enrollment_total": "88",
                 "wait_list_total": "0",
                 "available_seats": "12",
-                "day_time": "Tu 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. CHEUNG Ngai Tseung",
-                "dates": "12/1, 19/1, 26/1, 2/2"
+                "timetable": [
+                    {
+                        "day_time": "Tu 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. CHEUNG Ngai Tseung",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    }
+                ]
             }
         ]
     },
@@ -606,7 +444,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -619,44 +457,26 @@
                 "enrollment_total": "39",
                 "wait_list_total": "0",
                 "available_seats": "11",
-                "day_time": "We 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
-                "dates": "17/3, 24/3"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1087",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "39",
-                "wait_list_total": "0",
-                "available_seats": "11",
-                "day_time": "We 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
-                "dates": "7/4, 14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1087",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "39",
-                "wait_list_total": "0",
-                "available_seats": "11",
-                "day_time": "We 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
-                "dates": "16/6"
+                "timetable": [
+                    {
+                        "day_time": "We 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
+                        "dates": "17/3, 24/3"
+                    },
+                    {
+                        "day_time": "We 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
+                        "dates": "7/4, 14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                    },
+                    {
+                        "day_time": "We 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
+                        "dates": "16/6"
+                    }
+                ]
             }
         ]
     },
@@ -674,7 +494,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -687,27 +507,20 @@
                 "enrollment_total": "40",
                 "wait_list_total": "0",
                 "available_seats": "10",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor TSE Sau Ling",
-                "dates": "1/3, 8/3, 15/3, 22/3"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1086",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "40",
-                "wait_list_total": "0",
-                "available_seats": "10",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor TSE Sau Ling",
-                "dates": "12/4, 19/4, 26/4, 3/5"
+                "timetable": [
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor TSE Sau Ling",
+                        "dates": "1/3, 8/3, 15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor TSE Sau Ling",
+                        "dates": "12/4, 19/4, 26/4, 3/5"
+                    }
+                ]
             }
         ]
     },
@@ -725,7 +538,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -738,44 +551,26 @@
                 "enrollment_total": "45",
                 "wait_list_total": "0",
                 "available_seats": "5",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor LAI Bo San Paul",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1681",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "45",
-                "wait_list_total": "0",
-                "available_seats": "5",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor LAI Bo San Paul",
-                "dates": "3/8, 10/8"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1681",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "45",
-                "wait_list_total": "0",
-                "available_seats": "5",
-                "day_time": "Mo 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor LAI Bo San Paul",
-                "dates": "24/8, 31/8"
+                "timetable": [
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor LAI Bo San Paul",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor LAI Bo San Paul",
+                        "dates": "3/8, 10/8"
+                    },
+                    {
+                        "day_time": "Mo 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor LAI Bo San Paul",
+                        "dates": "24/8, 31/8"
+                    }
+                ]
             }
         ]
     },
@@ -793,7 +588,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -806,61 +601,32 @@
                 "enrollment_total": "38",
                 "wait_list_total": "0",
                 "available_seats": "12",
-                "day_time": "We 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor HUNG Chi Tim, Professor LAI Bo San Paul",
-                "dates": "9/12, 16/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1129",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "38",
-                "wait_list_total": "0",
-                "available_seats": "12",
-                "day_time": "Fr 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor HUNG Chi Tim, Professor LAI Bo San Paul",
-                "dates": "23/10, 30/10, 6/11, 13/11, 20/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1129",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "38",
-                "wait_list_total": "0",
-                "available_seats": "12",
-                "day_time": "Fr 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor HUNG Chi Tim, Professor LAI Bo San Paul",
-                "dates": "11/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1129",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "38",
-                "wait_list_total": "0",
-                "available_seats": "12",
-                "day_time": "Tu 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor HUNG Chi Tim, Professor LAI Bo San Paul",
-                "dates": "24/11"
+                "timetable": [
+                    {
+                        "day_time": "We 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor HUNG Chi Tim, Professor LAI Bo San Paul",
+                        "dates": "9/12, 16/12"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor HUNG Chi Tim, Professor LAI Bo San Paul",
+                        "dates": "23/10, 30/10, 6/11, 13/11, 20/11"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor HUNG Chi Tim, Professor LAI Bo San Paul",
+                        "dates": "11/12"
+                    },
+                    {
+                        "day_time": "Tu 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor HUNG Chi Tim, Professor LAI Bo San Paul",
+                        "dates": "24/11"
+                    }
+                ]
             }
         ]
     },
@@ -878,7 +644,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -891,10 +657,14 @@
                 "enrollment_total": "36",
                 "wait_list_total": "0",
                 "available_seats": "4",
-                "day_time": "Th 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor FUNG Hong",
-                "dates": "11/2, 18/2, 25/2, 4/3, 11/3"
+                "timetable": [
+                    {
+                        "day_time": "Th 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor FUNG Hong",
+                        "dates": "11/2, 18/2, 25/2, 4/3, 11/3"
+                    }
+                ]
             }
         ]
     },
@@ -912,7 +682,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -925,27 +695,20 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Th 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor FUNG Hong",
-                "dates": "12/11, 19/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1571",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Th 7:00PM - 9:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor FUNG Hong",
-                "dates": "26/11, 3/12, 10/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor FUNG Hong",
+                        "dates": "12/11, 19/11"
+                    },
+                    {
+                        "day_time": "Th 7:00PM - 9:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor FUNG Hong",
+                        "dates": "26/11, 3/12, 10/12"
+                    }
+                ]
             }
         ]
     },
@@ -963,7 +726,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -976,10 +739,14 @@
                 "enrollment_total": "56",
                 "wait_list_total": "0",
                 "available_seats": "4",
-                "day_time": "Th 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. AU Kit Sing Derrick, Dr. YAU Zi May Susan, Professor CHUNG Roger Yat Nork",
-                "dates": "3/9, 10/9, 17/9, 24/9"
+                "timetable": [
+                    {
+                        "day_time": "Th 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. AU Kit Sing Derrick, Dr. YAU Zi May Susan, Professor CHUNG Roger Yat Nork",
+                        "dates": "3/9, 10/9, 17/9, 24/9"
+                    }
+                ]
             }
         ]
     },
@@ -997,7 +764,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1010,10 +777,14 @@
                 "enrollment_total": "30",
                 "wait_list_total": "0",
                 "available_seats": "10",
-                "day_time": "We 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. LEUNG Yee Man, Professor HUNG Chi Tim",
-                "dates": "11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. LEUNG Yee Man, Professor HUNG Chi Tim",
+                        "dates": "11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             }
         ]
     },
@@ -1031,7 +802,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2450",
                 "term": "2026-27 Summer Session",
@@ -1044,10 +815,14 @@
                 "enrollment_total": "20",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Sa 9:30AM - 5:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor FUNG Hong",
-                "dates": "26/6, 3/7"
+                "timetable": [
+                    {
+                        "day_time": "Sa 9:30AM - 5:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor FUNG Hong",
+                        "dates": "26/6, 3/7"
+                    }
+                ]
             }
         ]
     },
@@ -1065,7 +840,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2450",
                 "term": "2026-27 Summer Session",
@@ -1078,10 +853,14 @@
                 "enrollment_total": "41",
                 "wait_list_total": "0",
                 "available_seats": "4",
-                "day_time": "Su 10:00AM - 5:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor HUNG Chi Tim",
-                "dates": "27/6, 4/7"
+                "timetable": [
+                    {
+                        "day_time": "Su 10:00AM - 5:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor HUNG Chi Tim",
+                        "dates": "27/6, 4/7"
+                    }
+                ]
             }
         ]
     },
@@ -1093,7 +872,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "HSYS 5023",
@@ -1109,7 +888,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -1122,10 +901,14 @@
                 "enrollment_total": "40",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Th 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
-                "dates": "17/6"
+                "timetable": [
+                    {
+                        "day_time": "Th 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
+                        "dates": "17/6"
+                    }
+                ]
             }
         ]
     },
@@ -1143,7 +926,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1156,10 +939,14 @@
                 "enrollment_total": "29",
                 "wait_list_total": "0",
                 "available_seats": "11",
-                "day_time": "We 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. LEUNG Yee Man, Professor HUNG Chi Tim",
-                "dates": "27/1, 3/2, 10/2, 17/2, 24/2"
+                "timetable": [
+                    {
+                        "day_time": "We 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. LEUNG Yee Man, Professor HUNG Chi Tim",
+                        "dates": "27/1, 3/2, 10/2, 17/2, 24/2"
+                    }
+                ]
             }
         ]
     },
@@ -1177,7 +964,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1190,27 +977,20 @@
                 "enrollment_total": "20",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Sa 2:00PM - 5:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Ms. WONG Yuen Fong Pauline",
-                "dates": "16/1, 23/1, 30/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1535",
-                "status": "Closed",
-                "class_capacity": "20",
-                "wait_list_capacity": "0",
-                "enrollment_total": "20",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Sa 2:00PM - 5:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Ms. WONG Yuen Fong Pauline",
-                "dates": "13/2, 20/2"
+                "timetable": [
+                    {
+                        "day_time": "Sa 2:00PM - 5:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Ms. WONG Yuen Fong Pauline",
+                        "dates": "16/1, 23/1, 30/1"
+                    },
+                    {
+                        "day_time": "Sa 2:00PM - 5:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Ms. WONG Yuen Fong Pauline",
+                        "dates": "13/2, 20/2"
+                    }
+                ]
             }
         ]
     },
@@ -1228,7 +1008,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -1241,10 +1021,14 @@
                 "enrollment_total": "19",
                 "wait_list_total": "0",
                 "available_seats": "11",
-                "day_time": "Fr 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
-                "dates": "21/5, 28/5, 4/6, 11/6"
+                "timetable": [
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. YAU Zi May Susan, Professor HUNG Chi Tim",
+                        "dates": "21/5, 28/5, 4/6, 11/6"
+                    }
+                ]
             }
         ]
     },
@@ -1262,7 +1046,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -1275,27 +1059,20 @@
                 "enrollment_total": "14",
                 "wait_list_total": "0",
                 "available_seats": "16",
-                "day_time": "Fr 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor FUNG Hong, Professor WU Yushan",
-                "dates": "19/3"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1085",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "14",
-                "wait_list_total": "0",
-                "available_seats": "16",
-                "day_time": "Fr 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor FUNG Hong, Professor WU Yushan",
-                "dates": "2/4, 9/4, 16/4"
+                "timetable": [
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor FUNG Hong, Professor WU Yushan",
+                        "dates": "19/3"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor FUNG Hong, Professor WU Yushan",
+                        "dates": "2/4, 9/4, 16/4"
+                    }
+                ]
             }
         ]
     },
@@ -1313,7 +1090,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1326,27 +1103,20 @@
                 "enrollment_total": "16",
                 "wait_list_total": "0",
                 "available_seats": "34",
-                "day_time": "Fr 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. LEUNG Yee Man, Dr. YAU Zi May Susan",
-                "dates": "4/9, 11/9, 18/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1455",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "16",
-                "wait_list_total": "0",
-                "available_seats": "34",
-                "day_time": "Fr 6:30PM - 9:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. LEUNG Yee Man, Dr. YAU Zi May Susan",
-                "dates": "2/10, 9/10"
+                "timetable": [
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. LEUNG Yee Man, Dr. YAU Zi May Susan",
+                        "dates": "4/9, 11/9, 18/9"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. LEUNG Yee Man, Dr. YAU Zi May Susan",
+                        "dates": "2/10, 9/10"
+                    }
+                ]
             }
         ]
     },
@@ -1364,7 +1134,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -1377,27 +1147,20 @@
                 "enrollment_total": "37",
                 "wait_list_total": "0",
                 "available_seats": "13",
-                "day_time": "Sa 8:30AM - 1:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor FUNG Hong, Professor HUNG Chi Tim, Professor LEE Koon Hung, Professor LO Su Vui",
-                "dates": "14/11"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "-T01-TUT",
-                "component_type": "TUT",
-                "class_number": "1099",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "37",
-                "wait_list_total": "0",
-                "available_seats": "13",
-                "day_time": "Sa 8:30AM - 1:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor FUNG Hong, Professor HUNG Chi Tim, Professor LEE Koon Hung, Professor LO Su Vui",
-                "dates": "15/5"
+                "timetable": [
+                    {
+                        "day_time": "Sa 8:30AM - 1:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor FUNG Hong, Professor HUNG Chi Tim, Professor LEE Koon Hung, Professor LO Su Vui",
+                        "dates": "14/11"
+                    },
+                    {
+                        "day_time": "Sa 8:30AM - 1:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor FUNG Hong, Professor HUNG Chi Tim, Professor LEE Koon Hung, Professor LO Su Vui",
+                        "dates": "15/5"
+                    }
+                ]
             }
         ]
     }

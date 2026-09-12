@@ -18,7 +18,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -31,10 +31,14 @@
                 "enrollment_total": "29",
                 "wait_list_total": "46",
                 "available_seats": "0",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Lee Shau Kee Building 301",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Lee Shau Kee Building 301",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -48,10 +52,14 @@
                 "enrollment_total": "28",
                 "wait_list_total": "12",
                 "available_seats": "0",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Building 201",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Building 201",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -65,27 +73,20 @@
                 "enrollment_total": "28",
                 "wait_list_total": "30",
                 "available_seats": "0",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "William M W Mong Eng Bldg 712",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "CC01-CLW",
-                "component_type": "CLW",
-                "class_number": "5706",
-                "status": "Wait List",
-                "class_capacity": "28",
-                "wait_list_capacity": "999",
-                "enrollment_total": "28",
-                "wait_list_total": "30",
-                "available_seats": "0",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "William M W Mong Eng Bldg 712",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "William M W Mong Eng Bldg 712",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "William M W Mong Eng Bldg 712",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -99,10 +100,14 @@
                 "enrollment_total": "28",
                 "wait_list_total": "8",
                 "available_seats": "0",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Chen Kou Bun Bldg UG03",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Chen Kou Bun Bldg UG03",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -116,10 +121,14 @@
                 "enrollment_total": "28",
                 "wait_list_total": "10",
                 "available_seats": "0",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall 106",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -133,10 +142,14 @@
                 "enrollment_total": "24",
                 "wait_list_total": "18",
                 "available_seats": "0",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Yasumoto Int'l Acad Park 402",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Yasumoto Int'l Acad Park 402",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -150,10 +163,14 @@
                 "enrollment_total": "28",
                 "wait_list_total": "37",
                 "available_seats": "0",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Yasumoto Int'l Acad Park 403",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Yasumoto Int'l Acad Park 403",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -167,27 +184,20 @@
                 "enrollment_total": "28",
                 "wait_list_total": "10",
                 "available_seats": "0",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "William M W Mong Eng Bldg 703",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "HC01-CLW",
-                "component_type": "CLW",
-                "class_number": "5664",
-                "status": "Wait List",
-                "class_capacity": "28",
-                "wait_list_capacity": "999",
-                "enrollment_total": "28",
-                "wait_list_total": "10",
-                "available_seats": "0",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "William M W Mong Eng Bldg 703",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -201,10 +211,14 @@
                 "enrollment_total": "28",
                 "wait_list_total": "31",
                 "available_seats": "0",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "William M W Mong Eng Bldg 712",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "William M W Mong Eng Bldg 712",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -218,10 +232,14 @@
                 "enrollment_total": "28",
                 "wait_list_total": "11",
                 "available_seats": "0",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "William M W Mong Eng Bldg 712",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "William M W Mong Eng Bldg 712",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -235,10 +253,14 @@
                 "enrollment_total": "28",
                 "wait_list_total": "7",
                 "available_seats": "0",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Building 201",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Building 201",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -252,44 +274,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Tu 1:30PM - 4:15PM",
-                "room": "Cheng Yu Tung Building 202",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "AC01-CLW",
-                "component_type": "CLW",
-                "class_number": "5738",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 1:30PM - 4:15PM",
-                "room": "Cheng Yu Tung Building 202",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "AC01-CLW",
-                "component_type": "CLW",
-                "class_number": "5738",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 1:30PM - 4:15PM",
-                "room": "Cheng Yu Tung Building 202",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 1:30PM - 4:15PM",
+                        "room": "Cheng Yu Tung Building 202",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 1:30PM - 4:15PM",
+                        "room": "Cheng Yu Tung Building 202",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 1:30PM - 4:15PM",
+                        "room": "Cheng Yu Tung Building 202",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -303,44 +307,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Esther Lee Bldg 202",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "BC01-CLW",
-                "component_type": "CLW",
-                "class_number": "7279",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Esther Lee Bldg 202",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "BC01-CLW",
-                "component_type": "CLW",
-                "class_number": "7279",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Esther Lee Bldg 202",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Esther Lee Bldg 202",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Esther Lee Bldg 202",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Esther Lee Bldg 202",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -354,44 +340,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall 106",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "CC01-CLW",
-                "component_type": "CLW",
-                "class_number": "7243",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall 106",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "CC01-CLW",
-                "component_type": "CLW",
-                "class_number": "7243",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall 106",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -405,44 +373,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall 101",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "DC01-CLW",
-                "component_type": "CLW",
-                "class_number": "5799",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall 101",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "DC01-CLW",
-                "component_type": "CLW",
-                "class_number": "5799",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall 101",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall 101",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall 101",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall 101",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -456,44 +406,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Wu Ho Man Yuen Bldg 406",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "EC01-CLW",
-                "component_type": "CLW",
-                "class_number": "7284",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Wu Ho Man Yuen Bldg 406",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "EC01-CLW",
-                "component_type": "CLW",
-                "class_number": "7284",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Wu Ho Man Yuen Bldg 406",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 406",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 406",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 406",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -507,44 +439,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg C5",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "FC01-CLW",
-                "component_type": "CLW",
-                "class_number": "7247",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg C5",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "FC01-CLW",
-                "component_type": "CLW",
-                "class_number": "7247",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg C5",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg C5",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg C5",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg C5",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -567,7 +481,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -580,10 +494,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "150",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -597,10 +515,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "150",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -618,7 +540,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -631,44 +553,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 508",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "AC01-CLW",
-                "component_type": "CLW",
-                "class_number": "8312",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 508",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "AC01-CLW",
-                "component_type": "CLW",
-                "class_number": "8312",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 508",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 508",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 508",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 508",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -682,44 +586,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Yasumoto Int'l Acad Park 403",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "BC01-CLW",
-                "component_type": "CLW",
-                "class_number": "8328",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Yasumoto Int'l Acad Park 403",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "BC01-CLW",
-                "component_type": "CLW",
-                "class_number": "8328",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Yasumoto Int'l Acad Park 403",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Yasumoto Int'l Acad Park 403",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Yasumoto Int'l Acad Park 403",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Yasumoto Int'l Acad Park 403",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -733,44 +619,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Building 301",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "CC01-CLW",
-                "component_type": "CLW",
-                "class_number": "6130",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Building 301",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "CC01-CLW",
-                "component_type": "CLW",
-                "class_number": "6130",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Building 301",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Building 301",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Building 301",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Building 301",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -784,44 +652,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Building 201",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "DC01-CLW",
-                "component_type": "CLW",
-                "class_number": "6141",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Building 201",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "DC01-CLW",
-                "component_type": "CLW",
-                "class_number": "6141",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Building 201",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Building 201",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Building 201",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Building 201",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -835,44 +685,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Chen Kou Bun Bldg UG05",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "EC01-CLW",
-                "component_type": "CLW",
-                "class_number": "7278",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Chen Kou Bun Bldg UG05",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "EC01-CLW",
-                "component_type": "CLW",
-                "class_number": "7278",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Chen Kou Bun Bldg UG05",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Chen Kou Bun Bldg UG05",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Chen Kou Bun Bldg UG05",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Chen Kou Bun Bldg UG05",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             }
         ]
     },
@@ -890,7 +722,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -903,44 +735,26 @@
                 "enrollment_total": "28",
                 "wait_list_total": "2",
                 "available_seats": "0",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Chen Kou Bun Bldg UG03",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "4857",
-                "status": "Wait List",
-                "class_capacity": "28",
-                "wait_list_capacity": "999",
-                "enrollment_total": "28",
-                "wait_list_total": "2",
-                "available_seats": "0",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall 101",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "4857",
-                "status": "Wait List",
-                "class_capacity": "28",
-                "wait_list_capacity": "999",
-                "enrollment_total": "28",
-                "wait_list_total": "2",
-                "available_seats": "0",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall 101",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Chen Kou Bun Bldg UG03",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall 101",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall 101",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             }
         ]
     },
@@ -951,7 +765,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "HKSL 2001",
@@ -967,7 +781,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -980,27 +794,20 @@
                 "enrollment_total": "21",
                 "wait_list_total": "0",
                 "available_seats": "5",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 206",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "7181",
-                "status": "Open",
-                "class_capacity": "26",
-                "wait_list_capacity": "999",
-                "enrollment_total": "21",
-                "wait_list_total": "0",
-                "available_seats": "5",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 206",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 206",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 206",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             }
         ]
     },
@@ -1018,7 +825,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1031,44 +838,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall G03",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "7248",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall G03",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "7248",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall G03",
-                "instructor": "Miss YU On Lam Anita",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall G03",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall G03",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall G03",
+                        "instructor": "Miss YU On Lam Anita",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             }
         ]
     },
@@ -1086,7 +875,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1099,95 +888,44 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "Tu 9:30AM - 12:15PM",
-                "room": "Y.C. Liang Hall 106",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "5952",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 9:30AM - 12:15PM",
-                "room": "Y.C. Liang Hall 106",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "5952",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Tu 9:30AM - 12:15PM",
-                "room": "Y.C. Liang Hall 106",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "5952",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Y.C. Liang Hall 101",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "5952",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Y.C. Liang Hall 101",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-C01-CLW",
-                "component_type": "CLW",
-                "class_number": "5952",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Y.C. Liang Hall 101",
-                "instructor": "Mr. SUNG Leung Sing",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 9:30AM - 12:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 9:30AM - 12:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 9:30AM - 12:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Y.C. Liang Hall 101",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Y.C. Liang Hall 101",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Y.C. Liang Hall 101",
+                        "instructor": "Mr. SUNG Leung Sing",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -1205,7 +943,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1218,10 +956,14 @@
                 "enrollment_total": "29",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Y.C. Liang Hall 106",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -1235,10 +977,14 @@
                 "enrollment_total": "26",
                 "wait_list_total": "3",
                 "available_seats": "0",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Sino Building 239",
-                "instructor": "Miss YU Wai Lam Brenda",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Sino Building 239",
+                        "instructor": "Miss YU Wai Lam Brenda",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             }
         ]
     },
@@ -1256,7 +1002,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1269,44 +1015,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Esther Lee Bldg 203",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "AC01-CLW",
-                "component_type": "CLW",
-                "class_number": "8214",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Esther Lee Bldg 203",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "AC01-CLW",
-                "component_type": "CLW",
-                "class_number": "8214",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Esther Lee Bldg 203",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Esther Lee Bldg 203",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Esther Lee Bldg 203",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Esther Lee Bldg 203",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1320,44 +1048,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "28",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 505",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "BC01-CLW",
-                "component_type": "CLW",
-                "class_number": "7003",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 505",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "BC01-CLW",
-                "component_type": "CLW",
-                "class_number": "7003",
-                "status": "Open",
-                "class_capacity": "28",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "28",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 505",
-                "instructor": "Mr. CHU Kwan Ngai Kenny",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 505",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 505",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 505",
+                        "instructor": "Mr. CHU Kwan Ngai Kenny",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -1369,7 +1079,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "HKSL 3100",
@@ -1378,6 +1088,6 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     }
 ]

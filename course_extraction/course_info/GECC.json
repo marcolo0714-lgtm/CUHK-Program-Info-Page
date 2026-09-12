@@ -18,7 +18,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -31,10 +31,14 @@
                 "enrollment_total": "2610",
                 "wait_list_total": "0",
                 "available_seats": "1390",
-                "day_time": "Fr 11:30AM - 1:15PM",
-                "room": "Chung Chi College Chapel",
-                "instructor": "Staff",
-                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                "timetable": [
+                    {
+                        "day_time": "Fr 11:30AM - 1:15PM",
+                        "room": "Chung Chi College Chapel",
+                        "instructor": "Staff",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -48,10 +52,14 @@
                 "enrollment_total": "1221",
                 "wait_list_total": "0",
                 "available_seats": "2779",
-                "day_time": "Fr 11:30AM - 1:15PM",
-                "room": "Chung Chi College Chapel",
-                "instructor": "Staff",
-                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                "timetable": [
+                    {
+                        "day_time": "Fr 11:30AM - 1:15PM",
+                        "room": "Chung Chi College Chapel",
+                        "instructor": "Staff",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -65,61 +73,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "4000",
-                "day_time": "Fr 11:30AM - 1:15PM",
-                "room": "Chung Chi College Chapel",
-                "instructor": "Staff",
-                "dates": "15/1, 22/1, 29/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-A01-ASB",
-                "component_type": "ASB",
-                "class_number": "8892",
-                "status": "Open",
-                "class_capacity": "4000",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "4000",
-                "day_time": "Fr 11:30AM - 1:15PM",
-                "room": "Chung Chi College Chapel",
-                "instructor": "Staff",
-                "dates": "12/2, 19/2, 26/2, 5/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-A01-ASB",
-                "component_type": "ASB",
-                "class_number": "8892",
-                "status": "Open",
-                "class_capacity": "4000",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "4000",
-                "day_time": "Fr 11:30AM - 1:15PM",
-                "room": "Chung Chi College Chapel",
-                "instructor": "Staff",
-                "dates": "19/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "-A01-ASB",
-                "component_type": "ASB",
-                "class_number": "8892",
-                "status": "Open",
-                "class_capacity": "4000",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "4000",
-                "day_time": "Fr 11:30AM - 1:15PM",
-                "room": "Chung Chi College Chapel",
-                "instructor": "Staff",
-                "dates": "2/4, 9/4, 16/4, 23/4"
+                "timetable": [
+                    {
+                        "day_time": "Fr 11:30AM - 1:15PM",
+                        "room": "Chung Chi College Chapel",
+                        "instructor": "Staff",
+                        "dates": "15/1, 22/1, 29/1"
+                    },
+                    {
+                        "day_time": "Fr 11:30AM - 1:15PM",
+                        "room": "Chung Chi College Chapel",
+                        "instructor": "Staff",
+                        "dates": "12/2, 19/2, 26/2, 5/3"
+                    },
+                    {
+                        "day_time": "Fr 11:30AM - 1:15PM",
+                        "room": "Chung Chi College Chapel",
+                        "instructor": "Staff",
+                        "dates": "19/3"
+                    },
+                    {
+                        "day_time": "Fr 11:30AM - 1:15PM",
+                        "room": "Chung Chi College Chapel",
+                        "instructor": "Staff",
+                        "dates": "2/4, 9/4, 16/4, 23/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -133,61 +112,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "4000",
-                "day_time": "Fr 11:30AM - 1:15PM",
-                "room": "Chung Chi College Chapel",
-                "instructor": "Staff",
-                "dates": "15/1, 22/1, 29/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "AA01-ASB",
-                "component_type": "ASB",
-                "class_number": "8783",
-                "status": "Open",
-                "class_capacity": "4000",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "4000",
-                "day_time": "Fr 11:30AM - 1:15PM",
-                "room": "Chung Chi College Chapel",
-                "instructor": "Staff",
-                "dates": "12/2, 19/2, 26/2, 5/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "AA01-ASB",
-                "component_type": "ASB",
-                "class_number": "8783",
-                "status": "Open",
-                "class_capacity": "4000",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "4000",
-                "day_time": "Fr 11:30AM - 1:15PM",
-                "room": "Chung Chi College Chapel",
-                "instructor": "Staff",
-                "dates": "19/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "AA01-ASB",
-                "component_type": "ASB",
-                "class_number": "8783",
-                "status": "Open",
-                "class_capacity": "4000",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "4000",
-                "day_time": "Fr 11:30AM - 1:15PM",
-                "room": "Chung Chi College Chapel",
-                "instructor": "Staff",
-                "dates": "2/4, 9/4, 16/4, 23/4"
+                "timetable": [
+                    {
+                        "day_time": "Fr 11:30AM - 1:15PM",
+                        "room": "Chung Chi College Chapel",
+                        "instructor": "Staff",
+                        "dates": "15/1, 22/1, 29/1"
+                    },
+                    {
+                        "day_time": "Fr 11:30AM - 1:15PM",
+                        "room": "Chung Chi College Chapel",
+                        "instructor": "Staff",
+                        "dates": "12/2, 19/2, 26/2, 5/3"
+                    },
+                    {
+                        "day_time": "Fr 11:30AM - 1:15PM",
+                        "room": "Chung Chi College Chapel",
+                        "instructor": "Staff",
+                        "dates": "19/3"
+                    },
+                    {
+                        "day_time": "Fr 11:30AM - 1:15PM",
+                        "room": "Chung Chi College Chapel",
+                        "instructor": "Staff",
+                        "dates": "2/4, 9/4, 16/4, 23/4"
+                    }
+                ]
             }
         ]
     },
@@ -205,7 +155,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -218,10 +168,14 @@
                 "enrollment_total": "759",
                 "wait_list_total": "0",
                 "available_seats": "241",
-                "day_time": "Fr 2:30PM - 4:15PM",
-                "room": "Chung Chi College Chapel",
-                "instructor": "Professor YAM Cheuk Sing",
-                "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Chung Chi College Chapel",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
             }
         ]
     },
@@ -233,22 +187,3825 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GECC 1132",
         "title": "Learning through Serving : Student-Oriented Teaching",
         "unit": "1.00",
         "info": "For Year 1 Chung Chi College students only.",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": false
+                "offered": true
             }
         ],
-        "teaching_schedule": []
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-F01-FLD",
+                "component_type": "FLD",
+                "class_number": "8659",
+                "status": "Open",
+                "class_capacity": "1200",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "1200",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AAF1-FLD",
+                "component_type": "FLD",
+                "class_number": "9609",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "19",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Chen Kou Bun Bldg 122",
+                        "instructor": "Professor YAM Cheuk Yin Colten",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "ABF1-FLD",
+                "component_type": "FLD",
+                "class_number": "9608",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Wong Foo Yuan Bldg 405",
+                        "instructor": "Rev. YIU Chi Ho",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "ACF1-FLD",
+                "component_type": "FLD",
+                "class_number": "9607",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "19",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 511",
+                        "instructor": "Dr. SZETO Ka Sinn",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "ADF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4844",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Lee Shau Kee Archi Bldg 212",
+                        "instructor": "Dr. WONG Kin Ho",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AEF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5976",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 511",
+                        "instructor": "Professor TSANG Tak Ming Desmond",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AF01-FLD",
+                "component_type": "FLD",
+                "class_number": "10191",
+                "status": "Open",
+                "class_capacity": "500",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "500",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AFF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5977",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "12",
+                "wait_list_total": "0",
+                "available_seats": "8",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Chen Kou Bun Bldg 108",
+                        "instructor": "Mr. LAM Kin Wing",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AGF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5888",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 402",
+                        "instructor": "Dr. LAM King Tin",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AHF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5890",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Dr. CHEUNG Wing Shing David",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AIF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5978",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 305",
+                        "instructor": "Dr. AHMAT Ricky",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AJF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5981",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 303",
+                        "instructor": "Professor CHOW Ka Ming",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AKF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5957",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 307",
+                        "instructor": "Dr. KWOK Ching Man",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "ALF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5979",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 207",
+                        "instructor": "Dr. TANG Pui Yin",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AMF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5984",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 202",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "ANF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5887",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 504",
+                        "instructor": "Professor LAW Thomas Ka Tung",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AOF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5975",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 401",
+                        "instructor": "Professor CHAN Kai Tai",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "APF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4819",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Lee Shau Kee Building 308",
+                        "instructor": "Dr. TAM Pui Yuk",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AQF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5891",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Science Centre LG23",
+                        "instructor": "Dr. LO Fai Hang",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "ARF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5889",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Science Centre 139",
+                        "instructor": "Dr. NGAI Hung Kui",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "ASF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5895",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 403",
+                        "instructor": "Ms. SIN Man Ching",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "ATF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5980",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Y.C. Liang Hall G03",
+                        "instructor": "Professor ZHUANG Xiaohong",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AUF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5894",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 408",
+                        "instructor": "Dr. NG Ming Ho",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AVF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5974",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "William M W Mong Eng Bldg 406",
+                        "instructor": "Dr. CHOY Siu Wah",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AWF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5948",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 410",
+                        "instructor": "Dr. YIP Long Sang Kenny",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AXF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5983",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Lee Shau Kee Archi Bldg G02",
+                        "instructor": "Professor MO Kar Him",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AYF1-FLD",
+                "component_type": "FLD",
+                "class_number": "7204",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Yasumoto Int'l Acad Park 406",
+                        "instructor": "Mr. TAM Sin Lung",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AZF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5982",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Wong Foo Yuan Bldg 105",
+                        "instructor": "Professor LI Jianfeng",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BAF1-FLD",
+                "component_type": "FLD",
+                "class_number": "7205",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 407",
+                        "instructor": "Dr. CHIU Renee",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BBF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4827",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 401",
+                        "instructor": "Professor YIM Cheuk Ling",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BCF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4828",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Mong Man Wai Bldg 704",
+                        "instructor": "Professor KONG Siu Kai",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BDF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4860",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Chen Kou Bun Bldg 123",
+                        "instructor": "Dr. CHEUNG Wing Shan",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BEF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4862",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 308",
+                        "instructor": "Professor SO Kwok Wei",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BFF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4863",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 405",
+                        "instructor": "Dr. WONG Yuk Shim",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BGF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4864",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Wong Foo Yuan Bldg 106",
+                        "instructor": "Professor XIAN Yanfang",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BHF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4865",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 507",
+                        "instructor": "Professor LEUNG Shui Yee",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BIF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4866",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 204",
+                        "instructor": "Dr. YAN Wai Hin",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BJF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4867",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "12",
+                "wait_list_total": "0",
+                "available_seats": "8",
+                "timetable": [
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Wong Foo Yuan Bldg 405",
+                        "instructor": "Dr. HO Ching Wai",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BKF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4868",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "13",
+                "wait_list_total": "0",
+                "available_seats": "7",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Wong Foo Yuan Bldg 401",
+                        "instructor": "Dr. HO Ching Wai",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BLF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4869",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 304",
+                        "instructor": "Ms. LEUNG Suk Kit",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BMF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4870",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Chen Kou Bun Bldg 109",
+                        "instructor": "Professor WONG Pak Ho",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BNF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4871",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 306",
+                        "instructor": "Miss NG Sze Wing",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BOF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4946",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 404",
+                        "instructor": "Dr. SIOW Lam",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BPF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4872",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Hui Yeung Shing Bldg G06",
+                        "instructor": "Mr. CHIM Wong Kit",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BQF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4873",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "TBA",
+                        "instructor": "Rev. KO Kwok Hung",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BRF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4874",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 509",
+                        "instructor": "Professor MAK Ka Fai",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BSF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5307",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Ms. FONG Yuen Shan",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BTF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5383",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Hui Yeung Shing Bldg G04",
+                        "instructor": "Mr. YAU Chun Lung",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BUF1-FLD",
+                "component_type": "FLD",
+                "class_number": "7791",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 411",
+                        "instructor": "Dr. WONG Ka Lok",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BVF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4830",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 506",
+                        "instructor": "Staff",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BWF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4815",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Wong Foo Yuan Bldg 401",
+                        "instructor": "Staff",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CAF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4875",
+                "status": "Open",
+                "class_capacity": "22",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 401",
+                        "instructor": "Dr. Benjamin Mark DRISCOL",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CBF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4822",
+                "status": "Open",
+                "class_capacity": "22",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 402",
+                        "instructor": "Mr. Thomas Michael HOPPER",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CCF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4878",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 404",
+                        "instructor": "Dr. ZHANG Li",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CDF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4879",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 407",
+                        "instructor": "Professor WANG Jian",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CEF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5951",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "22",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 408",
+                        "instructor": "Dr. GUO Yingxia",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CFF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5949",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 410",
+                        "instructor": "Professor DONG Wanxue",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CGF1-FLD",
+                "component_type": "FLD",
+                "class_number": "5950",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 411",
+                        "instructor": "Professor GAO Bo",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CHF1-FLD",
+                "component_type": "FLD",
+                "class_number": "9463",
+                "status": "Open",
+                "class_capacity": "24",
+                "wait_list_capacity": "0",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 502",
+                        "instructor": "Professor YAN Yangqian",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CIF1-FLD",
+                "component_type": "FLD",
+                "class_number": "9810",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Wong Foo Yuan Bldg 402",
+                        "instructor": "Dr. LEE Ching",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CJF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4880",
+                "status": "Open",
+                "class_capacity": "22",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Y.C. Liang Hall G03",
+                        "instructor": "Professor KANG Byung Ho",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CKF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4845",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "19",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Chen Kou Bun Bldg 108",
+                        "instructor": "Professor MA Yuan",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DAF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4881",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Esther Lee Bldg 204",
+                        "instructor": "Dr. AU YEUNG Chau Kin",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DBF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4917",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "17",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Chen Kou Bun Bldg 123",
+                        "instructor": "Ms. CHAN Tze Kwan",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DCF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4919",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "20",
+                "timetable": [
+                    {
+                        "day_time": "Fr 10:30AM - 5:15PM",
+                        "room": "Esther Lee Bldg 203",
+                        "instructor": "Staff",
+                        "dates": "18/9"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EAF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4920",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 405",
+                        "instructor": "Ms. LEUNG Kit Chi Ella",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EBF1-FLD",
+                "component_type": "FLD",
+                "class_number": "9548",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 506",
+                        "instructor": "Dr. LI Jiawei",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "ECF1-FLD",
+                "component_type": "FLD",
+                "class_number": "9552",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 504",
+                        "instructor": "Miss HE Shan",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EDF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4921",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Lee Shau Kee Archi Bldg 212",
+                        "instructor": "Professor LI Yufan",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EEF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4922",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 501",
+                        "instructor": "Dr. TIAN Jie Jenny",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EFF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4924",
+                "status": "Open",
+                "class_capacity": "22",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 401",
+                        "instructor": "Ms. Lucie ROGERS",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EGF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4926",
+                "status": "Open",
+                "class_capacity": "22",
+                "wait_list_capacity": "0",
+                "enrollment_total": "21",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park 509",
+                        "instructor": "Mr. Jonathan Christopher STOECKEL",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EHF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4928",
+                "status": "Open",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "2",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "TBA",
+                        "instructor": "Dr. LUI Wing Sing",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EQF1-FLD",
+                "component_type": "FLD",
+                "class_number": "4954",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Wong Foo Yuan Bldg 403",
+                        "instructor": "Professor Naomi Elaine THURSTON",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "GECC 1230",
+        "title": "Learning of Life",
+        "unit": "2.00",
+        "info": "For Year 1 Chung Chi College students only. Not for students who have taken GECC1130.",
+        "term_1": true,
+        "term_2": false,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "10127",
+                "status": "Open",
+                "class_capacity": "500",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "500",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "A-LEC",
+                "component_type": "LEC",
+                "class_number": "4942",
+                "status": "Open",
+                "class_capacity": "65",
+                "wait_list_capacity": "0",
+                "enrollment_total": "64",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Th 9:30AM - 11:15AM",
+                        "room": "Esther Lee Bldg 206",
+                        "instructor": "Professor CHAN Ka Fu Keith, Professor Raag ROLFSEN",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 11:15AM",
+                        "room": "Esther Lee Bldg 206",
+                        "instructor": "Professor CHAN Ka Fu Keith, Professor Raag ROLFSEN",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "B-LEC",
+                "component_type": "LEC",
+                "class_number": "4933",
+                "status": "Open",
+                "class_capacity": "154",
+                "wait_list_capacity": "0",
+                "enrollment_total": "153",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Esther Lee Bldg LT4",
+                        "instructor": "Professor CHAN Ka Fu Keith, Professor Raag ROLFSEN",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "C-LEC",
+                "component_type": "LEC",
+                "class_number": "7087",
+                "status": "Open",
+                "class_capacity": "400",
+                "wait_list_capacity": "0",
+                "enrollment_total": "257",
+                "wait_list_total": "0",
+                "available_seats": "143",
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Chung Chi College Chapel",
+                        "instructor": "Professor CHAN Ka Fu Keith, Professor Raag ROLFSEN",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "GECC 3130",
+        "title": "Exploration and Discovery",
+        "unit": "3.00",
+        "info": "- For Chung Chi Students only. - Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280.",
+        "term_1": true,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AAF1-FLD",
+                "component_type": "FLD",
+                "class_number": "8101",
+                "status": "Open",
+                "class_capacity": "3",
+                "wait_list_capacity": "0",
+                "enrollment_total": "2",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AAJ1-PRJ",
+                "component_type": "PRJ",
+                "class_number": "8102",
+                "status": "Open",
+                "class_capacity": "3",
+                "wait_list_capacity": "0",
+                "enrollment_total": "2",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AAS1-SEM",
+                "component_type": "SEM",
+                "class_number": "8103",
+                "status": "Open",
+                "class_capacity": "3",
+                "wait_list_capacity": "0",
+                "enrollment_total": "2",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AF01-FLD",
+                "component_type": "FLD",
+                "class_number": "8003",
+                "status": "Closed",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. HAN Man",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "8004",
+                "status": "Closed",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. HAN Man",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AS01-SEM",
+                "component_type": "SEM",
+                "class_number": "7815",
+                "status": "Closed",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. HAN Man",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BF01-FLD",
+                "component_type": "FLD",
+                "class_number": "8005",
+                "status": "Open",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor Raag ROLFSEN",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "8006",
+                "status": "Open",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor Raag ROLFSEN",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BS01-SEM",
+                "component_type": "SEM",
+                "class_number": "7664",
+                "status": "Open",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Professor Raag ROLFSEN",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6220",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Ms. Annette Josefa Maria FROMEL",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "6140",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Ms. Annette Josefa Maria FROMEL",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CS01-SEM",
+                "component_type": "SEM",
+                "class_number": "6137",
+                "status": "Closed",
+                "class_capacity": "20",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Ms. Annette Josefa Maria FROMEL",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6141",
+                "status": "Closed",
+                "class_capacity": "27",
+                "wait_list_capacity": "0",
+                "enrollment_total": "27",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. AHMAT Ricky",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "6148",
+                "status": "Closed",
+                "class_capacity": "27",
+                "wait_list_capacity": "0",
+                "enrollment_total": "27",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. AHMAT Ricky",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DS01-SEM",
+                "component_type": "SEM",
+                "class_number": "6151",
+                "status": "Closed",
+                "class_capacity": "27",
+                "wait_list_capacity": "0",
+                "enrollment_total": "27",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Mo 12:00AM - 12:00AM",
+                        "room": "TBA",
+                        "instructor": "Dr. AHMAT Ricky",
+                        "dates": "14/9"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6138",
+                "status": "Closed",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. KAM Ho Chuen",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "6143",
+                "status": "Closed",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. KAM Ho Chuen",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "ES01-SEM",
+                "component_type": "SEM",
+                "class_number": "5276",
+                "status": "Closed",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. KAM Ho Chuen",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "FF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6142",
+                "status": "Closed",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. YIN Ho Fai Hoover",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "FJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "6149",
+                "status": "Closed",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. YIN Ho Fai Hoover",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "FS01-SEM",
+                "component_type": "SEM",
+                "class_number": "7665",
+                "status": "Closed",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. YIN Ho Fai Hoover",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "GF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6146",
+                "status": "Closed",
+                "class_capacity": "27",
+                "wait_list_capacity": "0",
+                "enrollment_total": "27",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Mr. WAN Tsz Ki",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "GJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "6150",
+                "status": "Closed",
+                "class_capacity": "27",
+                "wait_list_capacity": "0",
+                "enrollment_total": "27",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Mr. WAN Tsz Ki",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "GS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5277",
+                "status": "Closed",
+                "class_capacity": "27",
+                "wait_list_capacity": "0",
+                "enrollment_total": "27",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 1:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 203",
+                        "instructor": "Mr. WAN Tsz Ki",
+                        "dates": "2/10, 9/10"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "HF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6139",
+                "status": "Closed",
+                "class_capacity": "27",
+                "wait_list_capacity": "0",
+                "enrollment_total": "27",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Mr. WAN Tsz Ki",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "HJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "6144",
+                "status": "Closed",
+                "class_capacity": "27",
+                "wait_list_capacity": "0",
+                "enrollment_total": "27",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Mr. WAN Tsz Ki",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "HS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5278",
+                "status": "Closed",
+                "class_capacity": "27",
+                "wait_list_capacity": "0",
+                "enrollment_total": "27",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 1:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 203",
+                        "instructor": "Mr. WAN Tsz Ki",
+                        "dates": "16/10, 23/10"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "IF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6147",
+                "status": "Closed",
+                "class_capacity": "12",
+                "wait_list_capacity": "0",
+                "enrollment_total": "12",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LO Hau Man",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "IJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "6145",
+                "status": "Closed",
+                "class_capacity": "12",
+                "wait_list_capacity": "0",
+                "enrollment_total": "12",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LO Hau Man",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "IS01-SEM",
+                "component_type": "SEM",
+                "class_number": "4944",
+                "status": "Closed",
+                "class_capacity": "12",
+                "wait_list_capacity": "0",
+                "enrollment_total": "12",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 6:15PM",
+                        "room": "Hui Yeung Shing Bldg G03",
+                        "instructor": "Dr. LO Hau Man",
+                        "dates": "2/10"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AAF1-FLD",
+                "component_type": "FLD",
+                "class_number": "6641",
+                "status": "Open",
+                "class_capacity": "3",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AAJ1-PRJ",
+                "component_type": "PRJ",
+                "class_number": "6642",
+                "status": "Open",
+                "class_capacity": "3",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AAS1-SEM",
+                "component_type": "SEM",
+                "class_number": "6643",
+                "status": "Open",
+                "class_capacity": "3",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AF01-FLD",
+                "component_type": "FLD",
+                "class_number": "7843",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "7844",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AS01-SEM",
+                "component_type": "SEM",
+                "class_number": "7845",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "BF01-FLD",
+                "component_type": "FLD",
+                "class_number": "7895",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "BJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "7896",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "BS01-SEM",
+                "component_type": "SEM",
+                "class_number": "7897",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "CF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6532",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "CJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "6561",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "CS01-SEM",
+                "component_type": "SEM",
+                "class_number": "6562",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "DF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6504",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "DJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "6411",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "DS01-SEM",
+                "component_type": "SEM",
+                "class_number": "6412",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "GECC 3230",
+        "title": "Service-Learning Programme",
+        "unit": "3.00",
+        "info": "- For Chung Chi Students only. - Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280.",
+        "term_1": true,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AAF1-FLD",
+                "component_type": "FLD",
+                "class_number": "8105",
+                "status": "Open",
+                "class_capacity": "3",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AAT1-TUT",
+                "component_type": "TUT",
+                "class_number": "8106",
+                "status": "Open",
+                "class_capacity": "3",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6326",
+                "status": "Closed",
+                "class_capacity": "4",
+                "wait_list_capacity": "0",
+                "enrollment_total": "4",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor TANG Wai Lan Gladys",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AT01-TUT",
+                "component_type": "TUT",
+                "class_number": "6327",
+                "status": "Closed",
+                "class_capacity": "4",
+                "wait_list_capacity": "0",
+                "enrollment_total": "4",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor TANG Wai Lan Gladys",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6123",
+                "status": "Closed",
+                "class_capacity": "4",
+                "wait_list_capacity": "0",
+                "enrollment_total": "4",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. YEUNG Chi Yan",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BT01-TUT",
+                "component_type": "TUT",
+                "class_number": "6125",
+                "status": "Closed",
+                "class_capacity": "4",
+                "wait_list_capacity": "0",
+                "enrollment_total": "4",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. YEUNG Chi Yan",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6198",
+                "status": "Closed",
+                "class_capacity": "4",
+                "wait_list_capacity": "0",
+                "enrollment_total": "4",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor SHIU Tak Ying",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CT01-TUT",
+                "component_type": "TUT",
+                "class_number": "6126",
+                "status": "Closed",
+                "class_capacity": "4",
+                "wait_list_capacity": "0",
+                "enrollment_total": "4",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor SHIU Tak Ying",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6124",
+                "status": "Closed",
+                "class_capacity": "4",
+                "wait_list_capacity": "0",
+                "enrollment_total": "4",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor MO Phoenix Kit Han",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DT01-TUT",
+                "component_type": "TUT",
+                "class_number": "6127",
+                "status": "Closed",
+                "class_capacity": "4",
+                "wait_list_capacity": "0",
+                "enrollment_total": "4",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor MO Phoenix Kit Han",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "EF01-FLD",
+                "component_type": "FLD",
+                "class_number": "8015",
+                "status": "Closed",
+                "class_capacity": "5",
+                "wait_list_capacity": "0",
+                "enrollment_total": "5",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor MO Kar Him",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "ET01-TUT",
+                "component_type": "TUT",
+                "class_number": "6128",
+                "status": "Closed",
+                "class_capacity": "5",
+                "wait_list_capacity": "0",
+                "enrollment_total": "5",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor MO Kar Him",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "FF01-FLD",
+                "component_type": "FLD",
+                "class_number": "7973",
+                "status": "Closed",
+                "class_capacity": "4",
+                "wait_list_capacity": "0",
+                "enrollment_total": "4",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Yin Colten",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "FT01-TUT",
+                "component_type": "TUT",
+                "class_number": "6258",
+                "status": "Closed",
+                "class_capacity": "4",
+                "wait_list_capacity": "0",
+                "enrollment_total": "4",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Yin Colten",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "HF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6264",
+                "status": "Open",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor WONG Wai Ching Angela",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "HT01-TUT",
+                "component_type": "TUT",
+                "class_number": "6479",
+                "status": "Open",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor WONG Wai Ching Angela",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "IF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6265",
+                "status": "Open",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor WONG Pak Ho",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "IT01-TUT",
+                "component_type": "TUT",
+                "class_number": "6266",
+                "status": "Open",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor WONG Pak Ho",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "JF01-FLD",
+                "component_type": "FLD",
+                "class_number": "8619",
+                "status": "Closed",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LI Chun Hong",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "JT01-TUT",
+                "component_type": "TUT",
+                "class_number": "6116",
+                "status": "Closed",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "16",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LI Chun Hong",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "KF01-FLD",
+                "component_type": "FLD",
+                "class_number": "8618",
+                "status": "Closed",
+                "class_capacity": "4",
+                "wait_list_capacity": "0",
+                "enrollment_total": "4",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. WONG Kit Fai",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "KT01-TUT",
+                "component_type": "TUT",
+                "class_number": "7956",
+                "status": "Closed",
+                "class_capacity": "4",
+                "wait_list_capacity": "0",
+                "enrollment_total": "4",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. WONG Kit Fai",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "LF01-FLD",
+                "component_type": "FLD",
+                "class_number": "8014",
+                "status": "Open",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. WONG Kit Fai",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "LT01-TUT",
+                "component_type": "TUT",
+                "class_number": "8615",
+                "status": "Open",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. WONG Kit Fai",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AAF1-FLD",
+                "component_type": "FLD",
+                "class_number": "8094",
+                "status": "Open",
+                "class_capacity": "3",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AAT1-TUT",
+                "component_type": "TUT",
+                "class_number": "8092",
+                "status": "Open",
+                "class_capacity": "3",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AF01-FLD",
+                "component_type": "FLD",
+                "class_number": "6414",
+                "status": "Open",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "16",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AT01-TUT",
+                "component_type": "TUT",
+                "class_number": "6413",
+                "status": "Open",
+                "class_capacity": "16",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "16",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "GECC 3430",
+        "title": "Servant Leadership",
+        "unit": "3.00",
+        "info": "Not for students who have taken GECC3130, GECC3230, GECC4130 or IASP4280.",
+        "term_1": false,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "6636",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. AHMAT Ricky, Professor NG Shek Nam, Professor WONG Pak Ho",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-F01-FLD",
+                "component_type": "FLD",
+                "class_number": "6638",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. AHMAT Ricky, Professor NG Shek Nam, Professor WONG Pak Ho",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-S01-SEM",
+                "component_type": "SEM",
+                "class_number": "6637",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "28",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. AHMAT Ricky, Professor NG Shek Nam, Professor WONG Pak Ho",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "GECC 4130",
+        "title": "Senior Seminar",
+        "unit": "3.00",
+        "info": "- For Chung Chi Students only. - Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280.",
+        "term_1": true,
+        "term_2": true,
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AAS1-SEM",
+                "component_type": "SEM",
+                "class_number": "6485",
+                "status": "Open",
+                "class_capacity": "3",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AS01-SEM",
+                "component_type": "SEM",
+                "class_number": "7476",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 5:15PM",
+                        "room": "Wong Foo Yuan Bldg UG02",
+                        "instructor": "Dr. LI Kwan Hung Leo",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BS01-SEM",
+                "component_type": "SEM",
+                "class_number": "9139",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "18",
+                "wait_list_total": "0",
+                "available_seats": "10",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Lee Shau Kee Archi Bldg G04",
+                        "instructor": "Dr. HA Lin Tat",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5841",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "8",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 302",
+                        "instructor": "Dr. AU YEUNG Chau Kin",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "DS01-SEM",
+                "component_type": "SEM",
+                "class_number": "4877",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. NG Chi Kong",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "ES01-SEM",
+                "component_type": "SEM",
+                "class_number": "5963",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 401",
+                        "instructor": "Dr. LING Cheuk Chi",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "FS01-SEM",
+                "component_type": "SEM",
+                "class_number": "7206",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Sino Building UG06",
+                        "instructor": "Professor TAM Hon Lon",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "GS01-SEM",
+                "component_type": "SEM",
+                "class_number": "9128",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "22",
+                "wait_list_total": "0",
+                "available_seats": "6",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 502",
+                        "instructor": "Professor CHUNG Ka Ki",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "HS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5961",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Lai Chan Pui Ngong LT",
+                        "instructor": "Professor MIAO Qian",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "IS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5340",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "15",
+                "wait_list_total": "0",
+                "available_seats": "13",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Mong Man Wai Bldg 706",
+                        "instructor": "Professor ZHANG Xinglong",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "JS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5914",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Y.C. Liang Hall G04",
+                        "instructor": "Professor WANG Dajun",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "KS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5960",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Chen Kou Bun Bldg UG04",
+                        "instructor": "Dr. OUYANG Ming",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "LS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5937",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "8",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Sino Building 239",
+                        "instructor": "Professor LEE Wai Ying Joanna",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "MS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5964",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Chen Kou Bun Bldg UG03",
+                        "instructor": "Dr. LEE Ka Kiu",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "NS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5892",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "19",
+                "wait_list_total": "0",
+                "available_seats": "9",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "T.C. Cheng Bldg 201",
+                        "instructor": "Professor KIM Minseop",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "OS01-SEM",
+                "component_type": "SEM",
+                "class_number": "7207",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "8",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 407",
+                        "instructor": "Professor YANG Haibin",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "PS01-SEM",
+                "component_type": "SEM",
+                "class_number": "7792",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park 510",
+                        "instructor": "Professor CAO Xinyu",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "QS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5962",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "4",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Wong Foo Yuan Bldg UG01",
+                        "instructor": "Professor LAU LEUNG Mei Yee",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "RS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5905",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "20",
+                "wait_list_total": "0",
+                "available_seats": "8",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg 403",
+                        "instructor": "Professor MOK Bong Ho",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "SS01-SEM",
+                "component_type": "SEM",
+                "class_number": "5928",
+                "status": "Open",
+                "class_capacity": "28",
+                "wait_list_capacity": "0",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "5",
+                "timetable": [
+                    {
+                        "day_time": "Fr 3:30PM - 6:15PM",
+                        "room": "Chen Kou Bun Bldg UG05",
+                        "instructor": "Dr. WONG Kin Hong",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "YAS1-SEM",
+                "component_type": "SEM",
+                "class_number": "7814",
+                "status": "Closed",
+                "class_capacity": "23",
+                "wait_list_capacity": "0",
+                "enrollment_total": "23",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor Anna Maria BLOCKI",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AAS1-SEM",
+                "component_type": "SEM",
+                "class_number": "6644",
+                "status": "Open",
+                "class_capacity": "3",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "3",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor YAM Cheuk Sing",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            }
+        ]
     }
 ]

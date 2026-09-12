@@ -12,7 +12,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -25,10 +25,14 @@
                 "enrollment_total": "13",
                 "wait_list_total": "0",
                 "available_seats": "27",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Lee Shau Kee Archi Bldg 212",
-                "instructor": "Professor YIU Hoi Lam Melody",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Archi Bldg 212",
+                        "instructor": "Professor YIU Hoi Lam Melody",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             }
         ]
     },
@@ -50,7 +54,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -63,10 +67,14 @@
                 "enrollment_total": "11",
                 "wait_list_total": "0",
                 "available_seats": "29",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Wu Ho Man Yuen Bldg 504",
-                "instructor": "Dr. LEE Ching",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 504",
+                        "instructor": "Dr. LEE Ching",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -80,44 +88,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Wu Ho Man Yuen Bldg 504",
-                "instructor": "Dr. LEE Ching",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "B-LEC",
-                "component_type": "LEC",
-                "class_number": "5088",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Wu Ho Man Yuen Bldg 504",
-                "instructor": "Dr. LEE Ching",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "B-LEC",
-                "component_type": "LEC",
-                "class_number": "5088",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Wu Ho Man Yuen Bldg 504",
-                "instructor": "Dr. LEE Ching",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 504",
+                        "instructor": "Dr. LEE Ching",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 504",
+                        "instructor": "Dr. LEE Ching",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 504",
+                        "instructor": "Dr. LEE Ching",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -128,7 +118,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CSAT 3002",
@@ -137,7 +127,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CSAT 4001",
@@ -147,6 +137,6 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     }
 ]

@@ -13,7 +13,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -26,27 +26,20 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "99",
-                "day_time": "Sa 10:00AM - 12:30PM",
-                "room": "No Room Required",
-                "instructor": "Professor JIANG Peiyong, Professor TANG Ming Kuen, Professor WANG Haitian, Professor WANG Huating",
-                "dates": "16/1, 23/1, 30/1, 6/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1404",
-                "status": "Open",
-                "class_capacity": "99",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "99",
-                "day_time": "Sa 10:00AM - 12:30PM",
-                "room": "No Room Required",
-                "instructor": "Professor JIANG Peiyong, Professor TANG Ming Kuen, Professor WANG Haitian, Professor WANG Huating",
-                "dates": "20/2, 27/2, 6/3, 13/3, 20/3, 27/3, 3/4, 10/4, 17/4, 24/4"
+                "timetable": [
+                    {
+                        "day_time": "Sa 10:00AM - 12:30PM",
+                        "room": "No Room Required",
+                        "instructor": "Professor JIANG Peiyong, Professor TANG Ming Kuen, Professor WANG Haitian, Professor WANG Huating",
+                        "dates": "16/1, 23/1, 30/1, 6/2"
+                    },
+                    {
+                        "day_time": "Sa 10:00AM - 12:30PM",
+                        "room": "No Room Required",
+                        "instructor": "Professor JIANG Peiyong, Professor TANG Ming Kuen, Professor WANG Haitian, Professor WANG Huating",
+                        "dates": "20/2, 27/2, 6/3, 13/3, 20/3, 27/3, 3/4, 10/4, 17/4, 24/4"
+                    }
+                ]
             }
         ]
     },
@@ -64,7 +57,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -77,95 +70,44 @@
                 "enrollment_total": "165",
                 "wait_list_total": "0",
                 "available_seats": "85",
-                "day_time": "We 2:30PM - 5:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
-                "dates": "23/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4661",
-                "status": "Open",
-                "class_capacity": "250",
-                "wait_list_capacity": "0",
-                "enrollment_total": "165",
-                "wait_list_total": "0",
-                "available_seats": "85",
-                "day_time": "We 2:30PM - 5:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
-                "dates": "7/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4661",
-                "status": "Open",
-                "class_capacity": "250",
-                "wait_list_capacity": "0",
-                "enrollment_total": "165",
-                "wait_list_total": "0",
-                "available_seats": "85",
-                "day_time": "Tu 2:30PM - 5:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
-                "dates": "29/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4661",
-                "status": "Open",
-                "class_capacity": "250",
-                "wait_list_capacity": "0",
-                "enrollment_total": "165",
-                "wait_list_total": "0",
-                "available_seats": "85",
-                "day_time": "Tu 2:30PM - 5:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
-                "dates": "13/10, 20/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4661",
-                "status": "Open",
-                "class_capacity": "250",
-                "wait_list_capacity": "0",
-                "enrollment_total": "165",
-                "wait_list_total": "0",
-                "available_seats": "85",
-                "day_time": "Tu 2:30PM - 5:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
-                "dates": "1/12"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4661",
-                "status": "Open",
-                "class_capacity": "250",
-                "wait_list_capacity": "0",
-                "enrollment_total": "165",
-                "wait_list_total": "0",
-                "available_seats": "85",
-                "day_time": "We 2:30PM - 6:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
-                "dates": "16/9"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
+                        "dates": "23/9"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
+                        "dates": "7/10"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
+                        "dates": "29/9"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
+                        "dates": "13/10, 20/10"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
+                        "dates": "1/12"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 6:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
+                        "dates": "16/9"
+                    }
+                ]
             }
         ]
     },
@@ -183,7 +125,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -196,78 +138,38 @@
                 "enrollment_total": "159",
                 "wait_list_total": "0",
                 "available_seats": "91",
-                "day_time": "We 2:30PM - 5:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
-                "dates": "20/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1432",
-                "status": "Open",
-                "class_capacity": "250",
-                "wait_list_capacity": "0",
-                "enrollment_total": "159",
-                "wait_list_total": "0",
-                "available_seats": "91",
-                "day_time": "Tu 2:30PM - 5:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
-                "dates": "12/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1432",
-                "status": "Open",
-                "class_capacity": "250",
-                "wait_list_capacity": "0",
-                "enrollment_total": "159",
-                "wait_list_total": "0",
-                "available_seats": "91",
-                "day_time": "Tu 2:30PM - 5:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
-                "dates": "26/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1432",
-                "status": "Open",
-                "class_capacity": "250",
-                "wait_list_capacity": "0",
-                "enrollment_total": "159",
-                "wait_list_total": "0",
-                "available_seats": "91",
-                "day_time": "Tu 2:30PM - 5:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1432",
-                "status": "Open",
-                "class_capacity": "250",
-                "wait_list_capacity": "0",
-                "enrollment_total": "159",
-                "wait_list_total": "0",
-                "available_seats": "91",
-                "day_time": "Tu 2:30PM - 5:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
-                "dates": "30/3"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
+                        "dates": "20/1"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
+                        "dates": "12/1"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
+                        "dates": "26/1"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr LEE Jock Wai, Dr. WANG Jingxuan, Professor CAO Lirong, Professor WANG Haitian",
+                        "dates": "30/3"
+                    }
+                ]
             }
         ]
     }

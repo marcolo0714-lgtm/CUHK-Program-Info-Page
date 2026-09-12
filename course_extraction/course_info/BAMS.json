@@ -13,7 +13,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -26,44 +26,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Su 9:00AM - 1:00PM",
-                "room": "TBA",
-                "instructor": "Professor WANG Jian",
-                "dates": "11/4"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "EF01-FLD",
-                "component_type": "FLD",
-                "class_number": "1082",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "We 1:00PM - 2:00PM",
-                "room": "Cheng Yu Tung Building LT4",
-                "instructor": "Professor WANG Jian",
-                "dates": "6/1"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "EF01-FLD",
-                "component_type": "FLD",
-                "class_number": "1082",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 12:00AM - 12:00AM",
-                "room": "No Room Required",
-                "instructor": "Professor WANG Jian",
-                "dates": "8/3"
+                "timetable": [
+                    {
+                        "day_time": "Su 9:00AM - 1:00PM",
+                        "room": "TBA",
+                        "instructor": "Professor WANG Jian",
+                        "dates": "11/4"
+                    },
+                    {
+                        "day_time": "We 1:00PM - 2:00PM",
+                        "room": "Cheng Yu Tung Building LT4",
+                        "instructor": "Professor WANG Jian",
+                        "dates": "6/1"
+                    },
+                    {
+                        "day_time": "Mo 12:00AM - 12:00AM",
+                        "room": "No Room Required",
+                        "instructor": "Professor WANG Jian",
+                        "dates": "8/3"
+                    }
+                ]
             },
             {
                 "term_code": "2440",
@@ -77,44 +59,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Su 9:00AM - 1:00PM",
-                "room": "TBA",
-                "instructor": "Dr. CISTERNAS VERA Francisco Orlando",
-                "dates": "11/4"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "FF01-FLD",
-                "component_type": "FLD",
-                "class_number": "1081",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 1:00PM - 2:00PM",
-                "room": "Cheng Yu Tung Building LT5",
-                "instructor": "Dr. CISTERNAS VERA Francisco Orlando",
-                "dates": "1/2"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "FF01-FLD",
-                "component_type": "FLD",
-                "class_number": "1081",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 12:00AM - 12:00AM",
-                "room": "No Room Required",
-                "instructor": "Dr. CISTERNAS VERA Francisco Orlando",
-                "dates": "8/3"
+                "timetable": [
+                    {
+                        "day_time": "Su 9:00AM - 1:00PM",
+                        "room": "TBA",
+                        "instructor": "Dr. CISTERNAS VERA Francisco Orlando",
+                        "dates": "11/4"
+                    },
+                    {
+                        "day_time": "Mo 1:00PM - 2:00PM",
+                        "room": "Cheng Yu Tung Building LT5",
+                        "instructor": "Dr. CISTERNAS VERA Francisco Orlando",
+                        "dates": "1/2"
+                    },
+                    {
+                        "day_time": "Mo 12:00AM - 12:00AM",
+                        "room": "No Room Required",
+                        "instructor": "Dr. CISTERNAS VERA Francisco Orlando",
+                        "dates": "8/3"
+                    }
+                ]
             },
             {
                 "term_code": "2440",
@@ -128,44 +92,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Su 9:00AM - 1:00PM",
-                "room": "TBA",
-                "instructor": "Professor CHEUNG Wai Man",
-                "dates": "11/4"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "KF01-FLD",
-                "component_type": "FLD",
-                "class_number": "1057",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 1:00PM - 2:00PM",
-                "room": "Cheng Yu Tung Building LT4",
-                "instructor": "Professor CHEUNG Wai Man",
-                "dates": "1/2"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "KF01-FLD",
-                "component_type": "FLD",
-                "class_number": "1057",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 12:00AM - 12:00AM",
-                "room": "No Room Required",
-                "instructor": "Professor CHEUNG Wai Man",
-                "dates": "8/3"
+                "timetable": [
+                    {
+                        "day_time": "Su 9:00AM - 1:00PM",
+                        "room": "TBA",
+                        "instructor": "Professor CHEUNG Wai Man",
+                        "dates": "11/4"
+                    },
+                    {
+                        "day_time": "Mo 1:00PM - 2:00PM",
+                        "room": "Cheng Yu Tung Building LT4",
+                        "instructor": "Professor CHEUNG Wai Man",
+                        "dates": "1/2"
+                    },
+                    {
+                        "day_time": "Mo 12:00AM - 12:00AM",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHEUNG Wai Man",
+                        "dates": "8/3"
+                    }
+                ]
             },
             {
                 "term_code": "2440",
@@ -179,44 +125,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Mo 1:00PM - 2:00PM",
-                "room": "TBA",
-                "instructor": "Dr. LEUNG Hang Yee",
-                "dates": "1/2"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "VF01-FLD",
-                "component_type": "FLD",
-                "class_number": "1154",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Su 9:00AM - 1:00PM",
-                "room": "TBA",
-                "instructor": "Dr. LEUNG Hang Yee",
-                "dates": "11/4"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "VF01-FLD",
-                "component_type": "FLD",
-                "class_number": "1154",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 12:00AM - 12:00AM",
-                "room": "No Room Required",
-                "instructor": "Dr. LEUNG Hang Yee",
-                "dates": "8/3"
+                "timetable": [
+                    {
+                        "day_time": "Mo 1:00PM - 2:00PM",
+                        "room": "TBA",
+                        "instructor": "Dr. LEUNG Hang Yee",
+                        "dates": "1/2"
+                    },
+                    {
+                        "day_time": "Su 9:00AM - 1:00PM",
+                        "room": "TBA",
+                        "instructor": "Dr. LEUNG Hang Yee",
+                        "dates": "11/4"
+                    },
+                    {
+                        "day_time": "Mo 12:00AM - 12:00AM",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LEUNG Hang Yee",
+                        "dates": "8/3"
+                    }
+                ]
             },
             {
                 "term_code": "2440",
@@ -230,44 +158,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Su 9:00AM - 1:00PM",
-                "room": "TBA",
-                "instructor": "Professor CHEUNG Wai Man",
-                "dates": "11/4"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "WF01-FLD",
-                "component_type": "FLD",
-                "class_number": "1102",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 1:00PM - 2:00PM",
-                "room": "Cheng Yu Tung Building LT2",
-                "instructor": "Professor CHEUNG Wai Man",
-                "dates": "1/2"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "WF01-FLD",
-                "component_type": "FLD",
-                "class_number": "1102",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 12:00AM - 12:00AM",
-                "room": "No Room Required",
-                "instructor": "Professor CHEUNG Wai Man",
-                "dates": "8/3"
+                "timetable": [
+                    {
+                        "day_time": "Su 9:00AM - 1:00PM",
+                        "room": "TBA",
+                        "instructor": "Professor CHEUNG Wai Man",
+                        "dates": "11/4"
+                    },
+                    {
+                        "day_time": "Mo 1:00PM - 2:00PM",
+                        "room": "Cheng Yu Tung Building LT2",
+                        "instructor": "Professor CHEUNG Wai Man",
+                        "dates": "1/2"
+                    },
+                    {
+                        "day_time": "Mo 12:00AM - 12:00AM",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHEUNG Wai Man",
+                        "dates": "8/3"
+                    }
+                ]
             },
             {
                 "term_code": "2440",
@@ -281,44 +191,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Mo 1:00PM - 2:00PM",
-                "room": "TBA",
-                "instructor": "Professor YOUNG Danqing Xu",
-                "dates": "1/2"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "YF01-FLD",
-                "component_type": "FLD",
-                "class_number": "1153",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Su 9:00AM - 1:00PM",
-                "room": "TBA",
-                "instructor": "Professor YOUNG Danqing Xu",
-                "dates": "11/4"
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "YF01-FLD",
-                "component_type": "FLD",
-                "class_number": "1153",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Mo 12:00AM - 12:00AM",
-                "room": "No Room Required",
-                "instructor": "Professor YOUNG Danqing Xu",
-                "dates": "8/3"
+                "timetable": [
+                    {
+                        "day_time": "Mo 1:00PM - 2:00PM",
+                        "room": "TBA",
+                        "instructor": "Professor YOUNG Danqing Xu",
+                        "dates": "1/2"
+                    },
+                    {
+                        "day_time": "Su 9:00AM - 1:00PM",
+                        "room": "TBA",
+                        "instructor": "Professor YOUNG Danqing Xu",
+                        "dates": "11/4"
+                    },
+                    {
+                        "day_time": "Mo 12:00AM - 12:00AM",
+                        "room": "No Room Required",
+                        "instructor": "Professor YOUNG Danqing Xu",
+                        "dates": "8/3"
+                    }
+                ]
             }
         ]
     },
@@ -330,7 +222,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "BAMS 6003",
@@ -340,7 +232,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "BAMS 6004",
@@ -350,7 +242,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "BAMS 6005",
@@ -360,7 +252,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "BAMS 6006",
@@ -370,6 +262,6 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     }
 ]

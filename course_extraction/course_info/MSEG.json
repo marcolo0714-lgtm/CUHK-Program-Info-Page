@@ -13,7 +13,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -26,27 +26,20 @@
                 "enrollment_total": "8",
                 "wait_list_total": "0",
                 "available_seats": "12",
-                "day_time": "Th 3:30PM - 6:15PM",
-                "room": "Wu Ho Man Yuen Bldg 404",
-                "instructor": "Professor WANG Jianfang, Professor ZHANG Hengkai",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "2306",
-                "status": "Open",
-                "class_capacity": "20",
-                "wait_list_capacity": "0",
-                "enrollment_total": "8",
-                "wait_list_total": "0",
-                "available_seats": "12",
-                "day_time": "Th 3:30PM - 6:15PM",
-                "room": "Wu Ho Man Yuen Bldg 404",
-                "instructor": "Professor WANG Jianfang, Professor ZHANG Hengkai",
-                "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 404",
+                        "instructor": "Professor WANG Jianfang, Professor ZHANG Hengkai",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 404",
+                        "instructor": "Professor WANG Jianfang, Professor ZHANG Hengkai",
+                        "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -60,27 +53,20 @@
                 "enrollment_total": "18",
                 "wait_list_total": "0",
                 "available_seats": "2",
-                "day_time": "Th 3:30PM - 6:15PM",
-                "room": "Wu Ho Man Yuen Bldg 404",
-                "instructor": "Professor WANG Jianfang, Professor ZHANG Hengkai",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "M-LEC",
-                "component_type": "LEC",
-                "class_number": "4029",
-                "status": "Open",
-                "class_capacity": "20",
-                "wait_list_capacity": "0",
-                "enrollment_total": "18",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "day_time": "Th 3:30PM - 6:15PM",
-                "room": "Wu Ho Man Yuen Bldg 404",
-                "instructor": "Professor WANG Jianfang, Professor ZHANG Hengkai",
-                "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 404",
+                        "instructor": "Professor WANG Jianfang, Professor ZHANG Hengkai",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 404",
+                        "instructor": "Professor WANG Jianfang, Professor ZHANG Hengkai",
+                        "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -92,7 +78,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "MSEG 5080",
@@ -102,7 +88,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "MSEG 7210",
@@ -123,7 +109,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -136,10 +122,14 @@
                 "enrollment_total": "24",
                 "wait_list_total": "0",
                 "available_seats": "26",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -153,10 +143,14 @@
                 "enrollment_total": "13",
                 "wait_list_total": "0",
                 "available_seats": "37",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -179,7 +173,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -192,10 +186,14 @@
                 "enrollment_total": "5",
                 "wait_list_total": "0",
                 "available_seats": "45",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -209,10 +207,14 @@
                 "enrollment_total": "1",
                 "wait_list_total": "0",
                 "available_seats": "49",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -235,7 +237,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -248,10 +250,14 @@
                 "enrollment_total": "15",
                 "wait_list_total": "0",
                 "available_seats": "35",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -265,10 +271,14 @@
                 "enrollment_total": "11",
                 "wait_list_total": "0",
                 "available_seats": "39",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -291,7 +301,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -304,10 +314,14 @@
                 "enrollment_total": "9",
                 "wait_list_total": "0",
                 "available_seats": "41",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -321,10 +335,14 @@
                 "enrollment_total": "2",
                 "wait_list_total": "0",
                 "available_seats": "48",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Staff",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     }

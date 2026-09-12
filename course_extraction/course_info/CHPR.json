@@ -7,7 +7,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CHPR 2002",
@@ -16,7 +16,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CHPR 3001",
@@ -31,7 +31,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -44,10 +44,14 @@
                 "enrollment_total": "26",
                 "wait_list_total": "0",
                 "available_seats": "4",
-                "day_time": "Tu 9:30AM - 12:15PM",
-                "room": "Yasumoto Int'l Acad Park 401",
-                "instructor": "Dr. MUI Wai Ho",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 9:30AM - 12:15PM",
+                        "room": "Yasumoto Int'l Acad Park 401",
+                        "instructor": "Dr. MUI Wai Ho",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             }
         ]
     },
@@ -65,7 +69,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -78,44 +82,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "53",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "William M W Mong Eng Bldg 407",
-                "instructor": "Professor MO Phoenix Kit Han",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5891",
-                "status": "Open",
-                "class_capacity": "53",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "53",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "William M W Mong Eng Bldg 407",
-                "instructor": "Professor MO Phoenix Kit Han",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5891",
-                "status": "Open",
-                "class_capacity": "53",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "53",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "William M W Mong Eng Bldg 407",
-                "instructor": "Professor MO Phoenix Kit Han",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 407",
+                        "instructor": "Professor MO Phoenix Kit Han",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 407",
+                        "instructor": "Professor MO Phoenix Kit Han",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 407",
+                        "instructor": "Professor MO Phoenix Kit Han",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -133,7 +119,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -146,44 +132,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "33",
-                "day_time": "We 9:30AM - 12:15PM",
-                "room": "William M W Mong Eng Bldg 706",
-                "instructor": "Professor YEUNG Chun Yiu",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5722",
-                "status": "Open",
-                "class_capacity": "33",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "33",
-                "day_time": "We 9:30AM - 12:15PM",
-                "room": "William M W Mong Eng Bldg 706",
-                "instructor": "Professor YEUNG Chun Yiu",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5722",
-                "status": "Open",
-                "class_capacity": "33",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "33",
-                "day_time": "We 9:30AM - 12:15PM",
-                "room": "William M W Mong Eng Bldg 706",
-                "instructor": "Professor YEUNG Chun Yiu",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 9:30AM - 12:15PM",
+                        "room": "William M W Mong Eng Bldg 706",
+                        "instructor": "Professor YEUNG Chun Yiu",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 9:30AM - 12:15PM",
+                        "room": "William M W Mong Eng Bldg 706",
+                        "instructor": "Professor YEUNG Chun Yiu",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 9:30AM - 12:15PM",
+                        "room": "William M W Mong Eng Bldg 706",
+                        "instructor": "Professor YEUNG Chun Yiu",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -195,7 +163,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CHPR 3117",
@@ -205,7 +173,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CHPR 4001",
@@ -220,7 +188,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -233,44 +201,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "33",
-                "day_time": "We 10:30AM - 12:15PM",
-                "room": "Basic Med Sci Bldg Rm2",
-                "instructor": "Dr. YUNG Ka Chun",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5870",
-                "status": "Open",
-                "class_capacity": "33",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "33",
-                "day_time": "We 10:30AM - 12:15PM",
-                "room": "Basic Med Sci Bldg Rm2",
-                "instructor": "Dr. YUNG Ka Chun",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5870",
-                "status": "Open",
-                "class_capacity": "33",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "33",
-                "day_time": "We 10:30AM - 12:15PM",
-                "room": "Basic Med Sci Bldg Rm2",
-                "instructor": "Dr. YUNG Ka Chun",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 10:30AM - 12:15PM",
+                        "room": "Basic Med Sci Bldg Rm2",
+                        "instructor": "Dr. YUNG Ka Chun",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 10:30AM - 12:15PM",
+                        "room": "Basic Med Sci Bldg Rm2",
+                        "instructor": "Dr. YUNG Ka Chun",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 10:30AM - 12:15PM",
+                        "room": "Basic Med Sci Bldg Rm2",
+                        "instructor": "Dr. YUNG Ka Chun",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -287,7 +237,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -300,44 +250,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "33",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Basic Med Sci Bldg LT",
-                "instructor": "Professor DONG Dong",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5942",
-                "status": "Open",
-                "class_capacity": "33",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "33",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Basic Med Sci Bldg LT",
-                "instructor": "Professor DONG Dong",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5942",
-                "status": "Open",
-                "class_capacity": "33",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "33",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Basic Med Sci Bldg LT",
-                "instructor": "Professor DONG Dong",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Basic Med Sci Bldg LT",
+                        "instructor": "Professor DONG Dong",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Basic Med Sci Bldg LT",
+                        "instructor": "Professor DONG Dong",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Basic Med Sci Bldg LT",
+                        "instructor": "Professor DONG Dong",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             }
         ]
     },
@@ -354,7 +286,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -367,10 +299,14 @@
                 "enrollment_total": "23",
                 "wait_list_total": "0",
                 "available_seats": "10",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Basic Med Sci Bldg Rm2",
-                "instructor": "Professor MO Phoenix Kit Han",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Basic Med Sci Bldg Rm2",
+                        "instructor": "Professor MO Phoenix Kit Han",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             }
         ]
     },
@@ -387,7 +323,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -400,44 +336,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "33",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "Y.C. Liang Hall G06",
-                "instructor": "Dr. MUI Wai Ho",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5745",
-                "status": "Open",
-                "class_capacity": "33",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "33",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "Y.C. Liang Hall G06",
-                "instructor": "Dr. MUI Wai Ho",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5745",
-                "status": "Open",
-                "class_capacity": "33",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "33",
-                "day_time": "Th 9:30AM - 12:15PM",
-                "room": "Y.C. Liang Hall G06",
-                "instructor": "Dr. MUI Wai Ho",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Y.C. Liang Hall G06",
+                        "instructor": "Dr. MUI Wai Ho",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Y.C. Liang Hall G06",
+                        "instructor": "Dr. MUI Wai Ho",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 12:15PM",
+                        "room": "Y.C. Liang Hall G06",
+                        "instructor": "Dr. MUI Wai Ho",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -455,7 +373,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -468,44 +386,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "33",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Mong Man Wai Bldg 707",
-                "instructor": "Dr. MUI Wai Ho",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5746",
-                "status": "Open",
-                "class_capacity": "33",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "33",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Mong Man Wai Bldg 707",
-                "instructor": "Dr. MUI Wai Ho",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5746",
-                "status": "Open",
-                "class_capacity": "33",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "33",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Mong Man Wai Bldg 707",
-                "instructor": "Dr. MUI Wai Ho",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Dr. MUI Wai Ho",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Dr. MUI Wai Ho",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Dr. MUI Wai Ho",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             }
         ]
     },
@@ -516,7 +416,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "CHPR 4008",
@@ -532,7 +432,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -545,27 +445,20 @@
                 "enrollment_total": "23",
                 "wait_list_total": "0",
                 "available_seats": "10",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Basic Med Sci Bldg Rm2",
-                "instructor": "Dr. MUI Wai Ho",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5697",
-                "status": "Open",
-                "class_capacity": "33",
-                "wait_list_capacity": "999",
-                "enrollment_total": "23",
-                "wait_list_total": "0",
-                "available_seats": "10",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Basic Med Sci Bldg Rm2",
-                "instructor": "Dr. MUI Wai Ho",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Basic Med Sci Bldg Rm2",
+                        "instructor": "Dr. MUI Wai Ho",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Basic Med Sci Bldg Rm2",
+                        "instructor": "Dr. MUI Wai Ho",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             }
         ]
     },
@@ -582,7 +475,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -595,44 +488,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Th 3:30PM - 6:15PM",
-                "room": "Mong Man Wai Bldg 704",
-                "instructor": "Dr. YUNG Ka Chun",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5807",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Th 3:30PM - 6:15PM",
-                "room": "Mong Man Wai Bldg 704",
-                "instructor": "Dr. YUNG Ka Chun",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5807",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Th 3:30PM - 6:15PM",
-                "room": "Mong Man Wai Bldg 704",
-                "instructor": "Dr. YUNG Ka Chun",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Mong Man Wai Bldg 704",
+                        "instructor": "Dr. YUNG Ka Chun",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Mong Man Wai Bldg 704",
+                        "instructor": "Dr. YUNG Ka Chun",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 6:15PM",
+                        "room": "Mong Man Wai Bldg 704",
+                        "instructor": "Dr. YUNG Ka Chun",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -649,7 +524,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -662,44 +537,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "48",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall 106",
-                "instructor": "Professor YEUNG Chun Yiu",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5841",
-                "status": "Open",
-                "class_capacity": "48",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "48",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall 106",
-                "instructor": "Professor YEUNG Chun Yiu",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5841",
-                "status": "Open",
-                "class_capacity": "48",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "48",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Y.C. Liang Hall 106",
-                "instructor": "Professor YEUNG Chun Yiu",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Professor YEUNG Chun Yiu",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Professor YEUNG Chun Yiu",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall 106",
+                        "instructor": "Professor YEUNG Chun Yiu",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -717,7 +574,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -730,10 +587,14 @@
                 "enrollment_total": "23",
                 "wait_list_total": "0",
                 "available_seats": "10",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. YUNG Ka Chun",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. YUNG Ka Chun",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -751,7 +612,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -764,10 +625,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "33",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. YUNG Ka Chun",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. YUNG Ka Chun",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     }

@@ -13,7 +13,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -26,27 +26,20 @@
                 "enrollment_total": "120",
                 "wait_list_total": "0",
                 "available_seats": "80",
-                "day_time": "Sa 3:30PM - 7:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "*** CHOI Pak Tat Frankie, Dr. Jill Morales ABRIGO, Professor AU Wing Chi Lisa, Professor CHAN Ka Yin, Professor CHOI Chun Ho, Professor LENG Xinyi, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor SUN Tin Fung David",
-                "dates": "10/10, 17/10, 24/10, 31/10, 7/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4642",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "120",
-                "wait_list_total": "0",
-                "available_seats": "80",
-                "day_time": "Sa 3:30PM - 7:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "*** CHOI Pak Tat Frankie, Dr. Jill Morales ABRIGO, Professor AU Wing Chi Lisa, Professor CHAN Ka Yin, Professor CHOI Chun Ho, Professor LENG Xinyi, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor SUN Tin Fung David",
-                "dates": "19/12"
+                "timetable": [
+                    {
+                        "day_time": "Sa 3:30PM - 7:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "*** CHOI Pak Tat Frankie, Dr. Jill Morales ABRIGO, Professor AU Wing Chi Lisa, Professor CHAN Ka Yin, Professor CHOI Chun Ho, Professor LENG Xinyi, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor SUN Tin Fung David",
+                        "dates": "10/10, 17/10, 24/10, 31/10, 7/11"
+                    },
+                    {
+                        "day_time": "Sa 3:30PM - 7:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "*** CHOI Pak Tat Frankie, Dr. Jill Morales ABRIGO, Professor AU Wing Chi Lisa, Professor CHAN Ka Yin, Professor CHOI Chun Ho, Professor LENG Xinyi, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor SUN Tin Fung David",
+                        "dates": "19/12"
+                    }
+                ]
             }
         ]
     },
@@ -58,7 +51,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "MCNS 5103",
@@ -74,7 +67,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2450",
                 "term": "2026-27 Summer Session",
@@ -87,61 +80,32 @@
                 "enrollment_total": "121",
                 "wait_list_total": "0",
                 "available_seats": "79",
-                "day_time": "Sa 3:30PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor CHAN David Yuen Chung, Professor FU Yat Pang Michael, Professor IP Yiu Ming Bonaventure, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor WONG Adrian, Professor YEUNG Hon Ming Jonas, Professor ZHU Xian Lun Cannon",
-                "dates": "20/3"
-            },
-            {
-                "term_code": "2450",
-                "term": "2026-27 Summer Session",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1188",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "121",
-                "wait_list_total": "0",
-                "available_seats": "79",
-                "day_time": "Sa 3:30PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor CHAN David Yuen Chung, Professor FU Yat Pang Michael, Professor IP Yiu Ming Bonaventure, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor WONG Adrian, Professor YEUNG Hon Ming Jonas, Professor ZHU Xian Lun Cannon",
-                "dates": "3/4"
-            },
-            {
-                "term_code": "2450",
-                "term": "2026-27 Summer Session",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1188",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "121",
-                "wait_list_total": "0",
-                "available_seats": "79",
-                "day_time": "Sa 3:30PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor CHAN David Yuen Chung, Professor FU Yat Pang Michael, Professor IP Yiu Ming Bonaventure, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor WONG Adrian, Professor YEUNG Hon Ming Jonas, Professor ZHU Xian Lun Cannon",
-                "dates": "8/5, 15/5, 22/5"
-            },
-            {
-                "term_code": "2450",
-                "term": "2026-27 Summer Session",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1188",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "121",
-                "wait_list_total": "0",
-                "available_seats": "79",
-                "day_time": "Sa 3:30PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor CHAN David Yuen Chung, Professor FU Yat Pang Michael, Professor IP Yiu Ming Bonaventure, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor WONG Adrian, Professor YEUNG Hon Ming Jonas, Professor ZHU Xian Lun Cannon",
-                "dates": "26/6"
+                "timetable": [
+                    {
+                        "day_time": "Sa 3:30PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor CHAN David Yuen Chung, Professor FU Yat Pang Michael, Professor IP Yiu Ming Bonaventure, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor WONG Adrian, Professor YEUNG Hon Ming Jonas, Professor ZHU Xian Lun Cannon",
+                        "dates": "20/3"
+                    },
+                    {
+                        "day_time": "Sa 3:30PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor CHAN David Yuen Chung, Professor FU Yat Pang Michael, Professor IP Yiu Ming Bonaventure, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor WONG Adrian, Professor YEUNG Hon Ming Jonas, Professor ZHU Xian Lun Cannon",
+                        "dates": "3/4"
+                    },
+                    {
+                        "day_time": "Sa 3:30PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor CHAN David Yuen Chung, Professor FU Yat Pang Michael, Professor IP Yiu Ming Bonaventure, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor WONG Adrian, Professor YEUNG Hon Ming Jonas, Professor ZHU Xian Lun Cannon",
+                        "dates": "8/5, 15/5, 22/5"
+                    },
+                    {
+                        "day_time": "Sa 3:30PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor CHAN David Yuen Chung, Professor FU Yat Pang Michael, Professor IP Yiu Ming Bonaventure, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor WONG Adrian, Professor YEUNG Hon Ming Jonas, Professor ZHU Xian Lun Cannon",
+                        "dates": "26/6"
+                    }
+                ]
             }
         ]
     },
@@ -153,7 +117,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "MCNS 5201",
@@ -169,7 +133,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2450",
                 "term": "2026-27 Summer Session",
@@ -182,27 +146,20 @@
                 "enrollment_total": "235",
                 "wait_list_total": "0",
                 "available_seats": "0",
-                "day_time": "Sa 3:30PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "*** WONG Wai Man Like, Professor CHAN Tak Vai, Professor IP Hing Lung, Professor MOK Chung Tong Vincent",
-                "dates": "29/5, 5/6, 12/6"
-            },
-            {
-                "term_code": "2450",
-                "term": "2026-27 Summer Session",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1190",
-                "status": "Closed",
-                "class_capacity": "220",
-                "wait_list_capacity": "0",
-                "enrollment_total": "235",
-                "wait_list_total": "0",
-                "available_seats": "0",
-                "day_time": "Sa 3:30PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "*** WONG Wai Man Like, Professor CHAN Tak Vai, Professor IP Hing Lung, Professor MOK Chung Tong Vincent",
-                "dates": "10/7"
+                "timetable": [
+                    {
+                        "day_time": "Sa 3:30PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "*** WONG Wai Man Like, Professor CHAN Tak Vai, Professor IP Hing Lung, Professor MOK Chung Tong Vincent",
+                        "dates": "29/5, 5/6, 12/6"
+                    },
+                    {
+                        "day_time": "Sa 3:30PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "*** WONG Wai Man Like, Professor CHAN Tak Vai, Professor IP Hing Lung, Professor MOK Chung Tong Vincent",
+                        "dates": "10/7"
+                    }
+                ]
             }
         ]
     },
@@ -214,7 +171,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "MCNS 5205",
@@ -230,7 +187,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -243,27 +200,20 @@
                 "enrollment_total": "114",
                 "wait_list_total": "0",
                 "available_seats": "86",
-                "day_time": "Sa 3:45PM - 8:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Miss WAI Chi Man Veronica, Professor FAN Sin Ying, Professor MOK Chung Tong Vincent, Professor SUN Tin Fung David, Professor ZHU Xian Lun Cannon",
-                "dates": "17/10, 24/10, 31/10, 7/11, 14/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4674",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "114",
-                "wait_list_total": "0",
-                "available_seats": "86",
-                "day_time": "Sa 3:45PM - 8:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Miss WAI Chi Man Veronica, Professor FAN Sin Ying, Professor MOK Chung Tong Vincent, Professor SUN Tin Fung David, Professor ZHU Xian Lun Cannon",
-                "dates": "19/12"
+                "timetable": [
+                    {
+                        "day_time": "Sa 3:45PM - 8:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Miss WAI Chi Man Veronica, Professor FAN Sin Ying, Professor MOK Chung Tong Vincent, Professor SUN Tin Fung David, Professor ZHU Xian Lun Cannon",
+                        "dates": "17/10, 24/10, 31/10, 7/11, 14/11"
+                    },
+                    {
+                        "day_time": "Sa 3:45PM - 8:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Miss WAI Chi Man Veronica, Professor FAN Sin Ying, Professor MOK Chung Tong Vincent, Professor SUN Tin Fung David, Professor ZHU Xian Lun Cannon",
+                        "dates": "19/12"
+                    }
+                ]
             }
         ]
     },
@@ -281,7 +231,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2450",
                 "term": "2026-27 Summer Session",
@@ -294,27 +244,20 @@
                 "enrollment_total": "114",
                 "wait_list_total": "0",
                 "available_seats": "86",
-                "day_time": "Sa 3:45PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor AU Wing Chi Lisa, Professor CHAN Yue Lai, Professor MOK Chung Tong Vincent, Professor WONG Adrian",
-                "dates": "8/5, 15/5, 22/5"
-            },
-            {
-                "term_code": "2450",
-                "term": "2026-27 Summer Session",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1187",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "114",
-                "wait_list_total": "0",
-                "available_seats": "86",
-                "day_time": "Sa 3:45PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor AU Wing Chi Lisa, Professor CHAN Yue Lai, Professor MOK Chung Tong Vincent, Professor WONG Adrian",
-                "dates": "26/6"
+                "timetable": [
+                    {
+                        "day_time": "Sa 3:45PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor AU Wing Chi Lisa, Professor CHAN Yue Lai, Professor MOK Chung Tong Vincent, Professor WONG Adrian",
+                        "dates": "8/5, 15/5, 22/5"
+                    },
+                    {
+                        "day_time": "Sa 3:45PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor AU Wing Chi Lisa, Professor CHAN Yue Lai, Professor MOK Chung Tong Vincent, Professor WONG Adrian",
+                        "dates": "26/6"
+                    }
+                ]
             }
         ]
     },
@@ -332,7 +275,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -345,44 +288,26 @@
                 "enrollment_total": "120",
                 "wait_list_total": "0",
                 "available_seats": "80",
-                "day_time": "Sa 3:30PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor KO Ho, Professor MOK Chung Tong Vincent, Professor WONG Adrian",
-                "dates": "12/9, 19/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4626",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "120",
-                "wait_list_total": "0",
-                "available_seats": "80",
-                "day_time": "Sa 3:30PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor KO Ho, Professor MOK Chung Tong Vincent, Professor WONG Adrian",
-                "dates": "3/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4626",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "120",
-                "wait_list_total": "0",
-                "available_seats": "80",
-                "day_time": "Sa 3:30PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor KO Ho, Professor MOK Chung Tong Vincent, Professor WONG Adrian",
-                "dates": "12/12"
+                "timetable": [
+                    {
+                        "day_time": "Sa 3:30PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor KO Ho, Professor MOK Chung Tong Vincent, Professor WONG Adrian",
+                        "dates": "12/9, 19/9"
+                    },
+                    {
+                        "day_time": "Sa 3:30PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor KO Ho, Professor MOK Chung Tong Vincent, Professor WONG Adrian",
+                        "dates": "3/10"
+                    },
+                    {
+                        "day_time": "Sa 3:30PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor KO Ho, Professor MOK Chung Tong Vincent, Professor WONG Adrian",
+                        "dates": "12/12"
+                    }
+                ]
             }
         ]
     },
@@ -400,7 +325,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -413,44 +338,26 @@
                 "enrollment_total": "121",
                 "wait_list_total": "0",
                 "available_seats": "79",
-                "day_time": "Sa 3:30PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor IP Yiu Ming Bonaventure, Professor KO Ho, Professor LEUNG Wai Hong Thomas, Professor MOK Chung Tong Vincent, Professor TANG Wai Kwong",
-                "dates": "14/11, 21/11"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4758",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "121",
-                "wait_list_total": "0",
-                "available_seats": "79",
-                "day_time": "Sa 3:30PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor IP Yiu Ming Bonaventure, Professor KO Ho, Professor LEUNG Wai Hong Thomas, Professor MOK Chung Tong Vincent, Professor TANG Wai Kwong",
-                "dates": "9/1, 16/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4758",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "121",
-                "wait_list_total": "0",
-                "available_seats": "79",
-                "day_time": "Sa 3:30PM - 8:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor IP Yiu Ming Bonaventure, Professor KO Ho, Professor LEUNG Wai Hong Thomas, Professor MOK Chung Tong Vincent, Professor TANG Wai Kwong",
-                "dates": "10/4"
+                "timetable": [
+                    {
+                        "day_time": "Sa 3:30PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor IP Yiu Ming Bonaventure, Professor KO Ho, Professor LEUNG Wai Hong Thomas, Professor MOK Chung Tong Vincent, Professor TANG Wai Kwong",
+                        "dates": "14/11, 21/11"
+                    },
+                    {
+                        "day_time": "Sa 3:30PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor IP Yiu Ming Bonaventure, Professor KO Ho, Professor LEUNG Wai Hong Thomas, Professor MOK Chung Tong Vincent, Professor TANG Wai Kwong",
+                        "dates": "9/1, 16/1"
+                    },
+                    {
+                        "day_time": "Sa 3:30PM - 8:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor IP Yiu Ming Bonaventure, Professor KO Ho, Professor LEUNG Wai Hong Thomas, Professor MOK Chung Tong Vincent, Professor TANG Wai Kwong",
+                        "dates": "10/4"
+                    }
+                ]
             }
         ]
     },
@@ -468,7 +375,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -481,44 +388,26 @@
                 "enrollment_total": "121",
                 "wait_list_total": "0",
                 "available_seats": "79",
-                "day_time": "Sa 3:30PM - 8:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. LIU Chak Chun Jeffrey, Professor AU Wing Chi Lisa, Professor CHAN Ka Yin, Professor CHAN Yin Yan Anne, Professor CHOI Chun Ho, Professor FU Yat Pang Michael, Professor FUNG Lai Wah Eva, Professor KWOK Chi Yui Timothy, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor YEUNG Hon Ming Jonas",
-                "dates": "23/1, 30/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4756",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "121",
-                "wait_list_total": "0",
-                "available_seats": "79",
-                "day_time": "Sa 3:30PM - 8:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. LIU Chak Chun Jeffrey, Professor AU Wing Chi Lisa, Professor CHAN Ka Yin, Professor CHAN Yin Yan Anne, Professor CHOI Chun Ho, Professor FU Yat Pang Michael, Professor FUNG Lai Wah Eva, Professor KWOK Chi Yui Timothy, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor YEUNG Hon Ming Jonas",
-                "dates": "13/2, 20/2, 27/2, 6/3, 13/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4756",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "121",
-                "wait_list_total": "0",
-                "available_seats": "79",
-                "day_time": "Sa 3:30PM - 8:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. LIU Chak Chun Jeffrey, Professor AU Wing Chi Lisa, Professor CHAN Ka Yin, Professor CHAN Yin Yan Anne, Professor CHOI Chun Ho, Professor FU Yat Pang Michael, Professor FUNG Lai Wah Eva, Professor KWOK Chi Yui Timothy, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor YEUNG Hon Ming Jonas",
-                "dates": "17/4"
+                "timetable": [
+                    {
+                        "day_time": "Sa 3:30PM - 8:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. LIU Chak Chun Jeffrey, Professor AU Wing Chi Lisa, Professor CHAN Ka Yin, Professor CHAN Yin Yan Anne, Professor CHOI Chun Ho, Professor FU Yat Pang Michael, Professor FUNG Lai Wah Eva, Professor KWOK Chi Yui Timothy, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor YEUNG Hon Ming Jonas",
+                        "dates": "23/1, 30/1"
+                    },
+                    {
+                        "day_time": "Sa 3:30PM - 8:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. LIU Chak Chun Jeffrey, Professor AU Wing Chi Lisa, Professor CHAN Ka Yin, Professor CHAN Yin Yan Anne, Professor CHOI Chun Ho, Professor FU Yat Pang Michael, Professor FUNG Lai Wah Eva, Professor KWOK Chi Yui Timothy, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor YEUNG Hon Ming Jonas",
+                        "dates": "13/2, 20/2, 27/2, 6/3, 13/3"
+                    },
+                    {
+                        "day_time": "Sa 3:30PM - 8:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. LIU Chak Chun Jeffrey, Professor AU Wing Chi Lisa, Professor CHAN Ka Yin, Professor CHAN Yin Yan Anne, Professor CHOI Chun Ho, Professor FU Yat Pang Michael, Professor FUNG Lai Wah Eva, Professor KWOK Chi Yui Timothy, Professor LEUNG Ho Wan, Professor MOK Chung Tong Vincent, Professor YEUNG Hon Ming Jonas",
+                        "dates": "17/4"
+                    }
+                ]
             }
         ]
     },
@@ -536,7 +425,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -549,27 +438,20 @@
                 "enrollment_total": "114",
                 "wait_list_total": "0",
                 "available_seats": "86",
-                "day_time": "Sa 3:45PM - 8:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "*** KWAN Siu Man, Dr. CHEUNG Tsui Fun, Professor AU Wing Chi Lisa, Professor CHAN Yin Tim, Professor FAN Sin Ying, Professor MOK Chung Tong Vincent",
-                "dates": "20/2, 27/2, 6/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "4739",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "114",
-                "wait_list_total": "0",
-                "available_seats": "86",
-                "day_time": "Sa 3:45PM - 8:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "*** KWAN Siu Man, Dr. CHEUNG Tsui Fun, Professor AU Wing Chi Lisa, Professor CHAN Yin Tim, Professor FAN Sin Ying, Professor MOK Chung Tong Vincent",
-                "dates": "17/4"
+                "timetable": [
+                    {
+                        "day_time": "Sa 3:45PM - 8:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "*** KWAN Siu Man, Dr. CHEUNG Tsui Fun, Professor AU Wing Chi Lisa, Professor CHAN Yin Tim, Professor FAN Sin Ying, Professor MOK Chung Tong Vincent",
+                        "dates": "20/2, 27/2, 6/3"
+                    },
+                    {
+                        "day_time": "Sa 3:45PM - 8:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "*** KWAN Siu Man, Dr. CHEUNG Tsui Fun, Professor AU Wing Chi Lisa, Professor CHAN Yin Tim, Professor FAN Sin Ying, Professor MOK Chung Tong Vincent",
+                        "dates": "17/4"
+                    }
+                ]
             }
         ]
     },
@@ -587,7 +469,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -600,10 +482,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "200",
-                "day_time": "Tu 6:30PM - 9:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor FUNG Hong, Professor MOK Chung Tong Vincent, Professor SO Hing Yu",
-                "dates": "12/1, 19/1, 26/1, 2/2"
+                "timetable": [
+                    {
+                        "day_time": "Tu 6:30PM - 9:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor FUNG Hong, Professor MOK Chung Tong Vincent, Professor SO Hing Yu",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    }
+                ]
             }
         ]
     },
@@ -621,7 +507,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -634,27 +520,20 @@
                 "enrollment_total": "113",
                 "wait_list_total": "0",
                 "available_seats": "87",
-                "day_time": "Sa 3:45PM - 4:45PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor MOK Chung Tong Vincent, Professor YIP Cheuk Fung",
-                "dates": "28/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1536",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "113",
-                "wait_list_total": "0",
-                "available_seats": "87",
-                "day_time": "Sa 3:45PM - 8:30PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Professor MOK Chung Tong Vincent, Professor YIP Cheuk Fung",
-                "dates": "12/9"
+                "timetable": [
+                    {
+                        "day_time": "Sa 3:45PM - 4:45PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor MOK Chung Tong Vincent, Professor YIP Cheuk Fung",
+                        "dates": "28/11"
+                    },
+                    {
+                        "day_time": "Sa 3:45PM - 8:30PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Professor MOK Chung Tong Vincent, Professor YIP Cheuk Fung",
+                        "dates": "12/9"
+                    }
+                ]
             }
         ]
     },
@@ -672,7 +551,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -685,27 +564,20 @@
                 "enrollment_total": "114",
                 "wait_list_total": "0",
                 "available_seats": "86",
-                "day_time": "Sa 5:00PM - 6:00PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. LAM Bonnie Yin Ka, Professor LENG Xinyi, Professor MOK Chung Tong Vincent",
-                "dates": "28/11"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1535",
-                "status": "Open",
-                "class_capacity": "200",
-                "wait_list_capacity": "0",
-                "enrollment_total": "114",
-                "wait_list_total": "0",
-                "available_seats": "86",
-                "day_time": "Sa 3:45PM - 8:45PM",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Dr. LAM Bonnie Yin Ka, Professor LENG Xinyi, Professor MOK Chung Tong Vincent",
-                "dates": "3/10, 10/10"
+                "timetable": [
+                    {
+                        "day_time": "Sa 5:00PM - 6:00PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. LAM Bonnie Yin Ka, Professor LENG Xinyi, Professor MOK Chung Tong Vincent",
+                        "dates": "28/11"
+                    },
+                    {
+                        "day_time": "Sa 3:45PM - 8:45PM",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Dr. LAM Bonnie Yin Ka, Professor LENG Xinyi, Professor MOK Chung Tong Vincent",
+                        "dates": "3/10, 10/10"
+                    }
+                ]
             }
         ]
     },
@@ -723,7 +595,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2450",
                 "term": "2026-27 Summer Session",
@@ -736,10 +608,14 @@
                 "enrollment_total": "114",
                 "wait_list_total": "0",
                 "available_seats": "86",
-                "day_time": "TBA",
-                "room": "Prince of Wales Hospital",
-                "instructor": "Miss WONG Sau Kuen Jovy, Ms. LI Ka Pui, Professor LENG Xinyi, Professor MOK Chung Tong Vincent, Professor WONG Adrian",
-                "dates": "22/05/2027 - 26/06/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "Prince of Wales Hospital",
+                        "instructor": "Miss WONG Sau Kuen Jovy, Ms. LI Ka Pui, Professor LENG Xinyi, Professor MOK Chung Tong Vincent, Professor WONG Adrian",
+                        "dates": "22/05/2027 - 26/06/2027"
+                    }
+                ]
             }
         ]
     },
@@ -757,7 +633,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2450",
                 "term": "2026-27 Summer Session",
@@ -770,10 +646,14 @@
                 "enrollment_total": "114",
                 "wait_list_total": "0",
                 "available_seats": "86",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor LENG Xinyi, Professor MOK Chung Tong Vincent",
-                "dates": "22/05/2027 - 10/07/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor LENG Xinyi, Professor MOK Chung Tong Vincent",
+                        "dates": "22/05/2027 - 10/07/2027"
+                    }
+                ]
             }
         ]
     }

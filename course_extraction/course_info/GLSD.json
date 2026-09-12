@@ -17,7 +17,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -30,27 +30,20 @@
                 "enrollment_total": "27",
                 "wait_list_total": "0",
                 "available_seats": "3",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 111",
-                "instructor": "Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor CHEUNG Ho Ming, Professor LEE Fung",
-                "dates": "10/9, 17/9, 24/9"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "5807",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "999",
-                "enrollment_total": "27",
-                "wait_list_total": "0",
-                "available_seats": "3",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 111",
-                "instructor": "Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor CHEUNG Ho Ming, Professor LEE Fung",
-                "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 111",
+                        "instructor": "Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor CHEUNG Ho Ming, Professor LEE Fung",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 111",
+                        "instructor": "Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor CHEUNG Ho Ming, Professor LEE Fung",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -64,44 +57,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 504",
-                "instructor": "Dr. Efstratios POURZITAKIS",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "B-LEC",
-                "component_type": "LEC",
-                "class_number": "6082",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 504",
-                "instructor": "Dr. Efstratios POURZITAKIS",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "B-LEC",
-                "component_type": "LEC",
-                "class_number": "6082",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Wu Ho Man Yuen Bldg 504",
-                "instructor": "Dr. Efstratios POURZITAKIS",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 504",
+                        "instructor": "Dr. Efstratios POURZITAKIS",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 504",
+                        "instructor": "Dr. Efstratios POURZITAKIS",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 504",
+                        "instructor": "Dr. Efstratios POURZITAKIS",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -118,7 +93,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -131,61 +106,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 103",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5863",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 103",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5863",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 103",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5863",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 103",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 103",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 103",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 103",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 103",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             }
         ]
     },
@@ -202,7 +148,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -215,27 +161,20 @@
                 "enrollment_total": "21",
                 "wait_list_total": "0",
                 "available_seats": "24",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 201",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5593",
-                "status": "Open",
-                "class_capacity": "45",
-                "wait_list_capacity": "999",
-                "enrollment_total": "21",
-                "wait_list_total": "0",
-                "available_seats": "24",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 201",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 201",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 201",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
             }
         ]
     },
@@ -252,7 +191,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -265,27 +204,20 @@
                 "enrollment_total": "18",
                 "wait_list_total": "0",
                 "available_seats": "32",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg C4",
-                "instructor": "Mr. POON Chi Hang Aries",
-                "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5686",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "999",
-                "enrollment_total": "18",
-                "wait_list_total": "0",
-                "available_seats": "32",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg C4",
-                "instructor": "Mr. POON Chi Hang Aries",
-                "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                "timetable": [
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg C4",
+                        "instructor": "Mr. POON Chi Hang Aries",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg C4",
+                        "instructor": "Mr. POON Chi Hang Aries",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
             }
         ]
     },
@@ -303,7 +235,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -316,44 +248,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "20",
-                "day_time": "Th 1:30PM - 4:15PM",
-                "room": "T.C. Cheng Bldg 206",
-                "instructor": "Professor Maximilian Piers HOLLAND",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8459",
-                "status": "Open",
-                "class_capacity": "20",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "20",
-                "day_time": "Th 1:30PM - 4:15PM",
-                "room": "T.C. Cheng Bldg 206",
-                "instructor": "Professor Maximilian Piers HOLLAND",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8459",
-                "status": "Open",
-                "class_capacity": "20",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "20",
-                "day_time": "Th 1:30PM - 4:15PM",
-                "room": "T.C. Cheng Bldg 206",
-                "instructor": "Professor Maximilian Piers HOLLAND",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 1:30PM - 4:15PM",
+                        "room": "T.C. Cheng Bldg 206",
+                        "instructor": "Professor Maximilian Piers HOLLAND",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 1:30PM - 4:15PM",
+                        "room": "T.C. Cheng Bldg 206",
+                        "instructor": "Professor Maximilian Piers HOLLAND",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 1:30PM - 4:15PM",
+                        "room": "T.C. Cheng Bldg 206",
+                        "instructor": "Professor Maximilian Piers HOLLAND",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -365,7 +279,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GLSD 2401",
@@ -381,7 +295,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -394,61 +308,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Humanities Building 12",
-                "instructor": "Dr. Maria Del Mar FRANCESCH HUIDOBRO",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7046",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Humanities Building 12",
-                "instructor": "Dr. Maria Del Mar FRANCESCH HUIDOBRO",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7046",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Humanities Building 12",
-                "instructor": "Dr. Maria Del Mar FRANCESCH HUIDOBRO",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7046",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Humanities Building 12",
-                "instructor": "Dr. Maria Del Mar FRANCESCH HUIDOBRO",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Humanities Building 12",
+                        "instructor": "Dr. Maria Del Mar FRANCESCH HUIDOBRO",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Humanities Building 12",
+                        "instructor": "Dr. Maria Del Mar FRANCESCH HUIDOBRO",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Humanities Building 12",
+                        "instructor": "Dr. Maria Del Mar FRANCESCH HUIDOBRO",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Humanities Building 12",
+                        "instructor": "Dr. Maria Del Mar FRANCESCH HUIDOBRO",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             }
         ]
     },
@@ -466,7 +351,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -479,10 +364,14 @@
                 "enrollment_total": "27",
                 "wait_list_total": "0",
                 "available_seats": "3",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Humanities Building 114",
-                "instructor": "Dr. Efstratios POURZITAKIS",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Humanities Building 114",
+                        "instructor": "Dr. Efstratios POURZITAKIS",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             }
         ]
     },
@@ -499,7 +388,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -512,10 +401,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "15",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Professor LEUNG Ka Yee",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor LEUNG Ka Yee",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -532,7 +425,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -545,44 +438,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Chen Kou Bun Bldg 706C",
-                "instructor": "Professor CHEUNG Ho Ming",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6802",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Chen Kou Bun Bldg 706C",
-                "instructor": "Professor CHEUNG Ho Ming",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6802",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "Chen Kou Bun Bldg 706C",
-                "instructor": "Professor CHEUNG Ho Ming",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Chen Kou Bun Bldg 706C",
+                        "instructor": "Professor CHEUNG Ho Ming",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Chen Kou Bun Bldg 706C",
+                        "instructor": "Professor CHEUNG Ho Ming",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Chen Kou Bun Bldg 706C",
+                        "instructor": "Professor CHEUNG Ho Ming",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -594,7 +469,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GLSD 3105",
@@ -609,7 +484,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -622,44 +497,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 102",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5360",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 102",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5360",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 102",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 102",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 102",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 102",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -677,7 +534,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -690,44 +547,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "40",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Tsang Shiu Tim Bldg 312",
-                "instructor": "Dr. HORIUCHI Toru",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5967",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Tsang Shiu Tim Bldg 312",
-                "instructor": "Dr. HORIUCHI Toru",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5967",
-                "status": "Open",
-                "class_capacity": "40",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "40",
-                "day_time": "Th 2:30PM - 5:15PM",
-                "room": "Tsang Shiu Tim Bldg 312",
-                "instructor": "Dr. HORIUCHI Toru",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Tsang Shiu Tim Bldg 312",
+                        "instructor": "Dr. HORIUCHI Toru",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Tsang Shiu Tim Bldg 312",
+                        "instructor": "Dr. HORIUCHI Toru",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Tsang Shiu Tim Bldg 312",
+                        "instructor": "Dr. HORIUCHI Toru",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -738,7 +577,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GLSD 3201",
@@ -747,7 +586,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GLSD 3211",
@@ -756,7 +595,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GLSD 3301",
@@ -771,7 +610,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -784,44 +623,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Chen Kou Bun Bldg 123",
-                "instructor": "Dr. HUNG Wing Lok",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7280",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Chen Kou Bun Bldg 123",
-                "instructor": "Dr. HUNG Wing Lok",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7280",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Th 10:30AM - 1:15PM",
-                "room": "Chen Kou Bun Bldg 123",
-                "instructor": "Dr. HUNG Wing Lok",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Chen Kou Bun Bldg 123",
+                        "instructor": "Dr. HUNG Wing Lok",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Chen Kou Bun Bldg 123",
+                        "instructor": "Dr. HUNG Wing Lok",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 1:15PM",
+                        "room": "Chen Kou Bun Bldg 123",
+                        "instructor": "Dr. HUNG Wing Lok",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -833,7 +654,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GLSD 3303",
@@ -848,7 +669,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -861,61 +682,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 105",
-                "instructor": "Dr. Tobias ZUSER",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8472",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 105",
-                "instructor": "Dr. Tobias ZUSER",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8472",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 105",
-                "instructor": "Dr. Tobias ZUSER",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8472",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 105",
-                "instructor": "Dr. Tobias ZUSER",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 105",
+                        "instructor": "Dr. Tobias ZUSER",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 105",
+                        "instructor": "Dr. Tobias ZUSER",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 105",
+                        "instructor": "Dr. Tobias ZUSER",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 105",
+                        "instructor": "Dr. Tobias ZUSER",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             }
         ]
     },
@@ -926,7 +718,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GLSD 3401",
@@ -942,7 +734,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -955,44 +747,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Chen Kou Bun Bldg 706C",
-                "instructor": "Professor LEE Fung",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6803",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Chen Kou Bun Bldg 706C",
-                "instructor": "Professor LEE Fung",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6803",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Tu 10:30AM - 1:15PM",
-                "room": "Chen Kou Bun Bldg 706C",
-                "instructor": "Professor LEE Fung",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Chen Kou Bun Bldg 706C",
+                        "instructor": "Professor LEE Fung",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Chen Kou Bun Bldg 706C",
+                        "instructor": "Professor LEE Fung",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 1:15PM",
+                        "room": "Chen Kou Bun Bldg 706C",
+                        "instructor": "Professor LEE Fung",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             }
         ]
     },
@@ -1003,7 +777,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GLSD 3403",
@@ -1019,7 +793,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1032,44 +806,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 111",
-                "instructor": "Dr. HUNG Wing Lok",
-                "dates": "13/1, 20/1, 27/1, 3/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5717",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 111",
-                "instructor": "Dr. HUNG Wing Lok",
-                "dates": "17/2, 24/2, 3/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5717",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "Tsang Shiu Tim Bldg 111",
-                "instructor": "Dr. HUNG Wing Lok",
-                "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                "timetable": [
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 111",
+                        "instructor": "Dr. HUNG Wing Lok",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 111",
+                        "instructor": "Dr. HUNG Wing Lok",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "Tsang Shiu Tim Bldg 111",
+                        "instructor": "Dr. HUNG Wing Lok",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
             }
         ]
     },
@@ -1086,7 +842,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1099,10 +855,14 @@
                 "enrollment_total": "18",
                 "wait_list_total": "0",
                 "available_seats": "27",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "Humanities Building 12",
-                "instructor": "Dr. HORIUCHI Toru",
-                "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "Humanities Building 12",
+                        "instructor": "Dr. HORIUCHI Toru",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
             }
         ]
     },
@@ -1119,7 +879,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1132,10 +892,14 @@
                 "enrollment_total": "10",
                 "wait_list_total": "0",
                 "available_seats": "20",
-                "day_time": "We 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 207",
-                "instructor": "Dr. Maria Del Mar FRANCESCH HUIDOBRO",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 207",
+                        "instructor": "Dr. Maria Del Mar FRANCESCH HUIDOBRO",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             }
         ]
     },
@@ -1152,7 +916,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1165,44 +929,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 114",
-                "instructor": "Staff",
-                "dates": "12/1, 19/1, 26/1, 2/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6804",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 114",
-                "instructor": "Staff",
-                "dates": "16/2, 23/2, 2/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6804",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Tu 2:30PM - 5:15PM",
-                "room": "T.C. Cheng Bldg 114",
-                "instructor": "Staff",
-                "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 114",
+                        "instructor": "Staff",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 114",
+                        "instructor": "Staff",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg 114",
+                        "instructor": "Staff",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
             }
         ]
     },
@@ -1219,7 +965,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1232,10 +978,14 @@
                 "enrollment_total": "13",
                 "wait_list_total": "0",
                 "available_seats": "17",
-                "day_time": "We 10:30AM - 1:15PM",
-                "room": "T.C. Cheng Bldg 208",
-                "instructor": "Dr. HUNG Wing Lok",
-                "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                "timetable": [
+                    {
+                        "day_time": "We 10:30AM - 1:15PM",
+                        "room": "T.C. Cheng Bldg 208",
+                        "instructor": "Dr. HUNG Wing Lok",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
             }
         ]
     },
@@ -1257,7 +1007,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1270,10 +1020,14 @@
                 "enrollment_total": "21",
                 "wait_list_total": "0",
                 "available_seats": "9",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1287,10 +1041,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1301,7 +1059,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GLSD 3801",
@@ -1310,7 +1068,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GLSD 4001",
@@ -1330,7 +1088,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1343,10 +1101,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung, Professor WONG Seanon Si Lon",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung, Professor WONG Seanon Si Lon",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1360,10 +1122,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1385,7 +1151,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1398,10 +1164,14 @@
                 "enrollment_total": "3",
                 "wait_list_total": "0",
                 "available_seats": "27",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1415,10 +1185,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung, Professor WONG Seanon Si Lon",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung, Professor WONG Seanon Si Lon",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1435,7 +1209,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1448,10 +1222,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             }
         ]
     },
@@ -1473,7 +1251,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -1486,10 +1264,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -1503,10 +1285,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -1517,7 +1303,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GLSD 4104",
@@ -1526,7 +1312,7 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     },
     {
         "code": "GLSD 4401",
@@ -1541,7 +1327,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1554,61 +1340,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "30",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Humanities Building 11",
-                "instructor": "Dr. HORIUCHI Toru",
-                "dates": "11/1, 18/1, 25/1, 1/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5412",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Humanities Building 11",
-                "instructor": "Dr. HORIUCHI Toru",
-                "dates": "15/2, 22/2, 1/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5412",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Humanities Building 11",
-                "instructor": "Dr. HORIUCHI Toru",
-                "dates": "15/3, 22/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5412",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "day_time": "Mo 2:30PM - 5:15PM",
-                "room": "Humanities Building 11",
-                "instructor": "Dr. HORIUCHI Toru",
-                "dates": "12/4, 19/4"
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Humanities Building 11",
+                        "instructor": "Dr. HORIUCHI Toru",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Humanities Building 11",
+                        "instructor": "Dr. HORIUCHI Toru",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Humanities Building 11",
+                        "instructor": "Dr. HORIUCHI Toru",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 5:15PM",
+                        "room": "Humanities Building 11",
+                        "instructor": "Dr. HORIUCHI Toru",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
             }
         ]
     },
@@ -1619,6 +1376,6 @@
         "term_1": false,
         "term_2": false,
         "term_offerings": [],
-        "teaching_schedule": []
+        "sections": []
     }
 ]

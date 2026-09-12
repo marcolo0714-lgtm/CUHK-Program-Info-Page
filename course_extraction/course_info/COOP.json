@@ -12,7 +12,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -25,10 +25,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "60",
-                "day_time": "Mo 12:00AM - 12:00AM",
-                "room": "No Room Required",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "11/1"
+                "timetable": [
+                    {
+                        "day_time": "Mo 12:00AM - 12:00AM",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "11/1"
+                    }
+                ]
             }
         ]
     },
@@ -45,7 +49,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -58,10 +62,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "60",
-                "day_time": "Mo 12:00AM - 12:00AM",
-                "room": "No Room Required",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "11/1"
+                "timetable": [
+                    {
+                        "day_time": "Mo 12:00AM - 12:00AM",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "11/1"
+                    }
+                ]
             }
         ]
     },
@@ -83,7 +91,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -96,10 +104,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "200",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2420",
@@ -113,10 +125,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "200",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -130,10 +146,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "50",
-                "day_time": "TBA",
-                "room": "TBA",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     },
@@ -150,7 +170,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -163,61 +183,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "130",
-                "day_time": "Fr 4:30PM - 6:15PM",
-                "room": "Yasumoto Int'l Acad Park LT7",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "15/1, 22/1, 29/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "7035",
-                "status": "Open",
-                "class_capacity": "130",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "130",
-                "day_time": "Fr 4:30PM - 6:15PM",
-                "room": "Yasumoto Int'l Acad Park LT7",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "12/2, 19/2, 26/2, 5/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "7035",
-                "status": "Open",
-                "class_capacity": "130",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "130",
-                "day_time": "Fr 4:30PM - 6:15PM",
-                "room": "Yasumoto Int'l Acad Park LT7",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "19/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "7035",
-                "status": "Open",
-                "class_capacity": "130",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "130",
-                "day_time": "Fr 4:30PM - 6:15PM",
-                "room": "Yasumoto Int'l Acad Park LT7",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "2/4, 9/4, 16/4, 23/4"
+                "timetable": [
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT7",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "15/1, 22/1, 29/1"
+                    },
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT7",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "12/2, 19/2, 26/2, 5/3"
+                    },
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT7",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "19/3"
+                    },
+                    {
+                        "day_time": "Fr 4:30PM - 6:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT7",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "2/4, 9/4, 16/4, 23/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -231,61 +222,32 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "130",
-                "day_time": "Fr 2:30PM - 4:15PM",
-                "room": "Yasumoto Int'l Acad Park LT7",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "15/1, 22/1, 29/1"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "B-LEC",
-                "component_type": "LEC",
-                "class_number": "7026",
-                "status": "Open",
-                "class_capacity": "130",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "130",
-                "day_time": "Fr 2:30PM - 4:15PM",
-                "room": "Yasumoto Int'l Acad Park LT7",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "12/2, 19/2, 26/2, 5/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "B-LEC",
-                "component_type": "LEC",
-                "class_number": "7026",
-                "status": "Open",
-                "class_capacity": "130",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "130",
-                "day_time": "Fr 2:30PM - 4:15PM",
-                "room": "Yasumoto Int'l Acad Park LT7",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "19/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "B-LEC",
-                "component_type": "LEC",
-                "class_number": "7026",
-                "status": "Open",
-                "class_capacity": "130",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "130",
-                "day_time": "Fr 2:30PM - 4:15PM",
-                "room": "Yasumoto Int'l Acad Park LT7",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "2/4, 9/4, 16/4, 23/4"
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT7",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "15/1, 22/1, 29/1"
+                    },
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT7",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "12/2, 19/2, 26/2, 5/3"
+                    },
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT7",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "19/3"
+                    },
+                    {
+                        "day_time": "Fr 2:30PM - 4:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT7",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "2/4, 9/4, 16/4, 23/4"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -299,44 +261,26 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "130",
-                "day_time": "Th 4:30PM - 6:15PM",
-                "room": "Esther Lee Bldg LT2",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "14/1, 21/1, 28/1, 4/2"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "C-LEC",
-                "component_type": "LEC",
-                "class_number": "8508",
-                "status": "Open",
-                "class_capacity": "130",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "130",
-                "day_time": "Th 4:30PM - 6:15PM",
-                "room": "Esther Lee Bldg LT2",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "18/2, 25/2, 4/3"
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "C-LEC",
-                "component_type": "LEC",
-                "class_number": "8508",
-                "status": "Open",
-                "class_capacity": "130",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "130",
-                "day_time": "Th 4:30PM - 6:15PM",
-                "room": "Esther Lee Bldg LT2",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                "timetable": [
+                    {
+                        "day_time": "Th 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg LT2",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg LT2",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 4:30PM - 6:15PM",
+                        "room": "Esther Lee Bldg LT2",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
             }
         ]
     },
@@ -358,7 +302,7 @@
                 "offered": true
             }
         ],
-        "teaching_schedule": [
+        "sections": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
@@ -371,10 +315,14 @@
                 "enrollment_total": "169",
                 "wait_list_total": "0",
                 "available_seats": "31",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "07/09/2026 - 30/11/2026"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
             },
             {
                 "term_code": "2430",
@@ -388,10 +336,14 @@
                 "enrollment_total": "0",
                 "wait_list_total": "0",
                 "available_seats": "50",
-                "day_time": "TBA",
-                "room": "No Room Required",
-                "instructor": "Dr. LAI Hon Weng",
-                "dates": "11/01/2027 - 19/04/2027"
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LAI Hon Weng",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
             }
         ]
     }
