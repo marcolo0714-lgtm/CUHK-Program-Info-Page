@@ -62,6 +62,7 @@ def load_course_index():
                     "prereq": entry.get("info", ""),
                     "term_1": entry.get("term_1", False),
                     "term_2": entry.get("term_2", False),
+                    "sections": entry.get("sections", []),
                 }
     return index
 
@@ -76,6 +77,7 @@ def resolve_courses(codes, course_index):
             "prereq": course_index.get(code, {}).get("prereq", ""),
             "term_1": course_index.get(code, {}).get("term_1", False),
             "term_2": course_index.get(code, {}).get("term_2", False),
+            "sections": course_index.get(code, {}).get("sections", []),
         }
         for code in codes
     ]
@@ -103,11 +105,21 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
-    border-left:1px solid var(--tbl-border); }
-th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
-    border-right:1px solid var(--tbl-border); }
-td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
+.col-term-1, .col-term-2 { white-space:nowrap; text-align:center;
+    width:54px; border-left:1px solid var(--tbl-border); }
+.col-term-2 { border-right:1px solid var(--tbl-border); }
+.col-t1-schedule, .col-t2-schedule { min-width:190px; max-width:300px; }
+.col-prereq { min-width:180px; word-break:normal; overflow-wrap:anywhere; }
+body.hide-term-1 .col-term-1,
+body.hide-term-2 .col-term-2,
+body.hide-t1-schedule .col-t1-schedule,
+body.hide-t2-schedule .col-t2-schedule,
+body.prereq-hidden .col-prereq { display:none; }
+.schedule-section + .schedule-section { margin-top:7px; padding-top:7px;
+    border-top:1px solid var(--tbl-border-light); }
+.schedule-section-name { display:block; font-weight:600; color:#374151; }
+.schedule-time { display:block; line-height:1.35; white-space:nowrap; }
+.schedule-empty { color:var(--muted); }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
@@ -183,6 +195,29 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
     opacity:0; visibility:hidden; pointer-events:none; transition:opacity .25s,visibility .25s; }
 .sidebar-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
 body.sidebar-open { overflow:hidden; }
+.settings-toggle { display:inline-flex; align-items:center; gap:5px; font-size:.85em;
+    padding:5px 12px; border:1px solid var(--border); border-radius:6px;
+    background:var(--card); color:var(--text); cursor:pointer; font-family:inherit;
+    transition:background .15s,color .15s,border-color .15s; }
+.settings-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+.settings-overlay { position:fixed; inset:0; background:rgba(0,0,0,.25); z-index:108;
+    opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s,visibility .2s; }
+.settings-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
+.settings-panel { position:fixed; inset:0 0 0 auto; z-index:109; width:min(360px,calc(100vw - 60px));
+    height:100vh; padding:18px; overflow:auto; background:var(--card);
+    border-left:1px solid var(--border); box-shadow:none; transform:translateX(100%);
+    transition:transform .25s,box-shadow .25s; }
+.settings-panel.open { transform:translateX(0); box-shadow:-2px 0 12px rgba(0,0,0,.15); }
+.settings-header { display:flex; align-items:center; justify-content:space-between;
+    gap:12px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+.settings-header h2 { margin:0; padding:0; border:0; font-size:1.15em; }
+.settings-close { border:1px solid var(--border); border-radius:6px; background:var(--card);
+    padding:3px 9px; font-size:1.25em; line-height:1; cursor:pointer; }
+.settings-description { margin:14px 0 10px; color:var(--muted); font-size:.88em; }
+.setting-option { display:flex; align-items:flex-start; gap:10px; padding:9px 4px;
+    cursor:pointer; border-bottom:1px solid var(--tbl-border-light); }
+.setting-option input { margin-top:.3em; flex:none; }
+body.settings-open { overflow:hidden; }
 .content { flex:1; min-width:0; }
 .content-inner { max-width:1800px; margin:0 auto;
     padding:20px clamp(42px, 6vw, 96px); }
@@ -211,9 +246,10 @@ body.sidebar-open { overflow:hidden; }
     .meta { white-space:normal; }
     .card { flex-wrap:wrap; }
     th:first-child, td:first-child { white-space:normal; max-width:6em; }
-    th:nth-child(3), td:nth-child(3) { white-space:normal; }
+    .col-term-1, .col-term-2 { white-space:normal; }
     th, td { padding:6px 8px; font-size:0.82em; }
     .notes-table-section { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .course-details { overflow-x:auto; -webkit-overflow-scrolling:touch; }
     .notes-table-section table { width:auto !important; max-width:none; }
     .notes-table-section td { white-space:normal; overflow-wrap:break-word; }
 }
@@ -244,12 +280,6 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
-    border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
-    font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
-body.prereq-hidden table th:nth-child(5),
-body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
     .top-bar .bar-row { display:grid; grid-template-columns:auto minmax(0, 1fr);
         align-items:center; gap:6px 8px; }
@@ -258,7 +288,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
     .page-nav { margin-top:6px; }
-    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, .settings-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -286,36 +316,59 @@ JS = """\
       localStorage.setItem('sidebarCollapsed', JSON.stringify(closed));
     });
   }
-  // Prerequisite toggle
-  var prereqBtn = document.getElementById('prereq-toggle');
-  if (prereqBtn) {
-    if (localStorage.getItem('hidePrereq') === 'true') {
-      document.body.classList.add('prereq-hidden');
-      prereqBtn.textContent = 'Show Prerequisites';
-    }
-    prereqBtn.addEventListener('click', function(){
-      var hidden = document.body.classList.toggle('prereq-hidden');
-      localStorage.setItem('hidePrereq', hidden);
-      prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
-    });
+  var savedSettings;
+  try { savedSettings = JSON.parse(localStorage.getItem('minorTableSettings') || '{}'); }
+  catch (e) { savedSettings = {}; }
+  if (savedSettings.prerequisites === undefined) {
+    savedSettings.prerequisites = localStorage.getItem('hidePrereq') !== 'true';
   }
-  // Course availability toggle. A course is unavailable only when neither
-  // 2026/27 teaching term is marked as offered in the course catalogue.
-  var availabilityBtn = document.getElementById('availability-toggle');
-  if (availabilityBtn) {
-    if (localStorage.getItem('hideUnavailable') === 'true') {
-      document.body.classList.add('unavailable-hidden');
-      availabilityBtn.textContent = 'Show Unavailable';
-      availabilityBtn.setAttribute('aria-pressed', 'false');
-    }
-    availabilityBtn.addEventListener('click', function(){
-      var hidden = document.body.classList.toggle('unavailable-hidden');
-      localStorage.setItem('hideUnavailable', hidden);
-      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
-      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
-    });
+  if (savedSettings.unavailable === undefined) {
+    savedSettings.unavailable = localStorage.getItem('hideUnavailable') !== 'true';
   }
+  var defaults = {term1:true, term2:true, prerequisites:true, schedule:true, schedule2:false, unavailable:true};
+  Object.keys(defaults).forEach(function(key){
+    var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
+    if (!checkbox) return;
+    checkbox.checked = savedSettings[key] === undefined ? defaults[key] : !!savedSettings[key];
+    checkbox.addEventListener('change', applyTableSettings);
+  });
+  applyTableSettings();
 })();
+
+function applyTableSettings() {
+  var classes = {
+    term1:'hide-term-1', term2:'hide-term-2', prerequisites:'prereq-hidden',
+    schedule:'hide-t1-schedule', schedule2:'hide-t2-schedule', unavailable:'unavailable-hidden'
+  };
+  var settings = {};
+  Object.keys(classes).forEach(function(key){
+    var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
+    var shown = checkbox ? checkbox.checked : true;
+    settings[key] = shown;
+    document.body.classList.toggle(classes[key], !shown);
+  });
+  localStorage.setItem('minorTableSettings', JSON.stringify(settings));
+}
+
+function setSettingsOpen(open) {
+  var panel = document.querySelector('.settings-panel');
+  var overlay = document.querySelector('.settings-overlay');
+  var button = document.querySelector('.settings-toggle');
+  if (!panel || !overlay) return;
+  if (open) closeSidebar();
+  panel.classList.toggle('open', open);
+  overlay.classList.toggle('open', open);
+  document.body.classList.toggle('settings-open', open);
+  panel.setAttribute('aria-hidden', String(!open));
+  if (button) button.setAttribute('aria-expanded', String(open));
+}
+
+function toggleSettings() {
+  var panel = document.querySelector('.settings-panel');
+  if (panel) setSettingsOpen(!panel.classList.contains('open'));
+}
+
+function closeSettings() { setSettingsOpen(false); }
 
 // Prevent sidebar from navigating when clicking the already-active minor
 document.querySelectorAll('.sidebar a').forEach(function(link) {
@@ -339,6 +392,7 @@ function setSidebarOpen(open) {
   var sidebar = document.querySelector('.sidebar');
   var overlay = document.querySelector('.sidebar-overlay');
   if (!sidebar || !overlay) return;
+  if (open) closeSettings();
   sidebar.classList.toggle('open', open);
   overlay.classList.toggle('open', open);
   document.body.classList.toggle('sidebar-open', open);
@@ -349,7 +403,7 @@ function setSidebarOpen(open) {
 }
 
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeSidebar();
+  if (e.key === 'Escape') { closeSidebar(); closeSettings(); }
 });
 </script>"""
 
@@ -361,6 +415,7 @@ FOOTER_HTML = """\
   <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&tv=F&lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
   <span> &middot; </span>
   <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
+  <span> &middot; Latest course teaching schedule update: 2026/9/13</span>
 </div>"""
 
 
@@ -391,6 +446,19 @@ for(var i=0;i<groups.length;i++){{if(closed.indexOf(groups[i].getAttribute('data
 var st=localStorage.getItem('sidebarScroll');
 if(st!==null)document.querySelector('.sidebar').scrollTop=+st;}})();
 </script>
+</aside>
+<div class="settings-overlay" onclick="closeSettings()" aria-hidden="true"></div>
+<aside class="settings-panel" id="table-settings" aria-hidden="true" aria-label="Course table settings">
+  <div class="settings-header"><h2>Course table settings</h2>
+    <button type="button" class="settings-close" onclick="closeSettings()" aria-label="Close settings">&times;</button>
+  </div>
+  <p class="settings-description">Choose the columns and rows shown in course information tables.</p>
+  <label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="schedule" checked> <span>Show Term 1 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="schedule2"> <span>Show Term 2 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label>
 </aside>
 <main class="content">
   <div class="content-inner">
@@ -527,8 +595,41 @@ def _format_code_unit(code, unit):
 def _format_term_cell(available):
     """Return a <td> with green background if the course is available in that term."""
     if available:
-        return '<td class="term-yes"></td>'
-    return "<td></td>"
+        return '<td class="col-term-1 term-yes"></td>'
+    return '<td class="col-term-1"></td>'
+
+
+def _format_schedule(sections, term_number):
+    """Group unique meeting times by section for one teaching term."""
+    grouped = []
+    positions = {}
+    for section in sections or []:
+        if not re.search(
+            rf"\bTerm\s*{term_number}\b", str(section.get("term", "")), re.I
+        ):
+            continue
+        name = str(section.get("section") or "Section TBA").strip()
+        if name not in positions:
+            positions[name] = len(grouped)
+            grouped.append([name, []])
+        times = grouped[positions[name]][1]
+        for meeting in section.get("timetable", []) or []:
+            day_time = str(meeting.get("day_time") or "").strip()
+            if day_time and day_time not in times:
+                times.append(day_time)
+    if not grouped:
+        return '<span class="schedule-empty">—</span>'
+    parts = []
+    for name, times in grouped:
+        time_html = "".join(
+            f'<span class="schedule-time">{html.escape(value)}</span>'
+            for value in (times or ["Time TBA"])
+        )
+        parts.append(
+            f'<div class="schedule-section"><span class="schedule-section-name">'
+            f'{html.escape(name)}</span>{time_html}</div>'
+        )
+    return "".join(parts)
 
 
 def build_course_table(courses, eq_pairs=None):
@@ -548,7 +649,11 @@ def build_course_table(courses, eq_pairs=None):
             prereq = _format_prereq(prereq)
             code_unit = _format_code_unit(c["code"], c.get("unit", ""))
             t1_cell = _format_term_cell(c.get("term_1", False))
-            t2_cell = _format_term_cell(c.get("term_2", False))
+            t2_cell = _format_term_cell(c.get("term_2", False)).replace(
+                "col-term-1", "col-term-2"
+            )
+            schedule = _format_schedule(c.get("sections", []), 1)
+            schedule2 = _format_schedule(c.get("sections", []), 2)
             row_classes = []
             if eq_cls:
                 row_classes.append(eq_cls)
@@ -561,7 +666,9 @@ def build_course_table(courses, eq_pairs=None):
                 f"<td>{c['title']}</td>"
                 f"{t1_cell}"
                 f"{t2_cell}"
-                f"<td>{prereq}</td>"
+                f'<td class="col-t1-schedule">{schedule}</td>'
+                f'<td class="col-t2-schedule">{schedule2}</td>'
+                f'<td class="col-prereq">{prereq}</td>'
                 f"</tr>\n"
             )
         else:
@@ -569,7 +676,7 @@ def build_course_table(courses, eq_pairs=None):
             rows += (
                 f'<tr class="{nf_cls}">'
                 f"<td>{c['code']}</td>"
-                f'<td colspan="4"><em>(not found in course_info)</em></td>'
+                f'<td colspan="6"><em>(not found in course_info)</em></td>'
                 f"</tr>\n"
             )
     return rows
@@ -684,9 +791,11 @@ def build_section_html(sec, course_index, eq_pairs=None, is_single=False, desc_u
                 f"<table><thead><tr>"
                 f'<th title="Course code — [units] shown only when not 3">Code</th>'
                 f'<th title="Course title">Title</th>'
-                f'<th title="Available in 2026-27 Term 1">T1</th>'
-                f'<th title="Available in 2026-27 Term 2">T2</th>'
-                f'<th title="Enrollment requirements">Prerequisites</th>'
+                f'<th class="col-term-1" title="Available in 2026-27 Term 1">T1</th>'
+                f'<th class="col-term-2" title="Available in 2026-27 Term 2">T2</th>'
+                f'<th class="col-t1-schedule">Term 1 Teaching schedule</th>'
+                f'<th class="col-t2-schedule">Term 2 Teaching schedule</th>'
+                f'<th class="col-prereq" title="Enrollment requirements">Prerequisites</th>'
                 f"</tr></thead><tbody>\n{tbody}</tbody></table>"
                 f'</details>'
             )
@@ -918,8 +1027,9 @@ def build_detail_page(data, course_index, overrides, year, available_years,
         f'<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; {title}</div>'
         f'<div class="bar-controls">'
         f'{yr_select}'
-        f'<button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button>'
-        f'<button id="prereq-toggle">Hide Prerequisites</button>'
+        f'<button type="button" class="settings-toggle" onclick="toggleSettings()" '
+        f'aria-label="Open course table settings" aria-controls="table-settings" '
+        f'aria-expanded="false">&#9881; Settings</button>'
         f'</div>'
         f'</div>'
         f'{build_nav(prev_stem, prev_title, next_stem, next_title)}'

@@ -41,11 +41,21 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
-    border-left:1px solid var(--tbl-border); }
-th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
-    border-right:1px solid var(--tbl-border); }
-td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
+.col-term-1, .col-term-2 { white-space:nowrap; text-align:center;
+    width:54px; border-left:1px solid var(--tbl-border); }
+.col-term-2 { border-right:1px solid var(--tbl-border); }
+.col-t1-schedule, .col-t2-schedule { min-width:190px; max-width:300px; }
+.col-prereq { min-width:180px; word-break:normal; overflow-wrap:anywhere; }
+body.hide-term-1 .col-term-1,
+body.hide-term-2 .col-term-2,
+body.hide-t1-schedule .col-t1-schedule,
+body.hide-t2-schedule .col-t2-schedule,
+body.prereq-hidden .col-prereq { display:none; }
+.schedule-section + .schedule-section { margin-top:7px; padding-top:7px;
+    border-top:1px solid var(--tbl-border-light); }
+.schedule-section-name { display:block; font-weight:600; color:#374151; }
+.schedule-time { display:block; line-height:1.35; white-space:nowrap; }
+.schedule-empty { color:var(--muted); }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
@@ -121,6 +131,29 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
     opacity:0; visibility:hidden; pointer-events:none; transition:opacity .25s,visibility .25s; }
 .sidebar-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
 body.sidebar-open { overflow:hidden; }
+.settings-toggle { display:inline-flex; align-items:center; gap:5px; font-size:.85em;
+    padding:5px 12px; border:1px solid var(--border); border-radius:6px;
+    background:var(--card); color:var(--text); cursor:pointer; font-family:inherit;
+    transition:background .15s,color .15s,border-color .15s; }
+.settings-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+.settings-overlay { position:fixed; inset:0; background:rgba(0,0,0,.25); z-index:108;
+    opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s,visibility .2s; }
+.settings-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
+.settings-panel { position:fixed; inset:0 0 0 auto; z-index:109; width:min(360px,calc(100vw - 60px));
+    height:100vh; padding:18px; overflow:auto; background:var(--card);
+    border-left:1px solid var(--border); box-shadow:none; transform:translateX(100%);
+    transition:transform .25s,box-shadow .25s; }
+.settings-panel.open { transform:translateX(0); box-shadow:-2px 0 12px rgba(0,0,0,.15); }
+.settings-header { display:flex; align-items:center; justify-content:space-between;
+    gap:12px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+.settings-header h2 { margin:0; padding:0; border:0; font-size:1.15em; }
+.settings-close { border:1px solid var(--border); border-radius:6px; background:var(--card);
+    padding:3px 9px; font-size:1.25em; line-height:1; cursor:pointer; }
+.settings-description { margin:14px 0 10px; color:var(--muted); font-size:.88em; }
+.setting-option { display:flex; align-items:flex-start; gap:10px; padding:9px 4px;
+    cursor:pointer; border-bottom:1px solid var(--tbl-border-light); }
+.setting-option input { margin-top:.3em; flex:none; }
+body.settings-open { overflow:hidden; }
 .content { flex:1; min-width:0; }
 .content-inner { max-width:1800px; margin:0 auto;
     padding:20px clamp(42px, 6vw, 96px); }
@@ -149,9 +182,10 @@ body.sidebar-open { overflow:hidden; }
     .meta { white-space:normal; }
     .card { flex-wrap:wrap; }
     th:first-child, td:first-child { white-space:normal; max-width:6em; }
-    th:nth-child(3), td:nth-child(3) { white-space:normal; }
+    .col-term-1, .col-term-2 { white-space:normal; }
     th, td { padding:6px 8px; font-size:0.82em; }
     .notes-table-section { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .course-details { overflow-x:auto; -webkit-overflow-scrolling:touch; }
     .notes-table-section table { width:auto !important; max-width:none; }
     .notes-table-section td { white-space:normal; overflow-wrap:break-word; }
 }
@@ -182,12 +216,6 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
-    border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
-    font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
-body.prereq-hidden table th:nth-child(5),
-body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
     .top-bar .bar-row { display:grid; grid-template-columns:auto minmax(0, 1fr);
         align-items:center; gap:6px 8px; }
@@ -196,7 +224,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
     .page-nav { margin-top:6px; }
-    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, .settings-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -309,107 +337,120 @@ var st=localStorage.getItem('sidebarScroll');
 if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </script>
 </aside>
+<div class="settings-overlay" onclick="closeSettings()" aria-hidden="true"></div>
+<aside class="settings-panel" id="table-settings" aria-hidden="true" aria-label="Course table settings">
+  <div class="settings-header"><h2>Course table settings</h2>
+    <button type="button" class="settings-close" onclick="closeSettings()" aria-label="Close settings">&times;</button>
+  </div>
+  <p class="settings-description">Choose the columns and rows shown in course information tables.</p>
+  <label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="schedule" checked> <span>Show Term 1 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="schedule2"> <span>Show Term 2 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label>
+</aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Urban Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Urban_Studies.html">2024-25</option><option value="../../2025_26/minors/Urban_Studies.html" selected>2025-26</option><option value="../../2026_27/minors/Urban_Studies.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div><nav class="page-nav" aria-label="Minor programme pagination"><a class="page-nav-prev" href="Sociology.html" aria-label="Previous minor: Sociology">← Sociology</a><a class="page-nav-next" href="HB_Minor_Programme_in_Business.html" aria-label="Next minor: Business">Business →</a></nav></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Urban Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Urban_Studies.html">2024-25</option><option value="../../2025_26/minors/Urban_Studies.html" selected>2025-26</option><option value="../../2026_27/minors/Urban_Studies.html">2026-27</option></select><button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="table-settings" aria-expanded="false">&#9881; Settings</button></div></div><nav class="page-nav" aria-label="Minor programme pagination"><a class="page-nav-prev" href="Sociology.html" aria-label="Previous minor: Sociology">← Sociology</a><a class="page-nav-next" href="HB_Minor_Programme_in_Business.html" aria-label="Next minor: Business">Business →</a></nav></div>
 <div class="title-row"><h1>Urban Studies &mdash; CUHK Minor Requirements (2025-26)</h1><span class="meta">Social Science</span></div>
 <div class="admit-year">Applicable to students admitted in 2025-26.</div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Course: 3 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">URSP1001</span></div></div>
-<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
-<tr><td>URSP 1001</td><td>Introduction to Urban Studies</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<details class="course-details"><summary>Show 1 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th class="col-term-1" title="Available in 2026-27 Term 1">T1</th><th class="col-term-2" title="Available in 2026-27 Term 2">T2</th><th class="col-t1-schedule">Term 1 Teaching schedule</th><th class="col-t2-schedule">Term 2 Teaching schedule</th><th class="col-prereq" title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>URSP 1001</td><td>Introduction to Urban Studies</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 9:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Tu 11:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T02-TUT</span><span class="schedule-time">Tu 11:30AM - 12:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 15 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) Any two courses from the following:</span><span class="meta">(6 units)</span></div><div class="req-row"><span class="row-text">URSP1003, 2100, 2200, 2300, 2400</span></div></div>
-<details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
-<tr><td>URSP 1003</td><td>Introduction to Spatial Planning</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>URSP 2100</td><td>Urban Sustainability</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>URSP 2200</td><td>Urban Economic Studies</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>URSP 2300</td><td>Urban Design and Place Making Studio</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>URSP 2400</td><td>Studies of Cities in Comparative Perspective</td><td class="term-yes"></td><td></td><td>—</td></tr>
+<details class="course-details"><summary>Show 5 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th class="col-term-1" title="Available in 2026-27 Term 1">T1</th><th class="col-term-2" title="Available in 2026-27 Term 2">T2</th><th class="col-t1-schedule">Term 1 Teaching schedule</th><th class="col-t2-schedule">Term 2 Teaching schedule</th><th class="col-prereq" title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>URSP 1003</td><td>Introduction to Spatial Planning</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2100</td><td>Urban Sustainability</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Tu 4:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2200</td><td>Urban Economic Studies</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 1:30PM - 2:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2300</td><td>Urban Design and Place Making Studio</td><td class="col-term-1 term-yes"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 2:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2400</td><td>Studies of Cities in Comparative Perspective</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 4:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) Any three courses from the following, with at least two at 3000 or above level <span id="ref_a"><a href="#note_a">[a]</a></span>:</span><span class="meta">(9 units)</span></div><div class="req-row"><span class="row-text">ANTH4410, ARCH3721, CURE2016, EPIN1020, 2010, GPAD2020, 2090, 2095, 2170, 2180, 3220, 3255, 3360, 3365, GRMD2102, 2104, 2105, 2303, 2321, 2401, 2501, 3102, 3104, 3106, 3108, 3202, 3203, 3224, 3301, 3302, 3304, 3305, 3323, 3403, 4203, 4204, 4302, 4402, 4502, 4503, HIST2500, SOCI2003, 2004, 2104, 2203, 2208, 3002, 3204, SOWK1001, 2160, 2203, 3250, URSP1003, 1004, 1005, 2010, 2020, 2030, 2040, 2050, 2060, 2070, 2100, 2200, 2300, 2400, 2700, 2800, 2900, 3050, 3100, 3300, 3400, 3600, 3700, 3800, 4050, 4100</span></div></div>
-<details class="course-details"><summary>Show 78 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
-<tr class="course-unavailable"><td>ANTH 4410</td><td>The Cultures of Cities</td><td></td><td></td><td>—</td></tr>
-<tr><td>ARCH 3721</td><td>Land and City</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ARCH4721.</span></td></tr>
-<tr class="course-unavailable"><td>CURE 2016</td><td>Modernity and Urban Culture</td><td></td><td></td><td>—</td></tr>
-<tr><td>EPIN 1020</td><td>Design Thinking and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>EPIN 2010</td><td>Toolkit for Entrepreneurs</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite:EPIN1010/1020/1030 or MGNT1070 or SOSC1001/1002 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.</span><span class="prereq-sentence">Co-requisite:at least any 2 other 2000(EPIN/non-EPIN)level courses.</span></td></tr>
-<tr><td>GPAD 2020</td><td>Politics of Culture</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GPAD 2090</td><td>Governance and Public Policy</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GPAD 2095</td><td>Public Policy Workshop</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GPAD1050.</span></td></tr>
-<tr class="course-unavailable"><td>GPAD 2170</td><td>Public Organization and Management</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GPAD1030 or teacher's consent.</span></td></tr>
-<tr class="nf"><td>GPAD 2180</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
-<tr><td>GPAD 3220</td><td>Politics of Space</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr class="course-unavailable"><td>GPAD 3255</td><td>Public Policy Analysis</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GPAD 3360</td><td>Global Environmental Politics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken GLSD2401 or GLSD3401.</span></td></tr>
-<tr class="course-unavailable"><td>GPAD 3365</td><td>Ethics and International Affairs</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GPAD1095.</span></td></tr>
-<tr><td>GRMD 2102</td><td>Fundamental Statistics for Geographers</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for student who have taken STAT1011, 1012 and 2101.</span></td></tr>
-<tr><td>GRMD 2104</td><td>Remote Sensing of Environment</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 2105</td><td>Introduction to GIS</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 2303</td><td>Urban Geography</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>GRMD 2321</td><td>Economic Geography</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 2401</td><td>Sustainable Development</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">GRMD2401 is double-coded with UGEC2171.</span><span class="prereq-sentence">Not for students who have taken UGEC2171, 2354 or 2775.</span></td></tr>
-<tr><td>GRMD 2501</td><td>Theory and Practice of Smart Cities</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 3102</td><td>Research Design and Methodology</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">GRMD2102 or another statistics course which is approved by the instructor as a pre-requisite.</span></td></tr>
-<tr class="course-unavailable"><td>GRMD 3104</td><td>Satellite Image Analysis</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GRMD 3106</td><td>Advanced GIS</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GRMD2105.</span></td></tr>
-<tr><td>GRMD 3108</td><td>Cartography and Geovisualization</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 3202</td><td>Environmental Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>GRMD 3203</td><td>Urban Environmental Problems</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>GRMD 3224</td><td>Tourism Planning and Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 3301</td><td>Geography of China</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 3302</td><td>Population and Migration</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>GRMD 3304</td><td>Cultural Geography</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GRMD 3305</td><td>Transport Geography</td><td></td><td></td><td>—</td></tr>
-<tr><td>GRMD 3323</td><td>Urban and Regional Planning</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="nf"><td>GRMD 3403</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
-<tr><td>GRMD 4203</td><td>Ecosystem Restoration and Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GRMD 4204</td><td>Environmental Planning and Assessment</td><td></td><td></td><td>—</td></tr>
-<tr><td>GRMD 4302</td><td>Urban Planning Workshop</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Only for students who have taken URSP1001 or URSP2300 or GRMD3323 or are taking GRMD3323 at the same time.</span></td></tr>
-<tr class="nf"><td>GRMD 4402</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
-<tr class="course-unavailable"><td>GRMD 4502</td><td>Urban Big Data Analysis and Application</td><td></td><td></td><td>—</td></tr>
-<tr><td>GRMD 4503</td><td>Smart City Policies and Governance</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>HIST 2500</td><td>History of Hong Kong</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken UGEC2945 or HIST2501.</span></td></tr>
-<tr><td>SOCI 2003</td><td>Social Research Methods</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 2004</td><td>Social Statistics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken DSME2010, DSME2020, DSME2011, DSME2021, ECON2121, GRMD2102, SEEM2430, SPED2600, PSYC2010, STAT1011, STAT1012, STAT2001, STAT2006, STAT2101, STAT2102.</span></td></tr>
-<tr><td>SOCI 2104</td><td>Sociology and Hong Kong</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken SOCI1201, UGEC2865 or GEJC1020.</span></td></tr>
-<tr class="course-unavailable"><td>SOCI 2203</td><td>Social Problems and Social Policy</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 2208</td><td>Urban Sociology</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOCI 3002</td><td>Social Stratification</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr class="course-unavailable"><td>SOCI 3204</td><td>Sociology of Crime and Deviance</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>SOWK 1001</td><td>Introduction to Social Work and Social Welfare</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>SOWK 2160</td><td>Economic Insecurity and Social Security in Global Contexts</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>SOWK 2203</td><td>Mission-driven Social Enterprise</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>SOWK 3250</td><td>Macro Social Work Theories and Practice</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>URSP 1003</td><td>Introduction to Spatial Planning</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>URSP 1004</td><td>Foundation of Digital Techniques for Urban Planning and Design</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>URSP 1005 [1]</td><td>Dialogue with Urban Leaders</td><td></td><td></td><td>—</td></tr>
-<tr><td>URSP 2010 [2]</td><td>Belt and Road for Collaborative Modernization</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>URSP 2020 [2]</td><td>(Re) Claiming the City</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>URSP 2030</td><td>Urban Cultures</td><td></td><td></td><td>—</td></tr>
-<tr><td>URSP 2040</td><td>Real Estate and Construction Economics</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>URSP 2050</td><td>Socially Engaged Art</td><td></td><td></td><td>—</td></tr>
-<tr><td>URSP 2060</td><td>Understanding City Through Field Trip Studies</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>URSP 2070</td><td>Urban Planning and Design Practices in China</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>URSP 2100</td><td>Urban Sustainability</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>URSP 2200</td><td>Urban Economic Studies</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>URSP 2300</td><td>Urban Design and Place Making Studio</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>URSP 2400</td><td>Studies of Cities in Comparative Perspective</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>URSP 2700</td><td>Urban Visualisation Studio</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>URSP 2800</td><td>Urban Form, Sense of Place and Well-Being</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>URSP 2900</td><td>Recommoning</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>URSP 3050</td><td>Special Topics in Urban Studies I</td><td></td><td></td><td>—</td></tr>
-<tr><td>URSP 3100</td><td>Housing Issues and Policy</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>URSP 3300</td><td>Sustainable Urban Transport</td><td></td><td></td><td>—</td></tr>
-<tr><td>URSP 3400</td><td>Essentials of the Land Development Process</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>URSP 3600</td><td>Designing Smart Cities</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>URSP 3700</td><td>Urban Regeneration</td><td></td><td></td><td>—</td></tr>
-<tr><td>URSP 3800</td><td>Valuations for Sustainable Development</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>URSP 4050</td><td>Special Topics in Urban Studies II</td><td></td><td></td><td>—</td></tr>
-<tr><td>URSP 4100</td><td>Urban Planning Theory and Practice</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): URSP1001 or 1002 or 1003.</span></td></tr>
+<details class="course-details"><summary>Show 78 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th class="col-term-1" title="Available in 2026-27 Term 1">T1</th><th class="col-term-2" title="Available in 2026-27 Term 2">T2</th><th class="col-t1-schedule">Term 1 Teaching schedule</th><th class="col-t2-schedule">Term 2 Teaching schedule</th><th class="col-prereq" title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr class="course-unavailable"><td>ANTH 4410</td><td>The Cultures of Cities</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>ARCH 3721</td><td>Land and City</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 4:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T02-TUT</span><span class="schedule-time">We 5:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T03-TUT</span><span class="schedule-time">We 4:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T04-TUT</span><span class="schedule-time">We 5:30PM - 6:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken ARCH4721.</span></td></tr>
+<tr class="course-unavailable"><td>CURE 2016</td><td>Modernity and Urban Culture</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>EPIN 1020</td><td>Design Thinking and Practice</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>EPIN 2010</td><td>Toolkit for Entrepreneurs</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Prerequisite:EPIN1010/1020/1030 or MGNT1070 or SOSC1001/1002 or other equivalents or exempted by the instructor if students can show a substantive entrepreneurial experience or knowledge.</span><span class="prereq-sentence">Co-requisite:at least any 2 other 2000(EPIN/non-EPIN)level courses.</span></td></tr>
+<tr><td>GPAD 2020</td><td>Politics of Culture</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 3:30PM - 6:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GPAD 2090</td><td>Governance and Public Policy</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GPAD 2095</td><td>Public Policy Workshop</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Prerequisite: GPAD1050.</span></td></tr>
+<tr class="course-unavailable"><td>GPAD 2170</td><td>Public Organization and Management</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Prerequisite: GPAD1030 or teacher's consent.</span></td></tr>
+<tr class="nf"><td>GPAD 2180</td><td colspan="6"><em>(not found in course_info)</em></td></tr>
+<tr><td>GPAD 3220</td><td>Politics of Space</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 10:30AM - 1:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>GPAD 3255</td><td>Public Policy Analysis</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GPAD 3360</td><td>Global Environmental Politics</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken GLSD2401 or GLSD3401.</span></td></tr>
+<tr class="course-unavailable"><td>GPAD 3365</td><td>Ethics and International Affairs</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Prerequisite: GPAD1095.</span></td></tr>
+<tr><td>GRMD 2102</td><td>Fundamental Statistics for Geographers</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for student who have taken STAT1011, 1012 and 2101.</span></td></tr>
+<tr><td>GRMD 2104</td><td>Remote Sensing of Environment</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-L01-LAB</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 2105</td><td>Introduction to GIS</td><td class="col-term-1 term-yes"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-L01-LAB</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-L01-LAB</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 2303</td><td>Urban Geography</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 2321</td><td>Economic Geography</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 8:30AM - 10:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 2401</td><td>Sustainable Development</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">GRMD2401 is double-coded with UGEC2171.</span><span class="prereq-sentence">Not for students who have taken UGEC2171, 2354 or 2775.</span></td></tr>
+<tr><td>GRMD 2501</td><td>Theory and Practice of Smart Cities</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 1:30PM - 2:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 3102</td><td>Research Design and Methodology</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq"><span class="prereq-sentence">GRMD2102 or another statistics course which is approved by the instructor as a pre-requisite.</span></td></tr>
+<tr class="course-unavailable"><td>GRMD 3104</td><td>Satellite Image Analysis</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GRMD 3106</td><td>Advanced GIS</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Prerequisite: GRMD2105.</span></td></tr>
+<tr><td>GRMD 3108</td><td>Cartography and Geovisualization</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-L01-LAB</span><span class="schedule-time">Tu 4:30PM - 5:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 3202</td><td>Environmental Management</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>GRMD 3203</td><td>Urban Environmental Problems</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 8:30AM - 10:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-L01-LAB</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 3224</td><td>Tourism Planning and Management</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-F01-FLD</span><span class="schedule-time">TBA</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 3301</td><td>Geography of China</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 3302</td><td>Population and Migration</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 3304</td><td>Cultural Geography</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Tu 4:30PM - 5:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GRMD 3305</td><td>Transport Geography</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 3323</td><td>Urban and Regional Planning</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="nf"><td>GRMD 3403</td><td colspan="6"><em>(not found in course_info)</em></td></tr>
+<tr><td>GRMD 4203</td><td>Ecosystem Restoration and Management</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-F01-FLD</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GRMD 4204</td><td>Environmental Planning and Assessment</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 4302</td><td>Urban Planning Workshop</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq"><span class="prereq-sentence">Only for students who have taken URSP1001 or URSP2300 or GRMD3323 or are taking GRMD3323 at the same time.</span></td></tr>
+<tr class="nf"><td>GRMD 4402</td><td colspan="6"><em>(not found in course_info)</em></td></tr>
+<tr class="course-unavailable"><td>GRMD 4502</td><td>Urban Big Data Analysis and Application</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 4503</td><td>Smart City Policies and Governance</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>HIST 2500</td><td>History of Hong Kong</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken UGEC2945 or HIST2501.</span></td></tr>
+<tr><td>SOCI 2003</td><td>Social Research Methods</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>SOCI 2004</td><td>Social Statistics</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 9:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken DSME2010, DSME2020, DSME2011, DSME2021, ECON2121, GRMD2102, SEEM2430, SPED2600, PSYC2010, STAT1011, STAT1012, STAT2001, STAT2006, STAT2101, STAT2102.</span></td></tr>
+<tr><td>SOCI 2104</td><td>Sociology and Hong Kong</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken SOCI1201, UGEC2865 or GEJC1020.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 2203</td><td>Social Problems and Social Policy</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>SOCI 2208</td><td>Urban Sociology</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>SOCI 3002</td><td>Social Stratification</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>SOCI 3204</td><td>Sociology of Crime and Deviance</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>SOWK 1001</td><td>Introduction to Social Work and Social Welfare</td><td class="col-term-1 term-yes"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">A-LEC</span><span class="schedule-time">Tu 1:30PM - 3:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT01-TUT</span><span class="schedule-time">Tu 3:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT02-TUT</span><span class="schedule-time">Tu 3:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT03-TUT</span><span class="schedule-time">Th 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">B-LEC</span><span class="schedule-time">Th 10:30AM - 1:15PM</span></div></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">C-LEC</span><span class="schedule-time">Th 2:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">D-LEC</span><span class="schedule-time">Tu 9:30AM - 12:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>SOWK 2160</td><td>Economic Insecurity and Social Security in Global Contexts</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 10:30AM - 1:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>SOWK 2203</td><td>Mission-driven Social Enterprise</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 2:30PM - 5:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>SOWK 3250</td><td>Macro Social Work Theories and Practice</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 12:30PM - 2:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Tu 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T02-TUT</span><span class="schedule-time">Tu 10:30AM - 12:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 1003</td><td>Introduction to Spatial Planning</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>URSP 1004</td><td>Foundation of Digital Techniques for Urban Planning and Design</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>URSP 1005 [1]</td><td>Dialogue with Urban Leaders</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2010 [2]</td><td>Belt and Road for Collaborative Modernization</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 10:30AM - 12:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>URSP 2020 [2]</td><td>(Re) Claiming the City</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>URSP 2030</td><td>Urban Cultures</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2040</td><td>Real Estate and Construction Economics</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 9:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 11:30AM - 12:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>URSP 2050</td><td>Socially Engaged Art</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2060</td><td>Understanding City Through Field Trip Studies</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 2:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-F01-FLD</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2070</td><td>Urban Planning and Design Practices in China</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Mo 12:30PM - 1:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2100</td><td>Urban Sustainability</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Tu 4:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2200</td><td>Urban Economic Studies</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 1:30PM - 2:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2300</td><td>Urban Design and Place Making Studio</td><td class="col-term-1 term-yes"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 2:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2400</td><td>Studies of Cities in Comparative Perspective</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 4:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2700</td><td>Urban Visualisation Studio</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 9:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 11:30AM - 12:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2800</td><td>Urban Form, Sense of Place and Well-Being</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 9:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 11:30AM - 12:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2900</td><td>Recommoning</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 11:30AM - 1:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 1:30PM - 2:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>URSP 3050</td><td>Special Topics in Urban Studies I</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 3100</td><td>Housing Issues and Policy</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 4:30PM - 5:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>URSP 3300</td><td>Sustainable Urban Transport</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 3400</td><td>Essentials of the Land Development Process</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 4:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 3600</td><td>Designing Smart Cities</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 9:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-J01-PRJ</span><span class="schedule-time">Mo 11:30AM - 12:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>URSP 3700</td><td>Urban Regeneration</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 3800</td><td>Valuations for Sustainable Development</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 9:30AM - 12:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>URSP 4050</td><td>Special Topics in Urban Studies II</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 4100</td><td>Urban Planning Theory and Practice</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Mo 4:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Pre-requisite(s): URSP1001 or 1002 or 1003.</span></td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">No more than 9 units of courses taken to fulfill the requirements of the students’ Major Programme(s) and other Minor Programme(s) respectively can be used to fulfill the requirement of this Minor Programme.</span></div>
@@ -421,6 +462,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
   <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&tv=F&lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
   <span> &middot; </span>
   <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
+  <span> &middot; Latest course teaching schedule update: 2026/9/13</span>
 </div>
   </div>
 </main>
@@ -444,36 +486,59 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       localStorage.setItem('sidebarCollapsed', JSON.stringify(closed));
     });
   }
-  // Prerequisite toggle
-  var prereqBtn = document.getElementById('prereq-toggle');
-  if (prereqBtn) {
-    if (localStorage.getItem('hidePrereq') === 'true') {
-      document.body.classList.add('prereq-hidden');
-      prereqBtn.textContent = 'Show Prerequisites';
-    }
-    prereqBtn.addEventListener('click', function(){
-      var hidden = document.body.classList.toggle('prereq-hidden');
-      localStorage.setItem('hidePrereq', hidden);
-      prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
-    });
+  var savedSettings;
+  try { savedSettings = JSON.parse(localStorage.getItem('minorTableSettings') || '{}'); }
+  catch (e) { savedSettings = {}; }
+  if (savedSettings.prerequisites === undefined) {
+    savedSettings.prerequisites = localStorage.getItem('hidePrereq') !== 'true';
   }
-  // Course availability toggle. A course is unavailable only when neither
-  // 2026/27 teaching term is marked as offered in the course catalogue.
-  var availabilityBtn = document.getElementById('availability-toggle');
-  if (availabilityBtn) {
-    if (localStorage.getItem('hideUnavailable') === 'true') {
-      document.body.classList.add('unavailable-hidden');
-      availabilityBtn.textContent = 'Show Unavailable';
-      availabilityBtn.setAttribute('aria-pressed', 'false');
-    }
-    availabilityBtn.addEventListener('click', function(){
-      var hidden = document.body.classList.toggle('unavailable-hidden');
-      localStorage.setItem('hideUnavailable', hidden);
-      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
-      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
-    });
+  if (savedSettings.unavailable === undefined) {
+    savedSettings.unavailable = localStorage.getItem('hideUnavailable') !== 'true';
   }
+  var defaults = {term1:true, term2:true, prerequisites:true, schedule:true, schedule2:false, unavailable:true};
+  Object.keys(defaults).forEach(function(key){
+    var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
+    if (!checkbox) return;
+    checkbox.checked = savedSettings[key] === undefined ? defaults[key] : !!savedSettings[key];
+    checkbox.addEventListener('change', applyTableSettings);
+  });
+  applyTableSettings();
 })();
+
+function applyTableSettings() {
+  var classes = {
+    term1:'hide-term-1', term2:'hide-term-2', prerequisites:'prereq-hidden',
+    schedule:'hide-t1-schedule', schedule2:'hide-t2-schedule', unavailable:'unavailable-hidden'
+  };
+  var settings = {};
+  Object.keys(classes).forEach(function(key){
+    var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
+    var shown = checkbox ? checkbox.checked : true;
+    settings[key] = shown;
+    document.body.classList.toggle(classes[key], !shown);
+  });
+  localStorage.setItem('minorTableSettings', JSON.stringify(settings));
+}
+
+function setSettingsOpen(open) {
+  var panel = document.querySelector('.settings-panel');
+  var overlay = document.querySelector('.settings-overlay');
+  var button = document.querySelector('.settings-toggle');
+  if (!panel || !overlay) return;
+  if (open) closeSidebar();
+  panel.classList.toggle('open', open);
+  overlay.classList.toggle('open', open);
+  document.body.classList.toggle('settings-open', open);
+  panel.setAttribute('aria-hidden', String(!open));
+  if (button) button.setAttribute('aria-expanded', String(open));
+}
+
+function toggleSettings() {
+  var panel = document.querySelector('.settings-panel');
+  if (panel) setSettingsOpen(!panel.classList.contains('open'));
+}
+
+function closeSettings() { setSettingsOpen(false); }
 
 // Prevent sidebar from navigating when clicking the already-active minor
 document.querySelectorAll('.sidebar a').forEach(function(link) {
@@ -497,6 +562,7 @@ function setSidebarOpen(open) {
   var sidebar = document.querySelector('.sidebar');
   var overlay = document.querySelector('.sidebar-overlay');
   if (!sidebar || !overlay) return;
+  if (open) closeSettings();
   sidebar.classList.toggle('open', open);
   overlay.classList.toggle('open', open);
   document.body.classList.toggle('sidebar-open', open);
@@ -507,7 +573,7 @@ function setSidebarOpen(open) {
 }
 
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeSidebar();
+  if (e.key === 'Escape') { closeSidebar(); closeSettings(); }
 });
 </script>
 </body>

@@ -41,11 +41,21 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
-    border-left:1px solid var(--tbl-border); }
-th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
-    border-right:1px solid var(--tbl-border); }
-td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
+.col-term-1, .col-term-2 { white-space:nowrap; text-align:center;
+    width:54px; border-left:1px solid var(--tbl-border); }
+.col-term-2 { border-right:1px solid var(--tbl-border); }
+.col-t1-schedule, .col-t2-schedule { min-width:190px; max-width:300px; }
+.col-prereq { min-width:180px; word-break:normal; overflow-wrap:anywhere; }
+body.hide-term-1 .col-term-1,
+body.hide-term-2 .col-term-2,
+body.hide-t1-schedule .col-t1-schedule,
+body.hide-t2-schedule .col-t2-schedule,
+body.prereq-hidden .col-prereq { display:none; }
+.schedule-section + .schedule-section { margin-top:7px; padding-top:7px;
+    border-top:1px solid var(--tbl-border-light); }
+.schedule-section-name { display:block; font-weight:600; color:#374151; }
+.schedule-time { display:block; line-height:1.35; white-space:nowrap; }
+.schedule-empty { color:var(--muted); }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
@@ -121,6 +131,29 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
     opacity:0; visibility:hidden; pointer-events:none; transition:opacity .25s,visibility .25s; }
 .sidebar-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
 body.sidebar-open { overflow:hidden; }
+.settings-toggle { display:inline-flex; align-items:center; gap:5px; font-size:.85em;
+    padding:5px 12px; border:1px solid var(--border); border-radius:6px;
+    background:var(--card); color:var(--text); cursor:pointer; font-family:inherit;
+    transition:background .15s,color .15s,border-color .15s; }
+.settings-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+.settings-overlay { position:fixed; inset:0; background:rgba(0,0,0,.25); z-index:108;
+    opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s,visibility .2s; }
+.settings-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
+.settings-panel { position:fixed; inset:0 0 0 auto; z-index:109; width:min(360px,calc(100vw - 60px));
+    height:100vh; padding:18px; overflow:auto; background:var(--card);
+    border-left:1px solid var(--border); box-shadow:none; transform:translateX(100%);
+    transition:transform .25s,box-shadow .25s; }
+.settings-panel.open { transform:translateX(0); box-shadow:-2px 0 12px rgba(0,0,0,.15); }
+.settings-header { display:flex; align-items:center; justify-content:space-between;
+    gap:12px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+.settings-header h2 { margin:0; padding:0; border:0; font-size:1.15em; }
+.settings-close { border:1px solid var(--border); border-radius:6px; background:var(--card);
+    padding:3px 9px; font-size:1.25em; line-height:1; cursor:pointer; }
+.settings-description { margin:14px 0 10px; color:var(--muted); font-size:.88em; }
+.setting-option { display:flex; align-items:flex-start; gap:10px; padding:9px 4px;
+    cursor:pointer; border-bottom:1px solid var(--tbl-border-light); }
+.setting-option input { margin-top:.3em; flex:none; }
+body.settings-open { overflow:hidden; }
 .content { flex:1; min-width:0; }
 .content-inner { max-width:1800px; margin:0 auto;
     padding:20px clamp(42px, 6vw, 96px); }
@@ -149,9 +182,10 @@ body.sidebar-open { overflow:hidden; }
     .meta { white-space:normal; }
     .card { flex-wrap:wrap; }
     th:first-child, td:first-child { white-space:normal; max-width:6em; }
-    th:nth-child(3), td:nth-child(3) { white-space:normal; }
+    .col-term-1, .col-term-2 { white-space:normal; }
     th, td { padding:6px 8px; font-size:0.82em; }
     .notes-table-section { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .course-details { overflow-x:auto; -webkit-overflow-scrolling:touch; }
     .notes-table-section table { width:auto !important; max-width:none; }
     .notes-table-section td { white-space:normal; overflow-wrap:break-word; }
 }
@@ -182,12 +216,6 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
-    border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
-    font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
-body.prereq-hidden table th:nth-child(5),
-body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
     .top-bar .bar-row { display:grid; grid-template-columns:auto minmax(0, 1fr);
         align-items:center; gap:6px 8px; }
@@ -196,7 +224,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
     .page-nav { margin-top:6px; }
-    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, .settings-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -309,57 +337,70 @@ var st=localStorage.getItem('sidebarScroll');
 if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </script>
 </aside>
+<div class="settings-overlay" onclick="closeSettings()" aria-hidden="true"></div>
+<aside class="settings-panel" id="table-settings" aria-hidden="true" aria-label="Course table settings">
+  <div class="settings-header"><h2>Course table settings</h2>
+    <button type="button" class="settings-close" onclick="closeSettings()" aria-label="Close settings">&times;</button>
+  </div>
+  <p class="settings-description">Choose the columns and rows shown in course information tables.</p>
+  <label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="schedule" checked> <span>Show Term 1 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="schedule2"> <span>Show Term 2 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label>
+</aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Artificial Intelligence: Systems and Technologies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Artificial_Intelligence_Systems_and_Technologies.html">2024-25</option><option value="../../2025_26/minors/Artificial_Intelligence_Systems_and_Technologies.html" selected>2025-26</option><option value="../../2026_27/minors/Artificial_Intelligence_Systems_and_Technologies.html">2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div><nav class="page-nav" aria-label="Minor programme pagination"><a class="page-nav-prev" href="Physical_Education,_Exercise_Science_and_Health.html" aria-label="Previous minor: Physical Education, Exercise Science and Health">← Physical Education, Exercise Science and Health</a><a class="page-nav-next" href="Biomedical_Engineering.html" aria-label="Next minor: Biomedical Engineering">Biomedical Engineering →</a></nav></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Artificial Intelligence: Systems and Technologies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Artificial_Intelligence_Systems_and_Technologies.html">2024-25</option><option value="../../2025_26/minors/Artificial_Intelligence_Systems_and_Technologies.html" selected>2025-26</option><option value="../../2026_27/minors/Artificial_Intelligence_Systems_and_Technologies.html">2026-27</option></select><button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="table-settings" aria-expanded="false">&#9881; Settings</button></div></div><nav class="page-nav" aria-label="Minor programme pagination"><a class="page-nav-prev" href="Physical_Education,_Exercise_Science_and_Health.html" aria-label="Previous minor: Physical Education, Exercise Science and Health">← Physical Education, Exercise Science and Health</a><a class="page-nav-next" href="Biomedical_Engineering.html" aria-label="Next minor: Biomedical Engineering">Biomedical Engineering →</a></nav></div>
 <div class="title-row"><h1>Artificial Intelligence: Systems and Technologies &mdash; CUHK Minor Requirements (2025-26)</h1><span class="meta">Engineering</span></div>
 <div class="admit-year">Applicable to students admitted in 2025-26.</div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Required Courses : 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">CSCI3230/ESTR3108, CSCI3320</span></div></div>
-<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
-<tr class="eq-row"><td>CSCI 3230</td><td>Fundamentals of Artificial Intelligence</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3108.</span><span class="prereq-sentence">Prerequisite: CSCI2100 or 2520 or ESTR2102 or equivalent.</span></td></tr>
-<tr><td>ESTR 3108</td><td>Fundamentals of Artificial Intelligence</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken CSCI3230.</span><span class="prereq-sentence">Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent.</span></td></tr>
-<tr><td>CSCI 3320</td><td>Fundamentals of Machine Learning</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: ENGG2430 or 2450 or 2760 or 2780 or ESTR2002 or 2005 or 2018 or 2020 or 2308 or 2362 or IERG2470 or MIEG2440 or STAT2001.</span></td></tr>
+<details class="course-details"><summary>Show 3 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th class="col-term-1" title="Available in 2026-27 Term 1">T1</th><th class="col-term-2" title="Available in 2026-27 Term 2">T2</th><th class="col-t1-schedule">Term 1 Teaching schedule</th><th class="col-t2-schedule">Term 2 Teaching schedule</th><th class="col-prereq" title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr class="eq-row"><td>CSCI 3230</td><td>Fundamentals of Artificial Intelligence</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 4:15PM</span><span class="schedule-time">Th 12:30PM - 1:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 1:30PM - 2:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T02-TUT</span><span class="schedule-time">We 5:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T03-TUT</span><span class="schedule-time">Th 9:30AM - 10:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T04-TUT</span><span class="schedule-time">Th 10:30AM - 11:15AM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken ESTR3108.</span><span class="prereq-sentence">Prerequisite: CSCI2100 or 2520 or ESTR2102 or equivalent.</span></td></tr>
+<tr><td>ESTR 3108</td><td>Fundamentals of Artificial Intelligence</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 4:15PM</span><span class="schedule-time">Th 11:30AM - 12:15PM</span><span class="schedule-time">Th 12:30PM - 1:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 1:30PM - 2:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T02-TUT</span><span class="schedule-time">We 5:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T03-TUT</span><span class="schedule-time">Th 9:30AM - 10:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T04-TUT</span><span class="schedule-time">Th 10:30AM - 11:15AM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken CSCI3230.</span><span class="prereq-sentence">Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent.</span></td></tr>
+<tr><td>CSCI 3320</td><td>Fundamentals of Machine Learning</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span><span class="schedule-time">We 12:30PM - 1:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 1:30PM - 2:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">Prerequisite: ENGG2430 or 2450 or 2760 or 2780 or ESTR2002 or 2005 or 2018 or 2020 or 2308 or 2362 or IERG2470 or MIEG2440 or STAT2001.</span></td></tr>
 </tbody></table></details>
 <h2>2. Elective Courses: 12 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(at least 6 units at 3000 or above level)</span></div><div class="req-row"><span class="row-text">AIST2010, AIST3010/ESTR3112 or AIST3030/ESTR3114, AIST3120, AIST3510/SEEM3510, AIST4010/ESTR4140, BMEG3103, 3105, AIST1110 or CSCI1550 or 2040, CSCI2100/ESTR2102 or CSCI2520, CSCI3160/ESTR3104, CSCI3280, 4230, CSCI4250/ESTR4122, ENGG2760/ESTR2018 or STAT2001, ENGG2780/ESTR2020 or STAT2006 or 2102, IERG4300/ESTR4300, MAEG3080</span></div></div>
-<details class="course-details"><summary>Show 34 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
-<tr><td>AIST 2010</td><td>Introduction to Computer Music: From Analysis to Algorithmic Music</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Prerequisite: AIST1110 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102.</span></td></tr>
-<tr class="eq-row course-unavailable"><td>AIST 3010 [2]</td><td>Numerical Optimization</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ENGG1120/ESTR1005 or ENGG1130/ESTR1006 or MATH1510.</span><span class="prereq-sentence">Not for students who have taken AIST3030 or ESTR3112 or ESTR3114.</span></td></tr>
-<tr class="eq-row course-unavailable"><td>ESTR 3112 [2]</td><td>Numerical Optimization</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite: ENGG1120/ESTR1005 or ENGG1130/ESTR1006 or MATH1510.</span><span class="prereq-sentence">Not for students who have taken AIST3010 or AIST3030 or ESTR3114.</span></td></tr>
-<tr class="eq-row"><td>AIST 3030</td><td>Numerical Optimization</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510.</span><span class="prereq-sentence">Not for students who have taken AIST3010 or ESTR3112 or ESTR3114.</span></td></tr>
-<tr><td>ESTR 3114</td><td>Numerical Optimization</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510.</span><span class="prereq-sentence">Not for students who have taken AIST3010 or AIST3030 or ESTR3112.</span></td></tr>
-<tr><td>AIST 3120</td><td>Introduction to Natural Language Processing</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Prerequisite: (AIST1110 or CSCI1040 or CSCI1550 or CSCI2040) AND (ENGG1120 or ESTR1005) AND (ENGG2760 or ESTR2018).</span></td></tr>
-<tr class="eq-row"><td>AIST 3510</td><td>Human-computer Interaction</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken SEEM3510.</span></td></tr>
-<tr class="course-unavailable"><td>SEEM 3510</td><td>Human-computer Interaction</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken AIST3510.</span></td></tr>
-<tr class="eq-row"><td>AIST 4010</td><td>Foundation of Applied Deep Learning</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR4140.</span><span class="prereq-sentence">Prerequisite: CSCI3230 or CSCI3320 or ESTR3108.</span></td></tr>
-<tr><td>ESTR 4140</td><td>Foundation of Applied Deep Learning</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: CSCI3230 or CSCI3320 or ESTR3108.</span><span class="prereq-sentence">Not for students who have taken AIST4010.</span></td></tr>
-<tr><td>BMEG 3103</td><td>Big Data in HealthCare</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>BMEG 3105</td><td>Data Analytics for Personalized Genomics and Precision Medicine</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3605.</span></td></tr>
-<tr class="eq-row"><td>AIST 1110</td><td>Introduction to Computing using Python</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: ENGG1110 or ESTR1002.</span><span class="prereq-sentence">Not for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080.</span></td></tr>
-<tr class="eq-row"><td>CSCI 1550</td><td>Computer Principles and Python Programming</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENGG1110 or ENGG1120 or ENGG1130 or CSCI1040 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI2040 or AIST1110 or IERG1080.</span><span class="prereq-sentence">Not for students of Faculty of Engineering.</span></td></tr>
-<tr><td>CSCI 2040 [2]</td><td>Introduction to Python</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Pre-requisite: ENGG1110 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or ESTR1002.</span><span class="prereq-sentence">Not for students who have taken CSCI1040 or CSCI1550 or CSCI3230 or CSCI3320 or AIST1110 or IERG1080.</span></td></tr>
-<tr class="eq-row"><td>CSCI 2100</td><td>Data Structures</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ESTR2102 or CSCI2520;</span><span class="prereq-sentence">Pre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ESTR1100 or ESTR1102 or ESTR2306 or IERG2080.</span><span class="prereq-sentence">For senior-year entrants, the prerequisite will be waived.</span></td></tr>
-<tr class="eq-row"><td>ESTR 2102</td><td>Data Structures</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken CSCI2100 or CSC2520.</span><span class="prereq-sentence">Pre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ESTR1100 or ESTR1102 or ESTR2306 or IERG2080.</span><span class="prereq-sentence">For senior-year entrants, the pre-requisite will be waived.</span></td></tr>
-<tr><td>CSCI 2520</td><td>Data Structures and Applications</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CSCI2100 or ESTR2102.</span><span class="prereq-sentence">Prerequisite: CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ENGG1110 or ESTR1002 or 1100 or 1102 or MATH2221 or PHYS2061.</span></td></tr>
-<tr class="eq-row"><td>CSCI 3160</td><td>Design and Analysis of Algorithms</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ESTR3104 or CSCI3190;</span><span class="prereq-sentence">Pre-requisites: (CSCI2100 or CSCI2520 or ESTR2102) AND (CSCI2110 or ENGG2440 or ESTR2004 or ESTR2362 or MIEG2440).</span></td></tr>
-<tr class="course-unavailable"><td>ESTR 3104</td><td>Design and Analysis of Algorithms</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken CSCI3160 or CSCI3190.</span><span class="prereq-sentence">Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004.</span></td></tr>
-<tr class="course-unavailable"><td>CSCI 3280</td><td>Introduction to Multimedia Systems</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>CSCI 4230</td><td>Computational Learning Theory</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: ENGG2430 or 2450 or 2760 or 2780 or ESTR2002 or 2005 or 2018 or 2020 or 2308 or 2362 or IERG2470 or MIEG2440.</span></td></tr>
-<tr class="nf eq-row"><td>CSCI 4250</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
-<tr class="nf"><td>ESTR 4122</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
-<tr class="eq-row"><td>ENGG 2760 [2]</td><td>Probability for Engineers</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENGG2430 or 2450 or 2470 or ESTR2002 or 2005 or 2012 or 2018 or 2308 or 2362 or IERG2470 or MIEG2440.</span></td></tr>
-<tr class="eq-row"><td>ESTR 2018 [2]</td><td>Probability for Engineers</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken ENGG2430 or ENGG2450 or ENGG2470 or ENGG2760 or ESTR2002 or ESTR2005 or ESTR2012 or ESTR2308 or ESTR2362 or IERG2470 or MIEG2440.</span></td></tr>
-<tr><td>STAT 2001</td><td>Basic Concepts in Statistics and Probability I</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr class="eq-row"><td>ENGG 2780 [2]</td><td>Statistics for Engineers</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or 2020.</span><span class="prereq-sentence">Co-requisite(s): ENGG2760 or ESTR2018 or 2308 or IERG2470.</span></td></tr>
-<tr class="eq-row"><td>ESTR 2020 [2]</td><td>Statistics for Engineers</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken ENGG2430 or ENGG2450 or ENGG2780 or ESTR2002 or ESTR2005.</span><span class="prereq-sentence">Co-requisite(s): ENGG2760 or ESTR2018 or ESTR2308 or IERG2470.</span></td></tr>
-<tr class="eq-row"><td>STAT 2006</td><td>Basic Concepts in Statistics and Probability II</td><td class="term-yes"></td><td class="term-yes"></td><td><span class="prereq-sentence">Pre-requisite: STAT2001 or ENGG2760 or ESTR2018 or consent of instructor.</span></td></tr>
-<tr><td>STAT 2102</td><td>Basic Statistical Concepts and Methods II</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken or register concurrently for STAT2006.</span></td></tr>
-<tr class="eq-row"><td>IERG 4300</td><td>Web-scale Information Analytics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300.</span></td></tr>
-<tr><td>ESTR 4300</td><td>Web-scale Information Analytics</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken CSCI5510 or ENGG4030 or IERG4300.</span></td></tr>
-<tr><td>MAEG 3080</td><td>Fundamentals of Machine Intelligence</td><td></td><td class="term-yes"></td><td>—</td></tr>
+<details class="course-details"><summary>Show 34 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th class="col-term-1" title="Available in 2026-27 Term 1">T1</th><th class="col-term-2" title="Available in 2026-27 Term 2">T2</th><th class="col-t1-schedule">Term 1 Teaching schedule</th><th class="col-t2-schedule">Term 2 Teaching schedule</th><th class="col-prereq" title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>AIST 2010</td><td>Introduction to Computer Music: From Analysis to Algorithmic Music</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 9:30AM - 10:15AM</span><span class="schedule-time">Th 12:30PM - 2:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-L01-LAB</span><span class="schedule-time">We 10:30AM - 11:15AM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Prerequisite: AIST1110 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102.</span></td></tr>
+<tr class="eq-row course-unavailable"><td>AIST 3010 [2]</td><td>Numerical Optimization</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Pre-requisite: ENGG1120/ESTR1005 or ENGG1130/ESTR1006 or MATH1510.</span><span class="prereq-sentence">Not for students who have taken AIST3030 or ESTR3112 or ESTR3114.</span></td></tr>
+<tr class="eq-row course-unavailable"><td>ESTR 3112 [2]</td><td>Numerical Optimization</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Pre-requisite: ENGG1120/ESTR1005 or ENGG1130/ESTR1006 or MATH1510.</span><span class="prereq-sentence">Not for students who have taken AIST3010 or AIST3030 or ESTR3114.</span></td></tr>
+<tr class="eq-row"><td>AIST 3030</td><td>Numerical Optimization</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 10:30AM - 12:15PM</span><span class="schedule-time">We 4:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 3:30PM - 4:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510.</span><span class="prereq-sentence">Not for students who have taken AIST3010 or ESTR3112 or ESTR3114.</span></td></tr>
+<tr><td>ESTR 3114</td><td>Numerical Optimization</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 4:30PM - 5:15PM</span><span class="schedule-time">Mo 10:30AM - 12:15PM</span><span class="schedule-time">We 5:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 3:30PM - 4:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510.</span><span class="prereq-sentence">Not for students who have taken AIST3010 or AIST3030 or ESTR3112.</span></td></tr>
+<tr><td>AIST 3120</td><td>Introduction to Natural Language Processing</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-L01-LAB</span><span class="schedule-time">Th 4:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 5:30PM - 6:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">Prerequisite: (AIST1110 or CSCI1040 or CSCI1550 or CSCI2040) AND (ENGG1120 or ESTR1005) AND (ENGG2760 or ESTR2018).</span></td></tr>
+<tr class="eq-row"><td>AIST 3510</td><td>Human-computer Interaction</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Fr 9:30AM - 11:15AM</span><span class="schedule-time">Tu 1:30PM - 2:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Tu 2:30PM - 3:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken SEEM3510.</span></td></tr>
+<tr class="course-unavailable"><td>SEEM 3510</td><td>Human-computer Interaction</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken AIST3510.</span></td></tr>
+<tr class="eq-row"><td>AIST 4010</td><td>Foundation of Applied Deep Learning</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 11:30AM - 1:15PM</span><span class="schedule-time">Th 4:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 5:30PM - 6:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken ESTR4140.</span><span class="prereq-sentence">Prerequisite: CSCI3230 or CSCI3320 or ESTR3108.</span></td></tr>
+<tr><td>ESTR 4140</td><td>Foundation of Applied Deep Learning</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 11:30AM - 1:15PM</span><span class="schedule-time">Th 3:30PM - 4:15PM</span><span class="schedule-time">Th 4:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 5:30PM - 6:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Pre-requisite: CSCI3230 or CSCI3320 or ESTR3108.</span><span class="prereq-sentence">Not for students who have taken AIST4010.</span></td></tr>
+<tr><td>BMEG 3103</td><td>Big Data in HealthCare</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 9:30AM - 11:15AM</span><span class="schedule-time">Th 4:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 5:30PM - 6:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>BMEG 3105</td><td>Data Analytics for Personalized Genomics and Precision Medicine</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 9:30AM - 11:15AM</span><span class="schedule-time">Fr 9:30AM - 10:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Fr 10:30AM - 11:15AM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken ESTR3605.</span></td></tr>
+<tr class="eq-row"><td>AIST 1110</td><td>Introduction to Computing using Python</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 12:30PM - 2:15PM</span><span class="schedule-time">Th 10:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-L01-LAB</span><span class="schedule-time">Th 11:30AM - 12:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">Pre-requisite: ENGG1110 or ESTR1002.</span><span class="prereq-sentence">Not for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080.</span></td></tr>
+<tr class="eq-row"><td>CSCI 1550</td><td>Computer Principles and Python Programming</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span><span class="schedule-time">We 2:30PM - 3:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 3:30PM - 4:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken ENGG1110 or ENGG1120 or ENGG1130 or CSCI1040 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI2040 or AIST1110 or IERG1080.</span><span class="prereq-sentence">Not for students of Faculty of Engineering.</span></td></tr>
+<tr><td>CSCI 2040 [2]</td><td>Introduction to Python</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 11:30AM - 1:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-L01-LAB</span><span class="schedule-time">Tu 1:30PM - 2:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Pre-requisite: ENGG1110 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or ESTR1002.</span><span class="prereq-sentence">Not for students who have taken CSCI1040 or CSCI1550 or CSCI3230 or CSCI3320 or AIST1110 or IERG1080.</span></td></tr>
+<tr class="eq-row"><td>CSCI 2100</td><td>Data Structures</td><td class="col-term-1 term-yes"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">A-LEC</span><span class="schedule-time">Tu 2:30PM - 4:15PM</span><span class="schedule-time">Th 2:30PM - 3:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT01-TUT</span><span class="schedule-time">Tu 10:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">AT02-TUT</span><span class="schedule-time">Tu 12:30PM - 1:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">B-LEC</span><span class="schedule-time">Tu 9:30AM - 11:15AM</span><span class="schedule-time">We 3:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">BT01-TUT</span><span class="schedule-time">We 4:30PM - 6:15PM</span></div></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">A-LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span><span class="schedule-time">We 2:30PM - 3:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT01-TUT</span><span class="schedule-time">Tu 3:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT02-TUT</span><span class="schedule-time">Tu 5:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">B-LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span><span class="schedule-time">Tu 2:30PM - 3:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">BT01-TUT</span><span class="schedule-time">Tu 3:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">BT02-TUT</span><span class="schedule-time">Tu 5:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">C-LEC</span><span class="schedule-time">Th 2:30PM - 3:15PM</span><span class="schedule-time">Mo 9:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">CT01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken ESTR2102 or CSCI2520;</span><span class="prereq-sentence">Pre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ESTR1100 or ESTR1102 or ESTR2306 or IERG2080.</span><span class="prereq-sentence">For senior-year entrants, the prerequisite will be waived.</span></td></tr>
+<tr class="eq-row"><td>ESTR 2102</td><td>Data Structures</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">B-LEC</span><span class="schedule-time">Tu 9:30AM - 11:15AM</span><span class="schedule-time">We 3:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">BT01-TUT</span><span class="schedule-time">We 4:30PM - 6:15PM</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken CSCI2100 or CSC2520.</span><span class="prereq-sentence">Pre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ESTR1100 or ESTR1102 or ESTR2306 or IERG2080.</span><span class="prereq-sentence">For senior-year entrants, the pre-requisite will be waived.</span></td></tr>
+<tr><td>CSCI 2520</td><td>Data Structures and Applications</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 2:30PM - 4:15PM</span><span class="schedule-time">Tu 3:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Tu 2:30PM - 3:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken CSCI2100 or ESTR2102.</span><span class="prereq-sentence">Prerequisite: CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ENGG1110 or ESTR1002 or 1100 or 1102 or MATH2221 or PHYS2061.</span></td></tr>
+<tr class="eq-row"><td>CSCI 3160</td><td>Design and Analysis of Algorithms</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 1:30PM - 3:15PM</span><span class="schedule-time">Th 1:30PM - 2:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 9:30AM - 10:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T02-TUT</span><span class="schedule-time">Th 10:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T03-TUT</span><span class="schedule-time">Th 4:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T04-TUT</span><span class="schedule-time">Th 5:30PM - 6:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken ESTR3104 or CSCI3190;</span><span class="prereq-sentence">Pre-requisites: (CSCI2100 or CSCI2520 or ESTR2102) AND (CSCI2110 or ENGG2440 or ESTR2004 or ESTR2362 or MIEG2440).</span></td></tr>
+<tr class="course-unavailable"><td>ESTR 3104</td><td>Design and Analysis of Algorithms</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken CSCI3160 or CSCI3190.</span><span class="prereq-sentence">Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102, AND CSCI2110 or ENGG2440 or ESTR2004.</span></td></tr>
+<tr class="course-unavailable"><td>CSCI 3280</td><td>Introduction to Multimedia Systems</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>CSCI 4230</td><td>Computational Learning Theory</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Prerequisite: ENGG2430 or 2450 or 2760 or 2780 or ESTR2002 or 2005 or 2018 or 2020 or 2308 or 2362 or IERG2470 or MIEG2440.</span></td></tr>
+<tr class="nf eq-row"><td>CSCI 4250</td><td colspan="6"><em>(not found in course_info)</em></td></tr>
+<tr class="nf"><td>ESTR 4122</td><td colspan="6"><em>(not found in course_info)</em></td></tr>
+<tr class="eq-row"><td>ENGG 2760 [2]</td><td>Probability for Engineers</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">A-LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT02-TUT</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT03-TUT</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT04-TUT</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT05-TUT</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">B-LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">BT01-TUT</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">C-LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">CT01-TUT</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">D-LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">DT01-TUT</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken ENGG2430 or 2450 or 2470 or ESTR2002 or 2005 or 2012 or 2018 or 2308 or 2362 or IERG2470 or MIEG2440.</span></td></tr>
+<tr class="eq-row"><td>ESTR 2018 [2]</td><td>Probability for Engineers</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span><span class="schedule-time">We 6:30PM - 7:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken ENGG2430 or ENGG2450 or ENGG2470 or ENGG2760 or ESTR2002 or ESTR2005 or ESTR2012 or ESTR2308 or ESTR2362 or IERG2470 or MIEG2440.</span></td></tr>
+<tr><td>STAT 2001</td><td>Basic Concepts in Statistics and Probability I</td><td class="col-term-1 term-yes"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">A-LEC</span><span class="schedule-time">Mo 11:30AM - 12:15PM</span><span class="schedule-time">We 12:30PM - 2:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT01-TUT</span><span class="schedule-time">TBA</span></div><div class="schedule-section"><span class="schedule-section-name">B-LEC</span><span class="schedule-time">We 9:30AM - 11:15AM</span><span class="schedule-time">Mo 1:30PM - 2:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">BT01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">C-LEC</span><span class="schedule-time">Th 1:30PM - 2:15PM</span><span class="schedule-time">We 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">CT01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr class="eq-row"><td>ENGG 2780 [2]</td><td>Statistics for Engineers</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">A-LEC</span><span class="schedule-time">Mo 12:30PM - 2:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT01-TUT</span><span class="schedule-time">We 12:30PM - 2:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">B-LEC</span><span class="schedule-time">Mo 12:30PM - 2:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">BT01-TUT</span><span class="schedule-time">We 12:30PM - 2:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or 2020.</span><span class="prereq-sentence">Co-requisite(s): ENGG2760 or ESTR2018 or 2308 or IERG2470.</span></td></tr>
+<tr class="eq-row"><td>ESTR 2020 [2]</td><td>Statistics for Engineers</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 11:30AM - 12:15PM</span><span class="schedule-time">Mo 12:30PM - 2:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 12:30PM - 2:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken ENGG2430 or ENGG2450 or ENGG2780 or ESTR2002 or ESTR2005.</span><span class="prereq-sentence">Co-requisite(s): ENGG2760 or ESTR2018 or ESTR2308 or IERG2470.</span></td></tr>
+<tr class="eq-row"><td>STAT 2006</td><td>Basic Concepts in Statistics and Probability II</td><td class="col-term-1 term-yes"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">A-LEC</span><span class="schedule-time">Mo 2:30PM - 4:15PM</span><span class="schedule-time">We 12:30PM - 1:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">AT01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">B-LEC</span><span class="schedule-time">Mo 2:30PM - 4:15PM</span><span class="schedule-time">Th 12:30PM - 1:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">BT01-TUT</span><span class="schedule-time">TBA</span></div><div class="schedule-section"><span class="schedule-section-name">C-LEC</span><span class="schedule-time">Mo 11:30AM - 1:15PM</span><span class="schedule-time">Th 11:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">CT01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq"><span class="prereq-sentence">Pre-requisite: STAT2001 or ENGG2760 or ESTR2018 or consent of instructor.</span></td></tr>
+<tr><td>STAT 2102</td><td>Basic Statistical Concepts and Methods II</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 2:30PM - 5:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken or register concurrently for STAT2006.</span></td></tr>
+<tr class="eq-row"><td>IERG 4300</td><td>Web-scale Information Analytics</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 9:30AM - 11:15AM</span><span class="schedule-time">Fr 9:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300.</span></td></tr>
+<tr><td>ESTR 4300</td><td>Web-scale Information Analytics</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 9:30AM - 11:15AM</span><span class="schedule-time">Fr 9:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken CSCI5510 or ENGG4030 or IERG4300.</span></td></tr>
+<tr><td>MAEG 3080</td><td>Fundamentals of Machine Intelligence</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 10:30AM - 11:15AM</span><span class="schedule-time">We 9:30AM - 11:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">This Minor Programme is not applicable to students who major in Computational Data Science, Computer Engineering, Computer Science, the Bachelor of Engineering (Computer Engineering) and Bachelor of Business Administration (Integrated BBA programme) Double Degree Option, the Bachelor of Science (Computer Science) and Bachelor of Business Administration (Integrated BBA Programme) Double Degree Option; and students in the Mathematics-Multidisciplinary Stream of Mathematics Major Programme.</span></div>
@@ -372,6 +413,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
   <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&tv=F&lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
   <span> &middot; </span>
   <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
+  <span> &middot; Latest course teaching schedule update: 2026/9/13</span>
 </div>
   </div>
 </main>
@@ -395,36 +437,59 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       localStorage.setItem('sidebarCollapsed', JSON.stringify(closed));
     });
   }
-  // Prerequisite toggle
-  var prereqBtn = document.getElementById('prereq-toggle');
-  if (prereqBtn) {
-    if (localStorage.getItem('hidePrereq') === 'true') {
-      document.body.classList.add('prereq-hidden');
-      prereqBtn.textContent = 'Show Prerequisites';
-    }
-    prereqBtn.addEventListener('click', function(){
-      var hidden = document.body.classList.toggle('prereq-hidden');
-      localStorage.setItem('hidePrereq', hidden);
-      prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
-    });
+  var savedSettings;
+  try { savedSettings = JSON.parse(localStorage.getItem('minorTableSettings') || '{}'); }
+  catch (e) { savedSettings = {}; }
+  if (savedSettings.prerequisites === undefined) {
+    savedSettings.prerequisites = localStorage.getItem('hidePrereq') !== 'true';
   }
-  // Course availability toggle. A course is unavailable only when neither
-  // 2026/27 teaching term is marked as offered in the course catalogue.
-  var availabilityBtn = document.getElementById('availability-toggle');
-  if (availabilityBtn) {
-    if (localStorage.getItem('hideUnavailable') === 'true') {
-      document.body.classList.add('unavailable-hidden');
-      availabilityBtn.textContent = 'Show Unavailable';
-      availabilityBtn.setAttribute('aria-pressed', 'false');
-    }
-    availabilityBtn.addEventListener('click', function(){
-      var hidden = document.body.classList.toggle('unavailable-hidden');
-      localStorage.setItem('hideUnavailable', hidden);
-      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
-      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
-    });
+  if (savedSettings.unavailable === undefined) {
+    savedSettings.unavailable = localStorage.getItem('hideUnavailable') !== 'true';
   }
+  var defaults = {term1:true, term2:true, prerequisites:true, schedule:true, schedule2:false, unavailable:true};
+  Object.keys(defaults).forEach(function(key){
+    var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
+    if (!checkbox) return;
+    checkbox.checked = savedSettings[key] === undefined ? defaults[key] : !!savedSettings[key];
+    checkbox.addEventListener('change', applyTableSettings);
+  });
+  applyTableSettings();
 })();
+
+function applyTableSettings() {
+  var classes = {
+    term1:'hide-term-1', term2:'hide-term-2', prerequisites:'prereq-hidden',
+    schedule:'hide-t1-schedule', schedule2:'hide-t2-schedule', unavailable:'unavailable-hidden'
+  };
+  var settings = {};
+  Object.keys(classes).forEach(function(key){
+    var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
+    var shown = checkbox ? checkbox.checked : true;
+    settings[key] = shown;
+    document.body.classList.toggle(classes[key], !shown);
+  });
+  localStorage.setItem('minorTableSettings', JSON.stringify(settings));
+}
+
+function setSettingsOpen(open) {
+  var panel = document.querySelector('.settings-panel');
+  var overlay = document.querySelector('.settings-overlay');
+  var button = document.querySelector('.settings-toggle');
+  if (!panel || !overlay) return;
+  if (open) closeSidebar();
+  panel.classList.toggle('open', open);
+  overlay.classList.toggle('open', open);
+  document.body.classList.toggle('settings-open', open);
+  panel.setAttribute('aria-hidden', String(!open));
+  if (button) button.setAttribute('aria-expanded', String(open));
+}
+
+function toggleSettings() {
+  var panel = document.querySelector('.settings-panel');
+  if (panel) setSettingsOpen(!panel.classList.contains('open'));
+}
+
+function closeSettings() { setSettingsOpen(false); }
 
 // Prevent sidebar from navigating when clicking the already-active minor
 document.querySelectorAll('.sidebar a').forEach(function(link) {
@@ -448,6 +513,7 @@ function setSidebarOpen(open) {
   var sidebar = document.querySelector('.sidebar');
   var overlay = document.querySelector('.sidebar-overlay');
   if (!sidebar || !overlay) return;
+  if (open) closeSettings();
   sidebar.classList.toggle('open', open);
   overlay.classList.toggle('open', open);
   document.body.classList.toggle('sidebar-open', open);
@@ -458,7 +524,7 @@ function setSidebarOpen(open) {
 }
 
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeSidebar();
+  if (e.key === 'Escape') { closeSidebar(); closeSettings(); }
 });
 </script>
 </body>

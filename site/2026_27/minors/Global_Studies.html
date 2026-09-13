@@ -41,11 +41,21 @@ table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
-th:nth-child(3), td:nth-child(3) { white-space:nowrap; text-align:center;
-    border-left:1px solid var(--tbl-border); }
-th:nth-child(4), td:nth-child(4) { white-space:nowrap; text-align:center;
-    border-right:1px solid var(--tbl-border); }
-td:nth-child(5) { word-break:normal; overflow-wrap:anywhere; }
+.col-term-1, .col-term-2 { white-space:nowrap; text-align:center;
+    width:54px; border-left:1px solid var(--tbl-border); }
+.col-term-2 { border-right:1px solid var(--tbl-border); }
+.col-t1-schedule, .col-t2-schedule { min-width:190px; max-width:300px; }
+.col-prereq { min-width:180px; word-break:normal; overflow-wrap:anywhere; }
+body.hide-term-1 .col-term-1,
+body.hide-term-2 .col-term-2,
+body.hide-t1-schedule .col-t1-schedule,
+body.hide-t2-schedule .col-t2-schedule,
+body.prereq-hidden .col-prereq { display:none; }
+.schedule-section + .schedule-section { margin-top:7px; padding-top:7px;
+    border-top:1px solid var(--tbl-border-light); }
+.schedule-section-name { display:block; font-weight:600; color:#374151; }
+.schedule-time { display:block; line-height:1.35; white-space:nowrap; }
+.schedule-empty { color:var(--muted); }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
@@ -121,6 +131,29 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
     opacity:0; visibility:hidden; pointer-events:none; transition:opacity .25s,visibility .25s; }
 .sidebar-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
 body.sidebar-open { overflow:hidden; }
+.settings-toggle { display:inline-flex; align-items:center; gap:5px; font-size:.85em;
+    padding:5px 12px; border:1px solid var(--border); border-radius:6px;
+    background:var(--card); color:var(--text); cursor:pointer; font-family:inherit;
+    transition:background .15s,color .15s,border-color .15s; }
+.settings-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+.settings-overlay { position:fixed; inset:0; background:rgba(0,0,0,.25); z-index:108;
+    opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s,visibility .2s; }
+.settings-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
+.settings-panel { position:fixed; inset:0 0 0 auto; z-index:109; width:min(360px,calc(100vw - 60px));
+    height:100vh; padding:18px; overflow:auto; background:var(--card);
+    border-left:1px solid var(--border); box-shadow:none; transform:translateX(100%);
+    transition:transform .25s,box-shadow .25s; }
+.settings-panel.open { transform:translateX(0); box-shadow:-2px 0 12px rgba(0,0,0,.15); }
+.settings-header { display:flex; align-items:center; justify-content:space-between;
+    gap:12px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+.settings-header h2 { margin:0; padding:0; border:0; font-size:1.15em; }
+.settings-close { border:1px solid var(--border); border-radius:6px; background:var(--card);
+    padding:3px 9px; font-size:1.25em; line-height:1; cursor:pointer; }
+.settings-description { margin:14px 0 10px; color:var(--muted); font-size:.88em; }
+.setting-option { display:flex; align-items:flex-start; gap:10px; padding:9px 4px;
+    cursor:pointer; border-bottom:1px solid var(--tbl-border-light); }
+.setting-option input { margin-top:.3em; flex:none; }
+body.settings-open { overflow:hidden; }
 .content { flex:1; min-width:0; }
 .content-inner { max-width:1800px; margin:0 auto;
     padding:20px clamp(42px, 6vw, 96px); }
@@ -149,9 +182,10 @@ body.sidebar-open { overflow:hidden; }
     .meta { white-space:normal; }
     .card { flex-wrap:wrap; }
     th:first-child, td:first-child { white-space:normal; max-width:6em; }
-    th:nth-child(3), td:nth-child(3) { white-space:normal; }
+    .col-term-1, .col-term-2 { white-space:normal; }
     th, td { padding:6px 8px; font-size:0.82em; }
     .notes-table-section { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .course-details { overflow-x:auto; -webkit-overflow-scrolling:touch; }
     .notes-table-section table { width:auto !important; max-width:none; }
     .notes-table-section td { white-space:normal; overflow-wrap:break-word; }
 }
@@ -182,12 +216,6 @@ body.sidebar-open { overflow:hidden; }
 .bar-year-select { font-size:.85em; padding:4px 10px; border:1px solid var(--border);
     border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; }
 .bar-year-select:hover { border-color:var(--accent); }
-#prereq-toggle, #availability-toggle { font-size:.85em; padding:5px 12px; border:1px solid var(--border);
-    border-radius:6px; background:var(--card); color:var(--text); cursor:pointer;
-    font-family:inherit; transition:background .15s,color .15s,border-color .15s; }
-#prereq-toggle:hover, #availability-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
-body.prereq-hidden table th:nth-child(5),
-body.prereq-hidden table td:nth-child(5) { display:none; }
 @media (max-width:768px) {
     .top-bar .bar-row { display:grid; grid-template-columns:auto minmax(0, 1fr);
         align-items:center; gap:6px 8px; }
@@ -196,7 +224,7 @@ body.prereq-hidden table td:nth-child(5) { display:none; }
     .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
         white-space:normal; overflow-wrap:anywhere; }
     .page-nav { margin-top:6px; }
-    .bar-year-select, #prereq-toggle, #availability-toggle { max-width:100%; white-space:normal; }
+    .bar-year-select, .settings-toggle { max-width:100%; white-space:normal; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -311,95 +339,108 @@ var st=localStorage.getItem('sidebarScroll');
 if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 </script>
 </aside>
+<div class="settings-overlay" onclick="closeSettings()" aria-hidden="true"></div>
+<aside class="settings-panel" id="table-settings" aria-hidden="true" aria-label="Course table settings">
+  <div class="settings-header"><h2>Course table settings</h2>
+    <button type="button" class="settings-close" onclick="closeSettings()" aria-label="Close settings">&times;</button>
+  </div>
+  <p class="settings-description">Choose the columns and rows shown in course information tables.</p>
+  <label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="schedule" checked> <span>Show Term 1 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="schedule2"> <span>Show Term 2 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label>
+</aside>
 <main class="content">
   <div class="content-inner">
-<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Global Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Global_Studies.html">2024-25</option><option value="../../2025_26/minors/Global_Studies.html">2025-26</option><option value="../../2026_27/minors/Global_Studies.html" selected>2026-27</option></select><button id="availability-toggle" type="button" aria-pressed="true">Hide Unavailable</button><button id="prereq-toggle">Hide Prerequisites</button></div></div><nav class="page-nav" aria-label="Minor programme pagination"><a class="page-nav-prev" href="Global_Communication.html" aria-label="Previous minor: Global Communication">← Global Communication</a><a class="page-nav-next" href="Government_and_Public_Administration.html" aria-label="Next minor: Government and Public Administration">Government and Public Administration →</a></nav></div>
+<div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; Global Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Global_Studies.html">2024-25</option><option value="../../2025_26/minors/Global_Studies.html">2025-26</option><option value="../../2026_27/minors/Global_Studies.html" selected>2026-27</option></select><button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="table-settings" aria-expanded="false">&#9881; Settings</button></div></div><nav class="page-nav" aria-label="Minor programme pagination"><a class="page-nav-prev" href="Global_Communication.html" aria-label="Previous minor: Global Communication">← Global Communication</a><a class="page-nav-next" href="Government_and_Public_Administration.html" aria-label="Next minor: Government and Public Administration">Government and Public Administration →</a></nav></div>
 <div class="title-row"><h1>Global Studies &mdash; CUHK Minor Requirements (2026-27)</h1><span class="meta">Social Science</span></div>
 <div class="admit-year">Applicable to students admitted in 2026-27.</div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level, as follows:</pre></div>
 <h2>1. Elective Courses: 18 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">(a) Any two courses from the following:</span><span class="meta">(6 units)</span></div><div class="req-row"><span class="row-text">GLSD1001, 2001, 2101, 2201, 2401, 2501</span></div></div>
-<details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
-<tr><td>GLSD 1001</td><td>Theoretical Perspectives on Globalization</td><td class="term-yes"></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GLSD 2001</td><td>Research Methods for Global Studies</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>GLSD 2101</td><td>Global Communication</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>GLSD 2201</td><td>Globalization, Cultures and Societies</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken UGEC2351, UGEC2990, GEWS2091 or ANTH2520.</span></td></tr>
-<tr><td>GLSD 2401</td><td>Global Sustainability</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">Not for students who have taken GRMD2401, UGEC2171, 2354 or 2775.</span></td></tr>
-<tr><td>GLSD 2501</td><td>World Economic Order</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
+<details class="course-details"><summary>Show 6 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th class="col-term-1" title="Available in 2026-27 Term 1">T1</th><th class="col-term-2" title="Available in 2026-27 Term 2">T2</th><th class="col-t1-schedule">Term 1 Teaching schedule</th><th class="col-t2-schedule">Term 2 Teaching schedule</th><th class="col-prereq" title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>GLSD 1001</td><td>Theoretical Perspectives on Globalization</td><td class="col-term-1 term-yes"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">A-LEC</span><span class="schedule-time">Th 10:30AM - 1:15PM</span></div></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">B-LEC</span><span class="schedule-time">We 2:30PM - 5:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 2001</td><td>Research Methods for Global Studies</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 2:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 2101</td><td>Global Communication</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 10:30AM - 1:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 2201</td><td>Globalization, Cultures and Societies</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 1:30PM - 4:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken UGEC2351, UGEC2990, GEWS2091 or ANTH2520.</span></td></tr>
+<tr><td>GLSD 2401</td><td>Global Sustainability</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 2:30PM - 5:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken GRMD2401, UGEC2171, 2354 or 2775.</span></td></tr>
+<tr><td>GLSD 2501</td><td>World Economic Order</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
 </tbody></table></details>
 <div class="section"><div class="req-row"><span class="row-text">(b) Any four courses selected from the following, with at least two GLSD courses at 3000 or above level:</span><span class="meta">(12 units)</span></div><div class="req-row"><span class="row-text">ARCH3424, 4721, COMM3941, 4191, ECON3320, 3350, 3370, GDRS2002, 3005, 3012, 4011, GLSD2701, 3101, 3102, 3105, 3106, 3111, 3201, 3211, 3301, 3302, 3303, 3311, 3401, 3402, 3403, 3404, 3411, 3501, 3511, 3701, 3801, 4102, 4104, 4401, 4402, GPAD2120, 2185, 2300, 2345, 2350, 2355, 2370, 2375, 2395, 2450, 3040, 3071, 3160, 3161, 3190, 3220, 3360, 3365, 3451, 4142, 4225, GRMD2321, 3202, 3203, 3224, 3404, 4402, PSYC3610, SOWK3340, 4550, URSP2100, 2200, 2400, 3300</span></div></div>
-<details class="course-details"><summary>Show 70 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th title="Available in 2026-27 Term 1">T1</th><th title="Available in 2026-27 Term 2">T2</th><th title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
-<tr><td>ARCH 3424</td><td>Building Technology III: Environmental Technology</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>ARCH 4721</td><td>Land and City</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken ARCH3721.</span></td></tr>
-<tr class="course-unavailable"><td>COMM 3941</td><td>New Media and Entertainment Business</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>COMM 4191</td><td>Cultural Studies and Popular Culture</td><td></td><td></td><td>—</td></tr>
-<tr><td>ECON 3320</td><td>Asia-Pacific Economies</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>ECON 3350</td><td>China and the World Economy</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>ECON 3370</td><td>Business Environment of China</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GDRS 2002</td><td>Sexuality and Culture</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GDRS 3005</td><td>Gender and Sexuality in Contemporary Society</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GDRS 3012</td><td>Engendering Chinese Cultures</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GDRS 4011</td><td>Gendered Migration in Transnational Asia and beyond</td><td></td><td></td><td>—</td></tr>
-<tr><td>GLSD 2701</td><td>Field Studies</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GLSD 3101</td><td>ICT & Society</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GLSD 3102</td><td>Analysis of Global Popular Culture</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken COMM4191.</span></td></tr>
-<tr><td>GLSD 3105</td><td>Understanding Global Cities and Urban Space</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GLSD 3106</td><td>The Rise of China in the Global Context I: Diplomacy, Trade and Soft Power</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr class="course-unavailable"><td>GLSD 3111</td><td>Special Topic in Global Media</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GLSD 3201</td><td>Cultural Psychology and Globalization</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GLSD 3211</td><td>Special Topic in Cultures and Societies</td><td></td><td></td><td>—</td></tr>
-<tr><td>GLSD 3301</td><td>International Relations and International Law</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GLSD 3302</td><td>Sports and World Politics</td><td></td><td></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>GLSD 3303</td><td>Understanding Global Issues from Movies</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GLSD 3311</td><td>Special Topic in World Politics</td><td></td><td></td><td>—</td></tr>
-<tr><td>GLSD 3401</td><td>Global Environmental Challenges</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr class="course-unavailable"><td>GLSD 3402</td><td>Korea and the World: Politics, Economy and Culture</td><td></td><td></td><td>—</td></tr>
-<tr><td>GLSD 3403</td><td>European Union and the World</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>GLSD 3404</td><td>Japan and Global Political Economy</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>GLSD 3411</td><td>Special Topic in Sustainability and Environment</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>GLSD 3501</td><td>Global Business Organizations</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GLSD 3511</td><td>Special Topic in Global Economy</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GLSD 3701</td><td>Collaborative Project on Global Issues</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GLSD 3801</td><td>Social Innovation and Sustainable Development</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GLSD 4102</td><td>Developmental Study: Poverty, Inequality and Welfare of the World</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GLSD 4104</td><td>Global Development: Markets, States, Societies and IOs</td><td></td><td></td><td>—</td></tr>
-<tr><td>GLSD 4401</td><td>Traditional Security: Military, War and Peace</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GLSD 4402</td><td>New Security Challenges: Terrorism, Ethnic Conflicts and Human Trafficking</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GPAD 2120</td><td>Democracies in the West</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GPAD1020 or exemption granted.</span></td></tr>
-<tr class="course-unavailable"><td>GPAD 2185</td><td>International Organizations</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GPAD 2300</td><td>Understanding Human Rights</td><td></td><td></td><td>—</td></tr>
-<tr><td>GPAD 2345</td><td>International Politics</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken GLSD2301 or UGEC2352.</span></td></tr>
-<tr class="course-unavailable"><td>GPAD 2350</td><td>Chinese Foreign Policy</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GPAD 2355</td><td>Globalization and Politics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken GLSD2301 or UGEC2352.</span></td></tr>
-<tr><td>GPAD 2370</td><td>Taiwan Studies</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken GPAD3370.</span></td></tr>
-<tr class="course-unavailable"><td>GPAD 2375</td><td>Asian International Relations</td><td></td><td></td><td>—</td></tr>
-<tr><td>GPAD 2395</td><td>Asian Comparative Politics</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GPAD 2450</td><td>Introduction to Political Economy</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GPAD 3040</td><td>Democratization</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GPAD 3071</td><td>Gender and Politics</td><td></td><td></td><td>—</td></tr>
-<tr><td>GPAD 3160</td><td>Governance of European Union</td><td class="term-yes"></td><td></td><td><span class="prereq-sentence">Not for students who have taken GLBS3403 or GLSD3403.</span></td></tr>
-<tr class="course-unavailable"><td>GPAD 3161</td><td>The Rise of Populism in Europe</td><td></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>GPAD 3190</td><td>Politics of Development</td><td></td><td></td><td>—</td></tr>
-<tr><td>GPAD 3220</td><td>Politics of Space</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr class="course-unavailable"><td>GPAD 3360</td><td>Global Environmental Politics</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken GLSD2401 or GLSD3401.</span></td></tr>
-<tr class="course-unavailable"><td>GPAD 3365</td><td>Ethics and International Affairs</td><td></td><td></td><td><span class="prereq-sentence">Prerequisite: GPAD1095.</span></td></tr>
-<tr class="course-unavailable"><td>GPAD 3451</td><td>International Political Economy</td><td></td><td></td><td><span class="prereq-sentence">Not for students who have taken GPAD2451 or GLSD2501.</span></td></tr>
-<tr class="course-unavailable"><td>GPAD 4142</td><td>Seminar in Comparative Politics</td><td></td><td></td><td>—</td></tr>
-<tr><td>GPAD 4225</td><td>Theories of International Relations</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 2321</td><td>Economic Geography</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 3202</td><td>Environmental Management</td><td></td><td class="term-yes"></td><td><span class="prereq-sentence">-.</span></td></tr>
-<tr><td>GRMD 3203</td><td>Urban Environmental Problems</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>GRMD 3224</td><td>Tourism Planning and Management</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>GRMD 3404</td><td>Natural Hazards and Human Responses</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr class="nf"><td>GRMD 4402</td><td colspan="4"><em>(not found in course_info)</em></td></tr>
-<tr class="course-unavailable"><td>PSYC 3610</td><td>Culture and Psychology</td><td></td><td></td><td><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken PSYC1620.</span></td></tr>
-<tr><td>SOWK 3340</td><td>Social Policy and Planning</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>SOWK 4550</td><td>Seminar V: Poverty and Social Exclusion</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>URSP 2100</td><td>Urban Sustainability</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr><td>URSP 2200</td><td>Urban Economic Studies</td><td></td><td class="term-yes"></td><td>—</td></tr>
-<tr><td>URSP 2400</td><td>Studies of Cities in Comparative Perspective</td><td class="term-yes"></td><td></td><td>—</td></tr>
-<tr class="course-unavailable"><td>URSP 3300</td><td>Sustainable Urban Transport</td><td></td><td></td><td>—</td></tr>
+<details class="course-details"><summary>Show 70 course(s) →</summary><table><thead><tr><th title="Course code — [units] shown only when not 3">Code</th><th title="Course title">Title</th><th class="col-term-1" title="Available in 2026-27 Term 1">T1</th><th class="col-term-2" title="Available in 2026-27 Term 2">T2</th><th class="col-t1-schedule">Term 1 Teaching schedule</th><th class="col-t2-schedule">Term 2 Teaching schedule</th><th class="col-prereq" title="Enrollment requirements">Prerequisites</th></tr></thead><tbody>
+<tr><td>ARCH 3424</td><td>Building Technology III: Environmental Technology</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 8:30AM - 1:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>ARCH 4721</td><td>Land and City</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken ARCH3721.</span></td></tr>
+<tr class="course-unavailable"><td>COMM 3941</td><td>New Media and Entertainment Business</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>COMM 4191</td><td>Cultural Studies and Popular Culture</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>ECON 3320</td><td>Asia-Pacific Economies</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 8:30AM - 11:15AM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>ECON 3350</td><td>China and the World Economy</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 5:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>ECON 3370</td><td>Business Environment of China</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GDRS 2002</td><td>Sexuality and Culture</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GDRS 3005</td><td>Gender and Sexuality in Contemporary Society</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GDRS 3012</td><td>Engendering Chinese Cultures</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GDRS 4011</td><td>Gendered Migration in Transnational Asia and beyond</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 2701</td><td>Field Studies</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">-F01-FLD</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 3101</td><td>ICT & Society</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 5:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GLSD 3102</td><td>Analysis of Global Popular Culture</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken COMM4191.</span></td></tr>
+<tr><td>GLSD 3105</td><td>Understanding Global Cities and Urban Space</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 10:30AM - 1:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 3106</td><td>The Rise of China in the Global Context I: Diplomacy, Trade and Soft Power</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 2:30PM - 5:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>GLSD 3111</td><td>Special Topic in Global Media</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GLSD 3201</td><td>Cultural Psychology and Globalization</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GLSD 3211</td><td>Special Topic in Cultures and Societies</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 3301</td><td>International Relations and International Law</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 10:30AM - 1:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GLSD 3302</td><td>Sports and World Politics</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>GLSD 3303</td><td>Understanding Global Issues from Movies</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 10:30AM - 1:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GLSD 3311</td><td>Special Topic in World Politics</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 3401</td><td>Global Environmental Challenges</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 10:30AM - 1:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>GLSD 3402</td><td>Korea and the World: Politics, Economy and Culture</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 3403</td><td>European Union and the World</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 10:30AM - 1:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>GLSD 3404</td><td>Japan and Global Political Economy</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 3411</td><td>Special Topic in Sustainability and Environment</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 3501</td><td>Global Business Organizations</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 5:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 3511</td><td>Special Topic in Global Economy</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 10:30AM - 1:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GLSD 3701</td><td>Collaborative Project on Global Issues</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GLSD 3801</td><td>Social Innovation and Sustainable Development</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GLSD 4102</td><td>Developmental Study: Poverty, Inequality and Welfare of the World</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GLSD 4104</td><td>Global Development: Markets, States, Societies and IOs</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GLSD 4401</td><td>Traditional Security: Military, War and Peace</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 2:30PM - 5:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GLSD 4402</td><td>New Security Challenges: Terrorism, Ethnic Conflicts and Human Trafficking</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GPAD 2120</td><td>Democracies in the West</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Prerequisite: GPAD1020 or exemption granted.</span></td></tr>
+<tr class="course-unavailable"><td>GPAD 2185</td><td>International Organizations</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GPAD 2300</td><td>Understanding Human Rights</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GPAD 2345</td><td>International Politics</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 9:30AM - 12:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken GLSD2301 or UGEC2352.</span></td></tr>
+<tr class="course-unavailable"><td>GPAD 2350</td><td>Chinese Foreign Policy</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GPAD 2355</td><td>Globalization and Politics</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken GLSD2301 or UGEC2352.</span></td></tr>
+<tr><td>GPAD 2370</td><td>Taiwan Studies</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 11:30AM - 1:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T02-TUT</span><span class="schedule-time">Th 2:30PM - 4:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken GPAD3370.</span></td></tr>
+<tr class="course-unavailable"><td>GPAD 2375</td><td>Asian International Relations</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GPAD 2395</td><td>Asian Comparative Politics</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 10:30AM - 1:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GPAD 2450</td><td>Introduction to Political Economy</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GPAD 3040</td><td>Democratization</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GPAD 3071</td><td>Gender and Politics</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GPAD 3160</td><td>Governance of European Union</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 3:30PM - 6:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken GLBS3403 or GLSD3403.</span></td></tr>
+<tr class="course-unavailable"><td>GPAD 3161</td><td>The Rise of Populism in Europe</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>GPAD 3190</td><td>Politics of Development</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GPAD 3220</td><td>Politics of Space</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 10:30AM - 1:15PM</span></div></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr class="course-unavailable"><td>GPAD 3360</td><td>Global Environmental Politics</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken GLSD2401 or GLSD3401.</span></td></tr>
+<tr class="course-unavailable"><td>GPAD 3365</td><td>Ethics and International Affairs</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Prerequisite: GPAD1095.</span></td></tr>
+<tr class="course-unavailable"><td>GPAD 3451</td><td>International Political Economy</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Not for students who have taken GPAD2451 or GLSD2501.</span></td></tr>
+<tr class="course-unavailable"><td>GPAD 4142</td><td>Seminar in Comparative Politics</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GPAD 4225</td><td>Theories of International Relations</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">-S01-SEM</span><span class="schedule-time">Th 3:30PM - 6:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 2321</td><td>Economic Geography</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 8:30AM - 10:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 3202</td><td>Environmental Management</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Mo 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq"><span class="prereq-sentence">-.</span></td></tr>
+<tr><td>GRMD 3203</td><td>Urban Environmental Problems</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 8:30AM - 10:15AM</span></div><div class="schedule-section"><span class="schedule-section-name">-L01-LAB</span><span class="schedule-time">TBA</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 3224</td><td>Tourism Planning and Management</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-F01-FLD</span><span class="schedule-time">TBA</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>GRMD 3404</td><td>Natural Hazards and Human Responses</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">TBA</span></div></td><td class="col-prereq">—</td></tr>
+<tr class="nf"><td>GRMD 4402</td><td colspan="6"><em>(not found in course_info)</em></td></tr>
+<tr class="course-unavailable"><td>PSYC 3610</td><td>Culture and Psychology</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">Pre-requisite(s): PSYC1000 or UGED2581.</span><span class="prereq-sentence">Not for students who have taken PSYC1620.</span></td></tr>
+<tr><td>SOWK 3340</td><td>Social Policy and Planning</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Th 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T02-TUT</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T03-TUT</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T04-TUT</span><span class="schedule-time">Th 4:30PM - 6:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>SOWK 4550</td><td>Seminar V: Poverty and Social Exclusion</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 3:30PM - 6:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2100</td><td>Urban Sustainability</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Tu 4:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2200</td><td>Urban Economic Studies</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">Tu 10:30AM - 12:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">Th 1:30PM - 2:15PM</span></div></td><td class="col-prereq">—</td></tr>
+<tr><td>URSP 2400</td><td>Studies of Cities in Comparative Perspective</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-section-name">--LEC</span><span class="schedule-time">We 2:30PM - 4:15PM</span></div><div class="schedule-section"><span class="schedule-section-name">-T01-TUT</span><span class="schedule-time">We 4:30PM - 5:15PM</span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
+<tr class="course-unavailable"><td>URSP 3300</td><td>Sustainable Urban Transport</td><td class="col-term-1"></td><td class="col-term-2"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq">—</td></tr>
 </tbody></table></details>
 <h2>Explanatory Notes</h2>
 <div class="section notes-point"><span class="point-idx">1.</span><span class="point-text">Students are advised not to take courses at 3000 or above level in their first year of attendance.</span></div>
@@ -411,6 +452,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
   <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&tv=F&lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
   <span> &middot; </span>
   <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
+  <span> &middot; Latest course teaching schedule update: 2026/9/13</span>
 </div>
   </div>
 </main>
@@ -434,36 +476,59 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
       localStorage.setItem('sidebarCollapsed', JSON.stringify(closed));
     });
   }
-  // Prerequisite toggle
-  var prereqBtn = document.getElementById('prereq-toggle');
-  if (prereqBtn) {
-    if (localStorage.getItem('hidePrereq') === 'true') {
-      document.body.classList.add('prereq-hidden');
-      prereqBtn.textContent = 'Show Prerequisites';
-    }
-    prereqBtn.addEventListener('click', function(){
-      var hidden = document.body.classList.toggle('prereq-hidden');
-      localStorage.setItem('hidePrereq', hidden);
-      prereqBtn.textContent = hidden ? 'Show Prerequisites' : 'Hide Prerequisites';
-    });
+  var savedSettings;
+  try { savedSettings = JSON.parse(localStorage.getItem('minorTableSettings') || '{}'); }
+  catch (e) { savedSettings = {}; }
+  if (savedSettings.prerequisites === undefined) {
+    savedSettings.prerequisites = localStorage.getItem('hidePrereq') !== 'true';
   }
-  // Course availability toggle. A course is unavailable only when neither
-  // 2026/27 teaching term is marked as offered in the course catalogue.
-  var availabilityBtn = document.getElementById('availability-toggle');
-  if (availabilityBtn) {
-    if (localStorage.getItem('hideUnavailable') === 'true') {
-      document.body.classList.add('unavailable-hidden');
-      availabilityBtn.textContent = 'Show Unavailable';
-      availabilityBtn.setAttribute('aria-pressed', 'false');
-    }
-    availabilityBtn.addEventListener('click', function(){
-      var hidden = document.body.classList.toggle('unavailable-hidden');
-      localStorage.setItem('hideUnavailable', hidden);
-      availabilityBtn.textContent = hidden ? 'Show Unavailable' : 'Hide Unavailable';
-      availabilityBtn.setAttribute('aria-pressed', String(!hidden));
-    });
+  if (savedSettings.unavailable === undefined) {
+    savedSettings.unavailable = localStorage.getItem('hideUnavailable') !== 'true';
   }
+  var defaults = {term1:true, term2:true, prerequisites:true, schedule:true, schedule2:false, unavailable:true};
+  Object.keys(defaults).forEach(function(key){
+    var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
+    if (!checkbox) return;
+    checkbox.checked = savedSettings[key] === undefined ? defaults[key] : !!savedSettings[key];
+    checkbox.addEventListener('change', applyTableSettings);
+  });
+  applyTableSettings();
 })();
+
+function applyTableSettings() {
+  var classes = {
+    term1:'hide-term-1', term2:'hide-term-2', prerequisites:'prereq-hidden',
+    schedule:'hide-t1-schedule', schedule2:'hide-t2-schedule', unavailable:'unavailable-hidden'
+  };
+  var settings = {};
+  Object.keys(classes).forEach(function(key){
+    var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
+    var shown = checkbox ? checkbox.checked : true;
+    settings[key] = shown;
+    document.body.classList.toggle(classes[key], !shown);
+  });
+  localStorage.setItem('minorTableSettings', JSON.stringify(settings));
+}
+
+function setSettingsOpen(open) {
+  var panel = document.querySelector('.settings-panel');
+  var overlay = document.querySelector('.settings-overlay');
+  var button = document.querySelector('.settings-toggle');
+  if (!panel || !overlay) return;
+  if (open) closeSidebar();
+  panel.classList.toggle('open', open);
+  overlay.classList.toggle('open', open);
+  document.body.classList.toggle('settings-open', open);
+  panel.setAttribute('aria-hidden', String(!open));
+  if (button) button.setAttribute('aria-expanded', String(open));
+}
+
+function toggleSettings() {
+  var panel = document.querySelector('.settings-panel');
+  if (panel) setSettingsOpen(!panel.classList.contains('open'));
+}
+
+function closeSettings() { setSettingsOpen(false); }
 
 // Prevent sidebar from navigating when clicking the already-active minor
 document.querySelectorAll('.sidebar a').forEach(function(link) {
@@ -487,6 +552,7 @@ function setSidebarOpen(open) {
   var sidebar = document.querySelector('.sidebar');
   var overlay = document.querySelector('.sidebar-overlay');
   if (!sidebar || !overlay) return;
+  if (open) closeSettings();
   sidebar.classList.toggle('open', open);
   overlay.classList.toggle('open', open);
   document.body.classList.toggle('sidebar-open', open);
@@ -497,7 +563,7 @@ function setSidebarOpen(open) {
 }
 
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeSidebar();
+  if (e.key === 'Escape') { closeSidebar(); closeSettings(); }
 });
 </script>
 </body>
