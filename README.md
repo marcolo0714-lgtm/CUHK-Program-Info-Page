@@ -6,7 +6,13 @@ Scrapes and validates course catalog data from the Chinese University of Hong Ko
 
 ### Course info (`course_extraction/`)
 
-1. **Scrape** — `get_course_info.py` navigates the CUHK course catalog page, selects each major from the dropdown, solves the captcha via OCR (`ddddocr`), and scrapes every course's code, title, units, and enrollment requirements into `course_info/<MAJOR>.json`.
+1. **Capture and parse** — `get_course_info.py` navigates the CUHK course
+catalogue, solves the captcha, and first saves the subject result page, every
+course page, every selected-term schedule page, and every class-detail page
+under `course_html/<SUBJECT>/`. Only after a complete subject capture passes
+cross-page checks does the offline parser replace `course_info/<SUBJECT>.json`.
+Failed or partial captures are retained under `course_html/_incomplete/` and do
+not overwrite the last JSON.
 
 2. **Validate** — `tests/` checks that scraped data is internally consistent (strictly increasing course codes, no duplicates, required fields present) and optionally re-scrapes the live website to compare counts and first/last course codes against the stored JSON.
 
@@ -51,6 +57,10 @@ playwright install chromium
 ```bash
 cd course_extraction
 python get_course_info.py
+python get_course_info.py --process-saved MATH ENGG  # rebuild selected JSON without browsing
+python get_course_info.py --process-saved            # rebuild all complete saved subjects
+python recover_course_info_from_html.py              # audit promoted + archived captures
+python recover_course_info_from_html.py --apply       # recover every reconstructable subject
 pytest tests/ -m "not live"       # offline: code ordering, duplicates, required fields
 pytest tests/ -m live              # online: compare stored vs live website
 pytest tests/ -m live --course-options "1-50, 101-150"  # online: selected dropdown options
@@ -96,6 +106,8 @@ python sync_major_site.py                                       # major site →
 ```
 ├── course_extraction/
 │   ├── get_course_info.py              # Main course scraper
+│   ├── recover_course_info_from_html.py # Recover JSON from promoted/archived HTML
+│   ├── course_html/                    # Auditable raw course/term/class pages
 │   ├── course_info/                    # Scraped JSON output (one file per major)
 │   └── tests/
 │       ├── test_course_info.py         # Offline + live validation tests
@@ -132,7 +144,8 @@ python sync_major_site.py                                       # major site →
 
 | Script | Input | Output |
 |--------|-------|--------|
-| `get_course_info.py` | CUHK catalog website | `course_info/*.json` (235 files) |
+| `get_course_info.py` | CUHK catalog website | `course_html/<SUBJECT>/` then `course_info/*.json` (270 files) |
+| `recover_course_info_from_html.py` | Complete promoted/archived HTML captures | Reconstructed `course_info/*.json` |
 | `extract_minor_sections.py` | CUHK academy programs | `minor_html/<name>.html` (59 files) |
 | `extract_handbook_minors.py` | CUHK student handbook | `minor_html/HB_<name>.html` (12 files) |
 | `generate_minor_json.py` | `minor_html/*.html` | `minor_json/*.json` (71 files) |
@@ -289,6 +302,7 @@ python generate_minor_site.py
 ```bash
 cd course_extraction
 python get_course_info.py               # re-scrape the latest catalog
+python get_course_info.py --process-saved MATH  # reparse an existing raw capture
 pytest tests/ -m "not live"             # verify integrity
 cd ..\minor_extraction
 python resolve_course_descriptions.py --apply   # refresh overrides with new course lists

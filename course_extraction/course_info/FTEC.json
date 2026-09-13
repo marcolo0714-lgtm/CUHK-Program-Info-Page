@@ -2378,9 +2378,9 @@
                 "status": "Open",
                 "class_capacity": "80",
                 "wait_list_capacity": "20",
-                "enrollment_total": "40",
+                "enrollment_total": "41",
                 "wait_list_total": "0",
-                "available_seats": "40",
+                "available_seats": "39",
                 "timetable": [
                     {
                         "day_time": "Fr 2:30PM - 5:15PM",
@@ -2568,14 +2568,162 @@
         "unit": "3.00",
         "info": "For students in MSc Financial Technology;Pre-requisite: FTEC5910",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-J01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "9688",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "TBA",
+                        "instructor": "Staff",
+                        "dates": "TBA"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "AJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "9892",
+                "status": "Open",
+                "class_capacity": "15",
+                "wait_list_capacity": "0",
+                "enrollment_total": "9",
+                "wait_list_total": "0",
+                "available_seats": "6",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHAN Chun Kwong",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "BJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "9893",
+                "status": "Open",
+                "class_capacity": "15",
+                "wait_list_capacity": "0",
+                "enrollment_total": "9",
+                "wait_list_total": "0",
+                "available_seats": "6",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LEUNG Kwai Sun",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "CJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "9894",
+                "status": "Open",
+                "class_capacity": "10",
+                "wait_list_capacity": "0",
+                "enrollment_total": "3",
+                "wait_list_total": "0",
+                "available_seats": "7",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. HAN Dongkun",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "DJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "9895",
+                "status": "Open",
+                "class_capacity": "10",
+                "wait_list_capacity": "0",
+                "enrollment_total": "3",
+                "wait_list_total": "0",
+                "available_seats": "7",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor PAN Jialin",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "EJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "9896",
+                "status": "Open",
+                "class_capacity": "10",
+                "wait_list_capacity": "0",
+                "enrollment_total": "1",
+                "wait_list_total": "0",
+                "available_seats": "9",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor WU Xixin",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "FJ01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "9897",
+                "status": "Open",
+                "class_capacity": "10",
+                "wait_list_capacity": "0",
+                "enrollment_total": "2",
+                "wait_list_total": "0",
+                "available_seats": "8",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor CHEN He",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            }
+        ]
     }
 ]

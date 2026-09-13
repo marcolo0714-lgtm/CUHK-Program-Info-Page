@@ -9075,15 +9075,37 @@
         "unit": "0.00",
         "info": "--",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-X01-WBL",
+                "component_type": "WBL",
+                "class_number": "6527",
+                "status": "Open",
+                "class_capacity": "999",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "999",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Dr. LAI Pit Shun",
+                        "dates": "11/01/2027 - 19/04/2027"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "CHLT 1200",
@@ -9307,45 +9329,183 @@
         "title": "Cantonese Phonetics and Jyutping",
         "unit": "1.00",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "5492",
+                "status": "Open",
+                "class_capacity": "25",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "25",
+                "timetable": [
+                    {
+                        "day_time": "Th 11:30AM - 1:15PM",
+                        "room": "Mong Man Wai Bldg 705",
+                        "instructor": "Dr. WONG Wun Yu",
+                        "dates": "14/1"
+                    },
+                    {
+                        "day_time": "Th 11:30AM - 1:15PM",
+                        "room": "Mong Man Wai Bldg 705",
+                        "instructor": "Dr. WONG Wun Yu",
+                        "dates": "28/1"
+                    },
+                    {
+                        "day_time": "Th 11:30AM - 1:15PM",
+                        "room": "Mong Man Wai Bldg 705",
+                        "instructor": "Dr. WONG Wun Yu",
+                        "dates": "25/2"
+                    },
+                    {
+                        "day_time": "Th 11:30AM - 1:15PM",
+                        "room": "Mong Man Wai Bldg 705",
+                        "instructor": "Dr. WONG Wun Yu",
+                        "dates": "25/3"
+                    },
+                    {
+                        "day_time": "Th 11:30AM - 1:15PM",
+                        "room": "Mong Man Wai Bldg 705",
+                        "instructor": "Dr. WONG Wun Yu",
+                        "dates": "8/4"
+                    },
+                    {
+                        "day_time": "Th 11:30AM - 1:15PM",
+                        "room": "Mong Man Wai Bldg 705",
+                        "instructor": "Dr. WONG Wun Yu",
+                        "dates": "22/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "CHLT 1306",
         "title": "Advertising Copywriting",
         "unit": "1.00",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "5316",
+                "status": "Wait List",
+                "class_capacity": "25",
+                "wait_list_capacity": "999",
+                "enrollment_total": "25",
+                "wait_list_total": "1",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "Esther Lee Bldg 202",
+                        "instructor": "Dr. POON Wai Ting",
+                        "dates": "10/9"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "Esther Lee Bldg 202",
+                        "instructor": "Dr. POON Wai Ting",
+                        "dates": "24/9"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "Esther Lee Bldg 202",
+                        "instructor": "Dr. POON Wai Ting",
+                        "dates": "8/10"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "Esther Lee Bldg 202",
+                        "instructor": "Dr. POON Wai Ting",
+                        "dates": "22/10"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "Esther Lee Bldg 202",
+                        "instructor": "Dr. POON Wai Ting",
+                        "dates": "5/11"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "Esther Lee Bldg 202",
+                        "instructor": "Dr. POON Wai Ting",
+                        "dates": "19/11"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "Esther Lee Bldg 202",
+                        "instructor": "Dr. POON Wai Ting",
+                        "dates": "3/12"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "CHLT 1307",
         "title": "Nature Writing",
         "unit": "2.00",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "5185",
+                "status": "Wait List",
+                "class_capacity": "25",
+                "wait_list_capacity": "999",
+                "enrollment_total": "25",
+                "wait_list_total": "8",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 4:15PM",
+                        "room": "Chen Kou Bun Bldg 108",
+                        "instructor": "Dr. CAI Xuanhui",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 4:15PM",
+                        "room": "Chen Kou Bun Bldg 108",
+                        "instructor": "Dr. CAI Xuanhui",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "CHLT 1308",
@@ -9361,15 +9521,49 @@
         "title": "Classical Poetry in Modern Language Applications",
         "unit": "2.00",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7020",
+                "status": "Open",
+                "class_capacity": "25",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "25",
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 4:15PM",
+                        "room": "Esther Lee Bldg 303",
+                        "instructor": "Dr. WONG Siu Yung",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 4:15PM",
+                        "room": "Esther Lee Bldg 303",
+                        "instructor": "Dr. WONG Siu Yung",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 4:15PM",
+                        "room": "Esther Lee Bldg 303",
+                        "instructor": "Dr. WONG Siu Yung",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "CHLT 1310",
@@ -9492,46 +9686,148 @@
         "code": "CHLT 2882",
         "title": "Appreciation of Masterpieces of Modern Chinese Literature",
         "unit": "3.00",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8529",
+                "status": "Wait List",
+                "class_capacity": "30",
+                "wait_list_capacity": "999",
+                "enrollment_total": "35",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Building 308",
+                        "instructor": "Dr. YIP Ka Wing",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 5:15PM",
+                        "room": "Lee Shau Kee Building 308",
+                        "instructor": "Dr. YIP Ka Wing",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "CHLT 2883",
         "title": "Selected Readings in the Classics of Ancient Texts",
         "unit": "3.00",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "5029",
+                "status": "Open",
+                "class_capacity": "35",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "35",
+                "timetable": [
+                    {
+                        "day_time": "Tu 1:30PM - 4:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 301",
+                        "instructor": "Dr. POON Wai Ting",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 1:30PM - 4:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 301",
+                        "instructor": "Dr. POON Wai Ting",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 1:30PM - 4:15PM",
+                        "room": "Wu Ho Man Yuen Bldg 301",
+                        "instructor": "Dr. POON Wai Ting",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "CHLT 2884",
         "title": "Introduction to Classical Chinese",
         "unit": "3.00",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "8429",
+                "status": "Open",
+                "class_capacity": "33",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "33",
+                "timetable": [
+                    {
+                        "day_time": "Fr 8:30AM - 11:15AM",
+                        "room": "Lee Shau Kee Building 208",
+                        "instructor": "Dr. LO Ki Wai",
+                        "dates": "15/1, 22/1, 29/1"
+                    },
+                    {
+                        "day_time": "Fr 8:30AM - 11:15AM",
+                        "room": "Lee Shau Kee Building 208",
+                        "instructor": "Dr. LO Ki Wai",
+                        "dates": "12/2, 19/2, 26/2, 5/3"
+                    },
+                    {
+                        "day_time": "Fr 8:30AM - 11:15AM",
+                        "room": "Lee Shau Kee Building 208",
+                        "instructor": "Dr. LO Ki Wai",
+                        "dates": "19/3"
+                    },
+                    {
+                        "day_time": "Fr 8:30AM - 11:15AM",
+                        "room": "Lee Shau Kee Building 208",
+                        "instructor": "Dr. LO Ki Wai",
+                        "dates": "2/4, 9/4, 16/4, 23/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "CHLT 2885",

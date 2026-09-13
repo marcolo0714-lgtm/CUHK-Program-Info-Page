@@ -3,16 +3,59 @@
         "code": "AIST 1000",
         "title": "Introduction to Artificial Intelligence and Machine Learning",
         "unit": "1.00",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7644",
+                "status": "Wait List",
+                "class_capacity": "65",
+                "wait_list_capacity": "999",
+                "enrollment_total": "70",
+                "wait_list_total": "8",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 11:15AM",
+                        "room": "Esther Lee Bldg 303",
+                        "instructor": "Professor XU Qiang",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-J01-PRJ",
+                "component_type": "PRJ",
+                "class_number": "7645",
+                "status": "Wait List",
+                "class_capacity": "65",
+                "wait_list_capacity": "999",
+                "enrollment_total": "70",
+                "wait_list_total": "8",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Tu 11:30AM - 12:15PM",
+                        "room": "Esther Lee Bldg 303",
+                        "instructor": "Professor XU Qiang",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 1110",
@@ -20,31 +63,171 @@
         "unit": "3.00",
         "info": "Pre-requisite: ENGG1110 or ESTR1002 Not for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "5970",
+                "status": "Open",
+                "class_capacity": "60",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "60",
+                "timetable": [
+                    {
+                        "day_time": "Tu 12:30PM - 2:15PM",
+                        "room": "Lai Chan Pui Ngong LT",
+                        "instructor": "Dr. LAM King Tin",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 12:30PM - 2:15PM",
+                        "room": "Lai Chan Pui Ngong LT",
+                        "instructor": "Dr. LAM King Tin",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 12:30PM - 2:15PM",
+                        "room": "Lai Chan Pui Ngong LT",
+                        "instructor": "Dr. LAM King Tin",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 11:15AM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Dr. LAM King Tin",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 11:15AM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Dr. LAM King Tin",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 11:15AM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Dr. LAM King Tin",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-L01-LAB",
+                "component_type": "LAB",
+                "class_number": "7559",
+                "status": "Open",
+                "class_capacity": "60",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "60",
+                "timetable": [
+                    {
+                        "day_time": "Th 11:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Dr. LAM King Tin",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 11:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Dr. LAM King Tin",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 11:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Dr. LAM King Tin",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 2010",
         "title": "Introduction to Computer Music: From Analysis to Algorithmic Music",
         "unit": "3.00",
         "info": "Prerequisite: AIST1110 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102.",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4810",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "999",
+                "enrollment_total": "44",
+                "wait_list_total": "0",
+                "available_seats": "6",
+                "timetable": [
+                    {
+                        "day_time": "We 9:30AM - 10:15AM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    },
+                    {
+                        "day_time": "Th 12:30PM - 2:15PM",
+                        "room": "Y.C. Liang Hall 104",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 12:30PM - 2:15PM",
+                        "room": "Y.C. Liang Hall 104",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-L01-LAB",
+                "component_type": "LAB",
+                "class_number": "4811",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "999",
+                "enrollment_total": "44",
+                "wait_list_total": "0",
+                "available_seats": "6",
+                "timetable": [
+                    {
+                        "day_time": "We 10:30AM - 11:15AM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 2601",
@@ -52,15 +235,49 @@
         "unit": "2.00",
         "info": "Not for students who have taken CSCI3250 or CSCI3251 or ENGG2601 or ENGG2602.",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7560",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "T.Y.Wong Hall LT",
+                        "instructor": "Dr. TIAN Yusheng",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "T.Y.Wong Hall LT",
+                        "instructor": "Dr. TIAN Yusheng",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "T.Y.Wong Hall LT",
+                        "instructor": "Dr. TIAN Yusheng",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 2602",
@@ -68,15 +285,49 @@
         "unit": "1.00",
         "info": "Not for students who have taken CSCI3250 or CSCI3251 or ENGG2601 or ENGG2602.",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-P01-PRA",
+                "component_type": "PRA",
+                "class_number": "7561",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Th 12:30PM - 1:15PM",
+                        "room": "T.Y.Wong Hall LT",
+                        "instructor": "Dr. TIAN Yusheng",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 12:30PM - 1:15PM",
+                        "room": "T.Y.Wong Hall LT",
+                        "instructor": "Dr. TIAN Yusheng",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 12:30PM - 1:15PM",
+                        "room": "T.Y.Wong Hall LT",
+                        "instructor": "Dr. TIAN Yusheng",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 3010",
@@ -94,31 +345,171 @@
         "unit": "3.00",
         "info": "Not for students who have taken CSCI3150 or ESTR3102 Prerequisite: (ENGG1110 or ESTR1002) AND (ENGG2440 or ESTR2004)",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4865",
+                "status": "Open",
+                "class_capacity": "90",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "90",
+                "timetable": [
+                    {
+                        "day_time": "Tu 11:30AM - 12:15PM",
+                        "room": "Lady Shaw Bldg LT1",
+                        "instructor": "Mr. KEUNG Wai Yiu",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 11:30AM - 12:15PM",
+                        "room": "Lady Shaw Bldg LT1",
+                        "instructor": "Mr. KEUNG Wai Yiu",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 11:30AM - 12:15PM",
+                        "room": "Lady Shaw Bldg LT1",
+                        "instructor": "Mr. KEUNG Wai Yiu",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    },
+                    {
+                        "day_time": "We 4:30PM - 6:15PM",
+                        "room": "Lady Shaw Bldg LT2",
+                        "instructor": "Mr. KEUNG Wai Yiu",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 4:30PM - 6:15PM",
+                        "room": "Lady Shaw Bldg LT2",
+                        "instructor": "Mr. KEUNG Wai Yiu",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 4:30PM - 6:15PM",
+                        "room": "Lady Shaw Bldg LT2",
+                        "instructor": "Mr. KEUNG Wai Yiu",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-L01-LAB",
+                "component_type": "LAB",
+                "class_number": "4875",
+                "status": "Open",
+                "class_capacity": "90",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "90",
+                "timetable": [
+                    {
+                        "day_time": "Tu 10:30AM - 11:15AM",
+                        "room": "Lady Shaw Bldg LT1",
+                        "instructor": "Mr. KEUNG Wai Yiu",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 11:15AM",
+                        "room": "Lady Shaw Bldg LT1",
+                        "instructor": "Mr. KEUNG Wai Yiu",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 10:30AM - 11:15AM",
+                        "room": "Lady Shaw Bldg LT1",
+                        "instructor": "Mr. KEUNG Wai Yiu",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 3030",
         "title": "Numerical Optimization",
         "unit": "3.00",
         "info": "Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510 Not for students who have taken AIST3010 or ESTR3112 or ESTR3114",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "9823",
+                "status": "Wait List",
+                "class_capacity": "50",
+                "wait_list_capacity": "999",
+                "enrollment_total": "51",
+                "wait_list_total": "10",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "Basic Med Sci Bldg LT",
+                        "instructor": "Professor Farzan FARNIA",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 10:30AM - 12:15PM",
+                        "room": "Basic Med Sci Bldg LT",
+                        "instructor": "Professor Farzan FARNIA",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    },
+                    {
+                        "day_time": "We 4:30PM - 5:15PM",
+                        "room": "Science Centre L3",
+                        "instructor": "Professor Farzan FARNIA",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-T01-TUT",
+                "component_type": "TUT",
+                "class_number": "9742",
+                "status": "Wait List",
+                "class_capacity": "50",
+                "wait_list_capacity": "999",
+                "enrollment_total": "51",
+                "wait_list_total": "10",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "We 3:30PM - 4:15PM",
+                        "room": "Science Centre L3",
+                        "instructor": "Professor Farzan FARNIA",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 3110",
@@ -126,15 +517,100 @@
         "unit": "3.00",
         "info": "Pre-requisite/Co-requisite: AIST2010 or CSCI3280",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "5506",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "We 10:30AM - 12:15PM",
+                        "room": "Y.C. Liang Hall 101",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "13/1, 20/1, 27/1, 3/2"
+                    },
+                    {
+                        "day_time": "We 10:30AM - 12:15PM",
+                        "room": "Y.C. Liang Hall 101",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "17/2, 24/2, 3/3"
+                    },
+                    {
+                        "day_time": "We 10:30AM - 12:15PM",
+                        "room": "Y.C. Liang Hall 101",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 10:15AM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 10:15AM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 9:30AM - 10:15AM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-L01-LAB",
+                "component_type": "LAB",
+                "class_number": "8536",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Th 3:30PM - 4:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 4:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 3:30PM - 4:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Dr. CHAU Chuck Jee",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 3120",
@@ -142,15 +618,115 @@
         "unit": "3.00",
         "info": "Prerequisite: (AIST1110 or CSCI1040 or CSCI1550 or CSCI2040) AND (ENGG1120 or ESTR1005) AND (ENGG2760 or ESTR2018)",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "9538",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Tu 4:30PM - 6:15PM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Professor WANG Liwei",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 4:30PM - 6:15PM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Professor WANG Liwei",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 4:30PM - 6:15PM",
+                        "room": "William M W Mong Eng Bldg 703",
+                        "instructor": "Professor WANG Liwei",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-L01-LAB",
+                "component_type": "LAB",
+                "class_number": "9537",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Th 4:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Professor WANG Liwei",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 4:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Professor WANG Liwei",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 4:30PM - 5:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Professor WANG Liwei",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-T01-TUT",
+                "component_type": "TUT",
+                "class_number": "9396",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Th 5:30PM - 6:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Professor WANG Liwei",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 5:30PM - 6:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Professor WANG Liwei",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 5:30PM - 6:15PM",
+                        "room": "William M W Mong Eng Bldg 401",
+                        "instructor": "Professor WANG Liwei",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 3510",
@@ -158,31 +734,183 @@
         "unit": "3.00",
         "info": "Not for students who have taken SEEM3510",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "5503",
+                "status": "Open",
+                "class_capacity": "100",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "100",
+                "timetable": [
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Fung King Hey Bldg Swire Hall1",
+                        "instructor": "Professor FU Chi Wing, Professor MENG Mei Ling Helen",
+                        "dates": "15/1, 22/1, 29/1"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Fung King Hey Bldg Swire Hall1",
+                        "instructor": "Professor FU Chi Wing, Professor MENG Mei Ling Helen",
+                        "dates": "12/2, 19/2, 26/2, 5/3"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Fung King Hey Bldg Swire Hall1",
+                        "instructor": "Professor FU Chi Wing, Professor MENG Mei Ling Helen",
+                        "dates": "19/3"
+                    },
+                    {
+                        "day_time": "Fr 9:30AM - 11:15AM",
+                        "room": "Fung King Hey Bldg Swire Hall1",
+                        "instructor": "Professor FU Chi Wing, Professor MENG Mei Ling Helen",
+                        "dates": "2/4, 9/4, 16/4, 23/4"
+                    },
+                    {
+                        "day_time": "Tu 1:30PM - 2:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Professor FU Chi Wing, Professor MENG Mei Ling Helen",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 1:30PM - 2:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Professor FU Chi Wing, Professor MENG Mei Ling Helen",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 1:30PM - 2:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Professor FU Chi Wing, Professor MENG Mei Ling Helen",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-T01-TUT",
+                "component_type": "TUT",
+                "class_number": "7658",
+                "status": "Open",
+                "class_capacity": "100",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "100",
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 3:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Professor FU Chi Wing, Professor MENG Mei Ling Helen",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 3:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Professor FU Chi Wing, Professor MENG Mei Ling Helen",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 2:30PM - 3:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Professor FU Chi Wing, Professor MENG Mei Ling Helen",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 4010",
         "title": "Foundation of Applied Deep Learning",
         "unit": "3.00",
         "info": "Not for students who have taken ESTR4140 Prerequisite: CSCI3230 or CSCI3320 or ESTR3108",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "7215",
+                "status": "Wait List",
+                "class_capacity": "68",
+                "wait_list_capacity": "999",
+                "enrollment_total": "69",
+                "wait_list_total": "12",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "We 11:30AM - 1:15PM",
+                        "room": "Science Centre L4",
+                        "instructor": "Professor LI Yu",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    },
+                    {
+                        "day_time": "Th 4:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg C3",
+                        "instructor": "Professor LI Yu",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 4:30PM - 5:15PM",
+                        "room": "T.C. Cheng Bldg C3",
+                        "instructor": "Professor LI Yu",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-T01-TUT",
+                "component_type": "TUT",
+                "class_number": "7689",
+                "status": "Wait List",
+                "class_capacity": "68",
+                "wait_list_capacity": "999",
+                "enrollment_total": "69",
+                "wait_list_total": "12",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Th 5:30PM - 6:15PM",
+                        "room": "T.C. Cheng Bldg C3",
+                        "instructor": "Professor LI Yu",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 5:30PM - 6:15PM",
+                        "room": "T.C. Cheng Bldg C3",
+                        "instructor": "Professor LI Yu",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 4020",
@@ -190,15 +918,88 @@
         "unit": "3.00",
         "info": "Prerequisite: AIST3020 or CSCI3150 or ESTR3102",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "5156",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "timetable": [
+                    {
+                        "day_time": "Mo 12:30PM - 2:15PM",
+                        "room": "Mong Man Wai Bldg 706",
+                        "instructor": "Professor LO Chi Lik Eric",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 12:30PM - 2:15PM",
+                        "room": "Mong Man Wai Bldg 706",
+                        "instructor": "Professor LO Chi Lik Eric",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 12:30PM - 2:15PM",
+                        "room": "Mong Man Wai Bldg 706",
+                        "instructor": "Professor LO Chi Lik Eric",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 12:30PM - 2:15PM",
+                        "room": "Mong Man Wai Bldg 706",
+                        "instructor": "Professor LO Chi Lik Eric",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-L01-LAB",
+                "component_type": "LAB",
+                "class_number": "5184",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "timetable": [
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 703",
+                        "instructor": "Professor LO Chi Lik Eric",
+                        "dates": "14/1, 21/1, 28/1, 4/2"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 703",
+                        "instructor": "Professor LO Chi Lik Eric",
+                        "dates": "18/2, 25/2, 4/3"
+                    },
+                    {
+                        "day_time": "Th 10:30AM - 12:15PM",
+                        "room": "Mong Man Wai Bldg 703",
+                        "instructor": "Professor LO Chi Lik Eric",
+                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 4030",
@@ -215,16 +1016,65 @@
         "title": "Mathematical Foundations of Deep Learning",
         "unit": "3.00",
         "info": "Prerequisite: (ENGG1120/ESTR1005 or ENGG1125/ESTR1007 or ENGG1130/ESTR1006 or ENGG2760/ESTR2018 or ENGG2780/ESTR2020) AND (AIST3030/ESTR3112)",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "5095",
+                "status": "Open",
+                "class_capacity": "60",
+                "wait_list_capacity": "999",
+                "enrollment_total": "19",
+                "wait_list_total": "0",
+                "available_seats": "41",
+                "timetable": [
+                    {
+                        "day_time": "Tu 12:30PM - 2:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Professor LIU Weiyang",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    },
+                    {
+                        "day_time": "We 2:30PM - 3:15PM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Professor LIU Weiyang",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-T01-TUT",
+                "component_type": "TUT",
+                "class_number": "5100",
+                "status": "Open",
+                "class_capacity": "60",
+                "wait_list_capacity": "999",
+                "enrollment_total": "19",
+                "wait_list_total": "0",
+                "available_seats": "41",
+                "timetable": [
+                    {
+                        "day_time": "We 1:30PM - 2:15PM",
+                        "room": "Mong Man Wai Bldg 707",
+                        "instructor": "Professor LIU Weiyang",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 4050",
@@ -242,15 +1092,88 @@
         "unit": "2.00",
         "info": "Prerequisite: AIST3020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI3180 or ESTR1100 or ESTR1102 or ESTR3106 Not for students who have taken IERG3844",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "5155",
+                "status": "Open",
+                "class_capacity": "60",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "60",
+                "timetable": [
+                    {
+                        "day_time": "Mo 9:30AM - 11:15AM",
+                        "room": "Lady Shaw Bldg LT5",
+                        "instructor": "Professor LI Shaohua",
+                        "dates": "11/1, 18/1, 25/1, 1/2"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 11:15AM",
+                        "room": "Lady Shaw Bldg LT5",
+                        "instructor": "Professor LI Shaohua",
+                        "dates": "15/2, 22/2, 1/3"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 11:15AM",
+                        "room": "Lady Shaw Bldg LT5",
+                        "instructor": "Professor LI Shaohua",
+                        "dates": "15/3, 22/3"
+                    },
+                    {
+                        "day_time": "Mo 9:30AM - 11:15AM",
+                        "room": "Lady Shaw Bldg LT5",
+                        "instructor": "Professor LI Shaohua",
+                        "dates": "12/4, 19/4"
+                    }
+                ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "-L01-LAB",
+                "component_type": "LAB",
+                "class_number": "5183",
+                "status": "Open",
+                "class_capacity": "60",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "60",
+                "timetable": [
+                    {
+                        "day_time": "Tu 12:30PM - 1:15PM",
+                        "room": "Lady Shaw Bldg LT3",
+                        "instructor": "Professor LI Shaohua",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 12:30PM - 1:15PM",
+                        "room": "Lady Shaw Bldg LT3",
+                        "instructor": "Professor LI Shaohua",
+                        "dates": "16/2, 23/2, 2/3"
+                    },
+                    {
+                        "day_time": "Tu 12:30PM - 1:15PM",
+                        "room": "Lady Shaw Bldg LT3",
+                        "instructor": "Professor LI Shaohua",
+                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 4998",
@@ -2159,46 +3082,139 @@
         "unit": "3.00",
         "info": "For students in MSc Computer Science; or For students in MPhil-PhD Computer Science and Engineering;Not for students who have taken SEEM5030",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "9718",
+                "status": "Open",
+                "class_capacity": "80",
+                "wait_list_capacity": "0",
+                "enrollment_total": "79",
+                "wait_list_total": "0",
+                "available_seats": "1",
+                "timetable": [
+                    {
+                        "day_time": "Tu 11:30AM - 2:15PM",
+                        "room": "TBA",
+                        "instructor": "Professor LIU Weiyang",
+                        "dates": "12/1, 19/1, 26/1, 2/2"
+                    },
+                    {
+                        "day_time": "Tu 11:30AM - 2:15PM",
+                        "room": "TBA",
+                        "instructor": "Professor LIU Weiyang",
+                        "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 5040",
         "title": "PhysAI and GenAI for Natural Science",
         "unit": "3.00",
         "info": "For students in MSc Computer Science; or For students in MPhil-PhD Computer Science & Engineering; or For students in UG AISTN or CDASN or CENGN or CSCIN",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "3922",
+                "status": "Closed",
+                "class_capacity": "60",
+                "wait_list_capacity": "2",
+                "enrollment_total": "60",
+                "wait_list_total": "2",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "Fr 10:30AM - 1:15PM",
+                        "room": "Lee Shau Kee Building 514",
+                        "instructor": "Professor LIU Shengchao",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "AIST 5050",
         "title": "Optimization for Large Language Models",
         "unit": "3.00",
         "info": "For students in MSc Computer Science; or For students in MPhil-PhD Computer Science & Engineering; or For students in UG AISTN or CDASN or CENGN or CSCIN",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": false
+                "offered": true
             }
         ],
-        "sections": []
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "4709",
+                "status": "Closed",
+                "class_capacity": "110",
+                "wait_list_capacity": "0",
+                "enrollment_total": "117",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 5:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT3",
+                        "instructor": "Professor LU Songtao",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-T01-TUT",
+                "component_type": "TUT",
+                "class_number": "3917",
+                "status": "Closed",
+                "class_capacity": "110",
+                "wait_list_capacity": "0",
+                "enrollment_total": "117",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "We 1:30PM - 2:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT3",
+                        "instructor": "Professor LU Songtao",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
+            }
+        ]
     }
 ]

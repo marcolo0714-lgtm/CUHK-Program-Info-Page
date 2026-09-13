@@ -33,7 +33,7 @@ AVAILABILITY_FIELDS = {
     "wait_list_total", "available_seats",
 }
 ACADEMIC_TERM_PATTERN = re.compile(
-    r"\b\d{4}\s*-\s*\d{2}\s+Term\s*([12])\b",
+    r"\b\d{4}\s*[-/]\s*\d{2}\s+Term\s*([12])\b",
     re.IGNORECASE,
 )
 
@@ -69,6 +69,18 @@ def parse_course_number(code):
         return int(parts[1])
     except ValueError:
         return None
+
+
+def availability_from_term_labels(records):
+    """Derive Term 1/2 availability from academic-year term labels."""
+    term_numbers = {
+        match.group(1)
+        for record in records
+        if isinstance(record, dict)
+        for match in [ACADEMIC_TERM_PATTERN.search(str(record.get("term", "")))]
+        if match
+    }
+    return "1" in term_numbers, "2" in term_numbers
 
 
 def solve_captcha(page, max_retries=MAX_CAPTCHA_RETRIES):
@@ -295,6 +307,18 @@ class TestStoredIntegrity:
                     errors.append(f"{label}.term is empty or not text")
                 offerings[term_code] = offering
 
+            expected_from_offerings = availability_from_term_labels(
+                entry["term_offerings"]
+            )
+            for field, expected in zip(
+                ("term_1", "term_2"), expected_from_offerings
+            ):
+                if entry[field] != expected:
+                    errors.append(
+                        f"{code}: {field}={entry[field]} but term_offerings "
+                        f"term labels say {expected}"
+                    )
+
             seen_sections = {}
             seen_section_keys = {}
             scheduled_term_codes = set()
@@ -385,20 +409,37 @@ class TestStoredIntegrity:
                         seen_timetable[timetable_fingerprint] = timetable_index
 
             for term_code, offering in offerings.items():
-                if offering.get("offered") and term_code not in scheduled_term_codes:
+                retrieval_error = offering.get("retrieval_error")
+                if retrieval_error is not None and (
+                    not isinstance(retrieval_error, str)
+                    or not retrieval_error.strip()
+                ):
+                    errors.append(
+                        f"{code}: term {term_code} retrieval_error is not non-empty text"
+                    )
+                if (
+                    offering.get("offered")
+                    and term_code not in scheduled_term_codes
+                    and not retrieval_error
+                ):
                     errors.append(
                         f"{code}: term {term_code} is marked offered but has no sections"
                     )
 
-            section_term_numbers = {
-                match.group(1)
-                for section in entry["sections"]
-                if isinstance(section, dict)
-                for match in [ACADEMIC_TERM_PATTERN.search(str(section.get("term", "")))]
-                if match
-            }
-            expected_term_1 = "1" in section_term_numbers
-            expected_term_2 = "2" in section_term_numbers
+            expected_term_1, expected_term_2 = availability_from_term_labels(
+                entry["sections"]
+            )
+            failed_offerings = [
+                offering for offering in entry["term_offerings"]
+                if isinstance(offering, dict)
+                and offering.get("offered")
+                and offering.get("retrieval_error")
+            ]
+            failed_term_1, failed_term_2 = availability_from_term_labels(
+                failed_offerings
+            )
+            expected_term_1 = expected_term_1 or failed_term_1
+            expected_term_2 = expected_term_2 or failed_term_2
             if entry["term_1"] != expected_term_1:
                 errors.append(
                     f"{code}: term_1={entry['term_1']} but section term labels say "
@@ -579,6 +620,15 @@ class TestTeachingScheduleExtraction:
             {"term_code": "2420", "term": "Summer Session"}
         ]) == (False, False)
 
+    def test_stored_availability_uses_term_offering_labels_even_if_flag_is_false(self):
+        offerings = [{
+            "term_code": "2430",
+            "term": "2026/27 Term 2",
+            "offered": False,
+        }]
+
+        assert availability_from_term_labels(offerings) == (False, True)
+
     def test_live_option_filter_defaults_to_all_and_accepts_ranges(self):
         assert selected_live_option_indexes(6) == [1, 2, 3, 4, 5]
         assert selected_live_option_indexes(271, "7, 42 44-45, 42") == [
@@ -737,6 +787,145 @@ class TestTeachingScheduleExtraction:
             {"term_code": "2430", "term": "2026-27 Term 2", "offered": True},
             {"term_code": "2440", "term": "2026-27 Summer Session", "offered": False},
         ]
+
+    def test_saved_html_is_the_only_source_for_current_schema(self, tmp_path):
+        from course_extraction.get_course_info import parse_saved_subject
+
+        subject_dir = tmp_path / "TEST"
+        course_dir = subject_dir / "courses" / "0000"
+        (course_dir / "terms").mkdir(parents=True)
+        (course_dir / "sections" / "000_2420").mkdir(parents=True)
+
+        (course_dir / "course.html").write_text("""
+          <span id="uc_course_lbl_course">TEST 1000 - Saved Course</span>
+          <span id="uc_course_lbl_units">3.00</span>
+          <div id="uc_course_tc_enrl_requirement">Not for TEST0000.</div>
+          <select id="uc_course_ddl_class_term">
+            <option value="2420">2026-27 Term 1</option>
+          </select>
+        """, encoding="utf-8")
+        (course_dir / "terms" / "000_2420.html").write_text("""
+          <button id="uc_course_btn_class_section">Show sections</button>
+          <input id="uc_course_hf_show_course_section" value="1">
+          <table id="uc_course_gv_sched"><tbody><tr>
+            <td><a id="x_lkbtn_class_section">A-LEC (9700)</a></td>
+            <td><img id="x_img_status" src="class_open.gif"></td>
+            <td><table id="x_gv_meet"><tbody><tr>
+              <td>Mo 12:30PM - 2:15PM</td><td>Summary Room</td>
+              <td>Summary Teacher</td><td>7/9 - 30/11</td>
+            </tr></tbody></table></td>
+          </tr></tbody></table>
+        """, encoding="utf-8")
+        (course_dir / "sections" / "000_2420" / "0000.html").write_text("""
+          <span id="uc_class_lbl_course">TEST 1000 - Saved Course</span>
+          <span id="uc_class_lbl_ssr_component">Lecture</span>
+          <span id="uc_class_lbl_class_nbr">9700</span>
+          <span id="uc_class_lbl_class_status">Open</span>
+          <span id="uc_class_lbl_enrl_cap">100</span>
+          <span id="uc_class_lbl_wait_cap">5</span>
+          <span id="uc_class_lbl_enrl_tot">90</span>
+          <span id="uc_class_lbl_wait_tot">1</span>
+          <span id="uc_class_lbl_available_seat">10</span>
+          <table id="uc_class_gv_meet"><tbody>
+            <tr><th>Days</th><th>Room</th><th>Instructor</th><th>Dates</th></tr>
+            <tr><td>Mo 12:30PM - 2:15PM</td><td>Saved Room</td>
+              <td>Saved Teacher</td><td>7/9 - 30/11</td></tr>
+          </tbody></table>
+        """, encoding="utf-8")
+
+        course_record = {
+            "capture_schema_version": 1,
+            "course_index": 0,
+            "code": "TEST 1000",
+            "course_page": "course.html",
+            "complete": True,
+            "directory": "courses/0000",
+            "terms": [{
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "schedule_page": "terms/000_2420.html",
+                "show_button_disabled": False,
+                "sections": [{
+                    "section_index": 0,
+                    "section": "A-LEC",
+                    "component_type": "LEC",
+                    "class_number": "9700",
+                    "detail_page": "sections/000_2420/0000.html",
+                }],
+            }],
+        }
+        (subject_dir / "manifest.json").write_text(json.dumps({
+            "capture_schema_version": 1,
+            "subject": "TEST",
+            "course_count": 1,
+            "courses": [course_record],
+            "complete": True,
+        }), encoding="utf-8")
+
+        courses = parse_saved_subject(subject_dir)
+        assert courses == [{
+            "code": "TEST 1000",
+            "title": "Saved Course",
+            "unit": "3.00",
+            "info": "Not for TEST0000.",
+            "term_1": True,
+            "term_2": False,
+            "term_offerings": [{
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": True,
+            }],
+            "sections": [{
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "A-LEC",
+                "component_type": "LEC",
+                "class_number": "9700",
+                "status": "Open",
+                "class_capacity": "100",
+                "wait_list_capacity": "5",
+                "enrollment_total": "90",
+                "wait_list_total": "1",
+                "available_seats": "10",
+                "timetable": [{
+                    "day_time": "Mo 12:30PM - 2:15PM",
+                    "room": "Saved Room",
+                    "instructor": "Saved Teacher",
+                    "dates": "7/9 - 30/11",
+                }],
+            }],
+        }]
+
+    def test_enabled_empty_saved_term_is_rejected_not_marked_unavailable(
+        self, tmp_path
+    ):
+        from course_extraction.get_course_info import _parse_saved_course
+
+        (tmp_path / "terms").mkdir()
+        (tmp_path / "course.html").write_text("""
+          <span id="uc_course_lbl_course">MATH 1018 - Honours University Mathematics</span>
+          <span id="uc_course_lbl_units">3.00</span>
+        """, encoding="utf-8")
+        (tmp_path / "terms" / "000_2420.html").write_text("""
+          <select id="uc_course_ddl_class_term">
+            <option value="2420" selected>2026-27 Term 1</option>
+          </select>
+          <button id="uc_course_btn_class_section">Show sections</button>
+          <input id="uc_course_hf_show_course_section" value="0">
+        """, encoding="utf-8")
+        record = {
+            "code": "MATH 1018",
+            "course_page": "course.html",
+            "terms": [{
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "schedule_page": "terms/000_2420.html",
+                "show_button_disabled": False,
+                "sections": [],
+            }],
+        }
+        with pytest.raises(ValueError, match="incomplete postback"):
+            _parse_saved_course(tmp_path, record)
 
 
 # =================================================================

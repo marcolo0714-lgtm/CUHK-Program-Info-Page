@@ -1,3 +1,5 @@
+import os
+import re
 import sys
 from pathlib import Path
 
@@ -12,6 +14,21 @@ if str(REPOSITORY_ROOT) not in sys.path:
 
 
 def pytest_configure(config):
+    # A test run inside an isolated Windows process can leave the system pytest
+    # temp root owned by that process account, making later runs by the user
+    # fail before tmp_path-backed tests start. Keep the default temp tree in the
+    # repository and separate it by the effective Windows account so an
+    # isolated run cannot lock the user's test directory.
+    if config.option.basetemp is None:
+        try:
+            account = os.getlogin()
+        except OSError:
+            account = "default"
+        account = re.sub(r"[^A-Za-z0-9_.-]+", "_", account).lower()
+        config.option.basetemp = str(
+            REPOSITORY_ROOT / f".pytest_tmp-{account}"
+        )
+
     config.addinivalue_line(
         "markers",
         "live: slow test that requires network access to CUHK course catalog website",

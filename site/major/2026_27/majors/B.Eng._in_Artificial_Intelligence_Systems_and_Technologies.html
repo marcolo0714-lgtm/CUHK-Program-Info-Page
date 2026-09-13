@@ -29,6 +29,11 @@ a:hover { text-decoration:underline; }
   border-radius:8px; margin-bottom:8px; }
 .subsection-copy p + p { margin-top:7px; }
 .nested-subsections { margin:10px 0 4px 16px; padding-left:14px; border-left:2px solid #d5e2f8; }
+.marker-inline { display:grid; grid-template-columns:auto minmax(0,1fr); gap:8px; align-items:start; }
+.marker-inline > .section-marker { padding-top:10px; margin-right:0; font-weight:600; }
+.marker-inline-content { min-width:0; }
+.marker-inline-content .subsection-copy:first-child { margin-top:0; }
+.flat-additional > .subsections { margin-left:0; padding-left:0; border-left:0; }
 table { width:100%; border-collapse:collapse; background:var(--card); border-radius:8px;
   overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; vertical-align:top; }

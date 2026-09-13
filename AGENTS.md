@@ -26,6 +26,13 @@
 - After editing Python generators, always regenerate the output files.
 - After editing `minor_extraction/minor_json/{year}/*.json`, regenerate `checker_data.json` then `checker.html`.
 - `course_extraction/get_course_info.py` — only modify the scraper; the user runs scraping manually (takes hours).
+- The course scraper first saves complete raw snapshots under
+  `course_extraction/course_html/<SUBJECT>/` (course list, every course page,
+  every term schedule page, and every class-detail page). It builds
+  `course_info/<SUBJECT>.json` only from those saved files. Incomplete captures
+  stay under `course_html/_incomplete/` and must not replace existing JSON.
+- Reprocess complete saved snapshots without browsing with
+  `python course_extraction/get_course_info.py --process-saved [SUBJECT ...]`.
 - `course_extraction/tests/test_course_info.py` — run `pytest` to verify scraped course data integrity.
 
 ## Manual edits to JSON files
