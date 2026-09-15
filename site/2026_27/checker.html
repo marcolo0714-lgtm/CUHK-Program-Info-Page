@@ -124,7 +124,11 @@ tr.matched:hover { background:#e6f7ea; }
 .detail-notes .notes-table-section tr:hover { background:#f9f9f9; }
 
 .site-footer { margin-top:20px; padding-top:12px; border-top:1px solid var(--border);
-    font-size:.82em; color:var(--muted); text-align:center; }
+    display:flex; align-items:flex-start; justify-content:space-between;
+    gap:8px 24px; flex-wrap:wrap;
+    font-size:.82em; color:var(--muted); text-align:left; }
+.footer-sources { min-width:0; }
+.footer-update { margin-left:auto; text-align:right; }
 .site-footer a { color:var(--muted); }
 .site-footer a:hover { color:var(--accent); }
 
@@ -169,11 +173,14 @@ tr.matched:hover { background:#e6f7ea; }
   <div id="results"></div>
 
   <div class="site-footer">
-    <a href="index.html">CUHK Minor Programmes</a>
-    <span> &middot; </span>
-    <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>
-    <span> &middot; </span>
-    <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
+    <span class="footer-sources">
+      <a href="index.html">CUHK Minor Programmes</a>
+      <span> &middot; </span>
+      <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>
+      <span> &middot; </span>
+      <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
+    </span>
+    <span class="footer-update">Latest course teaching schedule update: 2026/9/15</span>
   </div>
 </div>
 <script>

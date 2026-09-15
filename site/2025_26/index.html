@@ -39,9 +39,11 @@ a:hover { text-decoration:underline; }
 .section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
-.course-details table { table-layout:fixed; }
+.course-details { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.course-details table { table-layout:fixed; min-width:1100px; }
+.course-details th, .course-details td { overflow-wrap:anywhere; word-break:normal; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
-th:first-child, td:first-child { white-space:nowrap; }
+thead th { height:auto; vertical-align:bottom; line-height:1.3; overflow:visible; }
 .col-code { width:var(--course-code-width, 10%); }
 .col-title { width:var(--course-title-width, 22%); overflow-wrap:anywhere; }
 .col-term-1, .col-term-2 { white-space:nowrap; text-align:center;
@@ -68,6 +70,7 @@ body.prereq-hidden .col-prereq { display:none; }
 .schedule-time { white-space:normal; }
 .schedule-time-extra::before { content:" · "; color:var(--muted); }
 .schedule-empty { color:var(--muted); }
+.course-code-main, .course-code-unit { white-space:nowrap; }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
 .eq-row td { border-bottom-color: var(--tbl-border-light); }
@@ -176,7 +179,11 @@ body.settings-open { overflow:hidden; }
 
 /* ── Footer ── */
 .site-footer { margin-top:32px; padding-top:12px; border-top:1px solid var(--border);
-    font-size:0.82em; color:var(--muted); text-align:center; }
+    display:flex; align-items:flex-start; justify-content:space-between;
+    gap:8px 24px; flex-wrap:wrap;
+    font-size:0.82em; color:var(--muted); text-align:left; }
+.footer-sources { min-width:0; }
+.footer-update { margin-left:auto; text-align:right; }
 .site-footer a { color:var(--muted); }
 .site-footer a:hover { color:var(--accent); }
 
@@ -237,6 +244,10 @@ body.settings-open { overflow:hidden; }
         white-space:normal; overflow-wrap:anywhere; }
     .page-nav { margin-top:6px; }
     .bar-year-select, .settings-toggle { max-width:100%; white-space:normal; }
+}
+@media (max-width:1200px) {
+    .course-details th, .course-details td { padding-left:9px; padding-right:9px; }
+    .course-code-unit { display:block; }
 }
 /* ── Admission year ── */
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
@@ -358,13 +369,15 @@ body.settings-open { overflow:hidden; }
 </div>
 
 <div class="site-footer">
-  <span>Sources: </span>
-  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>
-  <span> &middot; </span>
-  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&tv=F&lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
-  <span> &middot; </span>
-  <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
-  <span> &middot; Latest course teaching schedule update: 2026/9/13</span>
+  <span class="footer-sources">
+    <span>Sources: </span>
+    <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>
+    <span> &middot; </span>
+    <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&tv=F&lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
+    <span> &middot; </span>
+    <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
+  </span>
+  <span class="footer-update">Latest course teaching schedule update: 2026/9/15</span>
 </div>
 </div>
 </body>

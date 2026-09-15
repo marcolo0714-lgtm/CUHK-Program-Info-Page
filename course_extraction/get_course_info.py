@@ -7,6 +7,7 @@ import sys
 import os
 import re
 import shutil
+import stat
 import time
 from pathlib import Path
 
@@ -458,13 +459,24 @@ def process_saved_catalog(subjects=None):
         print(f"Processed saved HTML for {subject_dir.name}: {len(data)} courses")
 
 
+def _remove_capture_tree(path):
+    """Remove a capture tree, retrying Windows read-only OneDrive entries."""
+    path = Path(path)
+
+    def make_writable_and_retry(function, failed_path, _exc_info):
+        os.chmod(failed_path, stat.S_IWRITE)
+        function(failed_path)
+
+    shutil.rmtree(path, onerror=make_writable_and_retry)
+
+
 def _publish_subject_capture(staging_dir, final_dir):
     """Replace a raw snapshot while restoring the old one if the move fails."""
     staging_dir = Path(staging_dir)
     final_dir = Path(final_dir)
     backup_dir = staging_dir.parent / f"_previous_{final_dir.name}"
     if backup_dir.exists():
-        shutil.rmtree(backup_dir)
+        _remove_capture_tree(backup_dir)
     had_previous = final_dir.exists()
     if had_previous:
         final_dir.replace(backup_dir)
@@ -475,7 +487,13 @@ def _publish_subject_capture(staging_dir, final_dir):
             backup_dir.replace(final_dir)
         raise
     if backup_dir.exists():
-        shutil.rmtree(backup_dir)
+        try:
+            _remove_capture_tree(backup_dir)
+        except OSError as exc:
+            # The new snapshot is already safely in place. OneDrive can keep a
+            # transient lock on the renamed backup, so cleanup must not prevent
+            # the parsed JSON from being written.
+            print(f"Warning: could not remove old raw snapshot {backup_dir}: {exc}")
 
 
 def _section_status(section_row):
