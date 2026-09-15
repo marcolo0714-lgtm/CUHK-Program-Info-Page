@@ -1,8 +1,11 @@
 import html
 import json
+import os
 import re
 import argparse
 import sys
+import time
+from functools import lru_cache
 from pathlib import Path
 
 try:
@@ -17,6 +20,31 @@ args = parser.parse_args()
 BASE_DIR = Path(__file__).parent
 MINOR_JSON_BASE = BASE_DIR / "minor_json"
 COURSE_INFO_DIR = Path(__file__).parent.parent / "course_extraction" / "course_info"
+
+
+def _write_generated(path, content):
+    """Atomically replace generated text, including OneDrive placeholder files."""
+    path = Path(path)
+    temporary = path.with_name(f".{path.name}.tmp")
+    payload = content.encode("utf-8")
+    last_error = None
+    try:
+        for attempt in range(8):
+            temporary.write_bytes(payload)
+            try:
+                os.replace(temporary, path)
+                return
+            except OSError as error:
+                last_error = error
+                try:
+                    path.write_bytes(payload)
+                    return
+                except OSError as direct_error:
+                    last_error = direct_error
+                time.sleep(0.1 * (attempt + 1))
+        raise last_error
+    finally:
+        temporary.unlink(missing_ok=True)
 
 def _detect_years():
     """Return sorted list of year directory names (excluding *_copy backups)."""
@@ -103,22 +131,34 @@ a:hover { text-decoration:underline; }
 .section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
+.course-details table { table-layout:fixed; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
+.col-code { width:var(--course-code-width, 10%); }
+.col-title { width:var(--course-title-width, 22%); overflow-wrap:anywhere; }
 .col-term-1, .col-term-2 { white-space:nowrap; text-align:center;
-    width:54px; border-left:1px solid var(--tbl-border); }
+    width:var(--course-term-width, 5%); border-left:1px solid var(--tbl-border); }
+th.col-term-1, th.col-term-2 { padding-left:6px; padding-right:6px; }
 .col-term-2 { border-right:1px solid var(--tbl-border); }
-.col-t1-schedule, .col-t2-schedule { min-width:190px; max-width:300px; }
-.col-prereq { min-width:180px; word-break:normal; overflow-wrap:anywhere; }
+.col-t1-schedule, .col-t2-schedule {
+    width:var(--course-schedule-width, auto); overflow-wrap:anywhere; }
+body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t1-schedule,
+body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t2-schedule {
+    width:calc(var(--course-schedule-width, 0%) / 2); }
+.col-prereq { width:var(--course-prereq-width, auto);
+    word-break:normal; overflow-wrap:anywhere; }
 body.hide-term-1 .col-term-1,
 body.hide-term-2 .col-term-2,
 body.hide-t1-schedule .col-t1-schedule,
 body.hide-t2-schedule .col-t2-schedule,
 body.prereq-hidden .col-prereq { display:none; }
-.schedule-section + .schedule-section { margin-top:7px; padding-top:7px;
+.schedule-section { line-height:1.35; min-width:0; overflow-wrap:anywhere; }
+.schedule-section + .schedule-section { margin-top:4px; padding-top:4px;
     border-top:1px solid var(--tbl-border-light); }
-.schedule-section-name { display:block; font-weight:600; color:#374151; }
-.schedule-time { display:block; line-height:1.35; white-space:nowrap; }
+.schedule-section-name { display:inline; font-weight:600; color:#374151; }
+.schedule-lead, .schedule-time-extra { display:inline-block; max-width:100%; }
+.schedule-time { white-space:normal; }
+.schedule-time-extra::before { content:" · "; color:var(--muted); }
 .schedule-empty { color:var(--muted); }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
@@ -599,8 +639,8 @@ def _format_term_cell(available):
     return '<td class="col-term-1"></td>'
 
 
-def _format_schedule(sections, term_number):
-    """Group unique meeting times by section for one teaching term."""
+def _group_schedule(sections, term_number):
+    """Return ``[(section_name, meeting_times)]`` for one teaching term."""
     grouped = []
     positions = {}
     for section in sections or []:
@@ -617,19 +657,123 @@ def _format_schedule(sections, term_number):
             day_time = str(meeting.get("day_time") or "").strip()
             if day_time and day_time not in times:
                 times.append(day_time)
+    return grouped
+
+
+def _format_schedule(sections, term_number):
+    """Group unique meeting times by section for one teaching term."""
+    grouped = _group_schedule(sections, term_number)
     if not grouped:
         return '<span class="schedule-empty">—</span>'
     parts = []
     for name, times in grouped:
-        time_html = "".join(
-            f'<span class="schedule-time">{html.escape(value)}</span>'
-            for value in (times or ["Time TBA"])
+        section_times = times or ["Time TBA"]
+        lead = (
+            f'<span class="schedule-lead"><span class="schedule-section-name">'
+            f'{html.escape(name)}:</span> <span class="schedule-time">'
+            f'{html.escape(section_times[0])}</span></span>'
+        )
+        extra_times = "".join(
+            f' <span class="schedule-time schedule-time-extra">'
+            f'{html.escape(value)}</span>'
+            for value in section_times[1:]
         )
         parts.append(
-            f'<div class="schedule-section"><span class="schedule-section-name">'
-            f'{html.escape(name)}</span>{time_html}</div>'
+            f'<div class="schedule-section">{lead}{extra_times}</div>'
         )
     return "".join(parts)
+
+
+@lru_cache(maxsize=None)
+def _estimated_wrapped_lines(text, width):
+    """Estimate browser word wrapping using character-width units."""
+    words = re.findall(r"\S+", re.sub(r"<[^>]*>", " ", str(text or "—")))
+    if not words:
+        return 1
+    lines = 1
+    used = 0
+    for word in words:
+        length = len(word)
+        if used and used + 1 + length <= width:
+            used += 1 + length
+        elif length <= width:
+            if used:
+                lines += 1
+            used = length
+        else:
+            if used:
+                lines += 1
+            lines += (length - 1) // width
+            used = length % width or width
+    return lines
+
+
+def _course_table_style(courses):
+    """Choose per-table widths that minimize estimated rendered row heights.
+
+    The search models the default visible columns (T1 schedule shown, T2
+    schedule hidden).  Widths are character-weight percentages, so the browser
+    can still redistribute them when users hide or show columns in Settings.
+    """
+    usable = [course for course in courses if course.get("title")]
+    code_weight = max(
+        9,
+        min(18, max((len(_format_code_unit(c.get("code", ""), c.get("unit", ""))) for c in usable), default=9) + 1),
+    )
+    term_weight = 6
+    total_weight = 140
+    flexible = total_weight - code_weight - 2 * term_weight
+    rows = []
+    for course in usable:
+        schedule_lines = [
+            f'{name}: {" · ".join(times or ["Time TBA"])}'
+            for name, times in _group_schedule(course.get("sections", []), 1)
+        ] or ["—"]
+        rows.append((
+            str(course.get("title") or "—"),
+            schedule_lines,
+            str(course.get("prereq") or "—"),
+        ))
+
+    best = None
+    for title_width in range(10, min(42, flexible - 20) + 1, 2):
+        for schedule_width in range(10, min(76, flexible - title_width - 10) + 1, 2):
+            prereq_width = flexible - title_width - schedule_width
+            if prereq_width < 10:
+                continue
+            row_total = 0
+            cell_total = 0
+            schedule_extra_lines = 0
+            for title, schedule, prereq in rows:
+                title_lines = _estimated_wrapped_lines(title, title_width)
+                schedule_count = sum(
+                    _estimated_wrapped_lines(line, schedule_width) for line in schedule
+                )
+                prereq_lines = _estimated_wrapped_lines(prereq, prereq_width)
+                row_total += max(title_lines, schedule_count, prereq_lines)
+                cell_total += title_lines + schedule_count + prereq_lines
+                schedule_extra_lines += schedule_count - len(schedule)
+            score = (
+                row_total + 2 * schedule_extra_lines,
+                row_total,
+                cell_total,
+                abs(title_width - 20) + abs(prereq_width - 36),
+                -schedule_width,
+            )
+            if best is None or score < best[0]:
+                best = (score, title_width, schedule_width, prereq_width)
+
+    _, title_weight, schedule_weight, prereq_weight = best or (
+        (), 22, 35, flexible - 57
+    )
+    percent = lambda value: f"{100 * value / total_weight:.2f}%"
+    return (
+        f"--course-code-width:{percent(code_weight)};"
+        f"--course-term-width:{percent(term_weight)};"
+        f"--course-title-width:{percent(title_weight)};"
+        f"--course-schedule-width:{percent(schedule_weight)};"
+        f"--course-prereq-width:{percent(prereq_weight)}"
+    )
 
 
 def build_course_table(courses, eq_pairs=None):
@@ -662,8 +806,8 @@ def build_course_table(courses, eq_pairs=None):
             tr_open = f'<tr class="{" ".join(row_classes)}">' if row_classes else '<tr>'
             rows += (
                 f"{tr_open}"
-                f"<td>{code_unit}</td>"
-                f"<td>{c['title']}</td>"
+                f'<td class="col-code">{code_unit}</td>'
+                f'<td class="col-title">{c["title"]}</td>'
                 f"{t1_cell}"
                 f"{t2_cell}"
                 f'<td class="col-t1-schedule">{schedule}</td>'
@@ -675,7 +819,7 @@ def build_course_table(courses, eq_pairs=None):
             nf_cls = f"nf {eq_cls}".strip()
             rows += (
                 f'<tr class="{nf_cls}">'
-                f"<td>{c['code']}</td>"
+                f'<td class="col-code">{c["code"]}</td>'
                 f'<td colspan="6"><em>(not found in course_info)</em></td>'
                 f"</tr>\n"
             )
@@ -785,16 +929,17 @@ def build_section_html(sec, course_index, eq_pairs=None, is_single=False, desc_u
         )
         if all_courses:
             tbody = build_course_table(all_courses, eq_pairs)
+            table_style = _course_table_style(all_courses)
             lines.append(
                 f'<details class="course-details">'
                 f'<summary>Show {len(all_courses)} course(s) →</summary>'
-                f"<table><thead><tr>"
-                f'<th title="Course code — [units] shown only when not 3">Code</th>'
-                f'<th title="Course title">Title</th>'
+                f'<table style="{table_style}"><thead><tr>'
+                f'<th class="col-code" title="Course code — [units] shown only when not 3">Code</th>'
+                f'<th class="col-title" title="Course title">Title</th>'
                 f'<th class="col-term-1" title="Available in 2026-27 Term 1">T1</th>'
                 f'<th class="col-term-2" title="Available in 2026-27 Term 2">T2</th>'
-                f'<th class="col-t1-schedule">Term 1 Teaching schedule</th>'
-                f'<th class="col-t2-schedule">Term 2 Teaching schedule</th>'
+                f'<th class="col-t1-schedule" title="Term 1 teaching schedule">T1 Teaching schedule</th>'
+                f'<th class="col-t2-schedule" title="Term 2 teaching schedule">T2 Teaching schedule</th>'
                 f'<th class="col-prereq" title="Enrollment requirements">Prerequisites</th>'
                 f"</tr></thead><tbody>\n{tbody}</tbody></table>"
                 f'</details>'
@@ -1444,7 +1589,7 @@ def generate(year):
             canonical_path,
             structured_data,
         )
-        (site_minors_dir / f"{stem}.html").write_text(page, encoding="utf-8")
+        _write_generated(site_minors_dir / f"{stem}.html", page)
 
     # ── Index page ──
     # cards already in index order (faculty groups, Other last, alpha within)
@@ -1519,7 +1664,8 @@ def generate(year):
         f'</div>\n'
         f"{cards_html}"
     )
-    (SITE_DIR / "index.html").write_text(
+    _write_generated(
+        SITE_DIR / "index.html",
         index_page(
             index_title,
             index_body,
@@ -1527,12 +1673,12 @@ def generate(year):
             f"/{year}/",
             structured_data,
         ),
-        encoding="utf-8",
     )
 
     # Keep the site root pointed at the latest generated minor-programme year.
     latest_label = latest_year.replace("_", "-")
-    (site_base / "index.html").write_text(
+    _write_generated(
+        site_base / "index.html",
         '<!DOCTYPE html>\n'
         '<html lang="en">\n'
         '<head><meta charset="UTF-8">'
@@ -1541,7 +1687,6 @@ def generate(year):
         f'<body><p>Redirecting to <a href="{latest_year}/index.html">'
         f'{latest_label} Minor Programmes</a>...</p></body>\n'
         '</html>\n',
-        encoding="utf-8",
     )
     write_discovery_files(site_base)
 

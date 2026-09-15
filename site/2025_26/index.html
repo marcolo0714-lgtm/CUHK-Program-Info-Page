@@ -39,22 +39,34 @@ a:hover { text-decoration:underline; }
 .section pre { white-space:pre-wrap; font-family:inherit; margin:0; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
+.course-details table { table-layout:fixed; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 th:first-child, td:first-child { white-space:nowrap; }
+.col-code { width:var(--course-code-width, 10%); }
+.col-title { width:var(--course-title-width, 22%); overflow-wrap:anywhere; }
 .col-term-1, .col-term-2 { white-space:nowrap; text-align:center;
-    width:54px; border-left:1px solid var(--tbl-border); }
+    width:var(--course-term-width, 5%); border-left:1px solid var(--tbl-border); }
+th.col-term-1, th.col-term-2 { padding-left:6px; padding-right:6px; }
 .col-term-2 { border-right:1px solid var(--tbl-border); }
-.col-t1-schedule, .col-t2-schedule { min-width:190px; max-width:300px; }
-.col-prereq { min-width:180px; word-break:normal; overflow-wrap:anywhere; }
+.col-t1-schedule, .col-t2-schedule {
+    width:var(--course-schedule-width, auto); overflow-wrap:anywhere; }
+body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t1-schedule,
+body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t2-schedule {
+    width:calc(var(--course-schedule-width, 0%) / 2); }
+.col-prereq { width:var(--course-prereq-width, auto);
+    word-break:normal; overflow-wrap:anywhere; }
 body.hide-term-1 .col-term-1,
 body.hide-term-2 .col-term-2,
 body.hide-t1-schedule .col-t1-schedule,
 body.hide-t2-schedule .col-t2-schedule,
 body.prereq-hidden .col-prereq { display:none; }
-.schedule-section + .schedule-section { margin-top:7px; padding-top:7px;
+.schedule-section { line-height:1.35; min-width:0; overflow-wrap:anywhere; }
+.schedule-section + .schedule-section { margin-top:4px; padding-top:4px;
     border-top:1px solid var(--tbl-border-light); }
-.schedule-section-name { display:block; font-weight:600; color:#374151; }
-.schedule-time { display:block; line-height:1.35; white-space:nowrap; }
+.schedule-section-name { display:inline; font-weight:600; color:#374151; }
+.schedule-lead, .schedule-time-extra { display:inline-block; max-width:100%; }
+.schedule-time { white-space:normal; }
+.schedule-time-extra::before { content:" · "; color:var(--muted); }
 .schedule-empty { color:var(--muted); }
 th { background:#fafafa; font-weight:600; color:#555; }
 tr:hover { background:#f9f9f9; }
