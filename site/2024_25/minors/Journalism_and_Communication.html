@@ -42,6 +42,10 @@ table { width:100%; border-collapse:collapse; background:var(--card);
 .course-details { overflow-x:auto; -webkit-overflow-scrolling:touch; }
 .course-details table { table-layout:fixed; min-width:1100px; }
 .course-details th, .course-details td { overflow-wrap:anywhere; word-break:normal; }
+body.table-scroll-disabled .course-details { overflow-x:visible; }
+body.table-scroll-disabled .course-details table { min-width:0; width:100%; }
+body.table-scroll-disabled .course-code-main,
+body.table-scroll-disabled .course-code-unit { white-space:normal; }
 th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-border); font-size:.92em; }
 thead th { height:auto; vertical-align:bottom; line-height:1.3; overflow:visible; }
 .col-code { width:var(--course-code-width, 10%); }
@@ -372,6 +376,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
   <label class="setting-option"><input type="checkbox" data-table-setting="schedule" checked> <span>Show Term 1 teaching schedule</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="schedule2"> <span>Show Term 2 teaching schedule</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label>
 </aside>
 <main class="content">
   <div class="content-inner">
@@ -646,7 +651,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
   if (savedSettings.unavailable === undefined) {
     savedSettings.unavailable = localStorage.getItem('hideUnavailable') !== 'true';
   }
-  var defaults = {term1:true, term2:true, prerequisites:true, schedule:true, schedule2:false, unavailable:true};
+  var defaults = {term1:true, term2:true, prerequisites:true, schedule:true, schedule2:false, unavailable:true, scroll:true};
   Object.keys(defaults).forEach(function(key){
     var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
     if (!checkbox) return;
@@ -659,7 +664,8 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 function applyTableSettings() {
   var classes = {
     term1:'hide-term-1', term2:'hide-term-2', prerequisites:'prereq-hidden',
-    schedule:'hide-t1-schedule', schedule2:'hide-t2-schedule', unavailable:'unavailable-hidden'
+    schedule:'hide-t1-schedule', schedule2:'hide-t2-schedule', unavailable:'unavailable-hidden',
+    scroll:'table-scroll-disabled'
   };
   var settings = {};
   Object.keys(classes).forEach(function(key){
