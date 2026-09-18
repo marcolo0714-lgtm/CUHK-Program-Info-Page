@@ -1,6 +1,12 @@
-# CUHK Major Course Info
+# CUHK Programme Information
 
-Scrapes and validates course catalog data from the Chinese University of Hong Kong (CUHK) for every subject/major. Also extracts minor programme information, resolves text-only course requirements against the catalog, and generates a browsable static site with interactive course tables.
+This is the single source repository for the combined CUHK minor and major
+programme website. It scrapes and validates the shared CUHK course catalogue,
+extracts programme requirements, generates minor progress checkers, and builds
+all static pages deployed at `https://cuhk-minor.coffeebreak.work/`.
+
+The deployment root is always `site/`. Do not deploy `minor_extraction/`,
+`major_extraction/`, or a separate `public/` directory.
 
 ## What it does
 
@@ -32,25 +38,76 @@ not overwrite the last JSON.
 
 9. **Checker page** — `generate_checker_page.py` and `generate_checker_data.py` build a self-contained interactive checker (`site/{year}/checker.html`) that lets students paste their CUSIS transcript and see their progress toward every minor, including equivalence rules, cross-row exclusions, waiver rules, faculty caps, and level constraints — all auto-detected from explanatory notes.
 
-10. **Combined major/minor site** — `sync_major_site.py` copies the generated
-major pages from the sibling `CUHK_major_info/public/2026_27/` directory into
-`site/major/2026_27/`. The site root redirects to the latest minor index, and
-the minor and Engineering-major indexes link to each other.
+### Major programme info (`major_extraction/`)
 
-11. **Search metadata and discovery** — `seo_config.py` defines the production
+10. **Capture major programme pages** — `extract_major_pages.py` solves the
+programme-site CAPTCHA and saves the complete official page plus a smaller
+requirement-table copy under `major_html/{year}/`. Existing complete pages are
+reused, making an interrupted crawl resumable.
+
+11. **Parse majors to JSON** — `generate_major_json.py`, together with
+`major_readability.py`, parses the saved full pages into structured JSON under
+`major_json/{year}/`. Programme-specific repairs are implemented in Python so
+the complete output is reproducible. Major JSON normally must not be edited by
+hand; see `major_extraction/MANUAL_EDITS.md`.
+
+12. **Generate major pages** — `generate_major_site.py` resolves course codes
+against the same `course_extraction/course_info/` used by minor pages and writes
+the complete major catalogue directly to `site/major/{year}/`. There is no
+second course catalogue and no sibling repository synchronization step.
+
+13. **Search metadata and discovery** — `seo_config.py` defines the production
 origin (`https://cuhk-minor.coffeebreak.work`) and supplies canonical URLs,
 descriptions, Open Graph tags, and structured data to the generated pages. Site
 generation also refreshes `site/sitemap.xml`, `site/robots.txt`, and the
 Cloudflare Pages `site/_redirects` rules.
+
+14. **Unified build** — root-level `generate_all_sites.py` regenerates checker
+data, checker pages, minor pages, every available major year, and the final SEO
+discovery files. It then checks major page counts, all internal links, and the
+syntax of generated inline JavaScript.
 
 ## Quick start
 
 ### Install
 
 ```bash
-pip install playwright ddddocr pytest beautifulsoup4 requests
+pip install -r requirements.txt
 playwright install chromium
 ```
+
+Node.js must be available when running `generate_all_sites.py`, because the
+final verification step compiles generated inline JavaScript. The generators
+themselves are Python programs.
+
+### Generate the complete hosted website
+
+From the repository root:
+
+```powershell
+python generate_all_sites.py
+```
+
+This is the normal command after course information or either programme
+generator changes. It regenerates every minor year and every year present under
+`major_extraction/major_json/`, refreshes the sitemap/redirects last, and runs
+the generated-site checks. Deploy the resulting `site/` directory.
+
+Useful variants:
+
+```powershell
+# Limit the build to selected admission years.
+python generate_all_sites.py --minor-year 2026_27 --major-year 2026_27
+
+# Reparse saved major source HTML before building the site.
+python generate_all_sites.py --rebuild-major-json
+
+# Generate without final link/page-count/JavaScript checks.
+python generate_all_sites.py --skip-verify
+```
+
+`--minor-year` and `--major-year` are repeatable. Without them, all locally
+available years are generated.
 
 ### 1. Scrape and validate course catalog
 
@@ -96,10 +153,46 @@ python resolve_course_descriptions.py --apply --year 2025_26   # generate course
 python ..\minor_planner\generate_checker_data.py --year 2025_26
 python ..\minor_planner\generate_checker_page.py --year 2025_26
 python generate_minor_site.py --year 2025_26                    # static site → site/{year}/
-python sync_major_site.py                                       # major site → site/major/
+cd ..
+python major_extraction\generate_major_site.py --year 2026_27   # major site → site/major/{year}/
 ```
 
 > **Note:** The site auto-reads `course_overrides/{year}.json` if present and injects course tables for resolved text-only rows. If the file is missing, the site still works — just without those tables.
+
+### 6. Update major programme requirements
+
+The current saved official pages are committed, so parser and presentation
+work does not require live access:
+
+```powershell
+# Optional live crawl. This requires Playwright, Chromium and CAPTCHA solving.
+python major_extraction\extract_major_pages.py --year 2026_27 --headless
+
+# Reparse saved full pages and regenerate all major JSON, including ELITE/STAR.
+python major_extraction\generate_major_json.py --year 2026_27
+
+# Run major parser/readability tests.
+python -m pytest major_extraction\tests
+
+# Generate major HTML only.
+python major_extraction\generate_major_site.py --year 2026_27
+```
+
+The 87 captured programmes produce 89 JSON/page records because the Engineering
+ELITE Stream and Science STAR Stream are generated as standalone entries.
+`major_extraction/major_html/{year}/full_pages/` is the authoritative raw
+programme snapshot. The smaller HTML copies beside it are retained for auditing.
+
+### Shared course-data rule
+
+`course_extraction/course_info/` is the only course catalogue. Both minor and
+major generators read it directly. Never copy course JSON into
+`major_extraction/` and do not maintain a second major-repository copy. After a
+course re-scrape passes the offline/live tests, run `python generate_all_sites.py`.
+
+`minor_extraction/sync_major_site.py` remains only as a compatibility wrapper.
+It now invokes the local major generator and refreshes discovery files; it no
+longer reads or modifies a sibling repository.
 
 ## Structure
 
@@ -108,7 +201,7 @@ python sync_major_site.py                                       # major site →
 │   ├── get_course_info.py              # Main course scraper
 │   ├── recover_course_info_from_html.py # Recover JSON from promoted/archived HTML
 │   ├── course_html/                    # Auditable raw course/term/class pages
-│   ├── course_info/                    # Scraped JSON output (one file per major)
+│   ├── course_info/                    # Scraped JSON output (one file per subject)
 │   └── tests/
 │       ├── test_course_info.py         # Offline + live validation tests
 │       └── conftest.py                 # Pytest markers
@@ -128,15 +221,37 @@ python sync_major_site.py                                       # major site →
 ├── minor_planner/                      # Checker pipeline
 │   ├── generate_checker_data.py        # Builds resolved checker data
 │   └── generate_checker_page.py        # Generates interactive checker.html
+├── major_extraction/                   # Complete major-programme pipeline
+│   ├── extract_major_pages.py          # Live programme scraper
+│   ├── generate_major_json.py          # Saved HTML → structured JSON
+│   ├── major_readability.py            # General and programme-specific cleanup
+│   ├── generate_major_site.py          # Major JSON → site/major/
+│   ├── MANUAL_EDITS.md                 # Major JSON manual-edit policy/history
+│   ├── major_html/
+│   │   └── {year}/
+│   │       ├── _programme_rows.json
+│   │       ├── _programmes.json
+│   │       └── full_pages/             # Authoritative official source pages
+│   ├── major_json/
+│   │   └── {year}/                     # Structured major data
+│   └── tests/                          # Parser/readability regression tests
 ├── site/                               # Generated static site
 │   ├── index.html                      # Redirects to newest year
 │   ├── checker_data.json               # Course catalog (year-agnostic)
-│   └── {year}/
-│       ├── index.html                  # Minor programme list
-│       ├── checker.html                # Interactive checker
-│       └── minors/                     # Detail pages
+│   ├── sitemap.xml, robots.txt, _redirects
+│   ├── {year}/
+│   │   ├── index.html                  # Minor programme list
+│   │   ├── checker.html                # Interactive checker
+│   │   └── minors/                     # Detail pages
+│   └── major/
+│       ├── index.html                  # Redirects to newest major year
+│       └── {year}/
+│           ├── index.html              # Complete major programme list
+│           └── majors/                 # Major detail pages
 ├── site_tempdata/                      # Intermediate checker data (per year)
 │   └── checker_minors_{year}.json
+├── generate_all_sites.py               # Recommended complete build command
+├── requirements.txt                    # Python dependencies
 └── user_data_dir/                      # Playwright persistent browser profile
 ```
 
@@ -151,8 +266,33 @@ python sync_major_site.py                                       # major site →
 | `generate_minor_json.py` | `minor_html/*.html` | `minor_json/*.json` (71 files) |
 | `resolve_course_descriptions.py` | `minor_json/` + `course_info/` | `course_overrides.json` |
 | `generate_minor_site.py` | `minor_json/` + `course_info/` + `course_overrides.json` | `site/` (static HTML) |
-| `generate_checker_data.py` | `minor_json/` + `course_info/` + `course_overrides.json` | `site/data/checker_data.json` |
-| `generate_checker_page.py` | `site/data/checker_data.json` | `site/checker.html` |
+| `generate_checker_data.py` | `minor_json/` + `course_info/` + per-year overrides | `site/checker_data.json` + `site_tempdata/checker_minors_{year}.json` |
+| `generate_checker_page.py` | Shared checker data + per-year checker-minor data | `site/{year}/checker.html` |
+| `extract_major_pages.py` | CUHK programme website | `major_html/{year}/` |
+| `generate_major_json.py` | Saved complete major pages | `major_json/{year}/*.json` |
+| `generate_major_site.py` | `major_json/` + shared `course_info/` | `site/major/{year}/` |
+| `generate_all_sites.py` | All current JSON and generator sources | Complete verified `site/` deployment |
+
+## Deployment
+
+The only public artifact is `site/`. For Cloudflare Pages, set the build output
+directory to `site`. The usual workflow is to build and verify locally, commit
+the generated files, and let Cloudflare publish that directory without running
+the scrapers:
+
+```powershell
+python generate_all_sites.py
+git status
+# Review the generated changes, then commit/push only when intended.
+```
+
+The root URL redirects to the newest minor index. `/major` redirects to the
+newest major index. `site/sitemap.xml` contains both catalogues and must always
+be regenerated after the major pages, which the unified build handles.
+
+The old standalone `CUHK_major_info` repository is no longer needed for builds.
+Keep it temporarily as a migration backup until the combined repository has
+been reviewed and deployed successfully; future edits belong here.
 
 ## Scraped data format
 
@@ -306,7 +446,8 @@ python get_course_info.py --process-saved MATH  # reparse an existing raw captur
 pytest tests/ -m "not live"             # verify integrity
 cd ..\minor_extraction
 python resolve_course_descriptions.py --apply   # refresh overrides with new course lists
-python generate_minor_site.py                   # rebuild the site
+cd ..
+python generate_all_sites.py                    # rebuild and verify minors + majors
 ```
 
 ### Adding missing courses to the catalog

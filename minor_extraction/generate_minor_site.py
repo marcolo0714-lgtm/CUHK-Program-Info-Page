@@ -488,7 +488,7 @@ def minor_page(page_title, body, sidebar_html, description, canonical_path, stru
 {{ "prefetch": [{{ "source": "list", "urls": [] }}] }}
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
-<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.ico" sizes="any">
 {seo_head(page_title, description, canonical_path, structured_data)}
 <style>{CSS}</style>
 </head>
@@ -555,7 +555,7 @@ def index_page(page_title, body, description, canonical_path, structured_data):
 {{ "prefetch": [{{ "source": "list", "urls": [] }}] }}
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
-<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.ico" sizes="any">
 {seo_head(page_title, description, canonical_path, structured_data)}
 <style>{CSS}{INDEX_ACTION_CSS}</style>
 </head>
