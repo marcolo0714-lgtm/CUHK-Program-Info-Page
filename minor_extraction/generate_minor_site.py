@@ -10,8 +10,10 @@ from pathlib import Path
 
 try:
     from .seo_config import SITE_NAME, absolute_url, breadcrumb_data, seo_head, write_discovery_files
+    from .minor_course_index import load_minor_course_index
 except ImportError:
     from seo_config import SITE_NAME, absolute_url, breadcrumb_data, seo_head, write_discovery_files
+    from minor_course_index import load_minor_course_index
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--year", default=None, help="Admission year (e.g. 2025_26). If omitted, processes all years.")
@@ -67,6 +69,8 @@ print(f"Processing years: {', '.join(TARGET_YEARS)}")
 MINOR_JSON_DIR = None   # set per-year in generate()
 SITE_DIR = None
 OVERRIDE_FILE = None
+MINOR_COURSE_MEMBERSHIPS = {}
+CURRENT_MINOR_STEM = ""
 
 
 # ── course resolution ─────────────────────────────────────────────────
@@ -132,7 +136,7 @@ a:hover { text-decoration:underline; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 .course-details { overflow-x:auto; -webkit-overflow-scrolling:touch; }
-.course-details table { table-layout:fixed; min-width:1100px; }
+.course-details table { table-layout:fixed; min-width:1300px; }
 .course-details th, .course-details td { overflow-wrap:anywhere; word-break:normal; }
 body.table-scroll-disabled .course-details { overflow-x:visible; }
 body.table-scroll-disabled .course-details table { min-width:0; width:100%; }
@@ -153,11 +157,15 @@ body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t2-schedule {
     width:calc(var(--course-schedule-width, 0%) / 2); }
 .col-prereq { width:var(--course-prereq-width, auto);
     word-break:normal; overflow-wrap:anywhere; }
+.col-minors { width:var(--course-minors-width, 16%); overflow-wrap:anywhere; }
+.minor-memberships { display:flex; flex-wrap:wrap; gap:2px 8px; align-items:flex-start; }
+.minor-memberships a { line-height:1.35; }
 body.hide-term-1 .col-term-1,
 body.hide-term-2 .col-term-2,
 body.hide-t1-schedule .col-t1-schedule,
 body.hide-t2-schedule .col-t2-schedule,
-body.prereq-hidden .col-prereq { display:none; }
+body.prereq-hidden .col-prereq,
+body.hide-minors .col-minors { display:none; }
 .schedule-section { line-height:1.35; min-width:0; overflow-wrap:anywhere; }
 .schedule-section + .schedule-section { margin-top:4px; padding-top:4px;
     border-top:1px solid var(--tbl-border-light); }
@@ -380,7 +388,7 @@ JS = """\
   if (savedSettings.unavailable === undefined) {
     savedSettings.unavailable = localStorage.getItem('hideUnavailable') !== 'true';
   }
-  var defaults = {term1:true, term2:true, prerequisites:true, schedule:true, schedule2:false, unavailable:true, scroll:true};
+  var defaults = {term1:true, term2:true, prerequisites:true, schedule:true, schedule2:false, minors:true, unavailable:true, scroll:true};
   Object.keys(defaults).forEach(function(key){
     var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
     if (!checkbox) return;
@@ -393,7 +401,7 @@ JS = """\
 function applyTableSettings() {
   var classes = {
     term1:'hide-term-1', term2:'hide-term-2', prerequisites:'prereq-hidden',
-    schedule:'hide-t1-schedule', schedule2:'hide-t2-schedule', unavailable:'unavailable-hidden',
+    schedule:'hide-t1-schedule', schedule2:'hide-t2-schedule', minors:'hide-minors', unavailable:'unavailable-hidden',
     scroll:'table-scroll-disabled'
   };
   var settings = {};
@@ -516,6 +524,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;}})();
   <label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="schedule" checked> <span>Show Term 1 teaching schedule</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="schedule2"> <span>Show Term 2 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="minors" checked> <span>Show minors using this course</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label>
 </aside>
@@ -739,6 +748,25 @@ def _estimated_wrapped_lines(text, width):
     return lines
 
 
+def _minor_membership_records(code):
+    return [
+        item for item in MINOR_COURSE_MEMBERSHIPS.get(code, [])
+        if item.get("stem") != CURRENT_MINOR_STEM
+    ]
+
+
+def _format_minor_memberships(code):
+    records = _minor_membership_records(code)
+    if not records:
+        return '<span class="schedule-empty">—</span>'
+    links = [
+        f'<a href="{html.escape(str(item["stem"]), quote=True)}.html">'
+        f'{html.escape(str(item["title"]))}</a>'
+        for item in records
+    ]
+    return '<div class="minor-memberships">' + '<span>·</span>'.join(links) + '</div>'
+
+
 def _course_table_style(courses):
     """Choose per-table widths that minimize estimated rendered row heights.
 
@@ -752,8 +780,19 @@ def _course_table_style(courses):
         min(18, max((len(_format_code_unit(c.get("code", ""), c.get("unit", ""))) for c in usable), default=12) + 1),
     )
     term_weight = 6
-    total_weight = 140
-    flexible = total_weight - code_weight - 2 * term_weight
+    minor_weight = max(
+        14,
+        min(
+            28,
+            max(
+                (max((len(str(item["title"])) for item in _minor_membership_records(c.get("code", ""))), default=0)
+                 for c in usable),
+                default=0,
+            ) + 2,
+        ),
+    )
+    total_weight = 140 + minor_weight
+    flexible = total_weight - code_weight - 2 * term_weight - minor_weight
     rows = []
     for course in usable:
         schedule_lines = [
@@ -803,7 +842,8 @@ def _course_table_style(courses):
         f"--course-term-width:{percent(term_weight)};"
         f"--course-title-width:{percent(title_weight)};"
         f"--course-schedule-width:{percent(schedule_weight)};"
-        f"--course-prereq-width:{percent(prereq_weight)}"
+        f"--course-prereq-width:{percent(prereq_weight)};"
+        f"--course-minors-width:{percent(minor_weight)}"
     )
 
 
@@ -844,6 +884,7 @@ def build_course_table(courses, eq_pairs=None):
                 f'<td class="col-t1-schedule">{schedule}</td>'
                 f'<td class="col-t2-schedule">{schedule2}</td>'
                 f'<td class="col-prereq">{prereq}</td>'
+                f'<td class="col-minors">{_format_minor_memberships(c["code"])}</td>'
                 f"</tr>\n"
             )
         else:
@@ -851,7 +892,7 @@ def build_course_table(courses, eq_pairs=None):
             rows += (
                 f'<tr class="{nf_cls}">'
                 f'<td class="col-code">{c["code"]}</td>'
-                f'<td colspan="6"><em>(not found in course_info)</em></td>'
+                f'<td colspan="7"><em>(not found in course_info)</em></td>'
                 f"</tr>\n"
             )
     return rows
@@ -972,6 +1013,7 @@ def build_section_html(sec, course_index, eq_pairs=None, is_single=False, desc_u
                 f'<th class="col-t1-schedule" title="Term 1 teaching schedule">T1 Teaching schedule</th>'
                 f'<th class="col-t2-schedule" title="Term 2 teaching schedule">T2 Teaching schedule</th>'
                 f'<th class="col-prereq" title="Enrollment requirements">Prerequisites</th>'
+                f'<th class="col-minors" title="Minor programmes whose requirements accept this course">Also in minor</th>'
                 f"</tr></thead><tbody>\n{tbody}</tbody></table>"
                 f'</details>'
             )
@@ -1176,8 +1218,10 @@ def apply_overrides(data, overrides):
 def build_detail_page(data, course_index, overrides, year, available_years,
                       prev_stem=None, prev_title=None, next_stem=None, next_title=None):
     """Build the complete HTML body for one minor programme detail page."""
+    global CURRENT_MINOR_STEM
     title = data["title"]
     stem = data.get("source_file", "")
+    CURRENT_MINOR_STEM = stem
 
     # Apply course overrides before rendering sections
     apply_overrides(data, overrides)
@@ -1505,7 +1549,7 @@ def build_sidebar_html(index_order, active_stem):
     return '\n'.join(parts)
 
 def generate(year):
-    global MINOR_JSON_DIR, SITE_DIR, OVERRIDE_FILE, YEAR
+    global MINOR_JSON_DIR, SITE_DIR, OVERRIDE_FILE, YEAR, MINOR_COURSE_MEMBERSHIPS
     YEAR = year
     MINOR_JSON_DIR = MINOR_JSON_BASE / year
     SITE_DIR = Path(__file__).parent.parent / "site" / year
@@ -1517,6 +1561,7 @@ def generate(year):
     site_minors_dir.mkdir(parents=True, exist_ok=True)
 
     course_index = load_course_index()
+    MINOR_COURSE_MEMBERSHIPS = load_minor_course_index(year)
 
     # Load course overrides (optional)
     overrides = {}

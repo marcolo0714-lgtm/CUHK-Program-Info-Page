@@ -38,6 +38,12 @@ not overwrite the last JSON.
 
 9. **Checker page** — `generate_checker_page.py` and `generate_checker_data.py` build a self-contained interactive checker (`site/{year}/checker.html`) that lets students paste their CUSIS transcript and see their progress toward every minor, including equivalence rules, cross-row exclusions, waiver rules, faculty caps, and level constraints — all auto-detected from explanatory notes.
 
+The checker output also drives `minor_course_index.py`, which builds the
+course-to-minor links shown in every course information table. This ensures the
+“Also in minor” column uses the same resolved overrides and explanatory-note
+equivalences as the checker. On major pages, minors explicitly unavailable to
+the current major (including faculty-wide restrictions) are filtered out.
+
 ### Major programme info (`major_extraction/`)
 
 10. **Capture major programme pages** — `extract_major_pages.py` solves the
@@ -210,6 +216,7 @@ longer reads or modifies a sibling repository.
 │   ├── extract_handbook_minors.py      # Handbook minor scraper (plain HTTP, no captcha)
 │   ├── generate_minor_json.py          # HTML → JSON parser
 │   ├── generate_minor_site.py          # JSON → HTML static site generator
+│   ├── minor_course_index.py           # Checker data → course-to-minor lookup
 │   ├── resolve_course_descriptions.py  # Override diagnostic / generator
 │   ├── course_overrides/               # Per-year course resolution maps
 │   │   └── {year}.json
@@ -266,6 +273,7 @@ longer reads or modifies a sibling repository.
 | `generate_minor_json.py` | `minor_html/*.html` | `minor_json/*.json` (71 files) |
 | `resolve_course_descriptions.py` | `minor_json/` + `course_info/` | `course_overrides.json` |
 | `generate_minor_site.py` | `minor_json/` + `course_info/` + `course_overrides.json` | `site/` (static HTML) |
+| `minor_course_index.py` | Generated checker-minor data | Course-to-minor links and major applicability filtering |
 | `generate_checker_data.py` | `minor_json/` + `course_info/` + per-year overrides | `site/checker_data.json` + `site_tempdata/checker_minors_{year}.json` |
 | `generate_checker_page.py` | Shared checker data + per-year checker-minor data | `site/{year}/checker.html` |
 | `extract_major_pages.py` | CUHK programme website | `major_html/{year}/` |

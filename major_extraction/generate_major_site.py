@@ -5,15 +5,54 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import os
 import re
+import sys
+import time
 from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+if str(ROOT.parent) not in sys.path:
+    sys.path.insert(0, str(ROOT.parent))
+from minor_extraction.minor_course_index import (
+    load_minor_course_index,
+    minor_applies_to_major,
+    minor_matches_major_name,
+)
+
 COURSE_INFO = ROOT.parent / "course_extraction" / "course_info"
 PUBLIC = ROOT.parent / "site" / "major"
 SITE_ORIGIN = "https://cuhk-minor.coffeebreak.work"
 SITE_NAME = "CUHK Programme Information"
+MINOR_COURSE_MEMBERSHIPS: dict[str, list[dict[str, object]]] = {}
+CURRENT_MAJOR: dict[str, object] | None = None
+CURRENT_YEAR = ""
+
+
+def write_generated(path: Path, content: str) -> None:
+    """Atomically replace generated text, including OneDrive placeholders."""
+    path = Path(path)
+    temporary = path.with_name(f".{path.name}.tmp")
+    payload = content.encode("utf-8")
+    last_error = None
+    try:
+        for attempt in range(8):
+            temporary.write_bytes(payload)
+            try:
+                os.replace(temporary, path)
+                return
+            except OSError as error:
+                last_error = error
+                try:
+                    path.write_bytes(payload)
+                    return
+                except OSError as direct_error:
+                    last_error = direct_error
+                time.sleep(0.1 * (attempt + 1))
+        raise last_error
+    finally:
+        temporary.unlink(missing_ok=True)
 
 CSS = r"""
 :root { --bg:#f8f9fa; --card:#fff; --border:#dee2e6; --accent:#2563eb;
@@ -57,7 +96,7 @@ a:hover { text-decoration:underline; }
 table { width:100%; border-collapse:collapse; background:var(--card); border-radius:8px;
   overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 .course-details { overflow-x:auto; -webkit-overflow-scrolling:touch; }
-.course-details table { table-layout:fixed; min-width:1100px; }
+.course-details table { table-layout:fixed; min-width:1300px; }
 .course-details th,.course-details td { overflow-wrap:anywhere; word-break:normal; }
 body.table-scroll-disabled .course-details { overflow-x:visible; }
 body.table-scroll-disabled .course-details table { min-width:0; width:100%; }
@@ -77,9 +116,12 @@ body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t1-schedule,
 body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t2-schedule {
   width:calc(var(--course-schedule-width, 0%) / 2); }
 .col-prereq { width:var(--course-prereq-width, auto); overflow-wrap:anywhere; }
+.col-minors { width:var(--course-minors-width, 16%); overflow-wrap:anywhere; }
+.minor-memberships { display:flex; flex-wrap:wrap; gap:2px 8px; align-items:flex-start; }
+.minor-memberships a { line-height:1.35; }
 body.hide-term-1 .col-term-1,body.hide-term-2 .col-term-2,
 body.hide-t1-schedule .col-t1-schedule,body.hide-t2-schedule .col-t2-schedule,
-body.hide-enrolment .col-prereq { display:none; }
+body.hide-enrolment .col-prereq,body.hide-minors .col-minors { display:none; }
 body.hide-unavailable table tbody tr.course-unavailable { display:none; }
 tr:hover { background:#f9f9f9; }
 .term-yes { background:#d4edda; }
@@ -223,13 +265,13 @@ function setSettingsVisibility(open){
 }
 function toggleSettings(){var panel=document.querySelector('.settings-panel');if(panel)setSettingsVisibility(!panel.classList.contains('open'))}
 function applyTableSettings(){
- var classes={term1:'hide-term-1',term2:'hide-term-2',prerequisites:'hide-enrolment',schedule:'hide-t1-schedule',schedule2:'hide-t2-schedule',unavailable:'hide-unavailable',scroll:'table-scroll-disabled'};
+ var classes={term1:'hide-term-1',term2:'hide-term-2',prerequisites:'hide-enrolment',schedule:'hide-t1-schedule',schedule2:'hide-t2-schedule',minors:'hide-minors',unavailable:'hide-unavailable',scroll:'table-scroll-disabled'};
  var settings={};
  Object.keys(classes).forEach(function(key){
   var checkbox=document.querySelector('[data-table-setting="'+key+'"]'),shown=checkbox?checkbox.checked:true;
  settings[key]=shown;document.body.classList.toggle(classes[key],!shown);
  });
- var visibleColumns=2+['term1','term2','prerequisites','schedule','schedule2'].filter(function(key){return settings[key]}).length;
+ var visibleColumns=2+['term1','term2','prerequisites','schedule','schedule2','minors'].filter(function(key){return settings[key]}).length;
  document.querySelectorAll('.course-group-row td[colspan]').forEach(function(cell){cell.colSpan=visibleColumns});
  document.querySelectorAll('tr.nf td[colspan]').forEach(function(cell){cell.colSpan=Math.max(1,visibleColumns-1)});
  localStorage.setItem('majorTableSettings',JSON.stringify(settings));
@@ -243,7 +285,7 @@ function applyTableSettings(){
  var saved;try{saved=JSON.parse(localStorage.getItem('majorTableSettings')||'{}')}catch(e){saved={}};
  if(saved.prerequisites===undefined){var legacyPrereq=localStorage.getItem('majorPrerequisites');saved.prerequisites=legacyPrereq?legacyPrereq!=='hidden':!window.matchMedia('(max-width:768px)').matches}
  if(saved.unavailable===undefined){saved.unavailable=localStorage.getItem('majorUnavailable')!=='hidden'}
- var defaults={term1:true,term2:true,prerequisites:true,schedule:true,schedule2:false,unavailable:true,scroll:true};
+ var defaults={term1:true,term2:true,prerequisites:true,schedule:true,schedule2:false,minors:true,unavailable:true,scroll:true};
  Object.keys(defaults).forEach(function(key){var checkbox=document.querySelector('[data-table-setting="'+key+'"]');if(!checkbox)return;checkbox.checked=saved[key]===undefined?defaults[key]:!!saved[key];checkbox.addEventListener('change',applyTableSettings)});
  applyTableSettings();
 })();
@@ -492,6 +534,26 @@ def course_code_html(code: str, course: dict[str, object]) -> str:
     )
 
 
+def minor_membership_records(code: str) -> list[dict[str, object]]:
+    return [
+        item for item in MINOR_COURSE_MEMBERSHIPS.get(code, [])
+        if minor_applies_to_major(item, CURRENT_MAJOR)
+        and not minor_matches_major_name(item, CURRENT_MAJOR)
+    ]
+
+
+def format_minor_memberships(code: str) -> str:
+    records = minor_membership_records(code)
+    if not records:
+        return '<span class="schedule-empty">—</span>'
+    links = [
+        f'<a href="../../../{esc(CURRENT_YEAR)}/minors/{esc(item["stem"])}.html">'
+        f'{esc(item["title"])}</a>'
+        for item in records
+    ]
+    return '<div class="minor-memberships">' + '<span>·</span>'.join(links) + '</div>'
+
+
 def course_table_style(courses: list[tuple[str, dict[str, object] | None]]) -> str:
     """Search for the lowest estimated total row height for this table."""
     usable = [(code, course) for code, course in courses if course]
@@ -500,8 +562,19 @@ def course_table_style(courses: list[tuple[str, dict[str, object] | None]]) -> s
         min(18, max((len(course_code_label(code, course)) for code, course in usable), default=12) + 1),
     )
     term_weight = 6
-    total_weight = 140
-    flexible = total_weight - code_weight - 2 * term_weight
+    minor_weight = max(
+        14,
+        min(
+            28,
+            max(
+                (max((len(str(item["title"])) for item in minor_membership_records(code)), default=0)
+                 for code, _ in usable),
+                default=0,
+            ) + 2,
+        ),
+    )
+    total_weight = 140 + minor_weight
+    flexible = total_weight - code_weight - 2 * term_weight - minor_weight
     content_rows = []
     for _, course in usable:
         schedule_lines = [
@@ -551,7 +624,8 @@ def course_table_style(courses: list[tuple[str, dict[str, object] | None]]) -> s
         f"--course-term-width:{percent(term_weight)};"
         f"--course-title-width:{percent(title_weight)};"
         f"--course-schedule-width:{percent(schedule_weight)};"
-        f"--course-prereq-width:{percent(prereq_weight)}"
+        f"--course-prereq-width:{percent(prereq_weight)};"
+        f"--course-minors-width:{percent(minor_weight)}"
     )
 
 
@@ -567,10 +641,10 @@ def course_table(codes: list[str], course_index: dict[str, dict[str, object]], g
     courses = [(code, course) for code, course in entries if code != "__group__"]
     for code, course in entries:
         if code == "__group__":
-            rows.append(f'<tr class="course-group-row"><td colspan="7">{esc(course)}</td></tr>')
+            rows.append(f'<tr class="course-group-row"><td colspan="8">{esc(course)}</td></tr>')
             continue
         if not course:
-            rows.append(f'<tr class="nf"><td>{esc(code)}</td><td colspan="6"><em>(not found in course_info)</em></td></tr>')
+            rows.append(f'<tr class="nf"><td>{esc(code)}</td><td colspan="7"><em>(not found in course_info)</em></td></tr>')
             continue
         code_unit = course_code_html(code, course)
         t1 = " term-yes" if course.get("term_1") else ""
@@ -582,7 +656,8 @@ def course_table(codes: list[str], course_index: dict[str, dict[str, object]], g
             f'<td class="col-term-1{t1}"></td><td class="col-term-2{t2}"></td>'
             f'<td class="col-t1-schedule">{format_schedule(course.get("sections", []), 1)}</td>'
             f'<td class="col-t2-schedule">{format_schedule(course.get("sections", []), 2)}</td>'
-            f'<td class="col-prereq">{format_info(str(course.get("info", "")))}</td></tr>'
+            f'<td class="col-prereq">{format_info(str(course.get("info", "")))}</td>'
+            f'<td class="col-minors">{format_minor_memberships(code)}</td></tr>'
         )
     return (
         f'<table style="{course_table_style(courses)}"><thead><tr>'
@@ -591,7 +666,9 @@ def course_table(codes: list[str], course_index: dict[str, dict[str, object]], g
         '<th class="col-term-2" title="Term 2 availability">T2</th>'
         '<th class="col-t1-schedule" title="Term 1 teaching schedule">T1 Teaching schedule</th>'
         '<th class="col-t2-schedule" title="Term 2 teaching schedule">T2 Teaching schedule</th>'
-        '<th class="col-prereq">Enrolment information</th></tr></thead><tbody>'
+        '<th class="col-prereq">Enrolment information</th>'
+        '<th class="col-minors" title="Minor programmes whose requirements accept this course">Also in minor</th>'
+        '</tr></thead><tbody>'
         + "".join(rows) + "</tbody></table>"
     )
 
@@ -741,7 +818,7 @@ def page_shell(
     structured_data=None,
 ) -> str:
     if sidebar_html:
-        settings = '''<div class="settings-overlay" onclick="setSettingsVisibility(false)" aria-hidden="true"></div><aside id="tableSettings" class="settings-panel" aria-hidden="true" aria-label="Course table settings"><div class="settings-header"><h2>Course table settings</h2><button type="button" class="settings-close" onclick="setSettingsVisibility(false)" aria-label="Close settings">&times;</button></div><p class="settings-description">Choose the columns and rows shown in course information tables.</p><label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label><label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label><label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule" checked> <span>Show Term 1 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule2"> <span>Show Term 2 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label><label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label></aside>'''
+        settings = '''<div class="settings-overlay" onclick="setSettingsVisibility(false)" aria-hidden="true"></div><aside id="tableSettings" class="settings-panel" aria-hidden="true" aria-label="Course table settings"><div class="settings-header"><h2>Course table settings</h2><button type="button" class="settings-close" onclick="setSettingsVisibility(false)" aria-label="Close settings">&times;</button></div><p class="settings-description">Choose the columns and rows shown in course information tables.</p><label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label><label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label><label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule" checked> <span>Show Term 1 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule2"> <span>Show Term 2 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="minors" checked> <span>Show minors using this course</span></label><label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label><label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label></aside>'''
         body_html = f'''<div class="sidebar-overlay" onclick="setSidebarVisibility(false)"></div><aside id="majorSidebar" class="sidebar" aria-hidden="true"><div class="sidebar-header">CUHK Majors</div><nav>{sidebar_html}</nav></aside>{settings}<main class="content"><div class="content-inner">{body}{FOOTER}</div></main>{SCRIPT}'''
         body_class = ""
         favicon = "/favicon.ico"
@@ -762,6 +839,7 @@ def programme_has_faculty(programme: dict[str, object], faculty: str) -> bool:
 
 
 def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None = None) -> None:
+    global MINOR_COURSE_MEMBERSHIPS, CURRENT_MAJOR, CURRENT_YEAR
     json_dir = ROOT / "major_json" / year
     site_dir = output_root / year
     major_dir = site_dir / "majors"
@@ -774,6 +852,8 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
                      "Social Science": 7, "Others": 99}
     programmes.sort(key=lambda item: (faculty_order.get(str(item.get("faculty") or "Others"), 90), item["title"]))
     course_index = load_course_index()
+    CURRENT_YEAR = year
+    MINOR_COURSE_MEMBERSHIPS = load_minor_course_index(year)
     expected_pages = {f'{item["source_file"]}.html' for item in programmes}
     for stale in major_dir.glob("*.html"):
         if stale.name not in expected_pages:
@@ -782,6 +862,7 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
     display_year = year.replace("_", "–")
 
     for position, data in enumerate(programmes):
+        CURRENT_MAJOR = data
         def render_additional_block(block):
             units = unit_tag(block.get("total_units"))
             description_box = f'<div class="section"><p>{linked_text(block["description"])}</p></div>' if block.get("description") else ""
@@ -860,7 +941,8 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
             ("CUHK Major Programme List", f"/major/{year}/"),
             (data["title"], canonical_path),
         ])
-        output.write_text(
+        write_generated(
+            output,
             page_shell(
                 page_title,
                 full_body,
@@ -869,7 +951,6 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
                 canonical_path=canonical_path,
                 structured_data=structured_data,
             ),
-            encoding="utf-8",
         )
 
     faculty_sections = []
@@ -909,7 +990,8 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
         else f'{len(programmes)} programmes across {len(faculties)} faculties'
     )
     index_body = f'<select class="year-select"><option>{display_year}</option></select><h1>CUHK {scope}Major Programme List ({display_year})</h1><p class="meta">{faculty_summary} &middot; For students admitted in {display_year}</p><div class="index-actions"><a href="../../index.html" class="index-action">View Minor Programmes &rarr;</a></div>{"".join(faculty_sections)}'
-    (site_dir / "index.html").write_text(
+    write_generated(
+        site_dir / "index.html",
         page_shell(
             index_title,
             index_body,
@@ -918,9 +1000,11 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
             canonical_path=f"/major/{year}/",
             structured_data=item_list,
         ),
-        encoding="utf-8",
     )
-    (output_root / "index.html").write_text(f'<!doctype html><meta http-equiv="refresh" content="0;url={year}/index.html"><title>CUHK Major Programmes</title>', encoding="utf-8")
+    write_generated(
+        output_root / "index.html",
+        f'<!doctype html><meta http-equiv="refresh" content="0;url={year}/index.html"><title>CUHK Major Programmes</title>',
+    )
     print(f"Generated {len(programmes)} major pages")
 
 

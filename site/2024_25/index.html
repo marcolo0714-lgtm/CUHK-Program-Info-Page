@@ -40,7 +40,7 @@ a:hover { text-decoration:underline; }
 table { width:100%; border-collapse:collapse; background:var(--card);
         border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-bottom:16px; }
 .course-details { overflow-x:auto; -webkit-overflow-scrolling:touch; }
-.course-details table { table-layout:fixed; min-width:1100px; }
+.course-details table { table-layout:fixed; min-width:1300px; }
 .course-details th, .course-details td { overflow-wrap:anywhere; word-break:normal; }
 body.table-scroll-disabled .course-details { overflow-x:visible; }
 body.table-scroll-disabled .course-details table { min-width:0; width:100%; }
@@ -61,11 +61,15 @@ body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t2-schedule {
     width:calc(var(--course-schedule-width, 0%) / 2); }
 .col-prereq { width:var(--course-prereq-width, auto);
     word-break:normal; overflow-wrap:anywhere; }
+.col-minors { width:var(--course-minors-width, 16%); overflow-wrap:anywhere; }
+.minor-memberships { display:flex; flex-wrap:wrap; gap:2px 8px; align-items:flex-start; }
+.minor-memberships a { line-height:1.35; }
 body.hide-term-1 .col-term-1,
 body.hide-term-2 .col-term-2,
 body.hide-t1-schedule .col-t1-schedule,
 body.hide-t2-schedule .col-t2-schedule,
-body.prereq-hidden .col-prereq { display:none; }
+body.prereq-hidden .col-prereq,
+body.hide-minors .col-minors { display:none; }
 .schedule-section { line-height:1.35; min-width:0; overflow-wrap:anywhere; }
 .schedule-section + .schedule-section { margin-top:4px; padding-top:4px;
     border-top:1px solid var(--tbl-border-light); }
