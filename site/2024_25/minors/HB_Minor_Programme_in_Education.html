@@ -379,7 +379,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
   <label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="schedule" checked> <span>Show Term 1 teaching schedule</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="schedule2"> <span>Show Term 2 teaching schedule</span></label>
-  <label class="setting-option"><input type="checkbox" data-table-setting="minors" checked> <span>Show minors using this course</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="minors"> <span>Show minors using this course</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label>
 </aside>
@@ -473,7 +473,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
   if (savedSettings.unavailable === undefined) {
     savedSettings.unavailable = localStorage.getItem('hideUnavailable') !== 'true';
   }
-  var defaults = {term1:true, term2:true, prerequisites:true, schedule:true, schedule2:false, minors:true, unavailable:true, scroll:true};
+  var defaults = {term1:true, term2:true, prerequisites:true, schedule:true, schedule2:false, minors:false, unavailable:true, scroll:true};
   Object.keys(defaults).forEach(function(key){
     var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
     if (!checkbox) return;
