@@ -18,11 +18,20 @@ import ddddocr
 from bs4 import BeautifulSoup
 from playwright.sync_api import Page, sync_playwright
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", write_through=True)
+sys.stdout = io.TextIOWrapper(
+    sys.stdout.buffer,
+    encoding="utf-8",
+    line_buffering=True,
+    write_through=True,
+)
 
 URL = "https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx"
 ROOT = Path(__file__).resolve().parent
 MAX_CAPTCHA_ATTEMPTS = 20
+MAX_PAGE_ATTEMPTS = 3
+# Empty CUHK detail responses observed in saved captures are roughly 58-62 KB,
+# while the smallest page containing a real requirement table is over 180 KB.
+MIN_COMPLETE_PAGE_BYTES = 100_000
 ocr = ddddocr.DdddOcr(show_ad=False)
 
 
@@ -140,6 +149,31 @@ def is_detail_page(page: Page) -> bool:
     )
 
 
+def html_size_bytes(content: str) -> int:
+    return len(content.encode("utf-8"))
+
+
+def saved_page_is_complete(path: Path) -> bool:
+    return path.is_file() and path.stat().st_size >= MIN_COMPLETE_PAGE_BYTES
+
+
+def return_to_result_grid(page: Page, year: str) -> Page:
+    """Return to the programme list, rebuilding the search if necessary."""
+    if page.locator("table#gv_detail").count():
+        return page
+    try:
+        return_button = page.locator("#btn_scheme_return2, #btn_scheme_return")
+        if return_button.count():
+            return_button.last.click()
+            page.wait_for_selector("table#gv_detail", timeout=30_000)
+            page.wait_for_timeout(400)
+            return page
+    except Exception:
+        pass
+    configure_search(page, year)
+    return solve_captcha(page, year)
+
+
 def extract_major_component(page: Page) -> str:
     """Return the innermost useful table containing the major requirement."""
     return page.evaluate(
@@ -202,13 +236,19 @@ def crawl(year: str, headless: bool, faculties: list[str] | None = None) -> None
                 expected_stem = sanitise_filename(f'{grid_row["gridTitle"]}_{index}')
             used_stems.add(expected_stem)
             existing = full_dir / f"{expected_stem}.html"
-            if existing.exists() and existing.stat().st_size > 1_000:
+            if saved_page_is_complete(existing):
                 record = saved_record(existing, expected_stem, list(grid_row["faculties"]))
                 records.append(record)
                 print(f"[{index}/{len(rows)}] Skipping saved {record['admission_code']} - {record['title']}")
                 continue
+            if existing.exists():
+                print(
+                    f"[{index}/{len(rows)}] Re-scraping suspicious saved page "
+                    f"({existing.stat().st_size:,} bytes): {grid_row['gridTitle']}"
+                )
 
-            for attempt in range(2):
+            full_page_html = ""
+            for attempt in range(MAX_PAGE_ATTEMPTS):
                 try:
                     with page.expect_navigation(timeout=90_000):
                         page.evaluate("target => __doPostBack(target, '')", grid_row["postback"])
@@ -217,19 +257,33 @@ def crawl(year: str, headless: bool, faculties: list[str] | None = None) -> None
                         "#uc_scheme_hf_admission_code, #uc_scheme_lbl_prog_descr, "
                         "#btn_scheme_return2, #btn_scheme_return"
                     ).first.wait_for(timeout=30_000)
-                    break
                 except Exception:
-                    if is_detail_page(page):
+                    if not is_detail_page(page):
+                        print(
+                            f"  Warning: unable to open {grid_row['gridTitle']} "
+                            f"(attempt {attempt + 1}/{MAX_PAGE_ATTEMPTS})"
+                        )
+
+                if is_detail_page(page):
+                    candidate = page.content()
+                    candidate_size = html_size_bytes(candidate)
+                    if candidate_size >= MIN_COMPLETE_PAGE_BYTES:
+                        full_page_html = candidate
                         break
-                    if attempt:
-                        print(f"  Warning: unable to open {grid_row['gridTitle']}; skipping")
-                        configure_search(page, year)
-                        page = solve_captcha(page, year)
-                        break
-                    print("  Navigation timed out; reopening the result grid once")
-                    configure_search(page, year)
-                    page = solve_captcha(page, year)
-            else:
+                    print(
+                        f"  Warning: detail page is only {candidate_size:,} bytes; "
+                        f"retrying ({attempt + 1}/{MAX_PAGE_ATTEMPTS})"
+                    )
+
+                if attempt + 1 < MAX_PAGE_ATTEMPTS:
+                    page = return_to_result_grid(page, year)
+
+            if not full_page_html:
+                print(
+                    f"  Warning: {grid_row['gridTitle']} remained incomplete after "
+                    f"{MAX_PAGE_ATTEMPTS} attempts; no saved page was replaced"
+                )
+                page = return_to_result_grid(page, year)
                 continue
 
             if not is_detail_page(page):
@@ -244,7 +298,7 @@ def crawl(year: str, headless: bool, faculties: list[str] | None = None) -> None
             stem = expected_stem
             print(f"[{index}/{len(rows)}] {admission_code} - {title}")
 
-            (full_dir / f"{stem}.html").write_text(page.content(), encoding="utf-8")
+            (full_dir / f"{stem}.html").write_text(full_page_html, encoding="utf-8")
             component = extract_major_component(page)
             if not component:
                 print("  Warning: major requirement component not found")

@@ -112,7 +112,7 @@ def test_biomed_expands_csci_groups_with_a_section_level_course_table():
     streams_intro = next(group for group in elective["subsections"] if group["title"] == "Streams")
     assert streams_intro["hide_course_table"] is True
     assert streams_intro["units"] == "18"
-    named_streams = [group for group in elective["subsections"] if group.get("subsections") and group["title"] != "CSCI Courses"]
+    named_streams = streams_intro["subsections"]
     assert len(named_streams) == 3
     for stream in named_streams:
         elective_group = next(group for group in stream["subsections"] if group["title"] == "Elective Courses")
@@ -220,7 +220,9 @@ def test_later_programmes_keep_roman_and_area_groups_indented():
     mae = json.loads((JSON_DIR / "B.Eng._in_Mechanical_and_Automation_Engineering.json").read_text(encoding="utf-8"))
     assert not mae["sections"][3]["codes"]
     stream_names = {"Design and Manufacturing", "Mechatronics", "Robotics and Automation"}
-    streams = [group for group in mae["sections"][3]["subsections"] if group["title"] in stream_names]
+    stream_heading = next(group for group in mae["sections"][3]["subsections"]
+                          if group["title"] == "Streams")
+    streams = [group for group in stream_heading["subsections"] if group["title"] in stream_names]
     assert len(streams) == 3
     assert all([child["marker"] for child in stream["subsections"]] == ["(a)", "(b)"] for stream in streams)
 
@@ -411,7 +413,7 @@ def test_compound_word_table_rows_and_derived_units_are_recovered():
 
     combined = json.loads((JSON_DIR / "B.A._(Chinese_Language_Studies)_and_B.Ed._(Chinese_Language_Education).json").read_text(encoding="utf-8"))
     required = combined["sections"][1]
-    assert required["units"] == "80"
+    assert required["units"] == "78"
     education = required["subsections"][1]
     assert education["title"] == "Chinese Language Education" and education["units"] == "47"
     methodology = education["subsections"][0]

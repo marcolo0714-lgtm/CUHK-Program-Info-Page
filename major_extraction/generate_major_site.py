@@ -152,6 +152,7 @@ tr:hover { background:#f9f9f9; }
 .point-idx { font-weight:600; color:var(--accent); min-width:22px; }
 .note-content { flex:1; min-width:0; }
 .note-subsections { margin-top:6px; }
+.note-content.subpoints-only > .note-subsections { margin-top:0; }
 .note-subsection { padding:3px 0; border-top:0; }
 .note-subsection.marker-inline { grid-template-columns:32px minmax(0,1fr); gap:0; }
 .note-subsection.marker-inline > .section-marker { padding-top:0; }
@@ -764,7 +765,8 @@ def render_note(note: dict[str, object], course_index: dict[str, dict[str, objec
             cells = list(row) + [""] * (width - len(row))
             rendered_rows.append("<tr>" + "".join(f'<td>{linked_text(cell)}</td>' for cell in cells) + "</tr>")
         parts.append(f'<table class="note-rows"><tbody>{"".join(rendered_rows)}</tbody></table>')
-    return f'<div class="notes-point"><span class="point-idx">{esc(marker)}</span><div class="note-content">{"".join(parts)}</div></div>'
+    content_class = "note-content subpoints-only" if groups and not paragraphs and not rows else "note-content"
+    return f'<div class="notes-point"><span class="point-idx">{esc(marker)}</span><div class="{content_class}">{"".join(parts)}</div></div>'
 
 
 def nav(programmes: list[dict[str, object]], position: int) -> str:
@@ -838,6 +840,33 @@ def programme_has_faculty(programme: dict[str, object], faculty: str) -> bool:
     return primary == faculty or faculty in affiliations
 
 
+def discover_available_years() -> list[str]:
+    """Return admission years that have parsed major programme data."""
+    source = ROOT / "major_json"
+    return sorted(
+        directory.name
+        for directory in source.iterdir()
+        if directory.is_dir() and any(directory.glob("*.json"))
+    )
+
+
+def detail_year_selector(year: str, source_file: str, available_years: list[str]) -> str:
+    """Build a selector containing each year in which this programme exists."""
+    options = []
+    for candidate in available_years:
+        programme_json = ROOT / "major_json" / candidate / f"{source_file}.json"
+        if not programme_json.exists() and candidate != year:
+            continue
+        selected = " selected" if candidate == year else ""
+        label = candidate.replace("_", "–")
+        options.append(
+            f'<option value="../../{candidate}/majors/{esc(source_file)}.html"{selected}>{label}</option>'
+        )
+    if len(options) <= 1:
+        return ""
+    return '<select onchange="window.location=this.value" class="bar-year-select">' + "".join(options) + "</select>"
+
+
 def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None = None) -> None:
     global MINOR_COURSE_MEMBERSHIPS, CURRENT_MAJOR, CURRENT_YEAR
     json_dir = ROOT / "major_json" / year
@@ -854,6 +883,7 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
     course_index = load_course_index()
     CURRENT_YEAR = year
     MINOR_COURSE_MEMBERSHIPS = load_minor_course_index(year)
+    available_years = discover_available_years()
     expected_pages = {f'{item["source_file"]}.html' for item in programmes}
     for stale in major_dir.glob("*.html"):
         if stale.name not in expected_pages:
@@ -914,7 +944,8 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
         affiliations = [str(value) for value in data.get("faculties", []) if value]
         faculty = ", ".join(affiliations) or str(data.get("faculty") or "CUHK")
         requirement_title = f'<h2>{esc(data.get("requirement_title"))}</h2>' if data.get("requirement_title") else ""
-        top = f'''<div class="top-bar"><div class="bar-row"><button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open major navigation" aria-controls="majorSidebar" aria-expanded="false">☰</button><div class="breadcrumb"><a href="../index.html">CUHK Majors</a> / {esc(faculty)} / {esc(data["title"])}</div><div class="bar-controls"><select class="bar-year-select"><option>{display_year}</option></select><button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="tableSettings" aria-expanded="false">&#9881; Settings</button></div></div>{nav(programmes, position)}</div><h1>{esc(data["title"])} &mdash; CUHK Major Requirements ({display_year})</h1><p class="admit-year">Faculty: {esc(faculty)} &middot; Admission code: {esc(data["admission_code"])}{total} &middot; For students admitted in {display_year}</p>{requirement_title}<div class="section">{description}</div>'''
+        year_selector = detail_year_selector(year, data["source_file"], available_years)
+        top = f'''<div class="top-bar"><div class="bar-row"><button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open major navigation" aria-controls="majorSidebar" aria-expanded="false">☰</button><div class="breadcrumb"><a href="../index.html">CUHK Majors</a> / {esc(faculty)} / {esc(data["title"])}</div><div class="bar-controls">{year_selector}<button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="tableSettings" aria-expanded="false">&#9881; Settings</button></div></div>{nav(programmes, position)}</div><h1>{esc(data["title"])} &mdash; CUHK Major Requirements ({display_year})</h1><p class="admit-year">Faculty: {esc(faculty)} &middot; Admission code: {esc(data["admission_code"])}{total} &middot; For students admitted in {display_year}</p>{requirement_title}<div class="section">{description}</div>'''
         supplementary_notes = []
         for block in data.get("supplementary_note_sections", []):
             copy = "".join(f'<div class="section"><p>{linked_text(text)}</p></div>' for text in block.get("text", []))
@@ -989,7 +1020,19 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
         if faculty_filter
         else f'{len(programmes)} programmes across {len(faculties)} faculties'
     )
-    index_body = f'<select class="year-select"><option>{display_year}</option></select><h1>CUHK {scope}Major Programme List ({display_year})</h1><p class="meta">{faculty_summary} &middot; For students admitted in {display_year}</p><div class="index-actions"><a href="../../index.html" class="index-action">View Minor Programmes &rarr;</a></div>{"".join(faculty_sections)}'
+    year_options = "".join(
+        f'<option value="../{candidate}/index.html"{" selected" if candidate == year else ""}>'
+        f'{candidate.replace("_", "–")}</option>'
+        for candidate in available_years
+    )
+    index_year_selector = (
+        '<select onchange="window.location=this.value" class="year-select">'
+        + year_options
+        + "</select>"
+        if len(available_years) > 1
+        else ""
+    )
+    index_body = f'{index_year_selector}<h1>CUHK {scope}Major Programme List ({display_year})</h1><p class="meta">{faculty_summary} &middot; For students admitted in {display_year}</p><div class="index-actions"><a href="../../index.html" class="index-action">View Minor Programmes &rarr;</a></div>{"".join(faculty_sections)}'
     write_generated(
         site_dir / "index.html",
         page_shell(

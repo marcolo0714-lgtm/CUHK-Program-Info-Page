@@ -18,8 +18,192 @@ def load(stem):
     return json.loads((JSON / f"{stem}.json").read_text(encoding="utf-8"))
 
 
+def load_year(year, stem):
+    path = ROOT / "major_extraction" / "major_json" / year / f"{stem}.json"
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def codes(groups):
     return {code for item in walk(groups) for code in item["codes"]}
+
+
+def test_equivalent_older_word_exports_use_the_reviewed_hierarchy():
+    for year in ("2024_25", "2025_26", "2026_27"):
+        chinese = load_year(year, "B.A._in_Chinese_Studies")
+        streams = chinese["sections"][1]["subsections"][1]
+        assert [item["title"] for item in streams["subsections"]] == [
+            "International Stream (IS)", "Chinese Native Stream (CNSS)"]
+        assert [item["marker"] for item in chinese["sections"][1]["subsections"]][-2:] == ["(c)", "(d)"]
+        assert [item["title"] for item in chinese["sections"][2]["subsections"]] == [
+            "International Stream (IS)", "Chinese Native Stream (CNSS)"]
+
+    for year in ("2024_25", "2026_27"):
+        fine_arts = load_year(year, "B.A._in_Fine_Arts")["sections"][2]
+        assert [item["title"] for item in fine_arts["subsections"]] == [
+            "Art History Stream", "Studio Art Stream", "Art History and Studio Art Stream"]
+        assert all(len(item["subsections"]) == 2 for item in fine_arts["subsections"])
+
+    mathematics_2025 = load_year("2025_26", "B.Ed._in_Mathematics_and_Mathematics_Education")
+    elective_2025 = mathematics_2025["sections"][2]
+    subject_2025 = next(item for item in elective_2025["subsections"] if item["marker"] == "(a)")
+    alternatives = next(item for item in subject_2025["subsections"] if item["marker"] == "(ii)")
+    assert [item["marker"] for item in alternatives["subsections"]] == ["(A)", "(B)"]
+    assert [item["title"] for item in alternatives["subsections"][1]["subsections"]] == [
+        "Group 1: CHEM, EESC, LSCI, PHYS", "Group 2: DSPS, RMSC, STAT",
+        "Group 3: DOTE, ECON", "Group 4: AIST, CSCI, IERG"]
+
+    mathematics_2024 = load_year("2024_25", "B.Ed._in_Mathematics_and_Mathematics_Education")
+    subject_2024 = next(item for item in mathematics_2024["sections"][2]["subsections"]
+                        if item["marker"] == "(a)")
+    areas = next(item for item in subject_2024["subsections"] if item["marker"] == "(ii)")
+    assert [item["title"] for item in areas["subsections"]] == ["CSCI", "ECON", "PHYS", "STAT"]
+
+
+def test_2024_source_specific_repairs_are_generated_not_manual():
+    cultural_management = load_year("2024_25", "B.A._in_Cultural_Management")["sections"][2]
+    for marker, label in (("(a)", "Area 1:"), ("(b)", "Area 3:"), ("(c)", "Area 4:")):
+        item = next(child for child in cultural_management["subsections"] if child["marker"] == marker)
+        assert item["course_groups"][0]["label"].startswith(label)
+        assert item["codes"]
+
+    cultural_studies = load_year("2024_25", "B.A._in_Cultural_Studies")["sections"][2]
+    religious_option = next(item for item in cultural_studies["subsections"] if item["marker"] == "(a)")
+    general_option = next(item for item in cultural_studies["subsections"] if item["marker"] == "(c)")
+    assert religious_option["course_groups"]
+    assert general_option["course_groups"]
+    assert not any(re.fullmatch(r"CURE [2-5][45]\d{2}", code) for code in general_option["codes"])
+
+    theology = load_year("2024_25", "B.A._in_Theology")
+    theology_choice = theology["sections"][2]["subsections"][2]
+    outside = next(item for item in theology_choice["subsections"]
+                   if item["title"] == "CURE Courses Outside Cultural Studies Areas")
+    cultural_areas = source_areas(
+        ROOT / "major_extraction/major_html/2024_25/B.A._in_Cultural_Studies.html",
+        extract_course_codes,
+    )
+    cultural_codes = {code for area in cultural_areas for code in area["codes"]}
+    assert not theology_choice["codes"] and not theology_choice.get("course_groups")
+    assert not outside.get("course_groups")
+    assert outside["codes"] and not set(outside["codes"]) & cultural_codes
+
+    history = load_year("2024_25", "B.A._in_History")["sections"][2]
+    assert [(item["marker"], item["units"]) for item in history["subsections"][:2]] == [
+        ("(a)", "6"), ("(b)", "9")]
+
+    japanese = load_year("2024_25", "B.A._in_Japanese_Studies")["sections"][2]
+    assert [route["subsections"][1]["units"] for route in japanese["subsections"][:2]] == ["27", "27"]
+
+    combined = load_year("2024_25", "B.A._(Chinese_Language_Studies)_and_B.Ed._(Chinese_Language_Education)")
+    assert not combined["description"].startswith("Major Programme Requirement")
+    assert [item["title"] for item in combined["sections"][2]["subsections"]] == [
+        "Chinese Language and Literature", "Chinese Language Education"]
+
+    for stem in ("B.Ed._in_Mathematics_and_Mathematics_Education",
+                 "B.Ed._in_Physical_Education,_Exercise_Science_and_Health"):
+        elective = load_year("2024_25", stem)["sections"][2]
+        assert [item["marker"] for item in elective["subsections"]] == ["(a)", "(b)"] + (["(c)"] if "Physical" in stem else [])
+        section_b = next(item for item in elective["subsections"] if item["marker"] == "(b)")
+        assert section_b["subsections"] and all(not item["marker"] for item in section_b["subsections"])
+
+    earth = load_year("2024_25", "B.Sc._in_Earth_and_Environmental_Sciences")["sections"][2]
+    assert [item["marker"] for item in earth["subsections"][:2]] == ["(a)", "(b)"]
+    assert all([child["title"] for child in item["subsections"]][:2] == [
+        "Without Stream", "Atmospheric Science Stream"] for item in earth["subsections"][:2])
+
+    mathematics = load_year("2024_25", "B.Sc._in_Mathematics")["sections"][2]
+    assert not mathematics["text"]
+    assert [item["marker"] for item in mathematics["subsections"]] == ["(a)", "(b)"]
+    stream_choice = mathematics["subsections"][1]
+    assert stream_choice["title"] == "Choose the requirements for the student's declared stream."
+    stream_names = [item["title"] for item in stream_choice["subsections"]]
+    assert stream_names == [
+        "Enrichment Stream[c]", "Computational and Applied Mathematics Stream",
+        "Computational Big Data Analytics Stream", "Mathematics Stream",
+        "Mathematics-Education Stream", "Mathematics-Multidisciplinary Stream"]
+    assert all(item["text"] or item["subsections"] for item in stream_choice["subsections"])
+
+    computational = next(item for item in stream_choice["subsections"]
+                         if item["title"] == "Computational and Applied Mathematics Stream")
+    assert {"MATH 3093", "MATH 3215", "MATH 3320", "MATH 4230"} <= set(computational["codes"])
+    mathematics_stream = next(item for item in stream_choice["subsections"]
+                              if item["title"] == "Mathematics Stream")
+    assert [item["title"] for item in mathematics_stream["subsections"]] == [
+        "BMED Courses at 3000 or above level", "Science Courses", "Engineering Courses",
+        "Economics and Finance Courses",
+    ]
+
+    physics = load_year("2024_25", "B.Sc._in_Physics")
+    physics_streams = next(block for block in physics["additional_requirements"]
+                           if block["title"] == "Streams")
+    assert "Computational and Data Physics Stream" in [item["title"] for item in physics_streams["sections"]]
+
+    statistics = load_year("2024_25", "B.Sc._in_Statistics")["sections"][2]
+    analytics = next(item for item in statistics["subsections"] if item["title"] == "Data Analytics Stream")
+    assert [item["marker"] for item in analytics["subsections"]] == ["(a)", "(b)"]
+
+    for stem, units in (("B.S.Sc._in_Economics", "15"),
+                        ("B.S.Sc._in_Geography_and_Resource_Management", "12"),
+                        ("B.S.Sc._in_Psychology", "15 or 18")):
+        data = load_year("2024_25", stem)
+        block = next(item for item in data["additional_requirements"] if item["title"] == "Concentration Area")
+        assert block["total_units"] == units
+
+    notes = load_year("2024_25", "B.Sc._in_Interdisciplinary_Data_Analytics_X_Double_Major_Programme")["notes"]
+    assert any(note["marker"] == "[ ]" and "EIE" in note["text"] for note in notes)
+
+
+def test_cross_year_education_units_text_and_stream_parents():
+    for year in ("2024_25", "2025_26", "2026_27"):
+        combined = load_year(
+            year, "B.A._(Chinese_Language_Studies)_and_B.Ed._(Chinese_Language_Education)"
+        )
+        assert combined["sections"][1]["units"] == "78"
+        language_education = next(item for item in combined["sections"][1]["subsections"]
+                                  if item["title"] == "Chinese Language Education")
+        assert language_education["units"] == ("47" if year == "2026_27" else "45")
+        assert language_education["units"] == str(sum(
+            int(item["units"]) for item in language_education["subsections"]
+            if re.fullmatch(r"\d+", item["units"])
+        ))
+
+        english = load_year(
+            year, "B.A._(English_Studies)_and_B.Ed._(English_Language_Education)"
+        )
+        subject = next(item for item in english["sections"][2]["subsections"]
+                       if item["marker"] == "(a)")
+        assert subject["title"] == "Subject Knowledge"
+        assert subject["text"][0].startswith("12 units of courses chosen")
+
+        mathematics = load_year(year, "B.Ed._in_Mathematics_and_Mathematics_Education")
+        assert mathematics["sections"][0]["units"] == "9"
+
+        childhood = load_year(year, "B.Ed._in_Early_Childhood_Education")
+        option_c = next((item for item in childhood["sections"][2]["subsections"]
+                         if item["marker"] == "(c)"), None)
+        if year == "2024_25":
+            assert option_c is None
+        else:
+            assert option_c["units"] == "max. 9"
+
+        for stem, expected in (
+            ("B.Eng._in_Mechanical_and_Automation_Engineering",
+             ["Design and Manufacturing", "Mechatronics", "Robotics and Automation"]),
+            ("B.Eng._in_Biomedical_Engineering",
+             ["Medical Instrumentation and Biosensors",
+              "Biomedical Imaging, Informatics and Modeling",
+              "Molecular, Cell and Tissue Engineering"]),
+        ):
+            elective = load_year(year, stem)["sections"][3]
+            streams = next(item for item in elective["subsections"] if item["title"] == "Streams")
+            assert [item["title"] for item in streams["subsections"]] == expected
+            assert not any(item["title"] in expected for item in elective["subsections"] if item is not streams)
+
+    public_2025 = load_year("2025_26", "B.A._in_Public_Humanities")["sections"][2]
+    assert [(item["marker"], item["title"]) for item in public_2025["subsections"][:2]] == [
+        ("(a)", "Standard Scheme"), ("(b)", "Standard Scheme")]
+    assert all([child["title"] for child in item["subsections"][1:]] == [
+        "Cultural Management Concentration", "Cultural Studies Concentration"
+    ] for item in public_2025["subsections"][:2])
 
 
 def test_english_and_fine_arts_split_intro_lists_and_streams():
@@ -167,9 +351,10 @@ def test_science_streams_and_faculty_packages_are_complete_and_structured():
     earth = load("B.Sc._in_Earth_and_Environmental_Sciences")
     assert not earth["additional_requirements"]
     assert [item["marker"] for item in earth["sections"][1]["subsections"]] == ["(a)", "(b)", "(c)", "(d)", "(e)"]
-    section_a_choices = earth["sections"][2]["subsections"][:4]
-    assert section_a_choices[0]["marker"] == "(a)"
-    assert all(not item["marker"] for item in section_a_choices[1:])
+    section_a = earth["sections"][2]["subsections"][0]
+    assert section_a["marker"] == "(a)"
+    section_a_choices = section_a["subsections"]
+    assert all(not item["marker"] for item in section_a_choices)
     assert [item["title"] for item in section_a_choices] == [
         "Without Stream", "Atmospheric Science Stream", "Geology and Geophysics Stream",
         "Environmental Science and Technology Stream"]
@@ -349,12 +534,13 @@ def test_engineering_labels_notes_and_admission_variants_are_structured():
             "Chemistry Courses", "Life Science Courses", "Physics Courses",
         ]
 
-    for stem, markers in [
-        ("B.Eng._in_Artificial_Intelligence_Systems_and_Technologies", ["(i)", "(ii)", "(iii)", "(iv)"]),
-        ("B.Eng._in_Biomedical_Engineering", ["(i)", "(ii)", "(iii)", "(iv)"]),
+    for stem in [
+        "B.Eng._in_Artificial_Intelligence_Systems_and_Technologies",
+        "B.Eng._in_Biomedical_Engineering",
     ]:
         first_letter_note = next(note for note in load(stem)["notes"] if note["marker"] == "[a]")
-        assert [item["marker"] for item in first_letter_note["subsections"]] == markers
+        assert not first_letter_note["text"]
+        assert [item["marker"] for item in first_letter_note["subsections"]] == ["(i)", "(ii)", "(iii)", "(iv)"]
 
     electronic = load("B.Eng._in_Electronic_Engineering")
     guidance = next(note for note in electronic["notes"] if note["marker"] == "3.")
@@ -388,10 +574,13 @@ def test_latest_cross_faculty_readability_fixes_are_source_backed():
     earth = load("B.Sc._in_Earth_and_Environmental_Sciences")
     assert earth["sections"][1]["units"] == "16-18 or 30-33"
     elective = earth["sections"][2]
-    for marker in ("(a)", "(b)"):
-        without = next(item for item in elective["subsections"] if item["marker"] == marker)
-        assert without["title"] == "Without Stream"
-    assert elective["subsections"][0]["text"][0].startswith("Six courses")
+    for marker, title in (("(a)", "Intermediate-level Earth and Environmental Sciences"),
+                          ("(b)", "Advanced Earth and Environmental Sciences")):
+        parent = next(item for item in elective["subsections"] if item["marker"] == marker)
+        assert parent["title"] == title
+        assert not parent.get("inline_first_child")
+        assert parent["subsections"][0]["title"] == "Without Stream"
+    assert elective["subsections"][0]["subsections"][0]["text"][0].startswith("Six courses")
     capstone = next(item for item in elective["subsections"] if item["marker"] == "(c)")
     option_iii = capstone["subsections"][2]
     assert not option_iii["title"]
@@ -404,7 +593,9 @@ def test_latest_cross_faculty_readability_fixes_are_source_backed():
     assert len(other["subsections"][2]["codes"]) > 100
 
     mathematics = load("B.Sc._in_Mathematics")
-    streams = {item["title"]: item for item in mathematics["sections"][2]["subsections"]}
+    stream_choice = next(item for item in mathematics["sections"][2]["subsections"]
+                         if item["marker"] == "(b)")
+    streams = {item["title"]: item for item in stream_choice["subsections"]}
     computational = next(item for item in streams["Computational and Applied Mathematics Stream"]["subsections"] if item["marker"] == "(ii)")
     assert {"MATH 3215", "MATH 3320", "MATH 4230", "MATH 4280"} <= set(computational["codes"])
     for stream, marker in (("Mathematics Stream", "(ii)"), ("Mathematics-Multidisciplinary Stream", "(i)")):

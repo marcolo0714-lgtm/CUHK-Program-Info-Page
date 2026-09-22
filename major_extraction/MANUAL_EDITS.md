@@ -3,17 +3,20 @@
 This file records any edits that must be applied manually to files under
 `major_extraction/major_json/<year>/` after running the Python generators.
 
-## 2026–27
+## 2024–25 to 2026–27
 
 **No manual JSON edits are required.**
 
-The current site can be reproduced entirely by running:
+The reviewed major pages for all three academic years can be reproduced
+entirely by running:
 
 ```powershell
-python major_extraction/extract_major_pages.py --year 2026_27 --headless
-python major_extraction/generate_major_json.py --year 2026_27
-python major_extraction/generate_major_site.py --year 2026_27
+python generate_all_sites.py --rebuild-major-json `
+  --major-year 2024_25 --major-year 2025_26 --major-year 2026_27
 ```
+
+Run `extract_major_pages.py --year <year> --headless` first only when the
+saved official pages need to be refreshed from CUHK.
 
 All programme-specific corrections and exceptional transformations are
 implemented in `major_extraction/generate_major_json.py` and
@@ -31,6 +34,9 @@ implemented in `major_extraction/generate_major_json.py` and
 - Bimodal Bilingual Studies letter/roman hierarchy;
 - Chinese Language and Literature first-box-only handling;
 - Chinese Studies and Japanese Studies stream hierarchy;
+- cross-year normalization of equivalent Word-table exports, including
+  Chinese Studies stream rows, Fine Arts elective streams, and Mathematics
+  Education subject-area alternatives;
 - History's parallel elective minima, Natural Sciences course-list groups,
   and the Chinese Language Studies/Education combined-degree hierarchy;
 - Engineering stream and elective hierarchy corrections;
@@ -51,6 +57,11 @@ Cross-listed faculty affiliations are consolidated by
 `major_extraction/extract_major_pages.py`. Missing course-information records
 are displayed automatically by `major_extraction/generate_major_site.py` and
 are not repaired by editing generated JSON.
+
+Some 2024–25 and 2025–26 saved source pages contain only the handbook shell
+and no Major Programme Requirement table. Those pages intentionally generate
+an unavailable-format record until their official source page is captured
+again; requirements must not be inferred from another academic year.
 
 ## Recording future manual edits
 
@@ -255,9 +266,9 @@ No generated JSON was edited manually for these changes:
 - Derive Japanese Studies route units from the published Standard/Local
   alternatives; align Public Humanities' Standard Scheme labels with their
   lettered markers and all three scheme/concentration rule boxes at one depth;
-  preserve the reviewed double-major markers; and render “Without Stream” on
-  the Earth and Environmental Sciences 3(a)/3(b) marker lines while keeping all
-  named stream alternatives as peers and consolidating the shared other-
+  preserve the reviewed double-major markers; and nest “Without Stream” and
+  the named stream alternatives as peers beneath Earth and Environmental
+  Sciences 3(a)/3(b), consolidating the shared other-
   elective pool into one course table.
 - Separate Mathematics' BMED 3000-or-above pool, retain Statistics' long
   Data Analytics course expression, and keep Risk Management Science Faculty
@@ -265,6 +276,17 @@ No generated JSON was edited manually for these changes:
 - Recalculate grouped course-table column spans from the user's visible-column
   settings, so future grouped catalogues use the available width without
   reserving space for hidden columns.
+- Keep bracketed explanatory-note Roman points as equally styled peers; render
+  Earth and Environmental Sciences' streams beneath 3(a)/3(b) with the normal
+  vertical hierarchy line;
+  derive Mathematics subject-area tables from that year's explanatory-note
+  catalogue; recognize both historical Physics stream names; and exclude the
+  Cultural Studies area catalogue from Theology's outside-area CURE table.
+- Nest flattened stream/concentration choices beneath their introducing
+  heading; retain the reviewed 78-unit Chinese Language/Education requirement;
+  derive Mathematics Education's Faculty Package total from its components;
+  and keep English Education and Early Childhood Education choice instructions
+  and maximum-unit labels in their proper text and unit fields.
 
 These rules use the saved official HTML and local course catalogue. Broad
 eligibility remains subject to the original programme restrictions and course

@@ -1291,12 +1291,20 @@ def structure_chinese_language_education_degree(data: dict[str, object]) -> None
         ],
     }
     education_groups = [methodology, *required.get("subsections", [])[1:]]
+    education_units = sum(
+        int(group["units"])
+        for group in education_groups
+        if re.fullmatch(r"\d+", str(group.get("units", "")))
+    )
     literature_codes = list(required.get("codes", []))
     literature_text = [
         row for row in required.get("text", [])
         if row not in {"Chinese Language and Literature", "Chinese Language Education"}
     ]
-    required["units"] = "80"
+    # The combined-degree requirement is 78 units in all three reviewed
+    # editions.  The Word export leaves the section total blank, so do not
+    # inherit the erroneous 80-unit value produced by the merged cells.
+    required["units"] = "78"
     required["text"] = []
     required["codes"] = []
     required["subsections"] = [
@@ -1311,7 +1319,7 @@ def structure_chinese_language_education_degree(data: dict[str, object]) -> None
         {
             "marker": "",
             "title": "Chinese Language Education",
-            "units": "47",
+            "units": str(education_units),
             "text": [],
             "codes": [],
             "subsections": education_groups,
