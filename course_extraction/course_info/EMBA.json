@@ -33,9 +33,9 @@
                 "status": "Open",
                 "class_capacity": "60",
                 "wait_list_capacity": "0",
-                "enrollment_total": "15",
+                "enrollment_total": "24",
                 "wait_list_total": "0",
-                "available_seats": "45",
+                "available_seats": "36",
                 "timetable": [
                     {
                         "day_time": "Mo 8:45AM - 6:45PM",
@@ -84,9 +84,9 @@
                 "status": "Open",
                 "class_capacity": "70",
                 "wait_list_capacity": "0",
-                "enrollment_total": "0",
+                "enrollment_total": "66",
                 "wait_list_total": "0",
-                "available_seats": "70",
+                "available_seats": "4",
                 "timetable": [
                     {
                         "day_time": "Su 9:00AM - 6:00PM",
@@ -491,16 +491,11 @@
         "unit": "1.50",
         "info": "For students in EMBA",
         "term_1": true,
-        "term_2": true,
+        "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": true
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
                 "offered": true
             },
             {
@@ -519,9 +514,9 @@
                 "status": "Open",
                 "class_capacity": "30",
                 "wait_list_capacity": "0",
-                "enrollment_total": "25",
+                "enrollment_total": "21",
                 "wait_list_total": "0",
-                "available_seats": "5",
+                "available_seats": "9",
                 "timetable": [
                     {
                         "day_time": "Sa 2:30PM - 7:00PM",
@@ -546,45 +541,6 @@
                         "room": "Town Centre Diamond Room",
                         "instructor": "Professor WONG Fung Han",
                         "dates": "11/10"
-                    }
-                ]
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "AES1-SEM",
-                "component_type": "SEM",
-                "class_number": "1434",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "28",
-                "wait_list_total": "0",
-                "available_seats": "2",
-                "timetable": [
-                    {
-                        "day_time": "Mo 7:30PM - 9:30PM",
-                        "room": "Town Centre Diamond Room",
-                        "instructor": "Professor TUNG Pen Hung",
-                        "dates": "4/1"
-                    },
-                    {
-                        "day_time": "Fr 8:45AM - 7:00PM",
-                        "room": "No Room Required",
-                        "instructor": "Professor TUNG Pen Hung",
-                        "dates": "8/1"
-                    },
-                    {
-                        "day_time": "Sa 8:45AM - 7:00PM",
-                        "room": "No Room Required",
-                        "instructor": "Professor TUNG Pen Hung",
-                        "dates": "9/1"
-                    },
-                    {
-                        "day_time": "Su 8:45AM - 7:00PM",
-                        "room": "No Room Required",
-                        "instructor": "Professor TUNG Pen Hung",
-                        "dates": "10/1"
                     }
                 ]
             },
@@ -733,6 +689,33 @@
                 ]
             },
             {
+                "term_code": "2440",
+                "term": "2026-27 Term 3",
+                "section": "PAS1-SEM",
+                "component_type": "SEM",
+                "class_number": "1231",
+                "status": "Open",
+                "class_capacity": "60",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "60",
+                "timetable": [
+                    {
+                        "day_time": "Sa 9:00AM - 6:30PM",
+                        "room": "Cheng Yu Tung Building LT2",
+                        "instructor": "Professor LI Xiang",
+                        "dates": "17/4"
+                    },
+                    {
+                        "day_time": "Su 9:00AM - 6:30PM",
+                        "room": "Cheng Yu Tung Building LT2",
+                        "instructor": "Professor LI Xiang",
+                        "dates": "18/4"
+                    }
+                ]
+            },
+            {
                 "term_code": "2445",
                 "term": "2026-27 Term 4",
                 "section": "AES1-SEM",
@@ -817,9 +800,9 @@
                 "status": "Open",
                 "class_capacity": "60",
                 "wait_list_capacity": "0",
-                "enrollment_total": "10",
+                "enrollment_total": "13",
                 "wait_list_total": "0",
-                "available_seats": "50",
+                "available_seats": "47",
                 "timetable": [
                     {
                         "day_time": "Sa 8:45AM - 1:15PM",

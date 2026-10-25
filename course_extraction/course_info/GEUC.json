@@ -28,7 +28,7 @@
                 "status": "Closed",
                 "class_capacity": "1400",
                 "wait_list_capacity": "0",
-                "enrollment_total": "2443",
+                "enrollment_total": "2436",
                 "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
@@ -49,9 +49,9 @@
                 "status": "Open",
                 "class_capacity": "1400",
                 "wait_list_capacity": "0",
-                "enrollment_total": "1144",
+                "enrollment_total": "1136",
                 "wait_list_total": "0",
-                "available_seats": "256",
+                "available_seats": "264",
                 "timetable": [
                     {
                         "day_time": "Fr 11:30AM - 1:15PM",
@@ -175,7 +175,7 @@
                 "status": "Closed",
                 "class_capacity": "1000",
                 "wait_list_capacity": "0",
-                "enrollment_total": "1156",
+                "enrollment_total": "1146",
                 "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
@@ -195,16 +195,11 @@
         "unit": "1.00",
         "info": "For United College Year 2 and Year 3 students only. Not for HTMG students.",
         "term_1": true,
-        "term_2": true,
+        "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": true
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
                 "offered": true
             }
         ],
@@ -218,48 +213,15 @@
                 "status": "Open",
                 "class_capacity": "35",
                 "wait_list_capacity": "0",
-                "enrollment_total": "20",
+                "enrollment_total": "14",
                 "wait_list_total": "0",
-                "available_seats": "15",
+                "available_seats": "21",
                 "timetable": [
                     {
                         "day_time": "Tu 4:30PM - 6:15PM",
                         "room": "No Room Required",
                         "instructor": "Mr LUK Yiu Man Raymond",
                         "dates": "22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-                    }
-                ]
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8582",
-                "status": "Open",
-                "class_capacity": "35",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "35",
-                "timetable": [
-                    {
-                        "day_time": "Tu 4:30PM - 6:15PM",
-                        "room": "No Room Required",
-                        "instructor": "Mr LUK Yiu Man Raymond",
-                        "dates": "26/1, 2/2"
-                    },
-                    {
-                        "day_time": "Tu 4:30PM - 6:15PM",
-                        "room": "No Room Required",
-                        "instructor": "Mr LUK Yiu Man Raymond",
-                        "dates": "16/2, 23/2, 2/3"
-                    },
-                    {
-                        "day_time": "Tu 4:30PM - 6:15PM",
-                        "room": "No Room Required",
-                        "instructor": "Mr LUK Yiu Man Raymond",
-                        "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                     }
                 ]
             }
@@ -281,16 +243,11 @@
         "unit": "1.00",
         "info": "For United College year 2 or year 3 students. Not for IBBA major students.",
         "term_1": true,
-        "term_2": true,
+        "term_2": false,
         "term_offerings": [
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "offered": true
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
                 "offered": true
             }
         ],
@@ -304,9 +261,9 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "0",
-                "enrollment_total": "37",
+                "enrollment_total": "40",
                 "wait_list_total": "0",
-                "available_seats": "13",
+                "available_seats": "10",
                 "timetable": [
                     {
                         "day_time": "Th 6:30PM - 9:15PM",
@@ -319,39 +276,6 @@
                         "room": "Lee Shau Kee Building 514",
                         "instructor": "Miss HO Wing Chee Beatrice",
                         "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
-                    }
-                ]
-            },
-            {
-                "term_code": "2430",
-                "term": "2026-27 Term 2",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7150",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "timetable": [
-                    {
-                        "day_time": "Th 6:30PM - 9:15PM",
-                        "room": "Lee Shau Kee Building 514",
-                        "instructor": "Miss HO Wing Chee Beatrice",
-                        "dates": "28/1, 4/2"
-                    },
-                    {
-                        "day_time": "Th 6:30PM - 9:15PM",
-                        "room": "Lee Shau Kee Building 514",
-                        "instructor": "Miss HO Wing Chee Beatrice",
-                        "dates": "18/2, 25/2, 4/3"
-                    },
-                    {
-                        "day_time": "Th 6:30PM - 9:15PM",
-                        "room": "Lee Shau Kee Building 514",
-                        "instructor": "Miss HO Wing Chee Beatrice",
-                        "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                     }
                 ]
             }
@@ -413,12 +337,12 @@
                 "section": "AF01-FLD",
                 "component_type": "FLD",
                 "class_number": "5771",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "999",
-                "enrollment_total": "51",
-                "wait_list_total": "15",
-                "available_seats": "0",
+                "enrollment_total": "47",
+                "wait_list_total": "0",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "Mo 6:30PM - 9:15PM",
@@ -440,12 +364,12 @@
                 "section": "BF01-FLD",
                 "component_type": "FLD",
                 "class_number": "5772",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "999",
-                "enrollment_total": "50",
-                "wait_list_total": "12",
-                "available_seats": "0",
+                "enrollment_total": "49",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "Tu 6:30PM - 9:15PM",
@@ -461,12 +385,12 @@
                 "section": "CF01-FLD",
                 "component_type": "FLD",
                 "class_number": "5769",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "999",
-                "enrollment_total": "50",
-                "wait_list_total": "17",
-                "available_seats": "0",
+                "enrollment_total": "49",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "We 6:30PM - 9:15PM",
@@ -482,12 +406,12 @@
                 "section": "DF01-FLD",
                 "component_type": "FLD",
                 "class_number": "4739",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "999",
-                "enrollment_total": "50",
-                "wait_list_total": "12",
-                "available_seats": "0",
+                "enrollment_total": "48",
+                "wait_list_total": "0",
+                "available_seats": "2",
                 "timetable": [
                     {
                         "day_time": "Th 6:30PM - 9:15PM",
@@ -640,6 +564,45 @@
                         "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                     }
                 ]
+            },
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "EF01-FLD",
+                "component_type": "FLD",
+                "class_number": "9935",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Fr 6:30PM - 9:15PM",
+                        "room": "T.C. Cheng Bldg C4",
+                        "instructor": "Miss CHEUNG Wan Ying",
+                        "dates": "29/1"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:15PM",
+                        "room": "T.C. Cheng Bldg C4",
+                        "instructor": "Miss CHEUNG Wan Ying",
+                        "dates": "12/2, 19/2, 26/2, 5/3"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:15PM",
+                        "room": "T.C. Cheng Bldg C4",
+                        "instructor": "Miss CHEUNG Wan Ying",
+                        "dates": "19/3"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:15PM",
+                        "room": "T.C. Cheng Bldg C4",
+                        "instructor": "Miss CHEUNG Wan Ying",
+                        "dates": "2/4, 9/4, 16/4, 23/4"
+                    }
+                ]
             }
         ]
     },
@@ -672,9 +635,9 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "999",
-                "enrollment_total": "33",
+                "enrollment_total": "38",
                 "wait_list_total": "0",
-                "available_seats": "17",
+                "available_seats": "12",
                 "timetable": [
                     {
                         "day_time": "Mo 3:30PM - 6:15PM",
@@ -700,7 +663,7 @@
                 "class_capacity": "50",
                 "wait_list_capacity": "999",
                 "enrollment_total": "50",
-                "wait_list_total": "18",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -815,7 +778,7 @@
                 "class_capacity": "50",
                 "wait_list_capacity": "999",
                 "enrollment_total": "50",
-                "wait_list_total": "10",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -897,7 +860,7 @@
                 "class_capacity": "32",
                 "wait_list_capacity": "999",
                 "enrollment_total": "32",
-                "wait_list_total": "10",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -992,9 +955,9 @@
                 "status": "Open",
                 "class_capacity": "24",
                 "wait_list_capacity": "0",
-                "enrollment_total": "20",
+                "enrollment_total": "19",
                 "wait_list_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "timetable": [
                     {
                         "day_time": "Fr 3:30PM - 6:15PM",
@@ -1599,12 +1562,12 @@
                 "section": "-P01-PRA",
                 "component_type": "PRA",
                 "class_number": "4742",
-                "status": "Closed",
+                "status": "Open",
                 "class_capacity": "30",
                 "wait_list_capacity": "0",
-                "enrollment_total": "30",
+                "enrollment_total": "29",
                 "wait_list_total": "0",
-                "available_seats": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "Fr 6:30PM - 9:15PM",

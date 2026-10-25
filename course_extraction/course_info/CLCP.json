@@ -4,14 +4,9 @@
         "title": "Survival Putonghua for International Students",
         "unit": "0.00",
         "info": "Not for students who have taken CLCP/CPTH1133 or above",
-        "term_1": true,
+        "term_1": false,
         "term_2": true,
         "term_offerings": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "offered": true
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -19,48 +14,6 @@
             }
         ],
         "sections": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5091",
-                "status": "Open",
-                "class_capacity": "19",
-                "wait_list_capacity": "999",
-                "enrollment_total": "6",
-                "wait_list_total": "0",
-                "available_seats": "13",
-                "timetable": [
-                    {
-                        "day_time": "Tu 6:30PM - 8:15PM",
-                        "room": "Yasumoto Int'l Acad Park 409",
-                        "instructor": "Staff",
-                        "dates": "15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-                    }
-                ]
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-X01-WBL",
-                "component_type": "WBL",
-                "class_number": "5094",
-                "status": "Open",
-                "class_capacity": "19",
-                "wait_list_capacity": "999",
-                "enrollment_total": "6",
-                "wait_list_total": "0",
-                "available_seats": "13",
-                "timetable": [
-                    {
-                        "day_time": "TBA",
-                        "room": "No Room Required",
-                        "instructor": "Staff",
-                        "dates": "07/09/2026 - 30/11/2026"
-                    }
-                ]
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -223,12 +176,12 @@
                 "section": "A-LEC",
                 "component_type": "LEC",
                 "class_number": "5088",
-                "status": "Open",
+                "status": "Closed",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "18",
+                "enrollment_total": "19",
                 "wait_list_total": "0",
-                "available_seats": "1",
+                "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "Mo 2:30PM - 5:15PM",
@@ -253,9 +206,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "12",
+                "enrollment_total": "15",
                 "wait_list_total": "0",
-                "available_seats": "7",
+                "available_seats": "4",
                 "timetable": [
                     {
                         "day_time": "Tu 10:30AM - 1:15PM",
@@ -274,9 +227,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "15",
+                "enrollment_total": "17",
                 "wait_list_total": "0",
-                "available_seats": "4",
+                "available_seats": "2",
                 "timetable": [
                     {
                         "day_time": "We 2:30PM - 5:15PM",
@@ -559,7 +512,7 @@
                 "status": "Closed",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "19",
+                "enrollment_total": "20",
                 "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
@@ -580,7 +533,7 @@
                 "status": "Closed",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "19",
+                "enrollment_total": "20",
                 "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
@@ -601,7 +554,7 @@
                 "status": "Closed",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "21",
+                "enrollment_total": "22",
                 "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
@@ -622,7 +575,7 @@
                 "status": "Closed",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "21",
+                "enrollment_total": "22",
                 "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
@@ -977,9 +930,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "15",
+                "enrollment_total": "13",
                 "wait_list_total": "0",
-                "available_seats": "4",
+                "available_seats": "6",
                 "timetable": [
                     {
                         "day_time": "We 10:30AM - 12:15PM",
@@ -998,9 +951,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "15",
+                "enrollment_total": "13",
                 "wait_list_total": "0",
-                "available_seats": "4",
+                "available_seats": "6",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -1019,9 +972,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "13",
+                "enrollment_total": "16",
                 "wait_list_total": "0",
-                "available_seats": "6",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "We 2:30PM - 4:15PM",
@@ -1040,9 +993,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "13",
+                "enrollment_total": "16",
                 "wait_list_total": "0",
-                "available_seats": "6",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -1061,9 +1014,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "17",
+                "enrollment_total": "16",
                 "wait_list_total": "0",
-                "available_seats": "2",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "Th 10:30AM - 12:15PM",
@@ -1088,9 +1041,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "17",
+                "enrollment_total": "16",
                 "wait_list_total": "0",
-                "available_seats": "2",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -1109,9 +1062,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "11",
+                "enrollment_total": "16",
                 "wait_list_total": "0",
-                "available_seats": "8",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "Th 2:30PM - 4:15PM",
@@ -1136,9 +1089,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "11",
+                "enrollment_total": "16",
                 "wait_list_total": "0",
-                "available_seats": "8",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -1442,12 +1395,12 @@
                 "section": "A-LEC",
                 "component_type": "LEC",
                 "class_number": "5380",
-                "status": "Open",
+                "status": "Closed",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "18",
+                "enrollment_total": "19",
                 "wait_list_total": "0",
-                "available_seats": "1",
+                "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "Mo 2:30PM - 4:15PM",
@@ -1469,12 +1422,12 @@
                 "section": "AX01-WBL",
                 "component_type": "WBL",
                 "class_number": "7974",
-                "status": "Open",
+                "status": "Closed",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "18",
+                "enrollment_total": "19",
                 "wait_list_total": "0",
-                "available_seats": "1",
+                "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -1490,12 +1443,12 @@
                 "section": "B-LEC",
                 "component_type": "LEC",
                 "class_number": "5674",
-                "status": "Open",
+                "status": "Closed",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "17",
+                "enrollment_total": "19",
                 "wait_list_total": "0",
-                "available_seats": "2",
+                "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "Tu 10:30AM - 12:15PM",
@@ -1511,12 +1464,12 @@
                 "section": "BX01-WBL",
                 "component_type": "WBL",
                 "class_number": "6311",
-                "status": "Open",
+                "status": "Closed",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "17",
+                "enrollment_total": "19",
                 "wait_list_total": "0",
-                "available_seats": "2",
+                "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -1705,48 +1658,6 @@
                 ]
             },
             {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "B-LEC",
-                "component_type": "LEC",
-                "class_number": "5886",
-                "status": "Open",
-                "class_capacity": "19",
-                "wait_list_capacity": "0",
-                "enrollment_total": "1",
-                "wait_list_total": "0",
-                "available_seats": "18",
-                "timetable": [
-                    {
-                        "day_time": "We 2:30PM - 4:15PM",
-                        "room": "Yasumoto Int'l Acad Park 605",
-                        "instructor": "Staff",
-                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
-                    }
-                ]
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "BX01-WBL",
-                "component_type": "WBL",
-                "class_number": "6282",
-                "status": "Open",
-                "class_capacity": "19",
-                "wait_list_capacity": "0",
-                "enrollment_total": "1",
-                "wait_list_total": "0",
-                "available_seats": "18",
-                "timetable": [
-                    {
-                        "day_time": "TBA",
-                        "room": "No Room Required",
-                        "instructor": "Staff",
-                        "dates": "07/09/2026 - 30/11/2026"
-                    }
-                ]
-            },
-            {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
                 "section": "A-LEC",
@@ -1861,65 +1772,10 @@
         "title": "Elementary Putonghua",
         "unit": "3.00",
         "info": "Not for students who have taken LEDC3520, CLED3530, or CLCP/CPTH2703 or above. Students are not allowed to take two levels of Putonghua in one term. Placement needed before registration.",
-        "term_1": true,
+        "term_1": false,
         "term_2": false,
-        "term_offerings": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "offered": true
-            }
-        ],
-        "sections": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5374",
-                "status": "Open",
-                "class_capacity": "22",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "22",
-                "timetable": [
-                    {
-                        "day_time": "Th 8:30AM - 10:15AM",
-                        "room": "Yasumoto Int'l Acad Park 510",
-                        "instructor": "Staff",
-                        "dates": "10/9, 17/9, 24/9"
-                    },
-                    {
-                        "day_time": "Th 8:30AM - 10:15AM",
-                        "room": "Yasumoto Int'l Acad Park 510",
-                        "instructor": "Staff",
-                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
-                    }
-                ]
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-X01-WBL",
-                "component_type": "WBL",
-                "class_number": "7975",
-                "status": "Open",
-                "class_capacity": "22",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "22",
-                "timetable": [
-                    {
-                        "day_time": "TBA",
-                        "room": "No Room Required",
-                        "instructor": "Staff",
-                        "dates": "07/09/2026 - 30/11/2026"
-                    }
-                ]
-            }
-        ]
+        "term_offerings": [],
+        "sections": []
     },
     {
         "code": "CLCP 2212",
@@ -1960,9 +1816,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "17",
+                "enrollment_total": "18",
                 "wait_list_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "Mo 4:30PM - 6:15PM",
@@ -1987,9 +1843,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "17",
+                "enrollment_total": "18",
                 "wait_list_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -2087,12 +1943,12 @@
                 "section": "--LEC",
                 "component_type": "LEC",
                 "class_number": "5432",
-                "status": "Closed",
+                "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "19",
+                "enrollment_total": "17",
                 "wait_list_total": "0",
-                "available_seats": "0",
+                "available_seats": "2",
                 "timetable": [
                     {
                         "day_time": "We 10:30AM - 12:15PM",
@@ -2108,12 +1964,12 @@
                 "section": "-X01-WBL",
                 "component_type": "WBL",
                 "class_number": "6097",
-                "status": "Closed",
+                "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "19",
+                "enrollment_total": "17",
                 "wait_list_total": "0",
-                "available_seats": "0",
+                "available_seats": "2",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -2184,14 +2040,9 @@
         "title": "Communication in Context II",
         "unit": "3.00",
         "info": "Pre-requisite: CLCP/CPTH2213 Not for students who have taken CLCP/CPTH3313 or above",
-        "term_1": true,
+        "term_1": false,
         "term_2": true,
         "term_offerings": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "offered": true
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -2199,48 +2050,6 @@
             }
         ],
         "sections": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5381",
-                "status": "Open",
-                "class_capacity": "19",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "19",
-                "timetable": [
-                    {
-                        "day_time": "Tu 2:30PM - 4:15PM",
-                        "room": "Yasumoto Int'l Acad Park 401",
-                        "instructor": "Staff",
-                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-                    }
-                ]
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-X01-WBL",
-                "component_type": "WBL",
-                "class_number": "7976",
-                "status": "Open",
-                "class_capacity": "19",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "19",
-                "timetable": [
-                    {
-                        "day_time": "TBA",
-                        "room": "No Room Required",
-                        "instructor": "Staff",
-                        "dates": "07/09/2026 - 30/11/2026"
-                    }
-                ]
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -2302,71 +2111,10 @@
         "title": "Listening and Reading Comprehension Skills II – Daily and Business Topics",
         "unit": "3.00",
         "info": "Pre-requisites: CLCP/CPTH2213 Not for students who have taken CLCP/CPTH3313 or above",
-        "term_1": true,
+        "term_1": false,
         "term_2": false,
-        "term_offerings": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "offered": true
-            }
-        ],
-        "sections": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "7102",
-                "status": "Open",
-                "class_capacity": "19",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "19",
-                "timetable": [
-                    {
-                        "day_time": "Mo 9:30AM - 11:15AM",
-                        "room": "Lee Shau Kee Building 410",
-                        "instructor": "Staff",
-                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-                    },
-                    {
-                        "day_time": "Mo 9:30AM - 11:15AM",
-                        "room": "Lee Shau Kee Building 410",
-                        "instructor": "Staff",
-                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
-                    }
-                ]
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-X01-WBL",
-                "component_type": "WBL",
-                "class_number": "6975",
-                "status": "Open",
-                "class_capacity": "19",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "19",
-                "timetable": [
-                    {
-                        "day_time": "Mo 11:30AM - 12:15PM",
-                        "room": "Lee Shau Kee Building 410",
-                        "instructor": "Staff",
-                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-                    },
-                    {
-                        "day_time": "Mo 11:30AM - 12:15PM",
-                        "room": "Lee Shau Kee Building 410",
-                        "instructor": "Staff",
-                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
-                    }
-                ]
-            }
-        ]
+        "term_offerings": [],
+        "sections": []
     },
     {
         "code": "CLCP 2253",
@@ -2397,9 +2145,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "6",
+                "enrollment_total": "11",
                 "wait_list_total": "0",
-                "available_seats": "13",
+                "available_seats": "8",
                 "timetable": [
                     {
                         "day_time": "Th 2:30PM - 4:15PM",
@@ -2424,9 +2172,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "6",
+                "enrollment_total": "11",
                 "wait_list_total": "0",
-                "available_seats": "13",
+                "available_seats": "8",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -2522,7 +2270,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "3",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2549,7 +2297,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "3",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2566,12 +2314,12 @@
                 "section": "B-LEC",
                 "component_type": "LEC",
                 "class_number": "5734",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "4",
-                "available_seats": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "Mo 12:30PM - 2:15PM",
@@ -2593,12 +2341,12 @@
                 "section": "BX01-WBL",
                 "component_type": "WBL",
                 "class_number": "6505",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "4",
-                "available_seats": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -2618,7 +2366,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "2",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2645,7 +2393,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "2",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2666,19 +2414,19 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "1",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "Mo 4:30PM - 6:15PM",
                         "room": "Yasumoto Int'l Acad Park 411",
-                        "instructor": "Dr. WONG Ho Put",
+                        "instructor": "Mr. SUN Lei",
                         "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
                     },
                     {
                         "day_time": "Mo 4:30PM - 6:15PM",
                         "room": "Yasumoto Int'l Acad Park 411",
-                        "instructor": "Dr. WONG Ho Put",
+                        "instructor": "Mr. SUN Lei",
                         "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
                     }
                 ]
@@ -2693,13 +2441,13 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "1",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "No Room Required",
-                        "instructor": "Dr. WONG Ho Put",
+                        "instructor": "Mr. SUN Lei",
                         "dates": "07/09/2026 - 30/11/2026"
                     }
                 ]
@@ -2710,12 +2458,12 @@
                 "section": "E-LEC",
                 "component_type": "LEC",
                 "class_number": "5942",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "1",
-                "available_seats": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "Tu 10:30AM - 12:15PM",
@@ -2731,12 +2479,12 @@
                 "section": "EX01-WBL",
                 "component_type": "WBL",
                 "class_number": "6020",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "1",
-                "available_seats": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -2756,7 +2504,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "2",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2777,7 +2525,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "2",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2794,12 +2542,12 @@
                 "section": "G-LEC",
                 "component_type": "LEC",
                 "class_number": "5643",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "2",
-                "available_seats": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "Tu 2:30PM - 4:15PM",
@@ -2815,12 +2563,12 @@
                 "section": "GX01-WBL",
                 "component_type": "WBL",
                 "class_number": "6508",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "2",
-                "available_seats": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -2836,12 +2584,12 @@
                 "section": "H-LEC",
                 "component_type": "LEC",
                 "class_number": "5904",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "2",
-                "available_seats": "0",
+                "enrollment_total": "22",
+                "wait_list_total": "0",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "Tu 4:30PM - 6:15PM",
@@ -2857,12 +2605,12 @@
                 "section": "HX01-WBL",
                 "component_type": "WBL",
                 "class_number": "6351",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "2",
-                "available_seats": "0",
+                "enrollment_total": "22",
+                "wait_list_total": "0",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -2878,17 +2626,17 @@
                 "section": "I-LEC",
                 "component_type": "LEC",
                 "class_number": "5644",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "1",
-                "available_seats": "0",
+                "enrollment_total": "22",
+                "wait_list_total": "0",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "We 10:30AM - 12:15PM",
                         "room": "Hui Yeung Shing Bldg G06",
-                        "instructor": "Miss JIANG Han",
+                        "instructor": "Ms. WU Xiaobo",
                         "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
                     }
                 ]
@@ -2899,17 +2647,17 @@
                 "section": "IX01-WBL",
                 "component_type": "WBL",
                 "class_number": "6509",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "1",
-                "available_seats": "0",
+                "enrollment_total": "22",
+                "wait_list_total": "0",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "No Room Required",
-                        "instructor": "Miss JIANG Han",
+                        "instructor": "Ms. WU Xiaobo",
                         "dates": "07/09/2026 - 30/11/2026"
                     }
                 ]
@@ -2924,7 +2672,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "3",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2945,7 +2693,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "3",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2966,7 +2714,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "3",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2987,7 +2735,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "3",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -3004,12 +2752,12 @@
                 "section": "L-LEC",
                 "component_type": "LEC",
                 "class_number": "5944",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "1",
-                "available_seats": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "We 4:30PM - 6:15PM",
@@ -3025,12 +2773,12 @@
                 "section": "LX01-WBL",
                 "component_type": "WBL",
                 "class_number": "6352",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "1",
-                "available_seats": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -3046,12 +2794,12 @@
                 "section": "M-LEC",
                 "component_type": "LEC",
                 "class_number": "5642",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "3",
-                "available_seats": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "Th 10:30AM - 12:15PM",
@@ -3073,12 +2821,12 @@
                 "section": "MX01-WBL",
                 "component_type": "WBL",
                 "class_number": "6510",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "3",
-                "available_seats": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -3098,7 +2846,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "7",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -3125,7 +2873,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "7",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -3142,12 +2890,12 @@
                 "section": "O-LEC",
                 "component_type": "LEC",
                 "class_number": "5588",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
+                "enrollment_total": "24",
                 "wait_list_total": "0",
-                "available_seats": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "Th 2:30PM - 4:15PM",
@@ -3169,12 +2917,12 @@
                 "section": "OX01-WBL",
                 "component_type": "WBL",
                 "class_number": "6192",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
+                "enrollment_total": "24",
                 "wait_list_total": "0",
-                "available_seats": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -3194,7 +2942,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "4",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -3221,7 +2969,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "4",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -3238,12 +2986,12 @@
                 "section": "Q-LEC",
                 "component_type": "LEC",
                 "class_number": "5629",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
+                "enrollment_total": "24",
                 "wait_list_total": "0",
-                "available_seats": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "Fr 8:30AM - 10:15AM",
@@ -3259,12 +3007,12 @@
                 "section": "QX01-WBL",
                 "component_type": "WBL",
                 "class_number": "6553",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
+                "enrollment_total": "24",
                 "wait_list_total": "0",
-                "available_seats": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -3284,7 +3032,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "4",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -3311,7 +3059,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "4",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -3328,12 +3076,12 @@
                 "section": "S-LEC",
                 "component_type": "LEC",
                 "class_number": "10208",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "7",
-                "available_seats": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "Mo 12:30PM - 2:15PM",
@@ -3355,12 +3103,12 @@
                 "section": "SX01-WBL",
                 "component_type": "WBL",
                 "class_number": "10210",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
-                "enrollment_total": "25",
-                "wait_list_total": "7",
-                "available_seats": "0",
+                "enrollment_total": "24",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -3380,7 +3128,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "4",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -3401,7 +3149,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "4",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -3422,7 +3170,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "5",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -3449,7 +3197,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "5",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -3470,7 +3218,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "5",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -3497,7 +3245,7 @@
                 "class_capacity": "25",
                 "wait_list_capacity": "999",
                 "enrollment_total": "25",
-                "wait_list_total": "5",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -4586,9 +4334,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "9",
+                "enrollment_total": "8",
                 "wait_list_total": "0",
-                "available_seats": "10",
+                "available_seats": "11",
                 "timetable": [
                     {
                         "day_time": "Mo 2:30PM - 5:15PM",
@@ -4635,9 +4383,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "11",
+                "enrollment_total": "13",
                 "wait_list_total": "0",
-                "available_seats": "8",
+                "available_seats": "6",
                 "timetable": [
                     {
                         "day_time": "We 2:30PM - 5:15PM",
@@ -4687,14 +4435,9 @@
         "title": "Communication in Context III",
         "unit": "3.00",
         "info": "Pre-requisite: CLCP/CPTH3313 Not for students who have taken CLCP/CPTH4413 or above",
-        "term_1": true,
+        "term_1": false,
         "term_2": true,
         "term_offerings": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "offered": true
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -4702,27 +4445,6 @@
             }
         ],
         "sections": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5373",
-                "status": "Open",
-                "class_capacity": "19",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "19",
-                "timetable": [
-                    {
-                        "day_time": "Tu 9:30AM - 12:15PM",
-                        "room": "Yasumoto Int'l Acad Park 411",
-                        "instructor": "Staff",
-                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-                    }
-                ]
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -4843,9 +4565,9 @@
                 "status": "Open",
                 "class_capacity": "19",
                 "wait_list_capacity": "0",
-                "enrollment_total": "7",
+                "enrollment_total": "13",
                 "wait_list_total": "0",
-                "available_seats": "12",
+                "available_seats": "6",
                 "timetable": [
                     {
                         "day_time": "Th 2:30PM - 5:15PM",
@@ -4926,7 +4648,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "3",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -4943,17 +4665,17 @@
                 "section": "B-LEC",
                 "component_type": "LEC",
                 "class_number": "5688",
-                "status": "Open",
+                "status": "Wait List",
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
-                "enrollment_total": "21",
+                "enrollment_total": "22",
                 "wait_list_total": "0",
-                "available_seats": "1",
+                "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "We 2:30PM - 4:15PM",
                         "room": "Yasumoto Int'l Acad Park 506",
-                        "instructor": "Miss HE Shan",
+                        "instructor": "Miss JIANG Han",
                         "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
                     }
                 ]
@@ -4968,7 +4690,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "1",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -5122,7 +4844,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "1",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -5149,7 +4871,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "1",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -5170,7 +4892,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "2",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -5191,7 +4913,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "2",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -5212,7 +4934,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "2",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -5233,7 +4955,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "2",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -5344,7 +5066,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "2",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -5371,7 +5093,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "2",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -5684,9 +5406,9 @@
                 "status": "Open",
                 "class_capacity": "15",
                 "wait_list_capacity": "0",
-                "enrollment_total": "11",
+                "enrollment_total": "14",
                 "wait_list_total": "0",
-                "available_seats": "4",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "We 9:30AM - 12:15PM",
@@ -5801,44 +5523,10 @@
         "title": "Advanced Communication Skills and Culture I",
         "unit": "3.00",
         "info": "Pre-requisites: CLCP/CPTH3333 and CLCP/CPTH3353",
-        "term_1": true,
+        "term_1": false,
         "term_2": false,
-        "term_offerings": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "offered": true
-            }
-        ],
-        "sections": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "8441",
-                "status": "Open",
-                "class_capacity": "15",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "15",
-                "timetable": [
-                    {
-                        "day_time": "Mo 9:30AM - 12:15PM",
-                        "room": "Yasumoto Int'l Acad Park 509",
-                        "instructor": "Staff",
-                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-                    },
-                    {
-                        "day_time": "Mo 9:30AM - 12:15PM",
-                        "room": "Yasumoto Int'l Acad Park 509",
-                        "instructor": "Staff",
-                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
-                    }
-                ]
-            }
-        ]
+        "term_offerings": [],
+        "sections": []
     },
     {
         "code": "CLCP 4463",
@@ -5970,9 +5658,9 @@
                 "status": "Open",
                 "class_capacity": "15",
                 "wait_list_capacity": "0",
-                "enrollment_total": "10",
+                "enrollment_total": "12",
                 "wait_list_total": "0",
-                "available_seats": "5",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "Th 9:30AM - 12:15PM",
@@ -6050,7 +5738,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "5",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -6107,14 +5795,9 @@
         "title": "Current Affairs and Discussion",
         "unit": "3.00",
         "info": "1. Pre-requisite: CLCP2703 or CPTH2703 2. For students who have not completed the above course, they are invited to join the Putonghua placement offered by CLA",
-        "term_1": true,
+        "term_1": false,
         "term_2": true,
         "term_offerings": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "offered": true
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -6122,48 +5805,6 @@
             }
         ],
         "sections": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "5174",
-                "status": "Open",
-                "class_capacity": "22",
-                "wait_list_capacity": "999",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "22",
-                "timetable": [
-                    {
-                        "day_time": "We 10:30AM - 12:15PM",
-                        "room": "Esther Lee Bldg 307",
-                        "instructor": "Staff",
-                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
-                    }
-                ]
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-X01-WBL",
-                "component_type": "WBL",
-                "class_number": "8107",
-                "status": "Open",
-                "class_capacity": "22",
-                "wait_list_capacity": "999",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "22",
-                "timetable": [
-                    {
-                        "day_time": "TBA",
-                        "room": "No Room Required",
-                        "instructor": "Staff",
-                        "dates": "07/09/2026 - 30/11/2026"
-                    }
-                ]
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -6292,7 +5933,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "1",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -6313,7 +5954,7 @@
                 "class_capacity": "22",
                 "wait_list_capacity": "999",
                 "enrollment_total": "22",
-                "wait_list_total": "1",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -6385,14 +6026,9 @@
         "title": "Putonghua Speech Training (Presentation Skills and Test Preparation)",
         "unit": "3.00",
         "info": "1. Not for students who have taken CPTH4773 or CPTH4053. 2. For students who have completed CPTH4001, CPTH3703 or CLCP3703. 3. For students who have not completed the above course, they are invited to join the Putonghua placement offered by CLA.",
-        "term_1": true,
+        "term_1": false,
         "term_2": true,
         "term_offerings": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "offered": true
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -6400,60 +6036,6 @@
             }
         ],
         "sections": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "6976",
-                "status": "Open",
-                "class_capacity": "22",
-                "wait_list_capacity": "999",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "22",
-                "timetable": [
-                    {
-                        "day_time": "Th 2:30PM - 4:15PM",
-                        "room": "Yasumoto Int'l Acad Park 607",
-                        "instructor": "Staff",
-                        "dates": "10/9, 17/9, 24/9"
-                    },
-                    {
-                        "day_time": "Th 2:30PM - 4:15PM",
-                        "room": "Yasumoto Int'l Acad Park 607",
-                        "instructor": "Staff",
-                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
-                    }
-                ]
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-X01-WBL",
-                "component_type": "WBL",
-                "class_number": "6977",
-                "status": "Open",
-                "class_capacity": "22",
-                "wait_list_capacity": "999",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "22",
-                "timetable": [
-                    {
-                        "day_time": "Th 4:30PM - 5:15PM",
-                        "room": "Yasumoto Int'l Acad Park 607",
-                        "instructor": "Staff",
-                        "dates": "10/9, 17/9, 24/9"
-                    },
-                    {
-                        "day_time": "Th 4:30PM - 5:15PM",
-                        "room": "Yasumoto Int'l Acad Park 607",
-                        "instructor": "Staff",
-                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
-                    }
-                ]
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -6526,14 +6108,9 @@
         "code": "CLCP 4793",
         "title": "Special Topics in Putonghua (Medicine & Healthcare)",
         "unit": "3.00",
-        "term_1": true,
+        "term_1": false,
         "term_2": true,
         "term_offerings": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "offered": true
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -6541,90 +6118,6 @@
             }
         ],
         "sections": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "5639",
-                "status": "Open",
-                "class_capacity": "22",
-                "wait_list_capacity": "999",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "22",
-                "timetable": [
-                    {
-                        "day_time": "Tu 10:30AM - 12:15PM",
-                        "room": "Hui Yeung Shing Bldg G03",
-                        "instructor": "Staff",
-                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-                    }
-                ]
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "AX01-WBL",
-                "component_type": "WBL",
-                "class_number": "8617",
-                "status": "Open",
-                "class_capacity": "22",
-                "wait_list_capacity": "999",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "22",
-                "timetable": [
-                    {
-                        "day_time": "TBA",
-                        "room": "No Room Required",
-                        "instructor": "Staff",
-                        "dates": "07/09/2026 - 30/11/2026"
-                    }
-                ]
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "B-LEC",
-                "component_type": "LEC",
-                "class_number": "8444",
-                "status": "Open",
-                "class_capacity": "22",
-                "wait_list_capacity": "999",
-                "enrollment_total": "2",
-                "wait_list_total": "0",
-                "available_seats": "20",
-                "timetable": [
-                    {
-                        "day_time": "Fr 8:30AM - 10:15AM",
-                        "room": "Yasumoto Int'l Acad Park 508",
-                        "instructor": "Staff",
-                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
-                    }
-                ]
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "BX01-WBL",
-                "component_type": "WBL",
-                "class_number": "8610",
-                "status": "Open",
-                "class_capacity": "22",
-                "wait_list_capacity": "999",
-                "enrollment_total": "2",
-                "wait_list_total": "0",
-                "available_seats": "20",
-                "timetable": [
-                    {
-                        "day_time": "TBA",
-                        "room": "No Room Required",
-                        "instructor": "Staff",
-                        "dates": "07/09/2026 - 30/11/2026"
-                    }
-                ]
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",

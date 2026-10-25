@@ -15,9 +15,11 @@ from html import unescape
 from pathlib import Path
 
 try:
+    from minor_extraction.course_schedule_metadata import course_schedule_update_date
     from minor_extraction.seo_config import absolute_url, seo_head, write_discovery_files
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "minor_extraction"))
+    from course_schedule_metadata import course_schedule_update_date
     from seo_config import absolute_url, seo_head, write_discovery_files
 
 parser = argparse.ArgumentParser()
@@ -2378,7 +2380,7 @@ CHECKER_HTML_TEMPLATE = """\
       <span> &middot; </span>
       <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
     </span>
-    <span class="footer-update">Latest course teaching schedule update: 2026/9/15</span>
+    <span class="footer-update">Latest course teaching schedule update: {schedule_update_date}</span>
   </div>
 </div>
 <script>
@@ -2461,6 +2463,7 @@ def generate(year):
     }
 
     html = CHECKER_HTML_TEMPLATE.format(
+        schedule_update_date=course_schedule_update_date(),
         css=CHECKER_CSS,
         checker_data_json=checker_data,
         js=CHECKER_JS,

@@ -598,9 +598,9 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "0",
-                "enrollment_total": "38",
+                "enrollment_total": "37",
                 "wait_list_total": "0",
-                "available_seats": "12",
+                "available_seats": "13",
                 "timetable": [
                     {
                         "day_time": "We 6:30PM - 9:30PM",
@@ -673,44 +673,10 @@
         "title": "Health Innovation and Technology Management",
         "unit": "1.00",
         "info": "For students in Master of Public Health, Master of Science in Health Services Management and Postgraduate diploma in Health Services Management",
-        "term_1": true,
+        "term_1": false,
         "term_2": false,
-        "term_offerings": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "offered": true
-            }
-        ],
-        "sections": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "1571",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "timetable": [
-                    {
-                        "day_time": "Th 6:30PM - 9:30PM",
-                        "room": "Prince of Wales Hospital",
-                        "instructor": "Dr. YAU Zi May Susan, Professor FUNG Hong",
-                        "dates": "12/11, 19/11"
-                    },
-                    {
-                        "day_time": "Th 7:00PM - 9:00PM",
-                        "room": "Prince of Wales Hospital",
-                        "instructor": "Dr. YAU Zi May Susan, Professor FUNG Hong",
-                        "dates": "26/11, 3/12, 10/12"
-                    }
-                ]
-            }
-        ]
+        "term_offerings": [],
+        "sections": []
     },
     {
         "code": "HSYS 5018",

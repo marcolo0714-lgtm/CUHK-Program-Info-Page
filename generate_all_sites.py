@@ -11,6 +11,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 from minor_extraction.seo_config import write_discovery_files
+from minor_extraction.course_schedule_metadata import update_course_schedule_date
 
 
 ROOT = Path(__file__).resolve().parent
@@ -130,6 +131,10 @@ console.log(`JavaScript syntax check: OK (${checked} inline scripts)`);
 
 
 def build(args: argparse.Namespace) -> None:
+    if args.update_course_schedule_date:
+        if args.minor_year or args.major_year:
+            raise ValueError("--update-course-schedule-date requires a full build; omit year filters")
+        print(f"Course teaching schedule date: {update_course_schedule_date()} (Hong Kong)")
     for year_args in year_arguments(args.minor_year):
         run_script("minor_planner/generate_checker_data.py", *year_args)
     for year_args in year_arguments(args.minor_year):
@@ -177,5 +182,10 @@ if __name__ == "__main__":
         "--skip-verify",
         action="store_true",
         help="Skip generated page-count, internal-link, and JavaScript checks",
+    )
+    parser.add_argument(
+        "--update-course-schedule-date",
+        action="store_true",
+        help="Set every schedule footer to today's Hong Kong date (full builds only); otherwise retain the saved date",
     )
     build(parser.parse_args())

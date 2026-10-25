@@ -25,12 +25,12 @@
                 "section": "A-LEC",
                 "component_type": "LEC",
                 "class_number": "9714",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "153",
                 "wait_list_capacity": "999",
-                "enrollment_total": "153",
-                "wait_list_total": "8",
-                "available_seats": "0",
+                "enrollment_total": "151",
+                "wait_list_total": "0",
+                "available_seats": "2",
                 "timetable": [
                     {
                         "day_time": "We 2:30PM - 5:15PM",
@@ -46,12 +46,12 @@
                 "section": "AT01-TUT",
                 "component_type": "TUT",
                 "class_number": "6131",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "153",
                 "wait_list_capacity": "999",
-                "enrollment_total": "153",
-                "wait_list_total": "8",
-                "available_seats": "0",
+                "enrollment_total": "151",
+                "wait_list_total": "0",
+                "available_seats": "2",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -64,15 +64,63 @@
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
+                "section": "AT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10281",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "timetable": [
+                    {
+                        "day_time": "We 1:30PM - 2:15PM",
+                        "room": "William M W Mong Eng Bldg LT",
+                        "instructor": "Dr. HO Kwok Wah",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AT03-TUT",
+                "component_type": "TUT",
+                "class_number": "10282",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "timetable": [
+                    {
+                        "day_time": "Th 12:30PM - 1:15PM",
+                        "room": "Lee Shau Kee Building LT4",
+                        "instructor": "Dr. HO Kwok Wah",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 12:30PM - 1:15PM",
+                        "room": "Lee Shau Kee Building LT4",
+                        "instructor": "Dr. HO Kwok Wah",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
                 "section": "B-LEC",
                 "component_type": "LEC",
                 "class_number": "9334",
-                "status": "Open",
+                "status": "Wait List",
                 "class_capacity": "160",
                 "wait_list_capacity": "999",
-                "enrollment_total": "157",
+                "enrollment_total": "160",
                 "wait_list_total": "0",
-                "available_seats": "3",
+                "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "Th 12:30PM - 2:15PM",
@@ -106,18 +154,60 @@
                 "section": "BT01-TUT",
                 "component_type": "TUT",
                 "class_number": "6133",
-                "status": "Open",
+                "status": "Wait List",
                 "class_capacity": "160",
                 "wait_list_capacity": "999",
-                "enrollment_total": "157",
+                "enrollment_total": "160",
                 "wait_list_total": "0",
-                "available_seats": "3",
+                "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "TBA",
                         "instructor": "Dr. LEUNG Sze Him Isaac",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10283",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "timetable": [
+                    {
+                        "day_time": "We 1:30PM - 2:15PM",
+                        "room": "Lee Shau Kee Building LT3",
+                        "instructor": "Dr. LEUNG Sze Him Isaac",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BT03-TUT",
+                "component_type": "TUT",
+                "class_number": "10284",
+                "status": "Open",
+                "class_capacity": "40",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "40",
+                "timetable": [
+                    {
+                        "day_time": "Tu 2:30PM - 3:15PM",
+                        "room": "Sino Building LT2",
+                        "instructor": "Dr. LEUNG Sze Him Isaac",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
                     }
                 ]
             },
@@ -131,7 +221,7 @@
                 "class_capacity": "160",
                 "wait_list_capacity": "999",
                 "enrollment_total": "161",
-                "wait_list_total": "24",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -152,7 +242,7 @@
                 "class_capacity": "160",
                 "wait_list_capacity": "999",
                 "enrollment_total": "161",
-                "wait_list_total": "24",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -160,6 +250,54 @@
                         "room": "TBA",
                         "instructor": "Dr. CHAN Chun Man",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10285",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "timetable": [
+                    {
+                        "day_time": "Mo 1:30PM - 2:15PM",
+                        "room": "Esther Lee Bldg LT3",
+                        "instructor": "Dr. CHAN Chun Man",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 1:30PM - 2:15PM",
+                        "room": "Esther Lee Bldg LT3",
+                        "instructor": "Dr. CHAN Chun Man",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "CT03-TUT",
+                "component_type": "TUT",
+                "class_number": "10286",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Tu 3:30PM - 4:15PM",
+                        "room": "Esther Lee Bldg LT1",
+                        "instructor": "Dr. CHAN Chun Man",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
                     }
                 ]
             },
@@ -302,9 +440,9 @@
                 "status": "Open",
                 "class_capacity": "100",
                 "wait_list_capacity": "999",
-                "enrollment_total": "84",
+                "enrollment_total": "89",
                 "wait_list_total": "0",
-                "available_seats": "16",
+                "available_seats": "11",
                 "timetable": [
                     {
                         "day_time": "We 11:30AM - 12:15PM",
@@ -335,15 +473,42 @@
                 "status": "Open",
                 "class_capacity": "100",
                 "wait_list_capacity": "999",
-                "enrollment_total": "84",
+                "enrollment_total": "89",
                 "wait_list_total": "0",
-                "available_seats": "16",
+                "available_seats": "11",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "TBA",
                         "instructor": "Dr. OUYANG Ming",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10267",
+                "status": "Open",
+                "class_capacity": "100",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "100",
+                "timetable": [
+                    {
+                        "day_time": "Th 1:30PM - 2:15PM",
+                        "room": "Fung King Hey Bldg Swire Hall1",
+                        "instructor": "Dr. OUYANG Ming",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 1:30PM - 2:15PM",
+                        "room": "Fung King Hey Bldg Swire Hall1",
+                        "instructor": "Dr. OUYANG Ming",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                     }
                 ]
             },
@@ -526,8 +691,8 @@
                 "status": "Wait List",
                 "class_capacity": "160",
                 "wait_list_capacity": "999",
-                "enrollment_total": "161",
-                "wait_list_total": "8",
+                "enrollment_total": "160",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -559,8 +724,8 @@
                 "status": "Wait List",
                 "class_capacity": "160",
                 "wait_list_capacity": "999",
-                "enrollment_total": "161",
-                "wait_list_total": "8",
+                "enrollment_total": "160",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -574,15 +739,42 @@
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
+                "section": "AT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10269",
+                "status": "Open",
+                "class_capacity": "160",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "160",
+                "timetable": [
+                    {
+                        "day_time": "Th 12:30PM - 1:15PM",
+                        "room": "Science Centre L1",
+                        "instructor": "Professor LIN Yingxin",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 12:30PM - 1:15PM",
+                        "room": "Science Centre L1",
+                        "instructor": "Professor LIN Yingxin",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
                 "section": "B-LEC",
                 "component_type": "LEC",
                 "class_number": "5310",
                 "status": "Open",
                 "class_capacity": "160",
                 "wait_list_capacity": "999",
-                "enrollment_total": "144",
+                "enrollment_total": "139",
                 "wait_list_total": "0",
-                "available_seats": "16",
+                "available_seats": "21",
                 "timetable": [
                     {
                         "day_time": "We 9:30AM - 11:15AM",
@@ -613,15 +805,69 @@
                 "status": "Open",
                 "class_capacity": "160",
                 "wait_list_capacity": "999",
-                "enrollment_total": "144",
+                "enrollment_total": "139",
                 "wait_list_total": "0",
-                "available_seats": "16",
+                "available_seats": "21",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "TBA",
                         "instructor": "Professor ZHANG Jiacheng",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10287",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Th 4:30PM - 6:15PM",
+                        "room": "T.C. Cheng Bldg 111",
+                        "instructor": "Professor ZHANG Jiacheng",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 4:30PM - 6:15PM",
+                        "room": "T.C. Cheng Bldg 111",
+                        "instructor": "Professor ZHANG Jiacheng",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BT03-TUT",
+                "component_type": "TUT",
+                "class_number": "10288",
+                "status": "Open",
+                "class_capacity": "110",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "110",
+                "timetable": [
+                    {
+                        "day_time": "Th 1:30PM - 2:15PM",
+                        "room": "Chung Chi College Lib CK TSE",
+                        "instructor": "Professor ZHANG Jiacheng",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 1:30PM - 2:15PM",
+                        "room": "Chung Chi College Lib CK TSE",
+                        "instructor": "Professor ZHANG Jiacheng",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                     }
                 ]
             },
@@ -727,9 +973,9 @@
                 "status": "Open",
                 "class_capacity": "150",
                 "wait_list_capacity": "999",
-                "enrollment_total": "130",
-                "wait_list_total": "2",
-                "available_seats": "20",
+                "enrollment_total": "131",
+                "wait_list_total": "0",
+                "available_seats": "19",
                 "timetable": [
                     {
                         "day_time": "Mo 4:30PM - 5:15PM",
@@ -760,15 +1006,42 @@
                 "status": "Open",
                 "class_capacity": "150",
                 "wait_list_capacity": "999",
-                "enrollment_total": "130",
-                "wait_list_total": "2",
-                "available_seats": "20",
+                "enrollment_total": "131",
+                "wait_list_total": "0",
+                "available_seats": "19",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "TBA",
                         "instructor": "Dr. WONG Tat Wing",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10270",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 3:15PM",
+                        "room": "Lady Shaw Bldg LT6",
+                        "instructor": "Dr. WONG Tat Wing",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 3:15PM",
+                        "room": "Lady Shaw Bldg LT6",
+                        "instructor": "Dr. WONG Tat Wing",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                     }
                 ]
             },
@@ -875,9 +1148,9 @@
                 "status": "Open",
                 "class_capacity": "150",
                 "wait_list_capacity": "999",
-                "enrollment_total": "96",
+                "enrollment_total": "99",
                 "wait_list_total": "0",
-                "available_seats": "54",
+                "available_seats": "51",
                 "timetable": [
                     {
                         "day_time": "Mo 2:30PM - 4:15PM",
@@ -908,15 +1181,36 @@
                 "status": "Open",
                 "class_capacity": "150",
                 "wait_list_capacity": "999",
-                "enrollment_total": "96",
+                "enrollment_total": "99",
                 "wait_list_total": "0",
-                "available_seats": "54",
+                "available_seats": "51",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "TBA",
                         "instructor": "Dr. LIU Kin Yat",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10271",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "timetable": [
+                    {
+                        "day_time": "We 2:30PM - 3:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Dr. LIU Kin Yat",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
                     }
                 ]
             },
@@ -1455,7 +1749,7 @@
                 "class_capacity": "120",
                 "wait_list_capacity": "999",
                 "enrollment_total": "120",
-                "wait_list_total": "4",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -1476,7 +1770,7 @@
                 "class_capacity": "120",
                 "wait_list_capacity": "999",
                 "enrollment_total": "120",
-                "wait_list_total": "4",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -1484,6 +1778,27 @@
                         "room": "TBA",
                         "instructor": "Professor FAN Xiaodan",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-T02-TUT",
+                "component_type": "TUT",
+                "class_number": "10272",
+                "status": "Open",
+                "class_capacity": "120",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "120",
+                "timetable": [
+                    {
+                        "day_time": "Tu 5:30PM - 6:15PM",
+                        "room": "Lady Shaw Bldg LT1",
+                        "instructor": "Professor FAN Xiaodan",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
                     }
                 ]
             }
@@ -1519,12 +1834,12 @@
                 "section": "--LEC",
                 "component_type": "LEC",
                 "class_number": "7440",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "100",
                 "wait_list_capacity": "999",
-                "enrollment_total": "100",
-                "wait_list_total": "12",
-                "available_seats": "0",
+                "enrollment_total": "99",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "We 9:30AM - 12:15PM",
@@ -1540,18 +1855,66 @@
                 "section": "-T01-TUT",
                 "component_type": "TUT",
                 "class_number": "7920",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "100",
                 "wait_list_capacity": "999",
-                "enrollment_total": "100",
-                "wait_list_total": "12",
-                "available_seats": "0",
+                "enrollment_total": "99",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "TBA",
                         "instructor": "Professor CHAN Kin Wai",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-T02-TUT",
+                "component_type": "TUT",
+                "class_number": "10273",
+                "status": "Open",
+                "class_capacity": "100",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "100",
+                "timetable": [
+                    {
+                        "day_time": "Tu 5:30PM - 6:15PM",
+                        "room": "William M W Mong Eng Bldg 407",
+                        "instructor": "Professor CHAN Kin Wai",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-T03-TUT",
+                "component_type": "TUT",
+                "class_number": "10274",
+                "status": "Open",
+                "class_capacity": "100",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "100",
+                "timetable": [
+                    {
+                        "day_time": "Th 1:30PM - 2:15PM",
+                        "room": "Mong Man Wai Bldg LT2",
+                        "instructor": "Professor CHAN Kin Wai",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 1:30PM - 2:15PM",
+                        "room": "Mong Man Wai Bldg LT2",
+                        "instructor": "Professor CHAN Kin Wai",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                     }
                 ]
             }
@@ -1661,9 +2024,9 @@
                 "status": "Open",
                 "class_capacity": "150",
                 "wait_list_capacity": "999",
-                "enrollment_total": "128",
-                "wait_list_total": "1",
-                "available_seats": "22",
+                "enrollment_total": "125",
+                "wait_list_total": "0",
+                "available_seats": "25",
                 "timetable": [
                     {
                         "day_time": "Mo 9:30AM - 12:15PM",
@@ -1688,15 +2051,42 @@
                 "status": "Open",
                 "class_capacity": "150",
                 "wait_list_capacity": "999",
-                "enrollment_total": "128",
-                "wait_list_total": "1",
-                "available_seats": "22",
+                "enrollment_total": "125",
+                "wait_list_total": "0",
+                "available_seats": "25",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "TBA",
                         "instructor": "Dr. CHEUNG King Chau",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10275",
+                "status": "Open",
+                "class_capacity": "150",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "150",
+                "timetable": [
+                    {
+                        "day_time": "Th 5:30PM - 6:15PM",
+                        "room": "Science Centre L1",
+                        "instructor": "Dr. CHEUNG King Chau",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 5:30PM - 6:15PM",
+                        "room": "Science Centre L1",
+                        "instructor": "Dr. CHEUNG King Chau",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                     }
                 ]
             },
@@ -1784,9 +2174,9 @@
                 "status": "Open",
                 "class_capacity": "120",
                 "wait_list_capacity": "999",
-                "enrollment_total": "119",
+                "enrollment_total": "116",
                 "wait_list_total": "0",
-                "available_seats": "1",
+                "available_seats": "4",
                 "timetable": [
                     {
                         "day_time": "We 1:30PM - 4:15PM",
@@ -1805,9 +2195,9 @@
                 "status": "Open",
                 "class_capacity": "120",
                 "wait_list_capacity": "999",
-                "enrollment_total": "119",
+                "enrollment_total": "116",
                 "wait_list_total": "0",
-                "available_seats": "1",
+                "available_seats": "4",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -1820,15 +2210,36 @@
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
+                "section": "AT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10276",
+                "status": "Open",
+                "class_capacity": "120",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "120",
+                "timetable": [
+                    {
+                        "day_time": "Tu 12:30PM - 1:15PM",
+                        "room": "Lee Shau Kee Building LT3",
+                        "instructor": "Professor XIA Dong",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
                 "section": "B-LEC",
                 "component_type": "LEC",
                 "class_number": "5217",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "120",
                 "wait_list_capacity": "999",
-                "enrollment_total": "120",
-                "wait_list_total": "12",
-                "available_seats": "0",
+                "enrollment_total": "119",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "Th 9:30AM - 12:15PM",
@@ -1850,18 +2261,45 @@
                 "section": "BT01-TUT",
                 "component_type": "TUT",
                 "class_number": "8616",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "120",
                 "wait_list_capacity": "999",
-                "enrollment_total": "120",
-                "wait_list_total": "12",
-                "available_seats": "0",
+                "enrollment_total": "119",
+                "wait_list_total": "0",
+                "available_seats": "1",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "TBA",
                         "instructor": "Professor WANG Junhui",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "BT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10309",
+                "status": "Open",
+                "class_capacity": "120",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "120",
+                "timetable": [
+                    {
+                        "day_time": "Mo 12:30PM - 1:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT4",
+                        "instructor": "Professor WANG Junhui",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 12:30PM - 1:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT4",
+                        "instructor": "Professor WANG Junhui",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
                     }
                 ]
             },
@@ -1944,9 +2382,9 @@
                 "status": "Open",
                 "class_capacity": "60",
                 "wait_list_capacity": "999",
-                "enrollment_total": "45",
-                "wait_list_total": "2",
-                "available_seats": "15",
+                "enrollment_total": "37",
+                "wait_list_total": "0",
+                "available_seats": "23",
                 "timetable": [
                     {
                         "day_time": "Th 12:30PM - 3:15PM",
@@ -1971,15 +2409,42 @@
                 "status": "Open",
                 "class_capacity": "60",
                 "wait_list_capacity": "999",
-                "enrollment_total": "45",
-                "wait_list_total": "2",
-                "available_seats": "15",
+                "enrollment_total": "37",
+                "wait_list_total": "0",
+                "available_seats": "23",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "TBA",
                         "instructor": "Professor DAI Ben",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-T02-TUT",
+                "component_type": "TUT",
+                "class_number": "10277",
+                "status": "Open",
+                "class_capacity": "60",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "60",
+                "timetable": [
+                    {
+                        "day_time": "Th 4:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall G04",
+                        "instructor": "Professor DAI Ben",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 4:30PM - 5:15PM",
+                        "room": "Y.C. Liang Hall G04",
+                        "instructor": "Professor DAI Ben",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                     }
                 ]
             }
@@ -2269,12 +2734,12 @@
                 "section": "A-LEC",
                 "component_type": "LEC",
                 "class_number": "5197",
-                "status": "Open",
+                "status": "Wait List",
                 "class_capacity": "110",
                 "wait_list_capacity": "999",
-                "enrollment_total": "104",
-                "wait_list_total": "2",
-                "available_seats": "6",
+                "enrollment_total": "111",
+                "wait_list_total": "0",
+                "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "Th 3:30PM - 6:15PM",
@@ -2296,18 +2761,45 @@
                 "section": "AT01-TUT",
                 "component_type": "TUT",
                 "class_number": "8085",
-                "status": "Open",
+                "status": "Wait List",
                 "class_capacity": "110",
                 "wait_list_capacity": "999",
-                "enrollment_total": "104",
-                "wait_list_total": "2",
-                "available_seats": "6",
+                "enrollment_total": "111",
+                "wait_list_total": "0",
+                "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "TBA",
                         "instructor": "Dr. LEUNG Sze Him Isaac",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10278",
+                "status": "Open",
+                "class_capacity": "110",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "110",
+                "timetable": [
+                    {
+                        "day_time": "Th 2:30PM - 3:15PM",
+                        "room": "Science Centre L1",
+                        "instructor": "Dr. LEUNG Sze Him Isaac",
+                        "dates": "10/9, 17/9, 24/9"
+                    },
+                    {
+                        "day_time": "Th 2:30PM - 3:15PM",
+                        "room": "Science Centre L1",
+                        "instructor": "Dr. LEUNG Sze Him Isaac",
+                        "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                     }
                 ]
             },
@@ -2396,8 +2888,8 @@
                 "status": "Wait List",
                 "class_capacity": "110",
                 "wait_list_capacity": "999",
-                "enrollment_total": "110",
-                "wait_list_total": "37",
+                "enrollment_total": "114",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2423,8 +2915,8 @@
                 "status": "Wait List",
                 "class_capacity": "110",
                 "wait_list_capacity": "999",
-                "enrollment_total": "110",
-                "wait_list_total": "37",
+                "enrollment_total": "114",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2432,6 +2924,48 @@
                         "room": "TBA",
                         "instructor": "Professor LIN Zhixiang",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-T02-TUT",
+                "component_type": "TUT",
+                "class_number": "10289",
+                "status": "Open",
+                "class_capacity": "110",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "110",
+                "timetable": [
+                    {
+                        "day_time": "Fr 2:30PM - 3:15PM",
+                        "room": "Science Centre L4",
+                        "instructor": "Professor LIN Zhixiang",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-T03-TUT",
+                "component_type": "TUT",
+                "class_number": "10290",
+                "status": "Open",
+                "class_capacity": "100",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "100",
+                "timetable": [
+                    {
+                        "day_time": "Tu 11:30AM - 12:15PM",
+                        "room": "Yasumoto Int'l Acad Park LT8",
+                        "instructor": "Professor LIN Zhixiang",
+                        "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
                     }
                 ]
             }
@@ -2530,8 +3064,8 @@
                 "status": "Wait List",
                 "class_capacity": "110",
                 "wait_list_capacity": "999",
-                "enrollment_total": "110",
-                "wait_list_total": "12",
+                "enrollment_total": "117",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2557,8 +3091,8 @@
                 "status": "Wait List",
                 "class_capacity": "110",
                 "wait_list_capacity": "999",
-                "enrollment_total": "110",
-                "wait_list_total": "12",
+                "enrollment_total": "117",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2566,6 +3100,27 @@
                         "room": "TBA",
                         "instructor": "Professor LIN Yuanyuan",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-T02-TUT",
+                "component_type": "TUT",
+                "class_number": "10279",
+                "status": "Open",
+                "class_capacity": "110",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "110",
+                "timetable": [
+                    {
+                        "day_time": "Fr 1:30PM - 2:15PM",
+                        "room": "Lady Shaw Bldg LT6",
+                        "instructor": "Professor LIN Yuanyuan",
+                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
                     }
                 ]
             }
@@ -2609,8 +3164,8 @@
                 "status": "Wait List",
                 "class_capacity": "130",
                 "wait_list_capacity": "999",
-                "enrollment_total": "134",
-                "wait_list_total": "26",
+                "enrollment_total": "141",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2642,8 +3197,8 @@
                 "status": "Wait List",
                 "class_capacity": "130",
                 "wait_list_capacity": "999",
-                "enrollment_total": "134",
-                "wait_list_total": "26",
+                "enrollment_total": "140",
+                "wait_list_total": "0",
                 "available_seats": "0",
                 "timetable": [
                     {
@@ -2651,6 +3206,33 @@
                         "room": "TBA",
                         "instructor": "Dr. LEUNG Sze Him Isaac",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "AT02-TUT",
+                "component_type": "TUT",
+                "class_number": "10291",
+                "status": "Open",
+                "class_capacity": "130",
+                "wait_list_capacity": "999",
+                "enrollment_total": "1",
+                "wait_list_total": "0",
+                "available_seats": "129",
+                "timetable": [
+                    {
+                        "day_time": "Mo 2:30PM - 3:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Dr. LEUNG Sze Him Isaac",
+                        "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                    },
+                    {
+                        "day_time": "Mo 2:30PM - 3:15PM",
+                        "room": "Lee Shau Kee Building LT1",
+                        "instructor": "Dr. LEUNG Sze Him Isaac",
+                        "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
                     }
                 ]
             },
@@ -2748,12 +3330,12 @@
                 "section": "--LEC",
                 "component_type": "LEC",
                 "class_number": "6019",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "110",
                 "wait_list_capacity": "999",
-                "enrollment_total": "110",
+                "enrollment_total": "107",
                 "wait_list_total": "0",
-                "available_seats": "0",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "Tu 9:30AM - 12:15PM",
@@ -2769,18 +3351,39 @@
                 "section": "-T01-TUT",
                 "component_type": "TUT",
                 "class_number": "8048",
-                "status": "Wait List",
+                "status": "Open",
                 "class_capacity": "110",
                 "wait_list_capacity": "999",
-                "enrollment_total": "110",
+                "enrollment_total": "107",
                 "wait_list_total": "0",
-                "available_seats": "0",
+                "available_seats": "3",
                 "timetable": [
                     {
                         "day_time": "TBA",
                         "room": "TBA",
                         "instructor": "Dr. John Alexander WRIGHT",
                         "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            },
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "-T02-TUT",
+                "component_type": "TUT",
+                "class_number": "10280",
+                "status": "Open",
+                "class_capacity": "110",
+                "wait_list_capacity": "999",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "110",
+                "timetable": [
+                    {
+                        "day_time": "We 5:30PM - 6:15PM",
+                        "room": "Lee Shau Kee Building LT2",
+                        "instructor": "Dr. John Alexander WRIGHT",
+                        "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
                     }
                 ]
             }
@@ -2959,9 +3562,9 @@
                 "status": "Open",
                 "class_capacity": "130",
                 "wait_list_capacity": "999",
-                "enrollment_total": "95",
+                "enrollment_total": "97",
                 "wait_list_total": "0",
-                "available_seats": "35",
+                "available_seats": "33",
                 "timetable": [
                     {
                         "day_time": "Tu 4:30PM - 6:15PM",
@@ -2977,12 +3580,12 @@
                 "section": "-T01-TUT",
                 "component_type": "TUT",
                 "class_number": "8631",
-                "status": "Open",
+                "status": "Wait List",
                 "class_capacity": "33",
                 "wait_list_capacity": "999",
-                "enrollment_total": "31",
+                "enrollment_total": "33",
                 "wait_list_total": "0",
-                "available_seats": "2",
+                "available_seats": "0",
                 "timetable": [
                     {
                         "day_time": "Mo 5:30PM - 6:15PM",
@@ -3028,9 +3631,9 @@
                 "status": "Open",
                 "class_capacity": "32",
                 "wait_list_capacity": "999",
-                "enrollment_total": "28",
+                "enrollment_total": "27",
                 "wait_list_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "timetable": [
                     {
                         "day_time": "We 3:30PM - 4:15PM",
@@ -3049,9 +3652,9 @@
                 "status": "Open",
                 "class_capacity": "32",
                 "wait_list_capacity": "999",
-                "enrollment_total": "27",
+                "enrollment_total": "28",
                 "wait_list_total": "0",
-                "available_seats": "5",
+                "available_seats": "4",
                 "timetable": [
                     {
                         "day_time": "Th 2:30PM - 3:15PM",
@@ -3226,9 +3829,9 @@
                 "status": "Open",
                 "class_capacity": "40",
                 "wait_list_capacity": "0",
-                "enrollment_total": "31",
+                "enrollment_total": "34",
                 "wait_list_total": "0",
-                "available_seats": "9",
+                "available_seats": "6",
                 "timetable": [
                     {
                         "day_time": "Th 2:30PM - 5:15PM",
@@ -3253,9 +3856,9 @@
                 "status": "Open",
                 "class_capacity": "80",
                 "wait_list_capacity": "0",
-                "enrollment_total": "15",
+                "enrollment_total": "17",
                 "wait_list_total": "0",
-                "available_seats": "65",
+                "available_seats": "63",
                 "timetable": [
                     {
                         "day_time": "Tu 2:30PM - 3:15PM",
@@ -3533,9 +4136,9 @@
                 "status": "Open",
                 "class_capacity": "40",
                 "wait_list_capacity": "0",
-                "enrollment_total": "31",
+                "enrollment_total": "32",
                 "wait_list_total": "0",
-                "available_seats": "9",
+                "available_seats": "8",
                 "timetable": [
                     {
                         "day_time": "Fr 9:30AM - 11:15AM",
@@ -3554,9 +4157,9 @@
                 "status": "Open",
                 "class_capacity": "80",
                 "wait_list_capacity": "0",
-                "enrollment_total": "13",
+                "enrollment_total": "14",
                 "wait_list_total": "0",
-                "available_seats": "67",
+                "available_seats": "66",
                 "timetable": [
                     {
                         "day_time": "Tu 3:30PM - 4:15PM",
@@ -3592,9 +4195,9 @@
                 "status": "Open",
                 "class_capacity": "40",
                 "wait_list_capacity": "0",
-                "enrollment_total": "24",
+                "enrollment_total": "23",
                 "wait_list_total": "0",
-                "available_seats": "16",
+                "available_seats": "17",
                 "timetable": [
                     {
                         "day_time": "We 9:30AM - 11:15AM",
@@ -3630,9 +4233,9 @@
                 "status": "Open",
                 "class_capacity": "120",
                 "wait_list_capacity": "0",
-                "enrollment_total": "86",
+                "enrollment_total": "85",
                 "wait_list_total": "0",
-                "available_seats": "34",
+                "available_seats": "35",
                 "timetable": [
                     {
                         "day_time": "We 6:30PM - 9:30PM",
@@ -3668,9 +4271,9 @@
                 "status": "Open",
                 "class_capacity": "120",
                 "wait_list_capacity": "0",
-                "enrollment_total": "75",
+                "enrollment_total": "74",
                 "wait_list_total": "0",
-                "available_seats": "45",
+                "available_seats": "46",
                 "timetable": [
                     {
                         "day_time": "Tu 6:30PM - 9:30PM",
@@ -3712,9 +4315,9 @@
                 "status": "Open",
                 "class_capacity": "120",
                 "wait_list_capacity": "0",
-                "enrollment_total": "103",
+                "enrollment_total": "79",
                 "wait_list_total": "0",
-                "available_seats": "17",
+                "available_seats": "41",
                 "timetable": [
                     {
                         "day_time": "Mo 6:30PM - 9:30PM",
@@ -3812,9 +4415,9 @@
                 "status": "Open",
                 "class_capacity": "120",
                 "wait_list_capacity": "0",
-                "enrollment_total": "49",
+                "enrollment_total": "48",
                 "wait_list_total": "0",
-                "available_seats": "71",
+                "available_seats": "72",
                 "timetable": [
                     {
                         "day_time": "Fr 6:30PM - 9:30PM",
@@ -3862,20 +4465,20 @@
                 "status": "Open",
                 "class_capacity": "120",
                 "wait_list_capacity": "0",
-                "enrollment_total": "85",
+                "enrollment_total": "84",
                 "wait_list_total": "0",
-                "available_seats": "35",
+                "available_seats": "36",
                 "timetable": [
                     {
                         "day_time": "Th 6:30PM - 9:30PM",
                         "room": "Yasumoto Int'l Acad Park LT6",
-                        "instructor": "Staff",
+                        "instructor": "Dr. KANG Kai",
                         "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12, 10/12"
                     },
                     {
                         "day_time": "Th 6:30PM - 9:30PM",
                         "room": "Yasumoto Int'l Acad Park LT6",
-                        "instructor": "Staff",
+                        "instructor": "Dr. KANG Kai",
                         "dates": "10/9, 17/9, 24/9"
                     }
                 ]
@@ -3906,9 +4509,9 @@
                 "status": "Open",
                 "class_capacity": "120",
                 "wait_list_capacity": "0",
-                "enrollment_total": "58",
+                "enrollment_total": "57",
                 "wait_list_total": "0",
-                "available_seats": "62",
+                "available_seats": "63",
                 "timetable": [
                     {
                         "day_time": "We 6:30PM - 9:30PM",
@@ -4076,9 +4679,9 @@
                 "status": "Open",
                 "class_capacity": "99",
                 "wait_list_capacity": "0",
-                "enrollment_total": "67",
+                "enrollment_total": "61",
                 "wait_list_total": "0",
-                "available_seats": "32",
+                "available_seats": "38",
                 "timetable": [
                     {
                         "day_time": "Tu 6:30PM - 9:30PM",
@@ -4336,9 +4939,9 @@
                 "status": "Open",
                 "class_capacity": "130",
                 "wait_list_capacity": "0",
-                "enrollment_total": "111",
+                "enrollment_total": "100",
                 "wait_list_total": "0",
-                "available_seats": "19",
+                "available_seats": "30",
                 "timetable": [
                     {
                         "day_time": "Tu 6:30PM - 9:30PM",
@@ -4576,15 +5179,63 @@
                 "status": "Open",
                 "class_capacity": "180",
                 "wait_list_capacity": "0",
-                "enrollment_total": "179",
+                "enrollment_total": "169",
                 "wait_list_total": "0",
-                "available_seats": "1",
+                "available_seats": "11",
                 "timetable": [
                     {
                         "day_time": "Fr 6:30PM - 9:30PM",
                         "room": "Basic Med Sci Bldg G18",
                         "instructor": "Dr. CHEUNG Pak Ming",
-                        "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12, 11/12"
+                        "dates": "11/9, 18/9"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Basic Med Sci Bldg G18",
+                        "instructor": "Dr. CHEUNG Pak Ming",
+                        "dates": "16/10"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Basic Med Sci Bldg G18",
+                        "instructor": "Dr. CHEUNG Pak Ming",
+                        "dates": "11/12"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Cheng Yu Tung Building LT1A",
+                        "instructor": "Dr. CHEUNG Pak Ming",
+                        "dates": "25/9, 2/10, 9/10"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Cheng Yu Tung Building LT1A",
+                        "instructor": "Dr. CHEUNG Pak Ming",
+                        "dates": "30/10"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Cheng Yu Tung Building LT1A",
+                        "instructor": "Dr. CHEUNG Pak Ming",
+                        "dates": "13/11"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "Cheng Yu Tung Building 201",
+                        "instructor": "Dr. CHEUNG Pak Ming",
+                        "dates": "23/10"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "T.C. Cheng Bldg C1",
+                        "instructor": "Dr. CHEUNG Pak Ming",
+                        "dates": "6/11"
+                    },
+                    {
+                        "day_time": "Fr 6:30PM - 9:30PM",
+                        "room": "T.C. Cheng Bldg C1",
+                        "instructor": "Dr. CHEUNG Pak Ming",
+                        "dates": "20/11, 27/11, 4/12"
                     }
                 ]
             }

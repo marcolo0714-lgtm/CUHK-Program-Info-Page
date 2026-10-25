@@ -74,10 +74,38 @@
         "title": "Clinical Cytogenetics",
         "unit": "2.00",
         "info": "For students in MSc Maternal Fetal Medicine",
-        "term_1": false,
+        "term_1": true,
         "term_2": false,
-        "term_offerings": [],
-        "sections": []
+        "term_offerings": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2420",
+                "term": "2026-27 Term 1",
+                "section": "--LEC",
+                "component_type": "LEC",
+                "class_number": "10298",
+                "status": "Closed",
+                "class_capacity": "1",
+                "wait_list_capacity": "0",
+                "enrollment_total": "1",
+                "wait_list_total": "0",
+                "available_seats": "0",
+                "timetable": [
+                    {
+                        "day_time": "TBA",
+                        "room": "No Room Required",
+                        "instructor": "Professor POON Chiu Yee Liona",
+                        "dates": "07/09/2026 - 30/11/2026"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "MFMD 6001",

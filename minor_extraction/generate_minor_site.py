@@ -9,9 +9,11 @@ from functools import lru_cache
 from pathlib import Path
 
 try:
+    from .course_schedule_metadata import course_schedule_update_date
     from .seo_config import SITE_NAME, absolute_url, breadcrumb_data, seo_head, write_discovery_files
     from .minor_course_index import load_minor_course_index
 except ImportError:
+    from course_schedule_metadata import course_schedule_update_date
     from seo_config import SITE_NAME, absolute_url, breadcrumb_data, seo_head, write_discovery_files
     from minor_course_index import load_minor_course_index
 
@@ -388,7 +390,7 @@ JS = """\
   if (savedSettings.unavailable === undefined) {
     savedSettings.unavailable = localStorage.getItem('hideUnavailable') !== 'true';
   }
-  var defaults = {term1:true, term2:true, prerequisites:true, schedule:true, schedule2:false, minors:false, unavailable:true, scroll:true};
+  var defaults = {term1:true, term2:true, prerequisites:true, schedule:false, schedule2:true, minors:false, unavailable:true, scroll:true};
   Object.keys(defaults).forEach(function(key){
     var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
     if (!checkbox) return;
@@ -471,7 +473,7 @@ document.addEventListener('keydown', function(e) {
 });
 </script>"""
 
-FOOTER_HTML = """\
+FOOTER_HTML = f"""\
 <div class="site-footer">
   <span class="footer-sources">
     <span>Sources: </span>
@@ -481,7 +483,7 @@ FOOTER_HTML = """\
     <span> &middot; </span>
     <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
   </span>
-  <span class="footer-update">Latest course teaching schedule update: 2026/9/15</span>
+  <span class="footer-update">Latest course teaching schedule update: {course_schedule_update_date()}</span>
 </div>"""
 
 
@@ -522,8 +524,8 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;}})();
   <label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label>
-  <label class="setting-option"><input type="checkbox" data-table-setting="schedule" checked> <span>Show Term 1 teaching schedule</span></label>
-  <label class="setting-option"><input type="checkbox" data-table-setting="schedule2"> <span>Show Term 2 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="schedule"> <span>Show Term 1 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="schedule2" checked> <span>Show Term 2 teaching schedule</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="minors"> <span>Show minors using this course</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label>
@@ -770,7 +772,7 @@ def _format_minor_memberships(code):
 def _course_table_style(courses):
     """Choose per-table widths that minimize estimated rendered row heights.
 
-    The search models the default visible columns (T1 schedule shown, T2
+    The search models the default visible columns (T2 schedule shown, T1
     schedule hidden).  Widths are character-weight percentages, so the browser
     can still redistribute them when users hide or show columns in Settings.
     """
@@ -797,7 +799,7 @@ def _course_table_style(courses):
     for course in usable:
         schedule_lines = [
             f'{name}: {" · ".join(times or ["Time TBA"])}'
-            for name, times in _group_schedule(course.get("sections", []), 1)
+            for name, times in _group_schedule(course.get("sections", []), 2)
         ] or ["—"]
         rows.append((
             str(course.get("title") or "—"),
@@ -1735,8 +1737,8 @@ def generate(year):
         f'<p class="meta">{len(index_order)} minor programmes &middot; '
         f'For students admitted in {year_display}</p>\n'
         f'<div class="index-actions">\n'
-        f'<a href="checker.html" class="index-action index-action-primary">Check Your Minor Progress &rarr;</a>\n'
         f'<a href="../major/index.html" class="index-action">View Major Programmes &rarr;</a>\n'
+        f'<a href="checker.html" class="index-action index-action-primary">Check Your Minor Progress &rarr;</a>\n'
         f'</div>\n'
         f"{cards_html}"
     )

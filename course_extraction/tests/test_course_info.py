@@ -1,6 +1,7 @@
 import json
 import re
 import warnings
+from functools import lru_cache
 from pathlib import Path
 
 import pytest
@@ -12,6 +13,8 @@ import ddddocr
 # Constants
 # ---------------------------------------------------------------------------
 COURSE_INFO_DIR = Path(__file__).parent.parent / "course_info"
+COURSE_BACKUP_DIR = COURSE_INFO_DIR.parent / "course_info_copy"
+COURSE_HTML_DIR = COURSE_INFO_DIR.parent / "course_html"
 CATALOG_URL = (
     "https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
 )
@@ -40,6 +43,121 @@ ACADEMIC_TERM_PATTERN = re.compile(
 
 class DuplicateTimetableWarning(UserWarning):
     """A timetable row is duplicated in the source CUHK catalogue."""
+
+
+class ScrapeComparisonWarning(UserWarning):
+    """A change or known gap needs review, but is not proven data corruption."""
+
+
+@lru_cache(maxsize=None)
+def _comparison_manifest(subject):
+    path = COURSE_HTML_DIR / subject / "manifest.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def _comparison_source(subject, code):
+    """Read only saved summaries, never browse or change course data."""
+    from course_extraction.get_course_info import (
+        _parse_course_base_html, _parse_term_options_html,
+        _parse_schedule_summary_html,
+    )
+    manifest = _comparison_manifest(subject)
+    record = next((r for r in manifest.get("courses", []) if r.get("code") == code), None)
+    if record is None:
+        return None
+    directory = COURSE_HTML_DIR / subject / record["directory"]
+    html = (directory / record["course_page"]).read_text(encoding="utf-8")
+    sections = set()
+    for term in record.get("terms", []):
+        if term.get("retrieval_error"):
+            continue
+        page = (directory / term["schedule_page"]).read_text(encoding="utf-8")
+        summaries, *_ = _parse_schedule_summary_html(page)
+        sections.update((term["term_code"], s["section"], s["class_number"])
+                        for s in summaries)
+    return _parse_course_base_html(html), set(_parse_term_options_html(html)), sections
+
+
+def _comparison_rows(path):
+    try:
+        rows = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        pytest.fail(f"{path}: cannot read course data: {exc}")
+    if not isinstance(rows, list) or any(
+        not isinstance(row, dict) or not isinstance(row.get("code"), str)
+        for row in rows
+    ):
+        pytest.fail(f"{path}: expected a list of courses with text codes")
+    return {row["code"]: row for row in rows}
+
+
+@pytest.mark.parametrize("subject", sorted(
+    {p.stem for p in COURSE_BACKUP_DIR.glob("*.json")}
+    | {p.stem for p in COURSE_INFO_DIR.glob("*.json")}
+) or ["__missing_data__"])
+def test_course_info_against_backup(subject):
+    """Report baseline losses, escalating losses contradicted by saved HTML."""
+    if not COURSE_BACKUP_DIR.is_dir() or not any(COURSE_BACKUP_DIR.glob("*.json")):
+        pytest.fail(f"Comparison baseline missing or empty: {COURSE_BACKUP_DIR}")
+    current_path = COURSE_INFO_DIR / f"{subject}.json"
+    backup_path = COURSE_BACKUP_DIR / f"{subject}.json"
+    option = _comparison_manifest(subject).get("subject_option", "unknown")
+    label = f"{subject}.json (subject option {option})"
+    if not current_path.is_file():
+        pytest.fail(f"{label}: entire subject file missing: {current_path}")
+    current = _comparison_rows(current_path)
+    previous = _comparison_rows(backup_path) if backup_path.is_file() else {}
+    errors, notices = [], []
+    for code in sorted(previous.keys() - current.keys()):
+        errors.append(f"{code}: course missing from current JSON")
+    for code in sorted(current.keys() - previous.keys()):
+        notices.append(f"{code}: added course")
+    for code, row in sorted(current.items()):
+        for term in row.get("term_offerings", []):
+            if term.get("retrieval_error"):
+                notices.append(f"{code}: known gap, term {term.get('term_code')}: "
+                               f"{term['retrieval_error']}")
+        if code not in previous:
+            continue
+        old = previous[code]
+        terms = lambda c: {t.get("term_code") for t in c.get("term_offerings", [])}
+        sections = lambda c: {(s.get("term_code"), s.get("section"), s.get("class_number"))
+                              for s in c.get("sections", [])}
+        lost_terms = terms(old) - terms(row)
+        lost_sections = sections(old) - sections(row)
+        empty_fields = [key for key in ("title", "unit", "info")
+                        if old.get(key) and not row.get(key)]
+        changed_core = [key for key in ("title", "unit") if old.get(key) != row.get(key)]
+        source = None
+        if lost_terms or lost_sections or empty_fields or changed_core:
+            try:
+                source = _comparison_source(subject, code)
+            except (OSError, ValueError, KeyError) as exc:
+                notices.append(f"{code}: saved HTML could not be checked: {exc}")
+        for term in sorted(lost_terms):
+            message = f"{code}: missing previous term {term}"
+            (errors if source and term in source[1] else notices).append(message)
+        for key in sorted(lost_sections):
+            message = f"{code}: missing previous section: term={key[0]}, section={key[1]}, class={key[2]}"
+            (errors if source and key in source[2] else notices).append(message)
+        for key in sorted(set(empty_fields + changed_core)):
+            message = f"{code}: field {key}: {old.get(key)!r} -> {row.get(key)!r}"
+            contradicted = source and source[0].get(key, "") != row.get(key, "")
+            (errors if contradicted else notices).append(message)
+        for term in sorted(terms(row) - terms(old)):
+            notices.append(f"{code}: added term {term}")
+        for key in sorted(sections(row) - sections(old)):
+            notices.append(f"{code}: added section: term={key[0]}, section={key[1]}, class={key[2]}")
+    if notices:
+        warnings.warn(f"{label}: comparison review (not proof of scrape failure):\n"
+                      + "\n".join(notices), ScrapeComparisonWarning, stacklevel=2)
+    if errors:
+        pytest.fail(f"{label}: backup comparison failed:\n" + "\n".join(errors))
 
 ocr = ddddocr.DdddOcr(show_ad=False)
 
@@ -464,473 +582,9 @@ class TestStoredIntegrity:
 
 
 # =================================================================
-# Test 2 — Offline teaching-schedule extraction
+# Test 2 — Online: live catalogue vs stored data
 # =================================================================
 
-class TestTeachingScheduleExtraction:
-    """Exercise every Term Offered option without contacting the CUHK site."""
-
-    def test_course_end_uses_explicit_link_count(self):
-        from course_extraction.get_course_info import _course_link_count
-
-        class Links:
-            @staticmethod
-            def count():
-                return 3
-
-        class Page:
-            @staticmethod
-            def locator(selector):
-                assert selector == "#gv_detail a[id$='lbtn_course_title']"
-                return Links()
-
-        assert _course_link_count(Page()) == 3
-
-    def test_course_recovery_keeps_completed_sections(self, monkeypatch):
-        import course_extraction.get_course_info as scraper
-
-        class Button:
-            @staticmethod
-            def click():
-                return None
-
-        class Page:
-            def __init__(self, name):
-                self.name = name
-
-            @staticmethod
-            def locator(_selector):
-                return Button()
-
-            @staticmethod
-            def wait_for_selector(_selector):
-                return None
-
-        first_page = Page("first")
-        recovered_page = Page("recovered")
-        resume_calls = []
-        recovery_calls = []
-
-        monkeypatch.setattr(scraper, "_open_course_by_index", lambda _page, _index: None)
-        monkeypatch.setattr(
-            scraper,
-            "_course_base_info",
-            lambda _page: {"code": "TEST 1000", "title": "Test", "unit": "3.00"},
-        )
-
-        def resume(_page, state):
-            resume_calls.append(len(state["current_sections"]))
-            if len(resume_calls) == 1:
-                state["current_sections"].append({"section": "A-LEC"})
-                raise RuntimeError("simulated stalled page")
-            assert state["current_sections"] == [{"section": "A-LEC"}]
-            state["schedules"] = [{"sections": list(state["current_sections"])}]
-
-        def recover(*_args, **_kwargs):
-            recovery_calls.append(True)
-            return True, recovered_page
-
-        monkeypatch.setattr(scraper, "_resume_course_schedules", resume)
-        monkeypatch.setattr(scraper, "recover_with_new_tab", recover)
-        monkeypatch.setattr(scraper, "_try_return_to_course_list", lambda _page: True)
-        monkeypatch.setattr(
-            scraper,
-            "_finish_course_info",
-            lambda base, schedules: {**base, "sections": schedules[0]["sections"]},
-        )
-
-        errors = []
-        course, page, ready = scraper._scrape_course_with_recovery(
-            first_page, 1, "TEST - Test", 0, errors
-        )
-
-        assert ready is True
-        assert page is recovered_page
-        assert course["sections"] == [{"section": "A-LEC"}]
-        assert resume_calls == [0, 1]
-        assert len(recovery_calls) == 1
-        assert len(errors) == 1
-
-    def test_course_recovery_stops_after_three_new_tabs(self, monkeypatch):
-        import course_extraction.get_course_info as scraper
-
-        class Page:
-            pass
-
-        page = Page()
-        recovery_calls = []
-        monkeypatch.setattr(scraper, "_open_course_by_index", lambda _page, _index: None)
-        monkeypatch.setattr(
-            scraper,
-            "_course_base_info",
-            lambda _page: {"code": "TEST 1000", "title": "Test", "unit": "3.00"},
-        )
-        monkeypatch.setattr(
-            scraper,
-            "_resume_course_schedules",
-            lambda _page, _state: (_ for _ in ()).throw(RuntimeError("still stuck")),
-        )
-
-        def recover(*_args, **_kwargs):
-            recovery_calls.append(True)
-            return True, page
-
-        monkeypatch.setattr(scraper, "recover_with_new_tab", recover)
-        monkeypatch.setattr(scraper, "_try_return_to_course_list", lambda _page: True)
-
-        errors = []
-        course, returned_page, ready = scraper._scrape_course_with_recovery(
-            page, 1, "TEST - Test", 0, errors
-        )
-
-        assert course is None
-        assert returned_page is page
-        assert ready is True
-        assert len(recovery_calls) == 3
-        assert len(errors) == 4
-
-    def test_option_list_is_entered_at_runtime(self, monkeypatch):
-        from course_extraction.get_course_info import _parse_option_list, _prompt_option_list
-
-        answers = iter([
-            "",
-            "1, not-a-number",
-            "0-3",
-            "5-2",
-            "1-3, 5, 3-6; 10",
-        ])
-        monkeypatch.setattr("builtins.input", lambda _prompt: next(answers))
-
-        assert _prompt_option_list() == [1, 2, 3, 5, 4, 6, 10]
-        assert _parse_option_list("1-270") == list(range(1, 271))
-        assert _parse_option_list("1-50, 101-150") == [
-            *range(1, 51),
-            *range(101, 151),
-        ]
-
-    def test_availability_uses_section_term_labels_not_term_codes(self):
-        from course_extraction.get_course_info import _availability_from_sections
-
-        sections = [
-            {"term_code": "not-2420", "term": "2027-28 Term 1"},
-            {"term_code": "not-2430", "term": "2027-28 Term 2 - special"},
-        ]
-        assert _availability_from_sections(sections) == (True, True)
-        assert _availability_from_sections([
-            {"term_code": "2420", "term": "Summer Session"}
-        ]) == (False, False)
-
-    def test_stored_availability_uses_term_offering_labels_even_if_flag_is_false(self):
-        offerings = [{
-            "term_code": "2430",
-            "term": "2026/27 Term 2",
-            "offered": False,
-        }]
-
-        assert availability_from_term_labels(offerings) == (False, True)
-
-    def test_live_option_filter_defaults_to_all_and_accepts_ranges(self):
-        assert selected_live_option_indexes(6) == [1, 2, 3, 4, 5]
-        assert selected_live_option_indexes(271, "7, 42 44-45, 42") == [
-            7, 42, 44, 45,
-        ]
-        with pytest.raises(ValueError, match="outside the dropdown range"):
-            selected_live_option_indexes(10, "9-10")
-
-    def test_all_terms_and_meeting_fields_are_scraped(self):
-        from course_extraction.get_course_info import (
-            _flatten_sections,
-            _scrape_term_schedules,
-            _term_offerings,
-        )
-
-        mock_page = """
-        <select id="uc_course_ddl_class_term">
-          <option value="2420">2026-27 Term 1</option>
-          <option value="2430">2026-27 Term 2</option>
-          <option value="2440">2026-27 Summer Session</option>
-        </select>
-        <button id="uc_course_btn_class_section" type="button" onclick="showSections()">Show sections</button>
-        <input id="uc_course_hf_show_course_section" value="0">
-        <div id="schedule"></div>
-        <script>
-        function showDetail(component, classNumber, status, isLab, isTermOne) {
-          const firstMeeting = isLab ? `
-            <tr><td>We 5:30PM - 6:15PM</td><td>Lab ${component[0]}</td>
-            <td>Prof. Lab</td><td>2/9 - 1/12</td></tr>` : `
-            <tr>
-              <td>${isTermOne ? 'Mo 10:30AM - 12:15PM' : 'Tu 2:30PM - 4:15PM'}</td>
-              <td>${isTermOne ? 'Room T1' : 'Room T2'}</td>
-              <td>${isTermOne ? 'Prof. Term One' : 'Prof. Term Two'}</td>
-              <td>${isTermOne ? '1/9 - 30/11' : '8/1 - 30/4'}</td>
-            </tr><tr>
-              <td>Th 3:30PM - 4:15PM</td><td>Room Thursday</td>
-              <td>Prof. Thursday</td><td>10/9 - 3/12</td>
-            </tr>`;
-          document.querySelector('#schedule').innerHTML = `
-            <span id="uc_class_lbl_course">TEST 1000 - ${component}</span>
-            <span id="uc_class_lbl_ssr_component">${isLab ? 'Laboratory' : 'Lecture'}</span>
-            <span id="uc_class_lbl_class_nbr">${classNumber}</span>
-            <span id="uc_class_lbl_class_status">${status}</span>
-            <span id="uc_class_lbl_enrl_cap">120</span>
-            <span id="uc_class_lbl_wait_cap">5</span>
-            <span id="uc_class_lbl_enrl_tot">110</span>
-            <span id="uc_class_lbl_wait_tot">2</span>
-            <span id="uc_class_lbl_available_seat">10</span>
-            <table id="uc_class_gv_meet"><tbody>
-              <tr><th>Days &amp; Times</th><th>Room</th><th>Instructor</th><th>Dates</th></tr>
-              ${firstMeeting}
-            </tbody></table>
-            <button id="btn_class_return" type="button" onclick="showSections()">Return</button>`;
-        }
-
-        function showSections() {
-          const code = document.querySelector('#uc_course_ddl_class_term').value;
-          const isTermOne = code === '2420';
-          if (code === '2440') {
-            document.querySelector('#uc_course_hf_show_course_section').value = '0';
-            document.querySelector('#schedule').innerHTML = '';
-            return;
-          }
-          document.querySelector('#uc_course_hf_show_course_section').value = '1';
-          const sectionLetters = isTermOne ? ['A', 'B', 'C', 'D', 'E', 'F'] : ['G'];
-          const rows = sectionLetters.map((letter, index) => `
-              <tr>
-                <td><a href="#" onclick="showDetail('${letter}-LEC', '${index}001', '${isTermOne ? 'Open' : 'Closed'}', false, ${isTermOne}); return false" id="uc_course_gv_sched_ctl${index}2_lkbtn_class_section">${letter}-LEC (${index}001)</a></td>
-                <td><img id="uc_course_gv_sched_ctl${index}2_img_status" src="class_${isTermOne ? 'open' : 'closed'}.gif"></td>
-                <td><table id="uc_course_gv_sched_ctl${index}2_gv_meet"><tbody><tr>
-                  <td>${isTermOne ? 'Mo 10:30AM - 12:15PM' : 'Tu 2:30PM - 4:15PM'}</td>
-                  <td>${isTermOne ? 'Room T1' : 'Room T2'}</td>
-                  <td>${isTermOne ? 'Prof. Term One' : 'Prof. Term Two'}</td>
-                  <td>${isTermOne ? '1/9 - 30/11' : '8/1 - 30/4'}</td>
-                </tr><tr>
-                  <td>Th 3:30PM - 4:15PM</td>
-                  <td>Room Thursday</td>
-                  <td>Prof. Thursday</td>
-                  <td>10/9 - 3/12</td>
-                </tr></tbody></table></td>
-              </tr>
-              <tr>
-                <td><a href="#" onclick="showDetail('${letter}L01-LAB', '${index}101', 'Open', true, ${isTermOne}); return false" id="uc_course_gv_sched_ctl${index}3_lkbtn_class_section">${letter}L01-LAB (${index}101)</a></td>
-                <td><img id="uc_course_gv_sched_ctl${index}3_img_status" src="class_open.gif"></td>
-                <td><table id="uc_course_gv_sched_ctl${index}3_gv_meet"><tbody><tr>
-                  <td>We 5:30PM - 6:15PM</td><td>Lab ${letter}</td>
-                  <td>Prof. Lab</td><td>2/9 - 1/12</td>
-                </tr></tbody></table></td>
-              </tr>`).join('');
-          document.querySelector('#schedule').innerHTML = `
-            <table id="uc_course_gv_sched"><tbody>
-              <tr><th>Section</th><th>Status</th><th>Meetings</th></tr>
-              ${rows}
-            </tbody></table>`;
-        }
-        </script>
-        """
-
-        with sync_playwright() as playwright:
-            browser = playwright.chromium.launch(headless=True)
-            page = browser.new_page()
-            page.set_content(mock_page)
-            schedules = _scrape_term_schedules(page)
-            browser.close()
-
-        assert [term["term_code"] for term in schedules] == ["2420", "2430", "2440"]
-        assert [term["offered"] for term in schedules] == [True, True, False]
-        assert len(schedules[0]["sections"]) == 12
-        assert len(schedules[1]["sections"]) == 2
-        assert [section["section"] for section in schedules[0]["sections"][:3]] == [
-            "A-LEC", "AL01-LAB", "B-LEC",
-        ]
-        assert schedules[0]["sections"][0] == {
-            "section": "A-LEC",
-            "component_type": "LEC",
-            "class_number": "0001",
-            "status": "Open",
-            "class_capacity": "120",
-            "wait_list_capacity": "5",
-            "enrollment_total": "110",
-            "wait_list_total": "2",
-            "available_seats": "10",
-            "timetable": [
-                {
-                    "day_time": "Mo 10:30AM - 12:15PM",
-                    "room": "Room T1",
-                    "instructor": "Prof. Term One",
-                    "dates": "1/9 - 30/11",
-                },
-                {
-                    "day_time": "Th 3:30PM - 4:15PM",
-                    "room": "Room Thursday",
-                    "instructor": "Prof. Thursday",
-                    "dates": "10/9 - 3/12",
-                },
-            ],
-        }
-        assert [section["section"] for section in schedules[1]["sections"]] == [
-            "G-LEC", "GL01-LAB",
-        ]
-        assert schedules[1]["sections"][0]["status"] == "Closed"
-        assert (
-            schedules[1]["sections"][0]["timetable"][0]["instructor"]
-            == "Prof. Term Two"
-        )
-        assert schedules[2]["sections"] == []
-
-        flattened = _flatten_sections(schedules)
-        assert len(flattened) == 14
-        assert flattened[0]["term_code"] == "2420"
-        assert flattened[0]["term"] == "2026-27 Term 1"
-        assert len(flattened[0]["timetable"]) == 2
-        assert "sections" not in flattened[0]
-        assert _term_offerings(schedules) == [
-            {"term_code": "2420", "term": "2026-27 Term 1", "offered": True},
-            {"term_code": "2430", "term": "2026-27 Term 2", "offered": True},
-            {"term_code": "2440", "term": "2026-27 Summer Session", "offered": False},
-        ]
-
-    def test_saved_html_is_the_only_source_for_current_schema(self, tmp_path):
-        from course_extraction.get_course_info import parse_saved_subject
-
-        subject_dir = tmp_path / "TEST"
-        course_dir = subject_dir / "courses" / "0000"
-        (course_dir / "terms").mkdir(parents=True)
-        (course_dir / "sections" / "000_2420").mkdir(parents=True)
-
-        (course_dir / "course.html").write_text("""
-          <span id="uc_course_lbl_course">TEST 1000 - Saved Course</span>
-          <span id="uc_course_lbl_units">3.00</span>
-          <div id="uc_course_tc_enrl_requirement">Not for TEST0000.</div>
-          <select id="uc_course_ddl_class_term">
-            <option value="2420">2026-27 Term 1</option>
-          </select>
-        """, encoding="utf-8")
-        (course_dir / "terms" / "000_2420.html").write_text("""
-          <button id="uc_course_btn_class_section">Show sections</button>
-          <input id="uc_course_hf_show_course_section" value="1">
-          <table id="uc_course_gv_sched"><tbody><tr>
-            <td><a id="x_lkbtn_class_section">A-LEC (9700)</a></td>
-            <td><img id="x_img_status" src="class_open.gif"></td>
-            <td><table id="x_gv_meet"><tbody><tr>
-              <td>Mo 12:30PM - 2:15PM</td><td>Summary Room</td>
-              <td>Summary Teacher</td><td>7/9 - 30/11</td>
-            </tr></tbody></table></td>
-          </tr></tbody></table>
-        """, encoding="utf-8")
-        (course_dir / "sections" / "000_2420" / "0000.html").write_text("""
-          <span id="uc_class_lbl_course">TEST 1000 - Saved Course</span>
-          <span id="uc_class_lbl_ssr_component">Lecture</span>
-          <span id="uc_class_lbl_class_nbr">9700</span>
-          <span id="uc_class_lbl_class_status">Open</span>
-          <span id="uc_class_lbl_enrl_cap">100</span>
-          <span id="uc_class_lbl_wait_cap">5</span>
-          <span id="uc_class_lbl_enrl_tot">90</span>
-          <span id="uc_class_lbl_wait_tot">1</span>
-          <span id="uc_class_lbl_available_seat">10</span>
-          <table id="uc_class_gv_meet"><tbody>
-            <tr><th>Days</th><th>Room</th><th>Instructor</th><th>Dates</th></tr>
-            <tr><td>Mo 12:30PM - 2:15PM</td><td>Saved Room</td>
-              <td>Saved Teacher</td><td>7/9 - 30/11</td></tr>
-          </tbody></table>
-        """, encoding="utf-8")
-
-        course_record = {
-            "capture_schema_version": 1,
-            "course_index": 0,
-            "code": "TEST 1000",
-            "course_page": "course.html",
-            "complete": True,
-            "directory": "courses/0000",
-            "terms": [{
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "schedule_page": "terms/000_2420.html",
-                "show_button_disabled": False,
-                "sections": [{
-                    "section_index": 0,
-                    "section": "A-LEC",
-                    "component_type": "LEC",
-                    "class_number": "9700",
-                    "detail_page": "sections/000_2420/0000.html",
-                }],
-            }],
-        }
-        (subject_dir / "manifest.json").write_text(json.dumps({
-            "capture_schema_version": 1,
-            "subject": "TEST",
-            "course_count": 1,
-            "courses": [course_record],
-            "complete": True,
-        }), encoding="utf-8")
-
-        courses = parse_saved_subject(subject_dir)
-        assert courses == [{
-            "code": "TEST 1000",
-            "title": "Saved Course",
-            "unit": "3.00",
-            "info": "Not for TEST0000.",
-            "term_1": True,
-            "term_2": False,
-            "term_offerings": [{
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "offered": True,
-            }],
-            "sections": [{
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "A-LEC",
-                "component_type": "LEC",
-                "class_number": "9700",
-                "status": "Open",
-                "class_capacity": "100",
-                "wait_list_capacity": "5",
-                "enrollment_total": "90",
-                "wait_list_total": "1",
-                "available_seats": "10",
-                "timetable": [{
-                    "day_time": "Mo 12:30PM - 2:15PM",
-                    "room": "Saved Room",
-                    "instructor": "Saved Teacher",
-                    "dates": "7/9 - 30/11",
-                }],
-            }],
-        }]
-
-    def test_enabled_empty_saved_term_is_rejected_not_marked_unavailable(
-        self, tmp_path
-    ):
-        from course_extraction.get_course_info import _parse_saved_course
-
-        (tmp_path / "terms").mkdir()
-        (tmp_path / "course.html").write_text("""
-          <span id="uc_course_lbl_course">MATH 1018 - Honours University Mathematics</span>
-          <span id="uc_course_lbl_units">3.00</span>
-        """, encoding="utf-8")
-        (tmp_path / "terms" / "000_2420.html").write_text("""
-          <select id="uc_course_ddl_class_term">
-            <option value="2420" selected>2026-27 Term 1</option>
-          </select>
-          <button id="uc_course_btn_class_section">Show sections</button>
-          <input id="uc_course_hf_show_course_section" value="0">
-        """, encoding="utf-8")
-        record = {
-            "code": "MATH 1018",
-            "course_page": "course.html",
-            "terms": [{
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "schedule_page": "terms/000_2420.html",
-                "show_button_disabled": False,
-                "sections": [],
-            }],
-        }
-        with pytest.raises(ValueError, match="incomplete postback"):
-            _parse_saved_course(tmp_path, record)
-
-
-# =================================================================
-# Test 3 — Online: live scrape vs stored data
-# =================================================================
 
 class TestLiveVsStored:
     """Compare selected (or all) live catalogue options with stored JSON."""

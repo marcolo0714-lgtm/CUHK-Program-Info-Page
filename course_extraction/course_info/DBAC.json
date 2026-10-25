@@ -23,14 +23,14 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "0",
-                "enrollment_total": "25",
+                "enrollment_total": "26",
                 "wait_list_total": "0",
-                "available_seats": "25",
+                "available_seats": "24",
                 "timetable": [
                     {
                         "day_time": "Fr 8:30AM - 6:30PM",
                         "room": "No Room Required",
-                        "instructor": "Professor HSU Vernon Ning",
+                        "instructor": "Miss LIU Shuman, Ms. XU Yishu, Professor HSU Vernon Ning",
                         "dates": "11/9"
                     },
                     {
@@ -73,14 +73,14 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "0",
-                "enrollment_total": "25",
+                "enrollment_total": "28",
                 "wait_list_total": "0",
-                "available_seats": "25",
+                "available_seats": "22",
                 "timetable": [
                     {
                         "day_time": "Th 8:30AM - 6:30PM",
                         "room": "No Room Required",
-                        "instructor": "Professor GAO Zhenyu",
+                        "instructor": "Miss ZENG Zijia, Professor GAO Zhenyu",
                         "dates": "26/11"
                     },
                     {
@@ -190,9 +190,9 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "0",
-                "enrollment_total": "29",
+                "enrollment_total": "28",
                 "wait_list_total": "0",
-                "available_seats": "21",
+                "available_seats": "22",
                 "timetable": [
                     {
                         "day_time": "Fr 8:30AM - 6:30PM",
@@ -217,6 +217,45 @@
                         "room": "No Room Required",
                         "instructor": "Miss ZENG Zijia, Professor CEN Ling, Professor JIANG Wenxi, Professor TSENG Chun Kai, Professor WU Donghui",
                         "dates": "19/11"
+                    }
+                ]
+            },
+            {
+                "term_code": "2440",
+                "term": "2026-27 Term 3",
+                "section": "LAS1-SEM",
+                "component_type": "SEM",
+                "class_number": "1232",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Th 8:30AM - 6:30PM",
+                        "room": "No Room Required",
+                        "instructor": "Professor CEN Ling, Professor JIANG Wenxi, Professor TSENG Chun Kai, Professor WU Donghui",
+                        "dates": "11/3"
+                    },
+                    {
+                        "day_time": "Fr 8:30AM - 6:30PM",
+                        "room": "No Room Required",
+                        "instructor": "Professor CEN Ling, Professor JIANG Wenxi, Professor TSENG Chun Kai, Professor WU Donghui",
+                        "dates": "12/3"
+                    },
+                    {
+                        "day_time": "Su 8:30AM - 6:30PM",
+                        "room": "No Room Required",
+                        "instructor": "Professor CEN Ling, Professor JIANG Wenxi, Professor TSENG Chun Kai, Professor WU Donghui",
+                        "dates": "14/3"
+                    },
+                    {
+                        "day_time": "Sa 8:30AM - 6:30PM",
+                        "room": "No Room Required",
+                        "instructor": "Professor CEN Ling, Professor JIANG Wenxi, Professor TSENG Chun Kai, Professor WU Donghui",
+                        "dates": "13/3"
                     }
                 ]
             },
@@ -285,9 +324,9 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "0",
-                "enrollment_total": "29",
+                "enrollment_total": "27",
                 "wait_list_total": "0",
-                "available_seats": "21",
+                "available_seats": "23",
                 "timetable": [
                     {
                         "day_time": "Fr 8:30AM - 6:30PM",
@@ -431,8 +470,13 @@
         "unit": "3.00",
         "info": "For students in DBA (Chinese)",
         "term_1": false,
-        "term_2": false,
+        "term_2": true,
         "term_offerings": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "offered": true
+            },
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -440,6 +484,45 @@
             }
         ],
         "sections": [
+            {
+                "term_code": "2430",
+                "term": "2026-27 Term 2",
+                "section": "L-LEC",
+                "component_type": "LEC",
+                "class_number": "9907",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Th 8:30AM - 6:30PM",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "7/1"
+                    },
+                    {
+                        "day_time": "Fr 8:30AM - 6:30PM",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "8/1"
+                    },
+                    {
+                        "day_time": "Su 8:30AM - 6:30PM",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "10/1"
+                    },
+                    {
+                        "day_time": "Sa 8:30AM - 6:30PM",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "9/1"
+                    }
+                ]
+            },
             {
                 "term_code": "2440",
                 "term": "2026-27 Term 3",
@@ -737,36 +820,15 @@
             {
                 "term_code": "2420",
                 "term": "2026-27 Term 1",
-                "section": "--LEC",
-                "component_type": "LEC",
-                "class_number": "3946",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "timetable": [
-                    {
-                        "day_time": "Sa 8:30AM - 6:30PM",
-                        "room": "No Room Required",
-                        "instructor": "Miss ZENG Zijia, Professor ZHANG Renyu",
-                        "dates": "24/10"
-                    }
-                ]
-            },
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
                 "section": "L-LEC",
                 "component_type": "LEC",
                 "class_number": "3945",
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "0",
-                "enrollment_total": "0",
+                "enrollment_total": "30",
                 "wait_list_total": "0",
-                "available_seats": "50",
+                "available_seats": "20",
                 "timetable": [
                     {
                         "day_time": "Sa 8:30AM - 6:30PM",
@@ -808,9 +870,9 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "0",
-                "enrollment_total": "0",
+                "enrollment_total": "17",
                 "wait_list_total": "0",
-                "available_seats": "50",
+                "available_seats": "33",
                 "timetable": [
                     {
                         "day_time": "Th 8:30AM - 6:30PM",
@@ -835,8 +897,42 @@
         "info": "For students in DBA (Chinese)",
         "term_1": false,
         "term_2": false,
-        "term_offerings": [],
-        "sections": []
+        "term_offerings": [
+            {
+                "term_code": "2440",
+                "term": "2026-27 Term 3",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2440",
+                "term": "2026-27 Term 3",
+                "section": "L-LEC",
+                "component_type": "LEC",
+                "class_number": "1230",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Sa 8:30AM - 6:30PM",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "6/3"
+                    },
+                    {
+                        "day_time": "Su 8:30AM - 6:30PM",
+                        "room": "No Room Required",
+                        "instructor": "Staff",
+                        "dates": "7/3"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "DBAC 8101",
@@ -898,9 +994,9 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "0",
-                "enrollment_total": "14",
+                "enrollment_total": "15",
                 "wait_list_total": "0",
-                "available_seats": "36",
+                "available_seats": "35",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -919,9 +1015,9 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "0",
-                "enrollment_total": "21",
+                "enrollment_total": "20",
                 "wait_list_total": "0",
-                "available_seats": "29",
+                "available_seats": "30",
                 "timetable": [
                     {
                         "day_time": "TBA",

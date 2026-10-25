@@ -377,8 +377,8 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
   <label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label>
-  <label class="setting-option"><input type="checkbox" data-table-setting="schedule" checked> <span>Show Term 1 teaching schedule</span></label>
-  <label class="setting-option"><input type="checkbox" data-table-setting="schedule2"> <span>Show Term 2 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="schedule"> <span>Show Term 1 teaching schedule</span></label>
+  <label class="setting-option"><input type="checkbox" data-table-setting="schedule2" checked> <span>Show Term 2 teaching schedule</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="minors"> <span>Show minors using this course</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label>
   <label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label>
@@ -392,7 +392,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses as follows:</pre></div>
 <h2>1. Required Courses: 6 units</h2>
 <div class="section"><div class="req-row"><span class="row-text">GDRS1001 and 1002</span><span class="meta">(6 units)</span></div></div>
-<details class="course-details"><summary>Show 2 course(s) →</summary><table style="--course-code-width:7.14%;--course-term-width:3.57%;--course-title-width:25.00%;--course-schedule-width:20.24%;--course-prereq-width:23.81%;--course-minors-width:16.67%"><thead><tr><th class="col-code" title="Course code — [units] shown only when not 3">Code</th><th class="col-title" title="Course title">Title</th><th class="col-term-1" title="Available in 2026-27 Term 1">T1</th><th class="col-term-2" title="Available in 2026-27 Term 2">T2</th><th class="col-t1-schedule" title="Term 1 teaching schedule">T1 Teaching schedule</th><th class="col-t2-schedule" title="Term 2 teaching schedule">T2 Teaching schedule</th><th class="col-prereq" title="Enrollment requirements">Prerequisites</th><th class="col-minors" title="Minor programmes whose requirements accept this course">Also in minor</th></tr></thead><tbody>
+<details class="course-details"><summary>Show 2 course(s) →</summary><table style="--course-code-width:7.14%;--course-term-width:3.57%;--course-title-width:17.86%;--course-schedule-width:17.86%;--course-prereq-width:33.33%;--course-minors-width:16.67%"><thead><tr><th class="col-code" title="Course code — [units] shown only when not 3">Code</th><th class="col-title" title="Course title">Title</th><th class="col-term-1" title="Available in 2026-27 Term 1">T1</th><th class="col-term-2" title="Available in 2026-27 Term 2">T2</th><th class="col-t1-schedule" title="Term 1 teaching schedule">T1 Teaching schedule</th><th class="col-t2-schedule" title="Term 2 teaching schedule">T2 Teaching schedule</th><th class="col-prereq" title="Enrollment requirements">Prerequisites</th><th class="col-minors" title="Minor programmes whose requirements accept this course">Also in minor</th></tr></thead><tbody>
 <tr><td class="col-code"><span class="course-code-main">GDRS 1001</span></td><td class="col-title">Thinking Gender: An Introduction to Gender Studies</td><td class="col-term-1 term-yes"></td><td class="col-term-2"></td><td class="col-t1-schedule"><div class="schedule-section"><span class="schedule-lead"><span class="schedule-section-name">--LEC:</span> <span class="schedule-time">Th 2:30PM - 4:15PM</span></span></div><div class="schedule-section"><span class="schedule-lead"><span class="schedule-section-name">-T01-TUT:</span> <span class="schedule-time">Th 4:30PM - 5:15PM</span></span></div></td><td class="col-t2-schedule"><span class="schedule-empty">—</span></td><td class="col-prereq"><span class="prereq-sentence">GDRS1001 is double-coded with UGEC1209.</span><span class="prereq-sentence">Not for students who have taken ANTH2310, GENA2192, UGEC1209 or 2653.</span></td><td class="col-minors"><div class="minor-memberships"><a href="HB_Minor_Programme_in_CU-ASK_Innovative_Problem_Solving.html">CU-ASK: Innovative Problem Solving</a></div></td></tr>
 <tr><td class="col-code"><span class="course-code-main">GDRS 1002</span></td><td class="col-title">Feminisms: Theories, Debates and Activism</td><td class="col-term-1"></td><td class="col-term-2 term-yes"></td><td class="col-t1-schedule"><span class="schedule-empty">—</span></td><td class="col-t2-schedule"><div class="schedule-section"><span class="schedule-lead"><span class="schedule-section-name">--LEC:</span> <span class="schedule-time">We 10:30AM - 12:15PM</span></span></div><div class="schedule-section"><span class="schedule-lead"><span class="schedule-section-name">-T01-TUT:</span> <span class="schedule-time">We 12:30PM - 1:15PM</span></span></div></td><td class="col-prereq">—</td><td class="col-minors"><span class="schedule-empty">—</span></td></tr>
 </tbody></table></details>
@@ -464,7 +464,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
     <span> &middot; </span>
     <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
   </span>
-  <span class="footer-update">Latest course teaching schedule update: 2026/9/15</span>
+  <span class="footer-update">Latest course teaching schedule update: 2026/10/25</span>
 </div>
   </div>
 </main>
@@ -497,7 +497,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
   if (savedSettings.unavailable === undefined) {
     savedSettings.unavailable = localStorage.getItem('hideUnavailable') !== 'true';
   }
-  var defaults = {term1:true, term2:true, prerequisites:true, schedule:true, schedule2:false, minors:false, unavailable:true, scroll:true};
+  var defaults = {term1:true, term2:true, prerequisites:true, schedule:false, schedule2:true, minors:false, unavailable:true, scroll:true};
   Object.keys(defaults).forEach(function(key){
     var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
     if (!checkbox) return;

@@ -9,6 +9,7 @@ import re
 import shutil
 import stat
 import time
+import traceback
 from pathlib import Path
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -17,6 +18,7 @@ if hasattr(sys.stdout, "reconfigure"):
 ROOT = Path(__file__).parent
 COURSE_HTML_DIR = ROOT / "course_html"
 COURSE_INFO_DIR = ROOT / "course_info"
+LOG_DIR = ROOT / "logs"
 CAPTURE_SCHEMA_VERSION = 1
 
 import ddddocr
@@ -26,10 +28,116 @@ ocr = ddddocr.DdddOcr(show_ad=False)
 # https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx
 MAX_CAPTCHA_ATTEMPTS = 20
 MAX_RECOVERY_ATTEMPTS = 3
+PAGE_TIMEOUT = 60000
 ACADEMIC_TERM_PATTERN = re.compile(
     r"\b\d{4}\s*-\s*\d{2}\s+Term\s*([12])\b",
     re.IGNORECASE,
 )
+
+
+class _TeeOutput:
+    """Write a text stream to both its original destination and a log file."""
+
+    def __init__(self, original, log_file):
+        self._original = original
+        self._log_file = log_file
+
+    def write(self, value):
+        original_result = self._original.write(value)
+        self._log_file.write(value)
+        self._log_file.flush()
+        return original_result
+
+    def flush(self):
+        self._original.flush()
+        self._log_file.flush()
+
+    def __getattr__(self, name):
+        return getattr(self._original, name)
+
+
+class _LoggedInput:
+    """Copy console input into the log, where the terminal would echo it."""
+
+    def __init__(self, original, log_file):
+        self._original = original
+        self._log_file = log_file
+
+    def readline(self, *args, **kwargs):
+        value = self._original.readline(*args, **kwargs)
+        self._log_file.write(value)
+        self._log_file.flush()
+        return value
+
+    def __getattr__(self, name):
+        return getattr(self._original, name)
+
+
+def _new_log_path(log_dir=LOG_DIR):
+    """Return a unique timestamped path for one scraper invocation."""
+    log_dir = Path(log_dir)
+    log_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    candidate = log_dir / f"get_course_info_{timestamp}.txt"
+    suffix = 2
+    while candidate.exists():
+        candidate = log_dir / f"get_course_info_{timestamp}_{suffix}.txt"
+        suffix += 1
+    return candidate
+
+
+class BrowserDisconnected(KeyboardInterrupt):
+    """Stop all nested retry loops when their browser is no longer usable."""
+
+
+def _run_with_terminal_log(action, log_dir=LOG_DIR):
+    """Run *action* while preserving the complete Python console transcript."""
+    log_path = _new_log_path(log_dir)
+    original_stdout, original_stderr, original_stdin = (
+        sys.stdout,
+        sys.stderr,
+        sys.stdin,
+    )
+    exit_code = 0
+    with log_path.open("w", encoding="utf-8", buffering=1) as log_file:
+        sys.stdout = _TeeOutput(original_stdout, log_file)
+        sys.stderr = _TeeOutput(original_stderr, log_file)
+        sys.stdin = _LoggedInput(original_stdin, log_file)
+        try:
+            print(f"Log file: {log_path.resolve()}")
+            action()
+        except BrowserDisconnected as exc:
+            print(f"\nStopped: {exc}. Partial captures have been retained.", file=sys.stderr)
+            exit_code = 1
+        except KeyboardInterrupt:
+            print("\nStopped by user.", file=sys.stderr)
+            exit_code = 130
+        except SystemExit as exc:
+            exit_code = exc.code if isinstance(exc.code, int) else 1
+        except Exception:
+            traceback.print_exc()
+            exit_code = 1
+        finally:
+            print(f"\nLog saved to: {log_path.resolve()}")
+            sys.stdout, sys.stderr, sys.stdin = (
+                original_stdout,
+                original_stderr,
+                original_stdin,
+            )
+    return exit_code, log_path
+
+
+def _postback(page, locator):
+    """Await the new HTML document, without depending on window animation frames."""
+    with page.expect_navigation(wait_until="domcontentloaded", timeout=PAGE_TIMEOUT):
+        locator.dispatch_event("click", timeout=PAGE_TIMEOUT)
+
+
+def _ensure_browser_connected(page):
+    browser = page.context.browser
+    if browser is not None and not browser.is_connected():
+        # Do not retry every remaining subject against a dead browser.
+        raise BrowserDisconnected("Browser was closed or disconnected")
 
 
 def _solve_captcha_attempt(page, max_attempts=MAX_CAPTCHA_ATTEMPTS):
@@ -41,14 +149,22 @@ def _solve_captcha_attempt(page, max_attempts=MAX_CAPTCHA_ATTEMPTS):
     for attempt in range(max_attempts):
         captcha_image = page.locator("#imgCaptcha").screenshot()
         captcha_text = ocr.classification(captcha_image)
-        page.locator("#txt_captcha").fill("")
-        page.locator("#txt_captcha").press_sequentially(captcha_text.upper(), delay=100)
-        page.locator("#btn_search").click()
-        try:
-            page.wait_for_selector("#lbl_error", timeout=2000)
+        page.locator("#txt_captcha").fill(captcha_text.upper())
+        _postback(page, page.locator("#btn_search"))
+        # A slow response is not evidence of success. Require the results table
+        # or an explicit rejection in the completed response document.
+        result = page.wait_for_function(
+            """() => {
+                const error = document.querySelector('#lbl_error');
+                if (error && error.textContent.trim()) return 'rejected';
+                return document.querySelector('#gv_detail') ? 'success' : false;
+            }""",
+            polling=250, timeout=PAGE_TIMEOUT,
+        ).json_value()
+        if result == "rejected":
             print(f"Captcha solving failed (attempt {attempt + 1}/{max_attempts}). Retrying...")
-            page.wait_for_timeout(1000)
-        except Exception:
+            page.wait_for_timeout(min(1000 * (attempt + 1), 5000))
+        else:
             print("Captcha solved successfully.")
             return True
     return False
@@ -65,18 +181,23 @@ def solve_captcha_with_reload(page, option):
 
     print("Captcha failed after all attempts. Opening a new tab and retrying...")
     new_page = page.context.new_page()
-    new_page.goto("https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx")
-    new_page.wait_for_load_state("load")
-    new_page.locator("#ddl_subject").select_option(index=option)
-    new_page.wait_for_timeout(500)
-
-    if _solve_captcha_attempt(new_page):
-        page.close()
-        return True, new_page
-
-    print("Captcha still failed in the new tab.")
-    new_page.close()
-    return False, page
+    keep_page = False
+    try:
+        new_page.goto("https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx",
+                      wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+        new_page.locator("#ddl_subject").select_option(index=option)
+        if _solve_captcha_attempt(new_page):
+            page.close()
+            keep_page = True
+            return True, new_page
+        print("Captcha still failed in the new tab.")
+        return False, page
+    finally:
+        if not keep_page:
+            try:
+                new_page.close()
+            except Exception:
+                pass
 
 
 def _normalize_schedule_text(value):
@@ -93,16 +214,16 @@ def _write_text_atomic(path, value):
     )
     temporary.write_text(value, encoding="utf-8")
     try:
-        for attempt in range(10):
+        for attempt in range(20):
             try:
                 os.replace(temporary, path)
                 return
             except PermissionError:
-                if attempt == 9:
+                if attempt == 19:
                     raise
                 # OneDrive can briefly hold the previous manifest while it is
                 # syncing. This is a storage retry, not a browser-session error.
-                time.sleep(0.1 * (attempt + 1))
+                time.sleep(min(0.25 * (attempt + 1), 2.0))
     finally:
         if temporary.exists():
             try:
@@ -754,14 +875,14 @@ def _record_error(error_log, option, major, location, exc):
 
 def _course_base_info(page):
     """Extract fields shared by the whole course from its detail page."""
-    code_and_title = page.locator("#uc_course_lbl_course").inner_text(timeout=5000)
+    code_and_title = page.locator("#uc_course_lbl_course").inner_text(timeout=PAGE_TIMEOUT)
     parts = code_and_title.split(" - ", 1)
     if len(parts) != 2:
         raise ValueError(f"unexpected course heading: {code_and_title!r}")
     course = {
         "code": parts[0].strip(),
         "title": parts[1].strip(),
-        "unit": page.locator("#uc_course_lbl_units").inner_text(timeout=2000),
+        "unit": page.locator("#uc_course_lbl_units").inner_text(timeout=PAGE_TIMEOUT),
     }
     info = page.locator("#uc_course_tc_enrl_requirement")
     if info.count():
@@ -781,11 +902,12 @@ def _term_option_records(page):
 
 def _open_course_by_index(page, course_index):
     """Open a known course index; exhaustion is handled before this function."""
+    page.wait_for_selector("#gv_detail", state="attached", timeout=PAGE_TIMEOUT)
     links = page.locator("#gv_detail a[id$='lbtn_course_title']")
     if course_index >= links.count():
         raise IndexError(f"course index {course_index} is no longer present")
-    with page.expect_navigation():
-        links.nth(course_index).click()
+    _postback(page, links.nth(course_index))
+    page.wait_for_selector("#uc_course_lbl_course", state="attached", timeout=PAGE_TIMEOUT)
 
 
 def _course_link_count(page):
@@ -813,7 +935,7 @@ def _wait_for_selected_term(page, term_code):
         )
 
 
-def _wait_for_schedule_result(page, term_code, timeout=10000):
+def _wait_for_schedule_result(page, term_code, timeout=PAGE_TIMEOUT):
     """Require a successful Show-sections postback, never infer empty on timeout."""
     page.wait_for_function(
         """termCode => {
@@ -825,6 +947,7 @@ def _wait_for_schedule_result(page, term_code, timeout=10000):
                  current && current.value === termCode && grid;
         }""",
         arg=term_code,
+        polling=250,
         timeout=timeout,
     )
 
@@ -854,7 +977,7 @@ def _return_to_schedule(page, term_code):
         if not return_button.count():
             break
         try:
-            return_button.click(timeout=20000)
+            _postback(page, return_button)
         except Exception as exc:
             last_error = exc
         try:
@@ -880,11 +1003,11 @@ def _return_to_course_list(page):
         if not return_button.count():
             break
         try:
-            return_button.click(timeout=20000)
+            _postback(page, return_button)
         except Exception as exc:
             last_error = exc
         try:
-            page.wait_for_selector("table#gv_detail", timeout=20000)
+            page.wait_for_selector("table#gv_detail", state="attached", timeout=PAGE_TIMEOUT)
             return
         except Exception as exc:
             last_error = exc
@@ -927,8 +1050,7 @@ def _capture_course_schedules(page, state):
         disabled = show_button.is_disabled()
         term_record["show_button_disabled"] = disabled
         if not disabled:
-            show_button.click()
-            page.wait_for_load_state("load")
+            _postback(page, show_button)
             _wait_for_schedule_result(page, term_code)
         elif page.locator("#uc_course_gv_sched").count():
             current = page.locator("#uc_course_hf_current_course_term")
@@ -958,8 +1080,8 @@ def _capture_course_schedules(page, state):
             component, component_type, class_number = _component_identity(
                 section_link.inner_text()
             )
-            section_link.click()
-            page.wait_for_selector("#btn_class_return", timeout=10000)
+            _postback(page, section_link)
+            page.wait_for_selector("#btn_class_return", state="attached", timeout=PAGE_TIMEOUT)
             detail_heading = _text_or_empty(page, "#uc_class_lbl_course")
             if detail_heading and not re.match(
                 rf"^{re.escape(state['record']['code'])}(?:\s|$|-)",
@@ -1060,6 +1182,7 @@ def _capture_course_with_recovery(
                 else f"course index {course_index + 1}, opening course/term"
             )
             _record_error(error_log, option, major_text, location, exc)
+            _ensure_browser_connected(page)
             if recovery_attempts >= MAX_RECOVERY_ATTEMPTS:
                 try:
                     return None, page, _try_return_to_course_list(page)
@@ -1342,7 +1465,30 @@ def course_info_to_json(page, major_text, option, error_log):
                 "skipped after three recovery attempts",
             )
         processed_slots += 1
-        if not page_ready:
+        if not page_ready and processed_slots < course_count:
+            # Course retries are exhausted. Restore only the subject list;
+            # never reopen the failed course during this separate recovery.
+            print(
+                f"Restoring {subject}'s course list to continue with course "
+                f"{course_index + 2}/{course_count}."
+            )
+            for attempt in range(MAX_RECOVERY_ATTEMPTS):
+                try:
+                    page_ready, page = recover_with_new_tab(
+                        page, option, max_retries=1,
+                        error_log=error_log, major_text=major_text,
+                    )
+                    if page_ready:
+                        break
+                except Exception as exc:
+                    _record_error(
+                        error_log, option, major_text,
+                        f"restoring subject list after skipped course "
+                        f"(attempt {attempt + 1}/{MAX_RECOVERY_ATTEMPTS})",
+                        exc,
+                    )
+            if page_ready:
+                continue
             _record_error(
                 error_log,
                 option,
@@ -1385,8 +1531,9 @@ def course_info_to_json(page, major_text, option, error_log):
         )
     else:
         print(
-            f"Stopped {major_text} before the known end: processed "
-            f"{processed_slots}/{course_count} course slots. The incomplete raw "
+            f"Incomplete capture for {major_text}: processed "
+            f"{processed_slots}/{course_count} course slots, "
+            f"{len(subject_manifest['courses'])} complete courses. The incomplete raw "
             f"capture was retained at {subject_capture_dir}; the existing "
             "course_info JSON was not replaced."
         )
@@ -1404,14 +1551,17 @@ def recover_with_new_tab(
     tab, navigate to the catalog, select the major, and solve captcha.
     Returns (True, new_page) on success, (False, original_page) on failure."""
     for attempt in range(max_retries):
-        print(f"Page session lost. Opening new tab to recover (attempt {attempt + 1}/{max_retries})...")
-        new_page = page.context.new_page()
+        _ensure_browser_connected(page)
+        print(f"Page operation failed. Reopening catalogue (attempt {attempt + 1}/{max_retries})...")
+        # The old page may itself be closed while its browser is still usable.
+        time.sleep(min(2 * (attempt + 1), 10))
+        new_page = None
         try:
+            new_page = page.context.new_page()
             new_page.goto(
                 "https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx",
-                timeout=30000,
+                timeout=PAGE_TIMEOUT, wait_until="domcontentloaded",
             )
-            new_page.wait_for_load_state("load")
             new_page.locator("#ddl_subject").select_option(index=option)
             new_page.wait_for_timeout(500)
         except Exception as exc:
@@ -1425,7 +1575,7 @@ def recover_with_new_tab(
                 )
             else:
                 print(f"New tab setup failed for option {option}: {exc}")
-            if not new_page.is_closed():
+            if new_page is not None and not new_page.is_closed():
                 new_page.close()
             continue
 
@@ -1523,7 +1673,7 @@ def _print_error_summary(error_log):
         print(f"{index}. {message}")
 
 
-def crawl_course_catalog(options=None):
+def crawl_course_catalog(options=None, headless=False):
     if options is None:
         options = _prompt_option_list()
     else:
@@ -1531,8 +1681,10 @@ def crawl_course_catalog(options=None):
 
     error_log = []
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=headless)
         context = browser.new_context()
+        context.set_default_timeout(PAGE_TIMEOUT)
+        context.set_default_navigation_timeout(PAGE_TIMEOUT)
         page = context.new_page()
         try:
             page.goto(
@@ -1596,8 +1748,10 @@ def crawl_course_catalog(options=None):
         except Exception as exc:
             _record_error(error_log, "?", "catalogue", "fatal setup", exc)
         finally:
-            browser.close()
-            _print_error_summary(error_log)
+            try:
+                browser.close()
+            finally:
+                _print_error_summary(error_log)
 
 def main(argv=None):
     parser = argparse.ArgumentParser(
@@ -1614,12 +1768,17 @@ def main(argv=None):
             "omit subject codes after the flag to process every complete capture"
         ),
     )
+    parser.add_argument(
+        "--headless", action="store_true",
+        help="run without browser windows (recommended for long/background runs)",
+    )
     args = parser.parse_args(argv)
     if args.process_saved is not None:
         process_saved_catalog(args.process_saved)
     else:
-        crawl_course_catalog()
+        crawl_course_catalog(headless=args.headless)
 
 
 if __name__ == "__main__":
-    main()
+    status, _ = _run_with_terminal_log(main)
+    raise SystemExit(status)

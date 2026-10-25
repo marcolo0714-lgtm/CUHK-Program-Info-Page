@@ -201,9 +201,9 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "999",
-                "enrollment_total": "27",
+                "enrollment_total": "26",
                 "wait_list_total": "0",
-                "available_seats": "23",
+                "available_seats": "24",
                 "timetable": [
                     {
                         "day_time": "Mo 10:30AM - 1:15PM",
@@ -361,9 +361,9 @@
                 "status": "Open",
                 "class_capacity": "30",
                 "wait_list_capacity": "999",
-                "enrollment_total": "28",
-                "wait_list_total": "1",
-                "available_seats": "2",
+                "enrollment_total": "26",
+                "wait_list_total": "0",
+                "available_seats": "4",
                 "timetable": [
                     {
                         "day_time": "Tu 2:30PM - 5:15PM",
@@ -852,9 +852,9 @@
                 "status": "Open",
                 "class_capacity": "45",
                 "wait_list_capacity": "999",
-                "enrollment_total": "20",
+                "enrollment_total": "19",
                 "wait_list_total": "0",
-                "available_seats": "25",
+                "available_seats": "26",
                 "timetable": [
                     {
                         "day_time": "Tu 2:30PM - 5:15PM",
@@ -889,9 +889,9 @@
                 "status": "Open",
                 "class_capacity": "30",
                 "wait_list_capacity": "999",
-                "enrollment_total": "13",
+                "enrollment_total": "15",
                 "wait_list_total": "0",
-                "available_seats": "17",
+                "available_seats": "15",
                 "timetable": [
                     {
                         "day_time": "We 2:30PM - 5:15PM",
@@ -1017,9 +1017,9 @@
                 "status": "Open",
                 "class_capacity": "30",
                 "wait_list_capacity": "0",
-                "enrollment_total": "21",
+                "enrollment_total": "22",
                 "wait_list_total": "0",
-                "available_seats": "9",
+                "available_seats": "8",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -1098,9 +1098,9 @@
                 "status": "Open",
                 "class_capacity": "30",
                 "wait_list_capacity": "0",
-                "enrollment_total": "0",
+                "enrollment_total": "9",
                 "wait_list_total": "0",
-                "available_seats": "30",
+                "available_seats": "21",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -1219,9 +1219,9 @@
                 "status": "Open",
                 "class_capacity": "30",
                 "wait_list_capacity": "0",
-                "enrollment_total": "0",
+                "enrollment_total": "3",
                 "wait_list_total": "0",
-                "available_seats": "30",
+                "available_seats": "27",
                 "timetable": [
                     {
                         "day_time": "TBA",
@@ -1237,14 +1237,9 @@
         "code": "GLSD 4004",
         "title": "Global Studies Capstone Project II",
         "unit": "3.00",
-        "term_1": true,
+        "term_1": false,
         "term_2": true,
         "term_offerings": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "offered": true
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
@@ -1252,27 +1247,6 @@
             }
         ],
         "sections": [
-            {
-                "term_code": "2420",
-                "term": "2026-27 Term 1",
-                "section": "-J01-PRJ",
-                "component_type": "PRJ",
-                "class_number": "6446",
-                "status": "Open",
-                "class_capacity": "30",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "30",
-                "timetable": [
-                    {
-                        "day_time": "TBA",
-                        "room": "No Room Required",
-                        "instructor": "Dr. CHEUNG Ho Yan Yannie, Dr. HORIUCHI Toru, Dr. HUNG Wing Lok, Professor LEE Fung",
-                        "dates": "07/09/2026 - 30/11/2026"
-                    }
-                ]
-            },
             {
                 "term_code": "2430",
                 "term": "2026-27 Term 2",

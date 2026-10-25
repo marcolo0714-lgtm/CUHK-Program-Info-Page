@@ -94,6 +94,17 @@ From the repository root:
 python generate_all_sites.py
 ```
 
+After refreshing course schedules, also update the footer date on all pages:
+
+```powershell
+python generate_all_sites.py --update-course-schedule-date
+```
+
+This saves the current Hong Kong date for all page generators. Subsequent builds
+without the flag retain that date. The flag requires a full build and cannot be
+combined with admission-year filters. It changes the displayed freshness date;
+it does not scrape or certify that every schedule was retrieved.
+
 This is the normal command after course information or either programme
 generator changes. It regenerates every minor year and every year present under
 `major_extraction/major_json/`, refreshes the sitemap/redirects last, and runs
@@ -129,7 +140,32 @@ pytest tests/ -m live              # online: compare stored vs live website
 pytest tests/ -m live --course-options "1-50, 101-150"  # online: selected dropdown options
 ```
 
+Every `get_course_info.py` run mirrors its terminal transcript to a timestamped
+UTF-8 text file under `course_extraction/logs/`. The log is finalized and its
+path is printed when the run completes, fails, or is stopped with Ctrl+C.
+
+For long or background scrapes, use `python get_course_info.py --headless`.
+This avoids relying on visible browser windows. Start with one or two concurrent
+scrapers; the eight simultaneous runs in the October 19 logs experienced many
+browser-operation timeouts. The scraper now waits for completed page responses
+and explicit CAPTCHA results, backs off before recovery, and stops cleanly if
+the browser disconnects. Temporary snapshot-file locks are retried for up to
+about 31 seconds before the incomplete capture is retained.
+
+If a course still fails after three recovery retries, the scraper skips it and
+reopens the subject's course list to continue with the next course. Restoring
+that list has a separate limit of three attempts; if all fail, the remaining
+courses in that subject cannot be reached. A subject with skipped courses stays
+under `course_html/_incomplete/` and does not replace its existing JSON.
+
 Without `--course-options`, the live test checks every selectable course-subject option. The flag accepts individual option numbers, commas, spaces, and inclusive ranges using the same syntax as the scraper.
+
+`tests/test_course_info.py` is the only course test module; `conftest.py` and
+`__init__.py` provide test configuration and package setup. Offline tests check
+the stored JSON's internal consistency, not whether a run fetched every page.
+Confirm scrape completeness separately from the latest logs and capture
+manifests, including any recorded `retrieval_error`. The optional live test
+compares course counts and first/last codes, not every section's contents.
 
 ### 2. Scrape minor programmes
 
