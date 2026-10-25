@@ -100,7 +100,7 @@ def _comparison_rows(path):
     {p.stem for p in COURSE_BACKUP_DIR.glob("*.json")}
     | {p.stem for p in COURSE_INFO_DIR.glob("*.json")}
 ) or ["__missing_data__"])
-def test_course_info_against_backup(subject):
+def test_course_info_against_backup(subject, pytestconfig):
     """Report baseline losses, escalating losses contradicted by saved HTML."""
     if not COURSE_BACKUP_DIR.is_dir() or not any(COURSE_BACKUP_DIR.glob("*.json")):
         pytest.fail(f"Comparison baseline missing or empty: {COURSE_BACKUP_DIR}")
@@ -108,12 +108,17 @@ def test_course_info_against_backup(subject):
     backup_path = COURSE_BACKUP_DIR / f"{subject}.json"
     option = _comparison_manifest(subject).get("subject_option", "unknown")
     label = f"{subject}.json (subject option {option})"
+    previous = _comparison_rows(backup_path) if backup_path.is_file() else {}
+    report = pytestconfig._course_comparison_missing
+    report["subjects_checked"].add(subject)
     if not current_path.is_file():
+        report["courses"].update((subject, code) for code in previous)
         pytest.fail(f"{label}: entire subject file missing: {current_path}")
     current = _comparison_rows(current_path)
-    previous = _comparison_rows(backup_path) if backup_path.is_file() else {}
+    missing_courses = previous.keys() - current.keys()
+    report["courses"].update((subject, code) for code in missing_courses)
     errors, notices = [], []
-    for code in sorted(previous.keys() - current.keys()):
+    for code in sorted(missing_courses):
         errors.append(f"{code}: course missing from current JSON")
     for code in sorted(current.keys() - previous.keys()):
         notices.append(f"{code}: added course")
@@ -130,6 +135,10 @@ def test_course_info_against_backup(subject):
                               for s in c.get("sections", [])}
         lost_terms = terms(old) - terms(row)
         lost_sections = sections(old) - sections(row)
+        report["sections"].update(
+            (subject, code, str(term), str(section), str(class_number))
+            for term, section, class_number in lost_sections
+        )
         empty_fields = [key for key in ("title", "unit", "info")
                         if old.get(key) and not row.get(key)]
         changed_core = [key for key in ("title", "unit") if old.get(key) != row.get(key)]

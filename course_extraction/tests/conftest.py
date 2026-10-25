@@ -33,6 +33,48 @@ def pytest_configure(config):
         "markers",
         "live: slow test that requires network access to CUHK course catalog website",
     )
+    config._course_comparison_missing = {
+        "subjects_checked": set(),
+        "courses": set(),
+        "sections": set(),
+    }
+
+
+@pytest.hookimpl(trylast=True)
+def pytest_terminal_summary(terminalreporter):
+    """Print one consolidated summary of losses against course_info_copy."""
+    report = getattr(terminalreporter.config, "_course_comparison_missing", None)
+    if not report or not report["subjects_checked"]:
+        return
+
+    courses = sorted(report["courses"])
+    sections = sorted(report["sections"])
+    terminalreporter.section("Missing compared with course_info_copy")
+
+    terminalreporter.write_line(f"Missing courses: {len(courses)}")
+    if courses:
+        current_subject = None
+        for subject, code in courses:
+            if subject != current_subject:
+                terminalreporter.write_line(f"  {subject}.json:")
+                current_subject = subject
+            terminalreporter.write_line(f"    {code}")
+    else:
+        terminalreporter.write_line("  None")
+
+    terminalreporter.write_line(f"Missing course sections: {len(sections)}")
+    if sections:
+        current_course = None
+        for subject, code, term, section, class_number in sections:
+            course_key = (subject, code)
+            if course_key != current_course:
+                terminalreporter.write_line(f"  {subject}.json — {code}:")
+                current_course = course_key
+            terminalreporter.write_line(
+                f"    term={term}, section={section}, class={class_number}"
+            )
+    else:
+        terminalreporter.write_line("  None")
 
 
 def pytest_addoption(parser):
