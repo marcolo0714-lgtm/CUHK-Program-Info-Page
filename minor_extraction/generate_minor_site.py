@@ -560,6 +560,7 @@ def index_page(page_title, body, description, canonical_path, structured_data):
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="google-site-verification" content="n_0KBTIZ7RPF4RRmgXj-eKlg56ekuI1CE5sibYpIbRM" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="prefetch-src 'none'">
 <script type="speculationrules">
@@ -1760,6 +1761,7 @@ def generate(year):
         '<!DOCTYPE html>\n'
         '<html lang="en">\n'
         '<head><meta charset="UTF-8">'
+        '<meta name="google-site-verification" content="n_0KBTIZ7RPF4RRmgXj-eKlg56ekuI1CE5sibYpIbRM" />'
         f'<meta http-equiv="refresh" content="0;url={latest_year}/index.html">'
         '<title>CUHK Minor Programmes</title></head>\n'
         f'<body><p>Redirecting to <a href="{latest_year}/index.html">'
