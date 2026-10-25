@@ -484,6 +484,12 @@ function applyTableSettings() {
     settings[key] = shown;
     document.body.classList.toggle(classes[key], !shown);
   });
+  var visibleColumns = 2 + ['term1','term2','prerequisites','schedule','schedule2','minors'].filter(function(key){
+    return settings[key];
+  }).length;
+  document.querySelectorAll('tr.nf td[colspan]').forEach(function(cell){
+    cell.colSpan = visibleColumns - 1;
+  });
   localStorage.setItem('minorTableSettings', JSON.stringify(settings));
 }
 
