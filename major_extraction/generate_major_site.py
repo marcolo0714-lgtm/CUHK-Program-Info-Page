@@ -20,7 +20,7 @@ from minor_extraction.minor_course_index import (
     minor_applies_to_major,
     minor_matches_major_name,
 )
-from minor_extraction.course_schedule_metadata import course_schedule_update_date
+from site_metadata import course_schedule_update_date
 
 COURSE_INFO = ROOT.parent / "course_extraction" / "course_info"
 PUBLIC = ROOT.parent / "site" / "major"

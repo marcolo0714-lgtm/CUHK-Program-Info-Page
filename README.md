@@ -62,11 +62,12 @@ against the same `course_extraction/course_info/` used by minor pages and writes
 the complete major catalogue directly to `site/major/{year}/`. There is no
 second course catalogue and no sibling repository synchronization step.
 
-13. **Search metadata and discovery** — `seo_config.py` defines the production
+13. **Site metadata and discovery** — root-level `site_metadata.py` defines the production
 origin (`https://cuhk-minor.coffeebreak.work`) and supplies canonical URLs,
 descriptions, Open Graph tags, and structured data to the generated pages. Site
 generation also refreshes `site/sitemap.xml`, `site/robots.txt`, and the
-Cloudflare Pages `site/_redirects` rules.
+Cloudflare Pages `site/_redirects` rules. It also reads and updates the persisted
+course-schedule footer date in `course_schedule_updated_on.txt`.
 
 14. **Unified build** — root-level `generate_all_sites.py` regenerates checker
 data, checker pages, minor pages, every available major year, and the final SEO
@@ -232,10 +233,6 @@ major generators read it directly. Never copy course JSON into
 `major_extraction/` and do not maintain a second major-repository copy. After a
 course re-scrape passes the offline/live tests, run `python generate_all_sites.py`.
 
-`minor_extraction/sync_major_site.py` remains only as a compatibility wrapper.
-It now invokes the local major generator and refreshes discovery files; it no
-longer reads or modifies a sibling repository.
-
 ## Structure
 
 ```
@@ -294,6 +291,8 @@ longer reads or modifies a sibling repository.
 ├── site_tempdata/                      # Intermediate checker data (per year)
 │   └── checker_minors_{year}.json
 ├── generate_all_sites.py               # Recommended complete build command
+├── site_metadata.py                    # Shared SEO, discovery, and schedule-date helpers
+├── course_schedule_updated_on.txt      # Persisted course-schedule footer date
 ├── requirements.txt                    # Python dependencies
 └── user_data_dir/                      # Playwright persistent browser profile
 ```

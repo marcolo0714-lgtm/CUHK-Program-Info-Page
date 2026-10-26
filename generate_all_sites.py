@@ -10,8 +10,7 @@ import sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-from minor_extraction.seo_config import write_discovery_files
-from minor_extraction.course_schedule_metadata import update_course_schedule_date
+from site_metadata import update_course_schedule_date, write_discovery_files
 
 
 ROOT = Path(__file__).resolve().parent

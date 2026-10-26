@@ -14,13 +14,15 @@ from html.parser import HTMLParser
 from html import unescape
 from pathlib import Path
 
-try:
-    from minor_extraction.course_schedule_metadata import course_schedule_update_date
-    from minor_extraction.seo_config import absolute_url, seo_head, write_discovery_files
-except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "minor_extraction"))
-    from course_schedule_metadata import course_schedule_update_date
-    from seo_config import absolute_url, seo_head, write_discovery_files
+REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
+if str(REPOSITORY_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPOSITORY_ROOT))
+from site_metadata import (
+    absolute_url,
+    course_schedule_update_date,
+    seo_head,
+    write_discovery_files,
+)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--year", default=None, help="Admission year (e.g. 2025_26). If omitted, processes all years.")

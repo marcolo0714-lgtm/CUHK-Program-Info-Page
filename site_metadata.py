@@ -1,15 +1,36 @@
-"""Shared SEO metadata and discovery-file helpers for the combined site."""
+"""Shared metadata and discovery-file helpers for the combined site."""
 
 from __future__ import annotations
 
 import html
 import json
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from xml.sax.saxutils import escape as xml_escape
 
 
 SITE_ORIGIN = "https://cuhk-minor.coffeebreak.work"
 SITE_NAME = "CUHK Programme Information"
+COURSE_SCHEDULE_DATE_FILE = Path(__file__).with_name(
+    "course_schedule_updated_on.txt"
+)
+
+
+def course_schedule_update_date() -> str:
+    """Return the saved course-schedule freshness date for page footers."""
+    updated = date.fromisoformat(
+        COURSE_SCHEDULE_DATE_FILE.read_text(encoding="utf-8").strip()
+    )
+    return f"{updated.year}/{updated.month}/{updated.day}"
+
+
+def update_course_schedule_date() -> str:
+    """Save today's Hong Kong date and return its footer representation."""
+    today = datetime.now(timezone(timedelta(hours=8))).date()
+    COURSE_SCHEDULE_DATE_FILE.write_text(
+        today.isoformat() + "\n", encoding="utf-8"
+    )
+    return course_schedule_update_date()
 
 
 def absolute_url(path: str) -> str:
@@ -42,8 +63,13 @@ def seo_head(
         '<meta name="twitter:card" content="summary">',
     ]
     if structured_data:
-        payload = json.dumps(structured_data, ensure_ascii=False, separators=(",", ":"))
-        blocks.append(f'<script type="application/ld+json">{payload.replace("</", "<\\/")}</script>')
+        payload = json.dumps(
+            structured_data, ensure_ascii=False, separators=(",", ":")
+        )
+        blocks.append(
+            f'<script type="application/ld+json">'
+            f'{payload.replace("</", "<\\/")}</script>'
+        )
     return "\n".join(blocks)
 
 
@@ -97,21 +123,31 @@ def write_discovery_files(site_root: Path) -> None:
     page_files: list[Path] = []
     for year in minor_years:
         year_dir = site_root / year
-        page_files.extend(path for path in (year_dir / "index.html", year_dir / "checker.html") if path.exists())
+        page_files.extend(
+            path
+            for path in (year_dir / "index.html", year_dir / "checker.html")
+            if path.exists()
+        )
         page_files.extend(sorted((year_dir / "minors").glob("*.html")))
     for year in major_years:
         year_dir = site_root / "major" / year
         page_files.append(year_dir / "index.html")
         page_files.extend(sorted((year_dir / "majors").glob("*.html")))
 
-    urls = sorted({absolute_url(_published_path(path, site_root)) for path in page_files})
+    urls = sorted(
+        {absolute_url(_published_path(path, site_root)) for path in page_files}
+    )
     sitemap = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
-    sitemap.extend(f"  <url><loc>{xml_escape(url)}</loc></url>" for url in urls)
+    sitemap.extend(
+        f"  <url><loc>{xml_escape(url)}</loc></url>" for url in urls
+    )
     sitemap.append("</urlset>")
-    (site_root / "sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
+    (site_root / "sitemap.xml").write_text(
+        "\n".join(sitemap) + "\n", encoding="utf-8"
+    )
 
     (site_root / "robots.txt").write_text(
         "User-agent: *\nAllow: /\n\n"
@@ -128,4 +164,6 @@ def write_discovery_files(site_root: Path) -> None:
         "/2025_26/minors/HB_Minor_Programme_in_Hong_Kong_Sign_Language "
         "/2025_26/minors/Hong_Kong_Sign_Language 301"
     )
-    (site_root / "_redirects").write_text("\n".join(redirects) + "\n", encoding="utf-8")
+    (site_root / "_redirects").write_text(
+        "\n".join(redirects) + "\n", encoding="utf-8"
+    )

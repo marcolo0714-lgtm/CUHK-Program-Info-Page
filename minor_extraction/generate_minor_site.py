@@ -8,13 +8,21 @@ import time
 from functools import lru_cache
 from pathlib import Path
 
+REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
+if str(REPOSITORY_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPOSITORY_ROOT))
+from site_metadata import (
+    SITE_NAME,
+    absolute_url,
+    breadcrumb_data,
+    course_schedule_update_date,
+    seo_head,
+    write_discovery_files,
+)
+
 try:
-    from .course_schedule_metadata import course_schedule_update_date
-    from .seo_config import SITE_NAME, absolute_url, breadcrumb_data, seo_head, write_discovery_files
     from .minor_course_index import load_minor_course_index
 except ImportError:
-    from course_schedule_metadata import course_schedule_update_date
-    from seo_config import SITE_NAME, absolute_url, breadcrumb_data, seo_head, write_discovery_files
     from minor_course_index import load_minor_course_index
 
 parser = argparse.ArgumentParser()
