@@ -9,7 +9,7 @@ Reads:  ../minor_extraction/minor_json/{year}/*.json
         ../minor_extraction/course_overrides/{year}.json
 
 Output: ../site/checker_data.json           (courses — year-agnostic)
-        ../site_tempdata/checker_minors_{year}.json  (minors — year-specific)
+        ../site_generator/site_tempdata/checker_minors_{year}.json  (minors — year-specific)
 """
 
 import json
@@ -1478,7 +1478,7 @@ def generate(year):
     global MINOR_JSON_DIR, OVERRIDE_FILE, MINORS_OUTPUT
     MINOR_JSON_DIR = MINOR_JSON_BASE / year
     OVERRIDE_FILE = BASE / "minor_extraction" / "course_overrides" / f"{year}.json"
-    MINORS_OUTPUT = BASE / "site_tempdata" / f"checker_minors_{year}.json"
+    MINORS_OUTPUT = BASE / "site_generator" / "site_tempdata" / f"checker_minors_{year}.json"
 
     print(f"\n--- {year} ---")
     course_index = load_course_index()
@@ -1739,14 +1739,17 @@ def generate(year):
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_FILE.write_text(json.dumps({"courses": courses_summary}, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    # Write minors (year-specific) to site_tempdata/
+    # Write minors (year-specific) to site_generator/site_tempdata/
     MINORS_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     MINORS_OUTPUT.write_text(json.dumps({"minors": minors_data}, ensure_ascii=False, indent=2), encoding="utf-8")
 
     total_rows = sum(
         len(s["rows"]) for m in minors_data.values() for s in m["sections"]
     )
-    print(f"Generated: site/checker_data.json, site_tempdata/checker_minors_{year}.json")
+    print(
+        "Generated: site/checker_data.json, "
+        f"site_generator/site_tempdata/checker_minors_{year}.json"
+    )
     print(f"  Minors: {len(minors_data)}")
     print(f"  Sections: {sum(len(m['sections']) for m in minors_data.values())}")
     print(f"  Total rows: {total_rows}")

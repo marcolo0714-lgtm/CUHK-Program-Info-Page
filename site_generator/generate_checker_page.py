@@ -3,7 +3,7 @@ Generate checker.html — interactive minor progress checker page.
 Reads checker_data.json (courses) and checker_minors_{year}.json and produces
 a self-contained static HTML page.
 
-Usage:  python generate_checker_page.py [--year 2025_26]
+Usage:  python -m site_generator.generate_checker_page [--year 2025_26]
 """
 
 import json
@@ -15,29 +15,35 @@ from html import unescape
 from pathlib import Path
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
-if str(REPOSITORY_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPOSITORY_ROOT))
-from site_metadata import (
-    absolute_url,
-    course_schedule_update_date,
-    seo_head,
-    write_discovery_files,
-)
+try:
+    from .site_metadata import (
+        absolute_url,
+        course_schedule_update_date,
+        seo_head,
+        write_discovery_files,
+    )
+except ImportError:
+    from site_metadata import (
+        absolute_url,
+        course_schedule_update_date,
+        seo_head,
+        write_discovery_files,
+    )
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--year", default=None, help="Admission year (e.g. 2025_26). If omitted, processes all years.")
 args = parser.parse_args()
 
-BASE = Path(__file__).parent.parent
+BASE = REPOSITORY_ROOT
 DATA_FILE = BASE / "site" / "checker_data.json"
-MINORS_FILE_TEMPLATE = BASE / "site_tempdata" / "checker_minors_{}.json"
+SITE_TEMPDATA = Path(__file__).resolve().parent / "site_tempdata"
+MINORS_FILE_TEMPLATE = SITE_TEMPDATA / "checker_minors_{}.json"
 
 def _detect_years():
-    """Detect years from checker_minors_*.json files in site_tempdata."""
+    """Detect years from checker_minors_*.json intermediate files."""
     years = []
-    temp_dir = BASE / "site_tempdata"
-    if temp_dir.exists():
-        for f in temp_dir.glob("checker_minors_*.json"):
+    if SITE_TEMPDATA.exists():
+        for f in SITE_TEMPDATA.glob("checker_minors_*.json"):
             name = f.stem
             y = name.replace("checker_minors_", "")
             if y and not y.endswith("_copy"):
@@ -46,7 +52,10 @@ def _detect_years():
 
 TARGET_YEARS = [args.year] if args.year else _detect_years()
 if not TARGET_YEARS:
-    print("No year files found in site_tempdata/. Run generate_checker_data.py first.")
+    print(
+        "No year files found in site_generator/site_tempdata/. "
+        "Run generate_checker_data.py first."
+    )
     sys.exit(1)
 print(f"Processing years: {', '.join(TARGET_YEARS)}")
 

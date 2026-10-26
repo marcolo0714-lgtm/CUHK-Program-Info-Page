@@ -572,7 +572,7 @@ def apply_mode():
     print(f"  Affected minors:  {len(overrides)}")
     print()
     print("MANUAL entries have empty codes arrays -- edit the JSON to fill them in.")
-    print("Then re-run generate_minor_site.py to see the updated site.")
+    print("Then run python -m site_generator.generate_minor_site to update the site.")
 
 
 def main():

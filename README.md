@@ -62,14 +62,14 @@ against the same `course_extraction/course_info/` used by minor pages and writes
 the complete major catalogue directly to `site/major/{year}/`. There is no
 second course catalogue and no sibling repository synchronization step.
 
-13. **Site metadata and discovery** — root-level `site_metadata.py` defines the production
+13. **Site metadata and discovery** — `site_generator/site_metadata.py` defines the production
 origin (`https://cuhk-minor.coffeebreak.work`) and supplies canonical URLs,
 descriptions, Open Graph tags, and structured data to the generated pages. Site
 generation also refreshes `site/sitemap.xml`, `site/robots.txt`, and the
 Cloudflare Pages `site/_redirects` rules. It also reads and updates the persisted
-course-schedule footer date in `course_schedule_updated_on.txt`.
+course-schedule footer date in `site_generator/course_schedule_updated_on.txt`.
 
-14. **Unified build** — root-level `generate_all_sites.py` regenerates checker
+14. **Unified build** — `site_generator/generate_all_sites.py` regenerates checker
 data, checker pages, minor pages, every available major year, and the final SEO
 discovery files. It then checks major page counts, all internal links, and the
 syntax of generated inline JavaScript.
@@ -83,7 +83,7 @@ pip install -r requirements.txt
 playwright install chromium
 ```
 
-Node.js must be available when running `generate_all_sites.py`, because the
+Node.js must be available when running the complete site generator, because the
 final verification step compiles generated inline JavaScript. The generators
 themselves are Python programs.
 
@@ -92,13 +92,13 @@ themselves are Python programs.
 From the repository root:
 
 ```powershell
-python generate_all_sites.py
+python -m site_generator.generate_all_sites
 ```
 
 After refreshing course schedules, also update the footer date on all pages:
 
 ```powershell
-python generate_all_sites.py --update-course-schedule-date
+python -m site_generator.generate_all_sites --update-course-schedule-date
 ```
 
 This saves the current Hong Kong date for all page generators. Subsequent builds
@@ -115,13 +115,13 @@ Useful variants:
 
 ```powershell
 # Limit the build to selected admission years.
-python generate_all_sites.py --minor-year 2026_27 --major-year 2026_27
+python -m site_generator.generate_all_sites --minor-year 2026_27 --major-year 2026_27
 
 # Reparse saved major source HTML before building the site.
-python generate_all_sites.py --rebuild-major-json
+python -m site_generator.generate_all_sites --rebuild-major-json
 
 # Generate without final link/page-count/JavaScript checks.
-python generate_all_sites.py --skip-verify
+python -m site_generator.generate_all_sites --skip-verify
 ```
 
 `--minor-year` and `--major-year` are repeatable. Without them, all locally
@@ -170,34 +170,32 @@ compares course counts and first/last codes, not every section's contents.
 
 ### 2. Scrape minor programmes
 
-```bash
-cd ..\minor_extraction
-python extract_minor_sections.py --year 2025_26    # academy minors → minor_html/{year}/
-python extract_handbook_minors.py --year 2025_26   # handbook minors → minor_html/{year}/HB_*.html
+```powershell
+python minor_extraction\extract_minor_sections.py --year 2025_26
+python minor_extraction\extract_handbook_minors.py --year 2025_26
 ```
 
 ### 3. Parse minors to JSON
 
-```bash
-python generate_minor_json.py --year 2025_26       # HTML → minor_json/{year}/
+```powershell
+python minor_extraction\generate_minor_json.py --year 2025_26
 ```
 
 ### 4. Resolve text-only requirements
 
-```bash
-python resolve_course_descriptions.py                          # diagnostic: see what's resolvable
-python resolve_course_descriptions.py --apply --year 2025_26   # generate course_overrides/{year}.json
+```powershell
+python minor_extraction\resolve_course_descriptions.py
+python minor_extraction\resolve_course_descriptions.py --apply --year 2025_26
 # edit course_overrides/{year}.json to fill any MANUAL entries (empty arrays)
 ```
 
 ### 5. Generate site and checker
 
-```bash
-python ..\minor_planner\generate_checker_data.py --year 2025_26
-python ..\minor_planner\generate_checker_page.py --year 2025_26
-python generate_minor_site.py --year 2025_26                    # static site → site/{year}/
-cd ..
-python major_extraction\generate_major_site.py --year 2026_27   # major site → site/major/{year}/
+```powershell
+python minor_planner\generate_checker_data.py --year 2025_26
+python -m site_generator.generate_checker_page --year 2025_26
+python -m site_generator.generate_minor_site --year 2025_26
+python -m site_generator.generate_major_site --year 2026_27
 ```
 
 > **Note:** The site auto-reads `course_overrides/{year}.json` if present and injects course tables for resolved text-only rows. If the file is missing, the site still works — just without those tables.
@@ -218,7 +216,7 @@ python major_extraction\generate_major_json.py --year 2026_27
 python -m pytest major_extraction\tests
 
 # Generate major HTML only.
-python major_extraction\generate_major_site.py --year 2026_27
+python -m site_generator.generate_major_site --year 2026_27
 ```
 
 The 87 captured programmes produce 89 JSON/page records because the Engineering
@@ -231,7 +229,8 @@ programme snapshot. The smaller HTML copies beside it are retained for auditing.
 `course_extraction/course_info/` is the only course catalogue. Both minor and
 major generators read it directly. Never copy course JSON into
 `major_extraction/` and do not maintain a second major-repository copy. After a
-course re-scrape passes the offline/live tests, run `python generate_all_sites.py`.
+course re-scrape passes the offline/live tests, run
+`python -m site_generator.generate_all_sites`.
 
 ## Structure
 
@@ -248,8 +247,6 @@ course re-scrape passes the offline/live tests, run `python generate_all_sites.p
 │   ├── extract_minor_sections.py       # Academy minor scraper (Playwright + captcha)
 │   ├── extract_handbook_minors.py      # Handbook minor scraper (plain HTTP, no captcha)
 │   ├── generate_minor_json.py          # HTML → JSON parser
-│   ├── generate_minor_site.py          # JSON → HTML static site generator
-│   ├── minor_course_index.py           # Checker data → course-to-minor lookup
 │   ├── resolve_course_descriptions.py  # Override diagnostic / generator
 │   ├── course_overrides/               # Per-year course resolution maps
 │   │   └── {year}.json
@@ -259,13 +256,11 @@ course re-scrape passes the offline/live tests, run `python generate_all_sites.p
 │   ├── minor_json/                     # Structured minor JSON (per year)
 │   │   └── {year}/
 ├── minor_planner/                      # Checker pipeline
-│   ├── generate_checker_data.py        # Builds resolved checker data
-│   └── generate_checker_page.py        # Generates interactive checker.html
+│   └── generate_checker_data.py        # Builds resolved checker data
 ├── major_extraction/                   # Complete major-programme pipeline
 │   ├── extract_major_pages.py          # Live programme scraper
 │   ├── generate_major_json.py          # Saved HTML → structured JSON
 │   ├── major_readability.py            # General and programme-specific cleanup
-│   ├── generate_major_site.py          # Major JSON → site/major/
 │   ├── MANUAL_EDITS.md                 # Major JSON manual-edit policy/history
 │   ├── major_html/
 │   │   └── {year}/
@@ -288,11 +283,16 @@ course re-scrape passes the offline/live tests, run `python generate_all_sites.p
 │       └── {year}/
 │           ├── index.html              # Complete major programme list
 │           └── majors/                 # Major detail pages
-├── site_tempdata/                      # Intermediate checker data (per year)
-│   └── checker_minors_{year}.json
-├── generate_all_sites.py               # Recommended complete build command
-├── site_metadata.py                    # Shared SEO, discovery, and schedule-date helpers
-├── course_schedule_updated_on.txt      # Persisted course-schedule footer date
+├── site_generator/                     # Static-site rendering and verification
+│   ├── generate_all_sites.py           # Recommended complete build command
+│   ├── generate_minor_site.py          # Minor JSON → site/{year}/
+│   ├── generate_checker_page.py        # Checker data → interactive checker page
+│   ├── generate_major_site.py          # Major JSON → site/major/{year}/
+│   ├── minor_course_index.py           # Course-to-minor membership lookup
+│   ├── site_metadata.py                # SEO, discovery, and schedule-date helpers
+│   ├── course_schedule_updated_on.txt  # Persisted schedule footer date
+│   └── site_tempdata/                  # Intermediate checker data (per year)
+│       └── checker_minors_{year}.json
 ├── requirements.txt                    # Python dependencies
 └── user_data_dir/                      # Playwright persistent browser profile
 ```
@@ -309,7 +309,7 @@ course re-scrape passes the offline/live tests, run `python generate_all_sites.p
 | `resolve_course_descriptions.py` | `minor_json/` + `course_info/` | `course_overrides.json` |
 | `generate_minor_site.py` | `minor_json/` + `course_info/` + `course_overrides.json` | `site/` (static HTML) |
 | `minor_course_index.py` | Generated checker-minor data | Course-to-minor links and major applicability filtering |
-| `generate_checker_data.py` | `minor_json/` + `course_info/` + per-year overrides | `site/checker_data.json` + `site_tempdata/checker_minors_{year}.json` |
+| `generate_checker_data.py` | `minor_json/` + `course_info/` + per-year overrides | `site/checker_data.json` + `site_generator/site_tempdata/checker_minors_{year}.json` |
 | `generate_checker_page.py` | Shared checker data + per-year checker-minor data | `site/{year}/checker.html` |
 | `extract_major_pages.py` | CUHK programme website | `major_html/{year}/` |
 | `generate_major_json.py` | Saved complete major pages | `major_json/{year}/*.json` |
@@ -324,7 +324,7 @@ the generated files, and let Cloudflare publish that directory without running
 the scrapers:
 
 ```powershell
-python generate_all_sites.py
+python -m site_generator.generate_all_sites
 git status
 # Review the generated changes, then commit/push only when intended.
 ```
@@ -475,7 +475,7 @@ python resolve_course_descriptions.py --apply
 # 3. Fill any [] entries in course_overrides.json manually
 
 # 4. Rebuild the site
-python generate_minor_site.py
+python -m site_generator.generate_minor_site
 ```
 
 ## Contributing
@@ -490,7 +490,7 @@ pytest tests/ -m "not live"             # verify integrity
 cd ..\minor_extraction
 python resolve_course_descriptions.py --apply   # refresh overrides with new course lists
 cd ..
-python generate_all_sites.py                    # rebuild and verify minors + majors
+python -m site_generator.generate_all_sites     # rebuild and verify minors + majors
 ```
 
 ### Adding missing courses to the catalog
@@ -521,7 +521,7 @@ To fix a missing-course entry:
 
 4. **Verify with tests** — run `pytest tests/ -m "not live"` to confirm the course codes are still strictly increasing and the format is valid.
 
-5. **Rebuild** — re-run `python generate_minor_site.py` and confirm the entry no longer shows *(not found)*.
+5. **Rebuild** — run `python -m site_generator.generate_minor_site` and confirm the entry no longer shows *(not found)*.
 
 
 ### Future directions

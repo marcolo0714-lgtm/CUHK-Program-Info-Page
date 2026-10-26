@@ -11,7 +11,7 @@ The reviewed major pages for all three academic years can be reproduced
 entirely by running:
 
 ```powershell
-python generate_all_sites.py --rebuild-major-json `
+python -m site_generator.generate_all_sites --rebuild-major-json `
   --major-year 2024_25 --major-year 2025_26 --major-year 2026_27
 ```
 
@@ -55,7 +55,7 @@ implemented in `major_extraction/generate_major_json.py` and
 
 Cross-listed faculty affiliations are consolidated by
 `major_extraction/extract_major_pages.py`. Missing course-information records
-are displayed automatically by `major_extraction/generate_major_site.py` and
+are displayed automatically by `site_generator/generate_major_site.py` and
 are not repaired by editing generated JSON.
 
 Some 2024–25 and 2025–26 saved source pages contain only the handbook shell

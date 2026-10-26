@@ -10,10 +10,13 @@ import sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-from site_metadata import update_course_schedule_date, write_discovery_files
+try:
+    from .site_metadata import update_course_schedule_date, write_discovery_files
+except ImportError:
+    from site_metadata import update_course_schedule_date, write_discovery_files
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 
 
@@ -137,16 +140,16 @@ def build(args: argparse.Namespace) -> None:
     for year_args in year_arguments(args.minor_year):
         run_script("minor_planner/generate_checker_data.py", *year_args)
     for year_args in year_arguments(args.minor_year):
-        run_script("minor_planner/generate_checker_page.py", *year_args)
+        run_script("site_generator/generate_checker_page.py", *year_args)
     for year_args in year_arguments(args.minor_year):
-        run_script("minor_extraction/generate_minor_site.py", *year_args)
+        run_script("site_generator/generate_minor_site.py", *year_args)
 
     major_years = args.major_year or discover_major_years()
     if args.rebuild_major_json:
         for year in major_years:
             run_script("major_extraction/generate_major_json.py", "--year", year)
     for year in major_years:
-        run_script("major_extraction/generate_major_site.py", "--year", year)
+        run_script("site_generator/generate_major_site.py", "--year", year)
 
     # This must run after both programme generators so the sitemap and
     # redirects contain every minor and major page.

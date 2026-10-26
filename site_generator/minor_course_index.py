@@ -145,7 +145,12 @@ def minor_applies_to_major(minor: dict[str, object], major: dict[str, object] | 
 
 def load_minor_course_index(year: str, root: Path = REPO_ROOT) -> dict[str, list[dict[str, object]]]:
     """Return ``course code -> eligible minor records`` for one admission year."""
-    path = root / "site_tempdata" / f"checker_minors_{year}.json"
+    path = (
+        root
+        / "site_generator"
+        / "site_tempdata"
+        / f"checker_minors_{year}.json"
+    )
     payload = json.loads(path.read_text(encoding="utf-8"))
     memberships: dict[str, list[dict[str, object]]] = defaultdict(list)
 

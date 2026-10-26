@@ -9,7 +9,7 @@ from major_extraction.generate_major_json import (
     extract_course_codes,
     logical_row_cells,
 )
-from major_extraction.generate_major_site import format_info, format_schedule
+from site_generator.generate_major_site import format_info, format_schedule
 
 ROOT = Path(__file__).resolve().parents[2]
 YEAR = "2026_27"

@@ -9,29 +9,34 @@ from functools import lru_cache
 from pathlib import Path
 
 REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
-if str(REPOSITORY_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPOSITORY_ROOT))
-from site_metadata import (
-    SITE_NAME,
-    absolute_url,
-    breadcrumb_data,
-    course_schedule_update_date,
-    seo_head,
-    write_discovery_files,
-)
-
 try:
+    from .site_metadata import (
+        SITE_NAME,
+        absolute_url,
+        breadcrumb_data,
+        course_schedule_update_date,
+        seo_head,
+        write_discovery_files,
+    )
     from .minor_course_index import load_minor_course_index
 except ImportError:
+    from site_metadata import (
+        SITE_NAME,
+        absolute_url,
+        breadcrumb_data,
+        course_schedule_update_date,
+        seo_head,
+        write_discovery_files,
+    )
     from minor_course_index import load_minor_course_index
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--year", default=None, help="Admission year (e.g. 2025_26). If omitted, processes all years.")
 args = parser.parse_args()
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = REPOSITORY_ROOT / "minor_extraction"
 MINOR_JSON_BASE = BASE_DIR / "minor_json"
-COURSE_INFO_DIR = Path(__file__).parent.parent / "course_extraction" / "course_info"
+COURSE_INFO_DIR = REPOSITORY_ROOT / "course_extraction" / "course_info"
 
 
 def _write_generated(path, content):
@@ -1569,7 +1574,7 @@ def generate(year):
     global MINOR_JSON_DIR, SITE_DIR, OVERRIDE_FILE, YEAR, MINOR_COURSE_MEMBERSHIPS
     YEAR = year
     MINOR_JSON_DIR = MINOR_JSON_BASE / year
-    SITE_DIR = Path(__file__).parent.parent / "site" / year
+    SITE_DIR = REPOSITORY_ROOT / "site" / year
     OVERRIDE_FILE = BASE_DIR / "course_overrides" / f"{year}.json"
 
     print(f"\n--- {year} ---")

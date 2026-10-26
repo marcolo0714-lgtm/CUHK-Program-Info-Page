@@ -5,7 +5,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 from major_extraction.generate_major_json import extract_course_codes, choose_requirement_table
-from major_extraction.generate_major_site import linked_text
+from site_generator.generate_major_site import linked_text
 from major_extraction.major_readability import walk, source_areas
 
 ROOT = Path(__file__).resolve().parents[2]

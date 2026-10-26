@@ -12,18 +12,25 @@ import time
 from functools import lru_cache
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
-if str(ROOT.parent) not in sys.path:
-    sys.path.insert(0, str(ROOT.parent))
-from minor_extraction.minor_course_index import (
-    load_minor_course_index,
-    minor_applies_to_major,
-    minor_matches_major_name,
-)
-from site_metadata import course_schedule_update_date
+REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
+MAJOR_EXTRACTION_DIR = REPOSITORY_ROOT / "major_extraction"
+try:
+    from .minor_course_index import (
+        load_minor_course_index,
+        minor_applies_to_major,
+        minor_matches_major_name,
+    )
+    from .site_metadata import course_schedule_update_date
+except ImportError:
+    from minor_course_index import (
+        load_minor_course_index,
+        minor_applies_to_major,
+        minor_matches_major_name,
+    )
+    from site_metadata import course_schedule_update_date
 
-COURSE_INFO = ROOT.parent / "course_extraction" / "course_info"
-PUBLIC = ROOT.parent / "site" / "major"
+COURSE_INFO = REPOSITORY_ROOT / "course_extraction" / "course_info"
+PUBLIC = REPOSITORY_ROOT / "site" / "major"
 SITE_ORIGIN = "https://cuhk-minor.coffeebreak.work"
 SITE_NAME = "CUHK Programme Information"
 MINOR_COURSE_MEMBERSHIPS: dict[str, list[dict[str, object]]] = {}
@@ -843,7 +850,7 @@ def programme_has_faculty(programme: dict[str, object], faculty: str) -> bool:
 
 def discover_available_years() -> list[str]:
     """Return admission years that have parsed major programme data."""
-    source = ROOT / "major_json"
+    source = MAJOR_EXTRACTION_DIR / "major_json"
     return sorted(
         directory.name
         for directory in source.iterdir()
@@ -855,7 +862,7 @@ def detail_year_selector(year: str, source_file: str, available_years: list[str]
     """Build a selector containing each year in which this programme exists."""
     options = []
     for candidate in available_years:
-        programme_json = ROOT / "major_json" / candidate / f"{source_file}.json"
+        programme_json = MAJOR_EXTRACTION_DIR / "major_json" / candidate / f"{source_file}.json"
         if not programme_json.exists() and candidate != year:
             continue
         selected = " selected" if candidate == year else ""
@@ -870,7 +877,7 @@ def detail_year_selector(year: str, source_file: str, available_years: list[str]
 
 def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None = None) -> None:
     global MINOR_COURSE_MEMBERSHIPS, CURRENT_MAJOR, CURRENT_YEAR
-    json_dir = ROOT / "major_json" / year
+    json_dir = MAJOR_EXTRACTION_DIR / "major_json" / year
     site_dir = output_root / year
     major_dir = site_dir / "majors"
     major_dir.mkdir(parents=True, exist_ok=True)
