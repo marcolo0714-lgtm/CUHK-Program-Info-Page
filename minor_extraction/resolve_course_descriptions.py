@@ -13,6 +13,8 @@ import sys
 import argparse
 from pathlib import Path
 
+from bs4 import BeautifulSoup
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--apply", action="store_true", help="Generate override file")
 parser.add_argument("--year", default="2025_26", help="Admission year (e.g. 2025_26)")
@@ -23,6 +25,20 @@ BASE = Path(__file__).parent.parent
 MINOR_JSON_DIR = Path(__file__).parent / "minor_json" / YEAR
 COURSE_INFO_DIR = BASE / "course_extraction" / "course_info"
 OVERRIDE_FILE = Path(__file__).parent / "course_overrides" / f"{YEAR}.json"
+MAJOR_HTML_DIR = BASE / "major_extraction" / "major_html" / YEAR
+
+# The named-area requirements below use the same saved handbook pages and
+# parser as the major site.  Add the repository root explicitly because this
+# file is also commonly run as ``python minor_extraction/...``.
+if str(BASE) not in sys.path:
+    sys.path.insert(0, str(BASE))
+
+from major_extraction.generate_major_json import (  # noqa: E402
+    extract_course_codes as extract_major_course_codes,
+    normalize_programme as normalize_major_programme,
+    parse_programme as parse_major_programme,
+)
+from major_extraction.major_readability import improve_readability as improve_major_readability  # noqa: E402
 
 
 # ── course index ──────────────────────────────────────────────────────
@@ -296,6 +312,246 @@ def has_area_filter(text):
     return bool(re.search(r"from\s+(?:the\s+)?[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+Areas?", text))
 
 
+def _clean_source_text(value):
+    return re.sub(r"\s+", " ", value.replace("\xa0", " ")).strip()
+
+
+def _unique_in_order(values):
+    return list(dict.fromkeys(value for value in values if value))
+
+
+def _extract_source_course_entries(text):
+    """Extract compact course entries while retaining handbook equivalences."""
+    cleaned = re.sub(r"\[[a-z]\]", "", text, flags=re.IGNORECASE)
+    pattern = re.compile(
+        r"(?:(?P<dept>[A-Z]{4})\s*)?(?P<number>\d{4})"
+        r"(?:\s*\[\s*(?P<hash>#)?\s*(?P<star>\*)?\s*"
+        r"(?:(?P<alt_dept>[A-Z]{4})\s*)?(?P<alt_number>\d{4})\s*\])?"
+    )
+    current_department = ""
+    entries = []
+    for match in pattern.finditer(cleaned):
+        department = match.group("dept")
+        if department:
+            current_department = department
+        if not current_department:
+            continue
+        primary = f"{current_department}{match.group('number')}"
+        alt_number = match.group("alt_number")
+        if alt_number:
+            alt_department = match.group("alt_dept") or current_department
+            if match.group("hash") or match.group("alt_dept"):
+                primary += f" [#{alt_department}{alt_number}]"
+            else:
+                marker = "*" if match.group("star") else ""
+                primary += f" [{marker}{alt_number}]"
+        entries.append(primary)
+    return _unique_in_order(entries)
+
+
+def _major_source_path(programme_stem):
+    records_path = MAJOR_HTML_DIR / "_programmes.json"
+    if not records_path.exists():
+        raise RuntimeError(f"Missing major programme index: {records_path}")
+    records = json.loads(records_path.read_text(encoding="utf-8"))
+    record = next((item for item in records if item.get("stem") == programme_stem), None)
+    if record is None:
+        raise RuntimeError(f"No {YEAR} major source record found for {programme_stem}")
+    path = MAJOR_HTML_DIR / record["full_page_file"]
+    if not path.exists():
+        raise RuntimeError(f"Missing saved major handbook page: {path}")
+    return record, path
+
+
+def _source_area_entries(programme_stem):
+    """Read official area tables while preserving bracketed equivalences."""
+    _, path = _major_source_path(programme_stem)
+    soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
+    candidates = [
+        table for table in soup.find_all("table")
+        if "Course Code" in _clean_source_text(table.get_text(" ", strip=True))
+        and "Major Programme Requirement" not in _clean_source_text(
+            table.get_text(" ", strip=True)
+        )
+    ]
+    areas = []
+    for table in candidates:
+        current = None
+        body = table.find("tbody", recursive=False) or table
+        for row in body.find_all("tr", recursive=False):
+            cells = [
+                _clean_source_text(cell.get_text("", strip=False))
+                for cell in row.find_all("td", recursive=False)
+            ]
+            nonempty = [cell for cell in cells if cell]
+            if not nonempty:
+                continue
+            if re.match(r"^(?:[A-Za-z ]+ )?Area\s*\d+[A-C]?\s*:", nonempty[0]):
+                current = {"title": nonempty[0], "codes": []}
+                areas.append(current)
+            elif current is not None and re.match(r"^[A-Z]{4}\s*\d{4}", nonempty[0]):
+                entries = _extract_source_course_entries(nonempty[0])
+                entries = [
+                    re.sub(
+                        r"^([A-Z]{4})(\d{4})\s+\[(\d{4})\]$",
+                        r"\1\2 [#\1\3]",
+                        entry,
+                    )
+                    for entry in entries
+                ]
+                current["codes"].extend(entries)
+    for area in areas:
+        area["codes"] = _unique_in_order(area["codes"])
+    return areas
+
+
+def _walk_major_groups(groups):
+    for group in groups:
+        yield group
+        yield from _walk_major_groups(group.get("subsections", []))
+
+
+def _descendant_codes(group):
+    codes = list(group.get("codes", []))
+    for child in _walk_major_groups(group.get("subsections", [])):
+        codes.extend(child.get("codes", []))
+    return _unique_in_order(codes)
+
+
+def _load_major_programme(programme_stem, course_index, cache):
+    if programme_stem in cache:
+        return cache[programme_stem]
+    record, path = _major_source_path(programme_stem)
+    data = parse_major_programme(record, path)
+    normalize_major_programme(data, sorted(course_index))
+    improve_major_readability(data, path, course_index, extract_major_course_codes)
+    cache[programme_stem] = data
+    return data
+
+
+def _require_named_codes(stem, text, codes, source_description):
+    codes = sorted(_unique_in_order(codes))
+    if not codes:
+        raise RuntimeError(
+            f"Could not resolve named requirement for {stem}: {text!r} "
+            f"from {source_description}"
+        )
+    return codes
+
+
+def resolve_named_requirement(stem, text, course_index, major_cache):
+    """Resolve conceptual minor requirements from same-year major sources."""
+    if stem == "Chinese_Language_and_Literature" and re.search(
+        r"other\s+Basic\s+or\s+Speciality\s+course", text, re.IGNORECASE
+    ):
+        data = _load_major_programme(
+            "B.A._in_Chinese_Language_and_Literature", course_index, major_cache
+        )
+        codes = []
+        for group in _walk_major_groups(data.get("sections", [])):
+            if group.get("title") in {"Basic courses", "Speciality courses"}:
+                codes.extend(_descendant_codes(group))
+        return _require_named_codes(stem, text, codes, "Chinese major handbook")
+
+    if stem == "Fine_Arts" and re.search(
+        r"\b(?:Art History|Studio Art) Courses?", text, re.IGNORECASE
+    ):
+        title = "Art History Courses" if "Art History" in text else "Studio Art Courses"
+        data = _load_major_programme("B.A._in_Fine_Arts", course_index, major_cache)
+        candidates = [
+            _descendant_codes(group)
+            for group in _walk_major_groups(data.get("sections", []))
+            if group.get("title") == title
+        ]
+        codes = max(candidates, key=len, default=[])
+        return _require_named_codes(stem, text, codes, "Fine Arts major handbook")
+
+    area_name = None
+    programme_stem = None
+    subject_filter = None
+    minimum_number = 0
+    if stem == "Cultural_Management" and re.search(
+        r"(?:Cultural Management Area|concentrations?\s+of\s+Area\s*4)",
+        text,
+        re.IGNORECASE,
+    ):
+        area_name = "Cultural Management"
+        programme_stem = (
+            "B.A._in_Public_Humanities"
+            if YEAR != "2024_25"
+            else "B.A._in_Cultural_Management"
+        )
+    elif stem == "Cultural_Studies" and re.search(
+        r"Cultural Studies Area", text, re.IGNORECASE
+    ):
+        area_name = "Cultural Studies"
+        programme_stem = (
+            "B.A._in_Public_Humanities"
+            if YEAR != "2024_25"
+            else "B.A._in_Cultural_Studies"
+        )
+        subject_filter = "CURE"
+        minimum_number = 2000
+    elif stem == "Religious_Studies" and re.search(
+        r"Religious Studies Area", text, re.IGNORECASE
+    ):
+        area_name = "Religious Studies"
+        programme_stem = "B.A._in_Religious_Studies"
+        subject_filter = "CURE"
+        minimum_number = 2000
+
+    if area_name is None:
+        return None
+
+    areas = _source_area_entries(programme_stem)
+    if area_name == "Cultural Management" and YEAR == "2024_25":
+        selected = [area for area in areas if area["title"].startswith("Area 4:")]
+    else:
+        selected = [
+            area for area in areas
+            if area["title"].startswith(f"{area_name} Area")
+        ]
+    codes = [code for area in selected for code in area["codes"]]
+    if subject_filter:
+        codes = [
+            code for code in codes
+            if (match := re.match(r"^([A-Z]{4})(\d{4})", code))
+            and match.group(1) == subject_filter
+            and int(match.group(2)) >= minimum_number
+        ]
+    return _require_named_codes(
+        stem, text, codes, f"{programme_stem} course-area table"
+    )
+
+
+def preserve_text_equivalences(text, codes):
+    """Collapse bracketed alternatives back into reproducible override entries."""
+    result = set(codes)
+    replacements = []
+    for entry in _extract_source_course_entries(text):
+        match = re.fullmatch(
+            r"([A-Z]{4})(\d{4})\s+\[(#?)([A-Z]{4})?(\d{4})\]",
+            entry,
+        )
+        if not match:
+            continue
+        department, number, hash_marker, alt_department, alt_number = match.groups()
+        alt_department = alt_department or department
+        primary = f"{department} {number}"
+        alternative = f"{alt_department} {alt_number}"
+        if primary not in result or alternative not in result:
+            continue
+        result.remove(primary)
+        result.remove(alternative)
+        if hash_marker or alt_department != department:
+            replacements.append(
+                f"{department}{number} [#{alt_department}{alt_number}]"
+            )
+        else:
+            replacements.append(f"{primary} [{alt_number}]")
+    return sorted(result | set(replacements))
+
+
 # ── resolution logic ──────────────────────────────────────────────────
 
 def resolve_subject_codes(subject, level_min, level_max, excluded_codes, course_index):
@@ -445,6 +701,7 @@ def build_overrides(verbose=True):
     Returns dict: {source_file: {text: [codes]}}"""
     course_index, valid_subjects = load_course_index()
     overrides = {}
+    major_cache = {}
 
     stats = {"AUTO": 0, "PARTIAL": 0, "MANUAL": 0, "SKIP": 0}
 
@@ -464,10 +721,23 @@ def build_overrides(verbose=True):
                 if not text:
                     continue
 
-                category, resolved, reason = resolve_row(
-                    text, codes, valid_subjects, course_index,
-                    earlier_codes=seen_codes
+                named_codes = resolve_named_requirement(
+                    stem, text, course_index, major_cache
                 )
+                if named_codes is not None:
+                    category = "AUTO"
+                    resolved = named_codes
+                    reason = (
+                        f"resolved {len(named_codes)} codes from saved major handbook"
+                    )
+                else:
+                    category, resolved, reason = resolve_row(
+                        text, codes, valid_subjects, course_index,
+                        earlier_codes=seen_codes
+                    )
+
+                if resolved:
+                    resolved = preserve_text_equivalences(text, resolved)
 
                 # Track this row's own codes for exclusion from later rows
                 seen_codes.update(codes)
@@ -541,23 +811,16 @@ def diagnostic_mode():
 
 
 def apply_mode():
-    """Generate course_overrides.json, preserving manually-filled entries."""
+    """Generate a complete, reproducible course-overrides file."""
     print("Resolving course descriptions...")
     overrides, stats = build_overrides(verbose=False)
 
-    # Preserve manually-filled codes from existing override file
-    if OVERRIDE_FILE.exists():
-        existing = json.loads(OVERRIDE_FILE.read_text(encoding="utf-8"))
-        preserved = 0
-        for stem, rows in existing.items():
-            for text, codes in rows.items():
-                if codes and len(codes) > 0:  # manually filled
-                    if stem in overrides and text in overrides[stem]:
-                        if not overrides[stem][text]:  # would be wiped as empty
-                            overrides[stem][text] = codes
-                            preserved += 1
-        if preserved:
-            print(f"Preserved {preserved} manually-filled entry(s) from existing overrides.")
+    unresolved = stats["MANUAL"] + stats["PARTIAL"]
+    if unresolved:
+        raise RuntimeError(
+            f"Refusing to write an incomplete override file: "
+            f"{stats['MANUAL']} manual and {stats['PARTIAL']} partial entries"
+        )
 
     # Write the override file
     OVERRIDE_FILE.write_text(
@@ -570,13 +833,11 @@ def apply_mode():
     print(f"  PARTIAL entries:  {stats['PARTIAL']}")
     print(f"  MANUAL entries:   {stats['MANUAL']}")
     print(f"  Affected minors:  {len(overrides)}")
-    print()
-    print("MANUAL entries have empty codes arrays -- edit the JSON to fill them in.")
-    print("Then run python -m site_generator.generate_minor_site to update the site.")
+    print("  All entries were generated from saved handbook and course data.")
 
 
 def main():
-    if "--apply" in sys.argv:
+    if args.apply:
         apply_mode()
     else:
         diagnostic_mode()
