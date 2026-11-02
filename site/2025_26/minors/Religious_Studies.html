@@ -26,7 +26,7 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
        background:var(--bg); color:var(--text); line-height:1.6; display:flex; }
-.title-row { display:flex; justify-content:space-between; align-items:baseline; }
+.title-row { display:block; }
 h1 { font-size:1.7em; }
 h2 { font-size:1.2em; margin:1.4em 0 .5em; padding-bottom:4px;
      border-bottom:1px solid var(--border); color:#333; }
@@ -138,7 +138,7 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
     padding:6px 18px 10px; font-weight:600; color:var(--muted);
     border-bottom:1px solid var(--border); margin-bottom:6px; }
 .sidebar-header .sidebar-home { display:inline-flex; align-items:center; justify-content:center;
-    flex:none; width:30px; height:30px; padding:0; border:1px solid var(--border);
+    flex:none; min-height:30px; padding:4px 10px; gap:5px; border:1px solid var(--border);
     border-radius:6px; color:var(--accent); background:var(--card); line-height:1; }
 .sidebar-header .sidebar-home:hover { background:#e8f0fe; text-decoration:none; }
 .fac-group { margin:0; }
@@ -178,6 +178,9 @@ body.sidebar-open { overflow:hidden; }
 .settings-close { border:1px solid var(--border); border-radius:6px; background:var(--card);
     padding:3px 9px; font-size:1.25em; line-height:1; cursor:pointer; }
 .settings-description { margin:14px 0 10px; color:var(--muted); font-size:.88em; }
+.settings-group { min-width:0; margin:12px 0 0; padding:0; border:0; }
+.settings-group legend { width:100%; padding:0 0 4px; border-bottom:1px solid var(--border);
+    color:#444; font-size:.92em; font-weight:700; }
 .setting-option { display:flex; align-items:flex-start; gap:10px; padding:9px 4px;
     cursor:pointer; border-bottom:1px solid var(--tbl-border-light); }
 .setting-option input { margin-top:.3em; flex:none; }
@@ -272,7 +275,7 @@ body.settings-open { overflow:hidden; }
 <div class="sidebar-overlay" onclick="closeSidebar()" aria-hidden="true"></div>
 <aside class="sidebar" id="minor-sidebar" aria-hidden="true">
   <div class="sidebar-header"><span>CUHK Minors</span><a class="sidebar-home" href="../index.html"
-    aria-label="Minor programme home" title="Minor programme home">&#8962;</a></div>
+    aria-label="Minor programme home" title="Minor programme home">Home <span aria-hidden="true">&#8962;</span></a></div>
   <nav><details class="fac-group" data-fac="Arts" open>
 <summary>Arts</summary>
 <a href="Anthropology.html" class="">Anthropology</a>
@@ -381,21 +384,27 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;})();
   <div class="settings-header"><h2>Course table settings</h2>
     <button type="button" class="settings-close" onclick="closeSettings()" aria-label="Close settings">&times;</button>
   </div>
-  <p class="settings-description">Choose the columns and rows shown in course information tables.</p>
-  <label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label>
-  <label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label>
-  <label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label>
-  <label class="setting-option"><input type="checkbox" data-table-setting="schedule"> <span>Show Term 1 teaching schedule</span></label>
-  <label class="setting-option"><input type="checkbox" data-table-setting="schedule2" checked> <span>Show Term 2 teaching schedule</span></label>
-  <label class="setting-option"><input type="checkbox" data-table-setting="minors"> <span>Show minors using this course</span></label>
-  <label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label>
-  <label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label>
+  <p class="settings-description">Choose the columns, rows, and table behavior.</p>
+  <fieldset class="settings-group"><legend>Column</legend>
+    <label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label>
+    <label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label>
+    <label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label>
+    <label class="setting-option"><input type="checkbox" data-table-setting="schedule"> <span>Show Term 1 teaching schedule</span></label>
+    <label class="setting-option"><input type="checkbox" data-table-setting="schedule2" checked> <span>Show Term 2 teaching schedule</span></label>
+    <label class="setting-option"><input type="checkbox" data-table-setting="minors"> <span>Show minors using this course</span></label>
+  </fieldset>
+  <fieldset class="settings-group"><legend>Row</legend>
+    <label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label>
+  </fieldset>
+  <fieldset class="settings-group"><legend>Table</legend>
+    <label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label>
+  </fieldset>
 </aside>
 <main class="content">
   <div class="content-inner">
 <div class="top-bar"><div class="bar-row"><button type="button" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button><div class="breadcrumb" title="Religious Studies">Religious Studies</div><div class="bar-controls"><select onchange="window.location=this.value" class="bar-year-select"><option value="../../2024_25/minors/Religious_Studies.html">2024-25</option><option value="../../2025_26/minors/Religious_Studies.html" selected>2025-26</option><option value="../../2026_27/minors/Religious_Studies.html">2026-27</option></select><button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="table-settings" aria-expanded="false">&#9881; Settings</button></div></div><nav class="page-nav" aria-label="Minor programme pagination"><a class="page-nav-prev" href="Religion_and_Health.html" aria-label="Previous minor: Religion and Health">← Religion and Health</a><a class="page-nav-next" href="Theology.html" aria-label="Next minor: Theology">Theology →</a></nav></div>
-<div class="title-row"><h1>Religious Studies &mdash; CUHK Minor Requirements (2025-26)</h1><span class="meta">Arts</span></div>
-<div class="admit-year">Applicable to students admitted in 2025-26.</div>
+<div class="title-row"><h1>Religious Studies &mdash; CUHK Minor Requirements (2025-26)</h1></div>
+<div class="admit-year">Faculty: Arts &middot; Applicable to students admitted in 2025-26.</div>
 <h2>Description</h2>
 <div class="section"><pre>Students are required to complete a minimum of 18 units of courses, with at least 6 units at 3000 or above level as follows:</pre></div>
 <h2>1. Required Courses: 6 units</h2>

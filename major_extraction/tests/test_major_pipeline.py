@@ -883,6 +883,13 @@ def test_navigation_qol_and_double_degree_totals_are_rendered():
     assert double_degree["data-units"] == "131-135"
     assert computer.select_one(".breadcrumb").get_text(" ", strip=True) == "B.Eng. in Computer Engineering"
     assert computer.select_one(".sidebar-header .sidebar-home")["href"] == "../index.html"
+    assert computer.select_one(".sidebar-header .sidebar-home").get_text(" ", strip=True).startswith("Home")
+    assert [legend.get_text(strip=True) for legend in computer.select(".settings-group legend")] == [
+        "Column", "Row", "Table",
+    ]
+    footer = computer.select_one(".site-footer")
+    assert footer.select_one(".footer-sources") is not None
+    assert footer.select_one(".footer-update") is not None
 
     coterminal = BeautifulSoup(
         (SITE_DIR / "majors" / "B.A._(Chinese_Language_Studies)_and_B.Ed._(Chinese_Language_Education).html")
@@ -897,3 +904,10 @@ def test_navigation_qol_and_double_degree_totals_are_rendered():
     )
     assert minor.select_one(".breadcrumb").get_text(" ", strip=True) == "Computer Science"
     assert minor.select_one(".sidebar-header .sidebar-home")["href"] == "../index.html"
+    assert minor.select_one(".sidebar-header .sidebar-home").get_text(" ", strip=True).startswith("Home")
+    assert [legend.get_text(strip=True) for legend in minor.select(".settings-group legend")] == [
+        "Column", "Row", "Table",
+    ]
+    minor_meta = minor.select_one(".title-row + .admit-year").get_text(" ", strip=True)
+    assert minor_meta.startswith("Faculty:")
+    assert "Applicable to students admitted in 2026-27." in minor_meta

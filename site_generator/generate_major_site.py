@@ -187,7 +187,7 @@ tr:hover { background:#f9f9f9; }
 .sidebar-header { display:flex; align-items:center; justify-content:space-between; gap:12px;
   padding:6px 18px 10px; font-weight:600; color:var(--muted); border-bottom:1px solid var(--border); margin-bottom:6px; }
 .sidebar-header .sidebar-home { display:inline-flex; align-items:center; justify-content:center; flex:none;
-  width:30px; height:30px; padding:0; border:1px solid var(--border); border-radius:6px;
+  min-height:30px; padding:4px 10px; gap:5px; border:1px solid var(--border); border-radius:6px;
   color:var(--accent); background:var(--card); line-height:1; }
 .sidebar-header .sidebar-home:hover { background:#e8f0fe; text-decoration:none; }
 .sidebar-faculty { padding:12px 18px 4px; color:var(--muted); font-size:.82em;
@@ -241,12 +241,20 @@ tr:hover { background:#f9f9f9; }
 .settings-close { border:1px solid var(--border); border-radius:6px; background:var(--card);
   padding:3px 9px; font-size:1.25em; line-height:1; cursor:pointer; }
 .settings-description { margin:14px 0 10px; color:var(--muted); font-size:.88em; }
+.settings-group { min-width:0; margin:12px 0 0; padding:0; border:0; }
+.settings-group legend { width:100%; padding:0 0 4px; border-bottom:1px solid var(--border);
+  color:#444; font-size:.92em; font-weight:700; }
 .setting-option { display:flex; align-items:flex-start; gap:10px; padding:9px 4px;
   cursor:pointer; border-bottom:1px solid var(--tbl-border-light); }
 .setting-option input { margin-top:.3em; flex:none; }
 body.settings-open { overflow:hidden; }
 .site-footer { margin-top:32px; padding-top:12px; border-top:1px solid var(--border);
-  font-size:.82em; color:var(--muted); text-align:center; }
+  display:flex; align-items:flex-start; justify-content:space-between; gap:8px 24px; flex-wrap:wrap;
+  font-size:.82em; color:var(--muted); text-align:left; }
+.footer-sources { min-width:0; }
+.footer-update { margin-left:auto; text-align:right; }
+.site-footer a { color:var(--muted); }
+.site-footer a:hover { color:var(--accent); }
 @media (max-width:768px) {
   body { max-width:100vw; } html { overflow-x:hidden; }
   .sidebar { width:calc(100vw - 100px); font-size:.82em; }
@@ -333,7 +341,17 @@ function applyTableSettings(){
 })();
 </script>"""
 
-FOOTER = f"""<div class="site-footer">Source: <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK programme information</a> &middot; <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalogue</a> &middot; Latest course teaching schedule update: {course_schedule_update_date()}</div>"""
+FOOTER = f"""<div class="site-footer">
+  <span class="footer-sources">
+    <span>Sources: </span>
+    <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_acad_prog.aspx" target="_blank" rel="noopener">CUHK program info</a>
+    <span> &middot; </span>
+    <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/public/handbook/Default.aspx?id=1840&amp;tv=F&amp;lang=en" target="_blank" rel="noopener">CUHK student handbook</a>
+    <span> &middot; </span>
+    <a href="https://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" target="_blank" rel="noopener">CUHK course catalog</a>
+  </span>
+  <span class="footer-update">Latest course teaching schedule update: {course_schedule_update_date()}</span>
+</div>"""
 
 
 def esc(value: object) -> str:
@@ -882,8 +900,8 @@ def page_shell(
     structured_data=None,
 ) -> str:
     if sidebar_html:
-        settings = '''<div class="settings-overlay" onclick="setSettingsVisibility(false)" aria-hidden="true"></div><aside id="tableSettings" class="settings-panel" aria-hidden="true" aria-label="Course table settings"><div class="settings-header"><h2>Course table settings</h2><button type="button" class="settings-close" onclick="setSettingsVisibility(false)" aria-label="Close settings">&times;</button></div><p class="settings-description">Choose the columns and rows shown in course information tables.</p><label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label><label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label><label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule"> <span>Show Term 1 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule2" checked> <span>Show Term 2 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="minors"> <span>Show minors using this course</span></label><label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label><label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label></aside>'''
-        body_html = f'''<div class="sidebar-overlay" onclick="setSidebarVisibility(false)"></div><aside id="majorSidebar" class="sidebar" aria-hidden="true"><div class="sidebar-header"><span>CUHK Majors</span><a class="sidebar-home" href="../index.html" aria-label="Major programme home" title="Major programme home">&#8962;</a></div><nav>{sidebar_html}</nav></aside>{settings}<main class="content"><div class="content-inner">{body}{FOOTER}</div></main>{SCRIPT}'''
+        settings = '''<div class="settings-overlay" onclick="setSettingsVisibility(false)" aria-hidden="true"></div><aside id="tableSettings" class="settings-panel" aria-hidden="true" aria-label="Course table settings"><div class="settings-header"><h2>Course table settings</h2><button type="button" class="settings-close" onclick="setSettingsVisibility(false)" aria-label="Close settings">&times;</button></div><p class="settings-description">Choose the columns, rows, and table behavior.</p><fieldset class="settings-group"><legend>Column</legend><label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label><label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label><label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule"> <span>Show Term 1 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule2" checked> <span>Show Term 2 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="minors"> <span>Show minors using this course</span></label></fieldset><fieldset class="settings-group"><legend>Row</legend><label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label></fieldset><fieldset class="settings-group"><legend>Table</legend><label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label></fieldset></aside>'''
+        body_html = f'''<div class="sidebar-overlay" onclick="setSidebarVisibility(false)"></div><aside id="majorSidebar" class="sidebar" aria-hidden="true"><div class="sidebar-header"><span>CUHK Majors</span><a class="sidebar-home" href="../index.html" aria-label="Major programme home" title="Major programme home">Home <span aria-hidden="true">&#8962;</span></a></div><nav>{sidebar_html}</nav></aside>{settings}<main class="content"><div class="content-inner">{body}{FOOTER}</div></main>{SCRIPT}'''
         body_class = ""
         favicon = "/favicon.ico"
     else:
