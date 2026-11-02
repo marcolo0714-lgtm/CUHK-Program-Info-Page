@@ -3971,6 +3971,49 @@ def _repair_translation_review_items(data, extract):
             ]
 
 
+def _format_sociology_jd_electives(data, extract):
+    """Match the Sociology/JD elective hierarchy used by Integrated BBA/JD."""
+    if data.get("source_file") != "B.S.Sc._in_Sociology":
+        return
+    elective = next((
+        section for section in data.get("sections", [])
+        if section.get("marker") == "2." and section.get("title") == "Elective Courses"
+    ), None)
+    if not elective:
+        return
+    items = list(walk([elective]))
+    prose = [
+        clean(value)
+        for item in items
+        for value in [item.get("title", ""), *item.get("text", [])]
+        if clean(value)
+    ]
+    if not any("Postgraduate Certificate in Laws (PCLL) Programme" in value for value in prose):
+        return
+    if any(item.get("marker") == "(i)" for item in items):
+        return
+
+    intro = next((
+        value for value in prose
+        if value.startswith("Students are required to take at least 54 or 57 units")
+    ), "")
+    pcll_courses = next((value.lstrip("- ") for value in prose if value.startswith("LAWS")), "")
+    if not intro:
+        return
+    heading = group(intro, children=[
+        group(
+            "Elective courses which are pre-requisites for subsequent admission to the Postgraduate Certificate in Laws (PCLL) Programme",
+            [pcll_courses] if pcll_courses else [],
+            extract(pcll_courses),
+            marker="(i)",
+        ),
+        group("Other elective courses offered under the JD programme", marker="(ii)"),
+        group("Elective courses offered under the Master of Laws programmes", marker="(iii)"),
+    ])
+    heading["keep_heading"] = True
+    elective["text"], elective["codes"], elective["subsections"] = [], [], [heading]
+
+
 def _repair_information_engineering_review(data, extract):
     if data.get("source_file") != "B.Eng._in_Information_Engineering":
         return
@@ -4130,6 +4173,7 @@ def _final_attached_review_fixes(data, index, extract):
     _repair_government_review(data, index, extract)
     _repair_journalism_senior_review(data, extract)
     _repair_double_major_elective_review(data, extract)
+    _format_sociology_jd_electives(data, extract)
 
     if data.get("source_file") == "B.Sc._in_Physics":
         required = next((section for section in data.get("sections", []) if section.get("marker") == "2."), None)
@@ -4145,7 +4189,7 @@ def _final_attached_review_fixes(data, index, extract):
 
     # The Law/Translation second degree publishes 18 required units, of which
     # item 1(a) accounts for 12 units.
-    if data.get("source_file") == "LL.B._-_Bachelor_of_Laws_Programme" and data.get("total_units") == "57":
+    if data.get("source_file") == "LL.B._-_Bachelor_of_Laws_Programme":
         required = next((section for section in data.get("sections", []) if section.get("marker") == "1."), None)
         if required and any(code.startswith("TRAN ") for item in walk([required]) for code in item.get("codes", [])):
             required["units"] = "18"

@@ -879,12 +879,14 @@ def test_final_review_arts_business_and_engineering_repairs_are_persistent():
                                               for rule in stream["subsections"])
                for stream in streams["subsections"])
 
-    law = requirement_scheme(load("LL.B._-_Bachelor_of_Laws_Programme"),
-                             title_contains="Translation")
-    assert len(law["parts"]) == 2
-    required = law["parts"][1]["sections"][0]
-    assert required["units"] == "18"
-    assert next(item for item in required["subsections"] if item["marker"] == "(a)")["units"] == "12"
+    for year in ("2024_25", "2025_26", "2026_27"):
+        law = requirement_scheme(load_year(year, "LL.B._-_Bachelor_of_Laws_Programme"),
+                                 title_contains="Translation")
+        assert len(law["parts"]) == 2
+        required = law["parts"][1]["sections"][0]
+        assert required["units"] == "18"
+        assert next(item for item in required["subsections"]
+                    if item["marker"] == "(a)")["units"] == "12"
 
 
 def test_final_review_science_and_social_science_repairs_are_persistent():
@@ -947,4 +949,15 @@ def test_final_review_science_and_social_science_repairs_are_persistent():
     assert [(part["title"], part["total_units"]) for part in sociology_jd["parts"]] == [
         ("1st Degree: Bachelor of Social Science (Sociology)", "69"),
         ("2nd Degree: Juris Doctor (JD)", "72"),
+    ]
+    jd_elective = sociology_jd["parts"][1]["sections"][1]
+    instruction = jd_elective["subsections"][0]
+    assert instruction["title"].startswith(
+        "Students are required to take at least 54 or 57 units"
+    )
+    assert [item["marker"] for item in instruction["subsections"]] == ["(i)", "(ii)", "(iii)"]
+    assert [item["title"] for item in instruction["subsections"]] == [
+        "Elective courses which are pre-requisites for subsequent admission to the Postgraduate Certificate in Laws (PCLL) Programme",
+        "Other elective courses offered under the JD programme",
+        "Elective courses offered under the Master of Laws programmes",
     ]
