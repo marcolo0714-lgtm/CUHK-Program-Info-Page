@@ -120,7 +120,12 @@ tr:hover { background:#f9f9f9; }
   background:var(--card); border-right:1px solid var(--border); padding:12px 0; font-size:.88em; }
 .sidebar.open { transform:translateX(0); box-shadow:2px 0 16px rgba(0,0,0,.18); }
 .sidebar nav { min-width:max-content; }
-.sidebar-header { padding:6px 18px 10px; font-weight:600; color:var(--muted); border-bottom:1px solid var(--border); margin-bottom:6px; }
+.sidebar-header { display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:6px 18px 10px; font-weight:600; color:var(--muted); border-bottom:1px solid var(--border); margin-bottom:6px; }
+.sidebar-header .sidebar-home { display:inline-flex; align-items:center; justify-content:center; flex:none;
+  width:30px; height:30px; padding:0; border:1px solid var(--border); border-radius:6px;
+  color:var(--accent); background:var(--card); line-height:1; }
+.sidebar-header .sidebar-home:hover { background:#e8f0fe; text-decoration:none; }
 .sidebar-faculty { padding:12px 18px 4px; color:var(--muted); font-size:.82em;
   font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
 .sidebar a { display:block; padding:5px 16px 5px 22px; color:var(--text); text-decoration:none;
@@ -185,10 +190,13 @@ body.settings-open { overflow:hidden; }
   .page-index .container { padding:12px 30px; }
   .top-bar { margin:0; border-radius:0; padding:6px 0 4px; }
   .bar-row { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; gap:6px 8px; }
-  .breadcrumb { overflow:visible; white-space:normal; overflow-wrap:anywhere; }
+  .breadcrumb { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; overflow-wrap:normal; }
   .bar-controls { grid-column:1 / -1; width:100%; min-width:0; justify-content:flex-end;
-    flex-wrap:wrap; white-space:normal; }
+    flex-wrap:nowrap; white-space:nowrap; overflow:hidden; }
   .page-nav { margin-top:6px; }
+  .page-nav a { min-width:0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+  .bar-year-select { min-width:0; max-width:50%; }
+  .settings-toggle { flex:none; white-space:nowrap; }
   .requirement-scheme-picker { align-items:stretch; flex-direction:column; }
   .requirement-scheme-picker select { max-width:none; width:100%; }
   h1 { font-size:1.4em; } .meta { white-space:normal; }

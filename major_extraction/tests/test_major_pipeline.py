@@ -9,7 +9,7 @@ from major_extraction.generate_major_json import (
     extract_course_codes,
     logical_row_cells,
 )
-from site_generator.generate_major_site import format_info, format_schedule
+from site_generator.generate_major_site import format_info, format_schedule, scheme_total_units
 
 ROOT = Path(__file__).resolve().parents[2]
 YEAR = "2026_27"
@@ -854,5 +854,46 @@ def test_sidebar_is_collapsible_and_content_uses_wide_layout_on_all_devices():
     assert ".sidebar { width:calc(100vw - 100px);" in sample
     assert "grid-template-columns:auto minmax(0,1fr)" in sample
     assert ".bar-controls { grid-column:1 / -1; width:100%;" in sample
-    assert ".breadcrumb { overflow:visible; white-space:normal; overflow-wrap:anywhere; }" in sample
-    assert "text-overflow:ellipsis" not in sample
+    assert ".breadcrumb { overflow:hidden; white-space:nowrap; text-overflow:ellipsis;" in sample
+    assert ".page-nav a { min-width:0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }" in sample
+
+
+def test_navigation_qol_and_double_degree_totals_are_rendered():
+    assert scheme_total_units({
+        "kind": "double_degree",
+        "parts": [{"total_units": "75"}, {"total_units": "56-60"}],
+    }) == "131-135"
+    double_degrees = [
+        scheme
+        for programme in load_programmes()
+        for scheme in programme.get("requirement_schemes", [])
+        if scheme.get("kind") == "double_degree"
+    ]
+    assert double_degrees
+    assert all(scheme_total_units(scheme) for scheme in double_degrees)
+
+    computer = BeautifulSoup(
+        (SITE_DIR / "majors" / "B.Eng._in_Computer_Engineering.html").read_text(encoding="utf-8"),
+        "html.parser",
+    )
+    double_degree = next(
+        option for option in computer.select("#requirementSchemeSelect option")
+        if "Double Degree" in option.get_text(" ", strip=True)
+    )
+    assert double_degree["data-units"] == "131-135"
+    assert computer.select_one(".breadcrumb").get_text(" ", strip=True) == "B.Eng. in Computer Engineering"
+    assert computer.select_one(".sidebar-header .sidebar-home")["href"] == "../index.html"
+
+    coterminal = BeautifulSoup(
+        (SITE_DIR / "majors" / "B.A._(Chinese_Language_Studies)_and_B.Ed._(Chinese_Language_Education).html")
+        .read_text(encoding="utf-8"),
+        "html.parser",
+    )
+    assert coterminal.select_one("h1 .unit-tag").get_text(" ", strip=True) == "117 units"
+
+    minor = BeautifulSoup(
+        (ROOT / "site" / YEAR / "minors" / "Computer_Science.html").read_text(encoding="utf-8"),
+        "html.parser",
+    )
+    assert minor.select_one(".breadcrumb").get_text(" ", strip=True) == "Computer Science"
+    assert minor.select_one(".sidebar-header .sidebar-home")["href"] == "../index.html"

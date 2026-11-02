@@ -184,7 +184,12 @@ tr:hover { background:#f9f9f9; }
   background:var(--card); border-right:1px solid var(--border); padding:12px 0; font-size:.88em; }
 .sidebar.open { transform:translateX(0); box-shadow:2px 0 16px rgba(0,0,0,.18); }
 .sidebar nav { min-width:max-content; }
-.sidebar-header { padding:6px 18px 10px; font-weight:600; color:var(--muted); border-bottom:1px solid var(--border); margin-bottom:6px; }
+.sidebar-header { display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:6px 18px 10px; font-weight:600; color:var(--muted); border-bottom:1px solid var(--border); margin-bottom:6px; }
+.sidebar-header .sidebar-home { display:inline-flex; align-items:center; justify-content:center; flex:none;
+  width:30px; height:30px; padding:0; border:1px solid var(--border); border-radius:6px;
+  color:var(--accent); background:var(--card); line-height:1; }
+.sidebar-header .sidebar-home:hover { background:#e8f0fe; text-decoration:none; }
 .sidebar-faculty { padding:12px 18px 4px; color:var(--muted); font-size:.82em;
   font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
 .sidebar a { display:block; padding:5px 16px 5px 22px; color:var(--text); text-decoration:none;
@@ -249,10 +254,13 @@ body.settings-open { overflow:hidden; }
   .page-index .container { padding:12px 30px; }
   .top-bar { margin:0; border-radius:0; padding:6px 0 4px; }
   .bar-row { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; gap:6px 8px; }
-  .breadcrumb { overflow:visible; white-space:normal; overflow-wrap:anywhere; }
+  .breadcrumb { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; overflow-wrap:normal; }
   .bar-controls { grid-column:1 / -1; width:100%; min-width:0; justify-content:flex-end;
-    flex-wrap:wrap; white-space:normal; }
+    flex-wrap:nowrap; white-space:nowrap; overflow:hidden; }
   .page-nav { margin-top:6px; }
+  .page-nav a { min-width:0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+  .bar-year-select { min-width:0; max-width:50%; }
+  .settings-toggle { flex:none; white-space:nowrap; }
   .requirement-scheme-picker { align-items:stretch; flex-direction:column; }
   .requirement-scheme-picker select { max-width:none; width:100%; }
   h1 { font-size:1.4em; } .meta { white-space:normal; }
@@ -330,6 +338,27 @@ FOOTER = f"""<div class="site-footer">Source: <a href="https://rgsntl.rgs.cuhk.e
 
 def esc(value: object) -> str:
     return html.escape(str(value or ""), quote=True)
+
+
+def scheme_total_units(scheme: dict[str, object]) -> str:
+    """Return the displayed total, summing both parts of double degrees."""
+    parts = scheme.get("parts", [])
+    if not isinstance(parts, list) or not parts:
+        return ""
+    if scheme.get("kind") != "double_degree" or len(parts) == 1:
+        return str(parts[0].get("total_units", "") or "")
+    bounds = []
+    for part in parts:
+        value = str(part.get("total_units", "") or "").strip().replace("–", "-")
+        match = re.fullmatch(r"(\d+)(?:\s*(?:-|or)\s*(\d+))?", value, re.I)
+        if not match:
+            return ""
+        first = int(match.group(1))
+        second = int(match.group(2) or first)
+        bounds.append((min(first, second), max(first, second)))
+    minimum = sum(item[0] for item in bounds)
+    maximum = sum(item[1] for item in bounds)
+    return str(minimum) if minimum == maximum else f"{minimum}-{maximum}"
 
 
 def linked_text(value: object) -> str:
@@ -854,7 +883,7 @@ def page_shell(
 ) -> str:
     if sidebar_html:
         settings = '''<div class="settings-overlay" onclick="setSettingsVisibility(false)" aria-hidden="true"></div><aside id="tableSettings" class="settings-panel" aria-hidden="true" aria-label="Course table settings"><div class="settings-header"><h2>Course table settings</h2><button type="button" class="settings-close" onclick="setSettingsVisibility(false)" aria-label="Close settings">&times;</button></div><p class="settings-description">Choose the columns and rows shown in course information tables.</p><label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label><label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label><label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule"> <span>Show Term 1 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule2" checked> <span>Show Term 2 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="minors"> <span>Show minors using this course</span></label><label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label><label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label></aside>'''
-        body_html = f'''<div class="sidebar-overlay" onclick="setSidebarVisibility(false)"></div><aside id="majorSidebar" class="sidebar" aria-hidden="true"><div class="sidebar-header">CUHK Majors</div><nav>{sidebar_html}</nav></aside>{settings}<main class="content"><div class="content-inner">{body}{FOOTER}</div></main>{SCRIPT}'''
+        body_html = f'''<div class="sidebar-overlay" onclick="setSidebarVisibility(false)"></div><aside id="majorSidebar" class="sidebar" aria-hidden="true"><div class="sidebar-header"><span>CUHK Majors</span><a class="sidebar-home" href="../index.html" aria-label="Major programme home" title="Major programme home">&#8962;</a></div><nav>{sidebar_html}</nav></aside>{settings}<main class="content"><div class="content-inner">{body}{FOOTER}</div></main>{SCRIPT}'''
         body_class = ""
         favicon = "/favicon.ico"
     else:
@@ -1062,7 +1091,7 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
                     continue
                 options = "".join(
                     f'<option value="{esc(scheme["id"])}"'
-                    f' data-units="{esc(scheme.get("parts", [{}])[0].get("total_units", "") if len(scheme.get("parts", [])) == 1 else "")}"'
+                    f' data-units="{esc(scheme_total_units(scheme))}"'
                     f'{" selected" if scheme is default_scheme else ""}>'
                     f'{esc(scheme["title"])}</option>'
                     for scheme in choices
@@ -1105,17 +1134,14 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
             f'<span id="activeRequirementSchemeTitle"> &mdash; {esc(default_scheme["title"])}</span>'
             if show_scheme_in_title else ""
         )
-        active_scheme_units = (
-            default_scheme.get("parts", [{}])[0].get("total_units", "")
-            if multiple_schemes and len(default_scheme.get("parts", [])) == 1 else ""
-        )
+        active_scheme_units = scheme_total_units(default_scheme)
         active_units_tag = (
             f'<span id="activeRequirementSchemeUnits" class="unit-tag"'
             f'{"" if active_scheme_units else " hidden"}>{esc(active_scheme_units)}'
             f'{" units" if active_scheme_units else ""}</span>'
-            if multiple_schemes else ""
+            if multiple_schemes or default_scheme.get("kind") == "double_degree" else ""
         )
-        top = f'''<div class="top-bar"><div class="bar-row"><button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open major navigation" aria-controls="majorSidebar" aria-expanded="false">☰</button><div class="breadcrumb"><a href="../index.html">CUHK Majors</a> / {esc(faculty)} / {esc(data["title"])}</div><div class="bar-controls">{year_selector}<button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="tableSettings" aria-expanded="false">&#9881; Settings</button></div></div>{nav(programmes, position)}</div>{scheme_picker}<h1>{esc(data["title"])}{active_scheme_title} &mdash; CUHK Major Requirements ({display_year}){active_units_tag}</h1><p class="admit-year">Faculty: {esc(faculty)} &middot; Admission code: {esc(data["admission_code"])}{total} &middot; For students admitted in {display_year}</p>'''
+        top = f'''<div class="top-bar"><div class="bar-row"><button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open major navigation" aria-controls="majorSidebar" aria-expanded="false">☰</button><div class="breadcrumb" title="{esc(data["title"])}">{esc(data["title"])}</div><div class="bar-controls">{year_selector}<button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="tableSettings" aria-expanded="false">&#9881; Settings</button></div></div>{nav(programmes, position)}</div>{scheme_picker}<h1>{esc(data["title"])}{active_scheme_title}{active_units_tag} &mdash; CUHK Major Requirements ({display_year})</h1><p class="admit-year">Faculty: {esc(faculty)} &middot; Admission code: {esc(data["admission_code"])}{total} &middot; For students admitted in {display_year}</p>'''
         full_body = top + requirements_html
         output = major_dir / f'{data["source_file"]}.html'
         canonical_path = f'/major/{year}/majors/{data["source_file"]}'

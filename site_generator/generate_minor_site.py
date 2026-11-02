@@ -245,8 +245,13 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
     transition:transform .25s; box-shadow:none; }
 .sidebar.open { transform:translateX(0); box-shadow:2px 0 12px rgba(0,0,0,.15); }
 .sidebar nav { min-width:max-content; }
-.sidebar-header { padding:6px 18px 10px; font-weight:600; color:var(--muted);
+.sidebar-header { display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:6px 18px 10px; font-weight:600; color:var(--muted);
     border-bottom:1px solid var(--border); margin-bottom:6px; }
+.sidebar-header .sidebar-home { display:inline-flex; align-items:center; justify-content:center;
+    flex:none; width:30px; height:30px; padding:0; border:1px solid var(--border);
+    border-radius:6px; color:var(--accent); background:var(--card); line-height:1; }
+.sidebar-header .sidebar-home:hover { background:#e8f0fe; text-decoration:none; }
 .fac-group { margin:0; }
 .fac-group summary { padding:6px 16px; font-weight:600; font-size:.92em;
     cursor:pointer; color:#555; white-space:nowrap; overflow:visible; text-overflow:clip; }
@@ -358,11 +363,13 @@ body.settings-open { overflow:hidden; }
     .top-bar .bar-row { display:grid; grid-template-columns:auto minmax(0, 1fr);
         align-items:center; gap:6px 8px; }
     .top-bar .bar-controls { grid-column:1 / -1; width:100%; min-width:0;
-        justify-content:flex-end; flex-wrap:wrap; white-space:normal; }
-    .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:visible;
-        white-space:normal; overflow-wrap:anywhere; }
+        justify-content:flex-end; flex-wrap:nowrap; white-space:nowrap; overflow:hidden; }
+    .top-bar .breadcrumb { min-width:0; font-size:.85em; overflow:hidden;
+        white-space:nowrap; text-overflow:ellipsis; overflow-wrap:normal; }
     .page-nav { margin-top:6px; }
-    .bar-year-select, .settings-toggle { max-width:100%; white-space:normal; }
+    .page-nav a { min-width:0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+    .bar-year-select { min-width:0; max-width:50%; }
+    .settings-toggle { flex:none; white-space:nowrap; }
 }
 @media (max-width:1200px) {
     .course-details th, .course-details td { padding-left:9px; padding-right:9px; }
@@ -524,7 +531,8 @@ def minor_page(page_title, body, sidebar_html, description, canonical_path, stru
 <body>
 <div class="sidebar-overlay" onclick="closeSidebar()" aria-hidden="true"></div>
 <aside class="sidebar" id="minor-sidebar" aria-hidden="true">
-  <div class="sidebar-header">Minor Programmes</div>
+  <div class="sidebar-header"><span>CUHK Minors</span><a class="sidebar-home" href="../index.html"
+    aria-label="Minor programme home" title="Minor programme home">&#8962;</a></div>
   <nav>{sidebar_html}</nav>
   <script>
 (function(){{var closed=JSON.parse(localStorage.getItem('sidebarCollapsed')||'[]');
@@ -1266,7 +1274,7 @@ def build_detail_page(data, course_index, overrides, year, available_years,
         f'<div class="bar-row">'
         f'<button type="button" class="sidebar-toggle" onclick="toggleSidebar()" '
         f'aria-label="Toggle sidebar" aria-controls="minor-sidebar" aria-expanded="false">&#9776;</button>'
-        f'<div class="breadcrumb"><a href="../index.html">All Minors</a> &rsaquo; {title}</div>'
+        f'<div class="breadcrumb" title="{html.escape(title, quote=True)}">{title}</div>'
         f'<div class="bar-controls">'
         f'{yr_select}'
         f'<button type="button" class="settings-toggle" onclick="toggleSettings()" '
