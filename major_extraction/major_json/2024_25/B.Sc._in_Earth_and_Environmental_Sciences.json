@@ -12,96 +12,30 @@
       "marker": "1.",
       "title": "Faculty Package",
       "units": "12",
-      "text": [],
-      "codes": [],
-      "subsections": [
-        {
-          "marker": "(a)",
-          "title": "",
-          "units": "6",
-          "text": [],
-          "codes": [],
-          "subsections": [
-            {
-              "title": "Group C",
-              "text": [
-                "MATH1010 or 1018 or 1520"
-              ],
-              "codes": [
-                "MATH 1010",
-                "MATH 1018",
-                "MATH 1520"
-              ],
-              "units": "",
-              "marker": "",
-              "subsections": []
-            },
-            {
-              "title": "Group E",
-              "text": [
-                "STAT1011 or 1012"
-              ],
-              "codes": [
-                "STAT 1011",
-                "STAT 1012"
-              ],
-              "units": "",
-              "marker": "",
-              "subsections": []
-            }
-          ]
-        },
-        {
-          "marker": "(b)",
-          "title": "Two courses from the following [a]",
-          "units": "6",
-          "text": [],
-          "codes": [],
-          "subsections": [
-            {
-              "title": "Group A",
-              "text": [
-                "LSCI1012 (preferred) or 1002"
-              ],
-              "codes": [
-                "LSCI 1012",
-                "LSCI 1002"
-              ],
-              "units": "",
-              "marker": "",
-              "subsections": []
-            },
-            {
-              "title": "Group B",
-              "text": [
-                "CHEM1070 (preferred) or 1072"
-              ],
-              "codes": [
-                "CHEM 1070",
-                "CHEM 1072"
-              ],
-              "units": "",
-              "marker": "",
-              "subsections": []
-            },
-            {
-              "title": "Group D",
-              "text": [
-                "PHYS1001 or 1002 or 1111 or 1113"
-              ],
-              "codes": [
-                "PHYS 1001",
-                "PHYS 1002",
-                "PHYS 1111",
-                "PHYS 1113"
-              ],
-              "units": "",
-              "marker": "",
-              "subsections": []
-            }
-          ]
-        }
+      "text": [
+        "Group C: MATH1010 or 1018 or 1520",
+        "Group E: STAT1011 or 1012",
+        "Two courses from the following [a]",
+        "Group A: LSCI1012 (preferred) or 1002",
+        "Group B: CHEM1070 (preferred) or 1072",
+        "Group D: PHYS1001 or 1002 or 1111 or 1113"
       ],
+      "codes": [
+        "MATH 1010",
+        "MATH 1018",
+        "MATH 1520",
+        "STAT 1011",
+        "STAT 1012",
+        "LSCI 1012",
+        "LSCI 1002",
+        "CHEM 1070",
+        "CHEM 1072",
+        "PHYS 1001",
+        "PHYS 1002",
+        "PHYS 1111",
+        "PHYS 1113"
+      ],
+      "subsections": [],
       "units_computed": true
     },
     {

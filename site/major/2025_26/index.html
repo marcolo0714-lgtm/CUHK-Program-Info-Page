@@ -22,6 +22,15 @@ a:hover { text-decoration:underline; }
 .unit-tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
   padding:1px 7px; font-size:.72em; margin-left:7px; vertical-align:2px; font-weight:500; }
 .description-heading { margin:16px 0 5px; font-size:1.08rem; color:var(--text); }
+.requirement-scheme-picker { display:flex; align-items:center; gap:10px; margin:16px 0 20px;
+  padding:12px 14px; background:var(--card); border:1px solid var(--border); border-radius:8px; }
+.requirement-scheme-picker label { font-weight:600; white-space:nowrap; }
+.requirement-scheme-picker select { flex:1; min-width:0; max-width:720px; padding:7px 10px;
+  border:1px solid var(--border); border-radius:6px; background:var(--card); color:var(--text); }
+.requirement-scheme[hidden] { display:none; }
+.requirement-scheme-title { margin-top:0; }
+.degree-part { margin-top:20px; padding-top:2px; border-top:2px solid #dbe8fd; }
+.degree-part-title { margin:14px 0 8px; font-size:1.08em; color:#333; }
 .course-pattern { width:100%; margin:12px 0 22px; }
 .course-pattern th,.course-pattern td { padding:9px 11px; text-align:left; vertical-align:top; }
 .subsections { margin:10px 0 18px 28px; padding-left:18px; border-left:3px solid #e8f0fe; }
@@ -180,6 +189,8 @@ body.settings-open { overflow:hidden; }
   .bar-controls { grid-column:1 / -1; width:100%; min-width:0; justify-content:flex-end;
     flex-wrap:wrap; white-space:normal; }
   .page-nav { margin-top:6px; }
+  .requirement-scheme-picker { align-items:stretch; flex-direction:column; }
+  .requirement-scheme-picker select { max-width:none; width:100%; }
   h1 { font-size:1.4em; } .meta { white-space:normal; }
   .course-details { margin-left:0; overflow-x:auto; }
   .subsections { margin-left:8px; padding-left:12px; }

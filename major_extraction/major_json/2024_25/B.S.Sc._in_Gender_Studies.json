@@ -158,5 +158,174 @@
   "supplementary": [],
   "source_file": "B.S.Sc._in_Gender_Studies",
   "parse_status": "parsed",
-  "additional_requirements": []
+  "additional_requirements": [],
+  "requirement_schemes": [
+    {
+      "id": "senior-entry-requirement-for-associate-degree-or-higher-diploma-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Associate Degree or Higher Diploma holders admitted to senior-year places",
+      "source_order": 0,
+      "default": true,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 54 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "54",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Required Courses",
+              "units": "21",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "18",
+                  "text": [
+                    "GDRS1001, 1002, 2010, 2011, 3007, 4012"
+                  ],
+                  "codes": [
+                    "GDRS 1001",
+                    "GDRS 1002",
+                    "GDRS 2010",
+                    "GDRS 2011",
+                    "GDRS 3007",
+                    "GDRS 4012"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Choose one of the following capstone courses",
+                  "units": "3",
+                  "text": [],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "marker": "(i)",
+                      "title": "",
+                      "units": "",
+                      "text": [
+                        "GDRS4009"
+                      ],
+                      "codes": [
+                        "GDRS 4009"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(ii)",
+                      "title": "",
+                      "units": "",
+                      "text": [
+                        "GDRS4005 and 4010"
+                      ],
+                      "codes": [
+                        "GDRS 4005",
+                        "GDRS 4010"
+                      ],
+                      "subsections": []
+                    }
+                  ]
+                }
+              ],
+              "units_computed": true,
+              "combine_text_boxes": true
+            },
+            {
+              "marker": "2.",
+              "title": "Elective Courses",
+              "units": "33",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "",
+                  "title": "",
+                  "units": "33",
+                  "text": [
+                    "At least 33 units from the following, with a maximum of 6 units of non-GDRS courses",
+                    "ANTH1310, 2310#, 2330#, 3360#, 3540#, COMM2920#, 3193#, CURE2014#, 2022#, 2036#, 2041#, 3021#, 3131#, 3374#, ENGE3230#, 3690#, GDRS3001, 3002, 3003, 3004, 3005, 3006, 3008, 3009, 3010, 3011, 3012, 3014, 3015, 3016, 3017, 3018, 3021, 3024, 3025, 3103, 3214, 3350, 3999, 4001, 4006, 4007, 4008, 4011, 5085, 5210, GPAD3071#, HIST3420#, 3421#, JASP2520#, PHIL3373#, PSYC3640#, SOCI2218#, 3208#"
+                  ],
+                  "codes": [
+                    "ANTH 1310",
+                    "ANTH 2310",
+                    "ANTH 2330",
+                    "ANTH 3360",
+                    "ANTH 3540",
+                    "COMM 2920",
+                    "COMM 3193",
+                    "CURE 2014",
+                    "CURE 2022",
+                    "CURE 2036",
+                    "CURE 2041",
+                    "CURE 3021",
+                    "CURE 3131",
+                    "CURE 3374",
+                    "ENGE 3230",
+                    "ENGE 3690",
+                    "GDRS 3001",
+                    "GDRS 3002",
+                    "GDRS 3003",
+                    "GDRS 3004",
+                    "GDRS 3005",
+                    "GDRS 3006",
+                    "GDRS 3008",
+                    "GDRS 3009",
+                    "GDRS 3010",
+                    "GDRS 3011",
+                    "GDRS 3012",
+                    "GDRS 3014",
+                    "GDRS 3015",
+                    "GDRS 3016",
+                    "GDRS 3017",
+                    "GDRS 3018",
+                    "GDRS 3021",
+                    "GDRS 3024",
+                    "GDRS 3025",
+                    "GDRS 3103",
+                    "GDRS 3214",
+                    "GDRS 3350",
+                    "GDRS 3999",
+                    "GDRS 4001",
+                    "GDRS 4006",
+                    "GDRS 4007",
+                    "GDRS 4008",
+                    "GDRS 4011",
+                    "GDRS 5085",
+                    "GDRS 5210",
+                    "GPAD 3071",
+                    "HIST 3420",
+                    "HIST 3421",
+                    "JASP 2520",
+                    "PHIL 3373",
+                    "PSYC 3640",
+                    "SOCI 2218",
+                    "SOCI 3208"
+                  ],
+                  "subsections": [],
+                  "heading_as_text": true
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "GDRS courses at 2000 and above level as well as those labeled as # will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    }
+  ]
 }

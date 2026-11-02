@@ -263,5 +263,1945 @@
   "supplementary": [],
   "source_file": "B.A._in_Translation",
   "parse_status": "parsed",
-  "additional_requirements": []
+  "additional_requirements": [],
+  "requirement_schemes": [
+    {
+      "id": "standard-requirement",
+      "kind": "standard",
+      "title": "Standard Requirement",
+      "source_order": 0,
+      "default": true,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 66 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "66",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "Any three courses from:",
+                "ANTH1020, ARTS1009, 1010, BMBL1001, CHES1101 or 1102, CHLL1900 or 1902 or 1903, CURE1000 or 1400, 1110, ENGE1000, FAAS1900, HIST1000 or 1700 or 1701, JASP1090, LING1000, MUSC1000, PHIL1110, THEO1000"
+              ],
+              "codes": [
+                "ANTH 1020",
+                "ARTS 1009",
+                "ARTS 1010",
+                "BMBL 1001",
+                "CHES 1101",
+                "CHES 1102",
+                "CHLL 1900",
+                "CHLL 1902",
+                "CHLL 1903",
+                "CURE 1000",
+                "CURE 1400",
+                "CURE 1110",
+                "ENGE 1000",
+                "FAAS 1900",
+                "HIST 1000",
+                "HIST 1700",
+                "HIST 1701",
+                "JASP 1090",
+                "LING 1000",
+                "MUSC 1000",
+                "PHIL 1110",
+                "THEO 1000"
+              ],
+              "subsections": [],
+              "combine_text_boxes": true
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "18",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "12",
+                  "text": [
+                    "TRAN1010, 1030, 2070, 2610"
+                  ],
+                  "codes": [
+                    "TRAN 1010",
+                    "TRAN 1030",
+                    "TRAN 2070",
+                    "TRAN 2610"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Any two capstone courses from",
+                  "units": "6",
+                  "text": [
+                    "TRAN4510, 4520, 4900 [a]"
+                  ],
+                  "codes": [
+                    "TRAN 4510",
+                    "TRAN 4520",
+                    "TRAN 4900"
+                  ],
+                  "subsections": []
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "39",
+              "text": [
+                "Students are required to complete 39 units of elective courses from the following lists of courses, including at least one course from each of Electives Cluster A and Electives Cluster B:"
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Electives Cluster A: Translation Studies",
+                  "units": "",
+                  "text": [
+                    "TRAN2120, 3080, 3720, 4070, 4210"
+                  ],
+                  "codes": [
+                    "TRAN 2120",
+                    "TRAN 3080",
+                    "TRAN 3720",
+                    "TRAN 4070",
+                    "TRAN 4210"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Electives Cluster B: Interpreting",
+                  "units": "",
+                  "text": [
+                    "TRAN2140, 2150, 2240, 2250, 3240"
+                  ],
+                  "codes": [
+                    "TRAN 2140",
+                    "TRAN 2150",
+                    "TRAN 2240",
+                    "TRAN 2250",
+                    "TRAN 3240"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(c)",
+                  "title": "Other Electives",
+                  "units": "",
+                  "text": [
+                    "TRAN1120, 1130, 2020, 2050, 2110, 2130, 2840, 3170, 3180, 3270, 3280, 3611, 3620, 3800, 3810, 3820, 3830, 3844, 3845, 3850, 3860, 3870, 3880, 3890, 4620, 4800, CURE3132^ and unselected courses from Clusters A and B."
+                  ],
+                  "codes": [
+                    "TRAN 1120",
+                    "TRAN 1130",
+                    "TRAN 2020",
+                    "TRAN 2050",
+                    "TRAN 2110",
+                    "TRAN 2130",
+                    "TRAN 2840",
+                    "TRAN 3170",
+                    "TRAN 3180",
+                    "TRAN 3270",
+                    "TRAN 3280",
+                    "TRAN 3611",
+                    "TRAN 3620",
+                    "TRAN 3800",
+                    "TRAN 3810",
+                    "TRAN 3820",
+                    "TRAN 3830",
+                    "TRAN 3844",
+                    "TRAN 3845",
+                    "TRAN 3850",
+                    "TRAN 3860",
+                    "TRAN 3870",
+                    "TRAN 3880",
+                    "TRAN 3890",
+                    "TRAN 4620",
+                    "TRAN 4800",
+                    "CURE 3132"
+                  ],
+                  "subsections": []
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "TRAN courses at 2000 and above level will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Translation Major students are expected to be proficient in both English and Chinese. Students may therefore wish to consider taking courses that emphasize writing and speaking skills as part of their free electives, on top of the major programme requirement. Listed below are courses for reference:",
+              "subsections": [
+                {
+                  "title": "Course for writing skills in Chinese",
+                  "text": [
+                    "· CHLL3403 Creative Writing"
+                  ],
+                  "codes": [
+                    "CHLL 3403"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Course for oral expression skills in Cantonese",
+                  "text": [
+                    "· CHLT1302 Oral Communication Skills"
+                  ],
+                  "codes": [
+                    "CHLT 1302"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Courses for oral expression skills in Putonghua",
+                  "text": [
+                    "· CLCP3703 Advanced Putonghua · CLCP4713 Current Affairs and Discussion · CLCP4723 Academic Presentation and Discussion"
+                  ],
+                  "codes": [
+                    "CLCP 3703",
+                    "CLCP 4713",
+                    "CLCP 4723"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Courses for writing skills in English",
+                  "text": [
+                    "· ENGE3260 Creative Writing · ELTU3413 Research Writing in the Humanities and Social Sciences"
+                  ],
+                  "codes": [
+                    "ENGE 3260",
+                    "ELTU 3413"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Courses for oral expression skills in English",
+                  "text": [
+                    "· ENGE2100 Research and Oral Reporting · ELTU3502 Essentials of Public Speaking"
+                  ],
+                  "codes": [
+                    "ENGE 2100",
+                    "ELTU 3502"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                }
+              ],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "For those students who have chosen TRAN4900 Translation Thesis, the language used in writing the thesis should be different from the target language of their translation project for TRAN4510/4520 (e.g. if the student writes the TRAN4900 thesis in English, s/he must take TRAN4510 Translation Project: English-Chinese for Final Year Project).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "^",
+              "text": "Inclusion of this course in the calculation of Major GPA is subject to approval.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "senior-entry-requirement-for-associate-degree-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Associate Degree holders admitted to senior-year places",
+      "source_order": 1,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 54 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "54",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Required Courses",
+              "units": "18",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "TRAN1010, 1030, 2070, 2610"
+                  ],
+                  "codes": [
+                    "TRAN 1010",
+                    "TRAN 1030",
+                    "TRAN 2070",
+                    "TRAN 2610"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Any two capstone courses from",
+                  "units": "6",
+                  "text": [
+                    "TRAN4510, 4520, 4900 [a]"
+                  ],
+                  "codes": [
+                    "TRAN 4510",
+                    "TRAN 4520",
+                    "TRAN 4900"
+                  ],
+                  "subsections": []
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "2.",
+              "title": "Elective Courses",
+              "units": "36",
+              "text": [
+                "Students are required to complete 36 units of elective courses from the following lists of courses, including at least one course from each of Electives Cluster A and Electives Cluster B:"
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Electives Cluster A: Translation Studies",
+                  "units": "",
+                  "text": [
+                    "TRAN2120, 3080, 3720, 4070, 4210"
+                  ],
+                  "codes": [
+                    "TRAN 2120",
+                    "TRAN 3080",
+                    "TRAN 3720",
+                    "TRAN 4070",
+                    "TRAN 4210"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Electives Cluster B: Interpreting",
+                  "units": "",
+                  "text": [
+                    "TRAN2140, 2150, 2240, 2250, 3240"
+                  ],
+                  "codes": [
+                    "TRAN 2140",
+                    "TRAN 2150",
+                    "TRAN 2240",
+                    "TRAN 2250",
+                    "TRAN 3240"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(c)",
+                  "title": "Other Electives",
+                  "units": "",
+                  "text": [
+                    "TRAN1120, 1130, 2020, 2050, 2110, 2130, 2840, 3170, 3180, 3270, 3280, 3611, 3620, 3800, 3810, 3820, 3830, 3844, 3845, 3850, 3860, 3870, 3880, 3890, 4620, 4800, CURE3132^ and unselected courses from Clusters A and B."
+                  ],
+                  "codes": [
+                    "TRAN 1120",
+                    "TRAN 1130",
+                    "TRAN 2020",
+                    "TRAN 2050",
+                    "TRAN 2110",
+                    "TRAN 2130",
+                    "TRAN 2840",
+                    "TRAN 3170",
+                    "TRAN 3180",
+                    "TRAN 3270",
+                    "TRAN 3280",
+                    "TRAN 3611",
+                    "TRAN 3620",
+                    "TRAN 3800",
+                    "TRAN 3810",
+                    "TRAN 3820",
+                    "TRAN 3830",
+                    "TRAN 3844",
+                    "TRAN 3845",
+                    "TRAN 3850",
+                    "TRAN 3860",
+                    "TRAN 3870",
+                    "TRAN 3880",
+                    "TRAN 3890",
+                    "TRAN 4620",
+                    "TRAN 4800",
+                    "CURE 3132"
+                  ],
+                  "subsections": []
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "TRAN courses at 2000 and above level will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Translation Major students are expected to be proficient in both English and Chinese. Students may therefore wish to consider taking courses that emphasize writing and speaking skills as part of their free electives, on top of the major programme requirement. Listed below are courses for reference:",
+              "subsections": [
+                {
+                  "title": "Course for writing skills in Chinese",
+                  "text": [
+                    "CHLL3403 Creative Writing"
+                  ],
+                  "codes": [
+                    "CHLL 3403"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Course for oral expression skills in Cantonese",
+                  "text": [
+                    "CHLT1302 Oral Communication Skills"
+                  ],
+                  "codes": [
+                    "CHLT 1302"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Courses for oral expression skills in Putonghua",
+                  "text": [
+                    "CLCP3703 Advanced Putonghua CLCP4713 Current Affairs and Discussion CLCP4723 Academic Presentation and Discussion"
+                  ],
+                  "codes": [
+                    "CLCP 3703",
+                    "CLCP 4713",
+                    "CLCP 4723"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Courses for writing skills in English",
+                  "text": [
+                    "ENGE3260 Creative Writing ELTU3413 Research Writing in the Humanities and Social Sciences"
+                  ],
+                  "codes": [
+                    "ENGE 3260",
+                    "ELTU 3413"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Courses for oral expression skills in English",
+                  "text": [
+                    "ENGE2100 Research and Oral Reporting ELTU3502 Essentials of Public Speaking"
+                  ],
+                  "codes": [
+                    "ENGE 2100",
+                    "ELTU 3502"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                }
+              ],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "For those students who have chosen TRAN4900 Translation Thesis, the language used in writing the thesis should be different from the target language of their translation project for TRAN4510/4520 (e.g. if the student writes the TRAN4900 thesis in English, s/he must take TRAN4510 Translation Project: English-Chinese for Final Year Project).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "^",
+              "text": "Inclusion of this course in the calculation of Major GPA is subject to approval.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "senior-entry-requirement-for-higher-diploma-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Higher Diploma holders admitted to senior-year places",
+      "source_order": 2,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 51 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "51",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Required Courses",
+              "units": "18",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "TRAN1010, 1030, 2070, 2610"
+                  ],
+                  "codes": [
+                    "TRAN 1010",
+                    "TRAN 1030",
+                    "TRAN 2070",
+                    "TRAN 2610"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Any two capstone courses from",
+                  "units": "6",
+                  "text": [
+                    "TRAN4510, 4520, 4900 [a]"
+                  ],
+                  "codes": [
+                    "TRAN 4510",
+                    "TRAN 4520",
+                    "TRAN 4900"
+                  ],
+                  "subsections": []
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "2.",
+              "title": "Elective Courses",
+              "units": "33",
+              "text": [
+                "Students are required to complete 33 units of elective courses from the following lists of courses, including at least one course from each of Electives Cluster A and Electives Cluster B:"
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Electives Cluster A: Translation Studies",
+                  "units": "",
+                  "text": [
+                    "TRAN2120, 3080, 3720, 4070, 4210"
+                  ],
+                  "codes": [
+                    "TRAN 2120",
+                    "TRAN 3080",
+                    "TRAN 3720",
+                    "TRAN 4070",
+                    "TRAN 4210"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Electives Cluster B: Interpreting",
+                  "units": "",
+                  "text": [
+                    "TRAN2140, 2150, 2240, 2250, 3240"
+                  ],
+                  "codes": [
+                    "TRAN 2140",
+                    "TRAN 2150",
+                    "TRAN 2240",
+                    "TRAN 2250",
+                    "TRAN 3240"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(c)",
+                  "title": "Other Electives",
+                  "units": "",
+                  "text": [
+                    "TRAN1120, 1130, 2020, 2050, 2110, 2130, 2840, 3170, 3180, 3270, 3280, 3611, 3620, 3800, 3810, 3820, 3830, 3844, 3845, 3850, 3860, 3870, 3880, 3890, 4620, 4800, CURE3132^ and unselected courses from Clusters A and B."
+                  ],
+                  "codes": [
+                    "TRAN 1120",
+                    "TRAN 1130",
+                    "TRAN 2020",
+                    "TRAN 2050",
+                    "TRAN 2110",
+                    "TRAN 2130",
+                    "TRAN 2840",
+                    "TRAN 3170",
+                    "TRAN 3180",
+                    "TRAN 3270",
+                    "TRAN 3280",
+                    "TRAN 3611",
+                    "TRAN 3620",
+                    "TRAN 3800",
+                    "TRAN 3810",
+                    "TRAN 3820",
+                    "TRAN 3830",
+                    "TRAN 3844",
+                    "TRAN 3845",
+                    "TRAN 3850",
+                    "TRAN 3860",
+                    "TRAN 3870",
+                    "TRAN 3880",
+                    "TRAN 3890",
+                    "TRAN 4620",
+                    "TRAN 4800",
+                    "CURE 3132"
+                  ],
+                  "subsections": []
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "TRAN courses at 2000 and above level will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Translation Major students are expected to be proficient in both English and Chinese. Students may therefore wish to consider taking courses that emphasize writing and speaking skills as part of their free electives, on top of the major programme requirement. Listed below are courses for reference:",
+              "subsections": [
+                {
+                  "title": "Course for writing skills in Chinese",
+                  "text": [
+                    "CHLL3403 Creative Writing"
+                  ],
+                  "codes": [
+                    "CHLL 3403"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Course for oral expression skills in Cantonese",
+                  "text": [
+                    "CHLT1302 Oral Communication Skills"
+                  ],
+                  "codes": [
+                    "CHLT 1302"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Courses for oral expression skills in Putonghua",
+                  "text": [
+                    "CLCP3703 Advanced Putonghua CLCP4713 Current Affairs and Discussion CLCP4723 Academic Presentation and Discussion"
+                  ],
+                  "codes": [
+                    "CLCP 3703",
+                    "CLCP 4713",
+                    "CLCP 4723"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Courses for writing skills in English",
+                  "text": [
+                    "ENGE3260 Creative Writing ELTU3413 Research Writing in the Humanities and Social Sciences"
+                  ],
+                  "codes": [
+                    "ENGE 3260",
+                    "ELTU 3413"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Courses for oral expression skills in English",
+                  "text": [
+                    "ENGE2100 Research and Oral Reporting ELTU3502 Essentials of Public Speaking"
+                  ],
+                  "codes": [
+                    "ENGE 2100",
+                    "ELTU 3502"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                }
+              ],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "For those students who have chosen TRAN4900 Translation Thesis, the language used in writing the thesis should be different from the target language of their translation project for TRAN4510/4520 (e.g. if the student writes the TRAN4900 thesis in English, s/he must take TRAN4510 Translation Project: English-Chinese for Final Year Project).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "^",
+              "text": "Inclusion of this course in the calculation of Major GPA is subject to approval.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "translation-and-chinese-language-and-literature-double-major-programme",
+      "kind": "double_major",
+      "title": "Translation and Chinese Language and Literature Double Major Programme",
+      "source_order": 3,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 90 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "90",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "",
+                  "title": "Any three courses from",
+                  "units": "",
+                  "text": [
+                    "ANTH1020, ARTS1009, 1010, BMBL1001, CHES1101 or 1102, CHLL1900 or 1902 or 1903, CURE1000 or 1400, 1110, ENGE1000, FAAS1900, HIST1000 or 1700 or 1701, JASP1090, LING1000, MUSC1000, PHIL1110, THEO1000"
+                  ],
+                  "codes": [
+                    "ANTH 1020",
+                    "ARTS 1009",
+                    "ARTS 1010",
+                    "BMBL 1001",
+                    "CHES 1101",
+                    "CHES 1102",
+                    "CHLL 1900",
+                    "CHLL 1902",
+                    "CHLL 1903",
+                    "CURE 1000",
+                    "CURE 1400",
+                    "CURE 1110",
+                    "ENGE 1000",
+                    "FAAS 1900",
+                    "HIST 1000",
+                    "HIST 1700",
+                    "HIST 1701",
+                    "JASP 1090",
+                    "LING 1000",
+                    "MUSC 1000",
+                    "PHIL 1110",
+                    "THEO 1000"
+                  ],
+                  "subsections": []
+                }
+              ]
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "30",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "1st Major: Translation",
+                  "text": [],
+                  "codes": [],
+                  "units": "12",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "marker": "(a)",
+                      "title": "",
+                      "units": "",
+                      "text": [
+                        "TRAN1010, 1030, 2070, 2610"
+                      ],
+                      "codes": [
+                        "TRAN 1010",
+                        "TRAN 1030",
+                        "TRAN 2070",
+                        "TRAN 2610"
+                      ],
+                      "subsections": []
+                    }
+                  ],
+                  "keep_heading": true
+                },
+                {
+                  "title": "2nd Major: Chinese Language and Literature",
+                  "text": [],
+                  "codes": [],
+                  "units": "18",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "marker": "(b)",
+                      "title": "Basic Courses",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(i)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "CHLL2302"
+                          ],
+                          "codes": [
+                            "CHLL 2302"
+                          ],
+                          "subsections": [],
+                          "heading_as_text": true
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "",
+                          "units": "15",
+                          "text": [
+                            "Students are required to complete 15 units of elective courses from the following lists of basic courses, including at least one course from each of category (1), (2) and (4). (1) CHLL1110#, 2121, 2131 (2) CHLL1211#, 2212 (3) CHLL2350 (4) CHLL1401#, 2403#"
+                          ],
+                          "codes": [
+                            "CHLL 1110",
+                            "CHLL 2121",
+                            "CHLL 2131",
+                            "CHLL 1211",
+                            "CHLL 2212",
+                            "CHLL 2350",
+                            "CHLL 1401",
+                            "CHLL 2403"
+                          ],
+                          "subsections": [],
+                          "heading_as_text": true
+                        }
+                      ]
+                    }
+                  ],
+                  "keep_heading": true
+                }
+              ]
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "45",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "1st Major: Translation",
+                  "text": [
+                    "Students are required to complete 24 units of elective courses from the following lists of courses, including at least one course from each of Electives Clusters A, B and C."
+                  ],
+                  "codes": [],
+                  "units": "24",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "marker": "(a)",
+                      "title": "Elective Cluster A: Translation Studies",
+                      "units": "",
+                      "text": [
+                        "TRAN2120, 3080, 3720, 4070, 4210"
+                      ],
+                      "codes": [
+                        "TRAN 2120",
+                        "TRAN 3080",
+                        "TRAN 3720",
+                        "TRAN 4070",
+                        "TRAN 4210"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(b)",
+                      "title": "Elective Cluster B: Interpreting",
+                      "units": "",
+                      "text": [
+                        "TRAN2140, 2150, 2240, 2250, 3240"
+                      ],
+                      "codes": [
+                        "TRAN 2140",
+                        "TRAN 2150",
+                        "TRAN 2240",
+                        "TRAN 2250",
+                        "TRAN 3240"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(c)",
+                      "title": "Elective Cluster C: Literary Translation",
+                      "units": "",
+                      "text": [
+                        "TRAN3170, 3180, 3270, 3280"
+                      ],
+                      "codes": [
+                        "TRAN 3170",
+                        "TRAN 3180",
+                        "TRAN 3270",
+                        "TRAN 3280"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(d)",
+                      "title": "Other Electives",
+                      "units": "",
+                      "text": [
+                        "TRAN1120, 1130, 2020, 2050, 2110, 2130, 2840, 3611, 3620, 3800, 3810, 3820, 3830, 3844, 3845, 3850, 3860, 3870, 3880, 3890, 4620, 4800, CURE3132^ plus unselected courses from Clusters A, B and C."
+                      ],
+                      "codes": [
+                        "TRAN 1120",
+                        "TRAN 1130",
+                        "TRAN 2020",
+                        "TRAN 2050",
+                        "TRAN 2110",
+                        "TRAN 2130",
+                        "TRAN 2840",
+                        "TRAN 3611",
+                        "TRAN 3620",
+                        "TRAN 3800",
+                        "TRAN 3810",
+                        "TRAN 3820",
+                        "TRAN 3830",
+                        "TRAN 3844",
+                        "TRAN 3845",
+                        "TRAN 3850",
+                        "TRAN 3860",
+                        "TRAN 3870",
+                        "TRAN 3880",
+                        "TRAN 3890",
+                        "TRAN 4620",
+                        "TRAN 4800",
+                        "CURE 3132"
+                      ],
+                      "subsections": [],
+                      "heading_as_text": true,
+                      "keep_heading": true
+                    }
+                  ],
+                  "keep_heading": true
+                },
+                {
+                  "title": "2nd Major: Chinese Language and Literature",
+                  "text": [],
+                  "codes": [],
+                  "units": "21",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "marker": "(e)",
+                      "title": "",
+                      "units": "21",
+                      "text": [
+                        "Students are required to complete 21 units of elective courses from the following Specialty courses, of which at least one course from category (1) or (2) and one course from category (3) or (4)."
+                      ],
+                      "codes": [],
+                      "subsections": [],
+                      "heading_as_text": true
+                    },
+                    {
+                      "marker": "",
+                      "title": "Specialty courses",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "title": "Language and Linguistics",
+                          "text": [
+                            "CHLL 3121, 3131, 3141, 3142, 3143, 3144, 3145, 3146, 3151, 3162, 4121, 4141, 4151, 4161"
+                          ],
+                          "codes": [
+                            "CHLL 3121",
+                            "CHLL 3131",
+                            "CHLL 3141",
+                            "CHLL 3142",
+                            "CHLL 3143",
+                            "CHLL 3144",
+                            "CHLL 3145",
+                            "CHLL 3146",
+                            "CHLL 3151",
+                            "CHLL 3162",
+                            "CHLL 4121",
+                            "CHLL 4141",
+                            "CHLL 4151",
+                            "CHLL 4161"
+                          ],
+                          "units": "",
+                          "marker": "(1)",
+                          "subsections": []
+                        },
+                        {
+                          "title": "Ancient Documents",
+                          "text": [
+                            "CHLL 3221, 3222, 3231, 3232, 3233, 4224, 4241, 4242, 4243, 4251, 4253"
+                          ],
+                          "codes": [
+                            "CHLL 3221",
+                            "CHLL 3222",
+                            "CHLL 3231",
+                            "CHLL 3232",
+                            "CHLL 3233",
+                            "CHLL 4224",
+                            "CHLL 4241",
+                            "CHLL 4242",
+                            "CHLL 4243",
+                            "CHLL 4251",
+                            "CHLL 4253"
+                          ],
+                          "units": "",
+                          "marker": "(2)",
+                          "subsections": []
+                        },
+                        {
+                          "title": "Classical Literature",
+                          "text": [
+                            "CHLL 3310, 3311, 3314, 3315, 3317, 3321, 3322, 3323, 3324, 3341, 3351, 4310, 4311, 4312, 4313, 4314, 4315, 4320, 4322, 4330, 4332, 4340, 4341, 4342, 4343"
+                          ],
+                          "codes": [
+                            "CHLL 3310",
+                            "CHLL 3311",
+                            "CHLL 3314",
+                            "CHLL 3315",
+                            "CHLL 3317",
+                            "CHLL 3321",
+                            "CHLL 3322",
+                            "CHLL 3323",
+                            "CHLL 3324",
+                            "CHLL 3341",
+                            "CHLL 3351",
+                            "CHLL 4310",
+                            "CHLL 4311",
+                            "CHLL 4312",
+                            "CHLL 4313",
+                            "CHLL 4314",
+                            "CHLL 4315",
+                            "CHLL 4320",
+                            "CHLL 4322",
+                            "CHLL 4330",
+                            "CHLL 4332",
+                            "CHLL 4340",
+                            "CHLL 4341",
+                            "CHLL 4342",
+                            "CHLL 4343"
+                          ],
+                          "units": "",
+                          "marker": "(3)",
+                          "subsections": []
+                        },
+                        {
+                          "title": "Modern Chinese Literature",
+                          "text": [
+                            "CHLL 3402, 3403, 3404, 3405, 3406, 3407, 3408, 3411, 3412, 4401, 4402, 4403, 4404, 4407, 4408, 4410, 4411, 4415, 4416"
+                          ],
+                          "codes": [
+                            "CHLL 3402",
+                            "CHLL 3403",
+                            "CHLL 3404",
+                            "CHLL 3405",
+                            "CHLL 3406",
+                            "CHLL 3407",
+                            "CHLL 3408",
+                            "CHLL 3411",
+                            "CHLL 3412",
+                            "CHLL 4401",
+                            "CHLL 4402",
+                            "CHLL 4403",
+                            "CHLL 4404",
+                            "CHLL 4407",
+                            "CHLL 4408",
+                            "CHLL 4410",
+                            "CHLL 4411",
+                            "CHLL 4415",
+                            "CHLL 4416"
+                          ],
+                          "units": "",
+                          "marker": "(4)",
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ],
+                  "keep_heading": true
+                }
+              ]
+            },
+            {
+              "marker": "4.",
+              "title": "Research Component/ Capstone Course/ Final Year Project",
+              "units": "6",
+              "text": [
+                "Any two courses chosen from the following:",
+                "TRAN4510, 4520, 4900[a]"
+              ],
+              "codes": [
+                "TRAN 4510",
+                "TRAN 4520",
+                "TRAN 4900"
+              ],
+              "subsections": []
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "TRAN courses at 2000 and above level as well as those labeled as # will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Subject to approval by the Major Programmes concerned, students may opt out of the Double Major Programme and register for the 1st Major Programme only. The decision to opt out is irrevocable. Students who have opted out are required to complete and fulfill all graduation requirements by following the study scheme of the 1st Major Programme as a single major. Students should be aware that such decision may result in a delay in graduation because the requirements of the single major study scheme differ from those of the Double Major Programme.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "For those students who have chosen TRAN4900 Translation Thesis, the language used in writing the thesis should be different from the target language of their translation project for TRAN4510/4520 (e.g. if the student writes the TRAN4900 thesis in English, s/he must take TRAN4510 Translation Project: English-Chinese for Final Year Project).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "^",
+              "text": "Inclusion of this course in the calculation of Major GPA is subject to approval.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "translation-and-linguistics-double-major-programme",
+      "kind": "double_major",
+      "title": "Translation and Linguistics Double Major Programme",
+      "source_order": 4,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 90 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "90",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "LING1000 and any two courses from: ANTH1020, ARTS1009, 1010, BMBL1001, CHES1101 or 1102, CHLL1900 or 1902 or 1903, CURE1000 or 1400, 1110, ENGE1000, FAAS1900, HIST1000 or 1700 or 1701, JASP1090, MUSC1000, PHIL1110, THEO1000"
+              ],
+              "codes": [
+                "LING 1000",
+                "ANTH 1020",
+                "ARTS 1009",
+                "ARTS 1010",
+                "BMBL 1001",
+                "CHES 1101",
+                "CHES 1102",
+                "CHLL 1900",
+                "CHLL 1902",
+                "CHLL 1903",
+                "CURE 1000",
+                "CURE 1400",
+                "CURE 1110",
+                "ENGE 1000",
+                "FAAS 1900",
+                "HIST 1000",
+                "HIST 1700",
+                "HIST 1701",
+                "JASP 1090",
+                "MUSC 1000",
+                "PHIL 1110",
+                "THEO 1000"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "36",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "1st Major: Translation",
+                  "text": [],
+                  "codes": [],
+                  "units": "12",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "marker": "(a)",
+                      "title": "",
+                      "units": "",
+                      "text": [
+                        "TRAN1010, 1030, 2070, 2610"
+                      ],
+                      "codes": [
+                        "TRAN 1010",
+                        "TRAN 1030",
+                        "TRAN 2070",
+                        "TRAN 2610"
+                      ],
+                      "subsections": []
+                    }
+                  ],
+                  "keep_heading": true
+                },
+                {
+                  "title": "2nd Major: Linguistics",
+                  "text": [],
+                  "codes": [],
+                  "units": "24",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "marker": "(b)",
+                      "title": "",
+                      "units": "24",
+                      "text": [
+                        "LING1001#[b] or 1002#[b], 1003#, 2003, 2004, 2005, 2006, 2007, 2008"
+                      ],
+                      "codes": [
+                        "LING 1001",
+                        "LING 1002",
+                        "LING 1003",
+                        "LING 2003",
+                        "LING 2004",
+                        "LING 2005",
+                        "LING 2006",
+                        "LING 2007",
+                        "LING 2008"
+                      ],
+                      "subsections": []
+                    }
+                  ],
+                  "keep_heading": true
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "39",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "",
+                  "title": "1st Major: Translation",
+                  "units": "27",
+                  "text": [
+                    "Students are required to complete 27 units of elective courses from the following list of courses, including at least one course from each of Electives Cluster A and Electives Cluster B"
+                  ],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "title": "Elective Cluster A: Translation Studies",
+                      "text": [
+                        "TRAN2120, 3080, 3720, 4070, 4210"
+                      ],
+                      "codes": [
+                        "TRAN 2120",
+                        "TRAN 3080",
+                        "TRAN 3720",
+                        "TRAN 4070",
+                        "TRAN 4210"
+                      ],
+                      "units": "",
+                      "marker": "",
+                      "subsections": []
+                    },
+                    {
+                      "title": "Elective Cluster B: Interpreting",
+                      "text": [
+                        "TRAN2140, 2150, 2240, 2250, 3240"
+                      ],
+                      "codes": [
+                        "TRAN 2140",
+                        "TRAN 2150",
+                        "TRAN 2240",
+                        "TRAN 2250",
+                        "TRAN 3240"
+                      ],
+                      "units": "",
+                      "marker": "",
+                      "subsections": []
+                    },
+                    {
+                      "title": "Other electives",
+                      "text": [
+                        "TRAN1120, 1130, 2020, 2050, 2110, 2130, 2840, 3170, 3180, 3270, 3280, 3611, 3620, 3800, 3810, 3820, 3830, 3844, 3845, 3850, 3860, 3870, 3880, 3890, 4620, 4800, CURE3132^ and unselected courses from Clusters A and B."
+                      ],
+                      "codes": [
+                        "TRAN 1120",
+                        "TRAN 1130",
+                        "TRAN 2020",
+                        "TRAN 2050",
+                        "TRAN 2110",
+                        "TRAN 2130",
+                        "TRAN 2840",
+                        "TRAN 3170",
+                        "TRAN 3180",
+                        "TRAN 3270",
+                        "TRAN 3280",
+                        "TRAN 3611",
+                        "TRAN 3620",
+                        "TRAN 3800",
+                        "TRAN 3810",
+                        "TRAN 3820",
+                        "TRAN 3830",
+                        "TRAN 3844",
+                        "TRAN 3845",
+                        "TRAN 3850",
+                        "TRAN 3860",
+                        "TRAN 3870",
+                        "TRAN 3880",
+                        "TRAN 3890",
+                        "TRAN 4620",
+                        "TRAN 4800",
+                        "CURE 3132"
+                      ],
+                      "units": "",
+                      "marker": "",
+                      "subsections": []
+                    }
+                  ],
+                  "keep_heading": true
+                },
+                {
+                  "title": "2nd Major: Linguistics",
+                  "text": [],
+                  "codes": [],
+                  "units": "12",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "marker": "(b)",
+                      "title": "Four courses chosen from the three areas below, with at least one course from each area",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(i)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "Core Linguistics BMBL2001#, 2002#, 2003#, LING3101, 3102, 3103, 3104, 3107, 3108, 4401"
+                          ],
+                          "codes": [
+                            "BMBL 2001",
+                            "BMBL 2002",
+                            "BMBL 2003",
+                            "LING 3101",
+                            "LING 3102",
+                            "LING 3103",
+                            "LING 3104",
+                            "LING 3107",
+                            "LING 3108",
+                            "LING 4401"
+                          ],
+                          "subsections": [],
+                          "heading_as_text": true
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "Language and Mind BMBL2004#, 2005#, LING3201, 3202, 3203, 3204, 3206, 4201, 4202"
+                          ],
+                          "codes": [
+                            "BMBL 2004",
+                            "BMBL 2005",
+                            "LING 3201",
+                            "LING 3202",
+                            "LING 3203",
+                            "LING 3204",
+                            "LING 3206",
+                            "LING 4201",
+                            "LING 4202"
+                          ],
+                          "subsections": [],
+                          "heading_as_text": true
+                        },
+                        {
+                          "marker": "(iii)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "Language and Culture, and Linguistic Applications BMBL1001[a], 1002#, 3002#, 3003#, LING2301, 3208, 3401, 3403, 4402"
+                          ],
+                          "codes": [
+                            "BMBL 1001",
+                            "BMBL 1002",
+                            "BMBL 3002",
+                            "BMBL 3003",
+                            "LING 2301",
+                            "LING 3208",
+                            "LING 3401",
+                            "LING 3403",
+                            "LING 4402"
+                          ],
+                          "subsections": [],
+                          "heading_as_text": true
+                        }
+                      ]
+                    }
+                  ],
+                  "keep_heading": true
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "title": "Research Component/ Capstone Course/ Final Year Project",
+              "text": [],
+              "codes": [],
+              "units": "6",
+              "marker": "4.",
+              "subsections": [
+                {
+                  "title": "",
+                  "text": [
+                    "TRAN4900"
+                  ],
+                  "codes": [
+                    "TRAN 4900"
+                  ],
+                  "units": "3",
+                  "marker": "(a)",
+                  "subsections": []
+                },
+                {
+                  "title": "",
+                  "text": [
+                    "TRAN4510 or 4520"
+                  ],
+                  "codes": [
+                    "TRAN 4510",
+                    "TRAN 4520"
+                  ],
+                  "units": "3",
+                  "marker": "(b)",
+                  "subsections": []
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "TRAN courses at 2000 and above level as well as those labeled as # will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Students may be required to participate in activities such as field trips and study tours that foster their learning of linguistics. Students are responsible for part of or all the costs incurred in relation to these activities.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "3.",
+              "text": "Students are encouraged to learn a modern language or take courses in a discipline relevant to a translation area in which the student would like to specialize after graduation using their free electives.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "4.",
+              "text": "Subject to approval by the Major Programmes concerned, students may opt out of the Double Major Programme and register for the 1st Major Programme only. The decision to opt out is irrevocable. Students who have opted out are required to complete and fulfill all graduation requirements by following the study scheme of the 1st Major Programme as a single major. Students should be aware that such decision may result in a delay in graduation because the requirements of the single major study scheme differ from those of the Double Major Programme.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "If the course is not taken to fulfill requirement 1, it may be taken as an elective course for fulfillment of requirement 3(b)(iii).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[b]",
+              "text": "The course not taken to fulfill requirement 2(b) may be taken as a free elective course.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "^",
+              "text": "Inclusion of this course in the calculation of Major GPA is subject to approval.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [
+            {
+              "title": "Note on Double Major Linguistics-Translation",
+              "text": [],
+              "subsections": [],
+              "notes": [
+                {
+                  "marker": "1.",
+                  "text": "Translation Major student who pursues a second Major in Linguistics can be exempted from taking LING3401 by taking TRAN2610. Units earned can be counted towards both Major Programmes.",
+                  "subsections": [],
+                  "rows": []
+                }
+              ]
+            }
+          ],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "bachelor-of-arts-translation-and-juris-doctor-double-degree-option",
+      "kind": "double_degree",
+      "title": "Bachelor of Arts (Translation) and Juris Doctor Double Degree Option",
+      "source_order": 5,
+      "default": false,
+      "parts": [
+        {
+          "title": "1st Degree: Bachelor of Arts (Translation)",
+          "description": "Students are required to complete a minimum of 66 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "66",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "Any three courses from:",
+                "ANTH1020, ARTS1009, 1010, BMBL1001, CHES1101 or 1102, CHLL1900 or 1902 or 1903, CURE1000 or 1400, 1110, ENGE1000, FAAS1900, HIST1000 or 1700 or 1701, JASP1090, LING1000, MUSC1000, PHIL1110, THEO1000"
+              ],
+              "codes": [
+                "ANTH 1020",
+                "ARTS 1009",
+                "ARTS 1010",
+                "BMBL 1001",
+                "CHES 1101",
+                "CHES 1102",
+                "CHLL 1900",
+                "CHLL 1902",
+                "CHLL 1903",
+                "CURE 1000",
+                "CURE 1400",
+                "CURE 1110",
+                "ENGE 1000",
+                "FAAS 1900",
+                "HIST 1000",
+                "HIST 1700",
+                "HIST 1701",
+                "JASP 1090",
+                "LING 1000",
+                "MUSC 1000",
+                "PHIL 1110",
+                "THEO 1000"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "18",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "TRAN1010, 1030, 2070, 2610"
+                  ],
+                  "codes": [
+                    "TRAN 1010",
+                    "TRAN 1030",
+                    "TRAN 2070",
+                    "TRAN 2610"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Any two capstone courses from",
+                  "units": "6",
+                  "text": [
+                    "TRAN4510, 4520, 4900 [a]"
+                  ],
+                  "codes": [
+                    "TRAN 4510",
+                    "TRAN 4520",
+                    "TRAN 4900"
+                  ],
+                  "subsections": []
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "39",
+              "text": [
+                "Students are required to complete 39 units of elective courses from the following lists of courses, including at least one course from each of Electives Cluster A and Electives Cluster B:"
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Electives Cluster A: Translation Studies",
+                  "units": "",
+                  "text": [
+                    "TRAN2120, 3080, 3720, 4070, 4210"
+                  ],
+                  "codes": [
+                    "TRAN 2120",
+                    "TRAN 3080",
+                    "TRAN 3720",
+                    "TRAN 4070",
+                    "TRAN 4210"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Electives Cluster B: Interpreting",
+                  "units": "",
+                  "text": [
+                    "TRAN2140, 2150, 2240, 2250, 3240"
+                  ],
+                  "codes": [
+                    "TRAN 2140",
+                    "TRAN 2150",
+                    "TRAN 2240",
+                    "TRAN 2250",
+                    "TRAN 3240"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(c)",
+                  "title": "Other Electives",
+                  "units": "",
+                  "text": [
+                    "TRAN1120, 1130, 2020, 2050, 2110, 2130, 2840, 3170, 3180, 3270, 3280, 3611, 3620, 3800, 3810, 3820, 3830, 3844, 3845, 3850, 3860, 3870, 3880, 3890, 4620, 4800, CURE3132^ and unselected courses from Clusters A and B."
+                  ],
+                  "codes": [
+                    "TRAN 1120",
+                    "TRAN 1130",
+                    "TRAN 2020",
+                    "TRAN 2050",
+                    "TRAN 2110",
+                    "TRAN 2130",
+                    "TRAN 2840",
+                    "TRAN 3170",
+                    "TRAN 3180",
+                    "TRAN 3270",
+                    "TRAN 3280",
+                    "TRAN 3611",
+                    "TRAN 3620",
+                    "TRAN 3800",
+                    "TRAN 3810",
+                    "TRAN 3820",
+                    "TRAN 3830",
+                    "TRAN 3844",
+                    "TRAN 3845",
+                    "TRAN 3850",
+                    "TRAN 3860",
+                    "TRAN 3870",
+                    "TRAN 3880",
+                    "TRAN 3890",
+                    "TRAN 4620",
+                    "TRAN 4800",
+                    "CURE 3132"
+                  ],
+                  "subsections": []
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "TRAN courses at 2000 and above level as well as those label as # will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Translation Major students are expected to be proficient in both English and Chinese. Students may therefore wish to consider taking courses that emphasize writing and speaking skills as part of their free electives, on top of the major programme requirement. Listed below are courses for reference:",
+              "subsections": [
+                {
+                  "title": "Course for writing skills in Chinese",
+                  "text": [
+                    "CHLL3403 Creative Writing"
+                  ],
+                  "codes": [
+                    "CHLL 3403"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Course for oral expression skills in Cantonese",
+                  "text": [
+                    "CHLT1302 Oral Communication Skills"
+                  ],
+                  "codes": [
+                    "CHLT 1302"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Courses for oral expression skills in Putonghua",
+                  "text": [
+                    "CLCP3703 Advanced Putonghua CLCP4713 Current Affairs and Discussion CLCP4723 Academic Presentation and Discussion"
+                  ],
+                  "codes": [
+                    "CLCP 3703",
+                    "CLCP 4713",
+                    "CLCP 4723"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Courses for writing skills in English",
+                  "text": [
+                    "ENGE3260 Creative Writing ELTU3413 Research Writing in the Humanities and Social Sciences"
+                  ],
+                  "codes": [
+                    "ENGE 3260",
+                    "ELTU 3413"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                },
+                {
+                  "title": "Courses for oral expression skills in English",
+                  "text": [
+                    "ENGE2100 Research and Oral Reporting ELTU3502 Essentials of Public Speaking"
+                  ],
+                  "codes": [
+                    "ENGE 2100",
+                    "ELTU 3502"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": [],
+                  "force_course_table": true
+                }
+              ],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "For those students who have chosen TRAN4900 Translation Thesis, the language used in writing the thesis should be different from the target language of their translation project for TRAN4510/4520 (e.g. if the student writes the TRAN4900 thesis in English, s/he must take TRAN4510 Translation Project: English-Chinese for Final Year Project).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "^",
+              "text": "Inclusion of this course in the calculation of Major GPA is subject to approval.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        },
+        {
+          "title": "2nd Degree: Juris Doctor (JD)",
+          "description": "Programme Requirement Students are required to complete a minimum of 72 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "72",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Required Courses",
+              "units": "15 or 18",
+              "text": [
+                "LAWS6001, 6004, 6006[a], 6007, 6901 or 6902[b]"
+              ],
+              "codes": [
+                "LAWS 6001",
+                "LAWS 6004",
+                "LAWS 6006",
+                "LAWS 6007",
+                "LAWS 6901",
+                "LAWS 6902"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Elective Courses",
+              "units": "54 or 57",
+              "text": [
+                "Students are required to take at least 54 or 57 units of courses from the following[c]"
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "Elective courses which are pre-requisites for subsequent admission to the Postgraduate Certificate in Laws (PCLL) Programme",
+                  "text": [
+                    "LAWS6011, 6013, 6015, 6017, 6018, 6019, 6020, 6021, 6022, 6023, 6024"
+                  ],
+                  "codes": [
+                    "LAWS 6011",
+                    "LAWS 6013",
+                    "LAWS 6015",
+                    "LAWS 6017",
+                    "LAWS 6018",
+                    "LAWS 6019",
+                    "LAWS 6020",
+                    "LAWS 6021",
+                    "LAWS 6022",
+                    "LAWS 6023",
+                    "LAWS 6024"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Other elective courses offered under the Juris Doctor Programme",
+                  "text": [],
+                  "codes": [],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Elective courses offered under the Master of Laws Programmes",
+                  "text": [],
+                  "codes": [],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "[a]",
+              "text": "Students may take LAWS6089 to substitute LAWS6006.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[b]",
+              "text": "Students are required to take either LAWS6901 (3-unit course) or LAWS6902 (6-unit course). The extra 3 units completed in LAWS6902 will count towards the total units required for graduation.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[c]",
+              "text": "LAWS6012 and LAWS6014 will no longer be pre-requisites for admission to the PCLL Programme with effect from 2021-22. Students may still take the two courses as elective courses offered under the JD Programme.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    }
+  ]
 }

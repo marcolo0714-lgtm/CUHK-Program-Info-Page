@@ -86,6 +86,15 @@ a:hover { text-decoration:underline; }
 .unit-tag { display:inline-block; background:#e8f0fe; color:var(--accent); border-radius:4px;
   padding:1px 7px; font-size:.72em; margin-left:7px; vertical-align:2px; font-weight:500; }
 .description-heading { margin:16px 0 5px; font-size:1.08rem; color:var(--text); }
+.requirement-scheme-picker { display:flex; align-items:center; gap:10px; margin:16px 0 20px;
+  padding:12px 14px; background:var(--card); border:1px solid var(--border); border-radius:8px; }
+.requirement-scheme-picker label { font-weight:600; white-space:nowrap; }
+.requirement-scheme-picker select { flex:1; min-width:0; max-width:720px; padding:7px 10px;
+  border:1px solid var(--border); border-radius:6px; background:var(--card); color:var(--text); }
+.requirement-scheme[hidden] { display:none; }
+.requirement-scheme-title { margin-top:0; }
+.degree-part { margin-top:20px; padding-top:2px; border-top:2px solid #dbe8fd; }
+.degree-part-title { margin:14px 0 8px; font-size:1.08em; color:#333; }
 .course-pattern { width:100%; margin:12px 0 22px; }
 .course-pattern th,.course-pattern td { padding:9px 11px; text-align:left; vertical-align:top; }
 .subsections { margin:10px 0 18px 28px; padding-left:18px; border-left:3px solid #e8f0fe; }
@@ -244,6 +253,8 @@ body.settings-open { overflow:hidden; }
   .bar-controls { grid-column:1 / -1; width:100%; min-width:0; justify-content:flex-end;
     flex-wrap:wrap; white-space:normal; }
   .page-nav { margin-top:6px; }
+  .requirement-scheme-picker { align-items:stretch; flex-direction:column; }
+  .requirement-scheme-picker select { max-width:none; width:100%; }
   h1 { font-size:1.4em; } .meta { white-space:normal; }
   .course-details { margin-left:0; overflow-x:auto; }
   .subsections { margin-left:8px; padding-left:12px; }
@@ -273,6 +284,18 @@ function setSettingsVisibility(open){
  panel.setAttribute('aria-hidden',String(!open));if(button)button.setAttribute('aria-expanded',String(open));
 }
 function toggleSettings(){var panel=document.querySelector('.settings-panel');if(panel)setSettingsVisibility(!panel.classList.contains('open'))}
+function showRequirementScheme(identifier,updateUrl){
+ var panels=document.querySelectorAll('[data-requirement-scheme]'),select=document.getElementById('requirementSchemeSelect'),matched=false;
+ panels.forEach(function(panel){var active=panel.getAttribute('data-requirement-scheme')===identifier;panel.hidden=!active;if(active)matched=true});
+ if(!matched&&panels.length){identifier=panels[0].getAttribute('data-requirement-scheme');panels.forEach(function(panel){panel.hidden=panel.getAttribute('data-requirement-scheme')!==identifier})}
+ if(select)select.value=identifier;
+ if(select){
+  var option=select.options[select.selectedIndex],title=document.getElementById('activeRequirementSchemeTitle'),units=document.getElementById('activeRequirementSchemeUnits');
+  if(title&&option)title.textContent=' — '+option.textContent;
+  if(units&&option){var value=option.getAttribute('data-units')||'';units.textContent=value?value+' units':'';units.hidden=!value}
+ }
+ if(updateUrl!==false&&window.history&&window.URL){var url=new URL(window.location.href);url.searchParams.set('scheme',identifier);window.history.replaceState(null,'',url)}
+}
 function applyTableSettings(){
  var classes={term1:'hide-term-1',term2:'hide-term-2',prerequisites:'hide-enrolment',schedule:'hide-t1-schedule',schedule2:'hide-t2-schedule',minors:'hide-minors',unavailable:'hide-unavailable',scroll:'table-scroll-disabled'};
  var settings={};
@@ -286,6 +309,8 @@ function applyTableSettings(){
  localStorage.setItem('majorTableSettings',JSON.stringify(settings));
 }
 (function(){
+ var schemeSelect=document.getElementById('requirementSchemeSelect');
+ if(schemeSelect){var requested=new URLSearchParams(window.location.search).get('scheme')||schemeSelect.value;showRequirementScheme(requested,false);schemeSelect.addEventListener('change',function(){showRequirementScheme(this.value,true)})}
  var sidebar=document.querySelector('.sidebar'); if(!sidebar)return;
  var saved=localStorage.getItem('majorSidebarScroll'); if(saved!==null)sidebar.scrollTop=+saved;
  sidebar.addEventListener('scroll',function(){localStorage.setItem('majorSidebarScroll',sidebar.scrollTop)});
@@ -912,63 +937,186 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
             flat = " flat-additional" if block["title"].startswith("2nd Degree:") else ""
             return f'<section class="additional-requirements{flat}"><h2>{esc(block["title"])}{units}</h2>{description_box}<div class="subsections">{contents}</div>{block_notes}</section>'
 
-        requirement_blocks = data.get("additional_requirements", [])
-        after_section_2 = [block for block in requirement_blocks if block.get("placement") == "after_section_2"]
-        before_notes = [block for block in requirement_blocks if block.get("placement", "before_notes") == "before_notes"]
-        after_notes = [block for block in requirement_blocks if block.get("placement") == "after_notes"]
-        sections_html = []
-        for section in data.get("sections", []):
-            marker = f'<span class="section-marker">{esc(section.get("marker"))}</span>' if section.get("marker") else ""
-            units = unit_tag(section.get("units"))
-            title = esc(section.get("title"))
-            text_parts = [f'<p>{linked_text(text)}</p>' for text in section.get("text", [])]
-            section_box = f'<h2>{marker}{title}{units}</h2>'
-            if text_parts:
-                section_box += f'<div class="section">{"".join(text_parts)}</div>'
-            section_box += course_details(section.get("codes", []), course_index)
-            subsections = [render_subsection(subsection, course_index) for subsection in section.get("subsections", [])]
-            if subsections:
-                section_box += f'<div class="subsections">{"".join(subsections)}</div>'
-            sections_html.append(section_box)
-            if section.get("marker") == "2." and data.get("recommended_course_pattern"):
-                sections_html.append(render_course_pattern(data["recommended_course_pattern"]))
-            if section.get("marker") == "2.":
-                sections_html.extend(render_additional_block(block) for block in after_section_2)
+        def render_requirement_part(part, show_part_title=False):
+            requirement_blocks = part.get("additional_requirements", [])
+            after_section_2 = [
+                block for block in requirement_blocks
+                if block.get("placement") == "after_section_2"
+            ]
+            before_notes = [
+                block for block in requirement_blocks
+                if block.get("placement", "before_notes") == "before_notes"
+            ]
+            after_notes = [
+                block for block in requirement_blocks
+                if block.get("placement") == "after_notes"
+            ]
+            sections_html = []
+            for section in part.get("sections", []):
+                marker = f'<span class="section-marker">{esc(section.get("marker"))}</span>' if section.get("marker") else ""
+                units = unit_tag(section.get("units"))
+                title = esc(section.get("title"))
+                text_parts = [f'<p>{linked_text(text)}</p>' for text in section.get("text", [])]
+                section_box = f'<h2>{marker}{title}{units}</h2>'
+                if text_parts:
+                    section_box += f'<div class="section">{"".join(text_parts)}</div>'
+                section_box += course_details(section.get("codes", []), course_index)
+                subsections = [
+                    render_subsection(subsection, course_index)
+                    for subsection in section.get("subsections", [])
+                ]
+                if subsections:
+                    section_box += f'<div class="subsections">{"".join(subsections)}</div>'
+                sections_html.append(section_box)
+                if section.get("marker") == "2.":
+                    sections_html.extend(
+                        render_additional_block(block) for block in after_section_2
+                    )
 
-        notes = ""
-        if data.get("notes"):
-            note_rows = [render_note(note, course_index) for note in data["notes"]]
-            notes = f'<h2>Explanatory Notes</h2><div class="notes-section">{"".join(note_rows)}</div>'
+            notes = ""
+            if part.get("notes"):
+                note_rows = [render_note(note, course_index) for note in part["notes"]]
+                notes = f'<h2>Explanatory Notes</h2><div class="notes-section">{"".join(note_rows)}</div>'
 
-        programme_description = data.get("description") or "Students are required to complete the following programme requirements."
-        description_lines = data.get("description_lines") or [programme_description]
-        description = "".join(
-            f'<h2 class="description-heading">{esc(line)}</h2>'
-            if line in {"Pre-clinical Programme", "Clinical Programme"}
-            else f'<p>{linked_text(line)}</p>'
-            for line in description_lines
+            programme_description = part.get("description") or "Students are required to complete the following programme requirements."
+            description_lines = part.get("description_lines") or [programme_description]
+            description = "".join(
+                f'<h2 class="description-heading">{esc(line)}</h2>'
+                if line in {"Pre-clinical Programme", "Clinical Programme"}
+                else f'<p>{linked_text(line)}</p>'
+                for line in description_lines
+            )
+            part_title = ""
+            if show_part_title:
+                label = part.get("title") or "Degree Requirement"
+                part_title = (
+                    f'<div class="degree-part"><h3 class="degree-part-title">'
+                    f'{esc(label)}{unit_tag(part.get("total_units"))}</h3></div>'
+                )
+            requirement_title = f'<h2>{esc(part.get("requirement_title"))}</h2>' if part.get("requirement_title") else ""
+            intro_sections = "".join(
+                f'<h2>{esc(item.get("title"))}</h2><div class="section">'
+                + "".join(f'<p>{linked_text(line)}</p>' for line in item.get("text", []))
+                + '</div>'
+                for item in part.get("intro_sections", [])
+            )
+            supplementary_notes = []
+            for block in part.get("supplementary_note_sections", []):
+                copy = "".join(
+                    f'<div class="section"><p>{linked_text(text)}</p></div>'
+                    for text in block.get("text", [])
+                )
+                children = "".join(
+                    render_subsection(item, course_index)
+                    for item in block.get("subsections", [])
+                )
+                block_notes = ""
+                if block.get("notes"):
+                    block_notes = (
+                        '<div class="notes-section">'
+                        + "".join(render_note(note, course_index) for note in block["notes"])
+                        + '</div>'
+                    )
+                supplementary_notes.append(
+                    f'<h2>{esc(block["title"])}</h2>{copy}'
+                    f'<div class="subsections">{children}</div>{block_notes}'
+                )
+            return (
+                part_title
+                + requirement_title
+                + f'<div class="section">{description}</div>'
+                + intro_sections
+                + "".join(sections_html)
+                + "".join(render_additional_block(block) for block in before_notes)
+                + notes
+                + "".join(render_additional_block(block) for block in after_notes)
+                + "".join(supplementary_notes)
+            )
+
+        schemes = data.get("requirement_schemes") or [{
+            "id": "standard-requirement",
+            "kind": "standard",
+            "title": "Standard Requirement",
+            "default": True,
+            "parts": [data],
+        }]
+        default_scheme = next(
+            (scheme for scheme in schemes if scheme.get("kind") == "standard"),
+            next((scheme for scheme in schemes if scheme.get("default")), schemes[0]),
         )
-        total = f' &middot; {esc(data.get("total_units"))} units' if data.get("total_units") else ""
+        multiple_schemes = len(schemes) > 1
+        scheme_picker = ""
+        if multiple_schemes:
+            option_groups = []
+            group_labels = {
+                "standard": "Standard",
+                "senior_entry": "Senior Entry",
+                "stream": "Streams",
+                "double_major": "Double Major",
+                "double_degree": "Double Degree",
+                "other": "Other",
+            }
+            for kind in ("standard", "senior_entry", "stream", "double_major", "double_degree", "other"):
+                choices = [scheme for scheme in schemes if scheme.get("kind") == kind]
+                if not choices:
+                    continue
+                options = "".join(
+                    f'<option value="{esc(scheme["id"])}"'
+                    f' data-units="{esc(scheme.get("parts", [{}])[0].get("total_units", "") if len(scheme.get("parts", [])) == 1 else "")}"'
+                    f'{" selected" if scheme is default_scheme else ""}>'
+                    f'{esc(scheme["title"])}</option>'
+                    for scheme in choices
+                )
+                option_groups.append(
+                    f'<optgroup label="{esc(group_labels[kind])}">{options}</optgroup>'
+                )
+            scheme_picker = (
+                '<div class="requirement-scheme-picker">'
+                '<label for="requirementSchemeSelect">Requirement scheme</label>'
+                '<select id="requirementSchemeSelect">'
+                + "".join(option_groups)
+                + '</select></div>'
+            )
+
+        scheme_panels = []
+        for scheme in schemes:
+            parts = scheme.get("parts", [])
+            contents = "".join(
+                render_requirement_part(part, show_part_title=len(parts) > 1)
+                for part in parts
+            )
+            hidden = "" if scheme is default_scheme else " hidden"
+            scheme_panels.append(
+                f'<section class="requirement-scheme" '
+                f'data-requirement-scheme="{esc(scheme["id"])}"{hidden}>'
+                f'{contents}</section>'
+            )
+        requirements_html = "".join(scheme_panels)
+        total = (
+            f' &middot; {esc(data.get("total_units"))} units'
+            if not multiple_schemes and data.get("total_units")
+            else ""
+        )
         affiliations = [str(value) for value in data.get("faculties", []) if value]
         faculty = ", ".join(affiliations) or str(data.get("faculty") or "CUHK")
-        requirement_title = f'<h2>{esc(data.get("requirement_title"))}</h2>' if data.get("requirement_title") else ""
         year_selector = detail_year_selector(year, data["source_file"], available_years)
-        top = f'''<div class="top-bar"><div class="bar-row"><button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open major navigation" aria-controls="majorSidebar" aria-expanded="false">☰</button><div class="breadcrumb"><a href="../index.html">CUHK Majors</a> / {esc(faculty)} / {esc(data["title"])}</div><div class="bar-controls">{year_selector}<button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="tableSettings" aria-expanded="false">&#9881; Settings</button></div></div>{nav(programmes, position)}</div><h1>{esc(data["title"])} &mdash; CUHK Major Requirements ({display_year})</h1><p class="admit-year">Faculty: {esc(faculty)} &middot; Admission code: {esc(data["admission_code"])}{total} &middot; For students admitted in {display_year}</p>{requirement_title}<div class="section">{description}</div>'''
-        supplementary_notes = []
-        for block in data.get("supplementary_note_sections", []):
-            copy = "".join(f'<div class="section"><p>{linked_text(text)}</p></div>' for text in block.get("text", []))
-            children = "".join(render_subsection(item, course_index) for item in block.get("subsections", []))
-            supplementary_notes.append(f'<h2>{esc(block["title"])}</h2>{copy}<div class="subsections">{children}</div>')
-        intro_sections = "".join(
-            f'<h2>{esc(item.get("title"))}</h2><div class="section">'
-            + "".join(f'<p>{linked_text(line)}</p>' for line in item.get("text", [])) + '</div>'
-            for item in data.get("intro_sections", [])
+        show_scheme_in_title = multiple_schemes or default_scheme.get("kind") != "standard"
+        active_scheme_title = (
+            f'<span id="activeRequirementSchemeTitle"> &mdash; {esc(default_scheme["title"])}</span>'
+            if show_scheme_in_title else ""
         )
-        full_body = (top + intro_sections + "".join(sections_html)
-                     + "".join(render_additional_block(block) for block in before_notes)
-                     + notes
-                     + "".join(render_additional_block(block) for block in after_notes)
-                     + "".join(supplementary_notes))
+        active_scheme_units = (
+            default_scheme.get("parts", [{}])[0].get("total_units", "")
+            if multiple_schemes and len(default_scheme.get("parts", [])) == 1 else ""
+        )
+        active_units_tag = (
+            f'<span id="activeRequirementSchemeUnits" class="unit-tag"'
+            f'{"" if active_scheme_units else " hidden"}>{esc(active_scheme_units)}'
+            f'{" units" if active_scheme_units else ""}</span>'
+            if multiple_schemes else ""
+        )
+        top = f'''<div class="top-bar"><div class="bar-row"><button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open major navigation" aria-controls="majorSidebar" aria-expanded="false">☰</button><div class="breadcrumb"><a href="../index.html">CUHK Majors</a> / {esc(faculty)} / {esc(data["title"])}</div><div class="bar-controls">{year_selector}<button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="tableSettings" aria-expanded="false">&#9881; Settings</button></div></div>{nav(programmes, position)}</div>{scheme_picker}<h1>{esc(data["title"])}{active_scheme_title} &mdash; CUHK Major Requirements ({display_year}){active_units_tag}</h1><p class="admit-year">Faculty: {esc(faculty)} &middot; Admission code: {esc(data["admission_code"])}{total} &middot; For students admitted in {display_year}</p>'''
+        full_body = top + requirements_html
         output = major_dir / f'{data["source_file"]}.html'
         canonical_path = f'/major/{year}/majors/{data["source_file"]}'
         page_title = f'{data["title"]} Requirements {display_year} | CUHK'

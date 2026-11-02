@@ -231,5 +231,462 @@
   "supplementary": [],
   "source_file": "B.A._in_Philosophy",
   "parse_status": "parsed",
-  "additional_requirements": []
+  "additional_requirements": [],
+  "requirement_schemes": [
+    {
+      "id": "standard-requirement",
+      "kind": "standard",
+      "title": "Standard Requirement",
+      "source_order": 0,
+      "default": true,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 63 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "63",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "PHIL1110* and any two courses from: ANTH1020, ARTS1009, 1010, BMBL1001, CHES1101 or 1102, CHLL1900 or 1902 or 1903, CURE1000 or 1400, 1110, ENGE1000, FAAS1900, HIST1000 or 1700 or 1701, JASP1090, LING1000, MUSC1000, THEO1000, TRAN1000"
+              ],
+              "codes": [
+                "PHIL 1110",
+                "ANTH 1020",
+                "ARTS 1009",
+                "ARTS 1010",
+                "BMBL 1001",
+                "CHES 1101",
+                "CHES 1102",
+                "CHLL 1900",
+                "CHLL 1902",
+                "CHLL 1903",
+                "CURE 1000",
+                "CURE 1400",
+                "CURE 1110",
+                "ENGE 1000",
+                "FAAS 1900",
+                "HIST 1000",
+                "HIST 1700",
+                "HIST 1701",
+                "JASP 1090",
+                "LING 1000",
+                "MUSC 1000",
+                "THEO 1000",
+                "TRAN 1000"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "30",
+              "text": [
+                "PHIL1110*, 1310, 2020, 2030, 2040, 2050, 2060, 3000, 3800, 3820, 4800 (Capstone course)"
+              ],
+              "codes": [
+                "PHIL 1110",
+                "PHIL 1310",
+                "PHIL 2020",
+                "PHIL 2030",
+                "PHIL 2040",
+                "PHIL 2050",
+                "PHIL 2060",
+                "PHIL 3000",
+                "PHIL 3800",
+                "PHIL 3820",
+                "PHIL 4800"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "24",
+              "text": [
+                "All Philosophy courses other than PHIL1110 and the 30 units of required courses listed in (2) are elective courses. Students are required to take at least 6 units each from Areas 1, 2 and 3. Final year students are allowed to take a maximum of 6 units of courses from Area 5."
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "Area 1: Chinese/Eastern Philosophy",
+                  "text": [
+                    "Take at least 6 units from this area."
+                  ],
+                  "codes": [
+                    "PHIL 2301",
+                    "PHIL 3111",
+                    "PHIL 3131",
+                    "PHIL 3141",
+                    "PHIL 3191",
+                    "PHIL 3211",
+                    "PHIL 3531",
+                    "PHIL 3541",
+                    "PHIL 3551",
+                    "PHIL 3561",
+                    "PHIL 4111",
+                    "PHIL 4131",
+                    "PHIL 4141",
+                    "PHIL 4361",
+                    "PHIL 4371",
+                    "PHIL 4381"
+                  ],
+                  "units": "min. 6",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 2: Western Philosophy",
+                  "text": [
+                    "Take at least 6 units from this area."
+                  ],
+                  "codes": [
+                    "PHIL 2202",
+                    "PHIL 2302",
+                    "PHIL 3152",
+                    "PHIL 3302",
+                    "PHIL 3312",
+                    "PHIL 3592",
+                    "PHIL 3652",
+                    "PHIL 3662",
+                    "PHIL 3672",
+                    "PHIL 4232",
+                    "PHIL 4242",
+                    "PHIL 4262",
+                    "PHIL 4272",
+                    "PHIL 4282",
+                    "PHIL 4292",
+                    "PHIL 4522",
+                    "PHIL 4532"
+                  ],
+                  "units": "min. 6",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 3: Philosophical Problems",
+                  "text": [
+                    "Take at least 6 units from this area."
+                  ],
+                  "codes": [
+                    "PHIL 1413",
+                    "PHIL 3233",
+                    "PHIL 3253",
+                    "PHIL 3263",
+                    "PHIL 3313",
+                    "PHIL 3333",
+                    "PHIL 3373",
+                    "PHIL 3383",
+                    "PHIL 3683",
+                    "PHIL 3693",
+                    "PHIL 3743",
+                    "PHIL 3803",
+                    "PHIL 3833",
+                    "PHIL 3843",
+                    "PHIL 4153",
+                    "PHIL 4183",
+                    "PHIL 4313",
+                    "PHIL 4323",
+                    "PHIL 4333",
+                    "PHIL 4413",
+                    "PHIL 4443"
+                  ],
+                  "units": "min. 6",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 4: Other Elective Courses",
+                  "text": [],
+                  "codes": [
+                    "PHIL 1210"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 5: Graduate Courses",
+                  "text": [
+                    "Final-year students may take up to 6 units from this area."
+                  ],
+                  "codes": [
+                    "PHIL 5070",
+                    "PHIL 5090",
+                    "PHIL 5110",
+                    "PHIL 5130",
+                    "PHIL 5150",
+                    "PHIL 5170",
+                    "PHIL 5180",
+                    "PHIL 5190",
+                    "PHIL 5310",
+                    "PHIL 5320",
+                    "PHIL 5330",
+                    "PHIL 5340",
+                    "PHIL 5350",
+                    "PHIL 5360",
+                    "PHIL 5370"
+                  ],
+                  "units": "max. 6",
+                  "marker": "",
+                  "subsections": []
+                }
+              ],
+              "excluded_codes": [
+                "PHIL 1110"
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "*",
+              "text": "PHIL1110 counted as Faculty package units only.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "1.",
+              "text": "PHIL courses at 2000 and above level will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Students should obtain Grade “C-” or above in each of the courses of PHIL1110 and 1310. Otherwise, they are required to repeat the course(s). The repeat of the course(s) will not, however, affect the normal sequence of students’ selection of courses. Students who cannot meet the Grade “C-” requirement in any one of the courses mentioned above after two attempts will be required to withdraw from the University.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "3.",
+              "text": "Exemption of units may be granted to students given permission to take two minor programmes. The Department will consider each application on a case-by-case basis.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "senior-entry-requirement-for-associate-degree-or-higher-diploma-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Associate Degree or Higher Diploma holders admitted to senior-year places",
+      "source_order": 1,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 54 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "54",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "3",
+              "text": [
+                "PHIL1110*"
+              ],
+              "codes": [
+                "PHIL 1110"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "24",
+              "text": [
+                "PHIL1110*, 1310, 2020, 2030, 2040, 2050, 4800 and two courses from PHIL3000, 3800, 3820"
+              ],
+              "codes": [
+                "PHIL 1110",
+                "PHIL 1310",
+                "PHIL 2020",
+                "PHIL 2030",
+                "PHIL 2040",
+                "PHIL 2050",
+                "PHIL 4800",
+                "PHIL 3000",
+                "PHIL 3800",
+                "PHIL 3820"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "27",
+              "text": [
+                "All Philosophy courses (including PHIL3000/3800/3820 not taken to fulfill requirement (2) above) on the course list other than the 27 units of required courses listed in (1) and (2) are elective courses. Students are required to take at least 3 units each from Areas 1, 2 and 3. Final year students are allowed to take a maximum of 6 units of courses from Area 5."
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "Area 1: Chinese/Eastern Philosophy",
+                  "text": [
+                    "Take at least 3 units from this area."
+                  ],
+                  "codes": [
+                    "PHIL 2301",
+                    "PHIL 3111",
+                    "PHIL 3131",
+                    "PHIL 3141",
+                    "PHIL 3191",
+                    "PHIL 3211",
+                    "PHIL 3531",
+                    "PHIL 3541",
+                    "PHIL 3551",
+                    "PHIL 3561",
+                    "PHIL 4111",
+                    "PHIL 4131",
+                    "PHIL 4141",
+                    "PHIL 4361",
+                    "PHIL 4371",
+                    "PHIL 4381"
+                  ],
+                  "units": "min. 3",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 2: Western Philosophy",
+                  "text": [
+                    "Take at least 3 units from this area."
+                  ],
+                  "codes": [
+                    "PHIL 2202",
+                    "PHIL 2302",
+                    "PHIL 3152",
+                    "PHIL 3302",
+                    "PHIL 3312",
+                    "PHIL 3592",
+                    "PHIL 3652",
+                    "PHIL 3662",
+                    "PHIL 3672",
+                    "PHIL 4232",
+                    "PHIL 4242",
+                    "PHIL 4262",
+                    "PHIL 4272",
+                    "PHIL 4282",
+                    "PHIL 4292",
+                    "PHIL 4522",
+                    "PHIL 4532"
+                  ],
+                  "units": "min. 3",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 3: Philosophical Problems",
+                  "text": [
+                    "Take at least 3 units from this area."
+                  ],
+                  "codes": [
+                    "PHIL 1413",
+                    "PHIL 3233",
+                    "PHIL 3253",
+                    "PHIL 3263",
+                    "PHIL 3313",
+                    "PHIL 3333",
+                    "PHIL 3373",
+                    "PHIL 3383",
+                    "PHIL 3683",
+                    "PHIL 3693",
+                    "PHIL 3743",
+                    "PHIL 3803",
+                    "PHIL 3833",
+                    "PHIL 3843",
+                    "PHIL 4153",
+                    "PHIL 4183",
+                    "PHIL 4313",
+                    "PHIL 4323",
+                    "PHIL 4333",
+                    "PHIL 4413",
+                    "PHIL 4443"
+                  ],
+                  "units": "min. 3",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 4: Other Elective Courses",
+                  "text": [],
+                  "codes": [
+                    "PHIL 1210",
+                    "PHIL 2060"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 5: Graduate Courses",
+                  "text": [
+                    "Final-year students may take up to 6 units from this area."
+                  ],
+                  "codes": [
+                    "PHIL 5070",
+                    "PHIL 5090",
+                    "PHIL 5110",
+                    "PHIL 5130",
+                    "PHIL 5150",
+                    "PHIL 5170",
+                    "PHIL 5180",
+                    "PHIL 5190",
+                    "PHIL 5310",
+                    "PHIL 5320",
+                    "PHIL 5330",
+                    "PHIL 5340",
+                    "PHIL 5350",
+                    "PHIL 5360",
+                    "PHIL 5370"
+                  ],
+                  "units": "max. 6",
+                  "marker": "",
+                  "subsections": []
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "*",
+              "text": "Units of PHIL1110 counted as Faculty package units only.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "1.",
+              "text": "PHIL courses at 2000 and above level will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Students are recommended to take PHIL1110, 1310, 2020, 2030, 2040 and 2050 in their first year of attendance.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "3.",
+              "text": "Students should obtain Grade “C-” or above in each of the courses of PHIL1110 and 1310. Otherwise, they are required to repeat the courses. The repeat of these courses will not, however, affect the normal sequence of students’ selection of courses. Students who cannot meet the Grade “C-” requirement in any one of the courses mentioned above after two attempts will be required to withdraw from the University.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    }
+  ]
 }

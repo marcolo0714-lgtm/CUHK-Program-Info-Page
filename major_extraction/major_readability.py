@@ -45,7 +45,14 @@ def source_areas(path, extract):
                 areas.append(current)
             elif current is not None and re.match(r"^[A-Z]{4}\s*\d{4}", nonempty[0]):
                 current["codes"].extend(extract(nonempty[0]))
-    return areas
+    if areas:
+        return areas
+    # The compact extraction file contains requirement boxes only in recent
+    # years; the complete course-area catalogue remains in full_pages/.
+    full_page = path.parent / "full_pages" / path.name
+    if path.parent.name != "full_pages" and full_page.exists():
+        return source_areas(full_page, extract)
+    return []
 
 
 def explicit_exclusions(text, extract):
@@ -58,7 +65,10 @@ def explicit_exclusions(text, extract):
 
 
 def split_english(data, extract):
-    section = data["sections"][2]
+    section = next((section for section in data.get("sections", [])
+                    if "Creative Writing in English" in clean(" ".join(section.get("text", [])))), None)
+    if not section:
+        return
     text = " ".join(section["text"])
     match = re.fullmatch(r"(.*?) Stream (.*?) Creative Writing in English Required Courses:\s*(.*?) Elective Courses:\s*(.*)", text)
     if not match:
@@ -73,7 +83,16 @@ def split_english(data, extract):
 
 
 def split_fine_arts(data, extract):
-    section = data["sections"][2]
+    section = next((section for section in data.get("sections", [])
+                    if section.get("title", "").startswith("Elective Courses")
+                    and "Art History Stream" in clean(" ".join(
+                        [*section.get("text", []), *(
+                            part for child in section.get("subsections", [])
+                            for part in [child.get("title", ""), *child.get("text", [])]
+                        )]
+                    ))), None)
+    if not section:
+        return
     source_rows = list(section.get("text", []))
     for child in section.get("subsections", []):
         source_rows.append(clean(" ".join([child.get("title", ""), *child.get("text", [])])))
@@ -92,12 +111,17 @@ def split_fine_arts(data, extract):
         children = []
         for i, heading in enumerate(headings):
             end = headings[i + 1].start() if i + 1 < len(headings) else len(rest)
-            content = rest[heading.end():end].strip()
+            content = rest[heading.end():end].strip(" :")
             # The two Art History minima are distinct lists, not one union.
             chunks = [chunk.strip() for chunk in re.split(r"(?=At least \d+ units)", content) if chunk.strip()]
             if len(chunks) > 1:
-                child = group(heading.group(), children=[group("", [chunk], extract(chunk),
-                    re.search(r"At least (\d+) units", chunk).group(1)) for chunk in chunks])
+                child = group(heading.group(), children=[group(
+                    "",
+                    [chunk],
+                    extract(chunk),
+                    (re.search(r"At least (\d+) units", chunk).group(1)
+                     if re.search(r"At least (\d+) units", chunk) else ""),
+                ) for chunk in chunks])
             else:
                 units = re.search(r"At least (\d+) units", content)
                 child = group(heading.group(), [content], extract(content), units.group(1) if units else ("18" if "18 units from each" in intro else ""))
@@ -107,8 +131,15 @@ def split_fine_arts(data, extract):
         section["text"], section["codes"], section["subsections"] = [], [], streams
 
 
-def refine_fine_arts(data, extract):
+def format_fine_arts_description(data):
+    """Give every Fine Arts scheme the same readable six-line introduction."""
     description = data.get("description", "").replace("Major Programme Requirement ", "", 1)
+    description = re.sub(
+        r"^\(for (?:Associate Degree|Higher Diploma) holders admitted to senior-year places\)\s*",
+        "",
+        description,
+        flags=re.IGNORECASE,
+    )
     match = re.match(
         r"(Studies in Fine Arts are divided into THREE main streams:)\s*"
         r"\(1\)\s*(.*?);\s*\(2\)\s*(.*?);\s*and\s*\(3\)\s*(.*?)\.\s*(Students must.*?attendance\.)\s*(Students are required.*)$",
@@ -119,7 +150,14 @@ def refine_fine_arts(data, extract):
             match.group(1), f"(1) {match.group(2)}", f"(2) {match.group(3)}",
             f"(3) {match.group(4)}.", match.group(5), match.group(6),
         ]
-        data["description_lines"] = [line.replace("�", "—") for line in data["description_lines"]]
+        data["description_lines"] = [
+            re.sub(r"\s*([–—])\s*", r" \1 ", line.replace("�", "—"))
+            for line in data["description_lines"]
+        ]
+
+
+def refine_fine_arts(data, extract):
+    format_fine_arts_description(data)
     required = data["sections"][1]
     groups = required.get("subsections", [])
     if len(groups) == 2 and len(groups[1].get("text", [])) > 1:
@@ -131,21 +169,428 @@ def refine_fine_arts(data, extract):
             groups.append(group("Art History and Studio Art Stream[c]", [text], extract(text)))
 
 
+def structure_fine_arts_required_streams(data, extract):
+    """Recover the three peer stream headings in senior-entry requirements."""
+    required = next((section for section in data.get("sections", [])
+                     if section.get("title", "").startswith("Required Courses")), None)
+    if not required:
+        return
+    combined = clean(" ".join(
+        part for item in required.get("subsections", [])
+        for part in [item.get("title", ""), *item.get("text", [])] if part
+    ))
+    pattern = re.compile(
+        r"(?:^|(?<=\s))(Art History and Studio Art Stream|Art History Stream|Studio Art Stream)"
+        r"(?:\[[a-z]\])?(?=\s|$)"
+    )
+    matches = list(pattern.finditer(combined))
+    if len(matches) != 3:
+        return
+    streams = []
+    for position, match in enumerate(matches):
+        stop = matches[position + 1].start() if position + 1 < len(matches) else len(combined)
+        body = combined[match.end():stop].strip()
+        body = re.sub(r"^(?:\([a-z]\)\s*)+", "", body, flags=re.IGNORECASE)
+        streams.append(group(match.group(1), [body] if body else [], extract(body), required.get("units", "")))
+    required["text"], required["codes"], required["subsections"] = [], [], streams
+
+
+def promote_instruction_heading(data):
+    """Promote a leading unlabelled alternative instruction to a visible heading."""
+    if data.get("source_file") != "B.A._in_Anthropology":
+        return
+    for section in data.get("sections", []):
+        children = section.get("subsections", [])
+        if not children:
+            continue
+        first = children[0]
+        if (not first.get("title") and not first.get("marker") and first.get("text")
+                and not first.get("codes") and any(child.get("marker") for child in children[1:])):
+            first["title"] = first["text"].pop(0)
+            first["keep_heading"] = True
+
+
+MAJOR_LABEL_RE = re.compile(r"\b([12](?:st|nd))\s+Major\s*:\s*", re.IGNORECASE)
+
+
+def split_major_label(value):
+    """Return a double-major heading and its following prose."""
+    match = MAJOR_LABEL_RE.search(value)
+    if not match:
+        return None
+    ordinal = match.group(1).lower()
+    rest = value[match.end():].strip()
+    next_label = MAJOR_LABEL_RE.search(rest)
+    if next_label:
+        rest = rest[:next_label.start()].strip()
+    boundary = re.search(
+        r"\s+(?=(?:[A-Z]{4}\s*\d{4}|Students?\b|At least\b|Any\b|\d+\s+units?\b))",
+        rest,
+    )
+    name = rest[:boundary.start()].strip() if boundary else rest
+    body = rest[boundary.end():].strip() if boundary else ""
+    return ordinal, f"{match.group(1)} Major: {name}", body
+
+
+def _partition_major_text(rows, extract):
+    leading = []
+    majors = []
+    current = None
+    for row in rows:
+        starts = list(MAJOR_LABEL_RE.finditer(row))
+        if not starts:
+            (current["text"] if current else leading).append(row)
+            continue
+        prefix = row[:starts[0].start()].strip()
+        if prefix:
+            (current["text"] if current else leading).append(prefix)
+        for position, start in enumerate(starts):
+            stop = starts[position + 1].start() if position + 1 < len(starts) else len(row)
+            parsed = split_major_label(row[start.start():stop])
+            if not parsed:
+                continue
+            _, title, body = parsed
+            current = group(title, [body] if body else [])
+            current["keep_heading"] = True
+            majors.append(current)
+    for major in majors:
+        major["codes"] = extract(" ".join(major["text"]))
+    return leading, majors
+
+
+def _strip_embedded_second_major(item):
+    """Remove a trailing 2nd Major label while preserving content before it."""
+    value = str(item.get("title", ""))
+    match = re.search(r"\b2nd\s+Major\s*:\s*", value, re.IGNORECASE)
+    if match:
+        parsed = split_major_label(value[match.start():])
+        item["title"] = value[:match.start()].strip()
+        return parsed
+    rebuilt = []
+    for value in item.get("text", []):
+        match = re.search(r"\b2nd\s+Major\s*:\s*", value, re.IGNORECASE)
+        if not match:
+            rebuilt.append(value)
+            continue
+        before = value[:match.start()].strip()
+        if before:
+            rebuilt.append(before)
+        item["text"] = rebuilt
+        return split_major_label(value[match.start():])
+    item["text"] = rebuilt
+    for child in item.get("subsections", []):
+        found = _strip_embedded_second_major(child)
+        if found:
+            return found
+    return None
+
+
+def _has_content(item):
+    return bool(item.get("title") or item.get("text") or item.get("codes") or item.get("subsections"))
+
+
+def structure_double_major_headings(data, extract):
+    """Make 1st/2nd Major labels peer headings throughout alternate schemes."""
+    for section in data.get("sections", []):
+        children = section.get("subsections", [])
+
+        # Some source tables already produce peer groups, but leave an
+        # instruction attached to the heading itself.
+        for child in children:
+            parsed = split_major_label(str(child.get("title", "")))
+            if parsed and MAJOR_LABEL_RE.match(str(child.get("title", ""))):
+                _, title, body = parsed
+                child["title"] = title
+                if body:
+                    child["text"] = [body, *child.get("text", [])]
+                child["keep_heading"] = True
+
+        if children and re.match(r"^1st\s+Major\s*:", str(children[0].get("title", "")), re.IGNORECASE):
+            second = _strip_embedded_second_major(children[0])
+            if second:
+                _, second_title, second_body = second
+                children[0]["marker"] = ""
+                second_group = group(
+                    second_title,
+                    [second_body] if second_body else [],
+                    extract(second_body),
+                    children=children[1:],
+                )
+                children[0]["keep_heading"] = second_group["keep_heading"] = True
+                section["subsections"] = children = [children[0], second_group]
+
+        leading, text_majors = _partition_major_text(section.get("text", []), extract)
+        if len(text_majors) >= 2 and not children:
+            section["text"], section["codes"], section["subsections"] = leading, [], text_majors
+            continue
+
+        # Arts double-major tables commonly put the first label in the
+        # section row and the second label at the end of the first major's
+        # final nested course row.
+        if len(text_majors) == 1 and children:
+            split_at = None
+            second = None
+            for position, child in enumerate(children):
+                second = _strip_embedded_second_major(child)
+                if second:
+                    split_at = position
+                    break
+            if second and split_at is not None:
+                first = text_majors[0]
+                first["subsections"] = [child for child in children[:split_at + 1] if _has_content(child)]
+                _, second_title, second_body = second
+                second_group = group(
+                    second_title,
+                    [second_body] if second_body else [],
+                    extract(second_body),
+                    children=children[split_at + 1:],
+                )
+                first["keep_heading"] = second_group["keep_heading"] = True
+                section["text"], section["codes"], section["subsections"] = leading, [], [first, second_group]
+                continue
+
+        # A few tables put both labels inside the first direct child. Their
+        # labels are still row boundaries, so later children belong to the
+        # second major.
+        if not text_majors and children:
+            first_child = children[0]
+            leading_child, child_majors = _partition_major_text(first_child.get("text", []), extract)
+            if len(child_majors) >= 2:
+                first, second = child_majors[:2]
+                first["text"] = [*leading_child, *first.get("text", [])]
+                first["codes"] = extract(" ".join(first["text"]))
+                second["subsections"] = children[1:]
+                section["text"], section["codes"], section["subsections"] = [], [], [first, second]
+
+
+def structure_translation_clusters(data, extract):
+    """Recover peer Translation elective-cluster headings from merged prose."""
+    labels = (
+        "Elective Cluster A: Translation Studies",
+        "Electives Cluster A: Translation Studies",
+        "Elective Cluster B: Interpreting",
+        "Electives Cluster B: Interpreting",
+        "Elective Cluster C: Literary Translation",
+        "Electives Cluster C: Literary Translation",
+        "Other electives",
+        "Other Electives",
+    )
+    label_re = re.compile("|".join(map(re.escape, labels)), re.IGNORECASE)
+    for item in walk(data.get("sections", [])):
+        rows = list(item.get("text", []))
+        combined = clean(" ".join(rows))
+        matches = list(label_re.finditer(combined))
+        if len(matches) < 2 or item.get("subsections"):
+            continue
+        intro = combined[:matches[0].start()].strip()
+        clusters = []
+        for position, match in enumerate(matches):
+            stop = matches[position + 1].start() if position + 1 < len(matches) else len(combined)
+            body = combined[match.end():stop].strip(" :")
+            clusters.append(group(match.group(0), [body] if body else [], extract(body)))
+        item["text"] = [intro] if intro else []
+        item["codes"] = extract(intro)
+        item["subsections"] = clusters
+
+
+def structure_inline_named_course_groups(data, extract):
+    """Split inline non-language/language lists into visible course groups."""
+    pattern = re.compile(r"\(([ab])\)\s+(Non-language Courses|Language Courses)\s*:", re.IGNORECASE)
+    for item in walk(data.get("sections", [])):
+        if item.get("subsections"):
+            continue
+        combined = clean(" ".join(item.get("text", [])))
+        matches = list(pattern.finditer(combined))
+        if len(matches) != 2:
+            continue
+        intro = combined[:matches[0].start()].strip()
+        children = []
+        for position, match in enumerate(matches):
+            stop = matches[position + 1].start() if position + 1 < len(matches) else len(combined)
+            body = combined[match.end():stop].strip()
+            children.append(group(match.group(2), [body] if body else [], extract(body), marker=f"({match.group(1).lower()})"))
+        item["text"] = [intro] if intro else []
+        item["codes"] = extract(intro)
+        item["subsections"] = children
+
+
+def structure_chinese_speciality_categories(data, extract):
+    """Split merged Chinese speciality lists into the four published areas."""
+    names = {
+        "1": "Language and Linguistics",
+        "2": "Ancient Documents",
+        "3": "Classical Literature",
+        "4": "Modern Chinese Literature",
+    }
+    pattern = re.compile(
+        r"\(([1-4])\)\s+(Language and Linguistics|Ancient Documents|Classical Literature|Modern Chinese Literature)",
+        re.IGNORECASE,
+    )
+    for item in walk(data.get("sections", [])):
+        if item.get("title", "").lower() not in {"speciality courses", "specialty courses"}:
+            continue
+        children = item.get("subsections", [])
+        if len(children) != 1 or children[0].get("subsections"):
+            continue
+        source = clean(" ".join(children[0].get("text", [])))
+        if source.startswith("Language and Linguistics"):
+            source = "(1) " + source
+        matches = list(pattern.finditer(source))
+        if len(matches) != 4:
+            continue
+        rebuilt = []
+        for position, match in enumerate(matches):
+            stop = matches[position + 1].start() if position + 1 < len(matches) else len(source)
+            body = source[match.end():stop].strip(" :")
+            rebuilt.append(group(names[match.group(1)], [body] if body else [], extract(body), marker=f"({match.group(1)})"))
+        item["subsections"] = rebuilt
+
+
+def promote_nested_legacy_notes(data):
+    """Restore a standalone [ ] old-course-code footnote from nested rows."""
+    rebuilt = []
+    for note in data.get("notes", []):
+        promoted = []
+        retained = []
+        for row in note.get("rows", []):
+            if (len(row) >= 2 and re.sub(r"\s+", "", str(row[0])) == "[]"
+                    and "old course code" in str(row[1]).lower()):
+                promoted.append({"marker": "[ ]", "text": clean(" ".join(map(str, row[1:]))),
+                                 "subsections": [], "rows": []})
+            else:
+                retained.append(row)
+        note["rows"] = retained
+        rebuilt.append(note)
+        rebuilt.extend(promoted)
+    data["notes"] = rebuilt
+
+
+def _department_pool(index, subject):
+    return sorted(code for code in index if code.startswith(subject + " "))
+
+
+def add_broad_department_course_tables(data, index):
+    """Show the catalogue pool behind broad 'complete N units' rules."""
+    pattern = re.compile(
+        r"(?:complete|required to complete|take)\s+\d+\s+units?\s+(?:of\s+)?([A-Z]{4})\s+courses?",
+        re.IGNORECASE,
+    )
+    sections = data.get("sections", [])
+    for section in sections:
+        outside = {
+            code for other in sections if other is not section
+            for item in walk([other]) for code in item.get("codes", [])
+        }
+        for item in list(walk([section])):
+            prose = clean(" ".join([item.get("title", ""), *item.get("text", [])]))
+            match = pattern.search(prose)
+            if not match or re.search(r"from\s+\([a-z]\)|as listed below", prose, re.IGNORECASE):
+                continue
+            subject = match.group(1).upper()
+            if any(child.get("title", "").startswith(("Other Eligible", "Eligible "))
+                   for child in item.get("subsections", [])):
+                continue
+            explicit = {code for nested in walk([item]) for code in nested.get("codes", [])}
+            eligible = [code for code in _department_pool(index, subject)
+                        if code not in outside and code not in explicit]
+            if not eligible:
+                continue
+            item.setdefault("subsections", []).append(group(
+                f"Other Eligible {subject} Courses",
+                [f"Other {subject} courses may be used to complete this requirement; the stated minimum course rules still apply."],
+                eligible,
+            ))
+
+
+def structure_history_streams(data, index, extract, source_text=""):
+    """Recover the two senior-entry History streams and their course pools."""
+    if data.get("source_file") != "B.A._in_History":
+        return
+    section = next((item for item in data.get("sections", [])
+                    if item.get("title", "").startswith("Streams:")), None)
+    if not section:
+        return
+    children = section.get("subsections", [])
+    history_at = next((i for i, item in enumerate(children) if item.get("title") == "History Stream"), None)
+    public_at = next((i for i, item in enumerate(children) if item.get("title") == "Public History Stream"), None)
+    if history_at is None or public_at is None:
+        return
+
+    intro = section["title"].partition(":")[2].strip()
+    section["title"] = "Streams"
+    section["text"] = [intro] if intro else []
+
+    history_rule = deepcopy(children[history_at + 1])
+    history_title = history_rule.get("title", "")
+    if ":" in history_title:
+        label, instruction = history_title.split(":", 1)
+        history_rule["title"] = label
+        history_rule["text"] = [instruction.strip(), *history_rule.get("text", [])]
+    history_rule["marker"] = ""
+
+    public_rule = deepcopy(children[public_at + 1])
+    public_match = re.search(
+        r"Public History Stream\s+Required Course\s*:\s*(.*?)\s+Elective Courses(?:\[a\])?\s*:\s*(.*?)\s+\(i\)",
+        source_text,
+        re.IGNORECASE,
+    )
+    required_text = public_match.group(1).strip() if public_match else "HIST1700, 1701"
+    elective_text = public_match.group(2).strip() if public_match else "Complete 42 units of HIST courses, with:"
+    public_required = group("Required Course", [required_text], extract(required_text))
+    public_elective = group(
+        "Elective Courses[a]",
+        [elective_text],
+        units="42",
+        children=deepcopy(public_rule.get("subsections", [])),
+    )
+
+    section["codes"] = []
+    section["subsections"] = [
+        group("History Stream", units="48", children=[history_rule]),
+        group("Public History Stream", units="48", children=[public_required, public_elective]),
+    ]
+    add_broad_department_course_tables(data, index)
+
+
 def refine_anthropology_notes(data):
+    if any(
+        not note.get("marker") and not note.get("text")
+        and any(item.get("title") == "Voluntary Concentrations" for item in note.get("subsections", []))
+        for note in data.get("notes", [])
+    ):
+        return
     for note in data.get("notes", []):
         concentrations = [item for item in note.get("subsections", []) if item.get("title") == "Voluntary Concentrations"]
         if concentrations:
             heading = concentrations[0]
-            note["subsections"] = [item for item in note["subsections"] if item is not heading and item not in heading.get("subsections", [])]
-            data["supplementary_note_sections"] = [{
-                "title": "Voluntary Concentrations",
-                "text": heading.get("text", []),
-                "subsections": [item for item in note.get("subsections", []) if re.fullmatch(r"\([ivxlcdm]+\)", item.get("marker", ""), re.I)],
-            }]
-            for item in data["supplementary_note_sections"][0]["subsections"]:
+            roman = [
+                item for item in note.get("subsections", [])
+                if re.fullmatch(r"\([ivxlcdm]+\)", item.get("marker", ""), re.I)
+            ]
+            children = list(heading.get("subsections", [])) or roman
+            note["subsections"] = [
+                item for item in note.get("subsections", [])
+                if item is not heading and item not in children and item not in roman
+            ]
+            concentration_heading = group(
+                "Voluntary Concentrations",
+                heading.get("text", []),
+                children=children,
+            )
+            concentration_heading["keep_heading"] = True
+            for item in concentration_heading["subsections"]:
                 if item.get("codes"):
                     item["text"] = [", ".join(code.replace(" ", "") for code in item["codes"])]
-            note["subsections"] = [item for item in note["subsections"] if not re.fullmatch(r"\([ivxlcdm]+\)", item.get("marker", ""), re.I)]
+            data.setdefault("notes", []).append({
+                "marker": "",
+                "text": "",
+                "subsections": [concentration_heading],
+                "rows": [],
+            })
+            data["supplementary_note_sections"] = [
+                block for block in data.get("supplementary_note_sections", [])
+                if block.get("title") != "Voluntary Concentrations"
+            ]
             return
 
 
@@ -315,11 +760,9 @@ def refine_theology(data, areas):
 
 
 def repair_integrated_bba_concentrations(data):
-    if data["source_file"] not in {
-        "B.B.A._-_Integrated_BBA_Programme",
-        "B.B.A._(Integrated_BBA_Programme)_and_Juris_Doctor",
-    }:
-        return
+    # Detect the published concentration section by its contents rather than
+    # by the outer programme filename.  The same Integrated BBA requirement is
+    # embedded as the second degree of several double-degree programmes.
     section = next((item for item in data["sections"] if "Elective Courses (Concentration)" in item["title"]), None)
     if not section:
         return
@@ -405,6 +848,9 @@ def separate_second_degree(data):
     for block in data.get("additional_requirements", []):
         if block["title"] == "2nd Degree: Juris Doctor":
             block["description"] = re.sub(r"^Programme Requirement\s*", "", block.get("description", ""))
+            if block.get("total_units"):
+                first_degree = str(data.get("total_units", ""))
+                data["total_units"] = f"{first_degree} + {block['total_units']}" if first_degree else block["total_units"]
 
 
 def split_merged_english_education_notes(data):
@@ -430,6 +876,11 @@ def structure_inline_note_points(data):
     """Turn merged i)/ii) note prose into the same nested layout as CS notes."""
     point_pattern = re.compile(r"(?<![A-Za-z])(?:\(([ivxlcdm]+)\)|([ivxlcdm]+)\))\s*", re.IGNORECASE)
     for note in data.get("notes", []):
+        for point in note.get("subsections", []):
+            if point.get("title", "").startswith("Other admittees except those specified above"):
+                point["text"] = [clean(" ".join([point["title"], *point.get("text", [])]))]
+                point["title"] = ""
+                point["heading_as_text"] = True
         text = note.get("text", "")
         matches = list(point_pattern.finditer(text))
         if not matches:
@@ -1428,10 +1879,6 @@ def _group_area_tables(data):
         ):
             _collapse_labelled_course_children(item)
 
-    if data["source_file"] == "B.A._in_Public_Humanities":
-        elective = data["sections"][2]
-        standard = elective.get("subsections", [])
-        concentrations = next((x for x in standard if x.get("title") == "Concentrations"), None)
     # Religious Studies and Public Humanities deliberately repeat their area
     # catalogues in each applicable option.  Removing duplicate tables made
     # those options incomplete when read independently.
@@ -1552,8 +1999,20 @@ def _merge_accountancy_streams(data):
     if data["source_file"] != "B.B.A._in_Professional_Accountancy":
         return
     required, elective = data["sections"][1], data["sections"][2]
-    required["subsections"] = [group("Students not in the Global Accounting Stream", units=required.get("units"),
-                                      children=deepcopy(required.get("subsections", [])))]
+    original_required = deepcopy(required)
+    has_required_variant = any(
+        any(section.get("marker") == "2." for section in block.get("sections", []))
+        for block in data.get("additional_requirements", [])
+        if block.get("title", "").endswith("Stream")
+    )
+    if has_required_variant:
+        required["text"], required["codes"] = [], []
+        required["subsections"] = [group(
+            "Students not in the Global Accounting Stream",
+            original_required.get("text", []), original_required.get("codes", []),
+            original_required.get("units"),
+            children=deepcopy(original_required.get("subsections", [])),
+        )]
     elective_options = [group("Without Stream", elective.get("text", []), elective.get("codes", []), elective.get("units"), children=deepcopy(elective.get("subsections", [])))]
     for block in list(data.get("additional_requirements", [])):
         if not block.get("title", "").endswith("Stream"):
@@ -1565,9 +2024,22 @@ def _merge_accountancy_streams(data):
         if elec:
             elective_options.append(group(block["title"], elec.get("text", []), elec.get("codes", []), elec.get("units"), children=deepcopy(elec.get("subsections", []))))
     elective["text"], elective["codes"], elective["subsections"] = [], [], elective_options
-    required["units"] = "51 or 54"
+    if has_required_variant:
+        required["units"] = " or ".join(dict.fromkeys(
+            child.get("units", "") for child in required.get("subsections", []) if child.get("units")
+        ))
     elective["title"] = "Elective Courses"
-    elective["units"] = "9 or 12"
+    elective["units"] = " or ".join(dict.fromkeys(
+        child.get("units", "") for child in elective_options if child.get("units")
+    ))
+    totals = [data.get("total_units", "")]
+    totals.extend(
+        block.get("total_units", "") for block in data.get("additional_requirements", [])
+        if block.get("title", "").endswith("Stream")
+    )
+    totals = [value for value in dict.fromkeys(totals) if value]
+    if totals:
+        data["total_units"] = " or ".join(totals)
     data["additional_requirements"] = [b for b in data.get("additional_requirements", [])
                                        if not b.get("title", "").endswith("Stream")]
 
@@ -1622,8 +2094,12 @@ def _engineering_note_repairs(data, extract):
         note = next((n for n in data.get("notes", []) if n.get("marker") == "[a]"), None)
         if note and len(note.get("subsections", [])) >= 3 and len(note.get("rows", [])) >= 5:
             rows = [clean(" ".join(row)) for row in note["rows"]]
-            note["subsections"][1].setdefault("text", []).extend(rows[:2])
-            note["subsections"][2].setdefault("text", []).extend(rows[2:5])
+            point_ii = next((item for item in note["subsections"] if item.get("marker") == "(ii)"), None)
+            point_iii = next((item for item in note["subsections"] if item.get("marker") == "(iii)"), None)
+            if point_ii:
+                point_ii.setdefault("text", []).extend(rows[:2])
+            if point_iii:
+                point_iii.setdefault("text", []).extend(rows[2:5])
             note["rows"] = note["rows"][5:]
     if stem == "B.Eng._in_Information_Engineering":
         for item in walk(data["sections"]):
@@ -2761,6 +3237,13 @@ def _cross_year_source_repairs(data, path, index, extract):
             extract,
         )
         cultural = source_areas(path.parent / "B.A._in_Cultural_Studies.html", extract)
+        if not cultural:
+            cultural = [
+                area for area in source_areas(
+                    path.parent / "B.A._in_Public_Humanities.html", extract
+                )
+                if area.get("title", "").startswith("Cultural Studies Area")
+            ]
         for item in walk(data.get("sections", [])):
             prose = clean(" ".join([item.get("title", ""), *item.get("text", [])]))
             outside_cultural = bool(re.search(
@@ -3090,3 +3573,718 @@ def improve_readability(data, path, index, extract):
             option_i.pop("heading_as_text", None)
     _post_clean_review_fixes(data, index, extract)
     _cross_year_source_repairs(data, path, index, extract)
+    _integrated_bba_variant_headings(data)
+    _nest_leading_instruction_choices(data)
+    _restore_course_expression_boxes(data)
+    _final_attached_review_fixes(data, index, extract)
+
+
+def _nest_leading_instruction_choices(data):
+    """Make a published choice instruction the parent of its alternatives."""
+    for section in data.get("sections", []):
+        children = section.get("subsections", [])
+        if len(children) < 2:
+            continue
+        first = children[0]
+        prose = clean(" ".join([first.get("title", ""), *first.get("text", [])]))
+        if (
+            not first.get("marker")
+            and re.match(r"Students? (?:must|(?:are )?required to) (?:choose|complete)", prose, re.I)
+            and any(child.get("marker") for child in children[1:])
+        ):
+            first["title"] = prose.rstrip(":")
+            first["text"] = []
+            first["subsections"] = children[1:]
+            first["keep_heading"] = True
+            section["subsections"] = [first]
+            children = section["subsections"]
+
+        choice_titles = {"Streams", "Streams of Specialization", "Concentration Area", "Concentration Areas"}
+        for position, heading in enumerate(list(children)):
+            if heading.get("title") not in choice_titles or heading.get("subsections"):
+                continue
+            alternatives = children[position + 1:]
+            if alternatives:
+                heading["subsections"] = alternatives
+                heading["keep_heading"] = True
+                del children[position + 1:]
+            break
+
+
+def _structure_japanese_senior_routes(data):
+    if data.get("source_file") != "B.A._in_Japanese_Studies":
+        return
+    elective = next((section for section in data.get("sections", []) if section.get("marker") == "3."), None)
+    if not elective:
+        return
+    children = elective.get("subsections", [])
+    if len(children) < 5 or not clean(" ".join(children[0].get("text", []))).startswith("Students may choose"):
+        return
+    with_index = next((
+        position for position, item in enumerate(children)
+        if "Students choosing a stream" in clean(" ".join([item.get("title", ""), *item.get("text", [])]))
+    ), None)
+    if with_index is None or with_index <= 1:
+        return
+    overview = children[0]
+    overview["title"] = overview["text"].pop(0)
+    overview["keep_heading"] = True
+    without = children[1]
+    without["title"] = "Without Stream"
+    without["keep_heading"] = True
+    without["subsections"] = children[2:with_index]
+    with_stream = children[with_index]
+    with_stream["title"] = "With Stream"
+    with_stream["keep_heading"] = True
+    with_stream["subsections"] = children[with_index + 1:]
+
+    # Word places the next roman-numbered stream heading inside the final
+    # requirement row of the preceding stream.  Recover those boundaries and
+    # restore the first heading, which is lost entirely by that export shape.
+    raw_requirements = with_stream["subsections"]
+    current = group("Business and Management", marker="(i)")
+    streams = [current]
+    for requirement in raw_requirements:
+        boundaries = [
+            child for child in requirement.get("subsections", [])
+            if re.fullmatch(r"\([ivxlcdm]+\)", child.get("marker", ""), re.IGNORECASE)
+        ]
+        requirement["subsections"] = [
+            child for child in requirement.get("subsections", []) if child not in boundaries
+        ]
+        current["subsections"].append(requirement)
+        for boundary in boundaries:
+            boundary["subsections"] = []
+            boundary["keep_heading"] = True
+            streams.append(boundary)
+            current = boundary
+    if [stream.get("marker") for stream in streams] == ["(i)", "(ii)", "(iii)"]:
+        with_stream["subsections"] = streams
+    overview["subsections"] = [without, with_stream]
+    elective["subsections"] = [overview]
+
+
+def repair_reviewed_variant_labels(data):
+    """Correct source labels that Word's merged unit/heading cells distort."""
+    stem = data.get("source_file")
+    if stem == "B.A._in_Chinese_Language_and_Literature":
+        for item in walk(data.get("sections", [])):
+            prose = clean(" ".join(item.get("text", [])))
+            if item.get("marker") == "(ii)" and re.search(r"complete 15 units", prose, re.I):
+                item["units"] = "15"
+
+    if stem == "B.A._in_Translation":
+        for item in walk(data.get("sections", [])):
+            if item.get("marker") == "(a)" and item.get("codes") == [
+                "TRAN 1010", "TRAN 1030", "TRAN 2070", "TRAN 2610"
+            ]:
+                item["units"] = ""
+
+    if stem == "B.A._in_Linguistics":
+        for item in walk(data.get("sections", [])):
+            if item.get("marker") != "(i)" or not item.get("text"):
+                continue
+            match = re.match(r"Core Linguistics\s+(.*)", clean(item["text"][0]), re.I)
+            if match:
+                item["title"] = "Core Linguistics"
+                item["text"][0] = match.group(1)
+                item.pop("heading_as_text", None)
+                item["keep_heading"] = True
+
+
+def _promote_first_text(item, *, clear_units=False):
+    """Turn a published leading instruction into the item's visible heading."""
+    if item.get("title") or not item.get("text"):
+        return False
+    item["title"] = clean(item["text"].pop(0)).rstrip(":")
+    item["keep_heading"] = True
+    if clear_units:
+        item["units"] = ""
+    return True
+
+
+def _compact_science_faculty_packages(data):
+    """Render Science Faculty Package groups as one source-like box and table."""
+    if data.get("faculty") != "Science":
+        return
+    candidates = list(data.get("sections", []))
+    candidates.extend(
+        section
+        for block in data.get("additional_requirements", [])
+        for section in block.get("sections", [])
+    )
+    for section in candidates:
+        if section.get("title") != "Faculty Package":
+            continue
+        group_count = sum(
+            bool(re.match(r"^Group\s+[A-Z]\b", item.get("title", ""), re.I))
+            for item in walk(section.get("subsections", []))
+        )
+        if group_count < 2:
+            continue
+        lines = list(section.get("text", []))
+        codes = list(section.get("codes", []))
+
+        def flatten(items):
+            for item in items:
+                title = clean(item.get("title", "")).rstrip(":")
+                body = clean(" ".join(item.get("text", [])))
+                if title:
+                    lines.append(f"{title}: {body}" if body else title)
+                elif body:
+                    lines.append(body)
+                codes.extend(item.get("codes", []))
+                flatten(item.get("subsections", []))
+
+        flatten(section.get("subsections", []))
+        section["text"] = list(dict.fromkeys(line for line in lines if clean(line)))
+        section["codes"] = list(dict.fromkeys(codes))
+        section["subsections"] = []
+        section.pop("course_groups", None)
+
+
+def _compact_subject_course_choices(data):
+    """Keep short Chemistry/Life Science/Physics choices in one compact box."""
+    for item in walk(data.get("sections", [])):
+        children = item.get("subsections", [])
+        if len(children) < 2:
+            continue
+        labels = [clean(child.get("title", "")) for child in children]
+        if not all(re.match(r"^(?:Chemistry|Life Science|Physics) Courses(?:\[[^]]+\])?$", label, re.I) for label in labels):
+            continue
+        lines = []
+        codes = []
+        for child in children:
+            body = clean(" ".join(child.get("text", [])))
+            lines.append(f"{clean(child.get('title', '')).rstrip(':')}: {body}".rstrip())
+            codes.extend(child.get("codes", []))
+        item["text"] = lines
+        item["codes"] = list(dict.fromkeys(codes))
+        item["subsections"] = []
+
+
+def _promote_reviewed_instruction_headings(data):
+    """Restore headings explicitly identified in the final page review."""
+    stem = data.get("source_file")
+    targets = {
+        "B.A._in_Theology": ("At least two courses at 2000 or above level",),
+        "B.Sc._in_Biochemistry": ("Of the 17 units of elective courses",),
+        "B.Sc._in_Biology": ("At least 5 units chosen from the following",),
+        "B.Sc._in_Chemistry": ("At least 5 units chosen from the following",),
+        "B.S.Sc._in_Geography_and_Resource_Management": ("At least five courses chosen",),
+        "B.S.Sc._in_Psychology": (
+            "At least four courses chosen from the following",
+            "At least 4 courses chosen from the following",
+        ),
+        "B.A._in_Linguistics": ("At least four courses chosen from the following",),
+    }
+    prefixes = targets.get(stem, ())
+    if not prefixes:
+        return
+    for item in walk(data.get("sections", [])):
+        if item.get("title") or not item.get("text"):
+            continue
+        first = clean(item["text"][0])
+        if any(first.startswith(prefix) for prefix in prefixes):
+            clear_units = (
+                stem in {"B.A._in_Linguistics", "B.S.Sc._in_Psychology"}
+                and not item.get("marker")
+                and bool(item.get("subsections"))
+            )
+            _promote_first_text(item, clear_units=clear_units)
+
+
+def _promote_secondary_note_sections(data):
+    """Lift named note blocks to the same heading level as Explanatory Notes."""
+    notes = data.get("notes", [])
+    for position, note in enumerate(list(notes)):
+        heading = next((
+            item for item in note.get("subsections", [])
+            if re.match(
+                r"^(?:Explanatory Notes? on Mutual Recognition or Exclusion|"
+                r"Explanatory Note on mutual recognition or exclusion|"
+                r"Note on Double Major Linguistics-Translation)$",
+                clean(item.get("title", "")),
+                re.I,
+            )
+        ), None)
+        if not heading:
+            continue
+        note["subsections"] = [item for item in note.get("subsections", []) if item is not heading]
+        title = clean(heading.get("title", ""))
+        if title.lower().startswith("explanatory note on mutual"):
+            title = "Explanatory Notes on Mutual Recognition or Exclusion"
+        trailing = notes[position + 1:]
+        block = {
+            "title": title,
+            "text": list(heading.get("text", [])),
+            "subsections": list(heading.get("subsections", [])),
+            "notes": trailing,
+        }
+        data.setdefault("supplementary_note_sections", []).append(block)
+        del notes[position + 1:]
+        break
+
+
+def _repair_biomedical_note_markers(data):
+    if data.get("source_file") != "B.Eng._in_Biomedical_Engineering":
+        return
+    source_text = " ".join(
+        " ".join([item.get("title", ""), *item.get("text", [])])
+        for item in walk(data.get("sections", []))
+    )
+    if "[d]" not in source_text and "[e]" not in source_text:
+        return
+    notes = data.get("notes", [])
+    if any(note.get("marker") == "[d]" for note in notes):
+        return
+    insert_at = next((i + 1 for i, note in enumerate(notes) if note.get("marker") == "[c]"), len(notes))
+    notes[insert_at:insert_at] = [
+        {
+            "marker": "[d]",
+            "text": (
+                "Students are strongly advised to take either LSCI1001 or 1002 if they have not "
+                "attained Level 3 or above in HKDSE Biology, or other equivalent qualifications. "
+                "LSCI1001 is only for students who have not taken science courses with Biology "
+                "component in HKDSE."
+            ),
+            "subsections": [], "rows": [],
+        },
+        {
+            "marker": "[e]",
+            "text": (
+                "Students who fail ENGG1125 in Term 1 will have to retake the course in Term 2. "
+                "The pre-assigned ENGG1130 in Term 2 will therefore be dropped."
+            ),
+            "subsections": [], "rows": [],
+        },
+    ]
+
+
+def _nest_accountancy_stream_requirements(data):
+    if data.get("source_file") != "B.B.A._in_Professional_Accountancy":
+        return
+    for stream in walk(data.get("sections", [])):
+        children = stream.get("subsections", [])
+        instruction = next((
+            item for item in children
+            if not item.get("marker") and re.match(r"12 units from the following", item.get("title", ""), re.I)
+        ), None)
+        if not instruction:
+            continue
+        position = children.index(instruction)
+        following = [item for item in children[position + 1:] if item.get("marker") in {"(a)", "(b)", "(c)"}]
+        if following:
+            instruction["subsections"] = following
+            stream["subsections"] = [item for item in children if item not in following]
+
+
+def _nest_flat_stream_requirements(data):
+    """Ensure lettered requirements sit below, not beside, each stream title."""
+    for streams in [item for item in walk(data.get("sections", [])) if item.get("title") == "Streams"]:
+        children = streams.get("subsections", [])
+        if not children:
+            continue
+        rebuilt = []
+        current = None
+        changed = False
+        for child in children:
+            if not child.get("marker"):
+                rebuilt.append(child)
+                current = child
+            elif current is not None and child.get("marker") in {"(a)", "(b)", "(c)"}:
+                current.setdefault("subsections", []).append(child)
+                changed = True
+            else:
+                rebuilt.append(child)
+        if changed:
+            streams["subsections"] = rebuilt
+
+
+def _repair_translation_review_items(data, extract):
+    if data.get("source_file") != "B.A._in_Translation":
+        return
+    for item in walk(data.get("sections", [])):
+        if item.get("title") or not item.get("text"):
+            continue
+        match = re.match(r"^(Other Electives)\s+(?=[A-Z]{4}\s*\d{4})(.*)$", clean(item["text"][0]), re.I)
+        if match:
+            item["title"] = "Other Electives"
+            item["text"][0] = match.group(2)
+            item["keep_heading"] = True
+
+    # The Linguistics/Translation table exports section 4 as the final child
+    # of section 3. Restore it as a peer top-level requirement.
+    for section in list(data.get("sections", [])):
+        found = next((
+            item for item in walk(section.get("subsections", []))
+            if re.match(r"^4\.\s*\(a\)\s*\(b\)\s*Research Component", item.get("title", ""), re.I)
+        ), None)
+        if not found:
+            continue
+        for parent in walk([section]):
+            if found in parent.get("subsections", []):
+                parent["subsections"].remove(found)
+                break
+        expression = clean(" ".join(found.get("text", [])))
+        first, second = "TRAN4900", "TRAN4510 or 4520"
+        if expression:
+            match = re.search(r"(TRAN\s*4900)\s+(TRAN\s*4510\s+or\s+4520)", expression, re.I)
+            if match:
+                first, second = match.group(1), match.group(2)
+        rebuilt = group(
+            "Research Component/ Capstone Course/ Final Year Project",
+            units=found.get("units", "6"), marker="4.",
+            children=[
+                group("", [first], extract(first), "3", "(a)"),
+                group("", [second], extract(second), "3", "(b)"),
+            ],
+        )
+        insert_at = data["sections"].index(section) + 1
+        data["sections"].insert(insert_at, rebuilt)
+        break
+
+    elective = next((section for section in data.get("sections", []) if section.get("marker") == "2."), None)
+    if elective:
+        source_items = [elective, *elective.get("subsections", [])]
+        combined_lines = [
+            clean(line)
+            for item in source_items
+            for line in item.get("text", [])
+        ]
+        joined = " ".join([
+            *(clean(item.get("title", "")) for item in source_items),
+            *combined_lines,
+        ])
+        if "pre-requisites for subsequent admission to the Postgraduate Certificate in Laws" in joined:
+            intro = next((line for line in combined_lines if line.startswith("Students are required to take at least")), "")
+            pcll = next((line for line in combined_lines if line.startswith("LAWS")), "")
+            elective["text"] = [intro] if intro else []
+            elective["codes"] = []
+            elective["subsections"] = [
+                group(
+                    "Elective courses which are pre-requisites for subsequent admission to the Postgraduate Certificate in Laws (PCLL) Programme",
+                    [pcll] if pcll else [], extract(pcll),
+                ),
+                group("Other elective courses offered under the Juris Doctor Programme"),
+                group("Elective courses offered under the Master of Laws Programmes"),
+            ]
+
+
+def _repair_information_engineering_review(data, extract):
+    if data.get("source_file") != "B.Eng._in_Information_Engineering":
+        return
+    elective = next((section for section in data.get("sections", []) if section.get("marker") == "4."), None)
+    if not elective:
+        return
+    for position, item in enumerate(list(elective.get("subsections", []))):
+        remaining = next((text for text in item.get("text", []) if text.startswith("The remaining units, if any")), None)
+        if remaining:
+            explicit_text = [text for text in item.get("text", []) if text is not remaining]
+            explicit_codes = extract(" ".join(explicit_text))
+            remaining_codes = [code for code in item.get("codes", []) if code not in explicit_codes]
+            item["text"], item["codes"] = explicit_text, explicit_codes
+            heading = group(remaining.rstrip("."), codes=remaining_codes)
+            heading["keep_heading"] = True
+            elective["subsections"].insert(position + 1, heading)
+            elective["subsections"] = [
+                child for child in elective["subsections"]
+                if child is heading
+                or clean(child.get("title", "")).lower() != "the remaining units"
+                or child.get("text") or child.get("codes") or child.get("subsections")
+            ]
+            break
+    streams = next((item for item in elective.get("subsections", []) if item.get("title") == "Streams"), None)
+    if streams:
+        line = next((text for text in streams.get("text", []) if text.startswith("Big Data: Systems and Applications")), None)
+        if line:
+            body = line[len("Big Data: Systems and Applications"):].strip(" :")
+            streams["text"].remove(line)
+            streams["subsections"].insert(0, group(
+                "Big Data: Systems and Applications", [body], extract(body), "12"
+            ))
+
+
+def _repair_government_review(data, index, extract):
+    if data.get("source_file") != "B.S.Sc._in_Government_and_Public_Administration":
+        return
+    elective = next((section for section in data.get("sections", []) if section.get("marker") == "3."), None)
+    if not elective:
+        return
+    for item in elective.get("subsections", []):
+        if not item.get("title") and item.get("text"):
+            first = clean(item["text"][0])
+            match = re.match(r"^(Field Electives\[a\]\s*\[b\]|Free Electives|Capstone Courses|Professional Practicum)\s*(.*)$", first)
+            if match:
+                item["title"] = match.group(1)
+                remainder = match.group(2).strip()
+                item["text"] = ([remainder] if remainder else []) + item["text"][1:]
+                item["keep_heading"] = True
+        if item.get("title") in {"Free Electives", "Free Major Electives"} and not item.get("codes"):
+            item["codes"] = [
+                code for code in index
+                if code.startswith("GPAD ") and code not in {"GPAD 1076", "GPAD 1077"}
+            ]
+        if item.get("title") != "Capstone Courses":
+            continue
+        choices = [child for child in item.get("subsections", []) if child.get("marker") in {"(i)", "(ii)", "(iii)", "(iv)", "(v)"}]
+        if len(choices) == 5:
+            expressions = [clean(" ".join(child.get("text", []))) for child in choices]
+            codes = list(dict.fromkeys(code for child in choices for code in child.get("codes", [])))
+            combined = group("Capstone course options", [", ".join(expressions)], codes, marker="(i)–(v)")
+            first_at = min(item["subsections"].index(child) for child in choices)
+            item["subsections"] = [child for child in item["subsections"] if child not in choices]
+            item["subsections"].insert(first_at, combined)
+    for item in walk(elective.get("subsections", [])):
+        if item.get("marker") != "(vi)" or item.get("title") or not item.get("text"):
+            continue
+        match = re.match(r"^(Professional Practicum)\s*(.*)$", clean(item["text"][0]))
+        if match:
+            item["title"] = match.group(1)
+            item["text"] = ([match.group(2)] if match.group(2) else []) + item["text"][1:]
+            item["keep_heading"] = True
+    level_rule = (
+        "Of the Elective Courses, at least nine courses (27 units), including the two (6 units) "
+        "capstone courses, should be at 2000 or above level."
+    )
+    for item in walk(elective.get("subsections", [])):
+        if level_rule in item.get("text", []):
+            item["text"].remove(level_rule)
+            if level_rule not in elective.get("text", []):
+                elective.setdefault("text", []).insert(0, level_rule)
+
+
+def _repair_journalism_senior_review(data, extract):
+    if data.get("source_file") != "B.S.Sc._in_Journalism_and_Communication":
+        return
+    elective = next((section for section in data.get("sections", []) if section.get("marker") == "2."), None)
+    if not elective:
+        return
+    items = list(walk(elective.get("subsections", [])))
+    communication = next((item for item in items if item.get("marker") == "(iv)" and item.get("title") == "Communication Studies"), None)
+    global_item = next((item for item in items if item.get("marker") == "(v)" and not item.get("title")), None)
+    if not communication or not global_item:
+        return
+    combined = clean(" ".join(global_item.get("text", [])))
+    split = re.split(r"\s+Global Communication\s+", combined, maxsplit=1)
+    if len(split) != 2:
+        return
+    communication["text"], communication["codes"] = [split[0]], extract(split[0])
+    global_item["title"] = "Global Communication"
+    global_item["text"], global_item["codes"] = [split[1]], extract(split[1])
+    global_item["keep_heading"] = True
+
+
+def _repair_double_major_elective_review(data, extract):
+    stem = data.get("source_file")
+    if stem not in {
+        "B.S.Sc._in_Journalism_and_Communication",
+        "B.S.Sc._in_Psychology",
+        "B.S.Sc._in_Sociology",
+    }:
+        return
+    section = next((section for section in data.get("sections", []) if section.get("marker") == "3."), None)
+    if not section or len(section.get("subsections", [])) < 2:
+        return
+    major_titles = " ".join(item.get("title", "") for item in section.get("subsections", []))
+    journalism_psychology = "Journalism and Communication" in major_titles and "Psychology" in major_titles
+    journalism_sociology = "Journalism and Communication" in major_titles and "Sociology" in major_titles
+    if journalism_psychology:
+        section["units"] = "24"
+        labels = re.compile(
+            r"At least 6 units chosen from the following:?|"
+            r"Remaining units chosen from the following:?|"
+            r"At least 6 units of courses at 3000 or above level:?",
+            re.I,
+        )
+        for major in section.get("subsections", []):
+            combined = clean(" ".join(major.get("text", [])))
+            matches = list(labels.finditer(combined))
+            if not matches:
+                continue
+            children = []
+            for position, match in enumerate(matches):
+                stop = matches[position + 1].start() if position + 1 < len(matches) else len(combined)
+                body = combined[match.end():stop].strip(" :")
+                children.append(group(match.group(0).rstrip(":"), [body] if body else [], extract(body)))
+            major["text"], major["codes"], major["subsections"] = [], [], children
+        if "[a]" not in section.get("title", ""):
+            section["title"] += "[a][b]"
+    elif journalism_sociology:
+        section["units"] = "30 or 33"
+        if "[a]" not in section.get("title", ""):
+            section["title"] += "[a][b]"
+
+
+def _final_attached_review_fixes(data, index, extract):
+    """Apply the final, source-backed formatting review to every scheme."""
+    refine_anthropology_notes(data)
+    _compact_science_faculty_packages(data)
+    _compact_subject_course_choices(data)
+    _promote_reviewed_instruction_headings(data)
+    _repair_biomedical_note_markers(data)
+    _nest_accountancy_stream_requirements(data)
+    _nest_flat_stream_requirements(data)
+    _repair_translation_review_items(data, extract)
+    _repair_information_engineering_review(data, extract)
+    _repair_government_review(data, index, extract)
+    _repair_journalism_senior_review(data, extract)
+    _repair_double_major_elective_review(data, extract)
+
+    if data.get("source_file") == "B.Sc._in_Physics":
+        required = next((section for section in data.get("sections", []) if section.get("marker") == "2."), None)
+        mathematics = next((
+            item for item in (required or {}).get("subsections", [])
+            if item.get("marker") == "(b)" and item.get("title") == "Mathematics and Chemistry courses"
+        ), None)
+        if mathematics and not mathematics.get("subsections"):
+            mathematics["subsections"] = [
+                group("One course from", ["MATH2010, 2530"], extract("MATH2010, 2530"), marker="(i)"),
+                group("One course from", ["CHEM1070, 1072[g]"], extract("CHEM1070, 1072"), marker="(ii)"),
+            ]
+
+    # The Law/Translation second degree publishes 18 required units, of which
+    # item 1(a) accounts for 12 units.
+    if data.get("source_file") == "LL.B._-_Bachelor_of_Laws_Programme" and data.get("total_units") == "57":
+        required = next((section for section in data.get("sections", []) if section.get("marker") == "1."), None)
+        if required and any(code.startswith("TRAN ") for item in walk([required]) for code in item.get("codes", [])):
+            required["units"] = "18"
+            first = next((item for item in required.get("subsections", []) if item.get("marker") == "(a)"), None)
+            if first:
+                first["units"] = "12"
+
+    _promote_secondary_note_sections(data)
+
+
+def _variant_area_tables(data, path, index, extract):
+    """Give senior-entry rules the same published area catalogues as standard rules."""
+    stem = data.get("source_file")
+    areas = source_areas(path, extract)
+    if (stem == "B.A._in_Linguistics" and len(data.get("sections", [])) >= 3
+            and len(data["sections"][2].get("subsections", [])) == 2
+            and not any("Major:" in child.get("title", "")
+                        for child in data["sections"][2].get("subsections", []))):
+        resolve_linguistics(data, areas, index, extract)
+        refine_linguistics(data)
+        for item in data["sections"][2].get("subsections", []):
+            _collapse_labelled_course_children(item)
+    elif stem == "B.A._in_Music" and len(data.get("sections", [])) >= 3:
+        elective = data["sections"][2]
+        prose = clean(" ".join(elective.get("text", [])))
+        used = {code for section in data["sections"][:2] for item in walk([section]) for code in item.get("codes", [])}
+        rebuilt = []
+        for area in deepcopy(areas):
+            if "excluding" in prose.lower() and area.get("title", "").startswith("Area 2A:"):
+                continue
+            area["codes"] = [code for code in area.get("codes", []) if code not in used]
+            if area.get("codes"):
+                rebuilt.append(area)
+        elective["codes"], elective["subsections"] = [], rebuilt
+    elif stem == "B.A._in_Philosophy" and len(data.get("sections", [])) >= 3:
+        elective = data["sections"][2]
+        used = {code for section in data["sections"][:2] for item in walk([section]) for code in item.get("codes", [])}
+        minimum = re.search(r"at least\s+(\d+)\s+units each from Areas 1, 2 and 3", " ".join(elective.get("text", [])), re.I)
+        maximum = re.search(r"maximum of\s+(\d+)\s+units.*Area 5", " ".join(elective.get("text", [])), re.I)
+        rebuilt = []
+        for area in deepcopy(areas):
+            area["codes"] = [code for code in area.get("codes", []) if code not in used]
+            if not area.get("codes") and area.get("title", "").startswith("Area 4:"):
+                continue
+            if minimum and re.match(r"Area [123]:", area.get("title", "")):
+                area["units"] = f"min. {minimum.group(1)}"
+                area["text"] = [f"Take at least {minimum.group(1)} units from this area."]
+            elif maximum and area.get("title", "").startswith("Area 5:"):
+                area["units"] = f"max. {maximum.group(1)}"
+                area["text"] = [f"Final-year students may take up to {maximum.group(1)} units from this area."]
+            rebuilt.append(area)
+        elective["codes"], elective["subsections"] = [], rebuilt
+    elif stem in {"B.A._in_Public_Humanities", "B.A._in_Religious_Studies"}:
+        resolve_named_areas(data, path, areas, index, extract)
+        _group_area_tables(data)
+
+
+def _restore_course_expression_boxes(data):
+    """Keep the source course expression visible before a resolved course table."""
+    for item in walk(data.get("sections", [])):
+        if (
+            not item.get("text")
+            and item.get("codes")
+            and re.match(r"At least\s+\d+\s+units from", item.get("title", ""), re.I)
+        ):
+            item["text"] = [", ".join(code.replace(" ", "") for code in item["codes"])]
+
+
+def _integrated_bba_variant_headings(data):
+    for section in data.get("sections", []):
+        if "Elective Courses (Concentration)" not in section.get("title", ""):
+            continue
+        for concentration in section.get("subsections", []):
+            if concentration.get("title") != "General Business":
+                continue
+            for item in concentration.get("subsections", []):
+                if item.get("marker") in {"(i)", "(ii)"} and not item.get("title") and item.get("text"):
+                    item["title"] = item["text"].pop(0)
+                    item["keep_heading"] = True
+
+
+def improve_requirement_variant_readability(data, path, index, extract, source_text=""):
+    """Apply structure-safe presentation cleanup to an alternate full scheme.
+
+    Programme-specific primary-table repairs often assume fixed section
+    positions and cannot safely be replayed on shorter senior-entry schemes.
+    These passes are content-driven, so they give alternate schemes the same
+    headings, broad course resolution and explanatory-note layout without
+    imposing the standard scheme's section counts.
+    """
+    promote_nested_legacy_notes(data)
+    promote_instruction_heading(data)
+    format_fine_arts_description(data)
+    split_english(data, extract)
+    structure_fine_arts_required_streams(data, extract)
+    split_fine_arts(data, extract)
+    structure_history_streams(data, index, extract, source_text)
+    structure_double_major_headings(data, extract)
+    structure_chinese_speciality_categories(data, extract)
+    structure_translation_clusters(data, extract)
+    structure_inline_named_course_groups(data, extract)
+    repair_integrated_bba_concentrations(data)
+    _variant_area_tables(data, path, index, extract)
+    _structure_japanese_senior_routes(data)
+    repair_reviewed_variant_labels(data)
+    _translation_note_tables(data, extract)
+    _merge_accountancy_streams(data)
+    _engineering_note_repairs(data, extract)
+    structure_science_course_choices(data, extract)
+    structure_stream_introductions(data)
+    promote_offering_labels(data)
+    structure_inline_note_points(data)
+    structure_science_faculty_package(data, extract)
+    resolve_level_rules(data, index, extract)
+    clean_presentation(data)
+
+    # Word-export labels ending in a colon become separable only after the
+    # generic cleanup above. Re-run the content-driven structure passes, just
+    # as the primary readability pipeline does.
+    structure_science_course_choices(data, extract)
+    structure_stream_introductions(data)
+    promote_instruction_heading(data)
+    structure_double_major_headings(data, extract)
+    structure_chinese_speciality_categories(data, extract)
+    structure_translation_clusters(data, extract)
+    structure_inline_named_course_groups(data, extract)
+    repair_integrated_bba_concentrations(data)
+    _integrated_bba_variant_headings(data)
+    _structure_japanese_senior_routes(data)
+    repair_reviewed_variant_labels(data)
+    resolve_level_rules(data, index, extract)
+    add_broad_department_course_tables(data, index)
+    _nest_leading_instruction_choices(data)
+    _restore_course_expression_boxes(data)
+    _final_attached_review_fixes(data, index, extract)
+
+    for item in walk(data["sections"]):
+        prose = " ".join([item.get("title", ""), *item.get("text", [])])
+        excluded = explicit_exclusions(prose, extract)
+        if excluded:
+            item["excluded_codes"] = sorted(set(item.get("excluded_codes", [])) | excluded)
+            item["codes"] = [code for code in item.get("codes", []) if code not in excluded]

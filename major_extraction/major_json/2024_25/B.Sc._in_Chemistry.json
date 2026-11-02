@@ -12,87 +12,30 @@
       "marker": "1.",
       "title": "Faculty Package",
       "units": "9",
-      "text": [],
-      "codes": [],
-      "subsections": [
-        {
-          "title": "Group B",
-          "text": [
-            "CHEM1070"
-          ],
-          "codes": [
-            "CHEM 1070"
-          ],
-          "units": "",
-          "marker": "",
-          "subsections": []
-        },
-        {
-          "title": "Group D",
-          "text": [
-            "PHYS1001 or 1002 or 1111"
-          ],
-          "codes": [
-            "PHYS 1001",
-            "PHYS 1002",
-            "PHYS 1111"
-          ],
-          "units": "",
-          "marker": "",
-          "subsections": []
-        },
-        {
-          "title": "A course from the following",
-          "text": [],
-          "codes": [],
-          "units": "",
-          "marker": "",
-          "subsections": [
-            {
-              "title": "Group A",
-              "text": [
-                "LSCI1001 or 1002 or 1012"
-              ],
-              "codes": [
-                "LSCI 1001",
-                "LSCI 1002",
-                "LSCI 1012"
-              ],
-              "units": "",
-              "marker": "",
-              "subsections": []
-            },
-            {
-              "title": "Group C",
-              "text": [
-                "MATH1520 (preferred) or 1010 (preferred) or 1018 or 1550"
-              ],
-              "codes": [
-                "MATH 1520",
-                "MATH 1010",
-                "MATH 1018",
-                "MATH 1550"
-              ],
-              "units": "",
-              "marker": "",
-              "subsections": []
-            },
-            {
-              "title": "Group E",
-              "text": [
-                "STAT1011 or 1012"
-              ],
-              "codes": [
-                "STAT 1011",
-                "STAT 1012"
-              ],
-              "units": "",
-              "marker": "",
-              "subsections": []
-            }
-          ]
-        }
-      ]
+      "text": [
+        "Group B: CHEM1070",
+        "Group D: PHYS1001 or 1002 or 1111",
+        "A course from the following",
+        "Group A: LSCI1001 or 1002 or 1012",
+        "Group C: MATH1520 (preferred) or 1010 (preferred) or 1018 or 1550",
+        "Group E: STAT1011 or 1012"
+      ],
+      "codes": [
+        "CHEM 1070",
+        "PHYS 1001",
+        "PHYS 1002",
+        "PHYS 1111",
+        "LSCI 1001",
+        "LSCI 1002",
+        "LSCI 1012",
+        "MATH 1520",
+        "MATH 1010",
+        "MATH 1018",
+        "MATH 1550",
+        "STAT 1011",
+        "STAT 1012"
+      ],
+      "subsections": []
     },
     {
       "marker": "2.",
@@ -311,5 +254,521 @@
   ],
   "source_file": "B.Sc._in_Chemistry",
   "parse_status": "parsed",
-  "additional_requirements": []
+  "additional_requirements": [],
+  "requirement_schemes": [
+    {
+      "id": "standard-requirement",
+      "kind": "standard",
+      "title": "Standard Requirement",
+      "source_order": 0,
+      "default": true,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 68 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "68",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "Group B: CHEM1070",
+                "Group D: PHYS1001 or 1002 or 1111",
+                "A course from the following",
+                "Group A: LSCI1001 or 1002 or 1012",
+                "Group C: MATH1520 (preferred) or 1010 (preferred) or 1018 or 1550",
+                "Group E: STAT1011 or 1012"
+              ],
+              "codes": [
+                "CHEM 1070",
+                "PHYS 1001",
+                "PHYS 1002",
+                "PHYS 1111",
+                "LSCI 1001",
+                "LSCI 1002",
+                "LSCI 1012",
+                "MATH 1520",
+                "MATH 1010",
+                "MATH 1018",
+                "MATH 1550",
+                "STAT 1011",
+                "STAT 1012"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "49",
+              "text": [
+                "CHEM1300, 2110, 2120, 2200, 2270, 2300, 2310, 2400, 2860, 2870, 3130, 3220, 3320, 3410, 3810, 3830, 3860, 3870, 4030/4040 (capstone courses)"
+              ],
+              "codes": [
+                "CHEM 1300",
+                "CHEM 2110",
+                "CHEM 2120",
+                "CHEM 2200",
+                "CHEM 2270",
+                "CHEM 2300",
+                "CHEM 2310",
+                "CHEM 2400",
+                "CHEM 2860",
+                "CHEM 2870",
+                "CHEM 3130",
+                "CHEM 3220",
+                "CHEM 3320",
+                "CHEM 3410",
+                "CHEM 3810",
+                "CHEM 3830",
+                "CHEM 3860",
+                "CHEM 3870",
+                "CHEM 4030",
+                "CHEM 4040"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "10",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "One course from",
+                  "units": "",
+                  "text": [
+                    "CHEM3230 or 3340"
+                  ],
+                  "codes": [
+                    "CHEM 3230",
+                    "CHEM 3340"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "8 units from the following lists, of which at most one CHEM course at 3000 level and one non-CHEM course:",
+                  "units": "8",
+                  "text": [],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "title": "Undergraduate electives",
+                      "text": [
+                        "CHEM3420, 3820, 3840, 4100, 4101, 4200, 4280, 4300, 4303, 4400, 4440, 4471, 4630, 4640, 4710, 4730, 4780, 4784, 4785, 4786, 4788"
+                      ],
+                      "codes": [
+                        "CHEM 3420",
+                        "CHEM 3820",
+                        "CHEM 3840",
+                        "CHEM 4100",
+                        "CHEM 4101",
+                        "CHEM 4200",
+                        "CHEM 4280",
+                        "CHEM 4300",
+                        "CHEM 4303",
+                        "CHEM 4400",
+                        "CHEM 4440",
+                        "CHEM 4471",
+                        "CHEM 4630",
+                        "CHEM 4640",
+                        "CHEM 4710",
+                        "CHEM 4730",
+                        "CHEM 4780",
+                        "CHEM 4784",
+                        "CHEM 4785",
+                        "CHEM 4786",
+                        "CHEM 4788"
+                      ],
+                      "units": "",
+                      "marker": "",
+                      "subsections": []
+                    },
+                    {
+                      "title": "CHEM courses at 5000 level (with approval from the Department)",
+                      "text": [
+                        "CHEM5300, 5301, 5303, 5540, 5550, 5560, 5620, 5642, 5680, 5780, 5784, 5785, 5910, 5920"
+                      ],
+                      "codes": [
+                        "CHEM 5300",
+                        "CHEM 5301",
+                        "CHEM 5303",
+                        "CHEM 5501",
+                        "CHEM 5502",
+                        "CHEM 5503",
+                        "CHEM 5504",
+                        "CHEM 5505",
+                        "CHEM 5506",
+                        "CHEM 5507",
+                        "CHEM 5508",
+                        "CHEM 5511",
+                        "CHEM 5513",
+                        "CHEM 5514",
+                        "CHEM 5515",
+                        "CHEM 5516",
+                        "CHEM 5517",
+                        "CHEM 5518",
+                        "CHEM 5519",
+                        "CHEM 5521",
+                        "CHEM 5522",
+                        "CHEM 5523",
+                        "CHEM 5540",
+                        "CHEM 5550",
+                        "CHEM 5560",
+                        "CHEM 5620",
+                        "CHEM 5642",
+                        "CHEM 5650",
+                        "CHEM 5678",
+                        "CHEM 5680",
+                        "CHEM 5780",
+                        "CHEM 5784",
+                        "CHEM 5785",
+                        "CHEM 5910",
+                        "CHEM 5920"
+                      ],
+                      "units": "",
+                      "marker": "",
+                      "subsections": []
+                    },
+                    {
+                      "title": "Non-CHEM courses",
+                      "text": [
+                        "BCHE3050#, CMBI4002#, ENSC4525#, 4535#, EESC3220#, PHYS3021#, 3022#, 4031#, 4440#"
+                      ],
+                      "codes": [
+                        "BCHE 3050",
+                        "CMBI 4002",
+                        "ENSC 4525",
+                        "ENSC 4535",
+                        "EESC 3220",
+                        "PHYS 3021",
+                        "PHYS 3022",
+                        "PHYS 4031",
+                        "PHYS 4440"
+                      ],
+                      "units": "",
+                      "marker": "",
+                      "subsections": []
+                    }
+                  ],
+                  "keep_heading": true
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "CHEM courses at 2000 and above level as well as those labeled as # will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Potential students majoring in Chemistry are strongly recommended to take CHEM1870 as basic training to prepare for laboratory classes in upper years.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "3.",
+              "text": "A student in the final year of attendance may, under special circumstances and with written approval from the Department, select CHEM4480 and/or 4490 to substitute up to 4 units of any courses in the Chemistry Programme.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "4.",
+              "text": "Students in their final year of attendance may, subject to approval by the Department, select CHEM4980/4990 and submit an undergraduate thesis in place of CHEM4030/4040.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "Students may select research-oriented course(s), as approved by the Major Programme, to substitute up to 4 units for fulfillment of Research Courses requirement.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[b]",
+              "text": "Students must complete any exchange/research/internship programme(s) offered by the University, Colleges, the Faculty of Science or Major Programme, as approved by the Major Programme, to fulfill the Experiential Learning requirement. Students are responsible for the extra costs incurred in the exchange/research/internship programme(s).",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "chemistry-and-biology-double-major-programme",
+      "kind": "double_major",
+      "title": "Chemistry and Biology Double Major Programme",
+      "source_order": 1,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 89 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "89",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "Group A: LSCI1002",
+                "Group B: CHEM1070",
+                "Group D: PHYS1002 (preferred) or 1001 or 1111"
+              ],
+              "codes": [
+                "LSCI 1002",
+                "CHEM 1070",
+                "PHYS 1002",
+                "PHYS 1001",
+                "PHYS 1111"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "61",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "1st Major: Chemistry",
+                  "units": "29",
+                  "text": [
+                    "CHEM1300, 2110, 2120, 2200, 2300, 2400, 2868, 2878, 3130, 3220, 3320, 3410"
+                  ],
+                  "codes": [
+                    "CHEM 1300",
+                    "CHEM 2110",
+                    "CHEM 2120",
+                    "CHEM 2200",
+                    "CHEM 2300",
+                    "CHEM 2400",
+                    "CHEM 2868",
+                    "CHEM 2878",
+                    "CHEM 3130",
+                    "CHEM 3220",
+                    "CHEM 3320",
+                    "CHEM 3410"
+                  ],
+                  "subsections": [],
+                  "keep_heading": true
+                },
+                {
+                  "marker": "(b)",
+                  "title": "2nd Major: Biology",
+                  "units": "32",
+                  "text": [
+                    "BCHE2030, BIOL2120#, 2210#, 2410#, 2420#, 3012, 3022, 3560#, 3570#, 3610#, 3620#, 4010, LSCI1012, 2002"
+                  ],
+                  "codes": [
+                    "BCHE 2030",
+                    "BIOL 2120",
+                    "BIOL 2210",
+                    "BIOL 2410",
+                    "BIOL 2420",
+                    "BIOL 3012",
+                    "BIOL 3022",
+                    "BIOL 3560",
+                    "BIOL 3570",
+                    "BIOL 3610",
+                    "BIOL 3620",
+                    "BIOL 4010",
+                    "LSCI 1012",
+                    "LSCI 2002"
+                  ],
+                  "subsections": [],
+                  "keep_heading": true
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "15",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "1st Major: Chemistry",
+                  "units": "9",
+                  "text": [],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "marker": "i)",
+                      "title": "",
+                      "units": "",
+                      "text": [
+                        "Two laboratory courses from CHEM3810, 3830, 3860, 3870"
+                      ],
+                      "codes": [
+                        "CHEM 3810",
+                        "CHEM 3830",
+                        "CHEM 3860",
+                        "CHEM 3870"
+                      ],
+                      "subsections": [],
+                      "heading_as_text": true
+                    },
+                    {
+                      "marker": "ii)",
+                      "title": "At least 5 units chosen from the following, of which at most one CHEM course at 3000 level",
+                      "units": "5",
+                      "text": [
+                        "CHEM3230, 3340, 3420, 4100, 4101, 4110, 4200, 4300, 4303, 4400, 4440, 4630, 4640, 4710, 4780, 4784, 4785, 4786, 4788, ENSC4525#, 4535#"
+                      ],
+                      "codes": [
+                        "CHEM 3130",
+                        "CHEM 3220",
+                        "CHEM 3230",
+                        "CHEM 3320",
+                        "CHEM 3330",
+                        "CHEM 3340",
+                        "CHEM 3410",
+                        "CHEM 3420",
+                        "CHEM 3810",
+                        "CHEM 3820",
+                        "CHEM 3830",
+                        "CHEM 3840",
+                        "CHEM 3860",
+                        "CHEM 3870",
+                        "CHEM 3880",
+                        "CHEM 4100",
+                        "CHEM 4101",
+                        "CHEM 4110",
+                        "CHEM 4200",
+                        "CHEM 4300",
+                        "CHEM 4303",
+                        "CHEM 4400",
+                        "CHEM 4440",
+                        "CHEM 4630",
+                        "CHEM 4640",
+                        "CHEM 4710",
+                        "CHEM 4780",
+                        "CHEM 4784",
+                        "CHEM 4785",
+                        "CHEM 4786",
+                        "CHEM 4788",
+                        "ENSC 4525",
+                        "ENSC 4535"
+                      ],
+                      "subsections": [],
+                      "heading_as_text": true,
+                      "keep_heading": true
+                    }
+                  ],
+                  "keep_heading": true
+                },
+                {
+                  "marker": "(b)",
+                  "title": "2nd Major: Biology",
+                  "units": "6",
+                  "text": [],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "marker": "i)",
+                      "title": "",
+                      "units": "",
+                      "text": [
+                        "One laboratory course from BIOL2213, 2313"
+                      ],
+                      "codes": [
+                        "BIOL 2213",
+                        "BIOL 2313"
+                      ],
+                      "subsections": [],
+                      "heading_as_text": true
+                    },
+                    {
+                      "marker": "ii)",
+                      "title": "At least 5 units chosen from the following",
+                      "units": "5",
+                      "text": [
+                        "BIOL3310, 3410, 3510, 3530, 3630, 3710, 4120, 4230, 4240, 4260, 4310, 4420, 4510, 4610, 4901, LSCI3520"
+                      ],
+                      "codes": [
+                        "BIOL 3310",
+                        "BIOL 3410",
+                        "BIOL 3510",
+                        "BIOL 3530",
+                        "BIOL 3630",
+                        "BIOL 3710",
+                        "BIOL 4120",
+                        "BIOL 4230",
+                        "BIOL 4240",
+                        "BIOL 4260",
+                        "BIOL 4310",
+                        "BIOL 4420",
+                        "BIOL 4510",
+                        "BIOL 4610",
+                        "BIOL 4901",
+                        "LSCI 3520"
+                      ],
+                      "subsections": []
+                    }
+                  ],
+                  "keep_heading": true
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "4.",
+              "title": "Research Component/ Capstone Course/ Final Year Project[a]",
+              "units": "4",
+              "text": [
+                "CHEM4030, 4040"
+              ],
+              "codes": [
+                "CHEM 4030",
+                "CHEM 4040"
+              ],
+              "subsections": []
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "CHEM courses at 2000 and above level as well as those labeled as # will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Subject to approval by the Major Programmes concerned, students may opt out of the Double Major Programme and register for the 1st Major Programme only. The decision to opt out is irrevocable. Students who have opted out are required to complete and fulfill all graduation requirements by following the study scheme of the 1st Major Programme as a single major. Students should be aware that such decision may result in a delay in graduation because the requirements of the single major study scheme differ from those of the Double Major Programme.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "Students in their final year of attendance may, subject to approval by the Department, select CHEM4980/4990 and submit an undergraduate thesis in place of CHEM4030/4040.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    }
+  ]
 }

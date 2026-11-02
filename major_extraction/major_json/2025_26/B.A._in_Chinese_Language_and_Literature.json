@@ -264,5 +264,1171 @@
   "supplementary": [],
   "source_file": "B.A._in_Chinese_Language_and_Literature",
   "parse_status": "parsed",
-  "additional_requirements": []
+  "additional_requirements": [],
+  "requirement_schemes": [
+    {
+      "id": "standard-requirement",
+      "kind": "standard",
+      "title": "Standard Requirement",
+      "source_order": 0,
+      "default": true,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 66 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "66",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "Any three courses from:",
+                "ANTH1020, ARTS1005, 1009, 1010, BMBL1001, CHES1101 or 1102, CHLL1900 or 1902 or 1903, CURE1000 or 1400, 1110, ENGE1000, FAAS1900, HIST1000 or 1700 or 1701, JASP1090, LING1000, MUSC1000, PHIL1110, THEO1000, TRAN1000"
+              ],
+              "codes": [
+                "ANTH 1020",
+                "ARTS 1005",
+                "ARTS 1009",
+                "ARTS 1010",
+                "BMBL 1001",
+                "CHES 1101",
+                "CHES 1102",
+                "CHLL 1900",
+                "CHLL 1902",
+                "CHLL 1903",
+                "CURE 1000",
+                "CURE 1400",
+                "CURE 1110",
+                "ENGE 1000",
+                "FAAS 1900",
+                "HIST 1000",
+                "HIST 1700",
+                "HIST 1701",
+                "JASP 1090",
+                "LING 1000",
+                "MUSC 1000",
+                "PHIL 1110",
+                "THEO 1000",
+                "TRAN 1000"
+              ],
+              "subsections": [],
+              "combine_text_boxes": true
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "33",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Basic courses",
+                  "units": "",
+                  "text": [
+                    "CHLL1110, 1211, 1401, 2121, 2131, 2212, 2302, 2350, 2403"
+                  ],
+                  "codes": [
+                    "CHLL 1110",
+                    "CHLL 1211",
+                    "CHLL 1401",
+                    "CHLL 2121",
+                    "CHLL 2131",
+                    "CHLL 2212",
+                    "CHLL 2302",
+                    "CHLL 2350",
+                    "CHLL 2403"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Capstone courses",
+                  "units": "",
+                  "text": [
+                    "CHLL4001, 4002"
+                  ],
+                  "codes": [
+                    "CHLL 4001",
+                    "CHLL 4002"
+                  ],
+                  "subsections": []
+                }
+              ]
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "24",
+              "text": [
+                "Students are required to complete 24 units of elective courses from the following Speciality courses, of which at least one course from category (1) or (2) and one course from category (3) or (4)."
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "",
+                  "title": "Speciality courses",
+                  "units": "",
+                  "text": [],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "marker": "(1)",
+                      "title": "Language and Linguistics",
+                      "units": "",
+                      "text": [
+                        "CHLL 3110, 3121, 3131, 3132, 3141, 3142, 3143, 3144, 3145, 3146, 3151, 3162, 4110, 4111, 4121, 4141, 4151, 4161"
+                      ],
+                      "codes": [
+                        "CHLL 3110",
+                        "CHLL 3121",
+                        "CHLL 3131",
+                        "CHLL 3132",
+                        "CHLL 3141",
+                        "CHLL 3142",
+                        "CHLL 3143",
+                        "CHLL 3144",
+                        "CHLL 3145",
+                        "CHLL 3146",
+                        "CHLL 3151",
+                        "CHLL 3162",
+                        "CHLL 4110",
+                        "CHLL 4111",
+                        "CHLL 4121",
+                        "CHLL 4141",
+                        "CHLL 4151",
+                        "CHLL 4161"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(2)",
+                      "title": "Ancient Documents",
+                      "units": "",
+                      "text": [
+                        "CHLL 3221, 3222, 3223, 3231, 3232, 3233, 4224, 4241, 4242, 4243, 4244, 4251, 4252, 4253, 4254"
+                      ],
+                      "codes": [
+                        "CHLL 3221",
+                        "CHLL 3222",
+                        "CHLL 3223",
+                        "CHLL 3231",
+                        "CHLL 3232",
+                        "CHLL 3233",
+                        "CHLL 4224",
+                        "CHLL 4241",
+                        "CHLL 4242",
+                        "CHLL 4243",
+                        "CHLL 4244",
+                        "CHLL 4251",
+                        "CHLL 4252",
+                        "CHLL 4253",
+                        "CHLL 4254"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(3)",
+                      "title": "Classical Literature",
+                      "units": "",
+                      "text": [
+                        "CHLL 3310, 3311, 3314, 3315, 3316, 3317, 3321, 3322, 3323, 3324, 3341, 3351, 4310, 4311, 4312, 4313, 4314, 4315, 4320, 4321, 4322, 4330, 4331, 4332, 4340, 4341, 4342, 4343"
+                      ],
+                      "codes": [
+                        "CHLL 3310",
+                        "CHLL 3311",
+                        "CHLL 3314",
+                        "CHLL 3315",
+                        "CHLL 3316",
+                        "CHLL 3317",
+                        "CHLL 3321",
+                        "CHLL 3322",
+                        "CHLL 3323",
+                        "CHLL 3324",
+                        "CHLL 3341",
+                        "CHLL 3351",
+                        "CHLL 4310",
+                        "CHLL 4311",
+                        "CHLL 4312",
+                        "CHLL 4313",
+                        "CHLL 4314",
+                        "CHLL 4315",
+                        "CHLL 4320",
+                        "CHLL 4321",
+                        "CHLL 4322",
+                        "CHLL 4330",
+                        "CHLL 4331",
+                        "CHLL 4332",
+                        "CHLL 4340",
+                        "CHLL 4341",
+                        "CHLL 4342",
+                        "CHLL 4343"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(4)",
+                      "title": "Modern Chinese Literature",
+                      "units": "",
+                      "text": [
+                        "CHLL 3402, 3403, 3404, 3405, 3406, 3407, 3408, 3409, 3410, 3411, 3412, 3413, 4401, 4402, 4403, 4404, 4405, 4406, 4407, 4408, 4409, 4410, 4411, 4412, 4413, 4414, 4415, 4416"
+                      ],
+                      "codes": [
+                        "CHLL 3402",
+                        "CHLL 3403",
+                        "CHLL 3404",
+                        "CHLL 3405",
+                        "CHLL 3406",
+                        "CHLL 3407",
+                        "CHLL 3408",
+                        "CHLL 3409",
+                        "CHLL 3410",
+                        "CHLL 3411",
+                        "CHLL 3412",
+                        "CHLL 3413",
+                        "CHLL 4401",
+                        "CHLL 4402",
+                        "CHLL 4403",
+                        "CHLL 4404",
+                        "CHLL 4405",
+                        "CHLL 4406",
+                        "CHLL 4407",
+                        "CHLL 4408",
+                        "CHLL 4409",
+                        "CHLL 4410",
+                        "CHLL 4411",
+                        "CHLL 4412",
+                        "CHLL 4413",
+                        "CHLL 4414",
+                        "CHLL 4415",
+                        "CHLL 4416"
+                      ],
+                      "subsections": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "CHLL courses at 2000 and above level will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "A Chinese Language and Literature Major student who pursues a second Major in Linguistics can be exempted from taking LING1002, 3108 and 4401 by taking CHLL3162, 4161 and 4110 respectively. Units earned can be counted towards both Major Programmes.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "3.",
+              "text": "A Chinese Language and Literature Major student who pursues a second Major in Fine Arts can be exempted from taking FAAS2117, 3105, 3223, 4106 and 4109 by taking CHLL4403, 4332, 4121, 4401 and 4402 respectively. Units earned can be counted towards both Major Programmes.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "senior-entry-requirement-for-associate-degree-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Associate Degree holders admitted to senior-year places",
+      "source_order": 1,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 54 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "54",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Required Courses",
+              "units": "30",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Basic courses",
+                  "units": "",
+                  "text": [
+                    "CHLL1110, 1211, 2121, 2131, 2212, 2302, 2350, 2403"
+                  ],
+                  "codes": [
+                    "CHLL 1110",
+                    "CHLL 1211",
+                    "CHLL 2121",
+                    "CHLL 2131",
+                    "CHLL 2212",
+                    "CHLL 2302",
+                    "CHLL 2350",
+                    "CHLL 2403"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "STOT courses",
+                  "units": "",
+                  "text": [
+                    "CHLL4001, 4002"
+                  ],
+                  "codes": [
+                    "CHLL 4001",
+                    "CHLL 4002"
+                  ],
+                  "subsections": []
+                }
+              ]
+            },
+            {
+              "marker": "2.",
+              "title": "Elective Courses",
+              "units": "24",
+              "text": [
+                "Students are required to complete 24 units of elective courses from the following Speciality courses, of which at least one course from category (1) or (2) and one course from category (3) or (4)."
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "",
+                  "title": "Speciality courses",
+                  "units": "",
+                  "text": [],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "marker": "(1)",
+                      "title": "Language and Linguistics",
+                      "units": "",
+                      "text": [
+                        "CHLL 3110, 3121, 3131, 3132, 3141, 3142, 3143, 3144, 3145, 3146, 3151, 3162, 4110, 4111, 4121, 4141, 4151, 4161"
+                      ],
+                      "codes": [
+                        "CHLL 3110",
+                        "CHLL 3121",
+                        "CHLL 3131",
+                        "CHLL 3132",
+                        "CHLL 3141",
+                        "CHLL 3142",
+                        "CHLL 3143",
+                        "CHLL 3144",
+                        "CHLL 3145",
+                        "CHLL 3146",
+                        "CHLL 3151",
+                        "CHLL 3162",
+                        "CHLL 4110",
+                        "CHLL 4111",
+                        "CHLL 4121",
+                        "CHLL 4141",
+                        "CHLL 4151",
+                        "CHLL 4161"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(2)",
+                      "title": "Ancient Documents",
+                      "units": "",
+                      "text": [
+                        "CHLL 3221, 3222, 3223, 3231, 3232, 3233, 4224, 4241, 4242, 4243, 4244, 4251, 4252, 4253, 4254"
+                      ],
+                      "codes": [
+                        "CHLL 3221",
+                        "CHLL 3222",
+                        "CHLL 3223",
+                        "CHLL 3231",
+                        "CHLL 3232",
+                        "CHLL 3233",
+                        "CHLL 4224",
+                        "CHLL 4241",
+                        "CHLL 4242",
+                        "CHLL 4243",
+                        "CHLL 4244",
+                        "CHLL 4251",
+                        "CHLL 4252",
+                        "CHLL 4253",
+                        "CHLL 4254"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(3)",
+                      "title": "Classical Literature",
+                      "units": "",
+                      "text": [
+                        "CHLL 3310, 3311, 3314, 3315, 3316, 3317, 3321, 3322, 3323, 3324, 3341, 3351, 4310, 4311, 4312, 4313, 4314, 4315, 4320, 4321, 4322, 4330, 4331, 4332, 4340, 4341, 4342, 4343"
+                      ],
+                      "codes": [
+                        "CHLL 3310",
+                        "CHLL 3311",
+                        "CHLL 3314",
+                        "CHLL 3315",
+                        "CHLL 3316",
+                        "CHLL 3317",
+                        "CHLL 3321",
+                        "CHLL 3322",
+                        "CHLL 3323",
+                        "CHLL 3324",
+                        "CHLL 3341",
+                        "CHLL 3351",
+                        "CHLL 4310",
+                        "CHLL 4311",
+                        "CHLL 4312",
+                        "CHLL 4313",
+                        "CHLL 4314",
+                        "CHLL 4315",
+                        "CHLL 4320",
+                        "CHLL 4321",
+                        "CHLL 4322",
+                        "CHLL 4330",
+                        "CHLL 4331",
+                        "CHLL 4332",
+                        "CHLL 4340",
+                        "CHLL 4341",
+                        "CHLL 4342",
+                        "CHLL 4343"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(4)",
+                      "title": "Modern Chinese Literature",
+                      "units": "",
+                      "text": [
+                        "CHLL 3402, 3403, 3404, 3405, 3406, 3407, 3408, 3409, 3410, 3411, 3412, 3413, 4401, 4402, 4403, 4404, 4405, 4406, 4407, 4408, 4409, 4410, 4411, 4412, 4413, 4414, 4415, 4416"
+                      ],
+                      "codes": [
+                        "CHLL 3402",
+                        "CHLL 3403",
+                        "CHLL 3404",
+                        "CHLL 3405",
+                        "CHLL 3406",
+                        "CHLL 3407",
+                        "CHLL 3408",
+                        "CHLL 3409",
+                        "CHLL 3410",
+                        "CHLL 3411",
+                        "CHLL 3412",
+                        "CHLL 3413",
+                        "CHLL 4401",
+                        "CHLL 4402",
+                        "CHLL 4403",
+                        "CHLL 4404",
+                        "CHLL 4405",
+                        "CHLL 4406",
+                        "CHLL 4407",
+                        "CHLL 4408",
+                        "CHLL 4409",
+                        "CHLL 4410",
+                        "CHLL 4411",
+                        "CHLL 4412",
+                        "CHLL 4413",
+                        "CHLL 4414",
+                        "CHLL 4415",
+                        "CHLL 4416"
+                      ],
+                      "subsections": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "CHLL courses at 2000 and above level will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "senior-entry-requirement-for-higher-diploma-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Higher Diploma holders admitted to senior-year places",
+      "source_order": 2,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 51 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "51",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Required Courses",
+              "units": "27",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Basic courses",
+                  "units": "",
+                  "text": [
+                    "CHLL1211, 2121, 2131, 2212, 2302, 2350, 2403"
+                  ],
+                  "codes": [
+                    "CHLL 1211",
+                    "CHLL 2121",
+                    "CHLL 2131",
+                    "CHLL 2212",
+                    "CHLL 2302",
+                    "CHLL 2350",
+                    "CHLL 2403"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "STOT courses",
+                  "units": "",
+                  "text": [
+                    "CHLL4001, 4002"
+                  ],
+                  "codes": [
+                    "CHLL 4001",
+                    "CHLL 4002"
+                  ],
+                  "subsections": []
+                }
+              ]
+            },
+            {
+              "marker": "2.",
+              "title": "Elective Courses",
+              "units": "24",
+              "text": [
+                "Students are required to complete 24 units of elective courses from the following Speciality courses, of which at least one course from category (1) or (2) and one course from category (3) or (4)."
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "",
+                  "title": "Speciality courses",
+                  "units": "",
+                  "text": [],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "marker": "(1)",
+                      "title": "Language and Linguistics",
+                      "units": "",
+                      "text": [
+                        "CHLL 3110, 3121, 3131, 3132, 3141, 3142, 3143, 3144, 3145, 3146, 3151, 3162, 4110, 4111, 4121, 4141, 4151, 4161"
+                      ],
+                      "codes": [
+                        "CHLL 3110",
+                        "CHLL 3121",
+                        "CHLL 3131",
+                        "CHLL 3132",
+                        "CHLL 3141",
+                        "CHLL 3142",
+                        "CHLL 3143",
+                        "CHLL 3144",
+                        "CHLL 3145",
+                        "CHLL 3146",
+                        "CHLL 3151",
+                        "CHLL 3162",
+                        "CHLL 4110",
+                        "CHLL 4111",
+                        "CHLL 4121",
+                        "CHLL 4141",
+                        "CHLL 4151",
+                        "CHLL 4161"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(2)",
+                      "title": "Ancient Documents",
+                      "units": "",
+                      "text": [
+                        "CHLL 3221, 3222, 3223, 3231, 3232, 3233, 4224, 4241, 4242, 4243, 4244, 4251, 4252, 4253, 4254"
+                      ],
+                      "codes": [
+                        "CHLL 3221",
+                        "CHLL 3222",
+                        "CHLL 3223",
+                        "CHLL 3231",
+                        "CHLL 3232",
+                        "CHLL 3233",
+                        "CHLL 4224",
+                        "CHLL 4241",
+                        "CHLL 4242",
+                        "CHLL 4243",
+                        "CHLL 4244",
+                        "CHLL 4251",
+                        "CHLL 4252",
+                        "CHLL 4253",
+                        "CHLL 4254"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(3)",
+                      "title": "Classical Literature",
+                      "units": "",
+                      "text": [
+                        "CHLL 3310, 3311, 3314, 3315, 3316, 3317, 3321, 3322, 3323, 3324, 3341, 3351, 4310, 4311, 4312, 4313, 4314, 4315, 4320, 4321, 4322, 4330, 4331, 4332, 4340, 4341, 4342, 4343"
+                      ],
+                      "codes": [
+                        "CHLL 3310",
+                        "CHLL 3311",
+                        "CHLL 3314",
+                        "CHLL 3315",
+                        "CHLL 3316",
+                        "CHLL 3317",
+                        "CHLL 3321",
+                        "CHLL 3322",
+                        "CHLL 3323",
+                        "CHLL 3324",
+                        "CHLL 3341",
+                        "CHLL 3351",
+                        "CHLL 4310",
+                        "CHLL 4311",
+                        "CHLL 4312",
+                        "CHLL 4313",
+                        "CHLL 4314",
+                        "CHLL 4315",
+                        "CHLL 4320",
+                        "CHLL 4321",
+                        "CHLL 4322",
+                        "CHLL 4330",
+                        "CHLL 4331",
+                        "CHLL 4332",
+                        "CHLL 4340",
+                        "CHLL 4341",
+                        "CHLL 4342",
+                        "CHLL 4343"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(4)",
+                      "title": "Modern Chinese Literature",
+                      "units": "",
+                      "text": [
+                        "CHLL 3402, 3403, 3404, 3405, 3406, 3407, 3408, 3409, 3410, 3411, 3412, 3413, 4401, 4402, 4403, 4404, 4405, 4406, 4407, 4408, 4409, 4410, 4411, 4412, 4413, 4414, 4415, 4416"
+                      ],
+                      "codes": [
+                        "CHLL 3402",
+                        "CHLL 3403",
+                        "CHLL 3404",
+                        "CHLL 3405",
+                        "CHLL 3406",
+                        "CHLL 3407",
+                        "CHLL 3408",
+                        "CHLL 3409",
+                        "CHLL 3410",
+                        "CHLL 3411",
+                        "CHLL 3412",
+                        "CHLL 3413",
+                        "CHLL 4401",
+                        "CHLL 4402",
+                        "CHLL 4403",
+                        "CHLL 4404",
+                        "CHLL 4405",
+                        "CHLL 4406",
+                        "CHLL 4407",
+                        "CHLL 4408",
+                        "CHLL 4409",
+                        "CHLL 4410",
+                        "CHLL 4411",
+                        "CHLL 4412",
+                        "CHLL 4413",
+                        "CHLL 4414",
+                        "CHLL 4415",
+                        "CHLL 4416"
+                      ],
+                      "subsections": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "CHLL courses at 2000 and above level will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "bachelor-of-arts-in-chinese-language-and-literature-and-translation-double-major-programme",
+      "kind": "double_major",
+      "title": "Bachelor of Arts in Chinese Language and Literature and Translation Double Major Programme",
+      "source_order": 3,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 90 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "90",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "",
+                  "title": "Any three courses from",
+                  "units": "",
+                  "text": [
+                    "ANTH1020, ARTS1005, 1009, 1010, BMBL1001, CHES1101 or 1102, CHLL1900 or 1902 or 1903, CURE1000 or 1400, 1110, ENGE1000, FAAS1900, HIST1000 or 1700 or 1701, JASP1090, LING1000, MUSC1000, PHIL1110, THEO1000"
+                  ],
+                  "codes": [
+                    "ANTH 1020",
+                    "ARTS 1005",
+                    "ARTS 1009",
+                    "ARTS 1010",
+                    "BMBL 1001",
+                    "CHES 1101",
+                    "CHES 1102",
+                    "CHLL 1900",
+                    "CHLL 1902",
+                    "CHLL 1903",
+                    "CURE 1000",
+                    "CURE 1400",
+                    "CURE 1110",
+                    "ENGE 1000",
+                    "FAAS 1900",
+                    "HIST 1000",
+                    "HIST 1700",
+                    "HIST 1701",
+                    "JASP 1090",
+                    "LING 1000",
+                    "MUSC 1000",
+                    "PHIL 1110",
+                    "THEO 1000"
+                  ],
+                  "subsections": []
+                }
+              ]
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "30",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "1st Major: Chinese Language and Literature",
+                  "text": [],
+                  "codes": [],
+                  "units": "18",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "marker": "(a)",
+                      "title": "Basic Courses",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(i)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "CHLL2302"
+                          ],
+                          "codes": [
+                            "CHLL 2302"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "",
+                          "units": "15",
+                          "text": [
+                            "Students are required to complete 15 units of courses from the following lists of basic courses, including at least one course from each of category (1), (2) and (4). (1) CHLL1110#, 2121, 2131 (2) CHLL1211#, 2212 (3) CHLL2350 (4) CHLL1401#, 2403"
+                          ],
+                          "codes": [
+                            "CHLL 1110",
+                            "CHLL 2121",
+                            "CHLL 2131",
+                            "CHLL 1211",
+                            "CHLL 2212",
+                            "CHLL 2350",
+                            "CHLL 1401",
+                            "CHLL 2403"
+                          ],
+                          "subsections": [],
+                          "heading_as_text": true
+                        }
+                      ]
+                    }
+                  ],
+                  "keep_heading": true
+                },
+                {
+                  "title": "2nd Major: Translation",
+                  "text": [],
+                  "codes": [],
+                  "units": "12",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "marker": "(b)",
+                      "title": "",
+                      "units": "",
+                      "text": [
+                        "TRAN1010#, 1030#, 2070#, 2610#"
+                      ],
+                      "codes": [
+                        "TRAN 1010",
+                        "TRAN 1030",
+                        "TRAN 2070",
+                        "TRAN 2610"
+                      ],
+                      "subsections": []
+                    }
+                  ],
+                  "keep_heading": true
+                }
+              ]
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "45",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "1st Major: Chinese Language and Literature",
+                  "text": [],
+                  "codes": [],
+                  "units": "18",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "marker": "(a)",
+                      "title": "",
+                      "units": "18",
+                      "text": [
+                        "Students are required to complete 18 units of elective courses from the following Speciality courses, of which at least one course from category (1) or (2) and one course from category (3) or (4)."
+                      ],
+                      "codes": [],
+                      "subsections": [],
+                      "heading_as_text": true
+                    },
+                    {
+                      "marker": "",
+                      "title": "Speciality courses",
+                      "units": "27",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "title": "Language and Linguistics",
+                          "text": [
+                            "CHLL 3110, 3121, 3131, 3132, 3141, 3142, 3143, 3144, 3145, 3146, 3151, 3162, 4110, 4111, 4121, 4141, 4151, 4161"
+                          ],
+                          "codes": [
+                            "CHLL 3110",
+                            "CHLL 3121",
+                            "CHLL 3131",
+                            "CHLL 3132",
+                            "CHLL 3141",
+                            "CHLL 3142",
+                            "CHLL 3143",
+                            "CHLL 3144",
+                            "CHLL 3145",
+                            "CHLL 3146",
+                            "CHLL 3151",
+                            "CHLL 3162",
+                            "CHLL 4110",
+                            "CHLL 4111",
+                            "CHLL 4121",
+                            "CHLL 4141",
+                            "CHLL 4151",
+                            "CHLL 4161"
+                          ],
+                          "units": "",
+                          "marker": "(1)",
+                          "subsections": []
+                        },
+                        {
+                          "title": "Ancient Documents",
+                          "text": [
+                            "CHLL 3221, 3222, 3223, 3231, 3232, 3233, 4224, 4241, 4242, 4243, 4244, 4251, 4252, 4253, 4254"
+                          ],
+                          "codes": [
+                            "CHLL 3221",
+                            "CHLL 3222",
+                            "CHLL 3223",
+                            "CHLL 3231",
+                            "CHLL 3232",
+                            "CHLL 3233",
+                            "CHLL 4224",
+                            "CHLL 4241",
+                            "CHLL 4242",
+                            "CHLL 4243",
+                            "CHLL 4244",
+                            "CHLL 4251",
+                            "CHLL 4252",
+                            "CHLL 4253",
+                            "CHLL 4254"
+                          ],
+                          "units": "",
+                          "marker": "(2)",
+                          "subsections": []
+                        },
+                        {
+                          "title": "Classical Literature",
+                          "text": [
+                            "CHLL 3310, 3311, 3314, 3315, 3317, 3321, 3322, 3323, 3324, 3341, 3351, 4310, 4311, 4312, 4313, 4314, 4315, 4320, 4321, 4322, 4330, 4331, 4332, 4340, 4341, 4342, 4343"
+                          ],
+                          "codes": [
+                            "CHLL 3310",
+                            "CHLL 3311",
+                            "CHLL 3314",
+                            "CHLL 3315",
+                            "CHLL 3317",
+                            "CHLL 3321",
+                            "CHLL 3322",
+                            "CHLL 3323",
+                            "CHLL 3324",
+                            "CHLL 3341",
+                            "CHLL 3351",
+                            "CHLL 4310",
+                            "CHLL 4311",
+                            "CHLL 4312",
+                            "CHLL 4313",
+                            "CHLL 4314",
+                            "CHLL 4315",
+                            "CHLL 4320",
+                            "CHLL 4321",
+                            "CHLL 4322",
+                            "CHLL 4330",
+                            "CHLL 4331",
+                            "CHLL 4332",
+                            "CHLL 4340",
+                            "CHLL 4341",
+                            "CHLL 4342",
+                            "CHLL 4343"
+                          ],
+                          "units": "",
+                          "marker": "(3)",
+                          "subsections": []
+                        },
+                        {
+                          "title": "Modern Chinese Literature",
+                          "text": [
+                            "CHLL 3402, 3403, 3404, 3405, 3406, 3407, 3408, 3409, 3410, 3411, 3412, 3413, 4401, 4402, 4403, 4404, 4405, 4406, 4407, 4408, 4409, 4410, 4411, 4412, 4413, 4414, 4415, 4416"
+                          ],
+                          "codes": [
+                            "CHLL 3402",
+                            "CHLL 3403",
+                            "CHLL 3404",
+                            "CHLL 3405",
+                            "CHLL 3406",
+                            "CHLL 3407",
+                            "CHLL 3408",
+                            "CHLL 3409",
+                            "CHLL 3410",
+                            "CHLL 3411",
+                            "CHLL 3412",
+                            "CHLL 3413",
+                            "CHLL 4401",
+                            "CHLL 4402",
+                            "CHLL 4403",
+                            "CHLL 4404",
+                            "CHLL 4405",
+                            "CHLL 4406",
+                            "CHLL 4407",
+                            "CHLL 4408",
+                            "CHLL 4409",
+                            "CHLL 4410",
+                            "CHLL 4411",
+                            "CHLL 4412",
+                            "CHLL 4413",
+                            "CHLL 4414",
+                            "CHLL 4415",
+                            "CHLL 4416"
+                          ],
+                          "units": "",
+                          "marker": "(4)",
+                          "subsections": []
+                        }
+                      ],
+                      "units_computed": true
+                    }
+                  ],
+                  "keep_heading": true
+                },
+                {
+                  "title": "2nd Major: Translation",
+                  "text": [
+                    "Students are required to complete 27 units of elective courses from the following lists of courses, including at least one course from each of Electives Clusters A, B and C."
+                  ],
+                  "codes": [],
+                  "units": "27",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "marker": "(b)",
+                      "title": "Electives Cluster A: Translation Studies",
+                      "units": "",
+                      "text": [
+                        "TRAN2120, 3080, 3720, 4070, 4210"
+                      ],
+                      "codes": [
+                        "TRAN 2120",
+                        "TRAN 3080",
+                        "TRAN 3720",
+                        "TRAN 4070",
+                        "TRAN 4210"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(c)",
+                      "title": "Electives Cluster B: Interpreting",
+                      "units": "",
+                      "text": [
+                        "TRAN2140, 2150, 2240, 2250, 3240, 4050"
+                      ],
+                      "codes": [
+                        "TRAN 2140",
+                        "TRAN 2150",
+                        "TRAN 2240",
+                        "TRAN 2250",
+                        "TRAN 3240",
+                        "TRAN 4050"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(d)",
+                      "title": "Electives Cluster C: Literary Translation",
+                      "units": "",
+                      "text": [
+                        "TRAN3170, 3180, 3270, 3280"
+                      ],
+                      "codes": [
+                        "TRAN 3170",
+                        "TRAN 3180",
+                        "TRAN 3270",
+                        "TRAN 3280"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(e)",
+                      "title": "Other Electives",
+                      "units": "",
+                      "text": [
+                        "TRAN1120, 1130, 2020, 2050, 2110, 2130, 2840, 3170, 3180, 3270, 3280, 3611, 3620, 3800, 3810, 3820, 3830, 3844, 3845, 3850, 3860, 3870, 3880, 3890, 4620, 4800, 4840 and unselected courses from Clusters A, B and C."
+                      ],
+                      "codes": [
+                        "TRAN 1120",
+                        "TRAN 1130",
+                        "TRAN 2020",
+                        "TRAN 2050",
+                        "TRAN 2110",
+                        "TRAN 2130",
+                        "TRAN 2840",
+                        "TRAN 3170",
+                        "TRAN 3180",
+                        "TRAN 3270",
+                        "TRAN 3280",
+                        "TRAN 3611",
+                        "TRAN 3620",
+                        "TRAN 3800",
+                        "TRAN 3810",
+                        "TRAN 3820",
+                        "TRAN 3830",
+                        "TRAN 3844",
+                        "TRAN 3845",
+                        "TRAN 3850",
+                        "TRAN 3860",
+                        "TRAN 3870",
+                        "TRAN 3880",
+                        "TRAN 3890",
+                        "TRAN 4620",
+                        "TRAN 4800",
+                        "TRAN 4840"
+                      ],
+                      "subsections": []
+                    }
+                  ],
+                  "keep_heading": true
+                }
+              ]
+            },
+            {
+              "marker": "4.",
+              "title": "Research Component/ Capstone Course/ Final Year Project",
+              "units": "6",
+              "text": [
+                "CHLL4001, 4002"
+              ],
+              "codes": [
+                "CHLL 4001",
+                "CHLL 4002"
+              ],
+              "subsections": []
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "CHLL courses at 2000 and above level as well as those labeled as # will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Subject to approval by the Major Programmes concerned, students may opt out of the Double Major Programme and register for the 1st Major Programme only. The decision to opt out is irrevocable. Students who have opted out are required to complete and fulfill all graduation requirements by following the study scheme of the 1st Major Programme as a single major. Students should be aware that such decision may result in a delay in graduation because the requirements of the single major study scheme differ from those of the Double Major Programme.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    }
+  ]
 }

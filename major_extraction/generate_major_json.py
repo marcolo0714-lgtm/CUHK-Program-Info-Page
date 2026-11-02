@@ -13,9 +13,17 @@ from bs4 import BeautifulSoup, Tag
 ROOT = Path(__file__).resolve().parent
 
 try:
-    from .major_readability import improve_readability
+    from .major_readability import (
+        _final_attached_review_fixes,
+        improve_readability,
+        improve_requirement_variant_readability,
+    )
 except ImportError:
-    from major_readability import improve_readability
+    from major_readability import (
+        _final_attached_review_fixes,
+        improve_readability,
+        improve_requirement_variant_readability,
+    )
 
 
 def parse_args() -> argparse.Namespace:
@@ -144,6 +152,193 @@ def choose_requirement_table(soup: BeautifulSoup, admission_code: str) -> Tag:
 
     candidates.sort(key=lambda item: item[0])
     return candidates[0][1]
+
+
+def _nearest_requirement_heading(table: Tag) -> str:
+    """Find the short source heading that introduces a requirement table."""
+    candidates: list[tuple[int, int, int, str]] = []
+    node: Tag | None = table
+    for level in range(12):
+        if node is None:
+            break
+        sibling = node.find_previous_sibling()
+        distance = 0
+        while sibling is not None and distance < 35:
+            distance += 1
+            if isinstance(sibling, Tag):
+                text = clean_text(sibling.get_text(" ", strip=True))
+                if (
+                    text
+                    and len(text) < 220
+                    and "Recommended Course Pattern" not in text
+                    and not re.fullmatch(r"[\d\s]+", text)
+                ):
+                    candidates.append((level, distance, len(text), text))
+            sibling = sibling.find_previous_sibling()
+        parent = node.parent
+        node = parent if isinstance(parent, Tag) else None
+    return min(candidates, default=(0, 0, 0, ""))[3]
+
+
+def _scheme_identifier(value: str) -> str:
+    identifier = re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+    return identifier or "requirement"
+
+
+def _requirement_label(value: str) -> str:
+    """Clean spacing artefacts in short headings copied from Word HTML."""
+    label = normalize_source_text(value)
+    label = re.sub(r"\b(\d)\s+(st|nd|rd|th)\b", r"\1\2", label, flags=re.IGNORECASE)
+    label = re.sub(r"\(\s+", "(", label)
+    label = re.sub(r"\s+\)", ")", label)
+    return label
+
+
+def discover_requirement_schemes(
+    soup: BeautifulSoup,
+) -> list[dict[str, object]]:
+    """Discover each full requirement scheme, excluding recommended patterns.
+
+    Word HTML frequently wraps real tables inside larger container tables. Only
+    innermost requirement tables are retained. First- and second-degree tables
+    introduced by the same Double Degree heading become parts of one scheme.
+    """
+    candidates: list[tuple[int, Tag, str]] = []
+    for position, table in enumerate(soup.find_all("table")):
+        text = normalize_source_text(table.get_text(" ", strip=True))
+        if (
+            "Major Programme Requirement" in text
+            and re.search(r"[A-Z]{4}\s*\d{4}", text)
+        ):
+            candidates.append((position, table, text))
+    candidate_ids = {id(table) for _, table, _ in candidates}
+    innermost = [
+        item
+        for item in candidates
+        if not any(id(child) in candidate_ids for child in item[1].find_all("table"))
+    ]
+
+    schemes: list[dict[str, object]] = []
+    identifiers: dict[str, int] = {}
+    all_tables = soup.find_all("table")
+    for table_position, table, text in innermost:
+        if "Recommended Course Pattern" in text[:250]:
+            continue
+        heading = _requirement_label(_nearest_requirement_heading(table))
+        qualifier = re.search(
+            r"Major Programme Requirement\s*\((.*?)\)", text, re.IGNORECASE
+        )
+        qualifier_text = _requirement_label(qualifier.group(1)) if qualifier else ""
+        holder_only_scheme = bool(re.search(
+            r"(?:Associate Degree|Higher Diploma).*holders", qualifier_text, re.IGNORECASE
+        ))
+        if "senior-year places" in text[:350].lower() or holder_only_scheme:
+            kind = "senior_entry"
+            detail = qualifier_text or "Senior-year entry"
+            detail = detail[:1].upper() + detail[1:]
+            title = f"Senior-entry Requirement — {detail}"
+        elif "Double Degree" in heading:
+            kind = "double_degree"
+            title = heading
+        elif "Double Major" in heading:
+            kind = "double_major"
+            title = heading
+        elif "Stream" in heading:
+            kind = "stream"
+            title = heading
+        elif re.search(r"Applicable to students admitted in", heading, re.IGNORECASE):
+            kind = "standard"
+            title = "Standard Requirement"
+        else:
+            prefix = text.split("Major Programme Requirement", 1)[0].strip(" :-")
+            kind = "other"
+            title = heading or prefix or "Standard Requirement"
+
+        part_title = _requirement_label(
+            text.split("Major Programme Requirement", 1)[0].strip(" :-")
+        )
+        tables = [table]
+        part_titles = [part_title]
+        if kind == "double_degree":
+            # Translation/JD and Integrated BBA/Journalism publish both
+            # degrees as consecutive row groups inside one physical table.
+            # Split those row groups into the same two-part model used by the
+            # double degrees that happen to use two separate HTML tables.
+            rows = direct_rows(table)
+            degree_starts = [
+                position
+                for position, row in enumerate(rows)
+                if re.match(
+                    r"^[12](?:st|nd)\s+Degree\s*:",
+                    _requirement_label(row.get_text(" ", strip=True)),
+                    re.IGNORECASE,
+                )
+            ]
+            if len(degree_starts) >= 2:
+                tables = []
+                part_titles = []
+                for part_position, start in enumerate(degree_starts):
+                    stop = degree_starts[part_position + 1] if part_position + 1 < len(degree_starts) else len(rows)
+                    selected = rows[start:stop]
+                    fragment = BeautifulSoup(
+                        "<table>" + "".join(str(row) for row in selected) + "</table>",
+                        "html.parser",
+                    )
+                    tables.append(fragment.table)
+                    part_titles.append(_requirement_label(selected[0].get_text(" ", strip=True)))
+            elif len(degree_starts) == 1:
+                # In some Word exports the JD requirement is the immediately
+                # following sibling table.  It says “Programme Requirement”
+                # (without “Major”), so it is not an ordinary discovery
+                # candidate and must be paired with the first degree here.
+                for following in all_tables[table_position + 1:]:
+                    following_text = normalize_source_text(following.get_text(" ", strip=True))
+                    following_label = _requirement_label(following_text)
+                    if "Recommended Course Pattern" in following_text[:300]:
+                        continue
+                    if re.match(r"^2nd\s+Degree\s*:", following_label, re.IGNORECASE) and "Programme Requirement" in following_text:
+                        nested_match = any(
+                            re.match(
+                                r"^2nd\s+Degree\s*:",
+                                _requirement_label(child.get_text(" ", strip=True)),
+                                re.IGNORECASE,
+                            )
+                            and "Programme Requirement" in normalize_source_text(child.get_text(" ", strip=True))
+                            for child in following.find_all("table")
+                        )
+                        if nested_match:
+                            continue
+                        tables.append(following)
+                        following_title = _requirement_label(
+                            following_text.split("Programme Requirement", 1)[0].strip(" :-")
+                        )
+                        part_titles.append(re.sub(r"\s+Major$", "", following_title, flags=re.IGNORECASE))
+                        break
+        if kind == "double_degree" and schemes and schemes[-1]["title"] == title:
+            existing = {clean_text(str(value)).lower() for value in schemes[-1]["part_titles"]}
+            for candidate_table, candidate_title in zip(tables, part_titles):
+                if clean_text(str(candidate_title)).lower() in existing:
+                    continue
+                schemes[-1]["tables"].append(candidate_table)
+                schemes[-1]["part_titles"].append(candidate_title)
+                existing.add(clean_text(str(candidate_title)).lower())
+            continue
+
+        base_identifier = _scheme_identifier(title)
+        identifiers[base_identifier] = identifiers.get(base_identifier, 0) + 1
+        identifier = base_identifier
+        if identifiers[base_identifier] > 1:
+            identifier += f"-{identifiers[base_identifier]}"
+        schemes.append(
+            {
+                "id": identifier,
+                "kind": kind,
+                "title": title,
+                "tables": tables,
+                "part_titles": part_titles,
+            }
+        )
+    return schemes
 
 
 def direct_rows(table: Tag) -> list[Tag]:
@@ -499,11 +694,14 @@ def parse_programme(record: dict[str, str], full_path: Path, requirement_table: 
                 current_note = {"marker": "", "text": body, "subsections": [], "rows": []}
                 notes.append(current_note)
             elif parenthesized_roman or bool(re.fullmatch(r"[ivxlcdm]+\)", marker, re.IGNORECASE)):
+                short_heading = not codes and len(body) < 120 and not re.search(r"[.!?]$", body)
+                title = block_heading or (body if short_heading else "")
+                remainder = block_remainder if block_heading else ("" if short_heading else body)
                 group = {
                     "marker": marker if marker.startswith("(") else f"({marker[:-1].lower()})",
-                    "title": block_heading or concise_heading(body),
+                    "title": title,
                     "units": units,
-                    "text": [block_remainder] if block_heading and not codes else [],
+                    "text": [remainder] if remainder else [],
                     "codes": codes,
                     "subsections": [],
                     "force_course_table": "concentration" in note_context.lower(),
@@ -758,6 +956,7 @@ def declared_units(text: str) -> str:
     """Return a unit value stated in prose, without deriving it from courses."""
     patterns = (
         r"\bchoose\s+(?:at\s+least\s+)?(\d+(?:\.\d+)?)\s+units\b",
+        r"\bcomplete\s+(?:at\s+least\s+)?(\d+(?:\.\d+)?)\s+units\b",
         r"\bat\s+least\s+(\d+(?:\.\d+)?)\s+units\b",
         r"\ba\s+(?:minimum|total)\s+of\s+(\d+(?:\.\d+)?)\s+units\b",
         r"\b(\d+(?:\.\d+)?)\s+units\s+(?:chosen|from|of)\b",
@@ -822,7 +1021,16 @@ def assign_choice_and_stream_units(data: dict[str, object]) -> None:
     # Biomedical Engineering streams comprise 12 units of prescribed stream
     # courses plus the compulsory 6-unit BMEG4998/4999 research component.
     if data["source_file"] == "B.Eng._in_Biomedical_Engineering":
-        elective = next(section for section in data["sections"] if str(section["marker"]).startswith("4"))
+        elective = next(
+            (
+                section
+                for section in data["sections"]
+                if str(section["marker"]).startswith("4")
+            ),
+            None,
+        )
+        if elective is None:
+            return
         stream_groups = elective.get("subsections", [])
         intro_index = next(
             (index for index, group in enumerate(stream_groups) if group.get("title") == "Streams"),
@@ -928,31 +1136,109 @@ def add_computer_engineering_remaining_groups(data: dict[str, object], course_co
         code for code in course_codes
         if re.fullmatch(r"(?:AIST|CENG|CSCI|ELEG) [2-9]\d{3}", code)
     ]
-    for group in list(walk_groups(data["sections"])):
-        remaining_rows = [text for text in group.get("text", []) if text.lower().startswith("remaining units can be chosen")]
-        if not remaining_rows:
-            continue
-        primary_rows = [text for text in group["text"] if text not in remaining_rows]
-        primary_codes = {code for text in primary_rows for code in extract_course_codes(text)}
-        explicit_remaining = {code for text in remaining_rows for code in extract_course_codes(text)}
-        group["text"] = primary_rows
-        group["codes"] = [code for code in group["codes"] if code in primary_codes]
-        resolved = sorted((set(broad_codes) | explicit_remaining) - set(group["codes"]))
-        group["subsections"].append({
-            "marker": "",
-            "title": "Courses Eligible for Remaining Units",
-            "units": "",
-            "text": remaining_rows,
-            "codes": resolved,
-            "subsections": [],
-        })
+    option_section = next(
+        (
+            section
+            for section in data.get("sections", [])
+            if str(section.get("title", "")).startswith("Choose any ONE")
+        ),
+        None,
+    )
+    if option_section is None:
+        return
+
+    remaining_pattern = re.compile(
+        r"\s*(Remaining units can be chosen from the following)\s*:\s*",
+        re.IGNORECASE,
+    )
+    elective_pattern = re.compile(
+        r"^(Elective Courses)\s*:\s*(.+)$",
+        re.IGNORECASE,
+    )
+    general_pattern = re.compile(
+        r"^(General Computer Engineering)\s+(Elective Courses\s*:.*)$",
+        re.IGNORECASE,
+    )
+
+    for option in option_section.get("subsections", []):
+        general_match = general_pattern.match(str(option.get("title", "")))
+        if general_match:
+            original_text = list(option.get("text", []))
+            original_codes = list(option.get("codes", []))
+            option["title"] = general_match.group(1)
+            option["codes"] = []
+            option["subsections"] = [{
+                "marker": "",
+                "title": general_match.group(2),
+                "units": "6",
+                "text": original_text,
+                "codes": original_codes,
+                "subsections": [],
+            }, *option.get("subsections", [])]
+            option["text"] = []
+
+        rebuilt = []
+        for elective in option.get("subsections", []):
+            title_match = elective_pattern.match(str(elective.get("title", "")))
+            if not title_match:
+                rebuilt.append(elective)
+                continue
+            elective["title"] = title_match.group(1)
+            instruction = title_match.group(2).strip()
+            main_rows = []
+            remaining_rows = []
+            for row in elective.get("text", []):
+                match = remaining_pattern.search(str(row))
+                if match:
+                    before = str(row)[:match.start()].strip()
+                    after = str(row)[match.end():].strip()
+                    if before:
+                        main_rows.append(before)
+                    if after:
+                        remaining_rows.append(after)
+                elif str(row).lower().startswith("remaining units can be chosen"):
+                    _, _, body = str(row).partition(":")
+                    if body.strip():
+                        remaining_rows.append(body.strip())
+                else:
+                    main_rows.append(str(row))
+            if main_rows:
+                main_rows[0] = f"{instruction} {main_rows[0]}".strip()
+            elif instruction:
+                main_rows = [instruction]
+            primary_codes = {
+                code for row in main_rows for code in extract_course_codes(row)
+            }
+            elective["text"] = main_rows
+            elective["codes"] = [
+                code for code in elective.get("codes", []) if code in primary_codes
+            ]
+            rebuilt.append(elective)
+            for row in remaining_rows:
+                explicit_remaining = set(extract_course_codes(row))
+                rebuilt.append({
+                    "marker": "",
+                    "title": "Remaining units can be chosen from the following",
+                    "units": "",
+                    "text": [row],
+                    "codes": sorted(
+                        (set(broad_codes) | explicit_remaining)
+                        - set(elective["codes"])
+                    ),
+                    "subsections": [],
+                    "keep_heading": True,
+                })
+        option["subsections"] = rebuilt
 
     # The resolved set is an alternative source for remaining units, parallel
     # to the prescribed Elective Courses rather than a child of that list.
-    options = data["sections"][3].get("subsections", [])
+    options = option_section.get("subsections", [])
     for option in options:
         for elective in list(option.get("subsections", [])):
-            remaining = [child for child in elective.get("subsections", []) if child["title"] == "Courses Eligible for Remaining Units"]
+            remaining = [
+                child for child in elective.get("subsections", [])
+                if child["title"] == "Remaining units can be chosen from the following"
+            ]
             if remaining:
                 elective["subsections"] = [child for child in elective["subsections"] if child not in remaining]
                 option["subsections"].extend(remaining)
@@ -1037,6 +1323,78 @@ def resolve_broad_course_groups(data: dict[str, object], course_codes: list[str]
 def resolve_computer_science_remaining_groups(data: dict[str, object], course_codes: list[str]) -> None:
     if data["source_file"] != "B.Sc._in_Computer_Science":
         return
+    section = next(
+        (
+            section
+            for section in data.get("sections", [])
+            if str(section.get("marker", "")).rstrip(".") == "4"
+        ),
+        None,
+    )
+    if section is None:
+        return
+
+    # In alternate requirement boxes Word sometimes merges the elective label,
+    # its course list and the "Remaining units" rule into one row.  Restore the
+    # same peer headings used by the standard Computer Science requirement.
+    remaining_pattern = re.compile(
+        r"\s*(Remaining units can be chosen from the following)\s*:\s*",
+        re.IGNORECASE,
+    )
+    elective_pattern = re.compile(
+        r"^(Elective Course(?:s|\s+\d+))\s*:\s*(.+)$",
+        re.IGNORECASE,
+    )
+    for option in section.get("subsections", []):
+        rebuilt = []
+        for group in option.get("subsections", []):
+            title_match = elective_pattern.match(str(group.get("title", "")))
+            instruction = ""
+            if title_match:
+                group["title"] = title_match.group(1)
+                instruction = title_match.group(2).strip()
+
+            main_rows = []
+            remaining_rows = []
+            for row in group.get("text", []):
+                match = remaining_pattern.search(str(row))
+                if match:
+                    before = str(row)[:match.start()].strip()
+                    after = str(row)[match.end():].strip()
+                    if before:
+                        main_rows.append(before)
+                    if after:
+                        remaining_rows.append(after)
+                elif str(row).lower().startswith("remaining units can be chosen"):
+                    heading, _, body = str(row).partition(":")
+                    if body.strip():
+                        remaining_rows.append(body.strip())
+                else:
+                    main_rows.append(str(row))
+
+            if instruction:
+                if main_rows:
+                    main_rows[0] = f"{instruction} {main_rows[0]}".strip()
+                else:
+                    main_rows = [instruction]
+            if title_match or remaining_rows:
+                group["text"] = main_rows
+                group["codes"] = list(dict.fromkeys(
+                    code for row in main_rows for code in extract_course_codes(row)
+                ))
+            rebuilt.append(group)
+            for row in remaining_rows:
+                rebuilt.append({
+                    "marker": "",
+                    "title": "Remaining units can be chosen from the following",
+                    "units": "",
+                    "text": [row],
+                    "codes": extract_course_codes(row),
+                    "subsections": [],
+                    "keep_heading": True,
+                })
+        option["subsections"] = rebuilt
+
     for group in walk_groups(data["sections"]):
         if not str(group.get("title", "")).lower().startswith("remaining units"):
             continue
@@ -1047,18 +1405,19 @@ def resolve_computer_science_remaining_groups(data: dict[str, object], course_co
         ]
         group["codes"] = sorted(set(group.get("codes", [])) | set(broad) | set(extract_course_codes(prose)))
 
-    general = data["sections"][3]["subsections"][0]
+    general = section["subsections"][0]
     general_pool = [code for code in course_codes if code[:4] in {"AIST", "CENG", "CSCI"}]
     general["codes"] = []
     elective = next(group for group in general.get("subsections", []) if group["title"] == "Elective Courses")
-    elective["subsections"].append({
-        "marker": "",
-        "title": "AIST/CENG/CSCI Courses",
-        "units": "",
-        "text": [],
-        "codes": general_pool,
-        "subsections": [],
-    })
+    if not any(group.get("title") == "AIST/CENG/CSCI Courses" for group in elective["subsections"]):
+        elective["subsections"].append({
+            "marker": "",
+            "title": "AIST/CENG/CSCI Courses",
+            "units": "",
+            "text": [],
+            "codes": general_pool,
+            "subsections": [],
+        })
 
 
 def structure_mathematics_information_engineering_areas(data: dict[str, object], course_codes: list[str]) -> None:
@@ -1868,6 +2227,297 @@ def named_stream_requirement_blocks(record: dict, path: Path) -> list[dict]:
     return blocks
 
 
+def _requirement_part(data: dict[str, object], title: str = "") -> dict[str, object]:
+    """Copy the fields rendered within one requirement scheme or degree part."""
+    part = {
+        "title": title,
+        "description": data.get("description", ""),
+        "description_lines": deepcopy(data.get("description_lines", [])),
+        "requirement_title": data.get("requirement_title", ""),
+        "total_units": data.get("total_units", ""),
+        "sections": deepcopy(data.get("sections", [])),
+        "notes": deepcopy(data.get("notes", [])),
+        "additional_requirements": deepcopy(data.get("additional_requirements", [])),
+        "supplementary_note_sections": deepcopy(data.get("supplementary_note_sections", [])),
+        "intro_sections": deepcopy(data.get("intro_sections", [])),
+    }
+    return part
+
+
+def _accountancy_stream_blocks_from_table(
+    record: dict[str, object],
+    source_path: Path,
+    table: Tag,
+) -> list[dict[str, object]]:
+    """Recover stream alternatives embedded after a senior scheme's total."""
+    if record["stem"] != "B.B.A._in_Professional_Accountancy":
+        return []
+    stream_titles = {
+        "Global Tax and Governance Stream",
+        "Finance for Accountants Stream",
+        "Accounting Analytics Stream",
+        "Global Accounting Stream",
+    }
+    rows = direct_rows(table)
+    starts = [
+        (position, clean_text(row.get_text(" ", strip=True)))
+        for position, row in enumerate(rows)
+        if clean_text(row.get_text(" ", strip=True)) in stream_titles
+    ]
+    blocks = []
+    for start_position, title in starts:
+        end = min(
+            [position for position, _ in starts if position > start_position]
+            + [
+                position for position, row in enumerate(rows)
+                if position > start_position
+                and clean_text(row.get_text(" ", strip=True)).startswith("Explanatory Note")
+            ]
+            + [len(rows)]
+        )
+        selected = rows[start_position + 1:end]
+        fragment = BeautifulSoup(
+            "<table><tr><td>Major Programme Requirement</td></tr>"
+            + "".join(str(row) for row in selected)
+            + "</table>",
+            "html.parser",
+        )
+        parsed = parse_programme(record, source_path, requirement_table=fragment.table)
+        for section in parsed.get("sections", []):
+            assign_declared_heading_units(section)
+            populate_missing_units(section)
+        blocks.append({
+            "title": title,
+            "description": parsed.get("description", ""),
+            "total_units": parsed.get("total_units", ""),
+            "sections": parsed.get("sections", []),
+            "notes": parsed.get("notes", []),
+        })
+    return blocks
+
+
+def _assign_peer_major_units_from_table(data: dict[str, object], table: Tag) -> None:
+    """Restore unit cells that belong to rebuilt 1st/2nd-major headings."""
+    current_section = ""
+    published: dict[tuple[str, str], str] = {}
+    pending_ordinal = ""
+    for row in direct_rows(table):
+        cells = row_cells(row)
+        nonempty = [cell for cell in cells if cell]
+        if not nonempty:
+            continue
+        section_match = re.fullmatch(r"(\d+)\.?", re.sub(r"\s+", "", nonempty[0]))
+        if section_match:
+            current_section = section_match.group(1)
+            pending_ordinal = ""
+        body = clean_text(" ".join(nonempty[:-1] if parse_unit_cell(nonempty[-1]) is not None else nonempty))
+        label = re.search(r"\b([12])\s*(?:st|nd)\s+Major\s*:", body, re.IGNORECASE)
+        units = parse_unit_cell(nonempty[-1])
+        if current_section and label and units:
+            published[(current_section, label.group(1))] = units
+            pending_ordinal = ""
+        elif current_section and label:
+            pending_ordinal = label.group(1)
+        elif current_section and pending_ordinal and units:
+            published[(current_section, pending_ordinal)] = units
+            pending_ordinal = ""
+
+    for section in data.get("sections", []):
+        section_number = re.sub(r"\D", "", str(section.get("marker", "")))
+        peers = [
+            child for child in section.get("subsections", [])
+            if re.match(r"^[12](?:st|nd)\s+Major\s*:", str(child.get("title", "")), re.IGNORECASE)
+        ]
+        if len(peers) < 2:
+            continue
+        for child in peers:
+            ordinal = re.match(r"^([12])", str(child.get("title", ""))).group(1)
+            if published.get((section_number, ordinal)):
+                child["units"] = published[(section_number, ordinal)]
+        values = [child.get("units", "") for child in peers]
+        if values and all(values):
+            section["units"] = aggregate_units(values)
+
+
+def _strip_repeated_part_heading(part: dict[str, object]) -> None:
+    """Do not repeat a degree heading in the prose box immediately below it."""
+    title = clean_text(str(part.get("title", "")))
+    if not title:
+        return
+    description = clean_text(str(part.get("description", "")))
+    normalized_title = re.escape(title).replace(r"\ ", r"\s+")
+    description = re.sub(rf"^{normalized_title}\s*", "", description, flags=re.IGNORECASE)
+    part["description"] = description
+    lines = part.get("description_lines", [])
+    if isinstance(lines, list):
+        part["description_lines"] = [
+            line for line in lines if clean_text(str(line)).lower() != title.lower()
+        ]
+
+
+def normalize_requirement_variant(
+    data: dict[str, object],
+    course_codes: list[str],
+    course_index: dict[str, dict[str, object]],
+    record: dict[str, object],
+    source_path: Path,
+    requirement_table: Tag,
+    source_text: str = "",
+) -> None:
+    """Apply only structure-safe normalization to an alternate full scheme.
+
+    ``normalize_programme`` also contains programme-specific assumptions about
+    the standard table's section markers. Those repairs remain on the selected
+    primary scheme and must not be imposed on shorter senior-entry variants.
+    """
+    assign_labeled_alternative_units(data)
+    for section in data.get("sections", []):
+        assign_declared_heading_units(section)
+    assign_choice_and_stream_units(data)
+    for section in data.get("sections", []):
+        assign_elective_group_units(section)
+        populate_missing_units(section)
+    fill_single_missing_section_from_total(data)
+    add_computer_engineering_remaining_groups(data, course_codes)
+    resolve_computer_science_remaining_groups(data, course_codes)
+    resolve_broad_course_groups(data, course_codes)
+    data["additional_requirements"] = _accountancy_stream_blocks_from_table(
+        record, source_path, requirement_table
+    )
+    improve_requirement_variant_readability(
+        data,
+        source_path,
+        course_index,
+        extract_course_codes,
+        source_text,
+    )
+    _assign_peer_major_units_from_table(data, requirement_table)
+    # Unit restoration runs after the readability pipeline because the peer
+    # major headings may only exist after that pipeline. Re-apply the final
+    # idempotent review fixes so source unit ranges cannot overwrite reviewed
+    # aggregate totals such as the 24-unit double-major elective requirement.
+    _final_attached_review_fixes(data, course_index, extract_course_codes)
+
+
+def build_requirement_schemes(
+    record: dict[str, object],
+    source_path: Path,
+    discovered: list[dict[str, object]],
+    selected_table: Tag | None,
+    main_data: dict[str, object],
+    course_codes: list[str],
+    course_index: dict[str, dict[str, object]],
+) -> list[dict[str, object]]:
+    """Parse every discovered full requirement without recommended patterns."""
+    schemes = []
+    for source_order, source in enumerate(discovered):
+        parts = []
+        tables = source["tables"]
+        part_titles = source["part_titles"]
+        for position, table in enumerate(tables):
+            if selected_table is not None and table is selected_table:
+                parsed = main_data
+            else:
+                parsed = parse_programme(record, source_path, requirement_table=table)
+                normalize_requirement_variant(
+                    parsed,
+                    course_codes,
+                    course_index,
+                    record,
+                    source_path,
+                    table,
+                    normalize_source_text(table.get_text(" ", strip=True)),
+                )
+            part_title = str(part_titles[position] or "")
+            if len(tables) == 1:
+                part_title = ""
+            part = _requirement_part(parsed, part_title)
+            _strip_repeated_part_heading(part)
+            parts.append(part)
+        schemes.append(
+            {
+                "id": source["id"],
+                "kind": source["kind"],
+                "title": source["title"],
+                "source_order": source_order,
+                "default": selected_table is not None and any(
+                    table is selected_table for table in tables
+                ),
+                "parts": parts,
+            }
+        )
+    return schemes
+
+
+def repair_double_degree_parts(
+    record: dict[str, object],
+    source_path: Path,
+    schemes: list[dict[str, object]],
+    course_codes: list[str],
+    course_index: dict[str, dict[str, object]],
+) -> None:
+    """Repair two source-page defects that hide or over-merge degree parts."""
+    stem = str(record.get("stem", ""))
+    if stem == "LL.B._-_Bachelor_of_Laws_Programme":
+        for scheme in schemes:
+            parts = scheme.get("parts", [])
+            if len(parts) <= 2:
+                continue
+            title = str(scheme.get("title", ""))
+            if "Translation" in title:
+                scheme["parts"] = [
+                    part for part in parts
+                    if "Sociology" not in str(part.get("title", ""))
+                ]
+            elif "Sociology" in title:
+                scheme["parts"] = [
+                    part for part in parts
+                    if "Translation" not in str(part.get("title", ""))
+                ]
+
+    if stem != "B.S.Sc._in_Sociology":
+        return
+    scheme = next((
+        item for item in schemes
+        if item.get("kind") == "double_degree"
+        and "Juris Doctor" in str(item.get("title", ""))
+        and len(item.get("parts", [])) == 1
+    ), None)
+    if not scheme:
+        return
+
+    # The Sociology page publishes the JD recommended pattern but omits the
+    # JD requirement table itself. The identical JD requirement is published
+    # in the same year's Translation/JD option, so use that source table.
+    translation_path = source_path.parent / "B.A._in_Translation.html"
+    if not translation_path.exists():
+        return
+    translation_soup = BeautifulSoup(translation_path.read_text(encoding="utf-8"), "html.parser")
+    jd_source = next((
+        item for item in discover_requirement_schemes(translation_soup)
+        if item.get("kind") == "double_degree"
+        and "Juris Doctor" in str(item.get("title", ""))
+        and len(item.get("tables", [])) >= 2
+    ), None)
+    if not jd_source:
+        return
+    jd_table = jd_source["tables"][1]
+    parsed = parse_programme(record, translation_path, requirement_table=jd_table)
+    normalize_requirement_variant(
+        parsed,
+        course_codes,
+        course_index,
+        record,
+        translation_path,
+        jd_table,
+        normalize_source_text(jd_table.get_text(" ", strip=True)),
+    )
+    scheme["parts"][0]["title"] = "1st Degree: Bachelor of Social Science (Sociology)"
+    jd_part = _requirement_part(parsed, "2nd Degree: Juris Doctor (JD)")
+    _strip_repeated_part_heading(jd_part)
+    scheme["parts"].append(jd_part)
+
+
 def generate(year: str) -> None:
     html_dir = ROOT / "major_html" / year
     output = ROOT / "major_json" / year
@@ -1895,16 +2545,26 @@ def generate(year: str) -> None:
         has_elite_section = False
         try:
             source_path = html_dir / record["full_page_file"]
-            data = (parse_mbchb_programme(record, source_path)
-                    if record["stem"] == "M.B.,_Ch.B"
-                    else parse_programme(record, source_path))
+            source_html = source_path.read_text(encoding="utf-8")
+            source_soup = BeautifulSoup(source_html, "html.parser")
+            discovered_schemes = discover_requirement_schemes(source_soup)
+            selected_table = None
+            if record["stem"] == "M.B.,_Ch.B":
+                data = parse_mbchb_programme(record, source_path)
+            else:
+                selected_table = choose_requirement_table(
+                    source_soup, record["admission_code"]
+                )
+                data = parse_programme(
+                    record, source_path, requirement_table=selected_table
+                )
             normalize_programme(data, course_codes)
             data["additional_requirements"] = additional_requirement_blocks(
                 record, source_path, course_codes
             ) + named_stream_requirement_blocks(record, source_path)
             raw_star = next((block for block in data["additional_requirements"]
                              if re.fullmatch(r"Science,? Technology [Aa]nd Research Stream", block.get("title", ""))), None)
-            has_elite_section = bool(re.search(r"\bELITE Stream\b", source_path.read_text(encoding="utf-8"), re.I))
+            has_elite_section = bool(re.search(r"\bELITE Stream\b", source_html, re.I))
             if raw_star:
                 star_eligible.append(data["title"])
                 if star_block is None:
@@ -1913,6 +2573,30 @@ def generate(year: str) -> None:
             for block in list(data.get("additional_requirements", [])):
                 if re.fullmatch(r"Science,? Technology [Aa]nd Research Stream", block.get("title", "")):
                     data["additional_requirements"].remove(block)
+            requirement_schemes = build_requirement_schemes(
+                record,
+                source_path,
+                discovered_schemes,
+                selected_table,
+                data,
+                course_codes,
+                course_index,
+            )
+            repair_double_degree_parts(
+                record,
+                source_path,
+                requirement_schemes,
+                course_codes,
+                course_index,
+            )
+            # Keep the established compact JSON shape for the common case.
+            # The extra model is needed only when the source publishes genuine
+            # alternative full requirement boxes.
+            if (
+                len(requirement_schemes) > 1
+                or (requirement_schemes and requirement_schemes[0].get("kind") != "standard")
+            ):
+                data["requirement_schemes"] = requirement_schemes
         except ValueError as error:
             data = {
                 "title": record["title"],
@@ -1930,6 +2614,7 @@ def generate(year: str) -> None:
                 "source_file": record["stem"],
                 "parse_status": "unavailable",
                 "parse_message": str(error),
+                "requirement_schemes": [],
             }
         if record["stem"] == "B.Eng._in_Artificial_Intelligence_Systems_and_Technologies":
             elite_source = data

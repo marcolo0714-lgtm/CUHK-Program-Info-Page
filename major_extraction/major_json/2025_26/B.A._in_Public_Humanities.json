@@ -797,5 +797,1128 @@
   "supplementary": [],
   "source_file": "B.A._in_Public_Humanities",
   "parse_status": "parsed",
-  "additional_requirements": []
+  "additional_requirements": [],
+  "requirement_schemes": [
+    {
+      "id": "standard-requirement",
+      "kind": "standard",
+      "title": "Standard Requirement",
+      "source_order": 0,
+      "default": true,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 66 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "66",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "CURE1000 or 1400, and any two courses from:",
+                "ANTH1020, ARTS1005, 1009, 1010, BMBL1001, CHES1101 or 1102, CHLL1900 or 1902 or 1903, CURE1110, ENGE1000, FAAS1900, HIST1000 or 1700 or 1701, JASP1090, LING1000, MUSC1000, PHIL1110, THEO1000, TRAN1000"
+              ],
+              "codes": [
+                "CURE 1000",
+                "CURE 1400",
+                "ANTH 1020",
+                "ARTS 1005",
+                "ARTS 1009",
+                "ARTS 1010",
+                "BMBL 1001",
+                "CHES 1101",
+                "CHES 1102",
+                "CHLL 1900",
+                "CHLL 1902",
+                "CHLL 1903",
+                "CURE 1110",
+                "ENGE 1000",
+                "FAAS 1900",
+                "HIST 1000",
+                "HIST 1700",
+                "HIST 1701",
+                "JASP 1090",
+                "LING 1000",
+                "MUSC 1000",
+                "PHIL 1110",
+                "THEO 1000",
+                "TRAN 1000"
+              ],
+              "subsections": [],
+              "combine_text_boxes": true
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "18",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "CURE1004, 1009, 1401, 1403, 2001"
+                  ],
+                  "codes": [
+                    "CURE 1004",
+                    "CURE 1009",
+                    "CURE 1401",
+                    "CURE 1403",
+                    "CURE 2001"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Capstone Course",
+                  "units": "",
+                  "text": [
+                    "CURE4014 or 4038"
+                  ],
+                  "codes": [
+                    "CURE 4014",
+                    "CURE 4038"
+                  ],
+                  "subsections": []
+                }
+              ]
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "39",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "Standard Scheme",
+                  "text": [],
+                  "codes": [],
+                  "units": "",
+                  "marker": "(a)",
+                  "subsections": [
+                    {
+                      "marker": "",
+                      "title": "Any three courses from the following",
+                      "units": "",
+                      "text": [
+                        "CURE2006, 2411, 2412, 3007, 4008, 4401"
+                      ],
+                      "codes": [
+                        "CURE 2006",
+                        "CURE 2411",
+                        "CURE 2412",
+                        "CURE 3007",
+                        "CURE 4008",
+                        "CURE 4401"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "",
+                      "title": "Cultural Management Concentration",
+                      "units": "",
+                      "text": [
+                        "CURE2411, 2412, 4401"
+                      ],
+                      "codes": [
+                        "CURE 2411",
+                        "CURE 2412",
+                        "CURE 4401"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "",
+                      "title": "Cultural Studies Concentration",
+                      "units": "",
+                      "text": [
+                        "CURE2006, 3007, 4008"
+                      ],
+                      "codes": [
+                        "CURE 2006",
+                        "CURE 3007",
+                        "CURE 4008"
+                      ],
+                      "subsections": []
+                    }
+                  ]
+                },
+                {
+                  "title": "Standard Scheme",
+                  "text": [],
+                  "codes": [],
+                  "units": "",
+                  "marker": "(b)",
+                  "subsections": [
+                    {
+                      "marker": "",
+                      "title": "",
+                      "units": "",
+                      "text": [
+                        "Nine courses at 2000 or above level from Cultural Studies Areas and Cultural Management Areas, with at least seven CURE courses, excluding the courses taken to fulfill other Major Programme Requirements"
+                      ],
+                      "codes": [
+                        "CURE 2007",
+                        "CURE 2008",
+                        "CURE 2010",
+                        "CURE 2011",
+                        "CURE 2031",
+                        "CURE 2032",
+                        "CURE 2042",
+                        "CURE 2051",
+                        "CURE 3011",
+                        "CURE 3030",
+                        "CURE 3038",
+                        "CURE 4008",
+                        "CURE 4028",
+                        "COMM 3840",
+                        "COMM 3841",
+                        "HIST 2010",
+                        "CURE 2003",
+                        "CURE 2005",
+                        "CURE 2018",
+                        "CURE 2019",
+                        "CURE 2025",
+                        "CURE 2145",
+                        "CURE 2228",
+                        "CURE 3003",
+                        "CURE 3012",
+                        "CURE 3025",
+                        "CURE 3032",
+                        "CURE 3037",
+                        "CURE 3144",
+                        "CURE 4031",
+                        "CURE 2014",
+                        "CURE 2022",
+                        "CURE 2036",
+                        "CURE 2047",
+                        "CURE 3007",
+                        "CURE 3013",
+                        "CURE 2006",
+                        "CURE 2030",
+                        "CURE 2040",
+                        "CURE 2066",
+                        "CURE 3014",
+                        "CURE 3026",
+                        "CURE 3033",
+                        "CURE 3034",
+                        "CURE 3066",
+                        "CURE 4021",
+                        "CURE 4033",
+                        "CURE 4040",
+                        "CURE 2404",
+                        "CURE 3401",
+                        "CURE 3409",
+                        "CURE 4403",
+                        "CURE 4404",
+                        "CURE 4405",
+                        "CURE 4411",
+                        "ANTH 2370",
+                        "ANTH 2730",
+                        "CURE 2406",
+                        "CURE 2407",
+                        "CURE 3036",
+                        "CURE 3405",
+                        "CURE 3408",
+                        "CURE 4401",
+                        "CURE 4421",
+                        "FAAS 3108",
+                        "CURE 2403",
+                        "CURE 2405",
+                        "CURE 2410",
+                        "CURE 3508",
+                        "CURE 4408",
+                        "CURE 4431",
+                        "ANTH 4720",
+                        "CURE 2408",
+                        "CURE 2409",
+                        "CURE 2411",
+                        "CURE 2412",
+                        "CURE 3402",
+                        "CURE 3403",
+                        "CURE 3404",
+                        "CURE 3406",
+                        "CURE 3407",
+                        "CURE 3411",
+                        "CURE 4441"
+                      ],
+                      "subsections": [],
+                      "excluded_codes": [],
+                      "course_groups": [
+                        {
+                          "label": "Cultural Studies Area 1: Cultural Literacy and Practices",
+                          "codes": [
+                            "CURE 2007",
+                            "CURE 2008",
+                            "CURE 2010",
+                            "CURE 2011",
+                            "CURE 2031",
+                            "CURE 2032",
+                            "CURE 2042",
+                            "CURE 2051",
+                            "CURE 3011",
+                            "CURE 3030",
+                            "CURE 3038",
+                            "CURE 4008",
+                            "CURE 4028",
+                            "COMM 3840",
+                            "COMM 3841",
+                            "HIST 2010"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Studies Area 2: Culture, Cities, and Ecology",
+                          "codes": [
+                            "CURE 2003",
+                            "CURE 2005",
+                            "CURE 2018",
+                            "CURE 2019",
+                            "CURE 2025",
+                            "CURE 2145",
+                            "CURE 2228",
+                            "CURE 3003",
+                            "CURE 3012",
+                            "CURE 3025",
+                            "CURE 3032",
+                            "CURE 3037",
+                            "CURE 3144",
+                            "CURE 4031"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Studies Area 3: Gender, Culture, and Society",
+                          "codes": [
+                            "CURE 2014",
+                            "CURE 2022",
+                            "CURE 2036",
+                            "CURE 2047",
+                            "CURE 3007",
+                            "CURE 3013"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Studies Area 4: Film and Media Studies",
+                          "codes": [
+                            "CURE 2006",
+                            "CURE 2030",
+                            "CURE 2040",
+                            "CURE 2066",
+                            "CURE 3014",
+                            "CURE 3026",
+                            "CURE 3033",
+                            "CURE 3034",
+                            "CURE 3066",
+                            "CURE 4021",
+                            "CURE 4033",
+                            "CURE 4040"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Management Area 1: Heritage Management",
+                          "codes": [
+                            "CURE 2404",
+                            "CURE 3401",
+                            "CURE 3409",
+                            "CURE 4403",
+                            "CURE 4404",
+                            "CURE 4405",
+                            "CURE 4411",
+                            "ANTH 2370",
+                            "ANTH 2730"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Management Area 2: Curation",
+                          "codes": [
+                            "CURE 2406",
+                            "CURE 2407",
+                            "CURE 3036",
+                            "CURE 3405",
+                            "CURE 3408",
+                            "CURE 4401",
+                            "CURE 4421",
+                            "FAAS 3108"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Management Area 3: Cultural Institutions",
+                          "codes": [
+                            "CURE 2403",
+                            "CURE 2405",
+                            "CURE 2410",
+                            "CURE 3508",
+                            "CURE 4408",
+                            "CURE 4431",
+                            "ANTH 4720"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Management Area 4: Creative Industries and Practices",
+                          "codes": [
+                            "CURE 2408",
+                            "CURE 2409",
+                            "CURE 2411",
+                            "CURE 2412",
+                            "CURE 3402",
+                            "CURE 3403",
+                            "CURE 3404",
+                            "CURE 3406",
+                            "CURE 3407",
+                            "CURE 3411",
+                            "CURE 4441"
+                          ]
+                        }
+                      ],
+                      "heading_as_text": true
+                    },
+                    {
+                      "marker": "",
+                      "title": "Cultural Management Concentration",
+                      "units": "",
+                      "text": [
+                        "Nine courses at 2000 or above level from Cultural Management Areas, with at least seven CURE courses, excluding the courses taken to fulfill other Major Programme Requirements"
+                      ],
+                      "codes": [
+                        "CURE 2404",
+                        "CURE 3401",
+                        "CURE 3409",
+                        "CURE 4403",
+                        "CURE 4404",
+                        "CURE 4405",
+                        "CURE 4411",
+                        "ANTH 2370",
+                        "ANTH 2730",
+                        "CURE 2406",
+                        "CURE 2407",
+                        "CURE 3036",
+                        "CURE 3405",
+                        "CURE 3408",
+                        "CURE 4401",
+                        "CURE 4421",
+                        "FAAS 3108",
+                        "CURE 2403",
+                        "CURE 2405",
+                        "CURE 2410",
+                        "CURE 3508",
+                        "CURE 4408",
+                        "CURE 4431",
+                        "ANTH 4720",
+                        "CURE 2408",
+                        "CURE 2409",
+                        "CURE 2411",
+                        "CURE 2412",
+                        "CURE 3402",
+                        "CURE 3403",
+                        "CURE 3404",
+                        "CURE 3406",
+                        "CURE 3407",
+                        "CURE 3411",
+                        "CURE 4441"
+                      ],
+                      "subsections": [],
+                      "excluded_codes": [],
+                      "course_groups": [
+                        {
+                          "label": "Cultural Management Area 1: Heritage Management",
+                          "codes": [
+                            "CURE 2404",
+                            "CURE 3401",
+                            "CURE 3409",
+                            "CURE 4403",
+                            "CURE 4404",
+                            "CURE 4405",
+                            "CURE 4411",
+                            "ANTH 2370",
+                            "ANTH 2730"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Management Area 2: Curation",
+                          "codes": [
+                            "CURE 2406",
+                            "CURE 2407",
+                            "CURE 3036",
+                            "CURE 3405",
+                            "CURE 3408",
+                            "CURE 4401",
+                            "CURE 4421",
+                            "FAAS 3108"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Management Area 3: Cultural Institutions",
+                          "codes": [
+                            "CURE 2403",
+                            "CURE 2405",
+                            "CURE 2410",
+                            "CURE 3508",
+                            "CURE 4408",
+                            "CURE 4431",
+                            "ANTH 4720"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Management Area 4: Creative Industries and Practices",
+                          "codes": [
+                            "CURE 2408",
+                            "CURE 2409",
+                            "CURE 2411",
+                            "CURE 2412",
+                            "CURE 3402",
+                            "CURE 3403",
+                            "CURE 3404",
+                            "CURE 3406",
+                            "CURE 3407",
+                            "CURE 3411",
+                            "CURE 4441"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "",
+                      "title": "Cultural Studies Concentration",
+                      "units": "",
+                      "text": [
+                        "Nine courses at 2000 or above level from Cultural Studies Areas, with at least seven CURE courses, excluding the courses taken to fulfill other Major Programme Requirements"
+                      ],
+                      "codes": [
+                        "CURE 2007",
+                        "CURE 2008",
+                        "CURE 2010",
+                        "CURE 2011",
+                        "CURE 2031",
+                        "CURE 2032",
+                        "CURE 2042",
+                        "CURE 2051",
+                        "CURE 3011",
+                        "CURE 3030",
+                        "CURE 3038",
+                        "CURE 4008",
+                        "CURE 4028",
+                        "COMM 3840",
+                        "COMM 3841",
+                        "HIST 2010",
+                        "CURE 2003",
+                        "CURE 2005",
+                        "CURE 2018",
+                        "CURE 2019",
+                        "CURE 2025",
+                        "CURE 2145",
+                        "CURE 2228",
+                        "CURE 3003",
+                        "CURE 3012",
+                        "CURE 3025",
+                        "CURE 3032",
+                        "CURE 3037",
+                        "CURE 3144",
+                        "CURE 4031",
+                        "CURE 2014",
+                        "CURE 2022",
+                        "CURE 2036",
+                        "CURE 2047",
+                        "CURE 3007",
+                        "CURE 3013",
+                        "CURE 2006",
+                        "CURE 2030",
+                        "CURE 2040",
+                        "CURE 2066",
+                        "CURE 3014",
+                        "CURE 3026",
+                        "CURE 3033",
+                        "CURE 3034",
+                        "CURE 3066",
+                        "CURE 4021",
+                        "CURE 4033",
+                        "CURE 4040"
+                      ],
+                      "subsections": [],
+                      "excluded_codes": [],
+                      "course_groups": [
+                        {
+                          "label": "Cultural Studies Area 1: Cultural Literacy and Practices",
+                          "codes": [
+                            "CURE 2007",
+                            "CURE 2008",
+                            "CURE 2010",
+                            "CURE 2011",
+                            "CURE 2031",
+                            "CURE 2032",
+                            "CURE 2042",
+                            "CURE 2051",
+                            "CURE 3011",
+                            "CURE 3030",
+                            "CURE 3038",
+                            "CURE 4008",
+                            "CURE 4028",
+                            "COMM 3840",
+                            "COMM 3841",
+                            "HIST 2010"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Studies Area 2: Culture, Cities, and Ecology",
+                          "codes": [
+                            "CURE 2003",
+                            "CURE 2005",
+                            "CURE 2018",
+                            "CURE 2019",
+                            "CURE 2025",
+                            "CURE 2145",
+                            "CURE 2228",
+                            "CURE 3003",
+                            "CURE 3012",
+                            "CURE 3025",
+                            "CURE 3032",
+                            "CURE 3037",
+                            "CURE 3144",
+                            "CURE 4031"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Studies Area 3: Gender, Culture, and Society",
+                          "codes": [
+                            "CURE 2014",
+                            "CURE 2022",
+                            "CURE 2036",
+                            "CURE 2047",
+                            "CURE 3007",
+                            "CURE 3013"
+                          ]
+                        },
+                        {
+                          "label": "Cultural Studies Area 4: Film and Media Studies",
+                          "codes": [
+                            "CURE 2006",
+                            "CURE 2030",
+                            "CURE 2040",
+                            "CURE 2066",
+                            "CURE 3014",
+                            "CURE 3026",
+                            "CURE 3033",
+                            "CURE 3034",
+                            "CURE 3066",
+                            "CURE 4021",
+                            "CURE 4033",
+                            "CURE 4040"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "marker": "(c)",
+                  "title": "One course from Religious Studies Areas[a]",
+                  "units": "",
+                  "text": [],
+                  "codes": [
+                    "CURE 1111",
+                    "CURE 2112",
+                    "CURE 2113",
+                    "CURE 2114",
+                    "CURE 2115",
+                    "CURE 2170",
+                    "CURE 3375",
+                    "CURE 1123",
+                    "CURE 3132",
+                    "CURE 4157",
+                    "CURE 2130",
+                    "CURE 2161",
+                    "CURE 3122",
+                    "CURE 4121",
+                    "CURE 1122",
+                    "CURE 2375",
+                    "CURE 3126",
+                    "CURE 3136",
+                    "CURE 1124",
+                    "CURE 2131",
+                    "CURE 3134",
+                    "THEO 1211",
+                    "THEO 1212",
+                    "CURE 2225",
+                    "CURE 3377",
+                    "CURE 2226",
+                    "CURE 3114",
+                    "CURE 3378",
+                    "CURE 2139",
+                    "CURE 2125",
+                    "CURE 2227",
+                    "CURE 4134",
+                    "CURE 4158",
+                    "CURE 1110",
+                    "CURE 2145",
+                    "CURE 2160",
+                    "CURE 2163",
+                    "CURE 2164",
+                    "CURE 2228",
+                    "CURE 2377",
+                    "CURE 3116",
+                    "CURE 3130",
+                    "CURE 3142",
+                    "CURE 3145",
+                    "CURE 2142",
+                    "CURE 2144",
+                    "CURE 2156",
+                    "CURE 3115",
+                    "CURE 3144",
+                    "CURE 3147",
+                    "CURE 2154",
+                    "CURE 2155",
+                    "CURE 2165",
+                    "CURE 2166",
+                    "CURE 2167",
+                    "CURE 2180",
+                    "CURE 2181",
+                    "THEO 3215",
+                    "THEO 3216",
+                    "THEO 3217",
+                    "THEO 3218",
+                    "CURE 4153",
+                    "CURE 4159"
+                  ],
+                  "subsections": [],
+                  "excluded_codes": [],
+                  "course_groups": [
+                    {
+                      "label": "Religious Studies Area 1: Approaches to Religious Studies",
+                      "codes": [
+                        "CURE 1111",
+                        "CURE 2112",
+                        "CURE 2113",
+                        "CURE 2114",
+                        "CURE 2115",
+                        "CURE 2170",
+                        "CURE 3375"
+                      ]
+                    },
+                    {
+                      "label": "Religious Studies Area 2: Religious Traditions and Classics",
+                      "codes": [
+                        "CURE 1123",
+                        "CURE 3132",
+                        "CURE 4157",
+                        "CURE 2130",
+                        "CURE 2161",
+                        "CURE 3122",
+                        "CURE 4121",
+                        "CURE 1122",
+                        "CURE 2375",
+                        "CURE 3126",
+                        "CURE 3136",
+                        "CURE 1124",
+                        "CURE 2131",
+                        "CURE 3134",
+                        "THEO 1211",
+                        "THEO 1212",
+                        "CURE 2225",
+                        "CURE 3377",
+                        "CURE 2226",
+                        "CURE 3114",
+                        "CURE 3378",
+                        "CURE 2139",
+                        "CURE 2125",
+                        "CURE 2227",
+                        "CURE 4134"
+                      ]
+                    },
+                    {
+                      "label": "Religious Studies Area 3: Religion, Culture and Society",
+                      "codes": [
+                        "CURE 4158",
+                        "CURE 1110",
+                        "CURE 2145",
+                        "CURE 2160",
+                        "CURE 2163",
+                        "CURE 2164",
+                        "CURE 2228",
+                        "CURE 2377",
+                        "CURE 3116",
+                        "CURE 3130",
+                        "CURE 3142",
+                        "CURE 3145",
+                        "CURE 2142",
+                        "CURE 2144",
+                        "CURE 2156",
+                        "CURE 3115",
+                        "CURE 3144",
+                        "CURE 3147"
+                      ]
+                    },
+                    {
+                      "label": "Religious Studies Area 4: Classical Languages",
+                      "codes": [
+                        "CURE 2154",
+                        "CURE 2155",
+                        "CURE 2165",
+                        "CURE 2166",
+                        "CURE 2167",
+                        "CURE 2180",
+                        "CURE 2181",
+                        "THEO 3215",
+                        "THEO 3216",
+                        "THEO 3217",
+                        "THEO 3218"
+                      ]
+                    },
+                    {
+                      "label": "Religious Studies Area 5: Seminars",
+                      "codes": [
+                        "CURE 4153",
+                        "CURE 4159"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "ANTH, COMM, CURE, FAAS, HIST courses at 2000 and above level will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Courses which count towards the fulfillment of the elective course requirements specified in 3(a) and concentrations (a) cannot be counted towards the fulfillment of the elective course requirements specified in 3(b) and concentrations (b).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "For Religious Studies courses, please refer to the course list of Religious Studies Programme.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "senior-entry-requirement-for-associate-degree-or-higher-diploma-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Associate Degree or Higher Diploma holders admitted to senior-year places",
+      "source_order": 1,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 51 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "51",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Required Courses",
+              "units": "18",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "CURE1004, 1009, 1401, 1403, 2001"
+                  ],
+                  "codes": [
+                    "CURE 1004",
+                    "CURE 1009",
+                    "CURE 1401",
+                    "CURE 1403",
+                    "CURE 2001"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Capstone course",
+                  "units": "",
+                  "text": [
+                    "CURE4014 or 4038"
+                  ],
+                  "codes": [
+                    "CURE 4014",
+                    "CURE 4038"
+                  ],
+                  "subsections": []
+                }
+              ]
+            },
+            {
+              "marker": "2.",
+              "title": "Elective Courses",
+              "units": "33",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Any three courses from the following",
+                  "units": "9",
+                  "text": [
+                    "CURE2006, 2411, 2412, 3007, 4008, 4401"
+                  ],
+                  "codes": [
+                    "CURE 2006",
+                    "CURE 2411",
+                    "CURE 2412",
+                    "CURE 3007",
+                    "CURE 4008",
+                    "CURE 4401"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "",
+                  "units": "24",
+                  "text": [
+                    "Eight courses at 2000 or above level from Cultural Studies Areas and Cultural Management Areas, with at least seven CURE courses, excluding the courses taken to fulfill other Major Programme Requirements"
+                  ],
+                  "codes": [
+                    "CURE 2007",
+                    "CURE 2008",
+                    "CURE 2010",
+                    "CURE 2011",
+                    "CURE 2031",
+                    "CURE 2032",
+                    "CURE 2042",
+                    "CURE 2051",
+                    "CURE 3011",
+                    "CURE 3030",
+                    "CURE 3038",
+                    "CURE 4008",
+                    "CURE 4028",
+                    "COMM 3840",
+                    "COMM 3841",
+                    "HIST 2010",
+                    "CURE 2003",
+                    "CURE 2005",
+                    "CURE 2018",
+                    "CURE 2019",
+                    "CURE 2025",
+                    "CURE 2145",
+                    "CURE 2228",
+                    "CURE 3003",
+                    "CURE 3012",
+                    "CURE 3025",
+                    "CURE 3032",
+                    "CURE 3037",
+                    "CURE 3144",
+                    "CURE 4031",
+                    "CURE 2014",
+                    "CURE 2022",
+                    "CURE 2036",
+                    "CURE 2047",
+                    "CURE 3007",
+                    "CURE 3013",
+                    "CURE 2006",
+                    "CURE 2030",
+                    "CURE 2040",
+                    "CURE 2066",
+                    "CURE 3014",
+                    "CURE 3026",
+                    "CURE 3033",
+                    "CURE 3034",
+                    "CURE 3066",
+                    "CURE 4021",
+                    "CURE 4033",
+                    "CURE 4040",
+                    "CURE 2404",
+                    "CURE 3401",
+                    "CURE 3409",
+                    "CURE 4403",
+                    "CURE 4404",
+                    "CURE 4405",
+                    "CURE 4411",
+                    "ANTH 2370",
+                    "ANTH 2730",
+                    "CURE 2406",
+                    "CURE 2407",
+                    "CURE 3036",
+                    "CURE 3405",
+                    "CURE 3408",
+                    "CURE 4401",
+                    "CURE 4421",
+                    "FAAS 3108",
+                    "CURE 2403",
+                    "CURE 2405",
+                    "CURE 2410",
+                    "CURE 3508",
+                    "CURE 4408",
+                    "CURE 4431",
+                    "ANTH 4720",
+                    "CURE 2408",
+                    "CURE 2409",
+                    "CURE 2411",
+                    "CURE 2412",
+                    "CURE 3402",
+                    "CURE 3403",
+                    "CURE 3404",
+                    "CURE 3406",
+                    "CURE 3407",
+                    "CURE 3411",
+                    "CURE 4441"
+                  ],
+                  "subsections": [],
+                  "excluded_codes": [],
+                  "course_groups": [
+                    {
+                      "label": "Cultural Studies Area 1: Cultural Literacy and Practices",
+                      "codes": [
+                        "CURE 2007",
+                        "CURE 2008",
+                        "CURE 2010",
+                        "CURE 2011",
+                        "CURE 2031",
+                        "CURE 2032",
+                        "CURE 2042",
+                        "CURE 2051",
+                        "CURE 3011",
+                        "CURE 3030",
+                        "CURE 3038",
+                        "CURE 4008",
+                        "CURE 4028",
+                        "COMM 3840",
+                        "COMM 3841",
+                        "HIST 2010"
+                      ]
+                    },
+                    {
+                      "label": "Cultural Studies Area 2: Culture, Cities, and Ecology",
+                      "codes": [
+                        "CURE 2003",
+                        "CURE 2005",
+                        "CURE 2018",
+                        "CURE 2019",
+                        "CURE 2025",
+                        "CURE 2145",
+                        "CURE 2228",
+                        "CURE 3003",
+                        "CURE 3012",
+                        "CURE 3025",
+                        "CURE 3032",
+                        "CURE 3037",
+                        "CURE 3144",
+                        "CURE 4031"
+                      ]
+                    },
+                    {
+                      "label": "Cultural Studies Area 3: Gender, Culture, and Society",
+                      "codes": [
+                        "CURE 2014",
+                        "CURE 2022",
+                        "CURE 2036",
+                        "CURE 2047",
+                        "CURE 3007",
+                        "CURE 3013"
+                      ]
+                    },
+                    {
+                      "label": "Cultural Studies Area 4: Film and Media Studies",
+                      "codes": [
+                        "CURE 2006",
+                        "CURE 2030",
+                        "CURE 2040",
+                        "CURE 2066",
+                        "CURE 3014",
+                        "CURE 3026",
+                        "CURE 3033",
+                        "CURE 3034",
+                        "CURE 3066",
+                        "CURE 4021",
+                        "CURE 4033",
+                        "CURE 4040"
+                      ]
+                    },
+                    {
+                      "label": "Cultural Management Area 1: Heritage Management",
+                      "codes": [
+                        "CURE 2404",
+                        "CURE 3401",
+                        "CURE 3409",
+                        "CURE 4403",
+                        "CURE 4404",
+                        "CURE 4405",
+                        "CURE 4411",
+                        "ANTH 2370",
+                        "ANTH 2730"
+                      ]
+                    },
+                    {
+                      "label": "Cultural Management Area 2: Curation",
+                      "codes": [
+                        "CURE 2406",
+                        "CURE 2407",
+                        "CURE 3036",
+                        "CURE 3405",
+                        "CURE 3408",
+                        "CURE 4401",
+                        "CURE 4421",
+                        "FAAS 3108"
+                      ]
+                    },
+                    {
+                      "label": "Cultural Management Area 3: Cultural Institutions",
+                      "codes": [
+                        "CURE 2403",
+                        "CURE 2405",
+                        "CURE 2410",
+                        "CURE 3508",
+                        "CURE 4408",
+                        "CURE 4431",
+                        "ANTH 4720"
+                      ]
+                    },
+                    {
+                      "label": "Cultural Management Area 4: Creative Industries and Practices",
+                      "codes": [
+                        "CURE 2408",
+                        "CURE 2409",
+                        "CURE 2411",
+                        "CURE 2412",
+                        "CURE 3402",
+                        "CURE 3403",
+                        "CURE 3404",
+                        "CURE 3406",
+                        "CURE 3407",
+                        "CURE 3411",
+                        "CURE 4441"
+                      ]
+                    }
+                  ],
+                  "heading_as_text": true
+                }
+              ],
+              "units_computed": true
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "ANTH, COMM, CURE, FAAS, HIST courses at 2000 and above level will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    }
+  ]
 }

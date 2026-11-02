@@ -494,5 +494,778 @@
   "supplementary": [],
   "source_file": "B.A._in_Music",
   "parse_status": "parsed",
-  "additional_requirements": []
+  "additional_requirements": [],
+  "requirement_schemes": [
+    {
+      "id": "standard-requirement",
+      "kind": "standard",
+      "title": "Standard Requirement",
+      "source_order": 0,
+      "default": true,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 66 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "66",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "MUSC1000 and any two courses from ANTH1020, ARTS1009, 1010, BMBL1001, CHES1101 or 1102, CHLL1900 or 1902 or 1903, CURE1000 or 1400, 1110, ENGE1000, FAAS1900, HIST1000 or 1700 or 1701, JASP1090, LING1000, PHIL1110, THEO1000, TRAN1000"
+              ],
+              "codes": [
+                "MUSC 1000",
+                "ANTH 1020",
+                "ARTS 1009",
+                "ARTS 1010",
+                "BMBL 1001",
+                "CHES 1101",
+                "CHES 1102",
+                "CHLL 1900",
+                "CHLL 1902",
+                "CHLL 1903",
+                "CURE 1000",
+                "CURE 1400",
+                "CURE 1110",
+                "ENGE 1000",
+                "FAAS 1900",
+                "HIST 1000",
+                "HIST 1700",
+                "HIST 1701",
+                "JASP 1090",
+                "LING 1000",
+                "PHIL 1110",
+                "THEO 1000",
+                "TRAN 1000"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "38-39",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Choir Training courses",
+                  "units": "4",
+                  "text": [
+                    "MUSC1001, 1002, 2001, 2002"
+                  ],
+                  "codes": [
+                    "MUSC 1001",
+                    "MUSC 1002",
+                    "MUSC 2001",
+                    "MUSC 2002"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Applied Music courses",
+                  "units": "8",
+                  "text": [
+                    "[(MUSC1011, 1051) or (MUSC1012)], [(MUSC1021, 1061) or (MUSC1022)], [(MUSC2011, 2051) or (MUSC2012)], [(MUSC2021, 2061) or (MUSC2022)]"
+                  ],
+                  "codes": [
+                    "MUSC 1011",
+                    "MUSC 1051",
+                    "MUSC 1012",
+                    "MUSC 1021",
+                    "MUSC 1061",
+                    "MUSC 1022",
+                    "MUSC 2011",
+                    "MUSC 2051",
+                    "MUSC 2012",
+                    "MUSC 2021",
+                    "MUSC 2061",
+                    "MUSC 2022"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(c)",
+                  "title": "Music, History, and Culture courses",
+                  "units": "8",
+                  "text": [
+                    "MUSC2552, 2562, 2872, 2882"
+                  ],
+                  "codes": [
+                    "MUSC 2552",
+                    "MUSC 2562",
+                    "MUSC 2872",
+                    "MUSC 2882"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(d)",
+                  "title": "Theory, Analysis, and Composition courses",
+                  "units": "8",
+                  "text": [
+                    "MUSC1212, 1222, 2252, 2262"
+                  ],
+                  "codes": [
+                    "MUSC 1212",
+                    "MUSC 1222",
+                    "MUSC 2252",
+                    "MUSC 2262"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(e)",
+                  "title": "Stream-specific courses (Students must declare one of the following areas of study)",
+                  "units": "10-11",
+                  "text": [],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "title": "Composition",
+                      "text": [],
+                      "codes": [],
+                      "units": "11",
+                      "marker": "(1)",
+                      "subsections": [
+                        {
+                          "title": "Supporting Courses",
+                          "text": [
+                            "MUSC3343, and one course from MUSC3323, 3333, 3373, 3383, 3712, 3722, 3732, 3742"
+                          ],
+                          "codes": [
+                            "MUSC 3343",
+                            "MUSC 3323",
+                            "MUSC 3333",
+                            "MUSC 3373",
+                            "MUSC 3383",
+                            "MUSC 3712",
+                            "MUSC 3722",
+                            "MUSC 3732",
+                            "MUSC 3742"
+                          ],
+                          "units": "",
+                          "marker": "",
+                          "subsections": []
+                        },
+                        {
+                          "title": "Capstone Courses",
+                          "text": [
+                            "MUSC3353, 3363"
+                          ],
+                          "codes": [
+                            "MUSC 3353",
+                            "MUSC 3363"
+                          ],
+                          "units": "",
+                          "marker": "",
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "title": "Performance",
+                      "text": [],
+                      "codes": [],
+                      "units": "10",
+                      "marker": "(2)",
+                      "subsections": [
+                        {
+                          "title": "Supporting Courses",
+                          "text": [
+                            "MUSC3012, 3022"
+                          ],
+                          "codes": [
+                            "MUSC 3012",
+                            "MUSC 3022"
+                          ],
+                          "units": "",
+                          "marker": "",
+                          "subsections": []
+                        },
+                        {
+                          "title": "Capstone Courses",
+                          "text": [
+                            "MUSC4000, 4003"
+                          ],
+                          "codes": [
+                            "MUSC 4000",
+                            "MUSC 4003"
+                          ],
+                          "units": "",
+                          "marker": "",
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "title": "Research",
+                      "text": [],
+                      "codes": [],
+                      "units": "10",
+                      "marker": "(3)",
+                      "subsections": [
+                        {
+                          "title": "Supporting Courses",
+                          "text": [
+                            "Two courses from MUSC2543, 3213, 3223, 3233, 3243, 3452, 3462, 3472, 3482, 3502, 3512, 3522, 3532, 3533, 3542, 3562, 3582, 3802, 3852, 3892, 3902, 3912, 3922, 3932, 3942"
+                          ],
+                          "codes": [
+                            "MUSC 2543",
+                            "MUSC 3213",
+                            "MUSC 3223",
+                            "MUSC 3233",
+                            "MUSC 3243",
+                            "MUSC 3452",
+                            "MUSC 3462",
+                            "MUSC 3472",
+                            "MUSC 3482",
+                            "MUSC 3502",
+                            "MUSC 3512",
+                            "MUSC 3522",
+                            "MUSC 3532",
+                            "MUSC 3533",
+                            "MUSC 3542",
+                            "MUSC 3562",
+                            "MUSC 3582",
+                            "MUSC 3802",
+                            "MUSC 3852",
+                            "MUSC 3892",
+                            "MUSC 3902",
+                            "MUSC 3912",
+                            "MUSC 3922",
+                            "MUSC 3932",
+                            "MUSC 3942"
+                          ],
+                          "units": "",
+                          "marker": "",
+                          "subsections": []
+                        },
+                        {
+                          "title": "Capstone Courses",
+                          "text": [
+                            "MUSC4613, 4623"
+                          ],
+                          "codes": [
+                            "MUSC 4613",
+                            "MUSC 4623"
+                          ],
+                          "units": "",
+                          "marker": "",
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "18-19",
+              "text": [
+                "Any MUSC courses other than the courses taken to fulfill requirement (2) above, with at least one course from Area 3 and two courses from Area 4, and up to six units from Area 2C “Other Ensemble Courses”.",
+                "The lists below exclude universally required courses. Courses that are alternatives in section 2 remain listed, but cannot also count here if you use them to fulfil section 2."
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "Area 2A: Applied Music Courses",
+                  "text": [],
+                  "codes": [
+                    "MUSC 1011",
+                    "MUSC 1021",
+                    "MUSC 2011",
+                    "MUSC 2021",
+                    "MUSC 3011",
+                    "MUSC 3021",
+                    "MUSC 4011",
+                    "MUSC 4021",
+                    "MUSC 1051",
+                    "MUSC 1061",
+                    "MUSC 2051",
+                    "MUSC 2061",
+                    "MUSC 3051",
+                    "MUSC 3061",
+                    "MUSC 4051",
+                    "MUSC 4061",
+                    "MUSC 1012",
+                    "MUSC 1022",
+                    "MUSC 2012",
+                    "MUSC 2022",
+                    "MUSC 3012",
+                    "MUSC 3022"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 2B: Choral and Orchestral Ensemble Courses",
+                  "text": [],
+                  "codes": [
+                    "MUSC 3001",
+                    "MUSC 3002",
+                    "MUSC 4001",
+                    "MUSC 4002",
+                    "MUSC 1031",
+                    "MUSC 1032",
+                    "MUSC 2031",
+                    "MUSC 2032",
+                    "MUSC 3031",
+                    "MUSC 3032",
+                    "MUSC 4031",
+                    "MUSC 4032",
+                    "MUSC 1041",
+                    "MUSC 1042",
+                    "MUSC 2041",
+                    "MUSC 2042",
+                    "MUSC 3041",
+                    "MUSC 3042",
+                    "MUSC 4041",
+                    "MUSC 4042"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 2C: Other Ensemble Courses",
+                  "text": [
+                    "Up to six units from this area may count towards the elective requirement."
+                  ],
+                  "codes": [
+                    "MUSC 1013",
+                    "MUSC 1023",
+                    "MUSC 2013",
+                    "MUSC 2023",
+                    "MUSC 3013",
+                    "MUSC 3023",
+                    "MUSC 4013",
+                    "MUSC 4023",
+                    "MUSC 1014",
+                    "MUSC 1024",
+                    "MUSC 2014",
+                    "MUSC 2024",
+                    "MUSC 3014",
+                    "MUSC 3024",
+                    "MUSC 4014",
+                    "MUSC 4024",
+                    "MUSC 1017",
+                    "MUSC 1027",
+                    "MUSC 2017",
+                    "MUSC 2027",
+                    "MUSC 3017",
+                    "MUSC 3027",
+                    "MUSC 4017",
+                    "MUSC 4027",
+                    "MUSC 1018",
+                    "MUSC 1028",
+                    "MUSC 2018",
+                    "MUSC 2028",
+                    "MUSC 3018",
+                    "MUSC 3028",
+                    "MUSC 4018",
+                    "MUSC 4028",
+                    "MUSC 1019",
+                    "MUSC 1029",
+                    "MUSC 2019",
+                    "MUSC 2029",
+                    "MUSC 3019",
+                    "MUSC 3029",
+                    "MUSC 4019",
+                    "MUSC 4029"
+                  ],
+                  "units": "max. 6",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 3: Theory, Analysis, and Composition Courses",
+                  "text": [
+                    "Take at least one course from this area."
+                  ],
+                  "codes": [
+                    "MUSC 3323",
+                    "MUSC 3333",
+                    "MUSC 3343",
+                    "MUSC 3373",
+                    "MUSC 3383",
+                    "MUSC 3432",
+                    "MUSC 3442",
+                    "MUSC 3452",
+                    "MUSC 3462",
+                    "MUSC 3472",
+                    "MUSC 3482",
+                    "MUSC 3492",
+                    "MUSC 3712",
+                    "MUSC 3722",
+                    "MUSC 3732",
+                    "MUSC 3742"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 4: Music, History, and Culture Courses",
+                  "text": [
+                    "Take at least two courses from this area."
+                  ],
+                  "codes": [
+                    "MUSC 2542",
+                    "MUSC 3213",
+                    "MUSC 3223",
+                    "MUSC 3233",
+                    "MUSC 3243",
+                    "MUSC 3542",
+                    "MUSC 3562",
+                    "MUSC 3582",
+                    "MUSC 3802",
+                    "MUSC 3852",
+                    "MUSC 3892",
+                    "MUSC 3902"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 5: Capstone Courses",
+                  "text": [],
+                  "codes": [
+                    "MUSC 3353",
+                    "MUSC 3363",
+                    "MUSC 4000",
+                    "MUSC 4003",
+                    "MUSC 4613",
+                    "MUSC 4623"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 6: Other Courses",
+                  "text": [],
+                  "codes": [
+                    "MUSC 2333",
+                    "MUSC 2540",
+                    "MUSC 2543",
+                    "MUSC 2545",
+                    "MUSC 2913",
+                    "MUSC 3502",
+                    "MUSC 3530",
+                    "MUSC 3533",
+                    "MUSC 3912",
+                    "MUSC 3922",
+                    "MUSC 3923",
+                    "MUSC 3932",
+                    "MUSC 3933",
+                    "MUSC 3942",
+                    "MUSC 4943"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "MUSC courses at 2000 and above level in Areas 1, 3, 4, 5, and 6 as well as MUSC1000, MUSC1212, MUSC1222, MUSC2022, MUSC2061, MUSC3022, MUSC3061, MUSC4061 will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "Students specializing in Composition Stream are required to take 11 units of stream-specific courses and 18 units of elective courses, those taking other streams should take 10 units of stream-specific courses and 19 units of elective courses.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "senior-entry-requirement-for-associate-degree-or-higher-diploma-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Associate Degree or Higher Diploma holders admitted to senior-year places",
+      "source_order": 1,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 54 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "54",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "3",
+              "text": [
+                "MUSC1000"
+              ],
+              "codes": [
+                "MUSC 1000"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "18",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "12",
+                  "text": [
+                    "MUSC2252, 2262, 2552, 2562, 2872, 2882"
+                  ],
+                  "codes": [
+                    "MUSC 2252",
+                    "MUSC 2262",
+                    "MUSC 2552",
+                    "MUSC 2562",
+                    "MUSC 2872",
+                    "MUSC 2882"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "",
+                  "units": "6",
+                  "text": [
+                    "MUSC4613, 4623"
+                  ],
+                  "codes": [
+                    "MUSC 4613",
+                    "MUSC 4623"
+                  ],
+                  "subsections": []
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "33",
+              "text": [
+                "Any MUSC courses other than the courses taken to fulfill requirement (1) and (2) above, excluding: (i) MUSC1212, 1222, 4000, 4003; and (ii) courses in Area 2A. Courses taken should include at least 6 units of courses at 3000 or above level and not more than 4 units of courses from Area 2B and/or 2C."
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "Area 1: Academic Core Courses",
+                  "text": [],
+                  "codes": [
+                    "MUSC 1212",
+                    "MUSC 1222"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 2B: Choral and Orchestral Ensemble Courses",
+                  "text": [],
+                  "codes": [
+                    "MUSC 1001",
+                    "MUSC 1002",
+                    "MUSC 2001",
+                    "MUSC 2002",
+                    "MUSC 3001",
+                    "MUSC 3002",
+                    "MUSC 4001",
+                    "MUSC 4002",
+                    "MUSC 1031",
+                    "MUSC 1032",
+                    "MUSC 2031",
+                    "MUSC 2032",
+                    "MUSC 3031",
+                    "MUSC 3032",
+                    "MUSC 4031",
+                    "MUSC 4032",
+                    "MUSC 1041",
+                    "MUSC 1042",
+                    "MUSC 2041",
+                    "MUSC 2042",
+                    "MUSC 3041",
+                    "MUSC 3042",
+                    "MUSC 4041",
+                    "MUSC 4042"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 2C: Other Ensemble Courses",
+                  "text": [],
+                  "codes": [
+                    "MUSC 1013",
+                    "MUSC 1023",
+                    "MUSC 2013",
+                    "MUSC 2023",
+                    "MUSC 3013",
+                    "MUSC 3023",
+                    "MUSC 4013",
+                    "MUSC 4023",
+                    "MUSC 1014",
+                    "MUSC 1024",
+                    "MUSC 2014",
+                    "MUSC 2024",
+                    "MUSC 3014",
+                    "MUSC 3024",
+                    "MUSC 4014",
+                    "MUSC 4024",
+                    "MUSC 1017",
+                    "MUSC 1027",
+                    "MUSC 2017",
+                    "MUSC 2027",
+                    "MUSC 3017",
+                    "MUSC 3027",
+                    "MUSC 4017",
+                    "MUSC 4027",
+                    "MUSC 1018",
+                    "MUSC 1028",
+                    "MUSC 2018",
+                    "MUSC 2028",
+                    "MUSC 3018",
+                    "MUSC 3028",
+                    "MUSC 4018",
+                    "MUSC 4028",
+                    "MUSC 1019",
+                    "MUSC 1029",
+                    "MUSC 2019",
+                    "MUSC 2029",
+                    "MUSC 3019",
+                    "MUSC 3029",
+                    "MUSC 4019",
+                    "MUSC 4029"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 3: Theory, Analysis, and Composition Courses",
+                  "text": [],
+                  "codes": [
+                    "MUSC 3323",
+                    "MUSC 3333",
+                    "MUSC 3343",
+                    "MUSC 3373",
+                    "MUSC 3383",
+                    "MUSC 3432",
+                    "MUSC 3442",
+                    "MUSC 3452",
+                    "MUSC 3462",
+                    "MUSC 3472",
+                    "MUSC 3482",
+                    "MUSC 3492",
+                    "MUSC 3712",
+                    "MUSC 3722",
+                    "MUSC 3732",
+                    "MUSC 3742"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 4: Music, History, and Culture Courses",
+                  "text": [],
+                  "codes": [
+                    "MUSC 2542",
+                    "MUSC 3213",
+                    "MUSC 3223",
+                    "MUSC 3233",
+                    "MUSC 3243",
+                    "MUSC 3542",
+                    "MUSC 3562",
+                    "MUSC 3582",
+                    "MUSC 3802",
+                    "MUSC 3852",
+                    "MUSC 3892",
+                    "MUSC 3902"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 5: Capstone Courses",
+                  "text": [],
+                  "codes": [
+                    "MUSC 3353",
+                    "MUSC 3363",
+                    "MUSC 4000",
+                    "MUSC 4003"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                },
+                {
+                  "title": "Area 6: Other Courses",
+                  "text": [],
+                  "codes": [
+                    "MUSC 2333",
+                    "MUSC 2540",
+                    "MUSC 2543",
+                    "MUSC 2545",
+                    "MUSC 2913",
+                    "MUSC 3502",
+                    "MUSC 3530",
+                    "MUSC 3533",
+                    "MUSC 3912",
+                    "MUSC 3922",
+                    "MUSC 3923",
+                    "MUSC 3932",
+                    "MUSC 3933",
+                    "MUSC 3942",
+                    "MUSC 4943"
+                  ],
+                  "units": "",
+                  "marker": "",
+                  "subsections": []
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "MUSC courses at 2000 and above level in Areas 1, 3, 4, 5, and 6 as well as MUSC1000 will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    }
+  ]
 }

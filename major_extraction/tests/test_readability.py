@@ -27,6 +27,160 @@ def codes(groups):
     return {code for item in walk(groups) for code in item["codes"]}
 
 
+def requirement_scheme(data, *, kind=None, title_contains=None):
+    return next(
+        scheme for scheme in data.get("requirement_schemes", [])
+        if (kind is None or scheme.get("kind") == kind)
+        and (title_contains is None or title_contains in scheme.get("title", ""))
+    )
+
+
+def test_reviewed_nonstandard_requirements_keep_units_hierarchy_and_course_tables():
+    history = load("B.A._in_History")
+    history_english = requirement_scheme(history, title_contains="History and English")
+    elective = history_english["parts"][0]["sections"][2]
+    assert elective["units"] == "54"
+    assert [item["units"] for item in elective["subsections"]] == ["33", "21"]
+    senior_history = requirement_scheme(history, kind="senior_entry")["parts"][0]
+    minimum_groups = [item for item in walk(senior_history["sections"])
+                      if re.match(r"at least \d+ units from", item.get("title", ""), re.I)]
+    assert minimum_groups and all(item["text"] and item["codes"] for item in minimum_groups)
+
+    japanese = requirement_scheme(load("B.A._in_Japanese_Studies"), kind="senior_entry")["parts"][0]
+    route_heading = japanese["sections"][2]["subsections"][0]
+    assert route_heading["title"].startswith("Students may choose")
+    assert [item["title"] for item in route_heading["subsections"]] == ["Without Stream", "With Stream"]
+    streams = route_heading["subsections"][1]["subsections"]
+    assert [(item["marker"], item["title"]) for item in streams] == [
+        ("(i)", "Business and Management"),
+        ("(ii)", "Japan in Global Perspective"),
+        ("(iii)", "Japanese Language and Linguistics"),
+    ]
+    assert all(item["subsections"] for item in streams)
+
+    linguistics = requirement_scheme(load("B.A._in_Linguistics"), kind="senior_entry")["parts"][0]
+    assert [len(item.get("course_groups", [])) for item in linguistics["sections"][2]["subsections"]] == [3, 10]
+    music = requirement_scheme(load("B.A._in_Music"), kind="senior_entry")["parts"][0]
+    assert any(item["title"].startswith("Area 3:") for item in music["sections"][2]["subsections"])
+    philosophy = requirement_scheme(load("B.A._in_Philosophy"), kind="senior_entry")["parts"][0]
+    assert [item["units"] for item in philosophy["sections"][2]["subsections"][:3]] == ["min. 3"] * 3
+
+    public = requirement_scheme(load("B.A._in_Public_Humanities"), kind="senior_entry")["parts"][0]
+    public_area_rule = public["sections"][1]["subsections"][1]
+    labels = [group["label"] for group in public_area_rule["course_groups"]]
+    assert any(label.startswith("Cultural Studies Area") for label in labels)
+    assert any(label.startswith("Cultural Management Area") for label in labels)
+
+    # Every relevant table must carry the complete, source-published Cultural
+    # Studies catalogue, including Area 2.  Compare exact code lists so a
+    # partially populated table cannot pass merely because its heading exists.
+    source_cultural = {
+        area["title"]: area["codes"]
+        for area in source_areas(SOURCE / "B.A._in_Public_Humanities.html", extract_course_codes)
+        if area["title"].startswith("Cultural Studies Area")
+    }
+    assert any(title.startswith("Cultural Studies Area 2:") for title in source_cultural)
+    for stem in ("B.A._in_Public_Humanities", "B.A._in_Religious_Studies"):
+        programme = load(stem)
+        catalogues = [
+            {entry["label"]: entry["codes"] for entry in item.get("course_groups", [])
+             if entry["label"].startswith("Cultural Studies Area")}
+            for scheme in programme["requirement_schemes"]
+            for part in scheme["parts"]
+            for item in walk(part["sections"])
+            if any(entry["label"].startswith("Cultural Studies Area")
+                   for entry in item.get("course_groups", []))
+        ]
+        assert catalogues
+        assert all(catalogue == source_cultural for catalogue in catalogues)
+
+    theology = load("B.A._in_Theology")
+    outside = next(item for item in walk(theology["sections"])
+                   if item["title"] == "CURE Courses Outside Cultural Studies Areas")
+    cultural = source_areas(SOURCE / "B.A._in_Public_Humanities.html", extract_course_codes)
+    cultural_codes = {code for area in cultural if area["title"].startswith("Cultural Studies Area")
+                      for code in area["codes"]}
+    assert outside["codes"] and not set(outside["codes"]) & cultural_codes
+
+    accountancy = requirement_scheme(load("B.B.A._in_Professional_Accountancy"), kind="senior_entry")["parts"][0]
+    assert accountancy["total_units"] == "58 or 61"
+    assert [item["title"] for item in accountancy["sections"][2]["subsections"]] == [
+        "Without Stream", "Global Tax and Governance Stream",
+        "Finance for Accountants Stream", "Accounting Analytics Stream",
+    ]
+    hospitality = requirement_scheme(load("B.B.A._in_Hospitality_and_Real_Estate"), kind="senior_entry")["parts"][0]
+    assert [len(section["subsections"][0]["subsections"]) for section in hospitality["sections"][1:]] == [2, 4]
+
+
+def test_reviewed_double_degrees_publish_both_parts_and_complete_notes():
+    translation = requirement_scheme(load("B.A._in_Translation"), kind="double_degree")
+    assert [(part["title"], part["total_units"]) for part in translation["parts"]] == [
+        ("1st Degree: Bachelor of Arts (Translation)", "66"),
+        ("2nd Degree: Juris Doctor (JD)", "72"),
+    ]
+    translation_note = next(note for note in translation["parts"][0]["notes"] if note["marker"] == "2.")
+    assert len(translation_note["subsections"]) == 5
+
+    integrated = load("B.B.A._-_Integrated_BBA_Programme")
+    journalism = requirement_scheme(integrated, title_contains="Journalism and Communication")
+    assert len(journalism["parts"]) == 2
+    assert all(not part["description"].lower().startswith(part["title"].lower())
+               for part in journalism["parts"])
+    fintech = requirement_scheme(integrated, title_contains="Financial Technology")
+    note_a = next(note for note in fintech["parts"][0]["notes"] if note["marker"] == "[a]")
+    point_iv = next(item for item in note_a["subsections"] if item["marker"] == "(iv)")
+    assert not point_iv["title"] and "Students who fail or are absent" in " ".join(point_iv["text"])
+
+    integrated_jd = load("B.B.A._(Integrated_BBA_Programme)_and_Juris_Doctor")
+    assert integrated_jd["total_units"] == "70-73 + 72"
+
+    energy = load("B.Eng._in_Energy_and_Environmental_Engineering")
+    energy_double = requirement_scheme(energy, kind="double_degree")
+    assert all(not part["description"].lower().startswith(part["title"].lower())
+               for part in energy_double["parts"])
+    streams = energy_double["parts"][0]["sections"][3]["subsections"][-1]
+    assert streams["title"] == "Streams" and len(streams["subsections"]) == 3
+    note_a = next(note for note in energy_double["parts"][0]["notes"] if note["marker"] == "[a]")
+    points = {item["marker"]: item for item in note_a["subsections"]}
+    assert len(points["(ii)"]["text"]) == 3 and len(points["(iii)"]["text"]) == 4
+
+
+def test_reviewed_arts_variant_units_headings_and_intro_lines():
+    chinese = requirement_scheme(
+        load("B.A._in_Chinese_Language_and_Literature"), title_contains="Translation Double Major"
+    )["parts"][0]
+    chinese_ii = chinese["sections"][1]["subsections"][0]["subsections"][0]["subsections"][1]
+    assert chinese_ii["marker"] == "(ii)" and chinese_ii["units"] == "15"
+
+    fine_arts = load("B.A._in_Fine_Arts")
+    standard_lines = requirement_scheme(fine_arts, kind="standard")["parts"][0]["description_lines"]
+    for scheme in [item for item in fine_arts["requirement_schemes"] if item["kind"] == "senior_entry"]:
+        lines = scheme["parts"][0]["description_lines"]
+        assert len(lines) == len(standard_lines) == 6
+        assert lines[:4] == standard_lines[:4]
+
+    history = requirement_scheme(load("B.A._in_History"), kind="senior_entry")["parts"][0]
+    streams = history["sections"][2]["subsections"]
+    assert [item["units"] for item in streams] == ["48", "48"]
+    public_elective = next(
+        item for item in streams[1]["subsections"] if item["title"].startswith("Elective Courses")
+    )
+    assert public_elective["units"] == "42"
+
+    linguistics = requirement_scheme(
+        load("B.A._in_Linguistics"), title_contains="Linguistics and Psychology"
+    )["parts"][0]
+    core = linguistics["sections"][2]["subsections"][1]["subsections"][0]
+    assert core["marker"] == "(i)" and core["title"] == "Core Linguistics"
+    assert core["text"] and not core["text"][0].startswith("Core Linguistics")
+
+    translation = requirement_scheme(
+        load("B.A._in_Translation"), title_contains="Chinese Language and Literature Double Major"
+    )["parts"][0]
+    translation_a = translation["sections"][1]["subsections"][0]["subsections"][0]
+    assert translation_a["marker"] == "(a)" and translation_a["units"] == ""
+
+
 def test_equivalent_older_word_exports_use_the_reviewed_hierarchy():
     for year in ("2024_25", "2025_26", "2026_27"):
         chinese = load_year(year, "B.A._in_Chinese_Studies")
@@ -318,9 +472,13 @@ def test_japanese_local_scheme_uses_parallel_stream_groups():
 
 def test_attached_readability_corrections_and_note_layouts():
     anthropology = load("B.A._in_Anthropology")
-    assert not any(g.get("title") == "Voluntary Concentrations" for n in anthropology["notes"] for g in n["subsections"])
-    voluntary = anthropology["supplementary_note_sections"][0]
-    assert voluntary["title"] == "Voluntary Concentrations" and len(voluntary["subsections"]) == 6
+    voluntary_note = next(
+        note for note in anthropology["notes"]
+        if any(group.get("title") == "Voluntary Concentrations" for group in note["subsections"])
+    )
+    voluntary = voluntary_note["subsections"][0]
+    assert len(voluntary["subsections"]) == 6
+    assert not anthropology["supplementary_note_sections"]
 
     bimodal = load("B.A._in_Bimodal_Bilingual_Studies")
     assert [len(n.get("paragraphs", [])) for n in bimodal["notes"][1:]] == [3, 4]
@@ -366,8 +524,10 @@ def test_science_streams_and_faculty_packages_are_complete_and_structured():
             continue
         roots = data.get("sections", []) + [item for block in data.get("additional_requirements", []) for item in block["sections"]]
         for package in (item for item in roots if "Faculty Package" in item.get("title", "")):
-            labels = [item["title"] for item in walk(package.get("subsections", []))]
-            assert sum(bool(re.fullmatch(r"Group [A-E]", label)) for label in labels) >= 3
+            group_lines = [line for line in package.get("text", []) if re.match(r"^Group [A-E]\b", line)]
+            assert len(group_lines) >= 3
+            assert not package.get("subsections")
+            assert package.get("codes")
 
     natural = load("B.Sc._in_Natural_Sciences")
     assert not natural["additional_requirements"]
@@ -454,9 +614,12 @@ def test_business_programme_hierarchies_streams_and_second_degree():
     for stem in ["B.B.A._-_Integrated_BBA_Programme", "B.B.A._(Integrated_BBA_Programme)_and_Juris_Doctor"]:
         data = load(stem)
         elective = next(section for section in data["sections"] if "Elective Courses (Concentration)" in section["title"])
-        assert [group["marker"] for group in elective["subsections"][-2:]] == ["(h)", "(i)"]
-        assert [group["marker"] for group in elective["subsections"][-2]["subsections"]] == ["(i)", "(ii)"]
-        assert [group["marker"] for group in elective["subsections"][-1]["subsections"]] == ["(i)", "(ii)"]
+        instruction = elective["subsections"][0]
+        assert instruction["title"].startswith("Students must choose")
+        concentrations = instruction["subsections"]
+        assert [group["marker"] for group in concentrations[-2:]] == ["(h)", "(i)"]
+        assert [group["marker"] for group in concentrations[-2]["subsections"]] == ["(i)", "(ii)"]
+        assert [group["marker"] for group in concentrations[-1]["subsections"]] == ["(i)", "(ii)"]
     joint = load("B.B.A._(Integrated_BBA_Programme)_and_Juris_Doctor")
     jd = next(block for block in joint["additional_requirements"] if block["title"] == "2nd Degree: Juris Doctor")
     assert [section["marker"] for section in jd["sections"]] == ["1.", "2."]
@@ -530,9 +693,10 @@ def test_education_programmes_recover_published_headings_and_units():
 def test_engineering_labels_notes_and_admission_variants_are_structured():
     for stem in ["B.Eng._in_Computer_Engineering", "B.Sc._in_Computer_Science"]:
         choice = load(stem)["sections"][1]["subsections"][0]
-        assert [item["title"].split("[")[0] for item in choice["subsections"]] == [
+        assert [line.split(":", 1)[0].split("[")[0] for line in choice["text"]] == [
             "Chemistry Courses", "Life Science Courses", "Physics Courses",
         ]
+        assert not choice["subsections"] and choice["codes"]
 
     for stem in [
         "B.Eng._in_Artificial_Intelligence_Systems_and_Technologies",
@@ -619,10 +783,12 @@ def test_latest_cross_faculty_readability_fixes_are_source_backed():
         assert all(not child["subsections"] for child in item["subsections"][1:])
 
     risk = load("B.Sc._in_Risk_Management_Science")
-    package_choice = next(item for item in walk(risk["sections"][0]["subsections"])
-                          if item["title"] == "One course from the following")
-    assert [item["title"] for item in package_choice["subsections"]][-2:] == [
-        "Group D", "Courses from Faculty Package of the Faculty of Business Administration"]
+    package = risk["sections"][0]
+    assert "One course from the following" in package["text"]
+    assert any(line.startswith("Group D:") for line in package["text"])
+    assert any(line.startswith("Courses from Faculty Package of the Faculty of Business Administration:")
+               for line in package["text"])
+    assert package["codes"] and not package["subsections"]
     assert "minimum of 72 units" not in json.dumps(risk["notes"])
 
     statistics = load("B.Sc._in_Statistics")
@@ -653,3 +819,132 @@ def test_diplomacy_and_law_nested_labels_match_the_source_hierarchy():
     assert streams["title"] == "Streams"
     assert [item["title"] for item in streams["subsections"]] == ["Chinese Law", "Global Law"]
     assert all([item["marker"] for item in stream["subsections"]] == ["(a)", "(b)"] for stream in streams["subsections"])
+
+
+def test_final_review_arts_business_and_engineering_repairs_are_persistent():
+    bimodal = load("B.A._in_Bimodal_Bilingual_Studies")
+    assert len(bimodal["requirement_schemes"]) == 1
+    assert bimodal["requirement_schemes"][0]["kind"] == "senior_entry"
+
+    linguistics = requirement_scheme(load("B.A._in_Linguistics"), title_contains="Psychology")["parts"][0]
+    psychology_rule = next(item for item in walk(linguistics["sections"][2]["subsections"])
+                           if item["title"].startswith("At least four courses"))
+    assert not psychology_rule["units"] and psychology_rule["subsections"]
+
+    theology = load("B.A._in_Theology")
+    theology_b = next(item for item in theology["sections"][2]["subsections"] if item["marker"] == "(b)")
+    assert theology_b["title"].startswith("At least two courses at 2000")
+
+    translation = load("B.A._in_Translation")
+    chinese = requirement_scheme(translation, title_contains="Chinese Language")["parts"][0]
+    other = next(item for item in walk(chinese["sections"][2]["subsections"])
+                 if item["title"] == "Other Electives")
+    assert other["text"] and other["codes"]
+    translation_linguistics = requirement_scheme(translation, title_contains="Translation and Linguistics")["parts"][0]
+    assert translation_linguistics["sections"][-1]["marker"] == "4."
+    assert any(block["title"] == "Note on Double Major Linguistics-Translation"
+               for block in translation_linguistics["supplementary_note_sections"])
+    jd = requirement_scheme(translation, title_contains="Juris Doctor")["parts"][1]
+    assert [item["title"] for item in jd["sections"][1]["subsections"]] == [
+        "Elective courses which are pre-requisites for subsequent admission to the Postgraduate Certificate in Laws (PCLL) Programme",
+        "Other elective courses offered under the Juris Doctor Programme",
+        "Elective courses offered under the Master of Laws Programmes",
+    ]
+
+    accountancy = requirement_scheme(load("B.B.A._in_Professional_Accountancy"),
+                                     title_contains="Associate Degree")["parts"][0]
+    stream = next(item for item in accountancy["sections"][2]["subsections"]
+                  if item["title"] == "Global Tax and Governance Stream")
+    instruction = stream["subsections"][0]
+    assert instruction["title"] == "12 units from the following"
+    assert [item["marker"] for item in instruction["subsections"]] == ["(a)", "(b)"]
+
+    biomedical = requirement_scheme(load("B.Eng._in_Biomedical_Engineering"),
+                                    title_contains="Double Degree")["parts"]
+    assert {"[c]", "[d]", "[e]"} <= {note["marker"] for note in biomedical[0]["notes"]}
+    assert any("Mutual Recognition" in block["title"]
+               for block in biomedical[1]["supplementary_note_sections"])
+
+    information = requirement_scheme(load("B.Eng._in_Information_Engineering"),
+                                     title_contains="Double Degree")["parts"][0]
+    elective = information["sections"][3]
+    assert elective["subsections"][1]["title"].startswith("The remaining units, if any")
+    streams = next(item for item in elective["subsections"] if item["title"] == "Streams")
+    assert streams["subsections"][0]["title"] == "Big Data: Systems and Applications"
+
+    mechanical = requirement_scheme(load("B.Eng._in_Mechanical_and_Automation_Engineering"),
+                                    kind="senior_entry")["parts"][0]
+    streams = next(item for item in walk(mechanical["sections"]) if item["title"] == "Streams")
+    assert all(stream["subsections"] and all(rule["marker"] in {"(a)", "(b)"}
+                                              for rule in stream["subsections"])
+               for stream in streams["subsections"])
+
+    law = requirement_scheme(load("LL.B._-_Bachelor_of_Laws_Programme"),
+                             title_contains="Translation")
+    assert len(law["parts"]) == 2
+    required = law["parts"][1]["sections"][0]
+    assert required["units"] == "18"
+    assert next(item for item in required["subsections"] if item["marker"] == "(a)")["units"] == "12"
+
+
+def test_final_review_science_and_social_science_repairs_are_persistent():
+    biochemistry = load("B.Sc._in_Biochemistry")
+    assert biochemistry["sections"][2]["subsections"][1]["title"].startswith("Of the 17 units")
+
+    for stem, scheme_title in [
+        ("B.Sc._in_Biology", "Biology and Chemistry"),
+        ("B.Sc._in_Chemistry", "Chemistry and Biology"),
+    ]:
+        part = requirement_scheme(load(stem), title_contains=scheme_title)["parts"][0]
+        chemistry_rule = next(item for item in walk(part["sections"][2]["subsections"])
+                              if item["marker"] == "ii)" and item["title"].startswith("At least 5 units"))
+        assert chemistry_rule["text"] and chemistry_rule["codes"]
+
+    geography = requirement_scheme(load("B.S.Sc._in_Geography_and_Resource_Management"),
+                                   kind="senior_entry")["parts"][0]
+    geography_d = next(item for item in geography["sections"][1]["subsections"] if item["marker"] == "(d)")
+    assert geography_d["title"].startswith("At least five courses")
+
+    government = load("B.S.Sc._in_Government_and_Public_Administration")
+    capstone = next(item for item in government["sections"][2]["subsections"] if item["marker"] == "(c)")
+    assert [item["marker"] for item in capstone["subsections"]] == ["(i)–(v)", "(vi)"]
+    senior_government = requirement_scheme(government, kind="senior_entry")["parts"][0]
+    assert next(item for item in senior_government["sections"][2]["subsections"]
+                if item["marker"] == "(b)")["codes"]
+
+    journalism = load("B.S.Sc._in_Journalism_and_Communication")
+    senior_journalism = requirement_scheme(journalism, kind="senior_entry")["parts"][0]
+    areas = list(walk(senior_journalism["sections"][1]["subsections"]))
+    communication = next(item for item in areas if item["marker"] == "(iv)")
+    global_communication = next(item for item in areas if item["marker"] == "(v)")
+    assert len(communication["codes"]) == 11
+    assert global_communication["title"] == "Global Communication" and len(global_communication["codes"]) == 14
+
+    for stem, title in [
+        ("B.S.Sc._in_Journalism_and_Communication", "Psychology"),
+        ("B.S.Sc._in_Psychology", "Journalism"),
+    ]:
+        elective = requirement_scheme(load(stem), title_contains=title)["parts"][0]["sections"][2]
+        assert elective["units"] == "24" and elective["title"].endswith("[a][b]")
+        assert all(item["subsections"] for item in elective["subsections"])
+
+    for stem, title in [
+        ("B.S.Sc._in_Journalism_and_Communication", "Sociology"),
+        ("B.S.Sc._in_Sociology", "Journalism"),
+    ]:
+        elective = requirement_scheme(load(stem), title_contains=title)["parts"][0]["sections"][2]
+        assert elective["units"] == "30 or 33" and elective["title"].endswith("[a][b]")
+
+    psychology = requirement_scheme(load("B.S.Sc._in_Psychology"), kind="senior_entry")["parts"][0]
+    assert psychology["sections"][1]["subsections"][0]["title"].startswith("At least four courses")
+    psych_linguistics = requirement_scheme(load("B.S.Sc._in_Psychology"),
+                                           title_contains="Linguistics")["parts"][0]
+    instruction = next(item for item in walk(psych_linguistics["sections"][2]["subsections"])
+                       if item["title"].startswith("At least 4 courses"))
+    assert not instruction["units"] and instruction["subsections"]
+
+    sociology_jd = requirement_scheme(load("B.S.Sc._in_Sociology"), title_contains="Juris Doctor")
+    assert [(part["title"], part["total_units"]) for part in sociology_jd["parts"]] == [
+        ("1st Degree: Bachelor of Social Science (Sociology)", "69"),
+        ("2nd Degree: Juris Doctor (JD)", "72"),
+    ]

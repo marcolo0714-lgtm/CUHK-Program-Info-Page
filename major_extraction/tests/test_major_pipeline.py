@@ -58,6 +58,238 @@ def test_computer_science_uses_its_engineering_requirement_not_bba():
     assert not any(code.startswith("DOTE ") for code in faculty_package["codes"])
 
 
+def test_multiple_full_requirement_boxes_are_kept_as_distinct_schemes():
+    programmes = load_programmes()
+    multi_scheme = [programme for programme in programmes if len(programme.get("requirement_schemes", [])) > 1]
+    assert len(multi_scheme) == 36
+
+    for programme in multi_scheme:
+        schemes = programme["requirement_schemes"]
+        assert len({scheme["id"] for scheme in schemes}) == len(schemes)
+        assert sum(bool(scheme.get("default")) for scheme in schemes) == 1
+        for scheme in schemes:
+            assert scheme["kind"] in {
+                "standard", "senior_entry", "stream", "double_major", "double_degree", "other"
+            }
+            assert scheme["title"]
+            assert scheme["parts"]
+            assert all(part["sections"] for part in scheme["parts"])
+
+
+def test_nonstandard_arts_requirements_recover_standard_readability_structure():
+    def data(name, year=YEAR):
+        return json.loads(
+            (ROOT / "major_extraction" / "major_json" / year / f"{name}.json").read_text(encoding="utf-8")
+        )
+
+    def scheme(programme, phrase):
+        return next(item for item in programme["requirement_schemes"] if phrase in item["title"])["parts"][0]
+
+    anthropology = scheme(data("B.A._in_Anthropology"), "Associate Degree")
+    anthropology_elective = next(section for section in anthropology["sections"] if section["marker"] == "2.")
+    assert anthropology_elective["subsections"][0]["title"].startswith("Nine courses from")
+    assert anthropology_elective["subsections"][0]["text"] == []
+
+    english = scheme(data("B.A._in_English"), "Senior-entry")
+    english_elective = next(section for section in english["sections"] if section["marker"] == "2.")
+    writing = next(group for group in english_elective["subsections"] if group["title"] == "Creative Writing in English Stream")
+    assert [group["title"] for group in writing["subsections"]] == ["Required Courses", "Elective Courses"]
+    assert all(group["codes"] for group in writing["subsections"])
+
+    fine_arts = data("B.A._in_Fine_Arts")
+    for senior in [item["parts"][0] for item in fine_arts["requirement_schemes"] if item["kind"] == "senior_entry"]:
+        required = next(section for section in senior["sections"] if section["marker"] == "2.")
+        elective = next(section for section in senior["sections"] if section["marker"] == "3.")
+        expected = ["Art History Stream", "Studio Art Stream", "Art History and Studio Art Stream"]
+        assert [group["title"] for group in required["subsections"]] == expected
+        assert [group["title"] for group in elective["subsections"]] == expected
+        assert all(group["codes"] for group in required["subsections"])
+        assert not any(
+            nested.get("text") == [":"]
+            for nested in walk_test_groups(elective["subsections"])
+        )
+
+    history = data("B.A._in_History")
+    senior_history = scheme(history, "Senior-entry")
+    streams = next(section for section in senior_history["sections"] if section["marker"] == "3.")
+    assert streams["title"] == "Streams"
+    assert [group["title"] for group in streams["subsections"]] == ["History Stream", "Public History Stream"]
+    public = streams["subsections"][1]
+    required = next(group for group in public["subsections"] if group["title"] == "Required Course")
+    assert required["codes"] == ["HIST 1700", "HIST 1701"]
+    for stream in streams["subsections"]:
+        pool = next(group for group in walk_test_groups(stream["subsections"])
+                    if group["title"] == "Other Eligible HIST Courses")
+        assert len(pool["codes"]) > 100
+
+
+def test_double_major_titles_are_peer_headings_and_broad_rules_have_course_pools():
+    for programme in load_programmes():
+        for requirement in programme.get("requirement_schemes", []):
+            if requirement.get("default"):
+                continue
+            for part in requirement["parts"]:
+                for section in part["sections"]:
+                    assert not any(
+                        re.search(r"\b(?:1st|2nd) Major\s*:", text, re.IGNORECASE)
+                        for group in [section, *walk_test_groups(section.get("subsections", []))]
+                        for text in group.get("text", [])
+                    ), (programme["title"], requirement["title"], section["marker"])
+
+    chinese = json.loads((JSON_DIR / "B.A._in_Chinese_Language_and_Literature.json").read_text(encoding="utf-8"))
+    double = next(item["parts"][0] for item in chinese["requirement_schemes"] if item["kind"] == "double_major")
+    for marker in ("2.", "3."):
+        section = next(item for item in double["sections"] if item["marker"] == marker)
+        assert [group["title"].split(":", 1)[0] for group in section["subsections"]] == ["1st Major", "2nd Major"]
+    speciality = double["sections"][2]["subsections"][0]["subsections"][1]
+    assert [group["title"] for group in speciality["subsections"]] == [
+        "Language and Linguistics", "Ancient Documents", "Classical Literature", "Modern Chinese Literature"
+    ]
+
+    history = json.loads((JSON_DIR / "B.A._in_History.json").read_text(encoding="utf-8"))
+    for requirement in history["requirement_schemes"]:
+        if requirement["kind"] != "double_major":
+            continue
+        elective = next(section for section in requirement["parts"][0]["sections"] if section["marker"] == "3.")
+        assert [group["title"].split(":", 1)[0] for group in elective["subsections"]] == ["1st Major", "2nd Major"]
+        history_major = next(group for group in elective["subsections"] if group["title"].startswith("1st Major"))
+        pool = next(group for group in history_major["subsections"] if group["title"] == "Other Eligible HIST Courses")
+        assert len(pool["codes"]) > 100
+
+
+def test_legacy_course_code_note_is_not_nested_in_another_note():
+    json_dir = ROOT / "major_extraction" / "major_json" / "2024_25"
+    for path in json_dir.glob("*.json"):
+        programme = json.loads(path.read_text(encoding="utf-8"))
+        for requirement in programme.get("requirement_schemes", []):
+            if requirement.get("default"):
+                continue
+            for part in requirement["parts"]:
+                for note in part.get("notes", []):
+                    assert not any(
+                        len(row) >= 2
+                        and re.sub(r"\s+", "", str(row[0])) == "[]"
+                        and "Old course code" in str(row[1])
+                        for row in note.get("rows", [])
+                    )
+
+
+def test_computer_science_exposes_standard_senior_and_double_degree_requirements():
+    data = json.loads((JSON_DIR / "B.Sc._in_Computer_Science.json").read_text(encoding="utf-8"))
+    schemes = data["requirement_schemes"]
+    assert [scheme["kind"] for scheme in schemes] == ["standard", "senior_entry", "double_degree"]
+    assert [scheme["title"] for scheme in schemes] == [
+        "Standard Requirement",
+        "Senior-entry Requirement — For Associate Degree or Higher Diploma holders admitted to senior-year places",
+        "Bachelor of Science (Computer Science) and Bachelor of Business Administration (Integrated BBA Programme) Double Degree Option",
+    ]
+    assert len(schemes[2]["parts"]) == 2
+    assert [part["total_units"] for part in schemes[2]["parts"]] == ["75", "56-60"]
+    assert all("Recommended Course Pattern" not in json.dumps(scheme) for scheme in schemes)
+
+    computer_science, integrated_bba = schemes[2]["parts"]
+    foundation_choice = next(
+        group for group in computer_science["sections"][1]["subsections"] if group["marker"] == "(a)"
+    )
+    assert not foundation_choice["subsections"]
+    assert [line.split(":", 1)[0] for line in foundation_choice["text"]] == [
+        "Chemistry Courses", "Life Science Courses", "Physics Courses[b]"
+    ]
+    assert foundation_choice["codes"]
+
+    options = computer_science["sections"][3]["subsections"]
+    for option in options[1:]:
+        remaining = [
+            group for group in option["subsections"]
+            if group["title"] == "Remaining units can be chosen from the following"
+        ]
+        assert len(remaining) == 1
+        assert len(remaining[0]["codes"]) > 100
+
+    bba_standard = json.loads(
+        (JSON_DIR / "B.B.A._-_Integrated_BBA_Programme.json").read_text(encoding="utf-8")
+    )
+    expected_wrapper = bba_standard["sections"][2]["subsections"][0]
+    actual_wrapper = integrated_bba["sections"][2]["subsections"][0]
+    assert expected_wrapper["title"].startswith("Students must choose")
+    assert actual_wrapper["title"].startswith("Students must choose")
+    expected_concentrations = expected_wrapper["subsections"]
+    actual_concentrations = actual_wrapper["subsections"]
+    assert [group["title"] for group in actual_concentrations] == [
+        group["title"] for group in expected_concentrations
+    ]
+    assert [group["marker"] for group in actual_concentrations] == [
+        group["marker"] for group in expected_concentrations
+    ]
+    assert [group["marker"] for group in actual_concentrations[-2]["subsections"]] == ["(i)", "(ii)"]
+    assert [group["marker"] for group in actual_concentrations[-1]["subsections"]] == ["(i)", "(ii)"]
+    assert len(actual_concentrations[-1]["subsections"][0]["codes"]) > 400
+
+    page = BeautifulSoup(
+        (SITE_DIR / "majors" / "B.Sc._in_Computer_Science.html").read_text(encoding="utf-8"),
+        "html.parser",
+    )
+    selector = page.find("select", id="requirementSchemeSelect")
+    assert selector is not None
+    assert [option.get_text(strip=True) for option in selector.find_all("option")] == [
+        scheme["title"] for scheme in schemes
+    ]
+    panels = page.select("section.requirement-scheme")
+    assert len(panels) == 3
+    assert len([panel for panel in panels if not panel.has_attr("hidden")]) == 1
+    content = page.select_one(".content-inner")
+    content_children = [child for child in content.children if getattr(child, "name", None)]
+    picker = selector.find_parent(class_="requirement-scheme-picker")
+    page_heading = content.find("h1", recursive=False)
+    assert content_children.index(picker) < content_children.index(page_heading)
+    assert page_heading.find(id="activeRequirementSchemeTitle").get_text(" ", strip=True) == "— Standard Requirement"
+    assert page_heading.find(id="activeRequirementSchemeUnits").get_text(" ", strip=True) == "75 units"
+    assert not page.select(".requirement-scheme-title")
+    assert all(option.has_attr("data-units") for option in selector.find_all("option"))
+    double_degree = page.find("section", attrs={"data-requirement-scheme": schemes[2]["id"]})
+    assert [heading.get_text(" ", strip=True) for heading in double_degree.select(".degree-part-title")] == [
+        "1st Degree: Bachelor of Science (Computer Science) 75 units",
+        "2nd Degree: Bachelor of Business Administration (Integrated BBA Programme) 56-60 units",
+    ]
+    foundation_heading = next(
+        tag for tag in double_degree.find_all("h3")
+        if "Any one course from the following" in tag.get_text(" ", strip=True)
+    )
+    foundation_group = foundation_heading.parent
+    assert [paragraph.get_text(" ", strip=True).split(":", 1)[0]
+            for paragraph in foundation_group.select(":scope > .subsection-copy > p")] == [
+        "Chemistry Courses", "Life Science Courses", "Physics Courses[b]"
+    ]
+    assert foundation_group.find("details", class_="course-details", recursive=False) is not None
+
+    remaining_headings = [
+        tag for tag in double_degree.find_all("h4")
+        if tag.get_text(" ", strip=True) == "Remaining units can be chosen from the following"
+    ]
+    assert len(remaining_headings) == 6
+    assert all(
+        heading.find_next_sibling("details", class_="course-details") is not None
+        for heading in remaining_headings
+    )
+    bba_concentration_headings = [
+        tag.get_text(" ", strip=True)
+        for tag in double_degree.find_all(["h3", "h4", "h5"])
+    ]
+    assert "(h) Big Data and Quantitative Marketing" in bba_concentration_headings
+    assert "(i) General Business" in bba_concentration_headings
+
+
+def test_single_requirement_page_does_not_show_a_scheme_selector():
+    filename = next(
+        programme["source_file"]
+        for programme in load_programmes()
+        if not programme.get("requirement_schemes")
+    )
+    page = BeautifulSoup((SITE_DIR / "majors" / f"{filename}.html").read_text(encoding="utf-8"), "html.parser")
+    assert page.find(id="requirementSchemeSelect") is None
+    assert len(page.select("section.requirement-scheme")) == 1
+
+
 def test_course_codes_are_canonical():
     pattern = re.compile(r"^[A-Z]{4} [0-9]{4}$")
     for programme in load_programmes():
@@ -139,10 +371,34 @@ def test_computer_engineering_resolves_remaining_unit_course_groups():
     assert data["sections"][2]["units"] == "37"
     for option in data["sections"][3]["subsections"]:
         elective = option["subsections"][0]
-        remaining = next(group for group in option["subsections"] if group["title"] == "Courses Eligible for Remaining Units")
+        assert elective["title"] == "Elective Courses"
+        remaining = next(
+            group for group in option["subsections"]
+            if group["title"] == "Remaining units can be chosen from the following"
+        )
         assert "ENGG 1820" in remaining["codes"]
         assert "ENGG 1820" not in elective["codes"]
         assert any(code.startswith("AIST ") for code in remaining["codes"])
+
+    for scheme in data["requirement_schemes"]:
+        engineering_part = scheme["parts"][0]
+        options = next(
+            section for section in engineering_part["sections"]
+            if section["title"].startswith("Choose any ONE")
+        )
+        for option in options["subsections"]:
+            assert option["title"] in {
+                "General Computer Engineering",
+                "Stream 1: Embedded Systems",
+                "Stream 2: VLSI Design and EDA",
+            }
+            assert [group["title"] for group in option["subsections"]] == [
+                "Elective Courses",
+                "Remaining units can be chosen from the following",
+            ]
+            elective, remaining = option["subsections"]
+            assert elective["text"][0].startswith("Choose at least 6 units")
+            assert "ENGG 1820" in remaining["codes"]
 
 
 def test_information_engineering_resolves_remaining_units_as_a_peer_group():
@@ -150,7 +406,7 @@ def test_information_engineering_resolves_remaining_units_as_a_peer_group():
     elective = data["sections"][3]
     assert elective["subsections"][0]["title"].startswith("Out of the 16")
     remaining = elective["subsections"][1]
-    assert remaining["title"] == "The Remaining Units"
+    assert remaining["title"].startswith("The remaining units, if any")
     assert remaining["codes"]
     assert all(re.fullmatch(r"[A-Z]{4} [3-9]\d{3}", code) for code in remaining["codes"])
 
@@ -300,9 +556,12 @@ def test_medicine_science_and_cross_campus_structures_are_recovered():
     ]
 
     biochemistry = json.loads((JSON_DIR / "B.Sc._in_Biochemistry.json").read_text(encoding="utf-8"))
-    package = biochemistry["sections"][0]["subsections"]
-    assert [item["title"] for item in package] == ["Group A", "Group B", "A course from the following"]
-    assert [item["title"] for item in package[-1]["subsections"]] == ["Group C", "Group D", "Group E"]
+    package = biochemistry["sections"][0]
+    assert not package["subsections"]
+    assert [line.split(":", 1)[0] for line in package["text"] if line.startswith("Group ")] == [
+        "Group A", "Group B", "Group C", "Group D", "Group E"
+    ]
+    assert package["codes"]
     lists = biochemistry["sections"][2]["subsections"][1]["subsections"]
     assert [item["title"] for item in lists] == ["List A", "List B", "List C"]
 
@@ -372,7 +631,11 @@ def test_declared_option_stream_and_elective_units_are_displayed_without_summing
 
 def test_arts_examples_are_structured_as_readable_nested_requirements():
     anthropology = json.loads((JSON_DIR / "B.A._in_Anthropology.json").read_text(encoding="utf-8"))
-    concentrations = anthropology["supplementary_note_sections"][0]["subsections"]
+    voluntary_note = next(
+        note for note in anthropology["notes"]
+        if any(item.get("title") == "Voluntary Concentrations" for item in note["subsections"])
+    )
+    concentrations = voluntary_note["subsections"][0]["subsections"]
     assert [group["title"] for group in concentrations] == [
         "Archaeology and Cultural Heritage",
         "Tourism and Cultural Representation",
@@ -512,7 +775,7 @@ def test_generated_index_and_sidebar_links_resolve():
 def test_nonstandard_medicine_degree_is_fully_transcribed():
     page = (SITE_DIR / "majors" / "M.B.,_Ch.B.html").read_text(encoding="utf-8")
     assert "six-year undergraduate professional programme" in page
-    assert "Recommended Course Pattern" in page
+    assert "Recommended Course Pattern" not in page
     assert "MBChB Global Physician-Leadership Stream" in page
     assert "Explanatory Notes" in page
 

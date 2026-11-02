@@ -118,5 +118,253 @@
   "supplementary": [],
   "source_file": "Bachelor_of_Nursing",
   "parse_status": "parsed",
-  "additional_requirements": []
+  "additional_requirements": [],
+  "requirement_schemes": [
+    {
+      "id": "standard-requirement",
+      "kind": "standard",
+      "title": "Standard Requirement",
+      "source_order": 0,
+      "default": true,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 112 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "112",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "10",
+              "text": [
+                "MEDF1011, 1012, 1021, 1031 and 1041"
+              ],
+              "codes": [
+                "MEDF 1011",
+                "MEDF 1012",
+                "MEDF 1021",
+                "MEDF 1031",
+                "MEDF 1041"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "99",
+              "text": [
+                "NURS1151, 1162, 1163, 1164, 1242, 1403, 1603, 1701, 3121, 3126, 3127, 3131, 3135[a], 3136, 3142, 3143, 3144, 3145, 3148, 3152, 3153, 3154, 3157, 3159, 4102, 4121, 4122[a], 4123[a], 4124[a]"
+              ],
+              "codes": [
+                "NURS 1151",
+                "NURS 1162",
+                "NURS 1163",
+                "NURS 1164",
+                "NURS 1242",
+                "NURS 1403",
+                "NURS 1603",
+                "NURS 1701",
+                "NURS 3121",
+                "NURS 3126",
+                "NURS 3127",
+                "NURS 3131",
+                "NURS 3135",
+                "NURS 3136",
+                "NURS 3142",
+                "NURS 3143",
+                "NURS 3144",
+                "NURS 3145",
+                "NURS 3148",
+                "NURS 3152",
+                "NURS 3153",
+                "NURS 3154",
+                "NURS 3157",
+                "NURS 3159",
+                "NURS 4102",
+                "NURS 4121",
+                "NURS 4122",
+                "NURS 4123",
+                "NURS 4124"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "3",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "",
+                  "title": "1 course chosen from the following",
+                  "units": "3",
+                  "text": [
+                    "NURS2111, 2112, 2113, 2114, 2115, 2116, 2118, 2121, 2122"
+                  ],
+                  "codes": [
+                    "NURS 2111",
+                    "NURS 2112",
+                    "NURS 2113",
+                    "NURS 2114",
+                    "NURS 2115",
+                    "NURS 2116",
+                    "NURS 2118",
+                    "NURS 2121",
+                    "NURS 2122"
+                  ],
+                  "subsections": []
+                }
+              ],
+              "units_computed": true
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "NURS courses at 3000 and above level will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Students are allowed to take supplementary examinations for all of the above courses.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "Capstone courses",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "senior-entry-requirement-for-associate-degree-or-higher-diploma-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Associate Degree or Higher Diploma holders admitted to senior-year places",
+      "source_order": 1,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 69 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "69",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Required Courses",
+              "units": "61",
+              "text": [
+                "NURS3135[a], 3142, 3143, 3144, 3148, 3152, 3153, 3154, 3157, 3159, 4102, 4121, 4122[a], 4123[a], 4124[a]"
+              ],
+              "codes": [
+                "NURS 3135",
+                "NURS 3142",
+                "NURS 3143",
+                "NURS 3144",
+                "NURS 3148",
+                "NURS 3152",
+                "NURS 3153",
+                "NURS 3154",
+                "NURS 3157",
+                "NURS 3159",
+                "NURS 4102",
+                "NURS 4121",
+                "NURS 4122",
+                "NURS 4123",
+                "NURS 4124"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Elective Courses",
+              "units": "8",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "5 units of courses chosen from the following",
+                  "units": "5",
+                  "text": [
+                    "NURS3121, 3126, 3131, 3136, 3145"
+                  ],
+                  "codes": [
+                    "NURS 3121",
+                    "NURS 3126",
+                    "NURS 3131",
+                    "NURS 3136",
+                    "NURS 3145"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "1 course chosen from the following",
+                  "units": "3",
+                  "text": [
+                    "NURS2111, 2112, 2113, 2114, 2115, 2116, 2118, 2121, 2122"
+                  ],
+                  "codes": [
+                    "NURS 2111",
+                    "NURS 2112",
+                    "NURS 2113",
+                    "NURS 2114",
+                    "NURS 2115",
+                    "NURS 2116",
+                    "NURS 2118",
+                    "NURS 2121",
+                    "NURS 2122"
+                  ],
+                  "subsections": []
+                }
+              ],
+              "units_computed": true
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "NURS courses at 3000 and above level will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Students who lack the basic nursing training are required to take foundation courses on a mandatory basis. The units of foundation courses to be taken by each student may vary depending on the previous disciplinary knowledge of the student concerned. Normally, students taking foundation courses will not be able to complete all requirements within the normative study period. Foundation courses include MEDF1011, 1012, 1021, 1031, 1041, NURS1151, 1162, 1163, 1164, 1242, 1403, 1603, 1701, 3127 and 3315.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "3.",
+              "text": "Students are allowed to take supplementary examinations f or all of the above courses including required, elective and foundation courses.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "Capstone courses",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    }
+  ]
 }

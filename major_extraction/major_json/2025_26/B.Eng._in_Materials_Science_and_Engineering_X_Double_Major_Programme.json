@@ -1377,5 +1377,1391 @@
   "supplementary": [],
   "source_file": "B.Eng._in_Materials_Science_and_Engineering_X_Double_Major_Programme",
   "parse_status": "parsed",
-  "additional_requirements": []
+  "additional_requirements": [],
+  "requirement_schemes": [
+    {
+      "id": "materials-science-and-engineering-x-double-major-programme-applicable-to-students-admitted-in-2025-26",
+      "kind": "double_major",
+      "title": "Materials Science and Engineering & X Double Major Programme Applicable to students admitted in 2025-26",
+      "source_order": 0,
+      "default": true,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 90 units of courses. Students will take the Materials Science and Engineering offered by CUHK as the 1st Major, and choose from one of the Majors offered by CUHK or CUHK(SZ) as specified in 3. below as their 2nd Major. Some courses offered by CUHK and CUHK(SZ) are substitute/equivalent/alternative courses. Please refer to the list of substitute/equivalent/alternative courses (https://mase.erg.cuhk.edu.hk/programme-information) for details.",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "90",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "ENGG1110, ENGG1125/MATH1010[a], PHYS1110/1111[b]"
+              ],
+              "codes": [
+                "ENGG 1110",
+                "ENGG 1125",
+                "MATH 1010",
+                "PHYS 1110",
+                "PHYS 1111"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "1st Major Required Courses",
+              "units": "21",
+              "text": [
+                "CHEM1070, ENGG1130, 1310, 2780, MASE1001#, 1002#, 1801#, 2601"
+              ],
+              "codes": [
+                "CHEM 1070",
+                "ENGG 1130",
+                "ENGG 1310",
+                "ENGG 2780",
+                "MASE 1001",
+                "MASE 1002",
+                "MASE 1801",
+                "MASE 2601"
+              ],
+              "subsections": []
+            },
+            {
+              "title": "Major Choices",
+              "text": [],
+              "codes": [],
+              "units": "60",
+              "marker": "3.",
+              "subsections": [
+                {
+                  "title": "Electronic Engineering (CUHK)",
+                  "text": [],
+                  "codes": [],
+                  "units": "60",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "title": "1st Major Elective Courses",
+                      "text": [
+                        "Students are required to take a total of 27 units of elective courses from the area which corresponds to the 2nd Major chosen by them. 6-15 units to be taken from Group A, and 12-21 units from Group B, of which at least 12 units of courses should be from 3000 or above level (including at least 6 units of courses at 4000 level)."
+                      ],
+                      "codes": [],
+                      "units": "27",
+                      "marker": "(a)",
+                      "subsections": [
+                        {
+                          "marker": "",
+                          "title": "Group A",
+                          "units": "6-15",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK",
+                              "units": "",
+                              "text": [
+                                "EEEN4020, ELEG3201, 3301, 3302, 4304, MASE3102, 3104, 4102"
+                              ],
+                              "codes": [
+                                "EEEN 4020",
+                                "ELEG 3201",
+                                "ELEG 3301",
+                                "ELEG 3302",
+                                "ELEG 4304",
+                                "MASE 3102",
+                                "MASE 3104",
+                                "MASE 4102"
+                              ],
+                              "subsections": []
+                            }
+                          ]
+                        },
+                        {
+                          "marker": "",
+                          "title": "Group B",
+                          "units": "12-21",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK",
+                              "units": "",
+                              "text": [
+                                "BMEG3430, CHEM4303, CSCI1120, EEEN4050, EESC4240, LSCI1002, MAEG3020, 4020, MASE2002, 2202, 3002, 3202, 4202, 4204, 4206, 4208, 4302, PHYS3021, 3023, 4031, 4050, 4440, SEEM3500"
+                              ],
+                              "codes": [
+                                "BMEG 3430",
+                                "CHEM 4303",
+                                "CSCI 1120",
+                                "EEEN 4050",
+                                "EESC 4240",
+                                "LSCI 1002",
+                                "MAEG 3020",
+                                "MAEG 4020",
+                                "MASE 2002",
+                                "MASE 2202",
+                                "MASE 3002",
+                                "MASE 3202",
+                                "MASE 4202",
+                                "MASE 4204",
+                                "MASE 4206",
+                                "MASE 4208",
+                                "MASE 4302",
+                                "PHYS 3021",
+                                "PHYS 3023",
+                                "PHYS 4031",
+                                "PHYS 4050",
+                                "PHYS 4440",
+                                "SEEM 3500"
+                              ],
+                              "subsections": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "2nd Major Requirements",
+                      "text": [],
+                      "codes": [],
+                      "units": "33",
+                      "marker": "(b)",
+                      "subsections": [
+                        {
+                          "marker": "i)",
+                          "title": "Required Courses",
+                          "units": "15",
+                          "text": [
+                            "ELEG2202#, 2310#, 2602, ENGG1120#, 2030#, 2740#"
+                          ],
+                          "codes": [
+                            "ELEG 2202",
+                            "ELEG 2310",
+                            "ELEG 2602",
+                            "ENGG 1120",
+                            "ENGG 2030",
+                            "ENGG 2740"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "ii)",
+                          "title": "Research Component",
+                          "units": "3",
+                          "text": [
+                            "ELEG4999"
+                          ],
+                          "codes": [
+                            "ELEG 4999"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "iii)",
+                          "title": "Elective Courses",
+                          "units": "15",
+                          "text": [
+                            "EEEN4020, ELEG2201, 3103, 3202, 3207, 3213, 3214, 3301, 3302, 3303, 3503, 3601, 3701, 3710, 3910, 4211, 4214, 4215, 4216, 4304, 4311, 4312, 4511, 4512, 4701, MASE3102, 3104, 4102"
+                          ],
+                          "codes": [
+                            "EEEN 4020",
+                            "ELEG 2201",
+                            "ELEG 3103",
+                            "ELEG 3202",
+                            "ELEG 3207",
+                            "ELEG 3213",
+                            "ELEG 3214",
+                            "ELEG 3301",
+                            "ELEG 3302",
+                            "ELEG 3303",
+                            "ELEG 3503",
+                            "ELEG 3601",
+                            "ELEG 3701",
+                            "ELEG 3710",
+                            "ELEG 3910",
+                            "ELEG 4211",
+                            "ELEG 4214",
+                            "ELEG 4215",
+                            "ELEG 4216",
+                            "ELEG 4304",
+                            "ELEG 4311",
+                            "ELEG 4312",
+                            "ELEG 4511",
+                            "ELEG 4512",
+                            "ELEG 4701",
+                            "MASE 3102",
+                            "MASE 3104",
+                            "MASE 4102"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Energy and Environmental Engineering (CUHK)",
+                  "text": [],
+                  "codes": [],
+                  "units": "60",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "title": "1st Major Elective Courses",
+                      "text": [
+                        "Students are required to take a total of 27 units of elective courses from the area which corresponds to the 2nd Major chosen by them. 6-15 units to be taken from Group A, and 12-21 units from Group B, of which at least 12 units of courses should be from 3000 or above level (including at least 6 units of courses at 4000 level)."
+                      ],
+                      "codes": [],
+                      "units": "27",
+                      "marker": "(a)",
+                      "subsections": [
+                        {
+                          "marker": "",
+                          "title": "Group A",
+                          "units": "6-15",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK",
+                              "units": "",
+                              "text": [
+                                "CHEM4280, EEEN4020, 4050, EESC4240, MAEG4080, MASE2202, 4206, 4302"
+                              ],
+                              "codes": [
+                                "CHEM 4280",
+                                "EEEN 4020",
+                                "EEEN 4050",
+                                "EESC 4240",
+                                "MAEG 4080",
+                                "MASE 2202",
+                                "MASE 4206",
+                                "MASE 4302"
+                              ],
+                              "subsections": []
+                            }
+                          ]
+                        },
+                        {
+                          "marker": "",
+                          "title": "Group B",
+                          "units": "12-21",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK",
+                              "units": "",
+                              "text": [
+                                "BMEG3430, CHEM4303, CSCI1120, ELEG2202, 3301, 4304, LSCI1002, MAEG3020, 4020, MASE2002, 3002, 3102, 3104, 3202, 4102, 4202, 4204, 4208, PHYS3021, 3023, 4031, 4050, 4440, SEEM3500"
+                              ],
+                              "codes": [
+                                "BMEG 3430",
+                                "CHEM 4303",
+                                "CSCI 1120",
+                                "ELEG 2202",
+                                "ELEG 3301",
+                                "ELEG 4304",
+                                "LSCI 1002",
+                                "MAEG 3020",
+                                "MAEG 4020",
+                                "MASE 2002",
+                                "MASE 3002",
+                                "MASE 3102",
+                                "MASE 3104",
+                                "MASE 3202",
+                                "MASE 4102",
+                                "MASE 4202",
+                                "MASE 4204",
+                                "MASE 4208",
+                                "PHYS 3021",
+                                "PHYS 3023",
+                                "PHYS 4031",
+                                "PHYS 4050",
+                                "PHYS 4440",
+                                "SEEM 3500"
+                              ],
+                              "subsections": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "2nd Major Requirements",
+                      "text": [],
+                      "codes": [],
+                      "units": "33",
+                      "marker": "(b)",
+                      "subsections": [
+                        {
+                          "marker": "i)",
+                          "title": "Required Courses",
+                          "units": "21",
+                          "text": [
+                            "EEEN2020#, 2030#, 2040, ELEG2202, ENGG1120#, MAEG2030#, 3030#"
+                          ],
+                          "codes": [
+                            "EEEN 2020",
+                            "EEEN 2030",
+                            "EEEN 2040",
+                            "ELEG 2202",
+                            "ENGG 1120",
+                            "MAEG 2030",
+                            "MAEG 3030"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "ii)",
+                          "title": "Research Component",
+                          "units": "3",
+                          "text": [
+                            "EEEN4999"
+                          ],
+                          "codes": [
+                            "EEEN 4999"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "iii)",
+                          "title": "Elective Courses",
+                          "units": "9",
+                          "text": [
+                            "EEEN3030, 4060, ELEG3207, MAEG4030"
+                          ],
+                          "codes": [
+                            "EEEN 3030",
+                            "EEEN 4060",
+                            "ELEG 3207",
+                            "MAEG 4030"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Mechanical and Automation Engineering (CUHK)",
+                  "text": [],
+                  "codes": [],
+                  "units": "60",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "title": "1st Major Elective Courses",
+                      "text": [
+                        "Students are required to take a total of 27 units of elective courses from the area which corresponds to the 2nd Major chosen by them. 6-15 units to be taken from Group A, and 12-21 units from Group B, of which at least 12 units of courses should be from 3000 or above level (including at least 6 units of courses at 4000 level)."
+                      ],
+                      "codes": [],
+                      "units": "27",
+                      "marker": "(a)",
+                      "subsections": [
+                        {
+                          "marker": "",
+                          "title": "Group A",
+                          "units": "6-15",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK",
+                              "units": "",
+                              "text": [
+                                "MAEG3020, 4010, 4020, 4080, MASE2202, 3002, 3202, 4204"
+                              ],
+                              "codes": [
+                                "MAEG 3020",
+                                "MAEG 4010",
+                                "MAEG 4020",
+                                "MAEG 4080",
+                                "MASE 2202",
+                                "MASE 3002",
+                                "MASE 3202",
+                                "MASE 4204"
+                              ],
+                              "subsections": []
+                            }
+                          ]
+                        },
+                        {
+                          "marker": "",
+                          "title": "Group B",
+                          "units": "12-21",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK",
+                              "units": "",
+                              "text": [
+                                "BMEG3430, CHEM4303, CSCI1120, EEEN4020, 4050, EESC4240, ELEG2202, 3301, 4304, LSCI1002, MASE2002, 3102, 3104, 4102, 4202, 4206, 4208, 4302, PHYS3021, 4031, 4050, 4440, SEEM3500"
+                              ],
+                              "codes": [
+                                "BMEG 3430",
+                                "CHEM 4303",
+                                "CSCI 1120",
+                                "EEEN 4020",
+                                "EEEN 4050",
+                                "EESC 4240",
+                                "ELEG 2202",
+                                "ELEG 3301",
+                                "ELEG 4304",
+                                "LSCI 1002",
+                                "MASE 2002",
+                                "MASE 3102",
+                                "MASE 3104",
+                                "MASE 4102",
+                                "MASE 4202",
+                                "MASE 4206",
+                                "MASE 4208",
+                                "MASE 4302",
+                                "PHYS 3021",
+                                "PHYS 4031",
+                                "PHYS 4050",
+                                "PHYS 4440",
+                                "SEEM 3500"
+                              ],
+                              "subsections": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "2nd Major Requirements",
+                      "text": [],
+                      "codes": [],
+                      "units": "33",
+                      "marker": "(b)",
+                      "subsections": [
+                        {
+                          "marker": "i)",
+                          "title": "Required Courses",
+                          "units": "20",
+                          "text": [
+                            "ELEG2202, ENGG1120#, 2740, MAEG1020#, 2020#, 2030#, 3030#"
+                          ],
+                          "codes": [
+                            "ELEG 2202",
+                            "ENGG 1120",
+                            "ENGG 2740",
+                            "MAEG 1020",
+                            "MAEG 2020",
+                            "MAEG 2030",
+                            "MAEG 3030"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "ii)",
+                          "title": "Research Component",
+                          "units": "3",
+                          "text": [
+                            "MAEG4999"
+                          ],
+                          "codes": [
+                            "MAEG 4999"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "iii)",
+                          "title": "Elective Courses",
+                          "units": "10",
+                          "text": [
+                            "ENGG2720, 2760, MAEG3010, 3040, 3050, 4030"
+                          ],
+                          "codes": [
+                            "ENGG 2720",
+                            "ENGG 2760",
+                            "MAEG 3010",
+                            "MAEG 3040",
+                            "MAEG 3050",
+                            "MAEG 4030"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Chemistry (CUHK)",
+                  "text": [],
+                  "codes": [],
+                  "units": "60",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "title": "1st Major Elective Courses",
+                      "text": [
+                        "Students are required to take a total of 27 units of elective courses from the area which corresponds to the 2nd Major chosen by them. 6-15 units to be taken from Group A, and 12-21 units from Group B, of which at least 12 units of courses should be from 3000 or above level (including at least 6 units of courses at 4000 level)."
+                      ],
+                      "codes": [],
+                      "units": "27",
+                      "marker": "(a)",
+                      "subsections": [
+                        {
+                          "marker": "",
+                          "title": "Group A",
+                          "units": "6-15",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK",
+                              "units": "",
+                              "text": [
+                                "CHEM3230, 4303, 4786, MASE2202, 3002, 4206"
+                              ],
+                              "codes": [
+                                "CHEM 3230",
+                                "CHEM 4303",
+                                "CHEM 4786",
+                                "MASE 2202",
+                                "MASE 3002",
+                                "MASE 4206"
+                              ],
+                              "subsections": []
+                            }
+                          ]
+                        },
+                        {
+                          "marker": "",
+                          "title": "Group B",
+                          "units": "12-21",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK",
+                              "units": "",
+                              "text": [
+                                "BMEG3430, CSCI1120, EEEN4020, 4050, EESC4240, ELEG2202, 3301, 4304, LSCI1002, MAEG3020, 4020, MASE2002, 3102, 3104, 3202, 4102, 4202, 4204, 4208, 4302, PHYS3021, 4031, 4050, 4440, SEEM3500"
+                              ],
+                              "codes": [
+                                "BMEG 3430",
+                                "CSCI 1120",
+                                "EEEN 4020",
+                                "EEEN 4050",
+                                "EESC 4240",
+                                "ELEG 2202",
+                                "ELEG 3301",
+                                "ELEG 4304",
+                                "LSCI 1002",
+                                "MAEG 3020",
+                                "MAEG 4020",
+                                "MASE 2002",
+                                "MASE 3102",
+                                "MASE 3104",
+                                "MASE 3202",
+                                "MASE 4102",
+                                "MASE 4202",
+                                "MASE 4204",
+                                "MASE 4208",
+                                "MASE 4302",
+                                "PHYS 3021",
+                                "PHYS 4031",
+                                "PHYS 4050",
+                                "PHYS 4440",
+                                "SEEM 3500"
+                              ],
+                              "subsections": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "2nd Major Requirements",
+                      "text": [],
+                      "codes": [],
+                      "units": "33",
+                      "marker": "(b)",
+                      "subsections": [
+                        {
+                          "marker": "i)",
+                          "title": "Required Courses",
+                          "units": "22",
+                          "text": [
+                            "CHEM2110#, 2120#, 2200, 2300, 2400#, 2868, 2878, 3130#, 3320#"
+                          ],
+                          "codes": [
+                            "CHEM 2110",
+                            "CHEM 2120",
+                            "CHEM 2200",
+                            "CHEM 2300",
+                            "CHEM 2400",
+                            "CHEM 2868",
+                            "CHEM 2878",
+                            "CHEM 3130",
+                            "CHEM 3320"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "ii)",
+                          "title": "Research Component",
+                          "units": "4",
+                          "text": [
+                            "CHEM4040"
+                          ],
+                          "codes": [
+                            "CHEM 4040"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "iii)",
+                          "title": "Elective Courses",
+                          "units": "7",
+                          "text": [
+                            "CHEM3230, 4100, 4200, 4280, 4300, 4303, 4400, 4630, 4710, 4730, 4784, 4785, 4786, 4788"
+                          ],
+                          "codes": [
+                            "CHEM 3230",
+                            "CHEM 4100",
+                            "CHEM 4200",
+                            "CHEM 4280",
+                            "CHEM 4300",
+                            "CHEM 4303",
+                            "CHEM 4400",
+                            "CHEM 4630",
+                            "CHEM 4710",
+                            "CHEM 4730",
+                            "CHEM 4784",
+                            "CHEM 4785",
+                            "CHEM 4786",
+                            "CHEM 4788"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Physics (CUHK)",
+                  "text": [],
+                  "codes": [],
+                  "units": "60",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "title": "1st Major Elective Courses",
+                      "text": [
+                        "Students are required to take a total of 27 units of elective courses from the area which corresponds to the 2nd Major chosen by them. 6-15 units to be taken from Group A, and 12-21 units from Group B, of which at least 12 units of courses should be from 3000 or above level (including at least 6 units of courses at 4000 level)."
+                      ],
+                      "codes": [],
+                      "units": "27",
+                      "marker": "(a)",
+                      "subsections": [
+                        {
+                          "marker": "",
+                          "title": "Group A",
+                          "units": "6-15",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK",
+                              "units": "",
+                              "text": [
+                                "MASE2202, 3002, 3104, 4202, 4208, PHYS1712, 2061, 2401, 2711, 3021, 3022, 3051, 3061, 3410, 4011, 4031, 4041, 4050, 4061, 4420, 4430, 4440, 4450, 4460"
+                              ],
+                              "codes": [
+                                "MASE 2202",
+                                "MASE 3002",
+                                "MASE 3104",
+                                "MASE 4202",
+                                "MASE 4208",
+                                "PHYS 1712",
+                                "PHYS 2061",
+                                "PHYS 2401",
+                                "PHYS 2711",
+                                "PHYS 3021",
+                                "PHYS 3022",
+                                "PHYS 3051",
+                                "PHYS 3061",
+                                "PHYS 3410",
+                                "PHYS 4011",
+                                "PHYS 4031",
+                                "PHYS 4041",
+                                "PHYS 4050",
+                                "PHYS 4061",
+                                "PHYS 4420",
+                                "PHYS 4430",
+                                "PHYS 4440",
+                                "PHYS 4450",
+                                "PHYS 4460"
+                              ],
+                              "subsections": []
+                            }
+                          ]
+                        },
+                        {
+                          "marker": "",
+                          "title": "Group B",
+                          "units": "12-21",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK",
+                              "units": "",
+                              "text": [
+                                "BMEG3430, CSCI1120, EEEN4020, 4050, EESC4240, ELEG2202, 3301, 4304, LSCI1002, MAEG3020, 4020, MASE2002, 3102, 3202, 4102, 4204, 4206, 4302, SEEM3500"
+                              ],
+                              "codes": [
+                                "BMEG 3430",
+                                "CSCI 1120",
+                                "EEEN 4020",
+                                "EEEN 4050",
+                                "EESC 4240",
+                                "ELEG 2202",
+                                "ELEG 3301",
+                                "ELEG 4304",
+                                "LSCI 1002",
+                                "MAEG 3020",
+                                "MAEG 4020",
+                                "MASE 2002",
+                                "MASE 3102",
+                                "MASE 3202",
+                                "MASE 4102",
+                                "MASE 4204",
+                                "MASE 4206",
+                                "MASE 4302",
+                                "SEEM 3500"
+                              ],
+                              "subsections": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "2nd Major Requirements",
+                      "text": [],
+                      "codes": [],
+                      "units": "33",
+                      "marker": "(b)",
+                      "subsections": [
+                        {
+                          "marker": "i)",
+                          "title": "Required Courses",
+                          "units": "21",
+                          "text": [
+                            "PHYS1122#, 2041#, 2051 #, 3011, 3021, 3031#, 3041#"
+                          ],
+                          "codes": [
+                            "PHYS 1122",
+                            "PHYS 2041",
+                            "PHYS 2051",
+                            "PHYS 3011",
+                            "PHYS 3021",
+                            "PHYS 3031",
+                            "PHYS 3041"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "ii)",
+                          "title": "Research Component",
+                          "units": "3",
+                          "text": [
+                            "PHYS4610"
+                          ],
+                          "codes": [
+                            "PHYS 4610"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "iii)",
+                          "title": "Elective Courses",
+                          "units": "9",
+                          "text": [
+                            "PHYS1712, 2061, 2401, 2711, 3022, 3051, 3061, 3410, 4011, 4031, 4041, 4050, 4061, 4420, 4430, 4450, 4460"
+                          ],
+                          "codes": [
+                            "PHYS 1712",
+                            "PHYS 2061",
+                            "PHYS 2401",
+                            "PHYS 2711",
+                            "PHYS 3022",
+                            "PHYS 3051",
+                            "PHYS 3061",
+                            "PHYS 3410",
+                            "PHYS 4011",
+                            "PHYS 4031",
+                            "PHYS 4041",
+                            "PHYS 4050",
+                            "PHYS 4061",
+                            "PHYS 4420",
+                            "PHYS 4430",
+                            "PHYS 4450",
+                            "PHYS 4460"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Chemistry (CUHK(SZ))",
+                  "text": [],
+                  "codes": [],
+                  "units": "60",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "title": "1st Major Elective Courses",
+                      "text": [
+                        "Students are required to take a total of 27 units of elective courses from the area which corresponds to the 2nd Major chosen by them. 6-15 units to be taken from Group A, and 12-21 units from Group B, of which at least 12 units of courses should be from 3000 or above level (including at least 6 units of courses at 4000 level)."
+                      ],
+                      "codes": [],
+                      "units": "27",
+                      "marker": "(a)",
+                      "subsections": [
+                        {
+                          "marker": "",
+                          "title": "Group A",
+                          "units": "6-15",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK(SZ)",
+                              "units": "",
+                              "text": [
+                                "CHM3130, 3530, 3540, 4330, ENE3005, MSE3002, 3009, 3510, 4005, PHY2002, 4960"
+                              ],
+                              "codes": [],
+                              "subsections": []
+                            }
+                          ]
+                        },
+                        {
+                          "marker": "",
+                          "title": "Group B",
+                          "units": "12-21",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK(SZ)",
+                              "units": "",
+                              "text": [
+                                "BIO1001, 2002, BME3001, 3006, 4007, CSC3002, ECE2001, 4010, ENE3004, 3006, MAT2001, 2040, MSE3405, 4570, 4650, PHY3310, 3410, 4001, 4510, 4720"
+                              ],
+                              "codes": [],
+                              "subsections": []
+                            },
+                            {
+                              "marker": "",
+                              "title": "Students can also take the following elective courses offered by CUHK to fulfill the requirements of Group B",
+                              "units": "",
+                              "text": [
+                                "EESC4240, ELEG4304, MAEG3020, 4020, MASE3102, 3202, 4202, 4204, 4302, SEEM3500"
+                              ],
+                              "codes": [
+                                "EESC 4240",
+                                "ELEG 4304",
+                                "MAEG 3020",
+                                "MAEG 4020",
+                                "MASE 3102",
+                                "MASE 3202",
+                                "MASE 4202",
+                                "MASE 4204",
+                                "MASE 4302",
+                                "SEEM 3500"
+                              ],
+                              "subsections": [],
+                              "keep_heading": true
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "2nd Major Requirements",
+                      "text": [],
+                      "codes": [],
+                      "units": "33",
+                      "marker": "(b)",
+                      "subsections": [
+                        {
+                          "marker": "i)",
+                          "title": "Required Courses",
+                          "units": "21",
+                          "text": [
+                            "CHM2002#, 2110#, 2118#, 2210, 2228, 2310, 2320, 3418#"
+                          ],
+                          "codes": [],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "ii)",
+                          "title": "Research Component",
+                          "units": "4",
+                          "text": [
+                            "CHM4510, 4530"
+                          ],
+                          "codes": [],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "iii)",
+                          "title": "Elective Courses",
+                          "units": "8",
+                          "text": [
+                            "AIE1003, 1004, CHM2338, 3110, 3210, 3310, 3320, 3420, 3520, 4210, 4328, 4340, 4342, 4630, ERG2081, MSE3013, 3023"
+                          ],
+                          "codes": [],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "New Energy Science and Engineering (CUHK(SZ))",
+                  "text": [],
+                  "codes": [],
+                  "units": "60",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "title": "1st Major Elective Courses",
+                      "text": [
+                        "Students are required to take a total of 27 units of elective courses from the area which corresponds to the 2nd Major chosen by them. 6-15 units to be taken from Group A, and 12-21 units from Group B, of which at least 12 units of courses should be from 3000 or above level (including at least 6 units of courses at 4000 level)."
+                      ],
+                      "codes": [],
+                      "units": "27",
+                      "marker": "(a)",
+                      "subsections": [
+                        {
+                          "marker": "",
+                          "title": "Group A",
+                          "units": "6-15",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK(SZ)",
+                              "units": "",
+                              "text": [
+                                "ENE3005, 3006, 4001, MSE3007, 4570"
+                              ],
+                              "codes": [],
+                              "subsections": []
+                            }
+                          ]
+                        },
+                        {
+                          "marker": "",
+                          "title": "Group B",
+                          "units": "12-21",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Course offered by CUHK(SZ)",
+                              "units": "",
+                              "text": [
+                                "BIO1001, BME3001, 3006, 4007, CHM3530, CSC3002, ECE4010, MAT2001, 2040, MSE3405, 4005, 4650, PHY3310, 3410, 3421, 4001, 4510, 4720, 4960"
+                              ],
+                              "codes": [],
+                              "subsections": []
+                            },
+                            {
+                              "marker": "",
+                              "title": "Students can also take the following elective courses offered by CUHK to fulfill the requirements of Group B",
+                              "units": "",
+                              "text": [
+                                "ELEG4304, MAEG3020, 4020, MASE3102, 3202, 4202, 4204, 4302, SEEM3500"
+                              ],
+                              "codes": [
+                                "ELEG 4304",
+                                "MAEG 3020",
+                                "MAEG 4020",
+                                "MASE 3102",
+                                "MASE 3202",
+                                "MASE 4202",
+                                "MASE 4204",
+                                "MASE 4302",
+                                "SEEM 3500"
+                              ],
+                              "subsections": [],
+                              "keep_heading": true
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "2nd Major Requirements",
+                      "text": [],
+                      "codes": [],
+                      "units": "33",
+                      "marker": "(b)",
+                      "subsections": [
+                        {
+                          "marker": "i)",
+                          "title": "Required Courses",
+                          "units": "21",
+                          "text": [
+                            "CHM1002, ECE2001, ENE3002, 3003#, 3004#, 3005#, 4003#, MAT2040"
+                          ],
+                          "codes": [],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "ii)",
+                          "title": "Research Component",
+                          "units": "3",
+                          "text": [
+                            "ERG4902"
+                          ],
+                          "codes": [],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "iii)",
+                          "title": "Elective Courses",
+                          "units": "9",
+                          "text": [
+                            "CHM2002, ENE3050, 4005, 4007, 4008, 4009, 4011, 4012, 4013, MAT3007, PHY2010"
+                          ],
+                          "codes": [],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Physics (CUHK(SZ))",
+                  "text": [],
+                  "codes": [],
+                  "units": "60",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "title": "1st Major Elective Courses",
+                      "text": [
+                        "Students are required to take a total of 27 units of elective courses from the area which corresponds to the 2nd Major chosen by them. 6-15 units to be taken from Group A, and 12-21 units from Group B, of which at least 12 units of courses should be from 3000 or above level (including at least 6 units of courses at 4000 level)."
+                      ],
+                      "codes": [],
+                      "units": "27",
+                      "marker": "(a)",
+                      "subsections": [
+                        {
+                          "marker": "",
+                          "title": "Group A",
+                          "units": "6-15",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Courses offered by CUHK(SZ)",
+                              "units": "",
+                              "text": [
+                                "BME3006, MSE3007, 3009, 3405, 3510, 4570, 4650, PHY1910, 1920, 2610, 2650, 3120, 3410, 3420, 3650, 3820, 3950, 4001, 4510, 4650, 4720, 4810, 4960"
+                              ],
+                              "codes": [],
+                              "subsections": []
+                            }
+                          ]
+                        },
+                        {
+                          "marker": "",
+                          "title": "Group B",
+                          "units": "12-21",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Course offered by CUHK(SZ)",
+                              "units": "",
+                              "text": [
+                                "BIO1001, BME3001, 4007, CHM2310, 3530, CSC3002, ECE2001, 4010, ENE3004, 3005, 3006, MAT2001, 2040"
+                              ],
+                              "codes": [],
+                              "subsections": []
+                            },
+                            {
+                              "marker": "",
+                              "title": "Students can also take the following elective courses offered by CUHK to fulfill the requirements of Group B",
+                              "units": "",
+                              "text": [
+                                "EESC4240, ELEG4304, MAEG3020, 4020, MASE3102, 3202, 4202, 4204, 4302, SEEM3500"
+                              ],
+                              "codes": [
+                                "EESC 4240",
+                                "ELEG 4304",
+                                "MAEG 3020",
+                                "MAEG 4020",
+                                "MASE 3102",
+                                "MASE 3202",
+                                "MASE 4202",
+                                "MASE 4204",
+                                "MASE 4302",
+                                "SEEM 3500"
+                              ],
+                              "subsections": [],
+                              "keep_heading": true
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "2nd Major Requirements",
+                      "text": [],
+                      "codes": [],
+                      "units": "33",
+                      "marker": "(b)",
+                      "subsections": [
+                        {
+                          "marker": "i)",
+                          "title": "Required Courses",
+                          "units": "18",
+                          "text": [
+                            "PHY2002#, 2020#, 2610, 3002#, 3110#, 3310, 3410#"
+                          ],
+                          "codes": [],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "ii)",
+                          "title": "Research Component",
+                          "units": "3",
+                          "text": [
+                            "PHY4270"
+                          ],
+                          "codes": [],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "iii)",
+                          "title": "Elective Courses",
+                          "units": "12",
+                          "text": [
+                            "CHM2002, MAT3007, PHY1910, 1920, 2650, 2910, 3320 or 4002, 3421, 3610, 3650, 4001, STA4001"
+                          ],
+                          "codes": [],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Biomedical Science and Engineering (CUHK(SZ))",
+                  "text": [],
+                  "codes": [],
+                  "units": "60",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "title": "1st Major Elective Courses",
+                      "text": [
+                        "Students are required to take a total of 27 units of elective courses from the area which corresponds to the 2nd Major chosen by them. 6-15 units to be taken from Group A, and 12-21 units from Group B, of which at least 12 units of courses should be from 3000 or above level (including at least 6 units of courses at 4000 level)."
+                      ],
+                      "codes": [],
+                      "units": "27",
+                      "marker": "(a)",
+                      "subsections": [
+                        {
+                          "marker": "",
+                          "title": "Group A",
+                          "units": "6-15",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Course offered by CUHK(SZ)",
+                              "units": "",
+                              "text": [
+                                "BIM3001, 3006, 3008, BME4007, 4011, ECE2001, MSE3002, 3005, 3007, 4005, 4570"
+                              ],
+                              "codes": [],
+                              "subsections": []
+                            }
+                          ]
+                        },
+                        {
+                          "marker": "",
+                          "title": "Group B",
+                          "units": "12-21",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Course offered by CUHK(SZ)",
+                              "units": "",
+                              "text": [
+                                "BIO1001, 2004, CHM2310, 2317, 3530, CSC1006, 3002, ECE4010, 4300, ERG2001, 4001, MAT3007, 3220, PHY2001, 2002, 3002, STA4001"
+                              ],
+                              "codes": [],
+                              "subsections": []
+                            },
+                            {
+                              "marker": "",
+                              "title": "Students can also take the following elective courses offered by CUHK to fulfill the requirements of Group B",
+                              "units": "",
+                              "text": [
+                                "EESC4240, ELEG4304, MAEG3020, 4020, MASE3102, 3202, 4202, 4204, 4302, SEEM3500"
+                              ],
+                              "codes": [
+                                "EESC 4240",
+                                "ELEG 4304",
+                                "MAEG 3020",
+                                "MAEG 4020",
+                                "MASE 3102",
+                                "MASE 3202",
+                                "MASE 4202",
+                                "MASE 4204",
+                                "MASE 4302",
+                                "SEEM 3500"
+                              ],
+                              "subsections": [],
+                              "keep_heading": true
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "2nd Major Requirements",
+                      "text": [],
+                      "codes": [],
+                      "units": "33",
+                      "marker": "(b)",
+                      "subsections": [
+                        {
+                          "marker": "i)",
+                          "title": "Required Courses",
+                          "units": "21",
+                          "text": [
+                            "BIO2002#, 2101, BME2001#, 3001, 3006, 3201, 4009#"
+                          ],
+                          "codes": [],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "ii)",
+                          "title": "Research Component",
+                          "units": "3",
+                          "text": [
+                            "BME4010"
+                          ],
+                          "codes": [],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "iii)",
+                          "title": "Elective Courses",
+                          "units": "9",
+                          "text": [
+                            "BIO1001, 3213, 3214, 4203, BME4001, 4003, 4007, 4008, 4010, CHM1002, MED1031, 1032, PHY1002"
+                          ],
+                          "codes": [],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "Students enrolled in the Double Major Programme should normally spend four regular terms at CUHK(SZ) during the four years of study, except otherwise specified in 2. below. It applies to all students, including those who select a 2nd Major offered by CUHK.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Students who join term-time exchange programme have to spend at least three regular terms at CUHK(SZ) during the four years of study.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "3.",
+              "text": "Students enrolled in the Double Major programme can take substitute/equivalent/alternative courses either at CUHK or CUHK(SZ). The list of substitute/equivalent/alternative courses is available at this link (https://mase.erg.cuhk.edu.hk/programme-information). Students should not take a course and its substitute/equivalent/alternative course. Should they do so, only one course will be counted towards the fulfillment of units requirements. Grades of relevant substitute/equivalent/alternative courses taken at CUHK(SZ) will be transferred to CUHK for the purpose of calculation of GPA, Major GPA and credit units.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "4.",
+              "text": "Students normally have to declare their 2nd Major by the end of their first year of study.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "5.",
+              "text": "All courses at 2000 and above level and courses labeled as # in the requirements of the 1st Major Programme, courses labelled as # in the requirements of the 2nd Major, as well as 3 or 4 units of research component course offered by the 2nd Major, will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "6.",
+              "text": "Courses taken to fulfill the requirements of the 1st Major cannot be counted towards the fulfillment of requirements of the 2nd Major, and vice versa.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "7.",
+              "text": "Under very special circumstances and subject to approval by the Major programmes concerned, students may opt out of the Double Major Programme and register for the Materials Science and Engineering Programme offered by CUHK as single major. The decision to opt out is irrevocable. Students who have opted out are required to complete and fulfill all graduation requirements by following the study scheme of the Materials Science and Engineering Programme as a single major and spend the remaining course of study at CUHK. Students should be aware that such decisions may result in a delay in graduation because the requirements of the single major study scheme differ from those of the Double Major Programme.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "Students taking Physics or Chemistry offered by CUHK as 2nd Major should take MATH1010.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[b]",
+              "text": "Students taking Physics or Chemistry offered by CUHK as 2nd Major should take PHYS1111.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    }
+  ]
 }

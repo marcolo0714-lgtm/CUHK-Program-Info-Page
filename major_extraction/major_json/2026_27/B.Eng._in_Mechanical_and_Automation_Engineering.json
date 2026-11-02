@@ -382,7 +382,7 @@
           "title": "",
           "units": "",
           "text": [
-            "JUPAS admittees with the following HKDSE results do not need to take ENGG1040 and therefore will not be invited for the Mathematics Placement Test",
+            "JUPAS admittees with the following HKDSE results do not need to take ENGG1040 and therefore will not be invited for the Mathematics Placement Test:",
             "- Level 5** in Mathematics Extended Module I; or",
             "- Level 5* or above in Mathematics Extended Module II."
           ],
@@ -390,15 +390,14 @@
             "ENGG 1040"
           ],
           "subsections": [],
-          "force_course_table": false,
-          "heading_as_text": true
+          "force_course_table": false
         },
         {
           "marker": "(iii)",
           "title": "",
           "units": "",
           "text": [
-            "Non-JUPAS admittees with the following public examination results do not need to take ENGG1040 and therefore will not be invited for the Mathematics Placement Test",
+            "Non-JUPAS admittees with the following public examination results do not need to take ENGG1040 and therefore will not be invited for the Mathematics Placement Test:",
             "- Grade 6 or above in IB Mathematics Analysis and Approaches (HL); or",
             "- Grade 7 in IB Mathematics Applications and Interpretation (HL); or",
             "- Grade A* in GCE-AL Further Mathematics."
@@ -407,8 +406,7 @@
             "ENGG 1040"
           ],
           "subsections": [],
-          "force_course_table": false,
-          "heading_as_text": true
+          "force_course_table": false
         },
         {
           "marker": "(iv)",
@@ -422,8 +420,7 @@
             "ENGG 1125"
           ],
           "subsections": [],
-          "force_course_table": false,
-          "heading_as_text": true
+          "force_course_table": false
         }
       ],
       "rows": []
@@ -459,8 +456,7 @@
             "PHYS 1003"
           ],
           "subsections": [],
-          "force_course_table": false,
-          "heading_as_text": true
+          "force_course_table": false
         },
         {
           "marker": "(iii)",
@@ -474,8 +470,7 @@
             "PHYS 1003"
           ],
           "subsections": [],
-          "force_course_table": false,
-          "heading_as_text": true
+          "force_course_table": false
         }
       ],
       "rows": []
@@ -519,5 +514,3536 @@
   ],
   "source_file": "B.Eng._in_Mechanical_and_Automation_Engineering",
   "parse_status": "parsed",
-  "additional_requirements": []
+  "additional_requirements": [],
+  "requirement_schemes": [
+    {
+      "id": "standard-requirement",
+      "kind": "standard",
+      "title": "Standard Requirement",
+      "source_order": 0,
+      "default": true,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 75 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "75",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "ENGG1110/ESTR1002, ENGG1111, ENGG1120/ESTR1005, ENGG1125/ESTR1007[a]"
+              ],
+              "codes": [
+                "ENGG 1110",
+                "ESTR 1002",
+                "ENGG 1111",
+                "ENGG 1120",
+                "ESTR 1005",
+                "ENGG 1125",
+                "ESTR 1007"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Foundation Courses",
+              "units": "13",
+              "text": [
+                "ENGG1130/ESTR1006[b], ENGG2720/ESTR2014, ENGG2740/ESTR2016, MAEG1020, PHYS1110[c]"
+              ],
+              "codes": [
+                "ENGG 1130",
+                "ESTR 1006",
+                "ENGG 2720",
+                "ESTR 2014",
+                "ENGG 2740",
+                "ESTR 2016",
+                "MAEG 1020",
+                "PHYS 1110"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "3.",
+              "title": "Required Courses",
+              "units": "39",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "33",
+                  "text": [
+                    "EEEN3030/ESTR3402, ELEG2202#, MAEG2020/ESTR2400, MAEG2030/ESTR2402, MAEG2601, 2602, 3010, MAEG3020/ESTR3404, MAEG3030, 3040, MAEG3050/ESTR3406, MAEG4030/ESTR4412"
+                  ],
+                  "codes": [
+                    "EEEN 3030",
+                    "ESTR 3402",
+                    "ELEG 2202",
+                    "MAEG 2020",
+                    "ESTR 2400",
+                    "MAEG 2030",
+                    "ESTR 2402",
+                    "MAEG 2601",
+                    "MAEG 2602",
+                    "MAEG 3010",
+                    "MAEG 3020",
+                    "ESTR 3404",
+                    "MAEG 3030",
+                    "MAEG 3040",
+                    "MAEG 3050",
+                    "ESTR 3406",
+                    "MAEG 4030",
+                    "ESTR 4412"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Research Component Courses[d]",
+                  "units": "6",
+                  "text": [
+                    "MAEG4998, 4999"
+                  ],
+                  "codes": [
+                    "MAEG 4998",
+                    "MAEG 4999"
+                  ],
+                  "subsections": []
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "4.",
+              "title": "Elective Courses (at least 6 units of MAEG courses at 4000 and above level or their reciprocal ESTR courses or ENGG courses at 5000 level)",
+              "units": "14",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Breadth Electives (at least 6 units chosen from the following courses)",
+                  "units": "6",
+                  "text": [
+                    "BMEG3420#, CSCI1020, 2040#, CSCI2100#/ESTR2102, CSCI3170#, EEEN2020, ELEG3701#, ENGG1820, ENGG2020/ESTR2104, ENGG2760/ESTR2018, ENGG2780/ESTR2020, ENGG5404, MAEG1010, 2050, MAEG3060/ESTR3408, MAEG3070, 3080, 3920, 5080, 5120, 5130, 5140, 5160, MGNT1010, 4090, SEEM2440#/ESTR2500 (or DOTE1030), SEEM3450#/ESTR3502, SEEM3490#, 3500#"
+                  ],
+                  "codes": [
+                    "BMEG 3420",
+                    "CSCI 1020",
+                    "CSCI 2040",
+                    "CSCI 2100",
+                    "ESTR 2102",
+                    "CSCI 3170",
+                    "EEEN 2020",
+                    "ELEG 3701",
+                    "ENGG 1820",
+                    "ENGG 2020",
+                    "ESTR 2104",
+                    "ENGG 2760",
+                    "ESTR 2018",
+                    "ENGG 2780",
+                    "ESTR 2020",
+                    "ENGG 5404",
+                    "MAEG 1010",
+                    "MAEG 2050",
+                    "MAEG 3060",
+                    "ESTR 3408",
+                    "MAEG 3070",
+                    "MAEG 3080",
+                    "MAEG 3920",
+                    "MAEG 5080",
+                    "MAEG 5120",
+                    "MAEG 5130",
+                    "MAEG 5140",
+                    "MAEG 5160",
+                    "MGNT 1010",
+                    "MGNT 4090",
+                    "SEEM 2440",
+                    "ESTR 2500",
+                    "DOTE 1030",
+                    "SEEM 3450",
+                    "ESTR 3502",
+                    "SEEM 3490",
+                    "SEEM 3500"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Depth Electives (at least 6 units chosen from the following courses)",
+                  "units": "6",
+                  "text": [
+                    "EEEN4010/ESTR4400, EEEN4020/ESTR4402, EEEN4050/ESTR4422, EEEN4060/ESTR4424, ENGG5402, 5403, 5405, MAEG4010/ESTR4408, MAEG4020/ESTR4410, MAEG4040/ESTR4414, MAEG4050/ESTR4416, MAEG4060, MAEG4070/ESTR4418, MAEG4080/ESTR4420, MAEG5030, 5060, 5070, 5090, 5110, 5150"
+                  ],
+                  "codes": [
+                    "EEEN 4010",
+                    "ESTR 4400",
+                    "EEEN 4020",
+                    "ESTR 4402",
+                    "EEEN 4050",
+                    "ESTR 4422",
+                    "EEEN 4060",
+                    "ESTR 4424",
+                    "ENGG 5402",
+                    "ENGG 5403",
+                    "ENGG 5405",
+                    "MAEG 4010",
+                    "ESTR 4408",
+                    "MAEG 4020",
+                    "ESTR 4410",
+                    "MAEG 4040",
+                    "ESTR 4414",
+                    "MAEG 4050",
+                    "ESTR 4416",
+                    "MAEG 4060",
+                    "MAEG 4070",
+                    "ESTR 4418",
+                    "MAEG 4080",
+                    "ESTR 4420",
+                    "MAEG 5030",
+                    "MAEG 5060",
+                    "MAEG 5070",
+                    "MAEG 5090",
+                    "MAEG 5110",
+                    "MAEG 5150"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "",
+                  "title": "Streams",
+                  "units": "12",
+                  "text": [
+                    "Students may choose not to specialize in any stream or to specialize in one of the three streams by completing a minimum of 12 units of courses prescribed by the stream."
+                  ],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "marker": "",
+                      "title": "Design and Manufacturing",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Required Courses",
+                          "units": "",
+                          "text": [
+                            "CSCI1020"
+                          ],
+                          "codes": [
+                            "CSCI 1020"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Elective Courses",
+                          "units": "",
+                          "text": [
+                            "ENGG5404, 5405, MAEG2050, MAEG3060/ESTR3408, MAEG3070, 3080, 3920, MAEG4010/ESTR4408, MAEG4020/ESTR4410, MAEG4060, MAEG4070/ESTR4418, MAEG5030, 5120, 5130, 5160, SEEM3500"
+                          ],
+                          "codes": [
+                            "ENGG 5404",
+                            "ENGG 5405",
+                            "MAEG 2050",
+                            "MAEG 3060",
+                            "ESTR 3408",
+                            "MAEG 3070",
+                            "MAEG 3080",
+                            "MAEG 3920",
+                            "MAEG 4010",
+                            "ESTR 4408",
+                            "MAEG 4020",
+                            "ESTR 4410",
+                            "MAEG 4060",
+                            "MAEG 4070",
+                            "ESTR 4418",
+                            "MAEG 5030",
+                            "MAEG 5120",
+                            "MAEG 5130",
+                            "MAEG 5160",
+                            "SEEM 3500"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "",
+                      "title": "Mechatronics",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Required Courses",
+                          "units": "",
+                          "text": [
+                            "CSCI1020, MAEG4040/ESTR4414, MAEG4050/ESTR4416"
+                          ],
+                          "codes": [
+                            "CSCI 1020",
+                            "MAEG 4040",
+                            "ESTR 4414",
+                            "MAEG 4050",
+                            "ESTR 4416"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Elective Courses",
+                          "units": "",
+                          "text": [
+                            "ELEG3701, ENGG2020/ESTR2104, ENGG5404, MAEG2050, 3080, 5080"
+                          ],
+                          "codes": [
+                            "ELEG 3701",
+                            "ENGG 2020",
+                            "ESTR 2104",
+                            "ENGG 5404",
+                            "MAEG 2050",
+                            "MAEG 3080",
+                            "MAEG 5080"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "",
+                      "title": "Robotics and Automation",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Required Courses",
+                          "units": "",
+                          "text": [
+                            "CSCI1020, MAEG3060/ESTR3408, MAEG4050/ESTR4416"
+                          ],
+                          "codes": [
+                            "CSCI 1020",
+                            "MAEG 3060",
+                            "ESTR 3408",
+                            "MAEG 4050",
+                            "ESTR 4416"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Elective Courses",
+                          "units": "",
+                          "text": [
+                            "BMEG3420, ENGG5402, 5403, 5404, MAEG1010, 2050, MAEG4010/ESTR4408, MAEG5090, 5120"
+                          ],
+                          "codes": [
+                            "BMEG 3420",
+                            "ENGG 5402",
+                            "ENGG 5403",
+                            "ENGG 5404",
+                            "MAEG 1010",
+                            "MAEG 2050",
+                            "MAEG 4010",
+                            "ESTR 4408",
+                            "MAEG 5090",
+                            "MAEG 5120"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ],
+                  "heading_as_text": true,
+                  "keep_heading": true
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "EEEN, ENGG and MAEG courses at 2000 and above level as included in the Major Programme Requirement as well as those labeled as #, and their reciprocal ESTR courses will be included in the calculation of Major GPA for honours classification, excluding courses in Faculty Package and Foundation courses.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Students satisfying all the requirements of a stream (except the ELITE Stream, which will be officially recorded on the academic transcript) will be given a certifying letter upon request. Further information is available from the Department.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "",
+              "subsections": [
+                {
+                  "title": "",
+                  "text": [
+                    "JUPAS admittees without HKDSE Mathematics Extended Modules I or II are required to take ENGG1040 before they can take ENGG1125."
+                  ],
+                  "codes": [],
+                  "units": "",
+                  "marker": "(i)",
+                  "subsections": []
+                },
+                {
+                  "marker": "(ii)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "JUPAS admittees with the following HKDSE results do not need to take ENGG1040 and therefore will not be invited for the Mathematics Placement Test:",
+                    "- Level 5** in Mathematics Extended Module I; or",
+                    "- Level 5* or above in Mathematics Extended Module II."
+                  ],
+                  "codes": [
+                    "ENGG 1040"
+                  ],
+                  "subsections": [],
+                  "force_course_table": false
+                },
+                {
+                  "marker": "(iii)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "Non-JUPAS admittees with the following public examination results do not need to take ENGG1040 and therefore will not be invited for the Mathematics Placement Test:",
+                    "- Grade 6 or above in IB Mathematics Analysis and Approaches (HL); or",
+                    "- Grade 7 in IB Mathematics Applications and Interpretation (HL); or",
+                    "- Grade A* in GCE-AL Further Mathematics."
+                  ],
+                  "codes": [
+                    "ENGG 1040"
+                  ],
+                  "subsections": [],
+                  "force_course_table": false
+                },
+                {
+                  "marker": "(iv)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "Other admittees except those specified above, are required to attend a Mathematics Placement Test. Students who fail or are absent from the Placement Test will be required to take ENGG1040 before they can take ENGG1125."
+                  ],
+                  "codes": [
+                    "ENGG 1040",
+                    "ENGG 1125"
+                  ],
+                  "subsections": [],
+                  "force_course_table": false
+                }
+              ],
+              "rows": []
+            },
+            {
+              "marker": "[b]",
+              "text": "Students who fail ENGG1125 in Term 1 will have to retake the course in Term 2. The pre-assigned ENGG1130 in Term 2, will therefore be dropped.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[c]",
+              "text": "",
+              "subsections": [
+                {
+                  "title": "",
+                  "text": [
+                    "Students who have attained Level 4 or above in HKDSE Mathematics (Compulsory Part) AND Level 4 or above in Physics or Level 5 or above in Combined Science with Physics Component shall take PHYS1110."
+                  ],
+                  "codes": [],
+                  "units": "",
+                  "marker": "(i)",
+                  "subsections": []
+                },
+                {
+                  "marker": "(ii)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "Students with HKDSE results but did not attain the academic levels as stated in (i) shall take PHYS1003 in advance. PHYS1003 will be counted as a free elective but cannot be used to fulfill the Foundation course requirements."
+                  ],
+                  "codes": [
+                    "PHYS 1003"
+                  ],
+                  "subsections": [],
+                  "force_course_table": false
+                },
+                {
+                  "marker": "(iii)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "Students without HKDSE results shall sit for the placement test arranged by the Department of Physics. Students who pass the placement test shall take PHYS1110. Students who fail or are absent from the placement test shall take PHYS1003 in advance. PHYS1003 will be counted as a free elective but cannot be used to fulfill the Foundation course requirements."
+                  ],
+                  "codes": [
+                    "PHYS 1110",
+                    "PHYS 1003"
+                  ],
+                  "subsections": [],
+                  "force_course_table": false
+                }
+              ],
+              "rows": []
+            },
+            {
+              "marker": "[d]",
+              "text": "Students who have declared to specialize in the ELITE Stream will be required to complete 6 units of ESTR4998 and 4999 to substitute for MAEG4998 and 4999.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[e]",
+              "text": "Details of the entrance and coursework requirements, and declaration procedures for the ELITE Stream can be found at the ELITE website (www.erg.cuhk.edu.hk/erg/elite). Non-ELITE Engineering students may be allowed to take ESTR courses. Students are required to seek approval from their respective Major Programmes for using ESTR courses taken to fulfill the Major Programme Requirement. Details are available at the ELITE website.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[f]",
+              "text": "Students can use up to 9 units of courses which have been taken to fulfill the requirements of items 1 to 4 above to fulfill the elective requirements of the ELITE Stream. Item 3(b) Research Component Courses will not be included in these 9 units. A full list of ESTR courses is available at the ELITE website.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[g]",
+              "text": "Students can use AIST/BMEG/CENG/CSCI/EEEN/ELEG/ENGG/IERG/MAEG/ SEEM research postgraduate courses at 5000 level to substitute for ESTR courses at 3000 or 4000 level, subject to the approval of the Stream Director and the Associate Dean (Education).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[h]",
+              "text": "The requirement of at least 3 units of Engineering courses at 5000 level is a requirement for the ELITE Stream only. It should not be interpreted as a requirement of the Major Programme.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "senior-entry-requirement-for-associate-degree-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Associate Degree holders admitted to senior-year places",
+      "source_order": 1,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 54 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "54",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "3",
+              "text": [
+                "ENGG1110/ESTR1002"
+              ],
+              "codes": [
+                "ENGG 1110",
+                "ESTR 1002"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Foundation Course",
+              "units": "3",
+              "text": [
+                "MAEG1020"
+              ],
+              "codes": [
+                "MAEG 1020"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "3.",
+              "title": "Required Courses",
+              "units": "33",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "27",
+                  "text": [
+                    "ELEG2202# (or MAEG2030/ESTR2402)[a], MAEG2020/ESTR2400, MAEG2601, 2602, 3010, MAEG3020/ESTR3404, MAEG3030, 3040, MAEG3050/ESTR3406, MAEG4030/ESTR4412"
+                  ],
+                  "codes": [
+                    "ELEG 2202",
+                    "MAEG 2030",
+                    "ESTR 2402",
+                    "MAEG 2020",
+                    "ESTR 2400",
+                    "MAEG 2601",
+                    "MAEG 2602",
+                    "MAEG 3010",
+                    "MAEG 3020",
+                    "ESTR 3404",
+                    "MAEG 3030",
+                    "MAEG 3040",
+                    "MAEG 3050",
+                    "ESTR 3406",
+                    "MAEG 4030",
+                    "ESTR 4412"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Research Component Courses[b]",
+                  "units": "6",
+                  "text": [
+                    "MAEG4998, 4999"
+                  ],
+                  "codes": [
+                    "MAEG 4998",
+                    "MAEG 4999"
+                  ],
+                  "subsections": []
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "4.",
+              "title": "Elective Courses (at least 6 units of MAEG courses at 4000 and above level or their reciprocal ESTR courses or ENGG courses at 5000 level)",
+              "units": "15",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Breadth Electives (at least 6 units chosen from the following courses)",
+                  "units": "6",
+                  "text": [
+                    "BMEG3420#, CSCI1020, 2040#, CSCI2100#/ESTR2102, CSCI3170#, EEEN2020, ELEG3701#, ENGG1820, ENGG2020/ESTR2104, ENGG2760/ESTR2018, ENGG2780/ESTR2020, ENGG5404, MAEG1010, 2050, MAEG3060/ESTR3408, MAEG3070, 3080, 3920, 5080, 5120, 5130, 5140, 5160, MGNT1010, 4090, SEEM2440#/ESTR2500 (or DOTE1030), SEEM3450#/ESTR3502, SEEM3490#, 3500#"
+                  ],
+                  "codes": [
+                    "BMEG 3420",
+                    "CSCI 1020",
+                    "CSCI 2040",
+                    "CSCI 2100",
+                    "ESTR 2102",
+                    "CSCI 3170",
+                    "EEEN 2020",
+                    "ELEG 3701",
+                    "ENGG 1820",
+                    "ENGG 2020",
+                    "ESTR 2104",
+                    "ENGG 2760",
+                    "ESTR 2018",
+                    "ENGG 2780",
+                    "ESTR 2020",
+                    "ENGG 5404",
+                    "MAEG 1010",
+                    "MAEG 2050",
+                    "MAEG 3060",
+                    "ESTR 3408",
+                    "MAEG 3070",
+                    "MAEG 3080",
+                    "MAEG 3920",
+                    "MAEG 5080",
+                    "MAEG 5120",
+                    "MAEG 5130",
+                    "MAEG 5140",
+                    "MAEG 5160",
+                    "MGNT 1010",
+                    "MGNT 4090",
+                    "SEEM 2440",
+                    "ESTR 2500",
+                    "DOTE 1030",
+                    "SEEM 3450",
+                    "ESTR 3502",
+                    "SEEM 3490",
+                    "SEEM 3500"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Depth Electives (at least 6 units chosen from the following courses)",
+                  "units": "6",
+                  "text": [
+                    "EEEN4010/ESTR4400, EEEN4020/ESTR4402, EEEN4050/ESTR4422, EEEN4060/ESTR4424, ENGG5402, 5403, 5405, MAEG4010/ESTR4408, MAEG4020/ESTR4410, MAEG4040/ESTR4414, MAEG4050/ESTR4416, MAEG4060, MAEG4070/ESTR4418, MAEG4080/ESTR4420, MAEG5030, 5060, 5070, 5090, 5110, 5150"
+                  ],
+                  "codes": [
+                    "EEEN 4010",
+                    "ESTR 4400",
+                    "EEEN 4020",
+                    "ESTR 4402",
+                    "EEEN 4050",
+                    "ESTR 4422",
+                    "EEEN 4060",
+                    "ESTR 4424",
+                    "ENGG 5402",
+                    "ENGG 5403",
+                    "ENGG 5405",
+                    "MAEG 4010",
+                    "ESTR 4408",
+                    "MAEG 4020",
+                    "ESTR 4410",
+                    "MAEG 4040",
+                    "ESTR 4414",
+                    "MAEG 4050",
+                    "ESTR 4416",
+                    "MAEG 4060",
+                    "MAEG 4070",
+                    "ESTR 4418",
+                    "MAEG 4080",
+                    "ESTR 4420",
+                    "MAEG 5030",
+                    "MAEG 5060",
+                    "MAEG 5070",
+                    "MAEG 5090",
+                    "MAEG 5110",
+                    "MAEG 5150"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "",
+                  "title": "Streams",
+                  "units": "12",
+                  "text": [
+                    "Students may choose not to specialize in any stream or to specialize in one of the three streams by completing a minimum of 12 units of courses prescribed by the stream."
+                  ],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "marker": "",
+                      "title": "Design and Manufacturing",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Required Courses",
+                          "units": "12",
+                          "text": [
+                            "CSCI1020"
+                          ],
+                          "codes": [
+                            "CSCI 1020"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Elective Courses",
+                          "units": "12",
+                          "text": [
+                            "ENGG5404, 5405, MAEG2050, MAEG3060/ESTR3408, MAEG3070, 3080, 3920, MAEG4010/ESTR4408, MAEG4020/ESTR4410, MAEG4060, MAEG4070/ESTR4418, MAEG5030, 5120, 5130, 5160, SEEM3500"
+                          ],
+                          "codes": [
+                            "ENGG 5404",
+                            "ENGG 5405",
+                            "MAEG 2050",
+                            "MAEG 3060",
+                            "ESTR 3408",
+                            "MAEG 3070",
+                            "MAEG 3080",
+                            "MAEG 3920",
+                            "MAEG 4010",
+                            "ESTR 4408",
+                            "MAEG 4020",
+                            "ESTR 4410",
+                            "MAEG 4060",
+                            "MAEG 4070",
+                            "ESTR 4418",
+                            "MAEG 5030",
+                            "MAEG 5120",
+                            "MAEG 5130",
+                            "MAEG 5160",
+                            "SEEM 3500"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "",
+                      "title": "Mechatronics",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Required Courses",
+                          "units": "12",
+                          "text": [
+                            "CSCI1020, MAEG4040/ESTR4414, MAEG4050/ESTR4416"
+                          ],
+                          "codes": [
+                            "CSCI 1020",
+                            "MAEG 4040",
+                            "ESTR 4414",
+                            "MAEG 4050",
+                            "ESTR 4416"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Elective Courses",
+                          "units": "12",
+                          "text": [
+                            "ELEG3701, ENGG2020/ESTR2104, ENGG5404, MAEG2050, 3080, 5080"
+                          ],
+                          "codes": [
+                            "ELEG 3701",
+                            "ENGG 2020",
+                            "ESTR 2104",
+                            "ENGG 5404",
+                            "MAEG 2050",
+                            "MAEG 3080",
+                            "MAEG 5080"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "",
+                      "title": "Robotics and Automation",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Required Courses",
+                          "units": "12",
+                          "text": [
+                            "CSCI1020, MAEG3060/ESTR3408, MAEG4050/ESTR4416"
+                          ],
+                          "codes": [
+                            "CSCI 1020",
+                            "MAEG 3060",
+                            "ESTR 3408",
+                            "MAEG 4050",
+                            "ESTR 4416"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Elective Courses",
+                          "units": "12",
+                          "text": [
+                            "BMEG3420, ENGG5402, 5403, 5404, MAEG1010, 2050, MAEG4010/ESTR4408, MAEG5090, 5120"
+                          ],
+                          "codes": [
+                            "BMEG 3420",
+                            "ENGG 5402",
+                            "ENGG 5403",
+                            "ENGG 5404",
+                            "MAEG 1010",
+                            "MAEG 2050",
+                            "MAEG 4010",
+                            "ESTR 4408",
+                            "MAEG 5090",
+                            "MAEG 5120"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ],
+                  "heading_as_text": true,
+                  "keep_heading": true
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "EEEN, ENGG and MAEG courses at 2000 and above level as included in the Major Programme Requirement as well as those labeled as #, and their reciprocal ESTR courses will be included in the calculation of Major GPA for honours classification, excluding courses in Faculty Package and Foundation course.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Students satisfying all the requirements of a stream (except the ELITE Stream, which will be officially recorded on the academic transcript) will be given a certifying letter upon request. Further information is available from the Department.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "Based on the admission qualifications of the Associate Degree holders, students will be recommended by the Department to take either ELEG2202 or MAEG2030/ESTR2402.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[b]",
+              "text": "Students who have declared to specialize in the ELITE Stream will be required to complete 6 units of ESTR4998 and 4999 to substitute for MAEG4998 and 4999.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[c]",
+              "text": "Details of the entrance and coursework requirements, and declaration procedures for the ELITE Stream can be found at the ELITE website (www.erg.cuhk.edu.hk/erg/elite). Non-ELITE Engineering students may be allowed to take ESTR courses. Students are required to seek approval from their respective Major Programmes for using ESTR courses taken to fulfill the Major Programme Requirement. Details are available at the ELITE website.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[d]",
+              "text": "Students can use up to 9 units of courses which have been taken to fulfill the requirements of items 1 to 4 above to fulfill the elective requirements of the ELITE Stream. Item 3(b) Research Component Courses will not be included in these 9 units. A full list of ESTR courses is available at the ELITE website.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[e]",
+              "text": "Students can use AIST/BMEG/CENG/CSCI/EEEN/ELEG/ENGG/IERG/MAEG/ SEEM research postgraduate courses at 5000 level to substitute for ESTR courses at 3000 or 4000 level, subject to the approval of the Stream Director and the Associate Dean (Education).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[f]",
+              "text": "The requirement of at least 3 units of Engineering courses at 5000 level is a requirement for the ELITE Stream only. It should not be interpreted as a requirement of the Major Programme.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "senior-entry-requirement-for-higher-diploma-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Higher Diploma holders admitted to senior-year places",
+      "source_order": 2,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 51 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "51",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "3",
+              "text": [
+                "ENGG1110/ESTR1002"
+              ],
+              "codes": [
+                "ENGG 1110",
+                "ESTR 1002"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Foundation Course",
+              "units": "3",
+              "text": [
+                "MAEG1020"
+              ],
+              "codes": [
+                "MAEG 1020"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "3.",
+              "title": "Required Courses",
+              "units": "33",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "27",
+                  "text": [
+                    "ELEG2202# (or MAEG2030/ESTR2402)[a], MAEG2020/ESTR2400, MAEG2601, 2602, 3010, MAEG3020/ESTR3404, MAEG3030, 3040, MAEG3050/ESTR3406, MAEG4030/ESTR4412"
+                  ],
+                  "codes": [
+                    "ELEG 2202",
+                    "MAEG 2030",
+                    "ESTR 2402",
+                    "MAEG 2020",
+                    "ESTR 2400",
+                    "MAEG 2601",
+                    "MAEG 2602",
+                    "MAEG 3010",
+                    "MAEG 3020",
+                    "ESTR 3404",
+                    "MAEG 3030",
+                    "MAEG 3040",
+                    "MAEG 3050",
+                    "ESTR 3406",
+                    "MAEG 4030",
+                    "ESTR 4412"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Research Component Courses[b]",
+                  "units": "6",
+                  "text": [
+                    "MAEG4998, 4999"
+                  ],
+                  "codes": [
+                    "MAEG 4998",
+                    "MAEG 4999"
+                  ],
+                  "subsections": []
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "4.",
+              "title": "Elective Courses (at least 6 units of MAEG courses at 4000 and above level or their reciprocal ESTR courses or ENGG courses at 5000 level)",
+              "units": "12",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Breadth Electives (at least 6 units chosen from the following courses)",
+                  "units": "6",
+                  "text": [
+                    "BMEG3420#, CSCI1020, 2040#, CSCI2100#/ESTR2102, CSCI3170#, EEEN2020, ELEG3701#, ENGG1820, ENGG2020/ESTR2104, ENGG2760/ESTR2018, ENGG2780/ESTR2020, ENGG5404, MAEG1010, 2050, MAEG3060/ESTR3408, MAEG3070, 3080, 3920, 5080, 5120, 5130, 5140, 5160, MGNT1010, 4090, SEEM2440#/ESTR2500 (or DOTE1030), SEEM3450#/ESTR3502, SEEM3490#, 3500#"
+                  ],
+                  "codes": [
+                    "BMEG 3420",
+                    "CSCI 1020",
+                    "CSCI 2040",
+                    "CSCI 2100",
+                    "ESTR 2102",
+                    "CSCI 3170",
+                    "EEEN 2020",
+                    "ELEG 3701",
+                    "ENGG 1820",
+                    "ENGG 2020",
+                    "ESTR 2104",
+                    "ENGG 2760",
+                    "ESTR 2018",
+                    "ENGG 2780",
+                    "ESTR 2020",
+                    "ENGG 5404",
+                    "MAEG 1010",
+                    "MAEG 2050",
+                    "MAEG 3060",
+                    "ESTR 3408",
+                    "MAEG 3070",
+                    "MAEG 3080",
+                    "MAEG 3920",
+                    "MAEG 5080",
+                    "MAEG 5120",
+                    "MAEG 5130",
+                    "MAEG 5140",
+                    "MAEG 5160",
+                    "MGNT 1010",
+                    "MGNT 4090",
+                    "SEEM 2440",
+                    "ESTR 2500",
+                    "DOTE 1030",
+                    "SEEM 3450",
+                    "ESTR 3502",
+                    "SEEM 3490",
+                    "SEEM 3500"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Depth Electives (at least 6 units chosen from the following courses)",
+                  "units": "6",
+                  "text": [
+                    "EEEN4010/ESTR4400, EEEN4020/ESTR4402, EEEN4050/ESTR4422, EEEN4060/ESTR4424, ENGG5402, 5403, 5405, MAEG4010/ESTR4408, MAEG4020/ESTR4410, MAEG4040/ESTR4414, MAEG4050/ESTR4416, MAEG4060, MAEG4070/ESTR4418, MAEG4080/ESTR4420, MAEG5030, 5060, 5070, 5090, 5110, 5150"
+                  ],
+                  "codes": [
+                    "EEEN 4010",
+                    "ESTR 4400",
+                    "EEEN 4020",
+                    "ESTR 4402",
+                    "EEEN 4050",
+                    "ESTR 4422",
+                    "EEEN 4060",
+                    "ESTR 4424",
+                    "ENGG 5402",
+                    "ENGG 5403",
+                    "ENGG 5405",
+                    "MAEG 4010",
+                    "ESTR 4408",
+                    "MAEG 4020",
+                    "ESTR 4410",
+                    "MAEG 4040",
+                    "ESTR 4414",
+                    "MAEG 4050",
+                    "ESTR 4416",
+                    "MAEG 4060",
+                    "MAEG 4070",
+                    "ESTR 4418",
+                    "MAEG 4080",
+                    "ESTR 4420",
+                    "MAEG 5030",
+                    "MAEG 5060",
+                    "MAEG 5070",
+                    "MAEG 5090",
+                    "MAEG 5110",
+                    "MAEG 5150"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "",
+                  "title": "Streams",
+                  "units": "12",
+                  "text": [
+                    "Students may choose not to specialize in any stream or to specialize in one of the three streams by completing a minimum of 12 units of courses prescribed by the stream."
+                  ],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "marker": "",
+                      "title": "Design and Manufacturing",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Required Courses",
+                          "units": "12",
+                          "text": [
+                            "CSCI1020"
+                          ],
+                          "codes": [
+                            "CSCI 1020"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Elective Courses",
+                          "units": "12",
+                          "text": [
+                            "ENGG5404, 5405, MAEG2050, MAEG3060/ESTR3408, MAEG3070, 3080, 3920, MAEG4010/ESTR4408, MAEG4020/ESTR4410, MAEG4060, MAEG4070/ESTR4418, MAEG5030, 5120, 5130, 5160, SEEM3500"
+                          ],
+                          "codes": [
+                            "ENGG 5404",
+                            "ENGG 5405",
+                            "MAEG 2050",
+                            "MAEG 3060",
+                            "ESTR 3408",
+                            "MAEG 3070",
+                            "MAEG 3080",
+                            "MAEG 3920",
+                            "MAEG 4010",
+                            "ESTR 4408",
+                            "MAEG 4020",
+                            "ESTR 4410",
+                            "MAEG 4060",
+                            "MAEG 4070",
+                            "ESTR 4418",
+                            "MAEG 5030",
+                            "MAEG 5120",
+                            "MAEG 5130",
+                            "MAEG 5160",
+                            "SEEM 3500"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "",
+                      "title": "Mechatronics",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Required Courses",
+                          "units": "12",
+                          "text": [
+                            "CSCI1020, MAEG4040/ESTR4414, MAEG4050/ESTR4416"
+                          ],
+                          "codes": [
+                            "CSCI 1020",
+                            "MAEG 4040",
+                            "ESTR 4414",
+                            "MAEG 4050",
+                            "ESTR 4416"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Elective Courses",
+                          "units": "12",
+                          "text": [
+                            "ELEG3701, ENGG2020/ESTR2104, ENGG5404, MAEG2050, 3080, 5080"
+                          ],
+                          "codes": [
+                            "ELEG 3701",
+                            "ENGG 2020",
+                            "ESTR 2104",
+                            "ENGG 5404",
+                            "MAEG 2050",
+                            "MAEG 3080",
+                            "MAEG 5080"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "",
+                      "title": "Robotics and Automation",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Required Courses",
+                          "units": "12",
+                          "text": [
+                            "CSCI1020, MAEG3060/ESTR3408, MAEG4050/ESTR4416"
+                          ],
+                          "codes": [
+                            "CSCI 1020",
+                            "MAEG 3060",
+                            "ESTR 3408",
+                            "MAEG 4050",
+                            "ESTR 4416"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Elective Courses",
+                          "units": "12",
+                          "text": [
+                            "BMEG3420, ENGG5402, 5403, 5404, MAEG1010, 2050, MAEG4010/ESTR4408, MAEG5090, 5120"
+                          ],
+                          "codes": [
+                            "BMEG 3420",
+                            "ENGG 5402",
+                            "ENGG 5403",
+                            "ENGG 5404",
+                            "MAEG 1010",
+                            "MAEG 2050",
+                            "MAEG 4010",
+                            "ESTR 4408",
+                            "MAEG 5090",
+                            "MAEG 5120"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ],
+                  "heading_as_text": true,
+                  "keep_heading": true
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "EEEN, ENGG and MAEG courses at 2000 and above level as included in the Major Programme Requirement as well as those labeled as #, and their reciprocal ESTR courses will be included in the calculation of Major GPA for honours classification, excluding courses in Faculty Package and Foundation courses.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Students satisfying all the requirements of a stream (except the ELITE Stream, which will be officially recorded on the academic transcript) will be given a certifying letter upon request. Further information is available from the Department.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "Based on the admission qualifications of the Higher Diploma holders, students will be recommended by the Department to take either ELEG2202 or MAEG2030/ESTR2402.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[b]",
+              "text": "Students who have declared to specialize in the ELITE Stream will be required to complete 6 units of ESTR4998 and 4999 to substitute for MAEG4998 and 4999.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[c]",
+              "text": "Details of the entrance and coursework requirements, and declaration procedures for the ELITE Stream can be found at the ELITE website (www.erg.cuhk.edu.hk/erg/elite). Non-ELITE Engineering students may be allowed to take ESTR courses. Students are required to seek approval from their respective Major Programmes for using ESTR courses taken to fulfill the Major Programme Requirement. Details are available at the ELITE website.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[d]",
+              "text": "Students can use up to 9 units of courses which have been taken to fulfill the requirements of items 1 to 4 above to fulfill the elective requirements of the ELITE Stream. Item 3(b) Research Component Courses will not be included in these 9 units. A full list of ESTR courses is available at the ELITE website.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[e]",
+              "text": "Students can use AIST/BMEG/CENG/CSCI/EEEN/ELEG/ENGG/IERG/MAEG/ SEEM research postgraduate courses at 5000 level to substitute for ESTR courses at 3000 or 4000 level, subject to the approval of the Stream Director and the Associate Dean (Education).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[f]",
+              "text": "The requirement of at least 3 units of Engineering courses at 5000 level is a requirement for the ELITE Stream only. It should not be interpreted as a requirement of the Major Programme.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "bachelor-of-engineering-mechanical-and-automation-engineering-and-bachelor-of-business-administration-integrated-bba-programme-double-degree-option",
+      "kind": "double_degree",
+      "title": "Bachelor of Engineering (Mechanical and Automation Engineering) and Bachelor of Business Administration (Integrated BBA Programme) Double Degree Option",
+      "source_order": 3,
+      "default": false,
+      "parts": [
+        {
+          "title": "1st Degree: Bachelor of Engineering (Mechanical and Automation Engineering)",
+          "description": "Students are required to complete a minimum of 75 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "75",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "ENGG1110/ESTR1002, ENGG1111, ENGG1120/ESTR1005, ENGG1125/ESTR1007[a]"
+              ],
+              "codes": [
+                "ENGG 1110",
+                "ESTR 1002",
+                "ENGG 1111",
+                "ENGG 1120",
+                "ESTR 1005",
+                "ENGG 1125",
+                "ESTR 1007"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Foundation Courses",
+              "units": "13",
+              "text": [
+                "ENGG1130/ESTR1006[b], ENGG2720/ESTR2014, ENGG2740/ESTR2016, MAEG1020, PHYS1110[c]"
+              ],
+              "codes": [
+                "ENGG 1130",
+                "ESTR 1006",
+                "ENGG 2720",
+                "ESTR 2014",
+                "ENGG 2740",
+                "ESTR 2016",
+                "MAEG 1020",
+                "PHYS 1110"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "3.",
+              "title": "Required Courses",
+              "units": "39",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "33",
+                  "text": [
+                    "EEEN3030/ESTR3402, ELEG2202#, MAEG2020/ESTR2400, MAEG2030/ESTR2402, MAEG2601, 2602, 3010, MAEG3020/ESTR3404, MAEG3030, 3040, MAEG3050/ESTR3406, MAEG4030/ESTR4412"
+                  ],
+                  "codes": [
+                    "EEEN 3030",
+                    "ESTR 3402",
+                    "ELEG 2202",
+                    "MAEG 2020",
+                    "ESTR 2400",
+                    "MAEG 2030",
+                    "ESTR 2402",
+                    "MAEG 2601",
+                    "MAEG 2602",
+                    "MAEG 3010",
+                    "MAEG 3020",
+                    "ESTR 3404",
+                    "MAEG 3030",
+                    "MAEG 3040",
+                    "MAEG 3050",
+                    "ESTR 3406",
+                    "MAEG 4030",
+                    "ESTR 4412"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Research Component Courses[d]",
+                  "units": "6",
+                  "text": [
+                    "MAEG4998, 4999"
+                  ],
+                  "codes": [
+                    "MAEG 4998",
+                    "MAEG 4999"
+                  ],
+                  "subsections": []
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "4.",
+              "title": "Elective Courses (at least 6 units of MAEG courses at 4000 and above level or their reciprocal ESTR courses or ENGG courses at 5000 level)",
+              "units": "14",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "Breadth Electives (at least 6 units chosen from the following courses)",
+                  "units": "6",
+                  "text": [
+                    "BMEG3420#, CSCI1020, 2040#, CSCI2100#/ESTR2102, CSCI3170#, DOTE1030, EEEN2020, ELEG3701#, ENGG1820, ENGG2020/ESTR2104, ENGG2760/ESTR2018, ENGG2780/ESTR2020, ENGG5404, MAEG1010, 2050, MAEG3060/ESTR3408, MAEG3070, 3080, 3920, 5080, 5120, 5130, 5140, 5160, MGNT1020, 4090, SEEM3450#/ESTR3502, SEEM3490#, 3500#"
+                  ],
+                  "codes": [
+                    "BMEG 3420",
+                    "CSCI 1020",
+                    "CSCI 2040",
+                    "CSCI 2100",
+                    "ESTR 2102",
+                    "CSCI 3170",
+                    "DOTE 1030",
+                    "EEEN 2020",
+                    "ELEG 3701",
+                    "ENGG 1820",
+                    "ENGG 2020",
+                    "ESTR 2104",
+                    "ENGG 2760",
+                    "ESTR 2018",
+                    "ENGG 2780",
+                    "ESTR 2020",
+                    "ENGG 5404",
+                    "MAEG 1010",
+                    "MAEG 2050",
+                    "MAEG 3060",
+                    "ESTR 3408",
+                    "MAEG 3070",
+                    "MAEG 3080",
+                    "MAEG 3920",
+                    "MAEG 5080",
+                    "MAEG 5120",
+                    "MAEG 5130",
+                    "MAEG 5140",
+                    "MAEG 5160",
+                    "MGNT 1020",
+                    "MGNT 4090",
+                    "SEEM 3450",
+                    "ESTR 3502",
+                    "SEEM 3490",
+                    "SEEM 3500"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "(b)",
+                  "title": "Depth Electives (at least 6 units chosen from the following courses)",
+                  "units": "6",
+                  "text": [
+                    "EEEN4010/ESTR4400, EEEN4020/ESTR4402, EEEN4050/ESTR4422, EEEN4060/ESTR4424, ENGG5402, 5403, 5405, MAEG4010/ESTR4408, MAEG4020/ESTR4410, MAEG4040/ESTR4414, MAEG4050/ESTR4416, MAEG4060, MAEG4070/ESTR4418, MAEG4080/ESTR4420, MAEG5030, 5060, 5070, 5090, 5110, 5150"
+                  ],
+                  "codes": [
+                    "EEEN 4010",
+                    "ESTR 4400",
+                    "EEEN 4020",
+                    "ESTR 4402",
+                    "EEEN 4050",
+                    "ESTR 4422",
+                    "EEEN 4060",
+                    "ESTR 4424",
+                    "ENGG 5402",
+                    "ENGG 5403",
+                    "ENGG 5405",
+                    "MAEG 4010",
+                    "ESTR 4408",
+                    "MAEG 4020",
+                    "ESTR 4410",
+                    "MAEG 4040",
+                    "ESTR 4414",
+                    "MAEG 4050",
+                    "ESTR 4416",
+                    "MAEG 4060",
+                    "MAEG 4070",
+                    "ESTR 4418",
+                    "MAEG 4080",
+                    "ESTR 4420",
+                    "MAEG 5030",
+                    "MAEG 5060",
+                    "MAEG 5070",
+                    "MAEG 5090",
+                    "MAEG 5110",
+                    "MAEG 5150"
+                  ],
+                  "subsections": []
+                },
+                {
+                  "marker": "",
+                  "title": "Streams",
+                  "units": "12",
+                  "text": [
+                    "Students may choose not to specialize in any stream or to specialize in one of the three streams by completing a minimum of 12 units of courses prescribed by the stream."
+                  ],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "marker": "",
+                      "title": "Design and Manufacturing",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Required Courses",
+                          "units": "12",
+                          "text": [
+                            "CSCI1020"
+                          ],
+                          "codes": [
+                            "CSCI 1020"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Elective Courses",
+                          "units": "12",
+                          "text": [
+                            "ENGG5404, 5405, MAEG2050, MAEG3060/ESTR3408, MAEG3070, 3080, 3920, MAEG4010/ESTR4408, MAEG4020/ESTR4410, MAEG4060, MAEG4070/ESTR4418, MAEG5030, 5120, 5130, 5160, SEEM3500"
+                          ],
+                          "codes": [
+                            "ENGG 5404",
+                            "ENGG 5405",
+                            "MAEG 2050",
+                            "MAEG 3060",
+                            "ESTR 3408",
+                            "MAEG 3070",
+                            "MAEG 3080",
+                            "MAEG 3920",
+                            "MAEG 4010",
+                            "ESTR 4408",
+                            "MAEG 4020",
+                            "ESTR 4410",
+                            "MAEG 4060",
+                            "MAEG 4070",
+                            "ESTR 4418",
+                            "MAEG 5030",
+                            "MAEG 5120",
+                            "MAEG 5130",
+                            "MAEG 5160",
+                            "SEEM 3500"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "",
+                      "title": "Mechatronics",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Required Courses",
+                          "units": "12",
+                          "text": [
+                            "CSCI1020, MAEG4040/ESTR4414, MAEG4050/ESTR4416"
+                          ],
+                          "codes": [
+                            "CSCI 1020",
+                            "MAEG 4040",
+                            "ESTR 4414",
+                            "MAEG 4050",
+                            "ESTR 4416"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Elective Courses",
+                          "units": "12",
+                          "text": [
+                            "ELEG3701, ENGG2020/ESTR2104, ENGG5404, MAEG2050, 3080, 5080"
+                          ],
+                          "codes": [
+                            "ELEG 3701",
+                            "ENGG 2020",
+                            "ESTR 2104",
+                            "ENGG 5404",
+                            "MAEG 2050",
+                            "MAEG 3080",
+                            "MAEG 5080"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "",
+                      "title": "Robotics and Automation",
+                      "units": "12",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Required Courses",
+                          "units": "12",
+                          "text": [
+                            "CSCI1020, MAEG3060/ESTR3408, MAEG4050/ESTR4416"
+                          ],
+                          "codes": [
+                            "CSCI 1020",
+                            "MAEG 3060",
+                            "ESTR 3408",
+                            "MAEG 4050",
+                            "ESTR 4416"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Elective Courses",
+                          "units": "12",
+                          "text": [
+                            "BMEG3420, ENGG5402, 5403, 5404, MAEG1010, 2050, MAEG4010/ESTR4408, MAEG5090, 5120"
+                          ],
+                          "codes": [
+                            "BMEG 3420",
+                            "ENGG 5402",
+                            "ENGG 5403",
+                            "ENGG 5404",
+                            "MAEG 1010",
+                            "MAEG 2050",
+                            "MAEG 4010",
+                            "ESTR 4408",
+                            "MAEG 5090",
+                            "MAEG 5120"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ],
+                  "heading_as_text": true,
+                  "keep_heading": true
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "EEEN, ENGG and MAEG courses at 2000 and above level as included in the Major Programme Requirement as well as those labeled as #, and their reciprocal ESTR courses will be included in the calculation of Major GPA for honours classification, excluding courses in Faculty Package and Foundation courses.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Students satisfying all the requirements of a stream (except the ELITE Stream, which will be officially recorded on the academic transcript) will be given a certifying letter upon request. Further information is available from the Department.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "3.",
+              "text": "Students are advised to take some courses in summer sessions to reduce their course load in regular terms.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "",
+              "subsections": [
+                {
+                  "title": "",
+                  "text": [
+                    "JUPAS admittees without HKDSE Mathematics Extended Modules I or II are required to take ENGG1040 before they can take ENGG1125."
+                  ],
+                  "codes": [],
+                  "units": "",
+                  "marker": "(i)",
+                  "subsections": []
+                },
+                {
+                  "marker": "(ii)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "JUPAS admittees with the following HKDSE results do not need to take ENGG1040 and therefore will not be invited for the Mathematics Placement Test:",
+                    "- Level 5** in Mathematics Extended Module I; or",
+                    "- Level 5* or above in Mathematics Extended Module II."
+                  ],
+                  "codes": [
+                    "ENGG 1040"
+                  ],
+                  "subsections": [],
+                  "force_course_table": false
+                },
+                {
+                  "marker": "(iii)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "Non-JUPAS admittees with the following public examination results do not need to take ENGG1040 and therefore will not be invited for the Mathematics Placement Test:",
+                    "- Grade 6 or above in IB Mathematics Analysis and Approaches (HL); or",
+                    "- Grade 7 in IB Mathematics Applications and Interpretation (HL); or",
+                    "- Grade A* in GCE-AL Further Mathematics."
+                  ],
+                  "codes": [
+                    "ENGG 1040"
+                  ],
+                  "subsections": [],
+                  "force_course_table": false
+                },
+                {
+                  "marker": "(iv)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "Other admittees except those specified above, are required to attend a Mathematics Placement Test. Students who fail or are absent from the Placement Test will be required to take ENGG1040 before they can take ENGG1125."
+                  ],
+                  "codes": [
+                    "ENGG 1040",
+                    "ENGG 1125"
+                  ],
+                  "subsections": [],
+                  "force_course_table": false
+                }
+              ],
+              "rows": []
+            },
+            {
+              "marker": "[b]",
+              "text": "Students who fail ENGG1125 in Term 1 will have to retake the course in Term 2. The pre-assigned ENGG1130 in Term 2, will therefore be dropped.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[c]",
+              "text": "",
+              "subsections": [
+                {
+                  "title": "",
+                  "text": [
+                    "Students who have attained Level 4 or above in HKDSE Mathematics (Compulsory Part) AND Level 4 or above in Physics or Level 5 or above in Combined Science with Physics Component shall take PHYS1110."
+                  ],
+                  "codes": [],
+                  "units": "",
+                  "marker": "(i)",
+                  "subsections": []
+                },
+                {
+                  "marker": "(ii)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "Students with HKDSE results but did not attain the academic levels as stated in (i) shall take PHYS1003 in advance. PHYS1003 will be counted as a free elective but cannot be used to fulfill the Foundation course requirements."
+                  ],
+                  "codes": [
+                    "PHYS 1003"
+                  ],
+                  "subsections": [],
+                  "force_course_table": false
+                },
+                {
+                  "marker": "(iii)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "Students without HKDSE results shall sit for the placement test arranged by the Department of Physics. Students who pass the placement test shall take PHYS1110. Students who fail or are absent from the placement test shall take PHYS1003 in advance. PHYS1003 will be counted as a free elective but cannot be used to fulfill the Foundation course requirements."
+                  ],
+                  "codes": [
+                    "PHYS 1110",
+                    "PHYS 1003"
+                  ],
+                  "subsections": [],
+                  "force_course_table": false
+                }
+              ],
+              "rows": []
+            },
+            {
+              "marker": "[d]",
+              "text": "Students who have declared to specialize in the ELITE Stream will be required to complete 6 units of ESTR4998 and 4999 to substitute for MAEG4998 and 4999.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[e]",
+              "text": "Details of the entrance and coursework requirements, and declaration procedures for the ELITE Stream can be found at the ELITE website (www.erg.cuhk.edu.hk/erg/elite). Non-ELITE Engineering students may be allowed to take ESTR courses. Students are required to seek approval from their respective Major Programmes for using ESTR courses taken to fulfill the Major Programme Requirement. Details are available at the ELITE website.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[f]",
+              "text": "Students can use up to 9 units of courses which have been taken to fulfill the requirements of items 1 to 4 above to fulfill the elective requirements of the ELITE Stream. Item 3(b) Research Component Courses will not be included in these 9 units. A full list of ESTR courses is available at the ELITE website.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[g]",
+              "text": "Students can use AIST/BMEG/CENG/CSCI/EEEN/ELEG/ENGG/IERG/MAEG/ SEEM research postgraduate courses at 5000 level to substitute for ESTR courses at 3000 or 4000 level, subject to the approval of the Stream Director and the Associate Dean (Education).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[h]",
+              "text": "The requirement of at least 3 units of Engineering courses at 5000 level is a requirement for the ELITE Stream only. It should not be interpreted as a requirement of the Major Programme.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        },
+        {
+          "title": "2nd Degree: Bachelor of Business Administration (Integrated BBA Programme)",
+          "description": "Major Programme Requirement Students are required to complete a minimum of 56 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "56-60",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "DOTE1030, 1040, MGNT1020"
+              ],
+              "codes": [
+                "DOTE 1030",
+                "DOTE 1040",
+                "MGNT 1020"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "32-33",
+              "text": [
+                "ACCT2111, 2121, 2151 or 3151[a], DOTE2011, 2030, 2051, FINA2010, IBBA3040, MGNT2511, 2512, 2611, 4010, MKTG2010"
+              ],
+              "codes": [
+                "ACCT 2111",
+                "ACCT 2121",
+                "ACCT 2151",
+                "ACCT 3151",
+                "DOTE 2011",
+                "DOTE 2030",
+                "DOTE 2051",
+                "FINA 2010",
+                "IBBA 3040",
+                "MGNT 2511",
+                "MGNT 2512",
+                "MGNT 2611",
+                "MGNT 4010",
+                "MKTG 2010"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses (Concentration)",
+              "units": "15-18",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "",
+                  "title": "Students must choose at least one concentration and take five or six courses among the courses prescribed under respective concentration area as follows",
+                  "units": "",
+                  "text": [],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "marker": "(a)",
+                      "title": "Business Economics",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(i)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "DOTE2021, 4110;"
+                          ],
+                          "codes": [
+                            "DOTE 2021",
+                            "DOTE 4110"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "two courses selected from",
+                          "units": "",
+                          "text": [
+                            "DOTE3000, 3011, 3030, 3050, 3080, 3090, 4040, 4080; and"
+                          ],
+                          "codes": [
+                            "DOTE 3000",
+                            "DOTE 3011",
+                            "DOTE 3030",
+                            "DOTE 3050",
+                            "DOTE 3080",
+                            "DOTE 3090",
+                            "DOTE 4040",
+                            "DOTE 4080"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(iii)",
+                          "title": "one DOTE course at 3000 or above level, excluding the courses taken for fulfillment of requirement (i) or (ii)",
+                          "units": "",
+                          "text": [],
+                          "codes": [
+                            "DOTE 3000",
+                            "DOTE 3010",
+                            "DOTE 3011",
+                            "DOTE 3030",
+                            "DOTE 3040",
+                            "DOTE 3050",
+                            "DOTE 3070",
+                            "DOTE 3080",
+                            "DOTE 3090",
+                            "DOTE 4020",
+                            "DOTE 4030",
+                            "DOTE 4040",
+                            "DOTE 4070",
+                            "DOTE 4080",
+                            "DOTE 4110",
+                            "DOTE 4111",
+                            "DOTE 4120",
+                            "DOTE 4140",
+                            "DOTE 4160",
+                            "DOTE 4170",
+                            "DOTE 4180",
+                            "DOTE 4200",
+                            "DOTE 4220",
+                            "DOTE 4230",
+                            "DOTE 4240",
+                            "DOTE 4260",
+                            "DOTE 4270",
+                            "DOTE 4280",
+                            "DOTE 5001",
+                            "DOTE 5011",
+                            "DOTE 5012",
+                            "DOTE 5021",
+                            "DOTE 5031",
+                            "DOTE 5110",
+                            "DOTE 5121",
+                            "DOTE 5210",
+                            "DOTE 5310",
+                            "DOTE 5410",
+                            "DOTE 5411",
+                            "DOTE 5510",
+                            "DOTE 5600",
+                            "DOTE 5810",
+                            "DOTE 5820",
+                            "DOTE 5830",
+                            "DOTE 5840",
+                            "DOTE 5850",
+                            "DOTE 5860",
+                            "DOTE 5870",
+                            "DOTE 5880",
+                            "DOTE 5890",
+                            "DOTE 5891",
+                            "DOTE 6010",
+                            "DOTE 6040",
+                            "DOTE 6100",
+                            "DOTE 6200",
+                            "DOTE 6350",
+                            "DOTE 6360",
+                            "DOTE 6503",
+                            "DOTE 6512",
+                            "DOTE 6520",
+                            "DOTE 6522",
+                            "DOTE 6530",
+                            "DOTE 6532",
+                            "DOTE 6542",
+                            "DOTE 6612",
+                            "DOTE 6620",
+                            "DOTE 6622",
+                            "DOTE 6632",
+                            "DOTE 6635",
+                            "DOTE 6650",
+                            "DOTE 6651",
+                            "DOTE 6652",
+                            "DOTE 6653",
+                            "DOTE 6654",
+                            "DOTE 6671",
+                            "DOTE 6680",
+                            "DOTE 6681",
+                            "DOTE 6682",
+                            "DOTE 6683",
+                            "DOTE 6685",
+                            "DOTE 6686",
+                            "DOTE 6687",
+                            "DOTE 6688",
+                            "DOTE 6689",
+                            "DOTE 6690",
+                            "DOTE 6696",
+                            "DOTE 6697",
+                            "DOTE 6698",
+                            "DOTE 6720",
+                            "DOTE 6730",
+                            "DOTE 6751",
+                            "DOTE 6752",
+                            "DOTE 6756",
+                            "DOTE 6780",
+                            "DOTE 6788",
+                            "DOTE 6790",
+                            "DOTE 6930",
+                            "DOTE 6931",
+                            "DOTE 6940",
+                            "DOTE 7111",
+                            "DOTE 8003",
+                            "DOTE 8006",
+                            "DOTE 8012"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "(b)",
+                      "title": "Business Analytics",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(i)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "DOTE2021, 2040, 4020;"
+                          ],
+                          "codes": [
+                            "DOTE 2021",
+                            "DOTE 2040",
+                            "DOTE 4020"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "one course selected from",
+                          "units": "",
+                          "text": [
+                            "DOTE3010, 4070, 4240, 4260; and"
+                          ],
+                          "codes": [
+                            "DOTE 3010",
+                            "DOTE 4070",
+                            "DOTE 4240",
+                            "DOTE 4260"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(iii)",
+                          "title": "one course selected from",
+                          "units": "",
+                          "text": [
+                            "DOTE3030, 4030, 4110, 4220, 4280, MKTG4120"
+                          ],
+                          "codes": [
+                            "DOTE 3030",
+                            "DOTE 4030",
+                            "DOTE 4110",
+                            "DOTE 4220",
+                            "DOTE 4280",
+                            "MKTG 4120"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "(c)",
+                      "title": "Finance",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(i)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "DOTE2021 or FINA2020; and"
+                          ],
+                          "codes": [
+                            "DOTE 2021",
+                            "FINA 2020"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "15 units selected from",
+                          "units": "",
+                          "text": [
+                            "DOTE3010, FINA courses at 3000 or above level (with no more than three 1-unit FINA courses)"
+                          ],
+                          "codes": [
+                            "DOTE 3010",
+                            "FINA 3010",
+                            "FINA 3020",
+                            "FINA 3030",
+                            "FINA 3040",
+                            "FINA 3060",
+                            "FINA 3070",
+                            "FINA 3080",
+                            "FINA 3090",
+                            "FINA 3110",
+                            "FINA 3210",
+                            "FINA 3220",
+                            "FINA 3221",
+                            "FINA 3222",
+                            "FINA 3230",
+                            "FINA 3240",
+                            "FINA 3250",
+                            "FINA 3260",
+                            "FINA 3290",
+                            "FINA 3295",
+                            "FINA 3310",
+                            "FINA 3320",
+                            "FINA 3330",
+                            "FINA 3340",
+                            "FINA 3350",
+                            "FINA 3360",
+                            "FINA 3370",
+                            "FINA 3398",
+                            "FINA 3399",
+                            "FINA 3420",
+                            "FINA 4010",
+                            "FINA 4020",
+                            "FINA 4030",
+                            "FINA 4040",
+                            "FINA 4050",
+                            "FINA 4060",
+                            "FINA 4110",
+                            "FINA 4120",
+                            "FINA 4130",
+                            "FINA 4140",
+                            "FINA 4150",
+                            "FINA 4160",
+                            "FINA 4190",
+                            "FINA 4210",
+                            "FINA 4211",
+                            "FINA 4215",
+                            "FINA 4220",
+                            "FINA 4221",
+                            "FINA 4250",
+                            "FINA 4270",
+                            "FINA 4280",
+                            "FINA 4290",
+                            "FINA 4291",
+                            "FINA 4310",
+                            "FINA 4320",
+                            "FINA 4330",
+                            "FINA 4340",
+                            "FINA 4350",
+                            "FINA 4370",
+                            "FINA 4380",
+                            "FINA 4390",
+                            "FINA 4400",
+                            "FINA 4410",
+                            "FINA 4420",
+                            "FINA 4430",
+                            "FINA 5010",
+                            "FINA 5011",
+                            "FINA 5012",
+                            "FINA 5015",
+                            "FINA 6010",
+                            "FINA 6011",
+                            "FINA 6020",
+                            "FINA 6022",
+                            "FINA 6023",
+                            "FINA 6040",
+                            "FINA 6067",
+                            "FINA 6081",
+                            "FINA 6092",
+                            "FINA 6112",
+                            "FINA 6121",
+                            "FINA 6122",
+                            "FINA 6130",
+                            "FINA 6132",
+                            "FINA 6142",
+                            "FINA 6152",
+                            "FINA 6172",
+                            "FINA 6192",
+                            "FINA 6203",
+                            "FINA 6204",
+                            "FINA 6205",
+                            "FINA 6206",
+                            "FINA 6207",
+                            "FINA 6208",
+                            "FINA 6209",
+                            "FINA 6210",
+                            "FINA 6212",
+                            "FINA 6220",
+                            "FINA 6221",
+                            "FINA 6222",
+                            "FINA 6225",
+                            "FINA 6228",
+                            "FINA 6229",
+                            "FINA 6230",
+                            "FINA 6232",
+                            "FINA 6236",
+                            "FINA 6242",
+                            "FINA 6250",
+                            "FINA 6252",
+                            "FINA 6263",
+                            "FINA 6272",
+                            "FINA 6282",
+                            "FINA 6292",
+                            "FINA 6342",
+                            "FINA 6352",
+                            "FINA 6362",
+                            "FINA 6372",
+                            "FINA 6504",
+                            "FINA 6508",
+                            "FINA 6511",
+                            "FINA 6512",
+                            "FINA 6513",
+                            "FINA 6514",
+                            "FINA 6515",
+                            "FINA 6522",
+                            "FINA 6524",
+                            "FINA 6525",
+                            "FINA 6526",
+                            "FINA 6527",
+                            "FINA 6532",
+                            "FINA 6533",
+                            "FINA 6534",
+                            "FINA 6542",
+                            "FINA 6552",
+                            "FINA 6572",
+                            "FINA 6582",
+                            "FINA 6592",
+                            "FINA 6601",
+                            "FINA 6602",
+                            "FINA 6603",
+                            "FINA 6604",
+                            "FINA 6605",
+                            "FINA 6606",
+                            "FINA 6607",
+                            "FINA 6608",
+                            "FINA 6609",
+                            "FINA 6610",
+                            "FINA 6611",
+                            "FINA 6612",
+                            "FINA 6613",
+                            "FINA 6614",
+                            "FINA 6615",
+                            "FINA 6616",
+                            "FINA 6617",
+                            "FINA 6618",
+                            "FINA 6619",
+                            "FINA 7111",
+                            "FINA 8003",
+                            "FINA 8006",
+                            "FINA 8012"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "(d)",
+                      "title": "Entrepreneurship",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(i)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "MGNT1070, 2070; and"
+                          ],
+                          "codes": [
+                            "MGNT 1070",
+                            "MGNT 2070"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "four courses selected from",
+                          "units": "",
+                          "text": [
+                            "DOTE3010, MGNT3080, 4070, 4090, 4130, 4160, 4170, 4270, 4570, 4711, 4712, 4713"
+                          ],
+                          "codes": [
+                            "DOTE 3010",
+                            "MGNT 3080",
+                            "MGNT 4070",
+                            "MGNT 4090",
+                            "MGNT 4130",
+                            "MGNT 4160",
+                            "MGNT 4170",
+                            "MGNT 4270",
+                            "MGNT 4570",
+                            "MGNT 4711",
+                            "MGNT 4712",
+                            "MGNT 4713"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "(e)",
+                      "title": "Management of International Business",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(i)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "MGNT3580, 4150; and"
+                          ],
+                          "codes": [
+                            "MGNT 3580",
+                            "MGNT 4150"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "four courses selected from",
+                          "units": "",
+                          "text": [
+                            "DOTE3010, MGNT3010, 3080, 3100, 4080, 4090, 4110, 4130, 4140, 4510, 4530, 4540, 4550, 4570"
+                          ],
+                          "codes": [
+                            "DOTE 3010",
+                            "MGNT 3010",
+                            "MGNT 3080",
+                            "MGNT 3100",
+                            "MGNT 4080",
+                            "MGNT 4090",
+                            "MGNT 4110",
+                            "MGNT 4130",
+                            "MGNT 4140",
+                            "MGNT 4510",
+                            "MGNT 4530",
+                            "MGNT 4540",
+                            "MGNT 4550",
+                            "MGNT 4570"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "(f)",
+                      "title": "Human Resource Management",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(i)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "MGNT2040, 3010; and"
+                          ],
+                          "codes": [
+                            "MGNT 2040",
+                            "MGNT 3010"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "four courses selected from",
+                          "units": "",
+                          "text": [
+                            "DOTE3010, MGNT3040, 3060, 3090, 3100, 4050, 4060, 4080, 4110, 4130, 4140"
+                          ],
+                          "codes": [
+                            "DOTE 3010",
+                            "MGNT 3040",
+                            "MGNT 3060",
+                            "MGNT 3090",
+                            "MGNT 3100",
+                            "MGNT 4050",
+                            "MGNT 4060",
+                            "MGNT 4080",
+                            "MGNT 4110",
+                            "MGNT 4130",
+                            "MGNT 4140"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "(g)",
+                      "title": "Marketing",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(i)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "MKTG3010, 3020, 3030, 4040; and"
+                          ],
+                          "codes": [
+                            "MKTG 3010",
+                            "MKTG 3020",
+                            "MKTG 3030",
+                            "MKTG 4040"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "two courses selected from",
+                          "units": "",
+                          "text": [
+                            "MKTG3040, 3050, 4010, 4020, 4030, 4050, 4070, 4080, 4090, 4110, 4160, 4200"
+                          ],
+                          "codes": [
+                            "MKTG 3040",
+                            "MKTG 3050",
+                            "MKTG 4010",
+                            "MKTG 4020",
+                            "MKTG 4030",
+                            "MKTG 4050",
+                            "MKTG 4070",
+                            "MKTG 4080",
+                            "MKTG 4090",
+                            "MKTG 4110",
+                            "MKTG 4160",
+                            "MKTG 4200"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "(h)",
+                      "title": "Big Data and Quantitative Marketing",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(i)",
+                          "title": "",
+                          "units": "",
+                          "text": [
+                            "MKTG3010, 3060, 4080, 4090; and"
+                          ],
+                          "codes": [
+                            "MKTG 3010",
+                            "MKTG 3060",
+                            "MKTG 4080",
+                            "MKTG 4090"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "two courses selected from",
+                          "units": "",
+                          "text": [
+                            "MKTG3020, 4030, 4050, 4120, 4150, 4160, 4170, 4180, 4190, 4200"
+                          ],
+                          "codes": [
+                            "MKTG 3020",
+                            "MKTG 4030",
+                            "MKTG 4050",
+                            "MKTG 4120",
+                            "MKTG 4150",
+                            "MKTG 4160",
+                            "MKTG 4170",
+                            "MKTG 4180",
+                            "MKTG 4190",
+                            "MKTG 4200"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "(i)",
+                      "title": "General Business",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(i)",
+                          "title": "3 units of DOTE/FINA/MGNT/MKTG courses at 2000 or above level; and",
+                          "units": "3",
+                          "text": [],
+                          "codes": [
+                            "DOTE 2011",
+                            "DOTE 2021",
+                            "DOTE 2030",
+                            "DOTE 2040",
+                            "DOTE 2051",
+                            "DOTE 3000",
+                            "DOTE 3010",
+                            "DOTE 3011",
+                            "DOTE 3030",
+                            "DOTE 3040",
+                            "DOTE 3050",
+                            "DOTE 3070",
+                            "DOTE 3080",
+                            "DOTE 3090",
+                            "DOTE 4020",
+                            "DOTE 4030",
+                            "DOTE 4040",
+                            "DOTE 4070",
+                            "DOTE 4080",
+                            "DOTE 4110",
+                            "DOTE 4111",
+                            "DOTE 4120",
+                            "DOTE 4140",
+                            "DOTE 4160",
+                            "DOTE 4170",
+                            "DOTE 4180",
+                            "DOTE 4200",
+                            "DOTE 4220",
+                            "DOTE 4230",
+                            "DOTE 4240",
+                            "DOTE 4260",
+                            "DOTE 4270",
+                            "DOTE 4280",
+                            "DOTE 5001",
+                            "DOTE 5011",
+                            "DOTE 5012",
+                            "DOTE 5021",
+                            "DOTE 5031",
+                            "DOTE 5110",
+                            "DOTE 5121",
+                            "DOTE 5210",
+                            "DOTE 5310",
+                            "DOTE 5410",
+                            "DOTE 5411",
+                            "DOTE 5510",
+                            "DOTE 5600",
+                            "DOTE 5810",
+                            "DOTE 5820",
+                            "DOTE 5830",
+                            "DOTE 5840",
+                            "DOTE 5850",
+                            "DOTE 5860",
+                            "DOTE 5870",
+                            "DOTE 5880",
+                            "DOTE 5890",
+                            "DOTE 5891",
+                            "DOTE 6010",
+                            "DOTE 6040",
+                            "DOTE 6100",
+                            "DOTE 6200",
+                            "DOTE 6350",
+                            "DOTE 6360",
+                            "DOTE 6503",
+                            "DOTE 6512",
+                            "DOTE 6520",
+                            "DOTE 6522",
+                            "DOTE 6530",
+                            "DOTE 6532",
+                            "DOTE 6542",
+                            "DOTE 6612",
+                            "DOTE 6620",
+                            "DOTE 6622",
+                            "DOTE 6632",
+                            "DOTE 6635",
+                            "DOTE 6650",
+                            "DOTE 6651",
+                            "DOTE 6652",
+                            "DOTE 6653",
+                            "DOTE 6654",
+                            "DOTE 6671",
+                            "DOTE 6680",
+                            "DOTE 6681",
+                            "DOTE 6682",
+                            "DOTE 6683",
+                            "DOTE 6685",
+                            "DOTE 6686",
+                            "DOTE 6687",
+                            "DOTE 6688",
+                            "DOTE 6689",
+                            "DOTE 6690",
+                            "DOTE 6696",
+                            "DOTE 6697",
+                            "DOTE 6698",
+                            "DOTE 6720",
+                            "DOTE 6730",
+                            "DOTE 6751",
+                            "DOTE 6752",
+                            "DOTE 6756",
+                            "DOTE 6780",
+                            "DOTE 6788",
+                            "DOTE 6790",
+                            "DOTE 6930",
+                            "DOTE 6931",
+                            "DOTE 6940",
+                            "DOTE 7111",
+                            "DOTE 8003",
+                            "DOTE 8006",
+                            "DOTE 8012",
+                            "FINA 2010",
+                            "FINA 2020",
+                            "FINA 2200",
+                            "FINA 2210",
+                            "FINA 2220",
+                            "FINA 2230",
+                            "FINA 2310",
+                            "FINA 3010",
+                            "FINA 3020",
+                            "FINA 3030",
+                            "FINA 3040",
+                            "FINA 3060",
+                            "FINA 3070",
+                            "FINA 3080",
+                            "FINA 3090",
+                            "FINA 3110",
+                            "FINA 3210",
+                            "FINA 3220",
+                            "FINA 3221",
+                            "FINA 3222",
+                            "FINA 3230",
+                            "FINA 3240",
+                            "FINA 3250",
+                            "FINA 3260",
+                            "FINA 3290",
+                            "FINA 3295",
+                            "FINA 3310",
+                            "FINA 3320",
+                            "FINA 3330",
+                            "FINA 3340",
+                            "FINA 3350",
+                            "FINA 3360",
+                            "FINA 3370",
+                            "FINA 3398",
+                            "FINA 3399",
+                            "FINA 3420",
+                            "FINA 4010",
+                            "FINA 4020",
+                            "FINA 4030",
+                            "FINA 4040",
+                            "FINA 4050",
+                            "FINA 4060",
+                            "FINA 4110",
+                            "FINA 4120",
+                            "FINA 4130",
+                            "FINA 4140",
+                            "FINA 4150",
+                            "FINA 4160",
+                            "FINA 4190",
+                            "FINA 4210",
+                            "FINA 4211",
+                            "FINA 4215",
+                            "FINA 4220",
+                            "FINA 4221",
+                            "FINA 4250",
+                            "FINA 4270",
+                            "FINA 4280",
+                            "FINA 4290",
+                            "FINA 4291",
+                            "FINA 4310",
+                            "FINA 4320",
+                            "FINA 4330",
+                            "FINA 4340",
+                            "FINA 4350",
+                            "FINA 4370",
+                            "FINA 4380",
+                            "FINA 4390",
+                            "FINA 4400",
+                            "FINA 4410",
+                            "FINA 4420",
+                            "FINA 4430",
+                            "FINA 5010",
+                            "FINA 5011",
+                            "FINA 5012",
+                            "FINA 5015",
+                            "FINA 6010",
+                            "FINA 6011",
+                            "FINA 6020",
+                            "FINA 6022",
+                            "FINA 6023",
+                            "FINA 6040",
+                            "FINA 6067",
+                            "FINA 6081",
+                            "FINA 6092",
+                            "FINA 6112",
+                            "FINA 6121",
+                            "FINA 6122",
+                            "FINA 6130",
+                            "FINA 6132",
+                            "FINA 6142",
+                            "FINA 6152",
+                            "FINA 6172",
+                            "FINA 6192",
+                            "FINA 6203",
+                            "FINA 6204",
+                            "FINA 6205",
+                            "FINA 6206",
+                            "FINA 6207",
+                            "FINA 6208",
+                            "FINA 6209",
+                            "FINA 6210",
+                            "FINA 6212",
+                            "FINA 6220",
+                            "FINA 6221",
+                            "FINA 6222",
+                            "FINA 6225",
+                            "FINA 6228",
+                            "FINA 6229",
+                            "FINA 6230",
+                            "FINA 6232",
+                            "FINA 6236",
+                            "FINA 6242",
+                            "FINA 6250",
+                            "FINA 6252",
+                            "FINA 6263",
+                            "FINA 6272",
+                            "FINA 6282",
+                            "FINA 6292",
+                            "FINA 6342",
+                            "FINA 6352",
+                            "FINA 6362",
+                            "FINA 6372",
+                            "FINA 6504",
+                            "FINA 6508",
+                            "FINA 6511",
+                            "FINA 6512",
+                            "FINA 6513",
+                            "FINA 6514",
+                            "FINA 6515",
+                            "FINA 6522",
+                            "FINA 6524",
+                            "FINA 6525",
+                            "FINA 6526",
+                            "FINA 6527",
+                            "FINA 6532",
+                            "FINA 6533",
+                            "FINA 6534",
+                            "FINA 6542",
+                            "FINA 6552",
+                            "FINA 6572",
+                            "FINA 6582",
+                            "FINA 6592",
+                            "FINA 6601",
+                            "FINA 6602",
+                            "FINA 6603",
+                            "FINA 6604",
+                            "FINA 6605",
+                            "FINA 6606",
+                            "FINA 6607",
+                            "FINA 6608",
+                            "FINA 6609",
+                            "FINA 6610",
+                            "FINA 6611",
+                            "FINA 6612",
+                            "FINA 6613",
+                            "FINA 6614",
+                            "FINA 6615",
+                            "FINA 6616",
+                            "FINA 6617",
+                            "FINA 6618",
+                            "FINA 6619",
+                            "FINA 7111",
+                            "FINA 8003",
+                            "FINA 8006",
+                            "FINA 8012",
+                            "MGNT 2040",
+                            "MGNT 2070",
+                            "MGNT 2510",
+                            "MGNT 2511",
+                            "MGNT 2512",
+                            "MGNT 2610",
+                            "MGNT 2611",
+                            "MGNT 2710",
+                            "MGNT 3010",
+                            "MGNT 3030",
+                            "MGNT 3040",
+                            "MGNT 3060",
+                            "MGNT 3070",
+                            "MGNT 3080",
+                            "MGNT 3090",
+                            "MGNT 3100",
+                            "MGNT 3110",
+                            "MGNT 3580",
+                            "MGNT 4010",
+                            "MGNT 4050",
+                            "MGNT 4060",
+                            "MGNT 4070",
+                            "MGNT 4080",
+                            "MGNT 4090",
+                            "MGNT 4110",
+                            "MGNT 4130",
+                            "MGNT 4140",
+                            "MGNT 4150",
+                            "MGNT 4160",
+                            "MGNT 4170",
+                            "MGNT 4270",
+                            "MGNT 4510",
+                            "MGNT 4530",
+                            "MGNT 4540",
+                            "MGNT 4550",
+                            "MGNT 4570",
+                            "MGNT 4640",
+                            "MGNT 4711",
+                            "MGNT 4712",
+                            "MGNT 4713",
+                            "MGNT 5021",
+                            "MGNT 5031",
+                            "MGNT 5501",
+                            "MGNT 5503",
+                            "MGNT 5504",
+                            "MGNT 5505",
+                            "MGNT 5506",
+                            "MGNT 5507",
+                            "MGNT 5531",
+                            "MGNT 5532",
+                            "MGNT 5533",
+                            "MGNT 5534",
+                            "MGNT 5535",
+                            "MGNT 5536",
+                            "MGNT 5537",
+                            "MGNT 5561",
+                            "MGNT 5581",
+                            "MGNT 5601",
+                            "MGNT 5602",
+                            "MGNT 5603",
+                            "MGNT 5604",
+                            "MGNT 5605",
+                            "MGNT 5606",
+                            "MGNT 5607",
+                            "MGNT 5608",
+                            "MGNT 5609",
+                            "MGNT 5610",
+                            "MGNT 5611",
+                            "MGNT 5612",
+                            "MGNT 5613",
+                            "MGNT 6020",
+                            "MGNT 6022",
+                            "MGNT 6024",
+                            "MGNT 6027",
+                            "MGNT 6028",
+                            "MGNT 6030",
+                            "MGNT 6100",
+                            "MGNT 6101",
+                            "MGNT 6122",
+                            "MGNT 6140",
+                            "MGNT 6141",
+                            "MGNT 6151",
+                            "MGNT 6161",
+                            "MGNT 6171",
+                            "MGNT 6182",
+                            "MGNT 6192",
+                            "MGNT 6232",
+                            "MGNT 6242",
+                            "MGNT 6252",
+                            "MGNT 6262",
+                            "MGNT 6272",
+                            "MGNT 6282",
+                            "MGNT 6330",
+                            "MGNT 6340",
+                            "MGNT 6521",
+                            "MGNT 6620",
+                            "MGNT 6822",
+                            "MGNT 6823",
+                            "MGNT 7111",
+                            "MGNT 8003",
+                            "MGNT 8006",
+                            "MGNT 8012",
+                            "MKTG 2010",
+                            "MKTG 3010",
+                            "MKTG 3020",
+                            "MKTG 3030",
+                            "MKTG 3040",
+                            "MKTG 3050",
+                            "MKTG 3060",
+                            "MKTG 4010",
+                            "MKTG 4020",
+                            "MKTG 4030",
+                            "MKTG 4040",
+                            "MKTG 4050",
+                            "MKTG 4070",
+                            "MKTG 4080",
+                            "MKTG 4090",
+                            "MKTG 4110",
+                            "MKTG 4120",
+                            "MKTG 4140",
+                            "MKTG 4150",
+                            "MKTG 4160",
+                            "MKTG 4170",
+                            "MKTG 4180",
+                            "MKTG 4190",
+                            "MKTG 4200",
+                            "MKTG 5011",
+                            "MKTG 5012",
+                            "MKTG 5013",
+                            "MKTG 5014",
+                            "MKTG 5015",
+                            "MKTG 5016",
+                            "MKTG 5017",
+                            "MKTG 5018",
+                            "MKTG 5019",
+                            "MKTG 6011",
+                            "MKTG 6012",
+                            "MKTG 6013",
+                            "MKTG 6014",
+                            "MKTG 6015",
+                            "MKTG 6016",
+                            "MKTG 6017",
+                            "MKTG 6018",
+                            "MKTG 6019",
+                            "MKTG 6020",
+                            "MKTG 6021",
+                            "MKTG 6022",
+                            "MKTG 6023",
+                            "MKTG 6024",
+                            "MKTG 6025",
+                            "MKTG 6026",
+                            "MKTG 6027",
+                            "MKTG 6029",
+                            "MKTG 6030",
+                            "MKTG 6031",
+                            "MKTG 6032",
+                            "MKTG 6033",
+                            "MKTG 6034",
+                            "MKTG 6035",
+                            "MKTG 6036",
+                            "MKTG 6037",
+                            "MKTG 6038",
+                            "MKTG 6039",
+                            "MKTG 6040",
+                            "MKTG 6041",
+                            "MKTG 6152",
+                            "MKTG 6153",
+                            "MKTG 6162",
+                            "MKTG 6172",
+                            "MKTG 6182",
+                            "MKTG 6192",
+                            "MKTG 6202",
+                            "MKTG 6203",
+                            "MKTG 6204",
+                            "MKTG 6205",
+                            "MKTG 6206",
+                            "MKTG 7111",
+                            "MKTG 7162",
+                            "MKTG 7163",
+                            "MKTG 8003",
+                            "MKTG 8006",
+                            "MKTG 8012"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "12 units of DOTE/FINA/MGNT/MKTG courses at 3000 or above level, excluding the courses taken for fulfillment of requirement (i), with no more than three 1-unit FINA courses",
+                          "units": "12",
+                          "text": [],
+                          "codes": [
+                            "DOTE 3000",
+                            "DOTE 3010",
+                            "DOTE 3011",
+                            "DOTE 3030",
+                            "DOTE 3040",
+                            "DOTE 3050",
+                            "DOTE 3070",
+                            "DOTE 3080",
+                            "DOTE 3090",
+                            "DOTE 4020",
+                            "DOTE 4030",
+                            "DOTE 4040",
+                            "DOTE 4070",
+                            "DOTE 4080",
+                            "DOTE 4110",
+                            "DOTE 4111",
+                            "DOTE 4120",
+                            "DOTE 4140",
+                            "DOTE 4160",
+                            "DOTE 4170",
+                            "DOTE 4180",
+                            "DOTE 4200",
+                            "DOTE 4220",
+                            "DOTE 4230",
+                            "DOTE 4240",
+                            "DOTE 4260",
+                            "DOTE 4270",
+                            "DOTE 4280",
+                            "DOTE 5001",
+                            "DOTE 5011",
+                            "DOTE 5012",
+                            "DOTE 5021",
+                            "DOTE 5031",
+                            "DOTE 5110",
+                            "DOTE 5121",
+                            "DOTE 5210",
+                            "DOTE 5310",
+                            "DOTE 5410",
+                            "DOTE 5411",
+                            "DOTE 5510",
+                            "DOTE 5600",
+                            "DOTE 5810",
+                            "DOTE 5820",
+                            "DOTE 5830",
+                            "DOTE 5840",
+                            "DOTE 5850",
+                            "DOTE 5860",
+                            "DOTE 5870",
+                            "DOTE 5880",
+                            "DOTE 5890",
+                            "DOTE 5891",
+                            "DOTE 6010",
+                            "DOTE 6040",
+                            "DOTE 6100",
+                            "DOTE 6200",
+                            "DOTE 6350",
+                            "DOTE 6360",
+                            "DOTE 6503",
+                            "DOTE 6512",
+                            "DOTE 6520",
+                            "DOTE 6522",
+                            "DOTE 6530",
+                            "DOTE 6532",
+                            "DOTE 6542",
+                            "DOTE 6612",
+                            "DOTE 6620",
+                            "DOTE 6622",
+                            "DOTE 6632",
+                            "DOTE 6635",
+                            "DOTE 6650",
+                            "DOTE 6651",
+                            "DOTE 6652",
+                            "DOTE 6653",
+                            "DOTE 6654",
+                            "DOTE 6671",
+                            "DOTE 6680",
+                            "DOTE 6681",
+                            "DOTE 6682",
+                            "DOTE 6683",
+                            "DOTE 6685",
+                            "DOTE 6686",
+                            "DOTE 6687",
+                            "DOTE 6688",
+                            "DOTE 6689",
+                            "DOTE 6690",
+                            "DOTE 6696",
+                            "DOTE 6697",
+                            "DOTE 6698",
+                            "DOTE 6720",
+                            "DOTE 6730",
+                            "DOTE 6751",
+                            "DOTE 6752",
+                            "DOTE 6756",
+                            "DOTE 6780",
+                            "DOTE 6788",
+                            "DOTE 6790",
+                            "DOTE 6930",
+                            "DOTE 6931",
+                            "DOTE 6940",
+                            "DOTE 7111",
+                            "DOTE 8003",
+                            "DOTE 8006",
+                            "DOTE 8012",
+                            "FINA 3010",
+                            "FINA 3020",
+                            "FINA 3030",
+                            "FINA 3040",
+                            "FINA 3060",
+                            "FINA 3070",
+                            "FINA 3080",
+                            "FINA 3090",
+                            "FINA 3110",
+                            "FINA 3210",
+                            "FINA 3220",
+                            "FINA 3221",
+                            "FINA 3222",
+                            "FINA 3230",
+                            "FINA 3240",
+                            "FINA 3250",
+                            "FINA 3260",
+                            "FINA 3290",
+                            "FINA 3295",
+                            "FINA 3310",
+                            "FINA 3320",
+                            "FINA 3330",
+                            "FINA 3340",
+                            "FINA 3350",
+                            "FINA 3360",
+                            "FINA 3370",
+                            "FINA 3398",
+                            "FINA 3399",
+                            "FINA 3420",
+                            "FINA 4010",
+                            "FINA 4020",
+                            "FINA 4030",
+                            "FINA 4040",
+                            "FINA 4050",
+                            "FINA 4060",
+                            "FINA 4110",
+                            "FINA 4120",
+                            "FINA 4130",
+                            "FINA 4140",
+                            "FINA 4150",
+                            "FINA 4160",
+                            "FINA 4190",
+                            "FINA 4210",
+                            "FINA 4211",
+                            "FINA 4215",
+                            "FINA 4220",
+                            "FINA 4221",
+                            "FINA 4250",
+                            "FINA 4270",
+                            "FINA 4280",
+                            "FINA 4290",
+                            "FINA 4291",
+                            "FINA 4310",
+                            "FINA 4320",
+                            "FINA 4330",
+                            "FINA 4340",
+                            "FINA 4350",
+                            "FINA 4370",
+                            "FINA 4380",
+                            "FINA 4390",
+                            "FINA 4400",
+                            "FINA 4410",
+                            "FINA 4420",
+                            "FINA 4430",
+                            "FINA 5010",
+                            "FINA 5011",
+                            "FINA 5012",
+                            "FINA 5015",
+                            "FINA 6010",
+                            "FINA 6011",
+                            "FINA 6020",
+                            "FINA 6022",
+                            "FINA 6023",
+                            "FINA 6040",
+                            "FINA 6067",
+                            "FINA 6081",
+                            "FINA 6092",
+                            "FINA 6112",
+                            "FINA 6121",
+                            "FINA 6122",
+                            "FINA 6130",
+                            "FINA 6132",
+                            "FINA 6142",
+                            "FINA 6152",
+                            "FINA 6172",
+                            "FINA 6192",
+                            "FINA 6203",
+                            "FINA 6204",
+                            "FINA 6205",
+                            "FINA 6206",
+                            "FINA 6207",
+                            "FINA 6208",
+                            "FINA 6209",
+                            "FINA 6210",
+                            "FINA 6212",
+                            "FINA 6220",
+                            "FINA 6221",
+                            "FINA 6222",
+                            "FINA 6225",
+                            "FINA 6228",
+                            "FINA 6229",
+                            "FINA 6230",
+                            "FINA 6232",
+                            "FINA 6236",
+                            "FINA 6242",
+                            "FINA 6250",
+                            "FINA 6252",
+                            "FINA 6263",
+                            "FINA 6272",
+                            "FINA 6282",
+                            "FINA 6292",
+                            "FINA 6342",
+                            "FINA 6352",
+                            "FINA 6362",
+                            "FINA 6372",
+                            "FINA 6504",
+                            "FINA 6508",
+                            "FINA 6511",
+                            "FINA 6512",
+                            "FINA 6513",
+                            "FINA 6514",
+                            "FINA 6515",
+                            "FINA 6522",
+                            "FINA 6524",
+                            "FINA 6525",
+                            "FINA 6526",
+                            "FINA 6527",
+                            "FINA 6532",
+                            "FINA 6533",
+                            "FINA 6534",
+                            "FINA 6542",
+                            "FINA 6552",
+                            "FINA 6572",
+                            "FINA 6582",
+                            "FINA 6592",
+                            "FINA 6601",
+                            "FINA 6602",
+                            "FINA 6603",
+                            "FINA 6604",
+                            "FINA 6605",
+                            "FINA 6606",
+                            "FINA 6607",
+                            "FINA 6608",
+                            "FINA 6609",
+                            "FINA 6610",
+                            "FINA 6611",
+                            "FINA 6612",
+                            "FINA 6613",
+                            "FINA 6614",
+                            "FINA 6615",
+                            "FINA 6616",
+                            "FINA 6617",
+                            "FINA 6618",
+                            "FINA 6619",
+                            "FINA 7111",
+                            "FINA 8003",
+                            "FINA 8006",
+                            "FINA 8012",
+                            "MGNT 3010",
+                            "MGNT 3030",
+                            "MGNT 3040",
+                            "MGNT 3060",
+                            "MGNT 3070",
+                            "MGNT 3080",
+                            "MGNT 3090",
+                            "MGNT 3100",
+                            "MGNT 3110",
+                            "MGNT 3580",
+                            "MGNT 4010",
+                            "MGNT 4050",
+                            "MGNT 4060",
+                            "MGNT 4070",
+                            "MGNT 4080",
+                            "MGNT 4090",
+                            "MGNT 4110",
+                            "MGNT 4130",
+                            "MGNT 4140",
+                            "MGNT 4150",
+                            "MGNT 4160",
+                            "MGNT 4170",
+                            "MGNT 4270",
+                            "MGNT 4510",
+                            "MGNT 4530",
+                            "MGNT 4540",
+                            "MGNT 4550",
+                            "MGNT 4570",
+                            "MGNT 4640",
+                            "MGNT 4711",
+                            "MGNT 4712",
+                            "MGNT 4713",
+                            "MGNT 5021",
+                            "MGNT 5031",
+                            "MGNT 5501",
+                            "MGNT 5503",
+                            "MGNT 5504",
+                            "MGNT 5505",
+                            "MGNT 5506",
+                            "MGNT 5507",
+                            "MGNT 5531",
+                            "MGNT 5532",
+                            "MGNT 5533",
+                            "MGNT 5534",
+                            "MGNT 5535",
+                            "MGNT 5536",
+                            "MGNT 5537",
+                            "MGNT 5561",
+                            "MGNT 5581",
+                            "MGNT 5601",
+                            "MGNT 5602",
+                            "MGNT 5603",
+                            "MGNT 5604",
+                            "MGNT 5605",
+                            "MGNT 5606",
+                            "MGNT 5607",
+                            "MGNT 5608",
+                            "MGNT 5609",
+                            "MGNT 5610",
+                            "MGNT 5611",
+                            "MGNT 5612",
+                            "MGNT 5613",
+                            "MGNT 6020",
+                            "MGNT 6022",
+                            "MGNT 6024",
+                            "MGNT 6027",
+                            "MGNT 6028",
+                            "MGNT 6030",
+                            "MGNT 6100",
+                            "MGNT 6101",
+                            "MGNT 6122",
+                            "MGNT 6140",
+                            "MGNT 6141",
+                            "MGNT 6151",
+                            "MGNT 6161",
+                            "MGNT 6171",
+                            "MGNT 6182",
+                            "MGNT 6192",
+                            "MGNT 6232",
+                            "MGNT 6242",
+                            "MGNT 6252",
+                            "MGNT 6262",
+                            "MGNT 6272",
+                            "MGNT 6282",
+                            "MGNT 6330",
+                            "MGNT 6340",
+                            "MGNT 6521",
+                            "MGNT 6620",
+                            "MGNT 6822",
+                            "MGNT 6823",
+                            "MGNT 7111",
+                            "MGNT 8003",
+                            "MGNT 8006",
+                            "MGNT 8012",
+                            "MKTG 3010",
+                            "MKTG 3020",
+                            "MKTG 3030",
+                            "MKTG 3040",
+                            "MKTG 3050",
+                            "MKTG 3060",
+                            "MKTG 4010",
+                            "MKTG 4020",
+                            "MKTG 4030",
+                            "MKTG 4040",
+                            "MKTG 4050",
+                            "MKTG 4070",
+                            "MKTG 4080",
+                            "MKTG 4090",
+                            "MKTG 4110",
+                            "MKTG 4120",
+                            "MKTG 4140",
+                            "MKTG 4150",
+                            "MKTG 4160",
+                            "MKTG 4170",
+                            "MKTG 4180",
+                            "MKTG 4190",
+                            "MKTG 4200",
+                            "MKTG 5011",
+                            "MKTG 5012",
+                            "MKTG 5013",
+                            "MKTG 5014",
+                            "MKTG 5015",
+                            "MKTG 5016",
+                            "MKTG 5017",
+                            "MKTG 5018",
+                            "MKTG 5019",
+                            "MKTG 6011",
+                            "MKTG 6012",
+                            "MKTG 6013",
+                            "MKTG 6014",
+                            "MKTG 6015",
+                            "MKTG 6016",
+                            "MKTG 6017",
+                            "MKTG 6018",
+                            "MKTG 6019",
+                            "MKTG 6020",
+                            "MKTG 6021",
+                            "MKTG 6022",
+                            "MKTG 6023",
+                            "MKTG 6024",
+                            "MKTG 6025",
+                            "MKTG 6026",
+                            "MKTG 6027",
+                            "MKTG 6029",
+                            "MKTG 6030",
+                            "MKTG 6031",
+                            "MKTG 6032",
+                            "MKTG 6033",
+                            "MKTG 6034",
+                            "MKTG 6035",
+                            "MKTG 6036",
+                            "MKTG 6037",
+                            "MKTG 6038",
+                            "MKTG 6039",
+                            "MKTG 6040",
+                            "MKTG 6041",
+                            "MKTG 6152",
+                            "MKTG 6153",
+                            "MKTG 6162",
+                            "MKTG 6172",
+                            "MKTG 6182",
+                            "MKTG 6192",
+                            "MKTG 6202",
+                            "MKTG 6203",
+                            "MKTG 6204",
+                            "MKTG 6205",
+                            "MKTG 6206",
+                            "MKTG 7111",
+                            "MKTG 7162",
+                            "MKTG 7163",
+                            "MKTG 8003",
+                            "MKTG 8006",
+                            "MKTG 8012"
+                          ],
+                          "subsections": [],
+                          "heading_as_text": true,
+                          "keep_heading": true
+                        }
+                      ]
+                    }
+                  ],
+                  "heading_as_text": true,
+                  "keep_heading": true
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "ACCT/DOTE/FINA/IBBA/MGNT/MKTG courses at 2000 and above level (excluding ACCT2111, 2121, IBBA3040, MGNT2511 and 2512) will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Double concentrations in Marketing and Big Data and Quantitative Marketing are not allowed.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "3.",
+              "text": "DOTE2021 and the associated units can be used to satisfy concentration requirements of double concentrations within (a) to (c). MGNT3010 and the associated units can be used to satisfy concentration requirements of double concentrations within (e) and (f).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "4.",
+              "text": "Courses taken for the concentration requirements of General Business Concentration cannot be counted towards the requirements of concentrations (a) to (h).",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "5.",
+              "text": "Students claiming Entrepreneurship Concentration are not allowed to declare Minor in Entrepreneurship and Innovation.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "ACCT2151 and ACCT3151 are mutually exclusive. Students who would like to pursue a career in accounting profession are advised to take ACCT3151 instead of ACCT2151.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [
+            {
+              "title": "Explanatory Notes on Mutual Recognition or Exclusion",
+              "text": [],
+              "subsections": [],
+              "notes": [
+                {
+                  "marker": "1.",
+                  "text": "DOTE2011 and the associated units can be exempted from the requirement of the second degree by successfully completing ENGG2430/ESTR2002 OR ENGG2760/ESTR2018 and ENGG2780/ESTR2020.",
+                  "subsections": [],
+                  "rows": []
+                },
+                {
+                  "marker": "2.",
+                  "text": "DOTE2051 and the associated units can be exempted from the requirement of the second degree by successfully completing SEEM3490.",
+                  "subsections": [],
+                  "rows": []
+                },
+                {
+                  "marker": "3.",
+                  "text": "DOTE1030 and the associated units can be used to satisfy both the requirements of the first and second degrees.",
+                  "subsections": [],
+                  "rows": []
+                },
+                {
+                  "marker": "4.",
+                  "text": "MGNT1020 and the associated units can be used to satisfy both the requirements of the first and second degrees.",
+                  "subsections": [],
+                  "rows": []
+                },
+                {
+                  "marker": "5.",
+                  "text": "MGNT4090 and the associated units can be used to satisfy both the requirements of the first and second degrees.",
+                  "subsections": [],
+                  "rows": []
+                }
+              ]
+            }
+          ],
+          "intro_sections": []
+        }
+      ]
+    }
+  ]
 }

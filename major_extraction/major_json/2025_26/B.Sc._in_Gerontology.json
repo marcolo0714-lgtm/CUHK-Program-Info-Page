@@ -76,5 +76,92 @@
   "supplementary": [],
   "source_file": "B.Sc._in_Gerontology",
   "parse_status": "parsed",
-  "additional_requirements": []
+  "additional_requirements": [],
+  "requirement_schemes": [
+    {
+      "id": "senior-entry-requirement-for-associate-degree-or-higher-diploma-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Associate Degree or Higher Diploma holders admitted to senior-year places",
+      "source_order": 0,
+      "default": true,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 51 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "51",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Required Courses",
+              "units": "45",
+              "text": [
+                "GRON3111, 3112, 3113, 3114, 3211, 3213, 3214, 3311, 4212, 4312 (capstone course), PHPC1001#, 1017#, 2005#, 2017#, 3015#, 4000"
+              ],
+              "codes": [
+                "GRON 3111",
+                "GRON 3112",
+                "GRON 3113",
+                "GRON 3114",
+                "GRON 3211",
+                "GRON 3213",
+                "GRON 3214",
+                "GRON 3311",
+                "GRON 4212",
+                "GRON 4312",
+                "PHPC 1001",
+                "PHPC 1017",
+                "PHPC 2005",
+                "PHPC 2017",
+                "PHPC 3015",
+                "PHPC 4000"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Elective Courses",
+              "units": "6",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "",
+                  "title": "Two courses chosen from the following",
+                  "units": "",
+                  "text": [
+                    "CHPR4012#, GRON3412, 4101, 4102, 4411, PHPC2007#, 2020#, 4025#, 4033#"
+                  ],
+                  "codes": [
+                    "CHPR 4012",
+                    "GRON 3412",
+                    "GRON 4101",
+                    "GRON 4102",
+                    "GRON 4411",
+                    "PHPC 2007",
+                    "PHPC 2020",
+                    "PHPC 4025",
+                    "PHPC 4033"
+                  ],
+                  "subsections": []
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "GRON courses at 2000 and above level as well as those labeled as # will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    }
+  ]
 }

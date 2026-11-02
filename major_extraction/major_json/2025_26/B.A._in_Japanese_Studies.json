@@ -423,8 +423,7 @@
             "JASP 2480"
           ],
           "subsections": [],
-          "force_course_table": false,
-          "heading_as_text": true
+          "force_course_table": false
         },
         {
           "marker": "(ii)",
@@ -435,8 +434,7 @@
           ],
           "codes": [],
           "subsections": [],
-          "force_course_table": false,
-          "heading_as_text": true
+          "force_course_table": false
         },
         {
           "marker": "(iii)",
@@ -447,8 +445,7 @@
           ],
           "codes": [],
           "subsections": [],
-          "force_course_table": false,
-          "heading_as_text": true
+          "force_course_table": false
         },
         {
           "marker": "(iv)",
@@ -464,8 +461,7 @@
             "JASP 2480"
           ],
           "subsections": [],
-          "force_course_table": false,
-          "heading_as_text": true
+          "force_course_table": false
         }
       ],
       "rows": []
@@ -518,5 +514,1319 @@
   ],
   "source_file": "B.A._in_Japanese_Studies",
   "parse_status": "parsed",
-  "additional_requirements": []
+  "additional_requirements": [],
+  "requirement_schemes": [
+    {
+      "id": "standard-requirement",
+      "kind": "standard",
+      "title": "Standard Requirement",
+      "source_order": 0,
+      "default": true,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 66 units (72 units with stream) of courses, as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "66",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "JASP1090* and any two courses from:",
+                "ANTH1020, ARTS1005, 1009, 1010, BMBL1001, CHES1101 or 1102, CHLL1900 or 1902 or 1903, CURE1000 or 1400, 1110, ENGE1000, FAAS1900, HIST1000 or 1700 or 1701, LING1000[a], MUSC1000, PHIL1110, THEO1000, TRAN1000"
+              ],
+              "codes": [
+                "JASP 1090",
+                "ANTH 1020",
+                "ARTS 1005",
+                "ARTS 1009",
+                "ARTS 1010",
+                "BMBL 1001",
+                "CHES 1101",
+                "CHES 1102",
+                "CHLL 1900",
+                "CHLL 1902",
+                "CHLL 1903",
+                "CURE 1000",
+                "CURE 1400",
+                "CURE 1110",
+                "ENGE 1000",
+                "FAAS 1900",
+                "HIST 1000",
+                "HIST 1700",
+                "HIST 1701",
+                "LING 1000",
+                "MUSC 1000",
+                "PHIL 1110",
+                "THEO 1000",
+                "TRAN 1000"
+              ],
+              "subsections": [],
+              "combine_text_boxes": true
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "51",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "(a)",
+                  "title": "",
+                  "units": "33",
+                  "text": [
+                    "JASP1470*[b], 1480*[b], 2010*, 2030*, 2050*, 2470*[b], 2480*[b]",
+                    "Capstone courses: JASP4601, 4602"
+                  ],
+                  "codes": [
+                    "JASP 1470",
+                    "JASP 1480",
+                    "JASP 2010",
+                    "JASP 2030",
+                    "JASP 2050",
+                    "JASP 2470",
+                    "JASP 2480",
+                    "JASP 4601",
+                    "JASP 4602"
+                  ],
+                  "subsections": [],
+                  "preserve_colon_lines": true
+                },
+                {
+                  "marker": "(b)",
+                  "title": "For Standard Scheme Only. Not for Local Study Scheme",
+                  "units": "18",
+                  "text": [
+                    "Students are required to participate in one academic year (not less than eight calendar months) of resident study in Japan[c] and complete Japanese language and Japanese studies courses with prior approval from the Department of Japanese Studies before graduation. With the approval from the Department, students can apply to take the Local Study Scheme (see below) if they have strong justifications or when resident study in Japan is not possible due to unpredictable circumstances such as restrictions on travel due to epidemic outbreaks or limitations of exchange places. Units obtained from Japanese universities will be recognized as up to 18 Major units. Academic results obtained from Japanese universities will not be included in the calculation of the Major GPA. Students who are unable to obtain the required units in Japanese universities should make up the shortfall by taking courses at 4000 and above level for language courses and all levels for non-language courses after their return to this University."
+                  ],
+                  "codes": [],
+                  "subsections": []
+                }
+              ],
+              "units_computed": true
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "6 or 12 (Standard); 24 (Local)",
+              "text": [
+                "Students may choose to specialize in one of the streams or not to specialize in any stream."
+              ],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "",
+                  "title": "Without Stream",
+                  "units": "6 or 24",
+                  "text": [],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "title": "Standard Scheme",
+                      "text": [
+                        "Students not specializing in any stream are required to take 6 units of 2000 or above level courses from (a) Non-language/(b) language course as listed below, with at least 3 units of 4000 level language course"
+                      ],
+                      "codes": [],
+                      "units": "6",
+                      "marker": "",
+                      "subsections": []
+                    },
+                    {
+                      "title": "Local Study Scheme",
+                      "text": [
+                        "Students not specializing in any stream are required to take 24 units of courses from (a) Non-language courses and (b) Language courses as listed below, with at least 6 units of 2000 or above level courses from (a) Non-language/(b) language course, and at least 3 units of 4000 level courses from (b) language courses "
+                      ],
+                      "codes": [],
+                      "units": "24",
+                      "marker": "",
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(a)",
+                      "title": "Non-language Courses",
+                      "units": "",
+                      "text": [
+                        "JASP1120, 1140, 1160, 1180, 1190, 1200, 2020, 2100, 2200, 2400, 2520, 2600, 2720, 2820, 2910, 2920, 3110, 3120, 3430, 3470, 3480, 3500, 3700, 3800, 3900, 4000, 4100, 4110, ANTH2327#, 2350#, HIST3380#, 3381#, 4420#, LING1000[a], 2003#, 2004#, 2005#, 2006#, 3101#, 3201#, 3204#, MGNT1010, 1020, 4530#, SOCI2103#"
+                      ],
+                      "codes": [
+                        "JASP 1120",
+                        "JASP 1140",
+                        "JASP 1160",
+                        "JASP 1180",
+                        "JASP 1190",
+                        "JASP 1200",
+                        "JASP 2020",
+                        "JASP 2100",
+                        "JASP 2200",
+                        "JASP 2400",
+                        "JASP 2520",
+                        "JASP 2600",
+                        "JASP 2720",
+                        "JASP 2820",
+                        "JASP 2910",
+                        "JASP 2920",
+                        "JASP 3110",
+                        "JASP 3120",
+                        "JASP 3430",
+                        "JASP 3470",
+                        "JASP 3480",
+                        "JASP 3500",
+                        "JASP 3700",
+                        "JASP 3800",
+                        "JASP 3900",
+                        "JASP 4000",
+                        "JASP 4100",
+                        "JASP 4110",
+                        "ANTH 2327",
+                        "ANTH 2350",
+                        "HIST 3380",
+                        "HIST 3381",
+                        "HIST 4420",
+                        "LING 1000",
+                        "LING 2003",
+                        "LING 2004",
+                        "LING 2005",
+                        "LING 2006",
+                        "LING 3101",
+                        "LING 3201",
+                        "LING 3204",
+                        "MGNT 1010",
+                        "MGNT 1020",
+                        "MGNT 4530",
+                        "SOCI 2103"
+                      ],
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(b)",
+                      "title": "Language Courses",
+                      "units": "",
+                      "text": [
+                        "JASP3180[d], 3200[d], 3310[d], 3320[d], 3330[d], 3340[d], 3350[d], 3360[d], 3380[d], 3390[d], 3600[d], 4180, 4350, 4380, 4390, 4440, 4510, 4520"
+                      ],
+                      "codes": [
+                        "JASP 3180",
+                        "JASP 3200",
+                        "JASP 3310",
+                        "JASP 3320",
+                        "JASP 3330",
+                        "JASP 3340",
+                        "JASP 3350",
+                        "JASP 3360",
+                        "JASP 3380",
+                        "JASP 3390",
+                        "JASP 3600",
+                        "JASP 4180",
+                        "JASP 4350",
+                        "JASP 4380",
+                        "JASP 4390",
+                        "JASP 4440",
+                        "JASP 4510",
+                        "JASP 4520"
+                      ],
+                      "subsections": []
+                    }
+                  ]
+                },
+                {
+                  "marker": "",
+                  "title": "With Stream",
+                  "units": "12 or 24",
+                  "text": [],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "title": "Standard Scheme",
+                      "text": [
+                        "Students choosing a stream must take 12 units of elective courses specified below. Students are encouraged to declare their stream choice as soon as possible and not later than the summer before their year of graduation."
+                      ],
+                      "codes": [],
+                      "units": "12",
+                      "marker": "",
+                      "subsections": []
+                    },
+                    {
+                      "title": "Local Study Scheme",
+                      "text": [
+                        "Students choosing a stream must take 24 units of courses with at least four courses from stream elective courses specified below. The remaining units should be taken from non-language elective course section and/or language elective course section as listed in (a) and (b) above. Students are encouraged to declare their stream choice as soon as possible and not later than the summer before their year of graduation."
+                      ],
+                      "codes": [],
+                      "units": "24",
+                      "marker": "",
+                      "subsections": []
+                    },
+                    {
+                      "marker": "(i)",
+                      "title": "Business and Management",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "",
+                          "title": "Three courses from the following",
+                          "units": "",
+                          "text": [
+                            "JASP2600, 4180, MGNT1010, 1020"
+                          ],
+                          "codes": [
+                            "JASP 2600",
+                            "JASP 4180",
+                            "MGNT 1010",
+                            "MGNT 1020"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "",
+                          "title": "One course from the following",
+                          "units": "",
+                          "text": [
+                            "JASP4390, 4510, 4520, MGNT4530#"
+                          ],
+                          "codes": [
+                            "JASP 4390",
+                            "JASP 4510",
+                            "JASP 4520",
+                            "MGNT 4530"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "title": "Non-credit bearing internship programme (optional)",
+                          "text": [],
+                          "codes": [],
+                          "units": "",
+                          "marker": "",
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "(ii)",
+                      "title": "Japan in Global Perspective",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "",
+                          "title": "Four courses from the following",
+                          "units": "",
+                          "text": [
+                            "ANTH2327#, 2350#, JASP1140, 1160, 1180, 2020, 2400, 2520, 2600, 2910, 2920, 3110, 3430, 3470, 3480, 3500, 3700, 3900, 4100, 4110, SOCI2103#"
+                          ],
+                          "codes": [
+                            "ANTH 2327",
+                            "ANTH 2350",
+                            "JASP 1140",
+                            "JASP 1160",
+                            "JASP 1180",
+                            "JASP 2020",
+                            "JASP 2400",
+                            "JASP 2520",
+                            "JASP 2600",
+                            "JASP 2910",
+                            "JASP 2920",
+                            "JASP 3110",
+                            "JASP 3430",
+                            "JASP 3470",
+                            "JASP 3480",
+                            "JASP 3500",
+                            "JASP 3700",
+                            "JASP 3900",
+                            "JASP 4100",
+                            "JASP 4110",
+                            "SOCI 2103"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    },
+                    {
+                      "marker": "(iii)",
+                      "title": "Japanese Language and Linguistics",
+                      "units": "",
+                      "text": [],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "",
+                          "title": "Two courses from the following",
+                          "units": "",
+                          "text": [
+                            "JASP1120, 3700"
+                          ],
+                          "codes": [
+                            "JASP 1120",
+                            "JASP 3700"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "",
+                          "title": "One course from the following",
+                          "units": "",
+                          "text": [
+                            "LING1000[a], 2003#, 2004#, 2005#, 2006#, 3101#, 3201#, 3204#"
+                          ],
+                          "codes": [
+                            "LING 1000",
+                            "LING 2003",
+                            "LING 2004",
+                            "LING 2005",
+                            "LING 2006",
+                            "LING 3101",
+                            "LING 3201",
+                            "LING 3204"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "",
+                          "title": "One course from the following",
+                          "units": "",
+                          "text": [
+                            "JASP4100, 4390, 4510, 4520"
+                          ],
+                          "codes": [
+                            "JASP 4100",
+                            "JASP 4390",
+                            "JASP 4510",
+                            "JASP 4520"
+                          ],
+                          "subsections": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "JASP courses at 2000 and above level as well as those labeled as # will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Students (i) who cannot fulfill the requirement of Required Courses labeled as * specified under 2 (a) above before the planned year of resident study in Japan; or (ii) who have been put on academic probation at the planned year of resident study in Japan or any time before (regardless of whether the academic probation has been lifted), will not be arranged to participate in the resident study in Japan. These students will be required to complete the major programme requirements by following the Local Study Scheme specified above.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "LING1000 which counts towards the fulfillment of the requirements specified in 1 Faculty Package cannot be used for the fulfillment of the requirements specified in 3(a) Non-language Courses and the Japanese Language and Linguistics stream.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[b]",
+              "text": "Students who have prior knowledge of Japanese before admission may be exempted from taking JASP1470, 1480, 2470 and 2480. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications as follows:",
+              "subsections": [
+                {
+                  "marker": "(i)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "Students who passed placement test and exempted from taking any or all required language course(s) (JASP1470, 1480, 2470 and/or 2480) are required to take corresponding units of Language courses at 3000 or 4000 level specified under 3(b) above, to substitute for the relevant course(s). These substitute courses cannot be double-counted to fulfill the required elective of 3 units of 4000 level language course."
+                  ],
+                  "codes": [
+                    "JASP 1470",
+                    "JASP 1480",
+                    "JASP 2470",
+                    "JASP 2480"
+                  ],
+                  "subsections": [],
+                  "force_course_table": false
+                },
+                {
+                  "marker": "(ii)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "Students who possess Japanese Language Proficiency Test (N2) qualification when admitted are required to take 18 units of Elective Courses specified under 3 above, with at least 12 units of Language courses at 3000 or 4000 level, to substitute for the four relevant courses. These substitute courses cannot be double-counted to fulfill the required elective of 3 units of 4000 level language course."
+                  ],
+                  "codes": [],
+                  "subsections": [],
+                  "force_course_table": false
+                },
+                {
+                  "marker": "(iii)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "Students who possess Japanese Language Proficiency Test (N1) qualification when admitted are required to take 18 units of Elective Courses specified under 3 above, with at least 9 units of Language courses at 4000 level, to substitute for the four relevant courses. These substitute courses cannot be double-counted to fulfill the required elective of 3 units of 4000 level language course."
+                  ],
+                  "codes": [],
+                  "subsections": [],
+                  "force_course_table": false
+                },
+                {
+                  "marker": "(iv)",
+                  "title": "",
+                  "units": "",
+                  "text": [
+                    "Native Japanese students are required to take 18 units of Elective Courses specified under 3 above, with or without any Language courses, to substitute for the four relevant courses. If they choose to take Language courses, they are allowed to take Language courses at 4000 level only, subject to the approval of the course teacher. If they choose to take non-language courses, they should take at least 12 units of elective courses at 2000 or above level."
+                  ],
+                  "codes": [
+                    "JASP 1470",
+                    "JASP 1480",
+                    "JASP 2470",
+                    "JASP 2480"
+                  ],
+                  "subsections": [],
+                  "force_course_table": false
+                }
+              ],
+              "rows": []
+            },
+            {
+              "marker": "[c]",
+              "text": "Students are responsible for the extra costs incurred in relation to the resident study in Japan.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[d]",
+              "text": "These courses are only offered to students before their resident study in Japan.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "senior-entry-requirement-for-associate-degree-or-higher-diploma-holders-admitted-to-senior-year-places",
+      "kind": "senior_entry",
+      "title": "Senior-entry Requirement — For Associate Degree or Higher Diploma holders admitted to senior-year places",
+      "source_order": 1,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 51 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "51",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "3",
+              "text": [
+                "JASP1090"
+              ],
+              "codes": [
+                "JASP 1090"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "9",
+              "text": [
+                "JASP2010, 2030 Capstone course: JASP4600"
+              ],
+              "codes": [
+                "JASP 2010",
+                "JASP 2030",
+                "JASP 4600"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "39",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "marker": "",
+                  "title": "Students may choose to specialize in one of the streams or not to specialize in any streams.",
+                  "units": "",
+                  "text": [],
+                  "codes": [],
+                  "subsections": [
+                    {
+                      "marker": "",
+                      "title": "Without Stream",
+                      "units": "12",
+                      "text": [
+                        "Students who choose not to specialize in any stream must take 39 units of elective courses from (a) Non-language courses and (b) Language courses below, with at least 12 units of 2000 or above level courses from (a) Non-Language courses and at least 6 units of 4000 level courses from (b) Language courses"
+                      ],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "marker": "(a)",
+                          "title": "Non-language Courses",
+                          "units": "",
+                          "text": [
+                            "JASP1120, 1140, 1160, 1180, 1190, 1200, 2020, 2050, 2100, 2200, 2400, 2520, 2600, 2720, 2820, 2910, 2920, 3110, 3120, 3430, 3470, 3480, 3500, 3700, 3800, 3900, 4000, 4100, 4110, 4601, ANTH2327#, 2350#, HIST3380#, 3381#, 4420#, LING1000, 2003#, 2004#, 2005#, 2006#, 3101#, 3201#, 3204#, MGNT1010, 1020, 4530#, SOCI2103#"
+                          ],
+                          "codes": [
+                            "JASP 1120",
+                            "JASP 1140",
+                            "JASP 1160",
+                            "JASP 1180",
+                            "JASP 1190",
+                            "JASP 1200",
+                            "JASP 2020",
+                            "JASP 2050",
+                            "JASP 2100",
+                            "JASP 2200",
+                            "JASP 2400",
+                            "JASP 2520",
+                            "JASP 2600",
+                            "JASP 2720",
+                            "JASP 2820",
+                            "JASP 2910",
+                            "JASP 2920",
+                            "JASP 3110",
+                            "JASP 3120",
+                            "JASP 3430",
+                            "JASP 3470",
+                            "JASP 3480",
+                            "JASP 3500",
+                            "JASP 3700",
+                            "JASP 3800",
+                            "JASP 3900",
+                            "JASP 4000",
+                            "JASP 4100",
+                            "JASP 4110",
+                            "JASP 4601",
+                            "ANTH 2327",
+                            "ANTH 2350",
+                            "HIST 3380",
+                            "HIST 3381",
+                            "HIST 4420",
+                            "LING 1000",
+                            "LING 2003",
+                            "LING 2004",
+                            "LING 2005",
+                            "LING 2006",
+                            "LING 3101",
+                            "LING 3201",
+                            "LING 3204",
+                            "MGNT 1010",
+                            "MGNT 1020",
+                            "MGNT 4530",
+                            "SOCI 2103"
+                          ],
+                          "subsections": []
+                        },
+                        {
+                          "marker": "(b)",
+                          "title": "Language Courses",
+                          "units": "",
+                          "text": [
+                            "JASP3180, 3200, 3310, 3320, 3330, 3340, 3350, 3360, 3380, 3390, 3600, 4180, 4350, 4380, 4390, 4440, 4510, 4520"
+                          ],
+                          "codes": [
+                            "JASP 3180",
+                            "JASP 3200",
+                            "JASP 3310",
+                            "JASP 3320",
+                            "JASP 3330",
+                            "JASP 3340",
+                            "JASP 3350",
+                            "JASP 3360",
+                            "JASP 3380",
+                            "JASP 3390",
+                            "JASP 3600",
+                            "JASP 4180",
+                            "JASP 4350",
+                            "JASP 4380",
+                            "JASP 4390",
+                            "JASP 4440",
+                            "JASP 4510",
+                            "JASP 4520"
+                          ],
+                          "subsections": []
+                        }
+                      ],
+                      "heading_as_text": true,
+                      "keep_heading": true
+                    },
+                    {
+                      "marker": "",
+                      "title": "With Stream",
+                      "units": "12",
+                      "text": [
+                        "Students choosing a stream must take 39 units of elective courses, including at least four courses from stream elective courses specified below. The remaining units should be taken from non-language elective course section and/or language elective course section as listed in (a) and (b) above, which must include at least 12 units of 2000 or above level courses from (a) Non-Language courses and at least 6 units of 4000 level courses from (b) Language courses. Students are encouraged to declare their stream choice as soon as possible and not later than the summer before their year of graduation."
+                      ],
+                      "codes": [],
+                      "subsections": [
+                        {
+                          "title": "Business and Management",
+                          "text": [],
+                          "codes": [],
+                          "units": "",
+                          "marker": "(i)",
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Three courses from the following",
+                              "units": "",
+                              "text": [
+                                "JASP2600, 4180, MGNT1010, 1020"
+                              ],
+                              "codes": [
+                                "JASP 2600",
+                                "JASP 4180",
+                                "MGNT 1010",
+                                "MGNT 1020"
+                              ],
+                              "subsections": []
+                            },
+                            {
+                              "marker": "",
+                              "title": "One course from the following",
+                              "units": "",
+                              "text": [
+                                "JASP4390, 4510, 4520, MGNT4530#",
+                                "Non-credit bearing internship programme (optional)"
+                              ],
+                              "codes": [
+                                "JASP 4390",
+                                "JASP 4510",
+                                "JASP 4520",
+                                "MGNT 4530"
+                              ],
+                              "subsections": []
+                            }
+                          ]
+                        },
+                        {
+                          "marker": "(ii)",
+                          "title": "Japan in Global Perspective",
+                          "units": "",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Four courses from the following",
+                              "units": "",
+                              "text": [
+                                "ANTH2327#, 2350#, JASP1140, 1160, 1180, 2020, 2400, 2520, 2600, 2910, 2920, 3110, 3430, 3470, 3480, 3500, 3700, 3900, 4100, 4110, SOCI2103#"
+                              ],
+                              "codes": [
+                                "ANTH 2327",
+                                "ANTH 2350",
+                                "JASP 1140",
+                                "JASP 1160",
+                                "JASP 1180",
+                                "JASP 2020",
+                                "JASP 2400",
+                                "JASP 2520",
+                                "JASP 2600",
+                                "JASP 2910",
+                                "JASP 2920",
+                                "JASP 3110",
+                                "JASP 3430",
+                                "JASP 3470",
+                                "JASP 3480",
+                                "JASP 3500",
+                                "JASP 3700",
+                                "JASP 3900",
+                                "JASP 4100",
+                                "JASP 4110",
+                                "SOCI 2103"
+                              ],
+                              "subsections": []
+                            }
+                          ],
+                          "keep_heading": true
+                        },
+                        {
+                          "marker": "(iii)",
+                          "title": "Japanese Language and Linguistics",
+                          "units": "",
+                          "text": [],
+                          "codes": [],
+                          "subsections": [
+                            {
+                              "marker": "",
+                              "title": "Two courses from the following",
+                              "units": "",
+                              "text": [
+                                "JASP1120, 3700"
+                              ],
+                              "codes": [
+                                "JASP 1120",
+                                "JASP 3700"
+                              ],
+                              "subsections": []
+                            },
+                            {
+                              "marker": "",
+                              "title": "One course from the following",
+                              "units": "",
+                              "text": [
+                                "LING1000, 2003#, 2004#, 2005#, 2006#, 3101#, 3201#, 3204#"
+                              ],
+                              "codes": [
+                                "LING 1000",
+                                "LING 2003",
+                                "LING 2004",
+                                "LING 2005",
+                                "LING 2006",
+                                "LING 3101",
+                                "LING 3201",
+                                "LING 3204"
+                              ],
+                              "subsections": []
+                            },
+                            {
+                              "marker": "",
+                              "title": "One course from the following",
+                              "units": "",
+                              "text": [
+                                "JASP4100, 4390, 4510, 4520"
+                              ],
+                              "codes": [
+                                "JASP 4100",
+                                "JASP 4390",
+                                "JASP 4510",
+                                "JASP 4520"
+                              ],
+                              "subsections": []
+                            }
+                          ],
+                          "keep_heading": true
+                        }
+                      ],
+                      "heading_as_text": true,
+                      "keep_heading": true
+                    }
+                  ],
+                  "heading_as_text": true,
+                  "keep_heading": true
+                }
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "JASP courses at 2000 and above level as well as those labeled as # will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Students are required to possess Japanese Language Proficiency Test (N2) level or equivalent when admitted. They are advised to take Language courses at 3000 or 4000 level in their first year of study and take Language courses at 4000 level in their second year of study. Students who have prior knowledge of Japanese (beyond Japanese Language Proficiency Test (N2) level) before admission should seek the advice of the Department to take substitute courses, as appropriate. Approved courses taken in substitution for other courses will be included in the Major GPA calculation. Students who possess Japanese Language Proficiency Test (N1) qualification when admitted are only allowed to take courses at 4000 level for Language Courses.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "3.",
+              "text": "Students are encouraged to join summer exchange programmes organized by the Department.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "4.",
+              "text": "Students who are interested in doing fieldwork in Japan during optional exchange or conducting a comprehensive final-year project, are encouraged to seek advice from the Department for alternative study pathway.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    },
+    {
+      "id": "japanese-studies-and-history-double-major-programme",
+      "kind": "double_major",
+      "title": "Japanese Studies and History Double Major Programme",
+      "source_order": 2,
+      "default": false,
+      "parts": [
+        {
+          "title": "",
+          "description": "Students are required to complete a minimum of 90 units of courses as follows:",
+          "description_lines": [],
+          "requirement_title": "",
+          "total_units": "90",
+          "sections": [
+            {
+              "marker": "1.",
+              "title": "Faculty Package",
+              "units": "9",
+              "text": [
+                "JASP1090, HIST1000 and any one course from: ANTH1020, ARTS1005, 1009, 1010, BMBL1001, CHES1101 or 1102, CHLL1900 or 1902 or 1903, CURE1000 or 1400, 1110, ENGE1000, FAAS1900, HIST1700 or 1701, LING1000, MUSC1000, PHIL1110, THEO1000, TRAN1000"
+              ],
+              "codes": [
+                "JASP 1090",
+                "HIST 1000",
+                "ANTH 1020",
+                "ARTS 1005",
+                "ARTS 1009",
+                "ARTS 1010",
+                "BMBL 1001",
+                "CHES 1101",
+                "CHES 1102",
+                "CHLL 1900",
+                "CHLL 1902",
+                "CHLL 1903",
+                "CURE 1000",
+                "CURE 1400",
+                "CURE 1110",
+                "ENGE 1000",
+                "FAAS 1900",
+                "HIST 1700",
+                "HIST 1701",
+                "LING 1000",
+                "MUSC 1000",
+                "PHIL 1110",
+                "THEO 1000",
+                "TRAN 1000"
+              ],
+              "subsections": []
+            },
+            {
+              "marker": "2.",
+              "title": "Required Courses",
+              "units": "30",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "1st Major: Japanese Studies[a]",
+                  "text": [
+                    "JASP1470, 1480, 2010, 2030, 2470, 2480"
+                  ],
+                  "codes": [
+                    "JASP 1470",
+                    "JASP 1480",
+                    "JASP 2010",
+                    "JASP 2030",
+                    "JASP 2470",
+                    "JASP 2480"
+                  ],
+                  "units": "24",
+                  "marker": "",
+                  "subsections": [],
+                  "keep_heading": true
+                },
+                {
+                  "title": "2nd Major: History",
+                  "text": [
+                    "HIST1001, 1002"
+                  ],
+                  "codes": [
+                    "HIST 1001",
+                    "HIST 1002"
+                  ],
+                  "units": "6",
+                  "marker": "",
+                  "subsections": [],
+                  "keep_heading": true
+                }
+              ]
+            },
+            {
+              "marker": "3.",
+              "title": "Elective Courses",
+              "units": "45",
+              "text": [],
+              "codes": [],
+              "subsections": [
+                {
+                  "title": "1st Major: Japanese Studies[b]",
+                  "text": [
+                    "Students are required to complete 15 units of JASP courses from (a) Non-language courses and (b) Language courses as listed below, with at least 6 units of 2000 or above level courses from (a) Non-language courses and at least 3 units of 4000 level courses from (b) Language courses."
+                  ],
+                  "codes": [],
+                  "units": "15",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "title": "Non-language Courses",
+                      "text": [
+                        "JASP1120, 1140, 1160, 1180, 1190, 1200, 2020, 2100, 2200, 2400, 2520, 2600, 2720, 2820, 2910, 2920, 3110, 3120, 3430, 3470, 3480, 3500, 3700, 3800, 3900, 4000, 4100, 4110, ANTH2327#, 2350#, LING1000[d], 2003#, 2004#, 2005#, 2006#, 3101#, 3201#, 3204#, MGNT1010, 1020, 4530#, SOCI2103#"
+                      ],
+                      "codes": [
+                        "JASP 1120",
+                        "JASP 1140",
+                        "JASP 1160",
+                        "JASP 1180",
+                        "JASP 1190",
+                        "JASP 1200",
+                        "JASP 2020",
+                        "JASP 2100",
+                        "JASP 2200",
+                        "JASP 2400",
+                        "JASP 2520",
+                        "JASP 2600",
+                        "JASP 2720",
+                        "JASP 2820",
+                        "JASP 2910",
+                        "JASP 2920",
+                        "JASP 3110",
+                        "JASP 3120",
+                        "JASP 3430",
+                        "JASP 3470",
+                        "JASP 3480",
+                        "JASP 3500",
+                        "JASP 3700",
+                        "JASP 3800",
+                        "JASP 3900",
+                        "JASP 4000",
+                        "JASP 4100",
+                        "JASP 4110",
+                        "ANTH 2327",
+                        "ANTH 2350",
+                        "LING 1000",
+                        "LING 2003",
+                        "LING 2004",
+                        "LING 2005",
+                        "LING 2006",
+                        "LING 3101",
+                        "LING 3201",
+                        "LING 3204",
+                        "MGNT 1010",
+                        "MGNT 1020",
+                        "MGNT 4530",
+                        "SOCI 2103"
+                      ],
+                      "units": "",
+                      "marker": "(a)",
+                      "subsections": []
+                    },
+                    {
+                      "title": "Language Courses",
+                      "text": [
+                        "JASP3180[c], 3200[c], 3310[c], 3320[c], 3330[c], 3340[c], 3350[c], 3360[c], 3380[c], 3390[c], 3600[c], 4180, 4350, 4380, 4390, 4440, 4510, 4520"
+                      ],
+                      "codes": [
+                        "JASP 3180",
+                        "JASP 3200",
+                        "JASP 3310",
+                        "JASP 3320",
+                        "JASP 3330",
+                        "JASP 3340",
+                        "JASP 3350",
+                        "JASP 3360",
+                        "JASP 3380",
+                        "JASP 3390",
+                        "JASP 3600",
+                        "JASP 4180",
+                        "JASP 4350",
+                        "JASP 4380",
+                        "JASP 4390",
+                        "JASP 4440",
+                        "JASP 4510",
+                        "JASP 4520"
+                      ],
+                      "units": "",
+                      "marker": "(b)",
+                      "subsections": []
+                    }
+                  ],
+                  "keep_heading": true
+                },
+                {
+                  "title": "2nd Major: History",
+                  "text": [
+                    "Students are required to complete 30 units of HIST courses, including at least 6 units chosen from the courses below:",
+                    "HIST2002, 2005, 2006, 2007"
+                  ],
+                  "codes": [
+                    "HIST 2002",
+                    "HIST 2005",
+                    "HIST 2006",
+                    "HIST 2007"
+                  ],
+                  "units": "30",
+                  "marker": "",
+                  "subsections": [
+                    {
+                      "title": "Other Eligible HIST Courses",
+                      "text": [
+                        "Other HIST courses may be used to complete this requirement; the stated minimum course rules still apply."
+                      ],
+                      "codes": [
+                        "HIST 2010",
+                        "HIST 2100",
+                        "HIST 2101",
+                        "HIST 2102",
+                        "HIST 2103",
+                        "HIST 2104",
+                        "HIST 2105",
+                        "HIST 2106",
+                        "HIST 2110",
+                        "HIST 2140",
+                        "HIST 2141",
+                        "HIST 2142",
+                        "HIST 2220",
+                        "HIST 2310",
+                        "HIST 2320",
+                        "HIST 2330",
+                        "HIST 2360",
+                        "HIST 2380",
+                        "HIST 2390",
+                        "HIST 2500",
+                        "HIST 2501",
+                        "HIST 2700",
+                        "HIST 2701",
+                        "HIST 3103",
+                        "HIST 3106",
+                        "HIST 3107",
+                        "HIST 3108",
+                        "HIST 3118",
+                        "HIST 3119",
+                        "HIST 3140",
+                        "HIST 3141",
+                        "HIST 3180",
+                        "HIST 3326",
+                        "HIST 3327",
+                        "HIST 3331",
+                        "HIST 3332",
+                        "HIST 3340",
+                        "HIST 3360",
+                        "HIST 3361",
+                        "HIST 3375",
+                        "HIST 3376",
+                        "HIST 3380",
+                        "HIST 3381",
+                        "HIST 3400",
+                        "HIST 3401",
+                        "HIST 3402",
+                        "HIST 3404",
+                        "HIST 3408",
+                        "HIST 3409",
+                        "HIST 3420",
+                        "HIST 3441",
+                        "HIST 3505",
+                        "HIST 3602",
+                        "HIST 3701",
+                        "HIST 4100",
+                        "HIST 4141",
+                        "HIST 4142",
+                        "HIST 4180",
+                        "HIST 4260",
+                        "HIST 4261",
+                        "HIST 4304",
+                        "HIST 4305",
+                        "HIST 4306",
+                        "HIST 4380",
+                        "HIST 4392",
+                        "HIST 4393",
+                        "HIST 4400",
+                        "HIST 4500",
+                        "HIST 4600",
+                        "HIST 4603",
+                        "HIST 4700",
+                        "HIST 4702",
+                        "HIST 4703",
+                        "HIST 4704",
+                        "HIST 4705",
+                        "HIST 4801",
+                        "HIST 4802",
+                        "HIST 4811",
+                        "HIST 4812",
+                        "HIST 4920",
+                        "HIST 5011",
+                        "HIST 5501",
+                        "HIST 5502",
+                        "HIST 5503",
+                        "HIST 5504",
+                        "HIST 5505",
+                        "HIST 5506",
+                        "HIST 5507",
+                        "HIST 5508",
+                        "HIST 5509",
+                        "HIST 5510",
+                        "HIST 5511",
+                        "HIST 5512",
+                        "HIST 5513",
+                        "HIST 5514",
+                        "HIST 5515",
+                        "HIST 5516",
+                        "HIST 5517",
+                        "HIST 5518",
+                        "HIST 5519",
+                        "HIST 5520",
+                        "HIST 5521",
+                        "HIST 5522",
+                        "HIST 5523",
+                        "HIST 5524",
+                        "HIST 5525",
+                        "HIST 5526",
+                        "HIST 5527",
+                        "HIST 5528",
+                        "HIST 5529",
+                        "HIST 5530",
+                        "HIST 5531",
+                        "HIST 5532",
+                        "HIST 5533",
+                        "HIST 5534",
+                        "HIST 5535",
+                        "HIST 5536",
+                        "HIST 5537",
+                        "HIST 5538",
+                        "HIST 5539",
+                        "HIST 5540",
+                        "HIST 5541",
+                        "HIST 5542",
+                        "HIST 5543",
+                        "HIST 5544",
+                        "HIST 5545",
+                        "HIST 5546",
+                        "HIST 5547",
+                        "HIST 5548",
+                        "HIST 5549",
+                        "HIST 5550",
+                        "HIST 5551",
+                        "HIST 5552",
+                        "HIST 5553",
+                        "HIST 5554",
+                        "HIST 5555",
+                        "HIST 5556",
+                        "HIST 5559",
+                        "HIST 5560",
+                        "HIST 5561",
+                        "HIST 5564",
+                        "HIST 5566",
+                        "HIST 5568",
+                        "HIST 5570",
+                        "HIST 5573",
+                        "HIST 5575",
+                        "HIST 5590",
+                        "HIST 5591",
+                        "HIST 5592",
+                        "HIST 5610",
+                        "HIST 5680",
+                        "HIST 6010",
+                        "HIST 6011",
+                        "HIST 6012",
+                        "HIST 6013",
+                        "HIST 6014",
+                        "HIST 6015",
+                        "HIST 6016",
+                        "HIST 6017",
+                        "HIST 6100",
+                        "HIST 6101",
+                        "HIST 7010",
+                        "HIST 7011",
+                        "HIST 7012",
+                        "HIST 7013",
+                        "HIST 7014",
+                        "HIST 7015",
+                        "HIST 7016",
+                        "HIST 7017",
+                        "HIST 7100",
+                        "HIST 7101",
+                        "HIST 8001"
+                      ],
+                      "units": "",
+                      "marker": "",
+                      "subsections": []
+                    }
+                  ],
+                  "keep_heading": true
+                }
+              ]
+            },
+            {
+              "marker": "4.",
+              "title": "Research Component/ Capstone Course/ Final Year Project",
+              "units": "6",
+              "text": [
+                "JASP4601, 4602"
+              ],
+              "codes": [
+                "JASP 4601",
+                "JASP 4602"
+              ],
+              "subsections": []
+            }
+          ],
+          "notes": [
+            {
+              "marker": "1.",
+              "text": "JASP courses at 2000 and above level as well as those labeled as # will be included in the calculation of Major GPA for honours classification.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "2.",
+              "text": "Subject to approval by the Major Programmes concerned, students may opt out of the Double Major Programme and register for the 1st Major Programme only. The decision to opt out is irrevocable. Students who have opted out are required to complete and fulfill all graduation requirements by following the study scheme of the 1st Major Programme as a single major. Students should be aware that such decision may result in a delay in graduation because the requirements of the single major study scheme differ from those of the Double Major Programme.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[a]",
+              "text": "Students who have prior knowledge of Japanese before admission may be exempted from taking JASP1470, 1480, 2470 and 2480. They should seek the advice of the Department to take substitute courses in accordance with their academic qualifications as follows:",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[i]",
+              "text": "Students who passed placement test and exempted from taking any or all required language course(s) (JASP1470, 1480, 2470 and/or 2480) are required to take corresponding units of Language courses at 3000 or 4000 level specified under 3(b) above, to substitute for the relevant course(s). These substitute courses cannot be double-counted to fulfill the required elective of 3 units of 4000 level language course.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[ii]",
+              "text": "Students who possess Japanese Language Proficiency Test (N2) qualification when admitted are required to take 18 units of courses from 3(a) and/or 3(b) above, with at least 12 units of Language Courses at 3000 or 4000 level, to substitute for the four relevant courses. These substitute courses cannot be double-counted to fulfill the required elective of 3 units of 4000 level language course.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[iii]",
+              "text": "Students who possess Japanese Language Proficiency Test (N1) qualification when admitted are required to take 18 units of courses from 3(a) and/or 3(b) above, with at least 9 units of Language Courses at 4000 level, to substitute for the four relevant courses. These substitute courses cannot be double-counted to fulfill the required elective of 3 units of 4000 level language course.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[iv]",
+              "text": "Native Japanese students are required to take 18 units of courses from 3(a) and/or 3(b) above, with or without any Language Courses, to substitute for the four relevant courses. If they choose to take Language Courses, they are allowed to take Language Courses at 4000 level only, subject to the approval of the course teacher. If they choose to take non-language courses, they should take at least 12 units of elective courses at 2000 or above level.Approved courses taken in substitution for JASP1470, 1480, 2470 and 2480 will be included in the Major GPA calculation.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[b]",
+              "text": "Subject to Department’s approval, native speaker of Japanese can be exempted from the fulfillment of one JASP 4000 level language course, and take 3 units of JASP course as a substitution.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[c]",
+              "text": "These courses are only offered to students before their resident study in Japan.",
+              "subsections": [],
+              "rows": []
+            },
+            {
+              "marker": "[d]",
+              "text": "LING1000 which counts towards the fulfillment of the requirements specified in 1 Faculty Package cannot be used for the fulfillment of the requirements specified in 3(a) Non-language Courses and the Japanese Language and Linguistics stream.",
+              "subsections": [],
+              "rows": []
+            }
+          ],
+          "additional_requirements": [],
+          "supplementary_note_sections": [],
+          "intro_sections": []
+        }
+      ]
+    }
+  ]
 }
