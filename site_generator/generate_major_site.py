@@ -1157,9 +1157,9 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
             f'<span id="activeRequirementSchemeUnits" class="unit-tag"'
             f'{"" if active_scheme_units else " hidden"}>{esc(active_scheme_units)}'
             f'{" units" if active_scheme_units else ""}</span>'
-            if multiple_schemes or default_scheme.get("kind") == "double_degree" else ""
+            if multiple_schemes or active_scheme_units else ""
         )
-        top = f'''<div class="top-bar"><div class="bar-row"><button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open major navigation" aria-controls="majorSidebar" aria-expanded="false">☰</button><div class="breadcrumb" title="{esc(data["title"])}">{esc(data["title"])}</div><div class="bar-controls">{year_selector}<button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="tableSettings" aria-expanded="false">&#9881; Settings</button></div></div>{nav(programmes, position)}</div>{scheme_picker}<h1>{esc(data["title"])}{active_scheme_title}{active_units_tag} &mdash; CUHK Major Requirements ({display_year})</h1><p class="admit-year">Faculty: {esc(faculty)} &middot; Admission code: {esc(data["admission_code"])}{total} &middot; For students admitted in {display_year}</p>'''
+        top = f'''<div class="top-bar"><div class="bar-row"><button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open major navigation" aria-controls="majorSidebar" aria-expanded="false">☰</button><div class="breadcrumb" title="{esc(data["title"])}">{esc(data["title"])}</div><div class="bar-controls">{year_selector}<button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="tableSettings" aria-expanded="false">&#9881; Settings</button></div></div>{nav(programmes, position)}</div>{scheme_picker}<h1>{esc(data["title"])}{active_scheme_title} &mdash; CUHK Major Requirements ({display_year}){active_units_tag}</h1><p class="admit-year">Faculty: {esc(faculty)} &middot; Admission code: {esc(data["admission_code"])}{total} &middot; For students admitted in {display_year}</p>'''
         full_body = top + requirements_html
         output = major_dir / f'{data["source_file"]}.html'
         canonical_path = f'/major/{year}/majors/{data["source_file"]}'

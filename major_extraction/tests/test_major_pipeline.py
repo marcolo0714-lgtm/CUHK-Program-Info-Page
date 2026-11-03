@@ -890,6 +890,16 @@ def test_navigation_qol_and_double_degree_totals_are_rendered():
     footer = computer.select_one(".site-footer")
     assert footer.select_one(".footer-sources") is not None
     assert footer.select_one(".footer-update") is not None
+    computer_heading = computer.find("h1")
+    assert computer_heading.contents[-1].get("id") == "activeRequirementSchemeUnits"
+
+    single_scheme = BeautifulSoup(
+        (SITE_DIR / "majors" / "B.Sc._in_Biomedical_Sciences.html").read_text(encoding="utf-8"),
+        "html.parser",
+    )
+    single_heading = single_scheme.find("h1")
+    assert single_heading.contents[-1].get_text(" ", strip=True) == "70 units"
+    assert "CUHK Major Requirements (2026–27)" in single_heading.get_text(" ", strip=True)
 
     coterminal = BeautifulSoup(
         (SITE_DIR / "majors" / "B.A._(Chinese_Language_Studies)_and_B.Ed._(Chinese_Language_Education).html")
