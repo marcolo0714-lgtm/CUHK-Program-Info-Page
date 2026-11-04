@@ -10,6 +10,7 @@ from pathlib import Path
 
 REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 try:
+    from .site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
     from .site_metadata import (
         SITE_NAME,
         absolute_url,
@@ -20,6 +21,7 @@ try:
     )
     from .minor_course_index import load_minor_course_index
 except ImportError:
+    from site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
     from site_metadata import (
         SITE_NAME,
         absolute_url,
@@ -270,11 +272,11 @@ body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
     opacity:0; visibility:hidden; pointer-events:none; transition:opacity .25s,visibility .25s; }
 .sidebar-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
 body.sidebar-open { overflow:hidden; }
-.settings-toggle { display:inline-flex; align-items:center; gap:5px; font-size:.85em;
+.settings-toggle,.bar-controls .site-info-button { display:inline-flex; align-items:center; gap:5px; font-size:.85em;
     padding:5px 12px; border:1px solid var(--border); border-radius:6px;
     background:var(--card); color:var(--text); cursor:pointer; font-family:inherit;
     transition:background .15s,color .15s,border-color .15s; }
-.settings-toggle:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+.settings-toggle:hover,.bar-controls .site-info-button:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
 .settings-overlay { position:fixed; inset:0; background:rgba(0,0,0,.25); z-index:108;
     opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s,visibility .2s; }
 .settings-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
@@ -372,7 +374,7 @@ body.settings-open { overflow:hidden; }
     .page-nav { margin-top:6px; }
     .page-nav a { min-width:0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
     .bar-year-select { min-width:0; max-width:50%; }
-    .settings-toggle { flex:none; white-space:nowrap; }
+    .settings-toggle,.bar-controls .site-info-button { flex:none; white-space:nowrap; }
 }
 @media (max-width:1200px) {
     .course-details th, .course-details td { padding-left:9px; padding-right:9px; }
@@ -529,7 +531,7 @@ def minor_page(page_title, body, sidebar_html, description, canonical_path, stru
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="icon" href="/favicon.ico" sizes="any">
 {seo_head(page_title, description, canonical_path, structured_data)}
-<style>{CSS}</style>
+<style>{CSS}{INFO_CSS}</style>
 </head>
 <body>
 <div class="sidebar-overlay" onclick="closeSidebar()" aria-hidden="true"></div>
@@ -573,6 +575,7 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;}})();
   </div>
 </main>
 {JS}
+{INFO_DIALOG}
 </body>
 </html>"""
 
@@ -605,13 +608,14 @@ def index_page(page_title, body, description, canonical_path, structured_data):
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="icon" href="/favicon.ico" sizes="any">
 {seo_head(page_title, description, canonical_path, structured_data)}
-<style>{CSS}{INDEX_ACTION_CSS}</style>
+<style>{CSS}{INDEX_ACTION_CSS}{INFO_CSS}</style>
 </head>
 <body class="page-index">
 <div class="container">
 {body}
 {FOOTER_HTML}
 </div>
+{INFO_DIALOG}
 </body>
 </html>"""
 
@@ -1286,6 +1290,7 @@ def build_detail_page(data, course_index, overrides, year, available_years,
         f'<div class="breadcrumb" title="{html.escape(title, quote=True)}">{title}</div>'
         f'<div class="bar-controls">'
         f'{yr_select}'
+        f'{information_button("Info")}'
         f'<button type="button" class="settings-toggle" onclick="toggleSettings()" '
         f'aria-label="Open course table settings" aria-controls="table-settings" '
         f'aria-expanded="false">&#9881; Settings</button>'
@@ -1768,9 +1773,12 @@ def generate(year):
             "url": absolute_url("/"),
         })
 
-    index_body = (
+    year_selector = (
         f'<select onchange="window.location=this.value" class="year-select">'
-        f'{year_options}</select>\n'
+        f'{year_options}</select>'
+    )
+    index_body = (
+        f'{information_actions(year_selector)}\n'
         f"<h1>CUHK Minor Programme List ({year_display})</h1>"
         f'<p class="meta">{len(index_order)} minor programmes &middot; '
         f'For students admitted in {year_display}</p>\n'

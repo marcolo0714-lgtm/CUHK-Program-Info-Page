@@ -16,6 +16,7 @@ from pathlib import Path
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 try:
+    from .site_information import INFO_CSS, INFO_DIALOG, information_actions
     from .site_metadata import (
         absolute_url,
         course_schedule_update_date,
@@ -23,6 +24,7 @@ try:
         write_discovery_files,
     )
 except ImportError:
+    from site_information import INFO_CSS, INFO_DIALOG, information_actions
     from site_metadata import (
         absolute_url,
         course_schedule_update_date,
@@ -2400,6 +2402,7 @@ var CHECKER_DATA = {checker_data_json};
 <script>
 {js}
 </script>
+{info_dialog}
 </body>
 </html>"""
 
@@ -2475,12 +2478,13 @@ def generate(year):
 
     html = CHECKER_HTML_TEMPLATE.format(
         schedule_update_date=course_schedule_update_date(),
-        css=CHECKER_CSS,
+        css=CHECKER_CSS + INFO_CSS,
         checker_data_json=checker_data,
         js=CHECKER_JS,
         year=year,
         year_display=year_display,
-        year_select=year_select,
+        year_select=information_actions(year_select),
+        info_dialog=INFO_DIALOG,
         seo_metadata=seo_head(
             checker_title,
             checker_description,

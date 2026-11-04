@@ -21,6 +21,7 @@ try:
         minor_matches_major_name,
     )
     from .site_metadata import course_schedule_update_date
+    from .site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
 except ImportError:
     from minor_course_index import (
         load_minor_course_index,
@@ -28,6 +29,7 @@ except ImportError:
         minor_matches_major_name,
     )
     from site_metadata import course_schedule_update_date
+    from site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
 
 COURSE_INFO = REPOSITORY_ROOT / "course_extraction" / "course_info"
 PUBLIC = REPOSITORY_ROOT / "site" / "major"
@@ -225,9 +227,9 @@ tr:hover { background:#f9f9f9; }
 .page-nav-next { justify-self:end; text-align:right; }
 .page-nav a:hover { background:#e8f0fe; text-decoration:none; }
 .top-bar + h1 { margin-top:18px; }
-.settings-toggle { display:inline-flex; align-items:center; gap:5px; font-size:.85rem; padding:4px 10px;
+.settings-toggle,.bar-controls .site-info-button { display:inline-flex; align-items:center; gap:5px; font-size:.85rem; padding:4px 10px;
   border:1px solid var(--accent); border-radius:6px; background:var(--card); color:var(--accent); cursor:pointer; }
-.settings-toggle:hover { background:#e8f0fe; }
+.settings-toggle:hover,.bar-controls .site-info-button:hover { background:#e8f0fe; }
 .settings-overlay { position:fixed; inset:0; background:rgba(0,0,0,.25); z-index:108;
   opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s,visibility .2s; }
 .settings-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
@@ -268,7 +270,7 @@ body.settings-open { overflow:hidden; }
   .page-nav { margin-top:6px; }
   .page-nav a { min-width:0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
   .bar-year-select { min-width:0; max-width:50%; }
-  .settings-toggle { flex:none; white-space:nowrap; }
+  .settings-toggle,.bar-controls .site-info-button { flex:none; white-space:nowrap; }
   .requirement-scheme-picker { align-items:stretch; flex-direction:column; }
   .requirement-scheme-picker select { max-width:none; width:100%; }
   h1 { font-size:1.4em; } .meta { white-space:normal; }
@@ -910,7 +912,7 @@ def page_shell(
         favicon = "/favicon.ico"
     analytics = '<script defer src="/_vercel/insights/script.js"></script>'
     metadata = seo_head(title, description, canonical_path, structured_data)
-    return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="prefetch-src 'none'"><link rel="icon" href="{favicon}" sizes="any">{metadata}<style>{CSS}{extra_css}</style>{analytics}</head><body{body_class}>{body_html}</body></html>'''
+    return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="prefetch-src 'none'"><link rel="icon" href="{favicon}" sizes="any">{metadata}<style>{CSS}{extra_css}{INFO_CSS}</style>{analytics}</head><body{body_class}>{body_html}{INFO_DIALOG}</body></html>'''
 
 
 def programme_has_faculty(programme: dict[str, object], faculty: str) -> bool:
@@ -1159,7 +1161,7 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
             f'{" units" if active_scheme_units else ""}</span>'
             if multiple_schemes or active_scheme_units else ""
         )
-        top = f'''<div class="top-bar"><div class="bar-row"><button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open major navigation" aria-controls="majorSidebar" aria-expanded="false">☰</button><div class="breadcrumb" title="{esc(data["title"])}">{esc(data["title"])}</div><div class="bar-controls">{year_selector}<button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="tableSettings" aria-expanded="false">&#9881; Settings</button></div></div>{nav(programmes, position)}</div>{scheme_picker}<h1>{esc(data["title"])}{active_scheme_title} &mdash; CUHK Major Requirements ({display_year}){active_units_tag}</h1><p class="admit-year">Faculty: {esc(faculty)} &middot; Admission code: {esc(data["admission_code"])}{total} &middot; For students admitted in {display_year}</p>'''
+        top = f'''<div class="top-bar"><div class="bar-row"><button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open major navigation" aria-controls="majorSidebar" aria-expanded="false">☰</button><div class="breadcrumb" title="{esc(data["title"])}">{esc(data["title"])}</div><div class="bar-controls">{year_selector}{information_button("Info")}<button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="tableSettings" aria-expanded="false">&#9881; Settings</button></div></div>{nav(programmes, position)}</div>{scheme_picker}<h1>{esc(data["title"])}{active_scheme_title} &mdash; CUHK Major Requirements ({display_year}){active_units_tag}</h1><p class="admit-year">Faculty: {esc(faculty)} &middot; Admission code: {esc(data["admission_code"])}{total} &middot; For students admitted in {display_year}</p>'''
         full_body = top + requirements_html
         output = major_dir / f'{data["source_file"]}.html'
         canonical_path = f'/major/{year}/majors/{data["source_file"]}'
@@ -1232,7 +1234,7 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
         if len(available_years) > 1
         else ""
     )
-    index_body = f'{index_year_selector}<h1>CUHK {scope}Major Programme List ({display_year})</h1><p class="meta">{faculty_summary} &middot; For students admitted in {display_year}</p><div class="index-actions"><a href="../../index.html" class="index-action">View Minor Programmes &rarr;</a></div>{"".join(faculty_sections)}'
+    index_body = f'{information_actions(index_year_selector)}<h1>CUHK {scope}Major Programme List ({display_year})</h1><p class="meta">{faculty_summary} &middot; For students admitted in {display_year}</p><div class="index-actions"><a href="../../index.html" class="index-action">View Minor Programmes &rarr;</a></div>{"".join(faculty_sections)}'
     write_generated(
         site_dir / "index.html",
         page_shell(
