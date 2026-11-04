@@ -1777,8 +1777,9 @@ def generate(year):
         f'<select onchange="window.location=this.value" class="year-select">'
         f'{year_options}</select>'
     )
+    search_entries = ((card["title"], f'minors/{card["stem"]}.html') for card in index_order)
     index_body = (
-        f'{information_actions(year_selector)}\n'
+        f'{information_actions(year_selector, "minor", search_entries)}\n'
         f"<h1>CUHK Minor Programme List ({year_display})</h1>"
         f'<p class="meta">{len(index_order)} minor programmes &middot; '
         f'For students admitted in {year_display}</p>\n'

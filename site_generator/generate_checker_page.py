@@ -248,6 +248,14 @@ a:hover { text-decoration:underline; }
 .result-card { background:var(--card); border-radius:8px; border:1px solid var(--border);
     margin-bottom:10px; overflow:hidden; transition:border-color .15s; }
 .result-card:hover { border-color:var(--accent); }
+.result-card.search-highlight { animation:search-highlight 1.8s ease-out; }
+@keyframes search-highlight {
+    0%, 45% { background-color:#dbeafe; }
+    100% { background-color:var(--card); }
+}
+@media (prefers-reduced-motion:reduce) {
+    .result-card.search-highlight { animation-timing-function:steps(1, end); }
+}
 .result-header { display:flex; align-items:center; padding:12px 16px; cursor:pointer;
     gap:12px; }
 .result-header:hover { background:#fafafa; }
@@ -2246,6 +2254,9 @@ function renderResults(results) {
   });
 
   var html = '<h2>Results</h2>';
+  if (!PARSED_COURSES.length) {
+    html += '<p class="summary">No course codes were found. Results use an empty course list.</p>';
+  }
   html += '<p class="summary">' + results.length + ' minors evaluated &middot; sorted by completion</p>';
 
   for (var i = 0; i < results.length; i++) {
@@ -2268,10 +2279,9 @@ function renderResults(results) {
 var PARSED_COURSES = [];
 var ALL_RESULTS = [];
 
-function doParse() {
+function doParse(selectedMinor) {
   var textarea = document.getElementById('input-text');
   var text = textarea.value;
-  if (!text.trim()) return;
 
   // Save to localStorage
   try { localStorage.setItem('checkerCUSIS', text); } catch(e) {}
@@ -2281,21 +2291,12 @@ function doParse() {
   var summary = document.getElementById('parse-summary');
   var tableContainer = document.getElementById('course-table');
 
-  if (PARSED_COURSES.length === 0) {
-    summary.innerHTML = 'No valid CUHK course codes found. Paste the full CUSIS academic records page text.';
-    tableContainer.innerHTML = '';
-    document.getElementById('parse-section').style.display = 'none';
-    document.getElementById('results').innerHTML = '';
-    return;
-  }
-
-  document.getElementById('parse-section').style.display = 'block';
+  document.getElementById('parse-section').style.display = PARSED_COURSES.length ? 'block' : 'none';
 
   var totalUnits = PARSED_COURSES.reduce(function(s, c) { return s + c.unit; }, 0);
 
   // Update summary (parsed courses section stays collapsed by default)
-  var summaryEl = document.getElementById('parse-summary');
-  if (summaryEl) summaryEl.innerHTML = PARSED_COURSES.length + ' courses, ' + totalUnits.toFixed(1) + ' units';
+  summary.textContent = PARSED_COURSES.length + ' courses, ' + totalUnits.toFixed(1) + ' units';
 
   // Build course table
   var tbl = '<table><thead><tr><th>Code</th><th>Title</th><th>Units</th></tr></thead><tbody>';
@@ -2318,16 +2319,20 @@ function doParse() {
   ALL_RESULTS = [];
   for (var key in minors) {
     var result = scoreMinor(minors[key], PARSED_COURSES, courseIndex);
+    result.minorKey = key;
     ALL_RESULTS.push(result);
   }
 
   renderResults(ALL_RESULTS);
 
-  // Scroll to parse section so it's at the top
-  setTimeout(function() {
-    var parse = document.getElementById('parse-section');
-    if (parse) parse.scrollIntoView({behavior:'smooth', block:'start'});
-  }, 50);
+  var index = ALL_RESULTS.findIndex(function(result) { return result.minorKey === selectedMinor; });
+  var target = index >= 0 ? document.getElementById('card-' + index)
+    : document.getElementById(PARSED_COURSES.length ? 'parse-section' : 'results');
+  if (target) {
+    if (index >= 0) target.classList.add('search-highlight');
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    target.scrollIntoView({behavior:reducedMotion ? 'instant' : 'smooth', block:'start'});
+  }
 }
 
 // ── Init ────────────────────────────────────────────────────────────────
@@ -2340,7 +2345,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   } catch(e) {}
 
-  document.getElementById('btn-parse').addEventListener('click', doParse);
+  document.getElementById('btn-parse').addEventListener('click', function() { doParse(); });
+  document.getElementById('programme-search').addEventListener('programme-selected', function(event) {
+    doParse(event.detail);
+  });
 
   // Auto-parse if there's saved text
   var textarea = document.getElementById('input-text');
@@ -2483,7 +2491,11 @@ def generate(year):
         js=CHECKER_JS,
         year=year,
         year_display=year_display,
-        year_select=information_actions(year_select),
+        year_select=information_actions(
+            year_select, "minor",
+            ((minor["title"], key) for key, minor in merged["minors"].items()),
+            check_progress=True,
+        ),
         info_dialog=INFO_DIALOG,
         seo_metadata=seo_head(
             checker_title,

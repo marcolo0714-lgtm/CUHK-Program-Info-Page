@@ -271,6 +271,18 @@ body.settings-open { overflow:hidden; }
 .admit-year { color:var(--muted); font-size:.85em; margin-top:-4px; margin-bottom:8px; }
 
 .site-info-actions { display:flex; justify-content:flex-end; gap:8px; margin-bottom:16px; }
+.programme-toolbar { display:flex; flex-wrap:wrap; align-items:flex-start; gap:8px; margin-bottom:16px; }
+.programme-toolbar .site-info-actions { margin:0 0 0 auto; }
+.programme-search { position:relative; flex:1 1 11rem; min-width:0; max-width:28rem; }
+.programme-search input { width:100%; height:32px; padding:4px 9px; font:inherit; font-size:.9rem;
+    color:var(--text); background:var(--card); border:1px solid var(--border); border-radius:6px; }
+.programme-suggestions { position:absolute; z-index:60; top:100%; left:0; right:0;
+    max-height:min(18rem,45vh); overflow:auto; list-style:none; margin:4px 0 0; padding:4px;
+    background:var(--card); border:1px solid var(--border); border-radius:6px; box-shadow:0 4px 14px #0002; }
+.programme-suggestions li { padding:6px 8px; overflow-wrap:anywhere; }
+.programme-suggestions [role=option] { cursor:pointer; }
+.programme-suggestions [role=option]:hover,
+.programme-suggestions [aria-selected=true] { background:#e8f0fe; }
 .site-info-actions .year-select { margin:0; }
 .site-info-actions > * { min-height:32px; }
 .bar-controls > :is(.bar-year-select, .site-info-button, .settings-toggle) {

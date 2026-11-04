@@ -48,6 +48,14 @@ a:hover { text-decoration:underline; }
 .result-card { background:var(--card); border-radius:8px; border:1px solid var(--border);
     margin-bottom:10px; overflow:hidden; transition:border-color .15s; }
 .result-card:hover { border-color:var(--accent); }
+.result-card.search-highlight { animation:search-highlight 1.8s ease-out; }
+@keyframes search-highlight {
+    0%, 45% { background-color:#dbeafe; }
+    100% { background-color:var(--card); }
+}
+@media (prefers-reduced-motion:reduce) {
+    .result-card.search-highlight { animation-timing-function:steps(1, end); }
+}
 .result-header { display:flex; align-items:center; padding:12px 16px; cursor:pointer;
     gap:12px; }
 .result-header:hover { background:#fafafa; }
@@ -146,6 +154,18 @@ tr.matched:hover { background:#e6f7ea; }
 }
 
 .site-info-actions { display:flex; justify-content:flex-end; gap:8px; margin-bottom:16px; }
+.programme-toolbar { display:flex; flex-wrap:wrap; align-items:flex-start; gap:8px; margin-bottom:16px; }
+.programme-toolbar .site-info-actions { margin:0 0 0 auto; }
+.programme-search { position:relative; flex:1 1 11rem; min-width:0; max-width:28rem; }
+.programme-search input { width:100%; height:32px; padding:4px 9px; font:inherit; font-size:.9rem;
+    color:var(--text); background:var(--card); border:1px solid var(--border); border-radius:6px; }
+.programme-suggestions { position:absolute; z-index:60; top:100%; left:0; right:0;
+    max-height:min(18rem,45vh); overflow:auto; list-style:none; margin:4px 0 0; padding:4px;
+    background:var(--card); border:1px solid var(--border); border-radius:6px; box-shadow:0 4px 14px #0002; }
+.programme-suggestions li { padding:6px 8px; overflow-wrap:anywhere; }
+.programme-suggestions [role=option] { cursor:pointer; }
+.programme-suggestions [role=option]:hover,
+.programme-suggestions [aria-selected=true] { background:#e8f0fe; }
 .site-info-actions .year-select { margin:0; }
 .site-info-actions > * { min-height:32px; }
 .bar-controls > :is(.bar-year-select, .site-info-button, .settings-toggle) {
@@ -180,7 +200,115 @@ tr.matched:hover { background:#e6f7ea; }
 <body>
 <div class="container">
   <a href="index.html" class="back-link">&larr; Back to Minor Programmes</a>
-  <div class="site-info-actions"><select onchange="window.location=this.value" class="year-select"><option value="../2024_25/checker.html" >2024-25</option><option value="../2025_26/checker.html" selected>2025-26</option><option value="../2026_27/checker.html" >2026-27</option></select><button type="button" class="site-info-button" aria-haspopup="dialog" aria-controls="site-information" onclick="document.getElementById('site-information').showModal()"><span aria-hidden="true">&#9432;</span> Information</button></div>
+  <div class="programme-toolbar"><div class="programme-search"><input id="programme-search" type="search" role="combobox" aria-label="Search minor programmes" placeholder="Search minor programmes…" autocomplete="off" aria-autocomplete="list" aria-controls="programme-suggestions" aria-expanded="false" data-action="check"><ul id="programme-suggestions" class="programme-suggestions" role="listbox" hidden></ul></div><div class="site-info-actions"><select onchange="window.location=this.value" class="year-select"><option value="../2024_25/checker.html" >2024-25</option><option value="../2025_26/checker.html" selected>2025-26</option><option value="../2026_27/checker.html" >2026-27</option></select><button type="button" class="site-info-button" aria-haspopup="dialog" aria-controls="site-information" onclick="document.getElementById('site-information').showModal()"><span aria-hidden="true">&#9432;</span> Information</button></div></div><script id="programme-search-data" type="application/json">[["Anthropology", "Anthropology"], ["Applied Diversity Studies", "Applied_Diversity_Studies"], ["Arab Studies", "Arab_Studies"], ["Archaeology", "Archaeology"], ["Artificial Intelligence: Systems and Technologies", "Artificial_Intelligence_Systems_and_Technologies"], ["Biochemistry", "Biochemistry"], ["Biology", "Biology"], ["Biomedical Engineering", "Biomedical_Engineering"], ["Cell and Molecular Biology", "Cell_and_Molecular_Biology"], ["Chemistry", "Chemistry"], ["China Studies", "China_Studies"], ["Chinese Language and Literature", "Chinese_Language_and_Literature"], ["Computer Science", "Computer_Science"], ["Creative Writing in English", "Creative_Writing_in_English"], ["Cultural Heritage Studies", "Cultural_Heritage_Studies"], ["Cultural Management", "Cultural_Management"], ["Cultural Studies", "Cultural_Studies"], ["Curating and Artistic Strategies", "Curating_and_Artistic_Strategies"], ["Data Science and Policy Studies", "Data_Science_and_Policy_Studies"], ["Earth and Environmental Sciences", "Earth_and_Environmental_Sciences"], ["Economics", "Economics"], ["Electronic Engineering", "Electronic_Engineering"], ["Energy Technology", "Energy_Technology"], ["English", "English"], ["Film and Screen Studies", "Film_and_Screen_Studies"], ["Fine Arts", "Fine_Arts"], ["Gender Studies", "Gender_Studies"], ["Geography and Resource Management", "Geography_and_Resource_Management"], ["Global Communication", "Global_Communication"], ["Global Studies", "Global_Studies"], ["Government and Public Administration", "Government_and_Public_Administration"], ["Business", "HB_Minor_Programme_in_Business"], ["Chinese Language (Cantonese) as a Second Language", "HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language"], ["Chinese Language (Putonghua) as a Second Language", "HB_Minor_Programme_in_Chinese_Language_(Putonghua)_as_a_Second_Language"], ["CU-ASK: Innovative Problem Solving", "HB_Minor_Programme_in_CU-ASK_Innovative_Problem_Solving"], ["Data Analytics and Informatics", "HB_Minor_Programme_in_Data_Analytics_and_Informatics"], ["Education", "HB_Minor_Programme_in_Education"], ["Entrepreneurship and Innovation", "HB_Minor_Programme_in_Entrepreneurship_and_Innovation"], ["French", "HB_Minor_Programme_in_French"], ["German", "HB_Minor_Programme_in_German"], ["Korean", "HB_Minor_Programme_in_Korean"], ["Spanish", "HB_Minor_Programme_in_Spanish"], ["History", "History"], ["Hong Kong Sign Language", "Hong_Kong_Sign_Language"], ["Information Engineering", "Information_Engineering"], ["Japanese Language", "Japanese_Language"], ["Japanese Studies", "Japanese_Studies"], ["Journalism and Communication", "Journalism_and_Communication"], ["Law", "Law"], ["Linguistics", "Linguistics"], ["Logistics and Supply Chain Management", "Logistics_and_Supply_Chain_Management"], ["Mathematics", "Mathematics"], ["Mechanical and Automation Engineering", "Mechanical_and_Automation_Engineering"], ["Molecular Biotechnology", "Molecular_Biotechnology"], ["Music", "Music"], ["Philosophy", "Philosophy"], ["Physical Education, Exercise Science and Health", "Physical_Education,_Exercise_Science_and_Health"], ["Physics", "Physics"], ["Psychology", "Psychology"], ["Public Health", "Public_Health"], ["Public History", "Public_History"], ["Religion and Health", "Religion_and_Health"], ["Religious Studies", "Religious_Studies"], ["Risk Management Science", "Risk_Management_Science"], ["Social Policy", "Social_Policy"], ["Social Welfare", "Social_Welfare"], ["Sociology", "Sociology"], ["Statistics", "Statistics"], ["Theology", "Theology"], ["Translation", "Translation"], ["Urban Studies", "Urban_Studies"]]</script>
+<script>
+(() => {
+    const input = document.getElementById('programme-search');
+    const list = document.getElementById('programme-suggestions');
+    const entries = JSON.parse(document.getElementById('programme-search-data').textContent);
+    const normalize = value => value.toLowerCase().replace(/\./g, '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+    const compact = value => value.replace(/ /g, '');
+    const names = entries.map(([label, target]) => ({label, target, name: normalize(label)}));
+    let matches = [];
+    let active = -1;
+
+    function distance(a, b) {
+        let previous = Array.from({length: b.length + 1}, (_, i) => i);
+        for (let i = 1; i <= a.length; i++) {
+            const row = [i];
+            for (let j = 1; j <= b.length; j++) {
+                row[j] = Math.min(row[j - 1] + 1, previous[j] + 1,
+                    previous[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+            }
+            previous = row;
+        }
+        return previous[b.length];
+    }
+
+    function score(query, name) {
+        const key = compact(query);
+        const full = compact(name);
+        if (key === full) return 0;
+        if (full.startsWith(key)) return 1;
+        if (name.includes(query) || full.includes(key)) return 2;
+        if (key.length < 3) return Infinity;
+        const tolerance = key.length >= 6 ? 3 : key.length >= 4 ? 2 : 1;
+        let best = Infinity;
+        for (const candidate of [...name.split(' '), full]) {
+            for (let size = Math.max(1, key.length - tolerance);
+                 size <= Math.min(candidate.length, key.length + tolerance); size++) {
+                best = Math.min(best, distance(key, candidate.slice(0, size)));
+            }
+        }
+        return best <= tolerance ? 3 + best : Infinity;
+    }
+
+    function setOpen(open) {
+        list.hidden = !open;
+        input.setAttribute('aria-expanded', String(open));
+        if (!open) input.removeAttribute('aria-activedescendant');
+    }
+
+    function update() {
+        const query = normalize(input.value);
+        active = -1;
+        input.removeAttribute('aria-activedescendant');
+        list.replaceChildren();
+        matches = query ? names.map(entry => ({entry, rank: score(query, entry.name)}))
+            .filter(item => Number.isFinite(item.rank))
+            .sort((a, b) => a.rank - b.rank || a.entry.label.localeCompare(b.entry.label))
+            .slice(0, 8).map(item => item.entry) : [];
+        matches.forEach((entry, index) => {
+            const option = document.createElement('li');
+            option.id = 'programme-option-' + index;
+            option.setAttribute('role', 'option');
+            option.setAttribute('aria-selected', 'false');
+            option.textContent = entry.label;
+            option.addEventListener('pointerdown', event => event.preventDefault());
+            option.addEventListener('click', () => select(index));
+            list.append(option);
+        });
+        setOpen(matches.length > 0);
+    }
+
+    function select(index) {
+        const entry = matches[index];
+        if (!entry) return;
+        input.value = entry.label;
+        setOpen(false);
+        if (input.dataset.action === 'check') {
+            input.dispatchEvent(new CustomEvent('programme-selected', {detail: entry.target}));
+        } else {
+            window.location.assign(entry.target);
+        }
+    }
+
+    input.addEventListener('input', update);
+    input.addEventListener('focus', update);
+    input.addEventListener('blur', () => setOpen(false));
+    input.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            setOpen(false);
+        } else if (event.key === 'Enter' && !list.hidden) {
+            event.preventDefault();
+            select(Math.max(0, active));
+        } else if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            if (list.hidden) update();
+            if (!matches.length) return;
+            event.preventDefault();
+            const direction = event.key === 'ArrowDown' ? 1 : -1;
+            active = active < 0 ? (direction === 1 ? 0 : matches.length - 1)
+                : (active + direction + matches.length) % matches.length;
+            Array.from(list.children).forEach((option, index) => {
+                option.setAttribute('aria-selected', String(index === active));
+            });
+            input.setAttribute('aria-activedescendant', list.children[active].id);
+            list.children[active].scrollIntoView({block: 'nearest'});
+        }
+    });
+})();
+</script>
+
   <h1>CUHK Minor Progress Checker (2025-26)</h1>
   <p class="summary">Paste your CUSIS academic records to find which CUHK minor programmes you are closest to completing.</p>
 
@@ -2118,6 +2246,9 @@ function renderResults(results) {
   });
 
   var html = '<h2>Results</h2>';
+  if (!PARSED_COURSES.length) {
+    html += '<p class="summary">No course codes were found. Results use an empty course list.</p>';
+  }
   html += '<p class="summary">' + results.length + ' minors evaluated &middot; sorted by completion</p>';
 
   for (var i = 0; i < results.length; i++) {
@@ -2140,10 +2271,9 @@ function renderResults(results) {
 var PARSED_COURSES = [];
 var ALL_RESULTS = [];
 
-function doParse() {
+function doParse(selectedMinor) {
   var textarea = document.getElementById('input-text');
   var text = textarea.value;
-  if (!text.trim()) return;
 
   // Save to localStorage
   try { localStorage.setItem('checkerCUSIS', text); } catch(e) {}
@@ -2153,21 +2283,12 @@ function doParse() {
   var summary = document.getElementById('parse-summary');
   var tableContainer = document.getElementById('course-table');
 
-  if (PARSED_COURSES.length === 0) {
-    summary.innerHTML = 'No valid CUHK course codes found. Paste the full CUSIS academic records page text.';
-    tableContainer.innerHTML = '';
-    document.getElementById('parse-section').style.display = 'none';
-    document.getElementById('results').innerHTML = '';
-    return;
-  }
-
-  document.getElementById('parse-section').style.display = 'block';
+  document.getElementById('parse-section').style.display = PARSED_COURSES.length ? 'block' : 'none';
 
   var totalUnits = PARSED_COURSES.reduce(function(s, c) { return s + c.unit; }, 0);
 
   // Update summary (parsed courses section stays collapsed by default)
-  var summaryEl = document.getElementById('parse-summary');
-  if (summaryEl) summaryEl.innerHTML = PARSED_COURSES.length + ' courses, ' + totalUnits.toFixed(1) + ' units';
+  summary.textContent = PARSED_COURSES.length + ' courses, ' + totalUnits.toFixed(1) + ' units';
 
   // Build course table
   var tbl = '<table><thead><tr><th>Code</th><th>Title</th><th>Units</th></tr></thead><tbody>';
@@ -2190,16 +2311,20 @@ function doParse() {
   ALL_RESULTS = [];
   for (var key in minors) {
     var result = scoreMinor(minors[key], PARSED_COURSES, courseIndex);
+    result.minorKey = key;
     ALL_RESULTS.push(result);
   }
 
   renderResults(ALL_RESULTS);
 
-  // Scroll to parse section so it's at the top
-  setTimeout(function() {
-    var parse = document.getElementById('parse-section');
-    if (parse) parse.scrollIntoView({behavior:'smooth', block:'start'});
-  }, 50);
+  var index = ALL_RESULTS.findIndex(function(result) { return result.minorKey === selectedMinor; });
+  var target = index >= 0 ? document.getElementById('card-' + index)
+    : document.getElementById(PARSED_COURSES.length ? 'parse-section' : 'results');
+  if (target) {
+    if (index >= 0) target.classList.add('search-highlight');
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    target.scrollIntoView({behavior:reducedMotion ? 'instant' : 'smooth', block:'start'});
+  }
 }
 
 // ── Init ────────────────────────────────────────────────────────────────
@@ -2212,7 +2337,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   } catch(e) {}
 
-  document.getElementById('btn-parse').addEventListener('click', doParse);
+  document.getElementById('btn-parse').addEventListener('click', function() { doParse(); });
+  document.getElementById('programme-search').addEventListener('programme-selected', function(event) {
+    doParse(event.detail);
+  });
 
   // Auto-parse if there's saved text
   var textarea = document.getElementById('input-text');

@@ -1234,7 +1234,9 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
         if len(available_years) > 1
         else ""
     )
-    index_body = f'{information_actions(index_year_selector)}<h1>CUHK {scope}Major Programme List ({display_year})</h1><p class="meta">{faculty_summary} &middot; For students admitted in {display_year}</p><div class="index-actions"><a href="../../index.html" class="index-action">View Minor Programmes &rarr;</a></div>{"".join(faculty_sections)}'
+    search_entries = ((item["title"], f'majors/{item["source_file"]}.html') for item in programmes)
+    toolbar = information_actions(index_year_selector, "major", search_entries)
+    index_body = f'{toolbar}<h1>CUHK {scope}Major Programme List ({display_year})</h1><p class="meta">{faculty_summary} &middot; For students admitted in {display_year}</p><div class="index-actions"><a href="../../index.html" class="index-action">View Minor Programmes &rarr;</a></div>{"".join(faculty_sections)}'
     write_generated(
         site_dir / "index.html",
         page_shell(

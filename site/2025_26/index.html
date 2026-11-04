@@ -283,6 +283,18 @@ body.settings-open { overflow:hidden; }
 .index-action-primary:hover { background:#1d4ed8; color:#fff; }
 
 .site-info-actions { display:flex; justify-content:flex-end; gap:8px; margin-bottom:16px; }
+.programme-toolbar { display:flex; flex-wrap:wrap; align-items:flex-start; gap:8px; margin-bottom:16px; }
+.programme-toolbar .site-info-actions { margin:0 0 0 auto; }
+.programme-search { position:relative; flex:1 1 11rem; min-width:0; max-width:28rem; }
+.programme-search input { width:100%; height:32px; padding:4px 9px; font:inherit; font-size:.9rem;
+    color:var(--text); background:var(--card); border:1px solid var(--border); border-radius:6px; }
+.programme-suggestions { position:absolute; z-index:60; top:100%; left:0; right:0;
+    max-height:min(18rem,45vh); overflow:auto; list-style:none; margin:4px 0 0; padding:4px;
+    background:var(--card); border:1px solid var(--border); border-radius:6px; box-shadow:0 4px 14px #0002; }
+.programme-suggestions li { padding:6px 8px; overflow-wrap:anywhere; }
+.programme-suggestions [role=option] { cursor:pointer; }
+.programme-suggestions [role=option]:hover,
+.programme-suggestions [aria-selected=true] { background:#e8f0fe; }
 .site-info-actions .year-select { margin:0; }
 .site-info-actions > * { min-height:32px; }
 .bar-controls > :is(.bar-year-select, .site-info-button, .settings-toggle) {
@@ -316,7 +328,115 @@ body.settings-open { overflow:hidden; }
 </head>
 <body class="page-index">
 <div class="container">
-<div class="site-info-actions"><select onchange="window.location=this.value" class="year-select"><option value="../2024_25/index.html" >2024-25</option><option value="../2025_26/index.html" selected>2025-26</option><option value="../2026_27/index.html" >2026-27</option></select><button type="button" class="site-info-button" aria-haspopup="dialog" aria-controls="site-information" onclick="document.getElementById('site-information').showModal()"><span aria-hidden="true">&#9432;</span> Information</button></div>
+<div class="programme-toolbar"><div class="programme-search"><input id="programme-search" type="search" role="combobox" aria-label="Search minor programmes" placeholder="Search minor programmes…" autocomplete="off" aria-autocomplete="list" aria-controls="programme-suggestions" aria-expanded="false" data-action="navigate"><ul id="programme-suggestions" class="programme-suggestions" role="listbox" hidden></ul></div><div class="site-info-actions"><select onchange="window.location=this.value" class="year-select"><option value="../2024_25/index.html" >2024-25</option><option value="../2025_26/index.html" selected>2025-26</option><option value="../2026_27/index.html" >2026-27</option></select><button type="button" class="site-info-button" aria-haspopup="dialog" aria-controls="site-information" onclick="document.getElementById('site-information').showModal()"><span aria-hidden="true">&#9432;</span> Information</button></div></div><script id="programme-search-data" type="application/json">[["Anthropology", "minors/Anthropology.html"], ["Arab Studies", "minors/Arab_Studies.html"], ["Archaeology", "minors/Archaeology.html"], ["China Studies", "minors/China_Studies.html"], ["Chinese Language and Literature", "minors/Chinese_Language_and_Literature.html"], ["Creative Writing in English", "minors/Creative_Writing_in_English.html"], ["Cultural Heritage Studies", "minors/Cultural_Heritage_Studies.html"], ["Cultural Management", "minors/Cultural_Management.html"], ["Cultural Studies", "minors/Cultural_Studies.html"], ["Curating and Artistic Strategies", "minors/Curating_and_Artistic_Strategies.html"], ["English", "minors/English.html"], ["Film and Screen Studies", "minors/Film_and_Screen_Studies.html"], ["Fine Arts", "minors/Fine_Arts.html"], ["History", "minors/History.html"], ["Hong Kong Sign Language", "minors/Hong_Kong_Sign_Language.html"], ["Japanese Language", "minors/Japanese_Language.html"], ["Japanese Studies", "minors/Japanese_Studies.html"], ["Linguistics", "minors/Linguistics.html"], ["Music", "minors/Music.html"], ["Philosophy", "minors/Philosophy.html"], ["Public History", "minors/Public_History.html"], ["Religion and Health", "minors/Religion_and_Health.html"], ["Religious Studies", "minors/Religious_Studies.html"], ["Theology", "minors/Theology.html"], ["Translation", "minors/Translation.html"], ["Physical Education, Exercise Science and Health", "minors/Physical_Education,_Exercise_Science_and_Health.html"], ["Artificial Intelligence: Systems and Technologies", "minors/Artificial_Intelligence_Systems_and_Technologies.html"], ["Biomedical Engineering", "minors/Biomedical_Engineering.html"], ["Computer Science", "minors/Computer_Science.html"], ["Electronic Engineering", "minors/Electronic_Engineering.html"], ["Energy Technology", "minors/Energy_Technology.html"], ["Information Engineering", "minors/Information_Engineering.html"], ["Logistics and Supply Chain Management", "minors/Logistics_and_Supply_Chain_Management.html"], ["Mechanical and Automation Engineering", "minors/Mechanical_and_Automation_Engineering.html"], ["Law", "minors/Law.html"], ["Public Health", "minors/Public_Health.html"], ["Biochemistry", "minors/Biochemistry.html"], ["Biology", "minors/Biology.html"], ["Cell and Molecular Biology", "minors/Cell_and_Molecular_Biology.html"], ["Chemistry", "minors/Chemistry.html"], ["Earth and Environmental Sciences", "minors/Earth_and_Environmental_Sciences.html"], ["Mathematics", "minors/Mathematics.html"], ["Molecular Biotechnology", "minors/Molecular_Biotechnology.html"], ["Physics", "minors/Physics.html"], ["Risk Management Science", "minors/Risk_Management_Science.html"], ["Statistics", "minors/Statistics.html"], ["Applied Diversity Studies", "minors/Applied_Diversity_Studies.html"], ["Data Science and Policy Studies", "minors/Data_Science_and_Policy_Studies.html"], ["Economics", "minors/Economics.html"], ["Gender Studies", "minors/Gender_Studies.html"], ["Geography and Resource Management", "minors/Geography_and_Resource_Management.html"], ["Global Communication", "minors/Global_Communication.html"], ["Global Studies", "minors/Global_Studies.html"], ["Government and Public Administration", "minors/Government_and_Public_Administration.html"], ["Journalism and Communication", "minors/Journalism_and_Communication.html"], ["Psychology", "minors/Psychology.html"], ["Social Policy", "minors/Social_Policy.html"], ["Social Welfare", "minors/Social_Welfare.html"], ["Sociology", "minors/Sociology.html"], ["Urban Studies", "minors/Urban_Studies.html"], ["Business", "minors/HB_Minor_Programme_in_Business.html"], ["Chinese Language (Cantonese) as a Second Language", "minors/HB_Minor_Programme_in_Chinese_Language_(Cantonese)_as_a_Second_Language.html"], ["Chinese Language (Putonghua) as a Second Language", "minors/HB_Minor_Programme_in_Chinese_Language_(Putonghua)_as_a_Second_Language.html"], ["CU-ASK: Innovative Problem Solving", "minors/HB_Minor_Programme_in_CU-ASK_Innovative_Problem_Solving.html"], ["Data Analytics and Informatics", "minors/HB_Minor_Programme_in_Data_Analytics_and_Informatics.html"], ["Education", "minors/HB_Minor_Programme_in_Education.html"], ["Entrepreneurship and Innovation", "minors/HB_Minor_Programme_in_Entrepreneurship_and_Innovation.html"], ["French", "minors/HB_Minor_Programme_in_French.html"], ["German", "minors/HB_Minor_Programme_in_German.html"], ["Korean", "minors/HB_Minor_Programme_in_Korean.html"], ["Spanish", "minors/HB_Minor_Programme_in_Spanish.html"]]</script>
+<script>
+(() => {
+    const input = document.getElementById('programme-search');
+    const list = document.getElementById('programme-suggestions');
+    const entries = JSON.parse(document.getElementById('programme-search-data').textContent);
+    const normalize = value => value.toLowerCase().replace(/\./g, '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+    const compact = value => value.replace(/ /g, '');
+    const names = entries.map(([label, target]) => ({label, target, name: normalize(label)}));
+    let matches = [];
+    let active = -1;
+
+    function distance(a, b) {
+        let previous = Array.from({length: b.length + 1}, (_, i) => i);
+        for (let i = 1; i <= a.length; i++) {
+            const row = [i];
+            for (let j = 1; j <= b.length; j++) {
+                row[j] = Math.min(row[j - 1] + 1, previous[j] + 1,
+                    previous[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+            }
+            previous = row;
+        }
+        return previous[b.length];
+    }
+
+    function score(query, name) {
+        const key = compact(query);
+        const full = compact(name);
+        if (key === full) return 0;
+        if (full.startsWith(key)) return 1;
+        if (name.includes(query) || full.includes(key)) return 2;
+        if (key.length < 3) return Infinity;
+        const tolerance = key.length >= 6 ? 3 : key.length >= 4 ? 2 : 1;
+        let best = Infinity;
+        for (const candidate of [...name.split(' '), full]) {
+            for (let size = Math.max(1, key.length - tolerance);
+                 size <= Math.min(candidate.length, key.length + tolerance); size++) {
+                best = Math.min(best, distance(key, candidate.slice(0, size)));
+            }
+        }
+        return best <= tolerance ? 3 + best : Infinity;
+    }
+
+    function setOpen(open) {
+        list.hidden = !open;
+        input.setAttribute('aria-expanded', String(open));
+        if (!open) input.removeAttribute('aria-activedescendant');
+    }
+
+    function update() {
+        const query = normalize(input.value);
+        active = -1;
+        input.removeAttribute('aria-activedescendant');
+        list.replaceChildren();
+        matches = query ? names.map(entry => ({entry, rank: score(query, entry.name)}))
+            .filter(item => Number.isFinite(item.rank))
+            .sort((a, b) => a.rank - b.rank || a.entry.label.localeCompare(b.entry.label))
+            .slice(0, 8).map(item => item.entry) : [];
+        matches.forEach((entry, index) => {
+            const option = document.createElement('li');
+            option.id = 'programme-option-' + index;
+            option.setAttribute('role', 'option');
+            option.setAttribute('aria-selected', 'false');
+            option.textContent = entry.label;
+            option.addEventListener('pointerdown', event => event.preventDefault());
+            option.addEventListener('click', () => select(index));
+            list.append(option);
+        });
+        setOpen(matches.length > 0);
+    }
+
+    function select(index) {
+        const entry = matches[index];
+        if (!entry) return;
+        input.value = entry.label;
+        setOpen(false);
+        if (input.dataset.action === 'check') {
+            input.dispatchEvent(new CustomEvent('programme-selected', {detail: entry.target}));
+        } else {
+            window.location.assign(entry.target);
+        }
+    }
+
+    input.addEventListener('input', update);
+    input.addEventListener('focus', update);
+    input.addEventListener('blur', () => setOpen(false));
+    input.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            setOpen(false);
+        } else if (event.key === 'Enter' && !list.hidden) {
+            event.preventDefault();
+            select(Math.max(0, active));
+        } else if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            if (list.hidden) update();
+            if (!matches.length) return;
+            event.preventDefault();
+            const direction = event.key === 'ArrowDown' ? 1 : -1;
+            active = active < 0 ? (direction === 1 ? 0 : matches.length - 1)
+                : (active + direction + matches.length) % matches.length;
+            Array.from(list.children).forEach((option, index) => {
+                option.setAttribute('aria-selected', String(index === active));
+            });
+            input.setAttribute('aria-activedescendant', list.children[active].id);
+            list.children[active].scrollIntoView({block: 'nearest'});
+        }
+    });
+})();
+</script>
+
 <h1>CUHK Minor Programme List (2025-26)</h1><p class="meta">71 minor programmes &middot; For students admitted in 2025-26</p>
 <div class="index-actions">
 <a href="../major/index.html" class="index-action">View Major Programmes &rarr;</a>
