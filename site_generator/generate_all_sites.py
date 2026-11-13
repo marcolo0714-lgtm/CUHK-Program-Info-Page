@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import shutil
 import subprocess
@@ -12,8 +13,10 @@ from urllib.parse import unquote, urlsplit
 
 try:
     from .site_metadata import update_course_schedule_date, write_discovery_files
+    from .publication import prune_assets
 except ImportError:
     from site_metadata import update_course_schedule_date, write_discovery_files
+    from publication import prune_assets
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -44,6 +47,9 @@ def discover_major_years() -> list[str]:
 
 def resolve_local_link(page: Path, href: str) -> Path | None:
     parts = urlsplit(href)
+    # Vercel serves its optional analytics endpoint; it is not a build artifact.
+    if parts.path == "/_vercel/insights/script.js":
+        return None
     if parts.scheme or parts.netloc or href.startswith(("#", "mailto:", "tel:", "javascript:")):
         return None
     clean_path = unquote(parts.path)
@@ -57,27 +63,35 @@ def resolve_local_link(page: Path, href: str) -> Path | None:
 
 
 def link_target_exists(target: Path) -> bool:
-    candidates = [target]
-    if not target.suffix:
-        candidates.extend((target.with_suffix(".html"), target / "index.html"))
+    candidates = [target, Path(str(target) + ".html"), target / "index.html"]
     return any(candidate.is_file() for candidate in candidates)
 
 
 def verify_internal_links() -> None:
     missing: list[str] = []
-    href_pattern = re.compile(r'''\bhref=["']([^"']+)["']''', re.IGNORECASE)
+    # Course tables repeat the same links thousands of times. Resolve and stat
+    # each distinct target once, including links in the full-details fallback.
+    resolved: dict[tuple[Path, str], Path | None] = {}
+    valid: dict[Path, bool] = {}
+    site_root = SITE.resolve()
+    href_pattern = re.compile(r'''\b(?:href|src|data-src|data-url|data-fallback)=["']([^"']+)["']''', re.IGNORECASE)
     for page in SITE.rglob("*.html"):
         html = page.read_text(encoding="utf-8")
         for href in href_pattern.findall(html):
-            target = resolve_local_link(page, href)
+            key = (page.parent, href)
+            if key not in resolved:
+                resolved[key] = resolve_local_link(page, href)
+            target = resolved[key]
             if target is None:
                 continue
             try:
-                target.relative_to(SITE.resolve())
+                target.relative_to(site_root)
             except ValueError:
                 missing.append(f"{page.relative_to(ROOT)} -> {href} (outside site/)")
                 continue
-            if not link_target_exists(target):
+            if target not in valid:
+                valid[target] = link_target_exists(target)
+            if not valid[target]:
                 missing.append(f"{page.relative_to(ROOT)} -> {href}")
     if missing:
         preview = "\n".join(f"  {item}" for item in missing[:30])
@@ -88,12 +102,23 @@ def verify_internal_links() -> None:
 
 def verify_expected_pages(major_years: list[str]) -> None:
     for year in major_years:
-        source_count = len(list((ROOT / "major_extraction" / "major_json" / year).glob("*.json")))
-        output_count = len(list((SITE / "major" / year / "majors").glob("*.html")))
-        if source_count != output_count:
+        expected = set()
+        for path in (ROOT / "major_extraction" / "major_json" / year).glob("*.json"):
+            data = json.loads(path.read_text(encoding="utf-8"))
+            expected.add(path.with_suffix(".html").name)
+            schemes = data.get("requirement_schemes", [])
+            default = next(
+                (scheme for scheme in schemes if scheme.get("kind") == "standard"),
+                next((scheme for scheme in schemes if scheme.get("default")), schemes[0] if schemes else None),
+            )
+            expected.update(
+                f'{path.stem}--{scheme["id"]}.html' for scheme in schemes if scheme is not default
+            )
+        actual = {path.name for path in (SITE / "major" / year / "majors").glob("*.html")}
+        if expected != actual:
             raise RuntimeError(
-                f"Major page count mismatch for {year}: {source_count} JSON files, "
-                f"{output_count} generated pages"
+                f"Major pages mismatch for {year}: missing {sorted(expected - actual)}, "
+                f"unexpected {sorted(actual - expected)}"
             )
     print("Generated-page count check: OK")
 
@@ -123,11 +148,14 @@ function walk(directory) {
         new Function(match[2]);
         checked++;
       }
+    } else if (entry.name.endsWith('.js')) {
+      new Function(fs.readFileSync(full, 'utf8'));
+      checked++;
     }
   }
 }
 walk(root);
-console.log(`JavaScript syntax check: OK (${checked} inline scripts)`);
+console.log(`JavaScript syntax check: OK (${checked} scripts)`);
 """
     subprocess.run([node, "-e", checker, str(SITE)], cwd=ROOT, check=True)
 
@@ -153,6 +181,7 @@ def build(args: argparse.Namespace) -> None:
 
     # This must run after both programme generators so the sitemap and
     # redirects contain every minor and major page.
+    prune_assets(SITE)
     write_discovery_files(SITE)
     print("\nDiscovery files regenerated: sitemap.xml, robots.txt, _redirects")
 

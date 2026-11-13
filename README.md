@@ -45,8 +45,8 @@ and major-specific minor availability filtering.
    ```
 
    This regenerates all available years, checker pages, metadata,
-   `sitemap.xml`, and redirects, then verifies page counts, links, and inline
-   JavaScript.
+   `sitemap.xml`, and redirects, then verifies page counts, links, and generated
+   JavaScript, including shared scripts.
 
 4. If course schedules were refreshed, rebuild once with the current Hong Kong
    date in every page footer:
@@ -60,6 +60,22 @@ and major-specific minor availability filtering.
 
 5. Deploy only `site/` to Vercel or Cloudflare Pages. The root minor and
    `/major` URLs redirect to their newest available admission years.
+
+Programme pages use extensionless canonical URLs. Each major requirement scheme
+has its own linked page; old `?scheme=` bookmarks still open the matching scheme.
+Requirements, course codes, titles, and term availability remain in the HTML.
+Shared CSS/scripts and course details live under `site/assets/`; schedules and
+prerequisites load when their course table opens, with a full-details fallback.
+Deploy these assets together with the HTML. The build enforces a 1.5 MB HTML limit.
+
+For local previews, open `site/index.html` directly or run
+`python -m http.server 8000 --directory site` and visit `http://localhost:8000/`.
+Shared styles, scripts and course details use relative paths. Local previews use the actual `.html` filenames for
+navigation; the deployed website retains its extensionless canonical URLs.
+
+Sitemap modification dates track meaningful page and course-detail changes, rather
+than every rebuild. Keep `site_generator/site_tempdata/page_freshness.json` across
+builds to preserve that history. The first build establishes today's baseline.
 
 Build variants:
 
@@ -174,6 +190,7 @@ programme snapshot. Run the unified build after regeneration.
 │   ├── index.html                      # Redirects to newest year
 │   ├── checker_data.json               # Course catalog (year-agnostic)
 │   ├── sitemap.xml, robots.txt, _redirects
+│   ├── assets/                         # Shared CSS/JS and deferred course details
 │   ├── {year}/
 │   │   ├── index.html                  # Minor programme list
 │   │   ├── checker.html                # Interactive checker
@@ -190,9 +207,11 @@ programme snapshot. Run the unified build after regeneration.
 │   ├── generate_major_site.py          # Major JSON → site/major/{year}/
 │   ├── minor_course_index.py           # Course-to-minor membership lookup
 │   ├── site_metadata.py                # SEO, discovery, and schedule-date helpers
+│   ├── publication.py                  # Compact HTML, canonical links, shared assets
 │   ├── course_schedule_updated_on.txt  # Persisted schedule footer date
-│   └── site_tempdata/                  # Intermediate checker data (per year)
-│       └── checker_minors_{year}.json
+│   └── site_tempdata/                  # Checker data and sitemap date history
+│       ├── checker_minors_{year}.json
+│       └── page_freshness.json
 └── requirements.txt                    # Python dependencies
 ```
 

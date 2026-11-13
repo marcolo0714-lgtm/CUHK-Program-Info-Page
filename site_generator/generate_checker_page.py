@@ -1,7 +1,7 @@
 """
 Generate checker.html — interactive minor progress checker page.
 Reads checker_data.json (courses) and checker_minors_{year}.json and produces
-a self-contained static HTML page.
+a static HTML page with shared scripts and styles.
 
 Usage:  python -m site_generator.generate_checker_page [--year 2025_26]
 """
@@ -10,6 +10,7 @@ import json
 import argparse
 import sys
 import re
+from hashlib import sha256
 from html.parser import HTMLParser
 from html import unescape
 from pathlib import Path
@@ -17,6 +18,7 @@ from pathlib import Path
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 try:
     from .site_information import INFO_CSS, INFO_DIALOG, information_actions
+    from .publication import prepare_page
     from .site_metadata import (
         absolute_url,
         course_schedule_update_date,
@@ -25,6 +27,7 @@ try:
     )
 except ImportError:
     from site_information import INFO_CSS, INFO_DIALOG, information_actions
+    from publication import prepare_page
     from site_metadata import (
         absolute_url,
         course_schedule_update_date,
@@ -2467,10 +2470,11 @@ def generate(year):
     ) + '</select>'
 
     year_display = year.replace("_", "-")
-    checker_title = f"CUHK Minor Progress Checker {year_display}"
+    checker_title = f"CUHK Minor Progress Checker {year_display} | Check Completed Courses"
     checker_description = (
-        f"Check progress toward CUHK minor programme requirements for {year_display} "
-        "using courses copied from CUSIS academic records."
+        f"Find which CUHK minors you are closest to completing for {year_display} admission. "
+        "Paste completed courses from CUSIS to compare earned units, remaining courses "
+        "and requirements across all minor programmes."
     )
     checker_path = f"/{year}/checker"
     structured_data = {
@@ -2505,7 +2509,12 @@ def generate(year):
         ),
     )
 
+    # Keep data changes visible to sitemap freshness tracking even though the
+    # checker data is published in a shared script rather than inline HTML.
+    data_version = sha256(json.dumps(merged, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
+    html = html.replace("</head>", f'<meta name="checker-data-version" content="{data_version}"></head>')
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    html = prepare_page(html, OUTPUT_FILE)
     OUTPUT_FILE.write_text(html, encoding="utf-8")
     write_discovery_files(site_dir)
     print(f"Generated: site/{year}/checker.html")

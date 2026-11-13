@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import html
 import json
+from hashlib import sha256
+from html.parser import HTMLParser
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from xml.sax.saxutils import escape as xml_escape
@@ -14,6 +16,65 @@ SITE_NAME = "CUHK Programme Information"
 COURSE_SCHEDULE_DATE_FILE = Path(__file__).with_name(
     "course_schedule_updated_on.txt"
 )
+FRESHNESS_FILE = Path(__file__).with_name("site_tempdata") / "page_freshness.json"
+
+
+class PageMeaning(HTMLParser):
+    """Track content changes independently of shared script and style hashes."""
+
+    def __init__(self):
+        super().__init__()
+        self.ignored = 0
+        self.parts = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag in {"script", "style"}:
+            self.ignored += 1
+        if self.ignored:
+            return
+        values = dict(attrs)
+        for key in ("href", "content", "data-src", "class"):
+            value = values.get(key)
+            if value and "/assets/shared/" not in "/" + value and not (
+                "/assets/course-details/" in "/" + value and value.endswith(".html")
+            ):
+                self.parts.append(key + "=" + value)
+
+    def handle_endtag(self, tag):
+        if tag in {"script", "style"}:
+            self.ignored = max(0, self.ignored - 1)
+
+    def handle_data(self, data):
+        if not self.ignored:
+            self.parts.append(" ".join(data.split()))
+
+
+def page_freshness(page_files, site_root):
+    previous = json.loads(FRESHNESS_FILE.read_text(encoding="utf-8")) if FRESHNESS_FILE.exists() else {}
+    today = datetime.now(timezone(timedelta(hours=8))).date().isoformat()
+    dates = {}
+    for path in page_files:
+        key = path.relative_to(site_root).as_posix()
+        entry = previous.get(key, {})
+        raw = path.read_bytes()
+        raw_hash = sha256(raw).hexdigest()
+        if entry.get("raw_hash") == raw_hash:
+            dates[_published_path(path, site_root)] = entry["updated"]
+            continue
+        parser = PageMeaning()
+        parser.feed(raw.decode("utf-8"))
+        fingerprint = sha256("\n".join(parser.parts).encode("utf-8")).hexdigest()
+        updated = entry.get("updated", today) if entry.get("hash") == fingerprint else today
+        previous[key] = {"hash": fingerprint, "raw_hash": raw_hash, "updated": updated}
+        dates[_published_path(path, site_root)] = updated
+    FRESHNESS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    temporary = FRESHNESS_FILE.with_suffix(".tmp")
+    try:
+        temporary.write_text(json.dumps(previous, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        temporary.replace(FRESHNESS_FILE)
+    finally:
+        temporary.unlink(missing_ok=True)
+    return dates
 
 
 def course_schedule_update_date() -> str:
@@ -137,12 +198,14 @@ def write_discovery_files(site_root: Path) -> None:
     urls = sorted(
         {absolute_url(_published_path(path, site_root)) for path in page_files}
     )
+    dates = page_freshness(page_files, site_root)
     sitemap = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
     sitemap.extend(
-        f"  <url><loc>{xml_escape(url)}</loc></url>" for url in urls
+        f"  <url><loc>{xml_escape(url)}</loc><lastmod>{dates[url[len(SITE_ORIGIN):]]}</lastmod></url>"
+        for url in urls
     )
     sitemap.append("</urlset>")
     (site_root / "sitemap.xml").write_text(
@@ -164,6 +227,28 @@ def write_discovery_files(site_root: Path) -> None:
         "/2025_26/minors/HB_Minor_Programme_in_Hong_Kong_Sign_Language "
         "/2025_26/minors/Hong_Kong_Sign_Language 301"
     )
+    redirects.extend(
+        f'/{path.relative_to(site_root).as_posix()} {_published_path(path, site_root)} 308'
+        for path in page_files
+    )
+    redirects.append("/index.html /" + latest_minor + "/ 308")
+    if major_years:
+        redirects.append("/major/index.html /major/" + major_years[-1] + "/ 308")
     (site_root / "_redirects").write_text(
         "\n".join(redirects) + "\n", encoding="utf-8"
+    )
+    config_path = Path(__file__).resolve().parents[1] / "vercel.json"
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    config["cleanUrls"] = True
+    for rule in config.get("redirects", []):
+        if rule["source"] == "/":
+            rule["destination"] = f"/{latest_minor}/"
+        elif rule["source"] in {"/major", "/major/"} and major_years:
+            rule["destination"] = f"/major/{major_years[-1]}/"
+    config_text = json.dumps(config, indent=2) + "\n"
+    config_path.write_text(config_text, encoding="utf-8")
+    (site_root / "vercel.json").write_text(config_text, encoding="utf-8")
+    (site_root / "_headers").write_text(
+        "/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n",
+        encoding="utf-8",
     )

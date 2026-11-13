@@ -21,6 +21,7 @@ try:
         minor_matches_major_name,
     )
     from .site_metadata import course_schedule_update_date
+    from .publication import prepare_page
     from .site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
 except ImportError:
     from minor_course_index import (
@@ -29,6 +30,7 @@ except ImportError:
         minor_matches_major_name,
     )
     from site_metadata import course_schedule_update_date
+    from publication import prepare_page
     from site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
 
 COURSE_INFO = REPOSITORY_ROOT / "course_extraction" / "course_info"
@@ -44,7 +46,7 @@ def write_generated(path: Path, content: str) -> None:
     """Atomically replace generated text, including OneDrive placeholders."""
     path = Path(path)
     temporary = path.with_name(f".{path.name}.tmp")
-    payload = content.encode("utf-8")
+    payload = prepare_page(content, path).encode("utf-8")
     last_error = None
     try:
         for attempt in range(8):
@@ -328,7 +330,14 @@ function applyTableSettings(){
 }
 (function(){
  var schemeSelect=document.getElementById('requirementSchemeSelect');
- if(schemeSelect){var requested=new URLSearchParams(window.location.search).get('scheme')||schemeSelect.value;showRequirementScheme(requested,false);schemeSelect.addEventListener('change',function(){showRequirementScheme(this.value,true)})}
+ if(schemeSelect){
+  var requested=new URLSearchParams(window.location.search).get('scheme');
+  var requestedOption=Array.from(schemeSelect.options).find(function(option){return option.value===requested});
+  if(requestedOption&&requestedOption.value!==schemeSelect.value)window.location.replace(window.publicationLink(requestedOption.getAttribute('data-url')));
+  schemeSelect.addEventListener('change',function(){
+   window.location.assign(window.publicationLink(this.options[this.selectedIndex].getAttribute('data-url')));
+  });
+ }
  var sidebar=document.querySelector('.sidebar'); if(!sidebar)return;
  var saved=localStorage.getItem('majorSidebarScroll'); if(saved!==null)sidebar.scrollTop=+saved;
  sidebar.addEventListener('scroll',function(){localStorage.setItem('majorSidebarScroll',sidebar.scrollTop)});
@@ -932,17 +941,29 @@ def discover_available_years() -> list[str]:
     )
 
 
-def detail_year_selector(year: str, source_file: str, available_years: list[str]) -> str:
+def detail_year_selector(year: str, source_file: str, available_years: list[str], scheme_id=None) -> str:
     """Build a selector containing each year in which this programme exists."""
     options = []
     for candidate in available_years:
         programme_json = MAJOR_EXTRACTION_DIR / "major_json" / candidate / f"{source_file}.json"
         if not programme_json.exists() and candidate != year:
             continue
+        target_stem = source_file
+        if scheme_id and programme_json.exists():
+            candidate_schemes = json.loads(programme_json.read_text(encoding="utf-8")).get("requirement_schemes", [])
+            candidate_default = next(
+                (item for item in candidate_schemes if item.get("kind") == "standard"),
+                next((item for item in candidate_schemes if item.get("default")),
+                     candidate_schemes[0] if candidate_schemes else None),
+            )
+            if any(item["id"] == scheme_id for item in candidate_schemes) and (
+                candidate_default is None or candidate_default["id"] != scheme_id
+            ):
+                target_stem += "--" + scheme_id
         selected = " selected" if candidate == year else ""
         label = candidate.replace("_", "–")
         options.append(
-            f'<option value="../../{candidate}/majors/{esc(source_file)}.html"{selected}>{label}</option>'
+            f'<option value="../../{candidate}/majors/{esc(target_stem)}.html"{selected}>{label}</option>'
         )
     if len(options) <= 1:
         return ""
@@ -967,6 +988,16 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
     MINOR_COURSE_MEMBERSHIPS = load_minor_course_index(year)
     available_years = discover_available_years()
     expected_pages = {f'{item["source_file"]}.html' for item in programmes}
+    for item in programmes:
+        choices = item.get("requirement_schemes", [])
+        default = next(
+            (choice for choice in choices if choice.get("kind") == "standard"),
+            next((choice for choice in choices if choice.get("default")), choices[0] if choices else None),
+        )
+        expected_pages.update(
+            f'{item["source_file"]}--{choice["id"]}.html'
+            for choice in choices if choice is not default
+        )
     for stale in major_dir.glob("*.html"):
         if stale.name not in expected_pages:
             stale.unlink()
@@ -1094,6 +1125,13 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
             next((scheme for scheme in schemes if scheme.get("default")), schemes[0]),
         )
         multiple_schemes = len(schemes) > 1
+        scheme_urls = {
+            scheme["id"]: (
+                data["source_file"] if scheme is default_scheme
+                else f'{data["source_file"]}--{scheme["id"]}'
+            )
+            for scheme in schemes
+        }
         scheme_picker = ""
         if multiple_schemes:
             option_groups = []
@@ -1111,6 +1149,7 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
                     continue
                 options = "".join(
                     f'<option value="{esc(scheme["id"])}"'
+                    f' data-url="{esc(scheme_urls[scheme["id"]])}"'
                     f' data-units="{esc(scheme_total_units(scheme))}"'
                     f'{" selected" if scheme is default_scheme else ""}>'
                     f'{esc(scheme["title"])}</option>'
@@ -1127,20 +1166,19 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
                 + '</select></div>'
             )
 
-        scheme_panels = []
+        scheme_panels = {}
         for scheme in schemes:
             parts = scheme.get("parts", [])
             contents = "".join(
                 render_requirement_part(part, show_part_title=len(parts) > 1)
                 for part in parts
             )
-            hidden = "" if scheme is default_scheme else " hidden"
-            scheme_panels.append(
+            scheme_panels[scheme["id"]] = (
                 f'<section class="requirement-scheme" '
-                f'data-requirement-scheme="{esc(scheme["id"])}"{hidden}>'
+                f'data-requirement-scheme="{esc(scheme["id"])}">'
                 f'{contents}</section>'
             )
-        requirements_html = "".join(scheme_panels)
+        requirements_html = scheme_panels[default_scheme["id"]]
         total = (
             f' &middot; {esc(data.get("total_units"))} units'
             if not multiple_schemes and data.get("total_units")
@@ -1162,29 +1200,50 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
             if multiple_schemes or active_scheme_units else ""
         )
         top = f'''<div class="top-bar"><div class="bar-row"><button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open major navigation" aria-controls="majorSidebar" aria-expanded="false">☰</button><div class="breadcrumb" title="{esc(data["title"])}">{esc(data["title"])}</div><div class="bar-controls">{year_selector}{information_button("Info")}<button type="button" class="settings-toggle" onclick="toggleSettings()" aria-label="Open course table settings" aria-controls="tableSettings" aria-expanded="false">&#9881; Settings</button></div></div>{nav(programmes, position)}</div>{scheme_picker}<h1>{esc(data["title"])}{active_scheme_title} &mdash; CUHK Major Requirements ({display_year}){active_units_tag}</h1><p class="admit-year">Faculty: {esc(faculty)} &middot; Admission code: {esc(data["admission_code"])}{total} &middot; For students admitted in {display_year}</p>'''
-        full_body = top + requirements_html
-        output = major_dir / f'{data["source_file"]}.html'
-        canonical_path = f'/major/{year}/majors/{data["source_file"]}'
-        page_title = f'{data["title"]} Requirements {display_year} | CUHK'
-        meta_description = (
-            f'View the {data["title"]} major programme requirements for CUHK {faculty} '
-            f'students admitted in {display_year}, including courses, units and enrolment information.'
-        )
-        structured_data = breadcrumb_data([
-            ("CUHK Major Programme List", f"/major/{year}/"),
-            (data["title"], canonical_path),
-        ])
-        write_generated(
-            output,
-            page_shell(
-                page_title,
-                full_body,
-                sidebar(programmes, data["source_file"]),
-                description=meta_description,
-                canonical_path=canonical_path,
-                structured_data=structured_data,
-            ),
-        )
+        for scheme in schemes:
+            scheme_id = scheme["id"]
+            selected_top = top
+            if multiple_schemes:
+                selected_picker = scheme_picker.replace(' selected', '').replace(
+                    f'value="{esc(scheme_id)}"', f'value="{esc(scheme_id)}" selected', 1
+                )
+                selected_top = selected_top.replace(scheme_picker, selected_picker)
+            selected_top = selected_top.replace(
+                year_selector, detail_year_selector(year, data["source_file"], available_years, scheme_id)
+            ) if year_selector else selected_top
+            selected_units = scheme_total_units(scheme)
+            selected_title = (
+                f'{esc(data["title"])}'
+                + (f'<span id="activeRequirementSchemeTitle"> &mdash; {esc(scheme["title"])}</span>'
+                   if show_scheme_in_title else "")
+                + f' &mdash; CUHK Major Requirements ({display_year})'
+                + (f'<span id="activeRequirementSchemeUnits" class="unit-tag">{esc(selected_units)} units</span>'
+                   if selected_units else "")
+            )
+            selected_top = re.sub(r"<h1>.*?</h1>", f"<h1>{selected_title}</h1>", selected_top)
+            canonical_path = f'/major/{year}/majors/{scheme_urls[scheme_id]}'
+            scheme_label = scheme["title"]
+            page_title = f'{data["title"]} — {scheme_label} {display_year} | CUHK'
+            meta_description = (
+                f'Explore CUHK {data["title"]}: {scheme_label} for {display_year} admission. '
+                'Read required and elective courses with course titles, term availability, '
+                'teaching schedules and enrolment requirements.'
+            )
+            structured_data = breadcrumb_data([
+                ("CUHK Major Programme List", f"/major/{year}/"),
+                (f'{data["title"]} — {scheme_label}', canonical_path),
+            ])
+            write_generated(
+                major_dir / f'{scheme_urls[scheme_id]}.html',
+                page_shell(
+                    page_title,
+                    selected_top + scheme_panels[scheme_id],
+                    sidebar(programmes, data["source_file"]),
+                    description=meta_description,
+                    canonical_path=canonical_path,
+                    structured_data=structured_data,
+                ),
+            )
 
     faculty_sections = []
     faculties = sorted({str(item.get("faculty") or "Others") for item in programmes},
@@ -1252,7 +1311,7 @@ def generate(year: str, output_root: Path = PUBLIC, faculty_filter: str | None =
         output_root / "index.html",
         f'<!doctype html><meta http-equiv="refresh" content="0;url={year}/index.html"><title>CUHK Major Programmes</title>',
     )
-    print(f"Generated {len(programmes)} major pages")
+    print(f"Generated {len(expected_pages)} major requirement pages")
 
 
 if __name__ == "__main__":

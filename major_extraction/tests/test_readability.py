@@ -438,7 +438,7 @@ def test_external_links_and_faculty_order_are_preserved_in_generated_html():
     url = "https://www.cuhk.edu.hk/clear/download/IPL-Researchskills.pdf"
     assert f'href="{url}"' in linked_text(url + ".")
     index = BeautifulSoup((ROOT / "site/major/2026_27/index.html").read_text(encoding="utf-8"), "html.parser")
-    assert [heading.get_text(" ", strip=True) for heading in index.find_all("h2")][-1] == "Others"
+    assert [heading.get_text(" ", strip=True) for heading in index.select(".container > h2")][-1] == "Others"
     mbchb = BeautifulSoup((SITE / "M.B.,_Ch.B.html").read_text(encoding="utf-8"), "html.parser")
     assert not mbchb.select(".note-subsection .subsection-copy")
 

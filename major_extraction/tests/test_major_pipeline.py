@@ -10,12 +10,23 @@ from major_extraction.generate_major_json import (
     logical_row_cells,
 )
 from site_generator.generate_major_site import format_info, format_schedule, scheme_total_units
+from site_generator.generate_all_sites import link_target_exists
 
 ROOT = Path(__file__).resolve().parents[2]
 YEAR = "2026_27"
 JSON_DIR = ROOT / "major_extraction" / "major_json" / YEAR
 HTML_DIR = ROOT / "major_extraction" / "major_html" / YEAR
 SITE_DIR = ROOT / "site" / "major" / YEAR
+
+
+def read_presentation(path):
+    """Include published CSS/JS when checking the existing presentation rules."""
+    content = path.read_text(encoding="utf-8")
+    assets = re.findall(r'(?:src|href)="([^"]*assets/shared/[^"]+)"', content)
+    return content + "\n".join(
+        ((ROOT / "site" / asset.lstrip("/")) if asset.startswith("/") else path.parent / asset).read_text(encoding="utf-8")
+        for asset in assets
+    )
 
 
 def load_programmes():
@@ -235,7 +246,7 @@ def test_computer_science_exposes_standard_senior_and_double_degree_requirements
         scheme["title"] for scheme in schemes
     ]
     panels = page.select("section.requirement-scheme")
-    assert len(panels) == 3
+    assert len(panels) == 1
     assert len([panel for panel in panels if not panel.has_attr("hidden")]) == 1
     content = page.select_one(".content-inner")
     content_children = [child for child in content.children if getattr(child, "name", None)]
@@ -246,7 +257,11 @@ def test_computer_science_exposes_standard_senior_and_double_degree_requirements
     assert page_heading.find(id="activeRequirementSchemeUnits").get_text(" ", strip=True) == "75 units"
     assert not page.select(".requirement-scheme-title")
     assert all(option.has_attr("data-units") for option in selector.find_all("option"))
-    double_degree = page.find("section", attrs={"data-requirement-scheme": schemes[2]["id"]})
+    degree_url = selector.find("option", value=schemes[2]["id"])["data-url"]
+    degree_page = BeautifulSoup(
+        (SITE_DIR / "majors" / (degree_url + ".html")).read_text(encoding="utf-8"), "html.parser"
+    )
+    double_degree = degree_page.find("section", attrs={"data-requirement-scheme": schemes[2]["id"]})
     assert [heading.get_text(" ", strip=True) for heading in double_degree.select(".degree-part-title")] == [
         "1st Degree: Bachelor of Science (Computer Science) 75 units",
         "2nd Degree: Bachelor of Business Administration (Integrated BBA Programme) 56-60 units",
@@ -718,9 +733,9 @@ def test_every_explicit_pre_total_source_course_survives_parsing():
 
 
 def test_generated_pages_include_requested_course_fields_only():
-    pages = sorted((SITE_DIR / "majors").glob("*.html"))
+    pages = sorted(path for path in (SITE_DIR / "majors").glob("*.html") if "--" not in path.stem)
     assert len(pages) == 89
-    sample = pages[0].read_text(encoding="utf-8")
+    sample = read_presentation(pages[0])
     assert "Term 1" in sample and "Term 2" in sample
     assert "T1 Teaching schedule" in sample
     assert "T2 Teaching schedule" in sample
@@ -732,10 +747,10 @@ def test_generated_pages_include_requested_course_fields_only():
     assert "cell.colSpan=visibleColumns" in sample
     assert "cell.colSpan=Math.max(1,visibleColumns-1)" in sample
     assert '<details class="enrol">' not in sample
-    assert "checker" not in sample.lower()
+    assert 'id="input-text"' not in sample
     placeholder = '<p class="meta">Course requirement</p>'
     assert all(placeholder not in page.read_text(encoding="utf-8") for page in pages)
-    assert "Engineering_ELITE_Stream.html" in sample
+    assert 'href="Engineering_ELITE_Stream"' in sample
 
 
 def test_term_1_schedule_groups_sections_and_deduplicates_meeting_times():
@@ -759,8 +774,8 @@ def test_generated_index_and_sidebar_links_resolve():
     index = BeautifulSoup((SITE_DIR / "index.html").read_text(encoding="utf-8"), "html.parser")
     card_links = [link.get("href") for link in index.select(".card-grid > a")]
     assert len(card_links) == 89
-    assert all((SITE_DIR / href).is_file() for href in card_links)
-    assert {heading.get_text(strip=True) for heading in index.find_all("h2")} == {
+    assert all(link_target_exists(SITE_DIR / href) for href in card_links)
+    assert {heading.get_text(strip=True) for heading in index.select(".container > h2")} == {
         "Arts", "Business Administration", "Education", "Engineering", "Law",
         "Medicine", "Others", "Science", "Social Science",
     }
@@ -769,7 +784,7 @@ def test_generated_index_and_sidebar_links_resolve():
         soup = BeautifulSoup(page.read_text(encoding="utf-8"), "html.parser")
         assert soup.find("h1") is not None
         for link in soup.select(".sidebar a, .page-nav a"):
-            assert (page.parent / link["href"]).is_file(), (page.name, link["href"])
+            assert link_target_exists(page.parent / link["href"]), (page.name, link["href"])
 
 
 def test_nonstandard_medicine_degree_is_fully_transcribed():
@@ -791,7 +806,7 @@ def test_generated_pages_include_vercel_analytics():
 
 
 def test_enrolment_information_has_no_leading_spacing():
-    sample = next((SITE_DIR / "majors").glob("*.html")).read_text(encoding="utf-8")
+    sample = read_presentation(next((SITE_DIR / "majors").glob("*.html")))
     assert ".enrol-text { margin:0;" in sample
     assert ".enrol-text { margin-top:" not in sample
     assert ".prereq-indent { text-indent:0; }" in sample
@@ -838,7 +853,7 @@ def test_enrolment_information_uses_minor_page_line_break_rules():
 
 
 def test_sidebar_is_collapsible_and_content_uses_wide_layout_on_all_devices():
-    sample = next((SITE_DIR / "majors").glob("*.html")).read_text(encoding="utf-8")
+    sample = read_presentation(next((SITE_DIR / "majors").glob("*.html")))
     soup = BeautifulSoup(sample, "html.parser")
     button = soup.find("button", class_="sidebar-toggle")
     sidebar = soup.find("aside", id="majorSidebar")
@@ -882,7 +897,7 @@ def test_navigation_qol_and_double_degree_totals_are_rendered():
     )
     assert double_degree["data-units"] == "131-135"
     assert computer.select_one(".breadcrumb").get_text(" ", strip=True) == "B.Eng. in Computer Engineering"
-    assert computer.select_one(".sidebar-header .sidebar-home")["href"] == "../index.html"
+    assert computer.select_one(".sidebar-header .sidebar-home")["href"] == "../"
     assert computer.select_one(".sidebar-header .sidebar-home").get_text(" ", strip=True).startswith("Home")
     assert [legend.get_text(strip=True) for legend in computer.select(".settings-group legend")] == [
         "Column", "Row", "Table",
@@ -913,7 +928,7 @@ def test_navigation_qol_and_double_degree_totals_are_rendered():
         "html.parser",
     )
     assert minor.select_one(".breadcrumb").get_text(" ", strip=True) == "Computer Science"
-    assert minor.select_one(".sidebar-header .sidebar-home")["href"] == "../index.html"
+    assert minor.select_one(".sidebar-header .sidebar-home")["href"] == "../"
     assert minor.select_one(".sidebar-header .sidebar-home").get_text(" ", strip=True).startswith("Home")
     assert [legend.get_text(strip=True) for legend in minor.select(".settings-group legend")] == [
         "Column", "Row", "Table",

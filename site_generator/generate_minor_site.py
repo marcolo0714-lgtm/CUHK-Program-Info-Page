@@ -11,6 +11,7 @@ from pathlib import Path
 REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 try:
     from .site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
+    from .publication import prepare_page
     from .site_metadata import (
         SITE_NAME,
         absolute_url,
@@ -22,6 +23,7 @@ try:
     from .minor_course_index import load_minor_course_index
 except ImportError:
     from site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
+    from publication import prepare_page
     from site_metadata import (
         SITE_NAME,
         absolute_url,
@@ -45,7 +47,7 @@ def _write_generated(path, content):
     """Atomically replace generated text, including OneDrive placeholder files."""
     path = Path(path)
     temporary = path.with_name(f".{path.name}.tmp")
-    payload = content.encode("utf-8")
+    payload = prepare_page(content, path).encode("utf-8")
     last_error = None
     try:
         for attempt in range(8):
@@ -1694,8 +1696,9 @@ def generate(year):
         year_display = year.replace("_", "-")
         page_title = f"{data['title']} Minor Requirements {year_display} | CUHK"
         description = (
-            f"View the {data['title']} minor programme requirements for CUHK students "
-            f"admitted in {year_display}, including courses, units, prerequisites and notes."
+            f"Explore the CUHK {data['title']} minor for {year_display} admission. "
+            "Find required and elective courses with titles, units, term availability, "
+            "teaching schedules and enrolment requirements, and check your minor progress."
         )
         canonical_path = f"/{year}/minors/{stem}"
         structured_data = breadcrumb_data([

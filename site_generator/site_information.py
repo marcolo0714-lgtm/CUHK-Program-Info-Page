@@ -136,7 +136,7 @@ SEARCH_SCRIPT = r"""
         if (input.dataset.action === 'check') {
             input.dispatchEvent(new CustomEvent('programme-selected', {detail: entry.target}));
         } else {
-            window.location.assign(entry.target);
+            window.location.assign(window.publicationLink ? window.publicationLink(entry.target) : entry.target);
         }
     }
 
