@@ -10,6 +10,10 @@ from pathlib import Path
 
 REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 try:
+    from .course_table_terms import (
+        TERM_COLUMN_SETTINGS, T3_HEADER, TERM_ROW_CSS, TERM_ROW_SETTINGS,
+        offered_outside_regular_terms, term_cell,
+    )
     from .site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
     from .publication import prepare_page
     from .site_metadata import (
@@ -22,6 +26,10 @@ try:
     )
     from .minor_course_index import load_minor_course_index
 except ImportError:
+    from course_table_terms import (
+        TERM_COLUMN_SETTINGS, T3_HEADER, TERM_ROW_CSS, TERM_ROW_SETTINGS,
+        offered_outside_regular_terms, term_cell,
+    )
     from site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
     from publication import prepare_page
     from site_metadata import (
@@ -113,6 +121,7 @@ def load_course_index():
                     "prereq": entry.get("info", ""),
                     "term_1": entry.get("term_1", False),
                     "term_2": entry.get("term_2", False),
+                    "term_3": offered_outside_regular_terms(entry),
                     "sections": entry.get("sections", []),
                 }
     return index
@@ -128,6 +137,7 @@ def resolve_courses(codes, course_index):
             "prereq": course_index.get(code, {}).get("prereq", ""),
             "term_1": course_index.get(code, {}).get("term_1", False),
             "term_2": course_index.get(code, {}).get("term_2", False),
+            "term_3": course_index.get(code, {}).get("term_3", False),
             "sections": course_index.get(code, {}).get("sections", []),
         }
         for code in codes
@@ -165,10 +175,10 @@ th,td { padding:9px 13px; text-align:left; border-bottom:1px solid var(--tbl-bor
 thead th { height:auto; vertical-align:bottom; line-height:1.3; overflow:visible; }
 .col-code { width:var(--course-code-width, 10%); }
 .col-title { width:var(--course-title-width, 22%); overflow-wrap:anywhere; }
-.col-term-1, .col-term-2 { white-space:nowrap; text-align:center;
+.col-term-1, .col-term-2, .col-term-3 { white-space:nowrap; text-align:center;
     width:var(--course-term-width, 5%); border-left:1px solid var(--tbl-border); }
-th.col-term-1, th.col-term-2 { padding-left:6px; padding-right:6px; }
-.col-term-2 { border-right:1px solid var(--tbl-border); }
+th.col-term-1, th.col-term-2, th.col-term-3 { padding-left:6px; padding-right:6px; }
+.col-term-2, .col-term-3 { border-right:1px solid var(--tbl-border); }
 .col-t1-schedule, .col-t2-schedule {
     width:var(--course-schedule-width, auto); overflow-wrap:anywhere; }
 body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t1-schedule,
@@ -181,6 +191,7 @@ body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t2-schedule {
 .minor-memberships a { line-height:1.35; }
 body.hide-term-1 .col-term-1,
 body.hide-term-2 .col-term-2,
+body.hide-term-3 .col-term-3,
 body.hide-t1-schedule .col-t1-schedule,
 body.hide-t2-schedule .col-t2-schedule,
 body.prereq-hidden .col-prereq,
@@ -200,7 +211,6 @@ tr:hover { background:#f9f9f9; }
 .nf { background:var(--warn-bg); color:var(--warn); }
 .nf:hover { background:#fff5eb; }
 .term-yes { background:#d4edda; }
-body.unavailable-hidden table tbody tr.course-unavailable { display:none; }
 .prereq-sentence { display:block; padding-left:1.5em; text-indent:-1.5em; }
 .prereq-indent { text-indent:0; }
 .card { background:var(--card); border-radius:8px; padding:12px 18px;
@@ -282,7 +292,7 @@ body.sidebar-open { overflow:hidden; }
 .settings-overlay { position:fixed; inset:0; background:rgba(0,0,0,.25); z-index:108;
     opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s,visibility .2s; }
 .settings-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
-.settings-panel { position:fixed; inset:0 0 0 auto; z-index:109; width:min(360px,calc(100vw - 60px));
+.settings-panel { position:fixed; inset:0 0 0 auto; z-index:109; width:min(420px,calc(100% - 48px));
     height:100vh; padding:18px; overflow:auto; background:var(--card);
     border-left:1px solid var(--border); box-shadow:none; transform:translateX(100%);
     transition:transform .25s,box-shadow .25s; }
@@ -299,6 +309,7 @@ body.sidebar-open { overflow:hidden; }
 .setting-option { display:flex; align-items:flex-start; gap:10px; padding:9px 4px;
     cursor:pointer; border-bottom:1px solid var(--tbl-border-light); }
 .setting-option input { margin-top:.3em; flex:none; }
+.setting-option span { min-width:0; overflow-wrap:anywhere; }
 body.settings-open { overflow:hidden; }
 .content { flex:1; min-width:0; }
 .content-inner { max-width:1800px; margin:0 auto;
@@ -414,10 +425,8 @@ JS = """\
   if (savedSettings.prerequisites === undefined) {
     savedSettings.prerequisites = localStorage.getItem('hidePrereq') !== 'true';
   }
-  if (savedSettings.unavailable === undefined) {
-    savedSettings.unavailable = localStorage.getItem('hideUnavailable') !== 'true';
-  }
-  var defaults = {term1:true, term2:true, prerequisites:true, schedule:false, schedule2:true, minors:false, unavailable:true, scroll:true};
+  var defaults = {term1:true, term2:true, otherTermColumn:false, prerequisites:true, schedule:false, schedule2:true, minors:false,
+    rowsT1:true, rowsT2:true, otherTermRows:true, missingCourseRows:true, scroll:true};
   Object.keys(defaults).forEach(function(key){
     var checkbox = document.querySelector('[data-table-setting="' + key + '"]');
     if (!checkbox) return;
@@ -429,8 +438,10 @@ JS = """\
 
 function applyTableSettings() {
   var classes = {
-    term1:'hide-term-1', term2:'hide-term-2', prerequisites:'prereq-hidden',
-    schedule:'hide-t1-schedule', schedule2:'hide-t2-schedule', minors:'hide-minors', unavailable:'unavailable-hidden',
+    term1:'hide-term-1', term2:'hide-term-2', otherTermColumn:'hide-term-3', prerequisites:'prereq-hidden',
+    schedule:'hide-t1-schedule', schedule2:'hide-t2-schedule', minors:'hide-minors',
+    rowsT1:'hide-rows-t1', rowsT2:'hide-rows-t2', otherTermRows:'hide-rows-t3',
+    missingCourseRows:'hide-missing-course-rows',
     scroll:'table-scroll-disabled'
   };
   var settings = {};
@@ -440,7 +451,8 @@ function applyTableSettings() {
     settings[key] = shown;
     document.body.classList.toggle(classes[key], !shown);
   });
-  var visibleColumns = 2 + ['term1','term2','prerequisites','schedule','schedule2','minors'].filter(function(key){
+  document.body.classList.add('filter-course-rows');
+  var visibleColumns = 2 + ['term1','term2','otherTermColumn','prerequisites','schedule','schedule2','minors'].filter(function(key){
     return settings[key];
   }).length;
   document.querySelectorAll('tr.nf td[colspan]').forEach(function(cell){
@@ -533,7 +545,7 @@ def minor_page(page_title, body, sidebar_html, description, canonical_path, stru
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="icon" href="/favicon.ico" sizes="any">
 {seo_head(page_title, description, canonical_path, structured_data)}
-<style>{CSS}{INFO_CSS}</style>
+<style>{CSS}{TERM_ROW_CSS}{INFO_CSS}</style>
 </head>
 <body>
 <div class="sidebar-overlay" onclick="closeSidebar()" aria-hidden="true"></div>
@@ -556,15 +568,14 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;}})();
   </div>
   <p class="settings-description">Choose the columns, rows, and table behavior.</p>
   <fieldset class="settings-group"><legend>Column</legend>
-    <label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label>
-    <label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label>
+    {TERM_COLUMN_SETTINGS}
     <label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label>
     <label class="setting-option"><input type="checkbox" data-table-setting="schedule"> <span>Show Term 1 teaching schedule</span></label>
     <label class="setting-option"><input type="checkbox" data-table-setting="schedule2" checked> <span>Show Term 2 teaching schedule</span></label>
     <label class="setting-option"><input type="checkbox" data-table-setting="minors"> <span>Show minors using this course</span></label>
   </fieldset>
   <fieldset class="settings-group"><legend>Row</legend>
-    <label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label>
+    {TERM_ROW_SETTINGS}
   </fieldset>
   <fieldset class="settings-group"><legend>Table</legend>
     <label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label>
@@ -717,13 +728,6 @@ def _format_code_unit_html(code, unit):
     )
 
 
-def _format_term_cell(available):
-    """Return a <td> with green background if the course is available in that term."""
-    if available:
-        return '<td class="col-term-1 term-yes"></td>'
-    return '<td class="col-term-1"></td>'
-
-
 def _group_schedule(sections, term_number):
     """Return ``[(section_name, meeting_times)]`` for one teaching term."""
     grouped = []
@@ -837,7 +841,7 @@ def _course_table_style(courses):
         ),
     )
     total_weight = 140 + minor_weight
-    flexible = total_weight - code_weight - 2 * term_weight - minor_weight
+    flexible = total_weight - code_weight - 3 * term_weight - minor_weight
     rows = []
     for course in usable:
         schedule_lines = [
@@ -908,24 +912,15 @@ def build_course_table(courses, eq_pairs=None):
             prereq = c["prereq"] if c["prereq"] else "\u2014"
             prereq = _format_prereq(prereq)
             code_unit = _format_code_unit_html(c["code"], c.get("unit", ""))
-            t1_cell = _format_term_cell(c.get("term_1", False))
-            t2_cell = _format_term_cell(c.get("term_2", False)).replace(
-                "col-term-1", "col-term-2"
-            )
             schedule = _format_schedule(c.get("sections", []), 1)
             schedule2 = _format_schedule(c.get("sections", []), 2)
-            row_classes = []
-            if eq_cls:
-                row_classes.append(eq_cls)
-            if not c.get("term_1", False) and not c.get("term_2", False):
-                row_classes.append("course-unavailable")
-            tr_open = f'<tr class="{" ".join(row_classes)}">' if row_classes else '<tr>'
+            tr_open = f'<tr class="{eq_cls}">' if eq_cls else '<tr>'
             rows += (
                 f"{tr_open}"
                 f'<td class="col-code">{code_unit}</td>'
                 f'<td class="col-title">{c["title"]}</td>'
-                f"{t1_cell}"
-                f"{t2_cell}"
+                f'{term_cell(1, c.get("term_1"))}{term_cell(2, c.get("term_2"))}'
+                f'{term_cell(3, c.get("term_3"))}'
                 f'<td class="col-t1-schedule">{schedule}</td>'
                 f'<td class="col-t2-schedule">{schedule2}</td>'
                 f'<td class="col-prereq">{prereq}</td>'
@@ -937,7 +932,7 @@ def build_course_table(courses, eq_pairs=None):
             rows += (
                 f'<tr class="{nf_cls}">'
                 f'<td class="col-code">{c["code"]}</td>'
-                f'<td colspan="7"><em>(not found in course_info)</em></td>'
+                f'<td colspan="8"><em>(not found in course_info)</em></td>'
                 f"</tr>\n"
             )
     return rows
@@ -1053,8 +1048,9 @@ def build_section_html(sec, course_index, eq_pairs=None, is_single=False, desc_u
                 f'<table style="{table_style}"><thead><tr>'
                 f'<th class="col-code" title="Course code — [units] shown only when not 3">Code</th>'
                 f'<th class="col-title" title="Course title">Title</th>'
-                f'<th class="col-term-1" title="Available in 2026-27 Term 1">T1</th>'
-                f'<th class="col-term-2" title="Available in 2026-27 Term 2">T2</th>'
+                f'<th class="col-term-1" title="Term 1 availability">T1</th>'
+                f'<th class="col-term-2" title="Term 2 availability">T2</th>'
+                f'{T3_HEADER}'
                 f'<th class="col-t1-schedule" title="Term 1 teaching schedule">T1 Teaching schedule</th>'
                 f'<th class="col-t2-schedule" title="Term 2 teaching schedule">T2 Teaching schedule</th>'
                 f'<th class="col-prereq" title="Enrollment requirements">Prerequisites</th>'

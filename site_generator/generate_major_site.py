@@ -15,6 +15,10 @@ from pathlib import Path
 REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 MAJOR_EXTRACTION_DIR = REPOSITORY_ROOT / "major_extraction"
 try:
+    from .course_table_terms import (
+        TERM_COLUMN_SETTINGS, T3_HEADER, TERM_ROW_CSS, TERM_ROW_SETTINGS,
+        offered_outside_regular_terms, term_cell,
+    )
     from .minor_course_index import (
         load_minor_course_index,
         minor_applies_to_major,
@@ -24,6 +28,10 @@ try:
     from .publication import prepare_page
     from .site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
 except ImportError:
+    from course_table_terms import (
+        TERM_COLUMN_SETTINGS, T3_HEADER, TERM_ROW_CSS, TERM_ROW_SETTINGS,
+        offered_outside_regular_terms, term_cell,
+    )
     from minor_course_index import (
         load_minor_course_index,
         minor_applies_to_major,
@@ -128,10 +136,10 @@ th { background:#fafafa; font-weight:600; color:#555; }
 thead th { height:auto; vertical-align:bottom; line-height:1.3; overflow:visible; }
 .col-code { width:var(--course-code-width, 10%); }
 .col-title { width:var(--course-title-width, 22%); overflow-wrap:anywhere; }
-.col-term-1,.col-term-2 { width:var(--course-term-width, 5%); text-align:center; white-space:nowrap;
+.col-term-1,.col-term-2,.col-term-3 { width:var(--course-term-width, 5%); text-align:center; white-space:nowrap;
   border-left:1px solid var(--tbl-border); }
-th.col-term-1,th.col-term-2 { padding-left:6px; padding-right:6px; }
-.col-term-2 { border-right:1px solid var(--tbl-border); }
+th.col-term-1,th.col-term-2,th.col-term-3 { padding-left:6px; padding-right:6px; }
+.col-term-2,.col-term-3 { border-right:1px solid var(--tbl-border); }
 .col-t1-schedule,.col-t2-schedule { width:var(--course-schedule-width, auto); overflow-wrap:anywhere; }
 body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t1-schedule,
 body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t2-schedule {
@@ -141,9 +149,9 @@ body:not(.hide-t1-schedule):not(.hide-t2-schedule) .col-t2-schedule {
 .minor-memberships { display:flex; flex-wrap:wrap; gap:2px 8px; align-items:flex-start; }
 .minor-memberships a { line-height:1.35; }
 body.hide-term-1 .col-term-1,body.hide-term-2 .col-term-2,
+body.hide-term-3 .col-term-3,
 body.hide-t1-schedule .col-t1-schedule,body.hide-t2-schedule .col-t2-schedule,
 body.hide-enrolment .col-prereq,body.hide-minors .col-minors { display:none; }
-body.hide-unavailable table tbody tr.course-unavailable { display:none; }
 tr:hover { background:#f9f9f9; }
 .term-yes { background:#d4edda; }
 .schedule-section { line-height:1.35; min-width:0; overflow-wrap:anywhere; }
@@ -235,7 +243,7 @@ tr:hover { background:#f9f9f9; }
 .settings-overlay { position:fixed; inset:0; background:rgba(0,0,0,.25); z-index:108;
   opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s,visibility .2s; }
 .settings-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
-.settings-panel { position:fixed; inset:0 0 0 auto; z-index:109; width:min(360px,calc(100vw - 60px));
+.settings-panel { position:fixed; inset:0 0 0 auto; z-index:109; width:min(420px,calc(100% - 48px));
   height:100vh; padding:18px; overflow:auto; background:var(--card); border-left:1px solid var(--border);
   transform:translateX(100%); transition:transform .25s,box-shadow .25s; }
 .settings-panel.open { transform:translateX(0); box-shadow:-2px 0 12px rgba(0,0,0,.15); }
@@ -251,6 +259,7 @@ tr:hover { background:#f9f9f9; }
 .setting-option { display:flex; align-items:flex-start; gap:10px; padding:9px 4px;
   cursor:pointer; border-bottom:1px solid var(--tbl-border-light); }
 .setting-option input { margin-top:.3em; flex:none; }
+.setting-option span { min-width:0; overflow-wrap:anywhere; }
 body.settings-open { overflow:hidden; }
 .site-footer { margin-top:32px; padding-top:12px; border-top:1px solid var(--border);
   display:flex; align-items:flex-start; justify-content:space-between; gap:8px 24px; flex-wrap:wrap;
@@ -317,13 +326,14 @@ function showRequirementScheme(identifier,updateUrl){
  if(updateUrl!==false&&window.history&&window.URL){var url=new URL(window.location.href);url.searchParams.set('scheme',identifier);window.history.replaceState(null,'',url)}
 }
 function applyTableSettings(){
- var classes={term1:'hide-term-1',term2:'hide-term-2',prerequisites:'hide-enrolment',schedule:'hide-t1-schedule',schedule2:'hide-t2-schedule',minors:'hide-minors',unavailable:'hide-unavailable',scroll:'table-scroll-disabled'};
+ var classes={term1:'hide-term-1',term2:'hide-term-2',otherTermColumn:'hide-term-3',prerequisites:'hide-enrolment',schedule:'hide-t1-schedule',schedule2:'hide-t2-schedule',minors:'hide-minors',rowsT1:'hide-rows-t1',rowsT2:'hide-rows-t2',otherTermRows:'hide-rows-t3',missingCourseRows:'hide-missing-course-rows',scroll:'table-scroll-disabled'};
  var settings={};
  Object.keys(classes).forEach(function(key){
   var checkbox=document.querySelector('[data-table-setting="'+key+'"]'),shown=checkbox?checkbox.checked:true;
  settings[key]=shown;document.body.classList.toggle(classes[key],!shown);
  });
- var visibleColumns=2+['term1','term2','prerequisites','schedule','schedule2','minors'].filter(function(key){return settings[key]}).length;
+ document.body.classList.add('filter-course-rows');
+ var visibleColumns=2+['term1','term2','otherTermColumn','prerequisites','schedule','schedule2','minors'].filter(function(key){return settings[key]}).length;
  document.querySelectorAll('.course-group-row td[colspan]').forEach(function(cell){cell.colSpan=visibleColumns});
  document.querySelectorAll('tr.nf td[colspan]').forEach(function(cell){cell.colSpan=Math.max(1,visibleColumns-1)});
  localStorage.setItem('majorTableSettings',JSON.stringify(settings));
@@ -345,8 +355,7 @@ function applyTableSettings(){
  document.addEventListener('keydown',function(e){if(e.key==='Escape'){setSidebarVisibility(false);setSettingsVisibility(false)}});
  var saved;try{saved=JSON.parse(localStorage.getItem('majorTableSettings')||'{}')}catch(e){saved={}};
  if(saved.prerequisites===undefined){var legacyPrereq=localStorage.getItem('majorPrerequisites');saved.prerequisites=legacyPrereq?legacyPrereq!=='hidden':!window.matchMedia('(max-width:768px)').matches}
- if(saved.unavailable===undefined){saved.unavailable=localStorage.getItem('majorUnavailable')!=='hidden'}
- var defaults={term1:true,term2:true,prerequisites:true,schedule:false,schedule2:true,minors:false,unavailable:true,scroll:true};
+ var defaults={term1:true,term2:true,otherTermColumn:false,prerequisites:true,schedule:false,schedule2:true,minors:false,rowsT1:true,rowsT2:true,otherTermRows:true,missingCourseRows:true,scroll:true};
  Object.keys(defaults).forEach(function(key){var checkbox=document.querySelector('[data-table-setting="'+key+'"]');if(!checkbox)return;checkbox.checked=saved[key]===undefined?defaults[key]:!!saved[key];checkbox.addEventListener('change',applyTableSettings)});
  applyTableSettings();
 })();
@@ -666,7 +675,7 @@ def course_table_style(courses: list[tuple[str, dict[str, object] | None]]) -> s
         ),
     )
     total_weight = 140 + minor_weight
-    flexible = total_weight - code_weight - 2 * term_weight - minor_weight
+    flexible = total_weight - code_weight - 3 * term_weight - minor_weight
     content_rows = []
     for _, course in usable:
         schedule_lines = [
@@ -733,19 +742,17 @@ def course_table(codes: list[str], course_index: dict[str, dict[str, object]], g
     courses = [(code, course) for code, course in entries if code != "__group__"]
     for code, course in entries:
         if code == "__group__":
-            rows.append(f'<tr class="course-group-row"><td colspan="8">{esc(course)}</td></tr>')
+            rows.append(f'<tr class="course-group-row"><td colspan="9">{esc(course)}</td></tr>')
             continue
         if not course:
-            rows.append(f'<tr class="nf"><td>{esc(code)}</td><td colspan="7"><em>(not found in course_info)</em></td></tr>')
+            rows.append(f'<tr class="nf"><td>{esc(code)}</td><td colspan="8"><em>(not found in course_info)</em></td></tr>')
             continue
         code_unit = course_code_html(code, course)
-        t1 = " term-yes" if course.get("term_1") else ""
-        t2 = " term-yes" if course.get("term_2") else ""
-        row_class = ' class="course-unavailable"' if not course.get("term_1") and not course.get("term_2") else ""
         rows.append(
-            f'<tr{row_class}><td class="col-code">{code_unit}</td>'
+            f'<tr><td class="col-code">{code_unit}</td>'
             f'<td class="col-title">{esc(course.get("title"))}</td>'
-            f'<td class="col-term-1{t1}"></td><td class="col-term-2{t2}"></td>'
+            f'{term_cell(1, course.get("term_1"))}{term_cell(2, course.get("term_2"))}'
+            f'{term_cell(3, offered_outside_regular_terms(course))}'
             f'<td class="col-t1-schedule">{format_schedule(course.get("sections", []), 1)}</td>'
             f'<td class="col-t2-schedule">{format_schedule(course.get("sections", []), 2)}</td>'
             f'<td class="col-prereq">{format_info(str(course.get("info", "")))}</td>'
@@ -756,6 +763,7 @@ def course_table(codes: list[str], course_index: dict[str, dict[str, object]], g
         '<th class="col-code">Course</th><th class="col-title">Title</th>'
         '<th class="col-term-1" title="Term 1 availability">T1</th>'
         '<th class="col-term-2" title="Term 2 availability">T2</th>'
+        f'{T3_HEADER}'
         '<th class="col-t1-schedule" title="Term 1 teaching schedule">T1 Teaching schedule</th>'
         '<th class="col-t2-schedule" title="Term 2 teaching schedule">T2 Teaching schedule</th>'
         '<th class="col-prereq">Enrolment information</th>'
@@ -911,7 +919,7 @@ def page_shell(
     structured_data=None,
 ) -> str:
     if sidebar_html:
-        settings = '''<div class="settings-overlay" onclick="setSettingsVisibility(false)" aria-hidden="true"></div><aside id="tableSettings" class="settings-panel" aria-hidden="true" aria-label="Course table settings"><div class="settings-header"><h2>Course table settings</h2><button type="button" class="settings-close" onclick="setSettingsVisibility(false)" aria-label="Close settings">&times;</button></div><p class="settings-description">Choose the columns, rows, and table behavior.</p><fieldset class="settings-group"><legend>Column</legend><label class="setting-option"><input type="checkbox" data-table-setting="term1" checked> <span>Show Term 1 availability</span></label><label class="setting-option"><input type="checkbox" data-table-setting="term2" checked> <span>Show Term 2 availability</span></label><label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule"> <span>Show Term 1 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule2" checked> <span>Show Term 2 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="minors"> <span>Show minors using this course</span></label></fieldset><fieldset class="settings-group"><legend>Row</legend><label class="setting-option"><input type="checkbox" data-table-setting="unavailable" checked> <span>Show unavailable courses</span></label></fieldset><fieldset class="settings-group"><legend>Table</legend><label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label></fieldset></aside>'''
+        settings = f'''<div class="settings-overlay" onclick="setSettingsVisibility(false)" aria-hidden="true"></div><aside id="tableSettings" class="settings-panel" aria-hidden="true" aria-label="Course table settings"><div class="settings-header"><h2>Course table settings</h2><button type="button" class="settings-close" onclick="setSettingsVisibility(false)" aria-label="Close settings">&times;</button></div><p class="settings-description">Choose the columns, rows, and table behavior.</p><fieldset class="settings-group"><legend>Column</legend>{TERM_COLUMN_SETTINGS}<label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule"> <span>Show Term 1 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="schedule2" checked> <span>Show Term 2 teaching schedule</span></label><label class="setting-option"><input type="checkbox" data-table-setting="minors"> <span>Show minors using this course</span></label></fieldset><fieldset class="settings-group"><legend>Row</legend>{TERM_ROW_SETTINGS}</fieldset><fieldset class="settings-group"><legend>Table</legend><label class="setting-option"><input type="checkbox" data-table-setting="scroll" checked> <span>Allow horizontal table scrolling</span></label></fieldset></aside>'''
         body_html = f'''<div class="sidebar-overlay" onclick="setSidebarVisibility(false)"></div><aside id="majorSidebar" class="sidebar" aria-hidden="true"><div class="sidebar-header"><span>CUHK Majors</span><a class="sidebar-home" href="../index.html" aria-label="Major programme home" title="Major programme home">Home <span aria-hidden="true">&#8962;</span></a></div><nav>{sidebar_html}</nav></aside>{settings}<main class="content"><div class="content-inner">{body}{FOOTER}</div></main>{SCRIPT}'''
         body_class = ""
         favicon = "/favicon.ico"
@@ -921,7 +929,7 @@ def page_shell(
         favicon = "/favicon.ico"
     analytics = '<script defer src="/_vercel/insights/script.js"></script>'
     metadata = seo_head(title, description, canonical_path, structured_data)
-    return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="prefetch-src 'none'"><link rel="icon" href="{favicon}" sizes="any">{metadata}<style>{CSS}{extra_css}{INFO_CSS}</style>{analytics}</head><body{body_class}>{body_html}{INFO_DIALOG}</body></html>'''
+    return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="prefetch-src 'none'"><link rel="icon" href="{favicon}" sizes="any">{metadata}<style>{CSS}{TERM_ROW_CSS}{extra_css}{INFO_CSS}</style>{analytics}</head><body{body_class}>{body_html}{INFO_DIALOG}</body></html>'''
 
 
 def programme_has_faculty(programme: dict[str, object], faculty: str) -> bool:

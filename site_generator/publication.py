@@ -122,7 +122,7 @@ def prepare_page(content, page_path=None):
         body = match[0]
         key = sha256(body.encode("utf-8")).hexdigest()[:24]
         details[key] = body
-        return f'<td colspan="4" data-course-detail="{key}"><span class="meta">Loading…</span></td>'
+        return f'<td colspan="4" data-course-detail="{key}">Loading…</td>'
 
     content = re.sub(
         r'<td class="col-t1-schedule">.*?</td>\s*<td class="col-t2-schedule">.*?</td>'

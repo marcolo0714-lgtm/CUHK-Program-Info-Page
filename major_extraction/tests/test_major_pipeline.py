@@ -742,7 +742,14 @@ def test_generated_pages_include_requested_course_fields_only():
     assert "Enrolment information" in sample
     assert 'id="tableSettings"' in sample
     assert 'data-table-setting="prerequisites"' in sample
-    assert 'data-table-setting="unavailable"' in sample
+    assert 'data-table-setting="term1" checked> <span>Show T1 availability' in sample
+    assert 'data-table-setting="term2" checked> <span>Show T2 availability' in sample
+    assert 'data-table-setting="otherTermColumn"> <span>Show T3 (other terms) availability' in sample
+    assert 'data-table-setting="rowsT1" checked' in sample
+    assert 'data-table-setting="rowsT2" checked' in sample
+    assert 'data-table-setting="otherTermRows" checked> <span>Show courses available in T3 (other terms)' in sample
+    assert 'data-table-setting="missingCourseRows" checked> <span>Show unavailable courses' in sample
+    assert 'class="col-term-3" title="Available outside Term 1 and Term 2">T3</th>' in sample
     assert "applyTableSettings()" in sample
     assert "cell.colSpan=visibleColumns" in sample
     assert "cell.colSpan=Math.max(1,visibleColumns-1)" in sample
