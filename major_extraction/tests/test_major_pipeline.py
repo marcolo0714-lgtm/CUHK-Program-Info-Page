@@ -742,13 +742,22 @@ def test_generated_pages_include_requested_course_fields_only():
     assert "Enrolment information" in sample
     assert 'id="tableSettings"' in sample
     assert 'data-table-setting="prerequisites"' in sample
-    assert 'data-table-setting="term1" checked> <span>Show T1 availability' in sample
-    assert 'data-table-setting="term2" checked> <span>Show T2 availability' in sample
-    assert 'data-table-setting="otherTermColumn"> <span>Show T3 (other terms) availability' in sample
-    assert 'data-table-setting="rowsT1" checked' in sample
-    assert 'data-table-setting="rowsT2" checked' in sample
-    assert 'data-table-setting="otherTermRows" checked> <span>Show courses available in T3 (other terms)' in sample
-    assert 'data-table-setting="missingCourseRows" checked> <span>Show unavailable courses' in sample
+    settings = BeautifulSoup(sample.split("</html>", 1)[0], "html.parser").select_one("#tableSettings")
+    assert "T3 refers to terms outside T1 and T2." in settings.select_one(".settings-description").get_text()
+    for group_id, label, expected in (
+        ("term-availability", "Show availability", [("term1", True), ("term2", True), ("otherTermColumn", False)]),
+        ("term-schedule", "Show teaching schedule", [("schedule", False), ("schedule2", True)]),
+        ("term-course-rows", "Show courses available in", [("rowsT1", True), ("rowsT2", True), ("otherTermRows", True)]),
+    ):
+        title_id = f"{group_id}-label"
+        group = settings.select_one(f'[role="group"][aria-labelledby="{title_id}"]')
+        assert group.select_one(f"#{title_id}").get_text() == label
+        choices = group.select(".term-setting-choices input")
+        assert [(choice["data-table-setting"], choice.has_attr("checked")) for choice in choices] == expected
+        assert [choice.parent.get_text(strip=True) for choice in choices] == [f"T{n}" for n in range(1, len(choices) + 1)]
+    missing = settings.select_one('[data-table-setting="missingCourseRows"]')
+    assert missing.has_attr("checked") and missing.parent.get_text(strip=True) == "Show unavailable courses"
+    assert missing.find_parent(class_="term-setting-group") is None
     assert 'class="col-term-3" title="Available outside Term 1 and Term 2">T3</th>' in sample
     assert "applyTableSettings()" in sample
     assert "cell.colSpan=visibleColumns" in sample

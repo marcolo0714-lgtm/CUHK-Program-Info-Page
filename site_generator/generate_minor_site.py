@@ -11,7 +11,8 @@ from pathlib import Path
 REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 try:
     from .course_table_terms import (
-        TERM_COLUMN_SETTINGS, T3_HEADER, TERM_ROW_CSS, TERM_ROW_SETTINGS,
+        SETTINGS_DESCRIPTION, T3_HEADER, TERM_COLUMN_SETTINGS, TERM_ROW_SETTINGS,
+        TERM_SCHEDULE_SETTINGS, TERM_TABLE_CSS,
         offered_outside_regular_terms, term_cell,
     )
     from .site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
@@ -27,7 +28,8 @@ try:
     from .minor_course_index import load_minor_course_index
 except ImportError:
     from course_table_terms import (
-        TERM_COLUMN_SETTINGS, T3_HEADER, TERM_ROW_CSS, TERM_ROW_SETTINGS,
+        SETTINGS_DESCRIPTION, T3_HEADER, TERM_COLUMN_SETTINGS, TERM_ROW_SETTINGS,
+        TERM_SCHEDULE_SETTINGS, TERM_TABLE_CSS,
         offered_outside_regular_terms, term_cell,
     )
     from site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
@@ -292,7 +294,7 @@ body.sidebar-open { overflow:hidden; }
 .settings-overlay { position:fixed; inset:0; background:rgba(0,0,0,.25); z-index:108;
     opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s,visibility .2s; }
 .settings-overlay.open { opacity:1; visibility:visible; pointer-events:auto; }
-.settings-panel { position:fixed; inset:0 0 0 auto; z-index:109; width:min(420px,calc(100% - 48px));
+.settings-panel { position:fixed; inset:0 0 0 auto; z-index:109; width:min(390px,calc(100% - 60px));
     height:100vh; padding:18px; overflow:auto; background:var(--card);
     border-left:1px solid var(--border); box-shadow:none; transform:translateX(100%);
     transition:transform .25s,box-shadow .25s; }
@@ -305,7 +307,7 @@ body.sidebar-open { overflow:hidden; }
 .settings-description { margin:14px 0 10px; color:var(--muted); font-size:.88em; }
 .settings-group { min-width:0; margin:12px 0 0; padding:0; border:0; }
 .settings-group legend { width:100%; padding:0 0 4px; border-bottom:1px solid var(--border);
-    color:#444; font-size:.92em; font-weight:700; }
+    color:#444; font-size:1.05em; font-weight:700; }
 .setting-option { display:flex; align-items:flex-start; gap:10px; padding:9px 4px;
     cursor:pointer; border-bottom:1px solid var(--tbl-border-light); }
 .setting-option input { margin-top:.3em; flex:none; }
@@ -545,7 +547,7 @@ def minor_page(page_title, body, sidebar_html, description, canonical_path, stru
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="icon" href="/favicon.ico" sizes="any">
 {seo_head(page_title, description, canonical_path, structured_data)}
-<style>{CSS}{TERM_ROW_CSS}{INFO_CSS}</style>
+<style>{CSS}{TERM_TABLE_CSS}{INFO_CSS}</style>
 </head>
 <body>
 <div class="sidebar-overlay" onclick="closeSidebar()" aria-hidden="true"></div>
@@ -566,12 +568,11 @@ if(st!==null)document.querySelector('.sidebar').scrollTop=+st;}})();
   <div class="settings-header"><h2>Course table settings</h2>
     <button type="button" class="settings-close" onclick="closeSettings()" aria-label="Close settings">&times;</button>
   </div>
-  <p class="settings-description">Choose the columns, rows, and table behavior.</p>
+  {SETTINGS_DESCRIPTION}
   <fieldset class="settings-group"><legend>Column</legend>
     {TERM_COLUMN_SETTINGS}
+    {TERM_SCHEDULE_SETTINGS}
     <label class="setting-option"><input type="checkbox" data-table-setting="prerequisites" checked> <span>Show prerequisites</span></label>
-    <label class="setting-option"><input type="checkbox" data-table-setting="schedule"> <span>Show Term 1 teaching schedule</span></label>
-    <label class="setting-option"><input type="checkbox" data-table-setting="schedule2" checked> <span>Show Term 2 teaching schedule</span></label>
     <label class="setting-option"><input type="checkbox" data-table-setting="minors"> <span>Show minors using this course</span></label>
   </fieldset>
   <fieldset class="settings-group"><legend>Row</legend>

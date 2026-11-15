@@ -19,6 +19,8 @@ def offered_outside_regular_terms(course):
 
 
 T3_HEADER = '<th class="col-term-3" title="Available outside Term 1 and Term 2">T3</th>'
+
+
 def setting_checkbox(key, label, checked):
     return (
         f'<label class="setting-option"><input type="checkbox" data-table-setting="{key}"'
@@ -26,17 +28,36 @@ def setting_checkbox(key, label, checked):
     )
 
 
-# Use new keys for T3 so defaults automatically saved by the previous version
-# do not override the corrected defaults. Other saved preferences still apply.
-TERM_COLUMN_SETTINGS = (
-    setting_checkbox("term1", "Show T1 availability", True)
-    + setting_checkbox("term2", "Show T2 availability", True)
-    + setting_checkbox("otherTermColumn", "Show T3 (other terms) availability", False)
+def term_setting_group(group_id, label, options):
+    title_id = f"{group_id}-label"
+    choices = "".join(
+        setting_checkbox(key, f"T{term}", checked)
+        for term, (key, checked) in enumerate(options, start=1)
+    )
+    return (
+        f'<div class="term-setting-group" role="group" aria-labelledby="{title_id}">'
+        f'<div id="{title_id}">{label}</div>'
+        f'<div class="term-setting-choices">{choices}</div></div>'
+    )
+
+
+SETTINGS_DESCRIPTION = (
+    '<p class="settings-description">Choose the columns, rows, and table behaviours.<br>'
+    'T3 refers to terms outside T1 and T2.</p>'
+)
+TERM_COLUMN_SETTINGS = term_setting_group(
+    "term-availability", "Show availability",
+    (("term1", True), ("term2", True), ("otherTermColumn", False)),
+)
+TERM_SCHEDULE_SETTINGS = term_setting_group(
+    "term-schedule", "Show teaching schedule",
+    (("schedule", False), ("schedule2", True)),
 )
 TERM_ROW_SETTINGS = (
-    setting_checkbox("rowsT1", "Show courses available in T1", True)
-    + setting_checkbox("rowsT2", "Show courses available in T2", True)
-    + setting_checkbox("otherTermRows", "Show courses available in T3 (other terms)", True)
+    term_setting_group(
+        "term-course-rows", "Show courses available in",
+        (("rowsT1", True), ("rowsT2", True), ("otherTermRows", True)),
+    )
     + setting_checkbox("missingCourseRows", "Show unavailable courses", True)
 )
 
@@ -46,7 +67,12 @@ def term_cell(term, available):
     return f'<td class="col-term-{term}{highlighted}"></td>'
 
 
-TERM_ROW_CSS = """\
+TERM_TABLE_CSS = """\
+.term-setting-group { padding:9px 4px 0; border-bottom:1px solid var(--tbl-border-light); }
+.term-setting-choices { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.term-setting-choices .setting-option { align-items:center; gap:6px; padding:6px 0;
+    min-height:36px; border-bottom:0; }
+.term-setting-choices .setting-option input { margin-top:0; }
 body.hide-missing-course-rows tbody tr.nf { display:none; }
 /* Retain a row when any of its terms is selected. Missing records have no term cells. */
 body.filter-course-rows tbody tr:has(> td.col-term-3):not(

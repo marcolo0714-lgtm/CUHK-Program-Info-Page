@@ -80,7 +80,7 @@
                     {
                         "day_time": "Th 8:30AM - 6:30PM",
                         "room": "No Room Required",
-                        "instructor": "Miss ZENG Zijia, Professor GAO Zhenyu",
+                        "instructor": "Miss ZENG Zijia, Ms. CAI Xinyi, Professor GAO Zhenyu",
                         "dates": "26/11"
                     },
                     {
@@ -393,7 +393,7 @@
                     {
                         "day_time": "Fr 8:30AM - 6:30PM",
                         "room": "No Room Required",
-                        "instructor": "Professor YANG Haibin",
+                        "instructor": "Miss ZENG Zijia, Professor YANG Haibin",
                         "dates": "23/4"
                     }
                 ]
@@ -476,11 +476,6 @@
                 "term_code": "2430",
                 "term": "2026-27 Term 2",
                 "offered": true
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "offered": true
             }
         ],
         "sections": [
@@ -520,45 +515,6 @@
                         "room": "No Room Required",
                         "instructor": "Staff",
                         "dates": "9/1"
-                    }
-                ]
-            },
-            {
-                "term_code": "2440",
-                "term": "2026-27 Term 3",
-                "section": "L-LEC",
-                "component_type": "LEC",
-                "class_number": "1158",
-                "status": "Open",
-                "class_capacity": "50",
-                "wait_list_capacity": "0",
-                "enrollment_total": "0",
-                "wait_list_total": "0",
-                "available_seats": "50",
-                "timetable": [
-                    {
-                        "day_time": "Th 8:30AM - 6:30PM",
-                        "room": "No Room Required",
-                        "instructor": "Staff",
-                        "dates": "4/3"
-                    },
-                    {
-                        "day_time": "Fr 8:30AM - 6:30PM",
-                        "room": "No Room Required",
-                        "instructor": "Staff",
-                        "dates": "5/3"
-                    },
-                    {
-                        "day_time": "Su 8:30AM - 6:30PM",
-                        "room": "No Room Required",
-                        "instructor": "Staff",
-                        "dates": "7/3"
-                    },
-                    {
-                        "day_time": "Sa 8:30AM - 6:30PM",
-                        "room": "No Room Required",
-                        "instructor": "Staff",
-                        "dates": "6/3"
                     }
                 ]
             }
@@ -651,8 +607,42 @@
         "info": "For students in DBA (Chinese)",
         "term_1": false,
         "term_2": false,
-        "term_offerings": [],
-        "sections": []
+        "term_offerings": [
+            {
+                "term_code": "2440",
+                "term": "2026-27 Term 3",
+                "offered": true
+            }
+        ],
+        "sections": [
+            {
+                "term_code": "2440",
+                "term": "2026-27 Term 3",
+                "section": "L-LEC",
+                "component_type": "LEC",
+                "class_number": "1233",
+                "status": "Open",
+                "class_capacity": "50",
+                "wait_list_capacity": "0",
+                "enrollment_total": "0",
+                "wait_list_total": "0",
+                "available_seats": "50",
+                "timetable": [
+                    {
+                        "day_time": "Th 8:30AM - 6:00PM",
+                        "room": "No Room Required",
+                        "instructor": "Professor HUANG Guobo",
+                        "dates": "4/3"
+                    },
+                    {
+                        "day_time": "Fr 8:30AM - 6:00PM",
+                        "room": "No Room Required",
+                        "instructor": "Miss ZENG Zijia, Professor HUANG Guobo",
+                        "dates": "5/3"
+                    }
+                ]
+            }
+        ]
     },
     {
         "code": "DBAC 7126",
@@ -826,9 +816,9 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "0",
-                "enrollment_total": "30",
+                "enrollment_total": "28",
                 "wait_list_total": "0",
-                "available_seats": "20",
+                "available_seats": "22",
                 "timetable": [
                     {
                         "day_time": "Sa 8:30AM - 6:30PM",
@@ -870,9 +860,9 @@
                 "status": "Open",
                 "class_capacity": "50",
                 "wait_list_capacity": "0",
-                "enrollment_total": "17",
+                "enrollment_total": "16",
                 "wait_list_total": "0",
-                "available_seats": "33",
+                "available_seats": "34",
                 "timetable": [
                     {
                         "day_time": "Th 8:30AM - 6:30PM",
@@ -1043,7 +1033,7 @@
                     {
                         "day_time": "TBA",
                         "room": "No Room Required",
-                        "instructor": "Staff",
+                        "instructor": "Miss ZENG Zijia",
                         "dates": "11/01/2027 - 19/04/2027"
                     }
                 ]
@@ -1064,7 +1054,7 @@
                     {
                         "day_time": "TBA",
                         "room": "No Room Required",
-                        "instructor": "Staff",
+                        "instructor": "Miss ZENG Zijia",
                         "dates": "11/01/2027 - 19/04/2027"
                     }
                 ]
@@ -1085,7 +1075,7 @@
                     {
                         "day_time": "TBA",
                         "room": "No Room Required",
-                        "instructor": "Staff",
+                        "instructor": "Miss ZENG Zijia",
                         "dates": "07/12/2026 - 01/03/2027"
                     }
                 ]
@@ -1106,7 +1096,7 @@
                     {
                         "day_time": "TBA",
                         "room": "No Room Required",
-                        "instructor": "Staff",
+                        "instructor": "Miss ZENG Zijia",
                         "dates": "08/03/2027 - 14/06/2027"
                     }
                 ]
@@ -1127,7 +1117,7 @@
                     {
                         "day_time": "TBA",
                         "room": "No Room Required",
-                        "instructor": "Staff",
+                        "instructor": "Miss ZENG Zijia",
                         "dates": "08/03/2027 - 14/06/2027"
                     }
                 ]
@@ -1148,7 +1138,7 @@
                     {
                         "day_time": "TBA",
                         "room": "No Room Required",
-                        "instructor": "Staff",
+                        "instructor": "Miss ZENG Zijia",
                         "dates": "08/03/2027 - 14/06/2027"
                     }
                 ]
