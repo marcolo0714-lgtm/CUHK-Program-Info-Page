@@ -318,7 +318,7 @@ body.settings-open { overflow:hidden; }
     padding:20px clamp(42px, 6vw, 96px); }
 
 /* ── Index page (no sidebar) ── */
-.page-index .container { max-width:1800px; margin:0 auto;
+.page-index .container { width:100%; margin:0 auto;
     padding:20px clamp(42px, 6vw, 96px); }
 
 /* ── Footer ── */

@@ -879,10 +879,10 @@ def test_sidebar_is_collapsible_and_content_uses_wide_layout_on_all_devices():
     assert ".sidebar-toggle { display:block;" in sample
     assert ".sidebar nav { min-width:max-content; }" in sample
     assert "white-space:nowrap; overflow:hidden; text-overflow:ellipsis" not in sample
-    assert "max-width:1800px" in sample
-    assert "padding:16px clamp(42px,6vw,96px)" in sample
-    assert ".content-inner { padding:0 30px 12px; }" in sample
-    assert ".sidebar { width:calc(100vw - 100px);" in sample
+    assert "max-width:1620px" in sample
+    assert "padding:14.4px clamp(37.8px,6vw,86.4px)" in sample
+    assert ".content-inner { padding:0 27px 10.8px; }" in sample
+    assert ".sidebar { width:calc(100vw - 90px);" in sample
     assert "grid-template-columns:auto minmax(0,1fr)" in sample
     assert ".bar-controls { grid-column:1 / -1; width:100%;" in sample
     assert ".breadcrumb { overflow:hidden; white-space:nowrap; text-overflow:ellipsis;" in sample

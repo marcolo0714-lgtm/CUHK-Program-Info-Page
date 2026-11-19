@@ -1,6 +1,7 @@
 """Publish compact, canonical static pages without changing their layout."""
 
 from hashlib import sha256
+from decimal import Decimal
 import html
 import json
 import os
@@ -12,6 +13,25 @@ from uuid import uuid4
 
 
 SITE = Path(__file__).resolve().parents[1] / "site"
+
+
+def compact_css(css):
+    """Reduce fixed lengths by 10%, retaining viewport breakpoints and text."""
+    tokens = re.compile(
+        r'/\*.*?\*/|"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|'
+        r'@(?:media|container|supports)\b[^{}]*|'
+        r'(?P<pixels>(?<![\w.])-?(?:\d*\.)?\d+)px\b',
+        re.S,
+    )
+
+    def scale(match):
+        pixels = match.group("pixels")
+        if pixels is None:
+            return match[0]
+        value = Decimal(pixels) * Decimal("0.9")
+        return f"{value.normalize():f}px"
+
+    return tokens.sub(scale, css)
 
 
 def relative_site_url(url, page_path):
@@ -85,6 +105,15 @@ def prune_assets(site_root=SITE):
 
 def prepare_page(content, page_path=None):
     """Keep the course overview in HTML and defer only its lengthy details."""
+    content = re.sub(
+        r"<style>(.*?)</style>",
+        lambda match: "<style>" + compact_css(match[1]) + "\nhtml { font-size:90%; }</style>",
+        content, flags=re.S,
+    )
+    content = re.sub(
+        r'\bstyle="([^"]*)"',
+        lambda match: 'style="' + compact_css(match[1]) + '"', content,
+    )
     content = re.sub(
         r'\b(href|value|data-url)="([^"]*)"',
         lambda match: f'{match[1]}="{canonical_link(match[2])}"',

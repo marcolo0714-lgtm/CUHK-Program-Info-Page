@@ -215,7 +215,7 @@ tr:hover { background:#f9f9f9; }
 .sidebar-overlay.open { display:block; }
 .content { width:100%; min-width:0; }
 .content-inner { width:100%; max-width:1800px; margin:0 auto; padding:16px clamp(42px,6vw,96px); }
-.page-index .container { width:100%; max-width:1800px; margin:0 auto; padding:16px clamp(42px,6vw,96px); }
+.page-index .container { width:100%; margin:0 auto; padding:16px clamp(42px,6vw,96px); }
 .card-grid { display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; }
 .card-grid > a { flex:1 0 400px; max-width:100%; text-decoration:none; display:flex; }
 .card { width:100%; background:var(--card); border-radius:8px; padding:12px 18px;
