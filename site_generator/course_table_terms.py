@@ -67,6 +67,32 @@ def term_cell(term, available):
     return f'<td class="col-term-{term}{highlighted}"></td>'
 
 
+COURSE_COUNT_JS = r"""
+function updateCourseTableCounts(settings) {
+    const allRowsEnabled = settings.rowsT1 && settings.rowsT2 &&
+        settings.otherTermRows && settings.missingCourseRows;
+    document.querySelectorAll('details.course-details').forEach(details => {
+        const summary = details.querySelector(':scope > summary');
+        if (!summary) return;
+        if (!summary.dataset.fullLabel) summary.dataset.fullLabel = summary.textContent;
+        const fullLabel = summary.dataset.fullLabel;
+        const count = fullLabel.match(/^Show\s+(\d+)/);
+        if (!count) return;
+        if (allRowsEnabled) {
+            summary.textContent = fullLabel;
+            return;
+        }
+        const rows = details.querySelectorAll(':scope > table > tbody > tr');
+        const visible = Array.from(rows).filter(row =>
+            (row.classList.contains('nf') || row.querySelector(':scope > td.col-code')) &&
+            getComputedStyle(row).display !== 'none'
+        ).length;
+        summary.textContent = fullLabel.replace(/^Show\s+\d+/, 'Show ' + visible + ' / ' + count[1]);
+    });
+}
+"""
+
+
 TERM_TABLE_CSS = """\
 .term-setting-group { padding:9px 4px 0; border-bottom:1px solid var(--tbl-border-light); }
 .term-setting-choices { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); }

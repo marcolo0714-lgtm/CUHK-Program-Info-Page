@@ -17,7 +17,7 @@ MAJOR_EXTRACTION_DIR = REPOSITORY_ROOT / "major_extraction"
 try:
     from .course_table_terms import (
         SETTINGS_DESCRIPTION, T3_HEADER, TERM_COLUMN_SETTINGS, TERM_ROW_SETTINGS,
-        TERM_SCHEDULE_SETTINGS, TERM_TABLE_CSS,
+        TERM_SCHEDULE_SETTINGS, TERM_TABLE_CSS, COURSE_COUNT_JS,
         offered_outside_regular_terms, term_cell,
     )
     from .minor_course_index import (
@@ -31,7 +31,7 @@ try:
 except ImportError:
     from course_table_terms import (
         SETTINGS_DESCRIPTION, T3_HEADER, TERM_COLUMN_SETTINGS, TERM_ROW_SETTINGS,
-        TERM_SCHEDULE_SETTINGS, TERM_TABLE_CSS,
+        TERM_SCHEDULE_SETTINGS, TERM_TABLE_CSS, COURSE_COUNT_JS,
         offered_outside_regular_terms, term_cell,
     )
     from minor_course_index import (
@@ -298,7 +298,7 @@ body.settings-open { overflow:hidden; }
 }
 """
 
-SCRIPT = r"""<script>
+SCRIPT = "<script>" + COURSE_COUNT_JS + r"""
 function setSidebarVisibility(open){
  var sidebar=document.querySelector('.sidebar'),overlay=document.querySelector('.sidebar-overlay'),button=document.querySelector('.sidebar-toggle');
  if(!sidebar||!overlay)return;
@@ -338,6 +338,7 @@ function applyTableSettings(){
  var visibleColumns=2+['term1','term2','otherTermColumn','prerequisites','schedule','schedule2','minors'].filter(function(key){return settings[key]}).length;
  document.querySelectorAll('.course-group-row td[colspan]').forEach(function(cell){cell.colSpan=visibleColumns});
  document.querySelectorAll('tr.nf td[colspan]').forEach(function(cell){cell.colSpan=Math.max(1,visibleColumns-1)});
+ updateCourseTableCounts(settings);
  localStorage.setItem('majorTableSettings',JSON.stringify(settings));
 }
 (function(){

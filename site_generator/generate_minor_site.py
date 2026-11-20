@@ -12,7 +12,7 @@ REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 try:
     from .course_table_terms import (
         SETTINGS_DESCRIPTION, T3_HEADER, TERM_COLUMN_SETTINGS, TERM_ROW_SETTINGS,
-        TERM_SCHEDULE_SETTINGS, TERM_TABLE_CSS,
+        TERM_SCHEDULE_SETTINGS, TERM_TABLE_CSS, COURSE_COUNT_JS,
         offered_outside_regular_terms, term_cell,
     )
     from .site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
@@ -29,7 +29,7 @@ try:
 except ImportError:
     from course_table_terms import (
         SETTINGS_DESCRIPTION, T3_HEADER, TERM_COLUMN_SETTINGS, TERM_ROW_SETTINGS,
-        TERM_SCHEDULE_SETTINGS, TERM_TABLE_CSS,
+        TERM_SCHEDULE_SETTINGS, TERM_TABLE_CSS, COURSE_COUNT_JS,
         offered_outside_regular_terms, term_cell,
     )
     from site_information import INFO_CSS, INFO_DIALOG, information_actions, information_button
@@ -400,8 +400,7 @@ body.settings-open { overflow:hidden; }
 """
 
 
-JS = """\
-<script>
+JS = "<script>" + COURSE_COUNT_JS + """\
 (function(){
   var sidebar = document.querySelector('.sidebar');
   if(!sidebar) return;
@@ -460,6 +459,7 @@ function applyTableSettings() {
   document.querySelectorAll('tr.nf td[colspan]').forEach(function(cell){
     cell.colSpan = visibleColumns - 1;
   });
+  updateCourseTableCounts(settings);
   localStorage.setItem('minorTableSettings', JSON.stringify(settings));
 }
 
@@ -1045,7 +1045,7 @@ def build_section_html(sec, course_index, eq_pairs=None, is_single=False, desc_u
             table_style = _course_table_style(all_courses)
             lines.append(
                 f'<details class="course-details">'
-                f'<summary>Show {len(all_courses)} course(s) →</summary>'
+                f'<summary>Show {len(all_courses)} course{"s" if len(all_courses) != 1 else ""} →</summary>'
                 f'<table style="{table_style}"><thead><tr>'
                 f'<th class="col-code" title="Course code — [units] shown only when not 3">Code</th>'
                 f'<th class="col-title" title="Course title">Title</th>'

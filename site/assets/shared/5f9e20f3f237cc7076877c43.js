@@ -1,4 +1,26 @@
 
+function updateCourseTableCounts(settings) {
+    const allRowsEnabled = settings.rowsT1 && settings.rowsT2 &&
+        settings.otherTermRows && settings.missingCourseRows;
+    document.querySelectorAll('details.course-details').forEach(details => {
+        const summary = details.querySelector(':scope > summary');
+        if (!summary) return;
+        if (!summary.dataset.fullLabel) summary.dataset.fullLabel = summary.textContent;
+        const fullLabel = summary.dataset.fullLabel;
+        const count = fullLabel.match(/^Show\s+(\d+)/);
+        if (!count) return;
+        if (allRowsEnabled) {
+            summary.textContent = fullLabel;
+            return;
+        }
+        const rows = details.querySelectorAll(':scope > table > tbody > tr');
+        const visible = Array.from(rows).filter(row =>
+            (row.classList.contains('nf') || row.querySelector(':scope > td.col-code')) &&
+            getComputedStyle(row).display !== 'none'
+        ).length;
+        summary.textContent = fullLabel.replace(/^Show\s+\d+/, 'Show ' + visible + ' / ' + count[1]);
+    });
+}
 (function(){
   var sidebar = document.querySelector('.sidebar');
   if(!sidebar) return;
@@ -57,6 +79,7 @@ function applyTableSettings() {
   document.querySelectorAll('tr.nf td[colspan]').forEach(function(cell){
     cell.colSpan = visibleColumns - 1;
   });
+  updateCourseTableCounts(settings);
   localStorage.setItem('minorTableSettings', JSON.stringify(settings));
 }
 
